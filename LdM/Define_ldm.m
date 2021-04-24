@@ -20,7 +20,7 @@ Ldm_theta.vldm{2}.h =  0;             % Il robot rimane fermo
 Ldm_theta.vldm{2}.ta = 0.2;           % Tempo adimensionale
 
 %third ML
-Ldm_theta.vldm{3}.file = 'pol357';
+Ldm_theta.vldm{3}.file = 'pol345';
 Ldm_theta.vldm{3}.name = 'return';
 Ldm_theta.vldm{3}.h = -h;             % Negativo perchè torna indietro
 Ldm_theta.vldm{3}.ta = 0.35;           % Tempo adimensionale

@@ -5,6 +5,7 @@ PKM.link.m = 2.9; % Massa link
 PKM.link.cm = 0.125; % Posizione centro massa link
 PKM.link.J = 5.22E-02; % Momento d'inerzia baricentrico 
 PKM.link.d = 0.09; % Lunghezza semitelaio 
+PKM.vite.me = 0.36; % massa ef/vite
 PKM.vite.pv = 0.02; % Passo vite
 PKM.vite.z0 = -0.3; % Posizione iniziale vite
 end

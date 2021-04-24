@@ -1,10 +1,18 @@
-function [P_p,J] = Cinematica_Diretta_Velocita_1000(PKM, theta1,theta2, theta1_p,theta2_p,thetaV_p)
+function [P_p,J] = Cinematica_Diretta_Velocita_1000(PKM, theta1,theta2, theta1_p,theta2_p,thetaV_p,P)
 %CINEMATICA_DIRETTA_VELOCITA_1000 Calcolo della velocità a partire dalle
 %derivate
-
+d = PKM.link.d;
+l = PKM.link.l;
+pv = PKM.vite.pv;
 for i=1:1000
+    
+    x = P(1,i); % scalare
+    y = P(2,i); % scalare
+    z = P(3,i); % scalare
+    
+    
 N11 = -x*y*sin(theta1(1,i))+ x*l^2*sin(theta1(1,i))*sin(theta2(1,i))+y^2*l*cos(theta1(1,i))- ... 
-    y*l^2*cos(theta1(1,i))*sin(theta2) - y*l*d*sin(theta1(1,i))+d*l^2*sin(theta1)*sin(theta2(1,i));
+    y*l^2*cos(theta1(1,i))*sin(theta2(1,i)) - y*l*d*sin(theta1(1,i))+d*l^2*sin(theta1(1,i))*sin(theta2(1,i));
 
 N12 = x*y*l*sin(theta2(1,i))-x*l^2*sin(theta2(1,i))*sin(theta1(1,i))-y^2*l*cos(theta2(1,i))+ ... 
     y*l^2*sin(theta1(1,i))*cos(theta2(1,i)) - y*l*d*sin(theta2(1,i))+d*l^2*sin(theta2(1,i))*sin(theta1(1,i));
