@@ -39,7 +39,7 @@ H1 = [-d; 0; 0]; % Coordinate punto H1
 H2 = [d; 0; 0]; % Coordinate punto H2
 
 % Plot delle posizioni dei link
-PlotRobot(H1,H2,E1,E2,P)
+%PlotRobot(H1,H2,E1,E2,P)
 
 % Analisi di velocità
 % DOMANDA: va fatta anche la legge di moto per le velocità?
@@ -79,16 +79,8 @@ Theta_pp_inv = Cinematica_Inversa_Accelerazione(Jrif_p,Jrif,Theta_p_inv,P_pp)
 
 %% Dinamica
 
-% Da mettere a matrice in una funzione
-[theta3_p,theta4_p,testLoop1,testLoop2,J34] = Theta34p(theta1ldm,theta2ldm,theta3,theta4,theta1ldm_p, theta2ldm_p);
-sumTest = [testLoop1;testLoop2];
-   
-[Valtheta3risptheta1,Valtheta3risptheta2,Valtheta4risptheta1,Valtheta4risptheta2] = DerivataTheta34(theta1,theta2,PKM)
+[M,K,T] = Matrici_Lagrange(PKM,theta1,theta2)
 
-[A,B,C,D] = GetExpression();
-[Jexp] = GetExpressionJ(PKM,P,P_p);
-
-[Dtheta1_p] = EnergiaCinetica(PKM,theta1ldm_p,theta2ldm_p,theta1ldm,theta2ldm,theta3,theta4,thetaV_pp);
-
+Q = M*Theta_pp(:,1) + K*(Theta_p(:,1).^2) + T
 
 animation(PKM.link.d, PKM.link.l,theta1ldm,theta2ldm,theta3,theta4)
