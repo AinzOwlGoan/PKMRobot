@@ -31,7 +31,7 @@ thetavldm = thetaV + Ldm_thetav.moto.data{1,1}.v;
 %% Cinematica diretta
 
 % Analisi di posizione
-[P, theta3, theta4, E1, E2] = Cinematica_Diretta_Posizione_1000(PKM, theta1ldm, theta2ldm, thetaV)
+[P, theta3, theta4, E1, E2] = Cinematica_Diretta_Posizione(PKM, theta1ldm, theta2ldm, thetavldm)
 
 % Rappresentazione grafica
 d = PKM.link.d;
@@ -46,6 +46,7 @@ PlotRobot(H1,H2,E1,E2,P)
 theta1ldm_p = theta1_p + Ldm_theta1.moto.data{2,1}.v;
 theta2ldm_p = theta2_p + Ldm_theta2.moto.data{2,1}.v;
 thetavldm_p = thetaV_p + Ldm_thetav.moto.data{2,1}.v;
+
 [P_p, J] = Cinematica_Diretta_Velocita_1000(PKM, theta1ldm, theta2ldm, theta1ldm_p,theta2ldm_p,thetaV_p,P);
 Theta_p = [theta1ldm_p;theta2ldm_p;thetavldm_p]
 x_p = P_p(1,1)
@@ -55,7 +56,9 @@ z_p = P_p(3,1)
 theta1ldm_pp = theta1_p + Ldm_theta1.moto.data{3,1}.v;
 theta2ldm_pp = theta2_p + Ldm_theta2.moto.data{3,1}.v;
 thetavldm_pp = thetaV_p + Ldm_thetav.moto.data{3,1}.v;
+
 [J_p] = CalcoloJacobiana(PKM, theta1ldm, theta2ldm, theta1ldm_p,theta2ldm_p,thetaV_pp,P_p,P);
+
 Theta_pp = [theta1ldm_pp;theta2ldm_pp;thetavldm_pp]
 P_pp = Cinematica_Diretta_Accelerazione_1000(PKM, J, J_p, Theta_p, Theta_pp)
 x_pp = P_pp(1,1)
@@ -77,19 +80,18 @@ Theta_pp_inv = Cinematica_Inversa_Accelerazione(Jrif_p,Jrif,Theta_p_inv,P_pp)
 %% Dinamica
 
 % Da mettere a matrice in una funzione
-[theta3_p,theta4_p] = Theta34p(theta1ldm,theta2ldm,theta3,theta4,theta1ldm_p, theta2ldm_p);
-
-% Faccio i due test dei loop vettoriali
-[testl1,testl2] = testLo
-test = -sin(theta1(1))*theta1_p(1)-sin(theta3(1))*theta3_p(1)+sin(theta2(1))*theta2_p(1)+sin(theta4(1))*theta4_p(1)
-test2 = theta1_p(1)*cos(theta1(1))+theta3_p(1)*cos(theta3(1))-theta2_p(1)*cos(theta2(1))-theta4_p(1)*cos(theta4(1))
-% raccogliere theta1p e theta2p
-% e scrivere lo jacobiano
-J34 = [N13/D13, N23/D13; 
-       N14/D13, N24/D13]
+[theta3_p,theta4_p,testLoop1,testLoop2,J34] = Theta34p(theta1ldm,theta2ldm,theta3,theta4,theta1ldm_p, theta2ldm_p);
+sumTest = [testLoop1;testLoop2];
    
-[theta3risptheta1,theta3risptheta2,theta4risptheta1,theta4risptheta2] = DerivataTheta34(theta1,theta2,PKM)
+[Valtheta3risptheta1,Valtheta3risptheta2,Valtheta4risptheta1,Valtheta4risptheta2] = DerivataTheta34(theta1,theta2,PKM)
 
-[A,B,C,D] = GetExpression()
+[A,B,C,D] = GetExpression();
+[Jexp] = GetExpressionJ(PKM,P,P_p);
+
+theta3risptheta1,theta3risptheta2,theta4risptheta1,theta4risptheta2,dtheta3risptheta1,dtheta3risptheta12,dtheta4risptheta2,dtheta4risptheta12] = GetDerivate34(theta1,theta2,PKM)
+
+
+[Dtheta1_p,Dtheta2_p,Dtheta1_pt,Dtheta2_pt] = DinamicaDiretta(PKM,theta1ldm_p,theta2ldm_p,theta1ldm,theta2ldm,theta3,theta4,Jexp);
+
 
 animation(PKM.link.d, PKM.link.l,theta1ldm,theta2ldm,theta3,theta4)

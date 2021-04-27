@@ -83,14 +83,12 @@ Theta_pp_inv = Cinematica_Inversa_Accelerazione(Jrif_p,Jrif,Theta_p_inv,P_pp)
 [theta3_p,theta4_p,testLoop1,testLoop2,J34] = Theta34p(theta1ldm,theta2ldm,theta3,theta4,theta1ldm_p, theta2ldm_p);
 sumTest = [testLoop1;testLoop2];
    
-[theta3risptheta1,theta3risptheta2,theta4risptheta1,theta4risptheta2] = DerivataTheta34(theta1,theta2,PKM)
+[Valtheta3risptheta1,Valtheta3risptheta2,Valtheta4risptheta1,Valtheta4risptheta2] = DerivataTheta34(theta1,theta2,PKM)
 
 [A,B,C,D] = GetExpression();
 [Jexp] = GetExpressionJ(PKM,P,P_p);
 
-
-
-[Dtheta1_p,Dtheta2_p,Dtheta1_pt,Dtheta2_pt] = DinamicaDiretta(PKM,theta1ldm_p,theta2ldm_p,theta1ldm,theta2ldm,theta3,theta4,Jexp)
+[Dtheta1_p] = EnergiaCinetica(PKM,theta1ldm_p,theta2ldm_p,theta1ldm,theta2ldm,theta3,theta4,thetaV_pp);
 
 
 animation(PKM.link.d, PKM.link.l,theta1ldm,theta2ldm,theta3,theta4)
