@@ -8,5 +8,5 @@ PKM.link.d = 0.09; % Lunghezza semitelaio
 PKM.vite.me = 0.36; % massa ef/vite
 PKM.vite.pv = 0.02; % Passo vite
 PKM.vite.z0 = -0.3; % Posizione iniziale vite
+PKM.vite.Jv = 6.4E-06; % Inerzia meccanismo vite
 end
-

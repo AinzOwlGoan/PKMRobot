@@ -1,6 +1,6 @@
 function PlotLdmComp(lc,npt)
 %function PlotLdmComp(lc,[npt])
-% Progettazione Funzionale di Sistemi Meccanici e Meccatronici
+% Progettazione Funzionale di Sistemi Meccanici e Meccatroncici
 % prof. Paolo Righettini
 % 
 % ldm: struttura che definisce la legge di moto
