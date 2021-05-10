@@ -1,0 +1,32 @@
+function [ThetaInt,Theta_pInt,Theta_ppInt] = DinamicaInversa(Tau,Condizioni)
+%DINAMICAINVERSA Summary of this function goes here
+
+cond1 = deg2rad(120);
+cond2 = deg2rad(60);
+cond3 = deg2rad(0);
+cond4 = deg2rad(0);
+
+conds = [cond1,cond2,cond3,cond4];
+
+for i=1:1000
+    
+    if i > 1 
+        Condizioni = [Theta_Succ(1),Theta_Succ(2),Theta_pSucc(1),Theta_pSucc(2)];
+    end
+    % con i = 1 -> acc(1) v(2) p(2)
+    [Theta_pSucc,Theta_Succ,Theta_ppSucc] = SoluzioniEquazioniDifferenziali(Condizioni,Tau(:,i));
+    
+    if i == 1
+         ThetaInt(:,i+1) = [Condizioni(1),Condizioni(2)];
+        Theta_pInt(:,i+1) = [Condizioni(3),Condizioni(4)];
+    else  i <=999
+        ThetaInt(:,i+1) = Theta_Succ;
+        Theta_pInt(:,i+1) = Theta_pSucc;
+        Theta_ppInt(:,i) = Theta_ppSucc;
+    end
+    if i ==1000
+        Theta_ppInt(:,i) = Theta_ppSucc;
+    end
+end
+end
+

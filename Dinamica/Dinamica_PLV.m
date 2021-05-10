@@ -34,8 +34,8 @@ for i=1:1000
         (m*(J1')*J1p + m*(J2')*J2p + I3*(J34')*J34p + m3*(J3')*J3p + m4*(J4')*J4p + me*(JE')*JEp)*[theta1_p; theta2_p];
     C1(1,i) = C(1,i);
     C2(1,i) = C(2,i);
-    Mi = (I*eye(2) + m*(J1')*J1 + m*(J2')*J2 + I*(J34')*J34 + m*(J3')*J3 + m*(J4')*J4 + me*(JE')*JE);
-    Ki = (m*(J1')*J1p + m*(J2')*J2p + I*(J34')*J34p + m*(J3')*J3p + m*(J4')*J4p + me*(JE')*JEp);
+    Mi = (I*eye(2) + m*(J1')*J1 + m*(J2')*J2 + I3*(J34')*J34 + m3*(J3')*J3 + m4*(J4')*J4 + me*(JE')*JE);
+    Ki = (m*(J1')*J1p + m*(J2')*J2p + I3*(J34')*J34p + m3*(J3')*J3p + m4*(J4')*J4p + me*(JE')*JEp);
     
      if i ==1
        M = Mi;
