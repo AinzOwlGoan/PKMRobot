@@ -8,9 +8,11 @@ me = PKM.vite.me;
 pv = PKM.vite.pv;
 Jv = PKM.vite.Jv;
 J = PKM.link.J;
+ta = PKM.ta;
+k = 1;
+time = linspace(0,ta,length(theta1ldm));
 
-
-for i=1:1000
+for i=1:length(theta1ldm)
     theta1 = theta1ldm(1,i);
     theta2 = theta2ldm(1,i);
     theta3 = theta3ldm(1,i);
@@ -32,7 +34,7 @@ for i=1:1000
     a3x = 2*a1x - 0.5*l*cos(theta3)*theta3_p^2 - 0.5*l*sin(theta3)*theta3_pp;
     a3y = 2*a1y - 0.5*l*sin(theta3)*theta3_p^2 + 0.5*l*cos(theta3)*theta3_pp;
     a4x = 2*a2x - 0.5*l*cos(theta4)*theta4_p^2 - 0.5*l*sin(theta4)*theta4_pp;
-    a4y = 2*a2y - 0.5*l*sin(theta4)*theta4_p^2 + 0.5*l*cos(theta4)*theta4_pp;    
+    a4y = 2*a2y - 0.5*l*sin(theta4)*theta4_p^2 + 0.5*l*cos(theta4)*theta4_pp;
     aEx = 2*a1x - l*cos(theta3)*theta3_p^2 - l*sin(theta3)*theta3_pp;
     aEy = 2*a1y - l*sin(theta3)*theta3_p^2 + l*cos(theta3)*theta3_pp;
     
@@ -50,5 +52,9 @@ for i=1:1000
     
     C1(1,i) = J*theta1_pp -(X1+X3)*0.5*l*sin(theta1) +(Y1+Y3)*0.5*l*cos(theta1);
     C2(1,i) = J*theta2_pp +(X4-X2)*0.5*l*sin(theta2) +(Y2-Y4)*0.5*l*cos(theta2);
+    
+    
 end
+
+
 end

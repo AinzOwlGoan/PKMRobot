@@ -1,9 +1,9 @@
 function [Ldm_theta] = Define_ldm(h, ldm)
 
 
-Ldm_theta = CreateLdmComp(4);    % Legge di moto composta composta                 % Rotazione di theta1 in radianti
+Ldm_theta = CreateLdmComp(1);    % Legge di moto composta composta                 % Rotazione di theta1 in radianti
 Ldm_theta.name = 'ldm composta PKM';
-Ldm_theta.disp.um = 'deg';
+Ldm_theta.disp.um = 'rad';
 Ldm_theta.time.label= 'tempo';
 Ldm_theta.time.um= 's';
 % Definizione  di una legge di moto

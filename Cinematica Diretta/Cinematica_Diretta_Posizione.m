@@ -3,6 +3,7 @@ function [P, theta3, theta4, E1, E2] = Cinematica_Diretta_Posizione(PKM, theta1,
 % Output: Posizione End-effector, theta3, theta4, posizione E1 e E2
 d = PKM.link.d;
 l = PKM.link.l;
+ta = PKM.ta;
 E1 = zeros(1,length(theta1));
 E2 = zeros(1,length(theta1));
 theta3 = zeros(1,length(theta1));
@@ -79,7 +80,7 @@ P(3,i) = z;
 
 end
 
-time = linspace(0,1,length(Err1));
+time = linspace(0,ta,length(Err1));
 
 figure
 subplot(2,1,1);

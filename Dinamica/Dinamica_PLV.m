@@ -1,38 +1,50 @@
-function [C1, C2] = Dinamica_PLV(PKM,theta1ldm,theta2ldm,theta3ldm,theta4ldm,theta1ldm_p,theta2ldm_p,theta3ldm_p,theta4ldm_p,...
-    theta1ldm_pp,theta2ldm_pp,theta3ldm_pp,theta4ldm_pp,J34,PKM_Acc)
+function [C1, C2, M, K] = Dinamica_PLV(PKM,theta1ldm_p,theta2ldm_p,theta1ldm_pp,theta2ldm_pp,J1m,J2m,J3m,J4m,JEm,J34m,J1pm,J2pm,J3pm,J4pm,JEpm,J34pm)
 
-d = PKM.link.d;
-l = PKM.link.l;
 m = PKM.link.m;
-me = PKM.vite.me;
-J = PKM.link.J;
-
-
+m3 = PKM.link.m;
+m4 = PKM.link.m;
+me = 0;
+I = PKM.link.J; % Inerzia link
+I3 = PKM.link.J;
 k = 1;
+C = zeros(2,1000);
+C1 = zeros(1,1000);
+C2 = zeros(1,1000);
+
 for i=1:1000
-    theta1 = theta1ldm(1,i);
-    theta2 = theta2ldm(1,i);
-    theta3 = theta3ldm(1,i);
-    theta4 = theta4ldm(1,i);
     theta1_p = theta1ldm_p(1,i);
     theta2_p = theta2ldm_p(1,i);
-    theta3_p = theta3ldm_p(1,i);
-    theta4_p = theta4ldm_p(1,i);
     theta1_pp = theta1ldm_pp(1,i);
     theta2_pp = theta2ldm_pp(1,i);
-    theta3_pp = theta3ldm_pp(1,i);
-    theta4_pp = theta4ldm_pp(1,i);
-    J11 = J34(1,k);
-    J12 = J34(1,k+1);
-    J21 = J34(2,k);
-    J22 = J34(2,k+1);
+    J1 = J1m(:, k:k+1);
+    J2 = J2m(:, k:k+1);
+    J3 = J3m(:, k:k+1);
+    J4 = J4m(:, k:k+1);
+    JE = JEm(:, k:k+1);
+    J34 = J34m(:, k:k+1);
+    J1p = J1pm(:, k:k+1);
+    J2p = J2pm(:, k:k+1);
+    J3p = J3pm(:, k:k+1);
+    J4p = J4pm(:, k:k+1);
+    JEp = JEpm(:, k:k+1);
+    J34p = J34pm(:, k:k+1);
     k = k+2;
-    a3 = PKM_Acc(i,1);
-    a4 = PKM_Acc(i,2);
-    aE = PKM_Acc(i,3);
+
+    C(:,i) = (I*eye(2) + m*(J1')*J1 + m*(J2')*J2 + I3*(J34')*J34 + m3*(J3')*J3 + m4*(J4')*J4 + me*(JE')*JE)*[theta1_pp; theta2_pp] + ...
+        (m*(J1')*J1p + m*(J2')*J2p + I3*(J34')*J34p + m3*(J3')*J3p + m4*(J4')*J4p + me*(JE')*JEp)*[theta1_p; theta2_p];
+    C1(1,i) = C(1,i);
+    C2(1,i) = C(2,i);
+    Mi = (I*eye(2) + m*(J1')*J1 + m*(J2')*J2 + I*(J34')*J34 + m*(J3')*J3 + m*(J4')*J4 + me*(JE')*JE);
+    Ki = (m*(J1')*J1p + m*(J2')*J2p + I*(J34')*J34p + m*(J3')*J3p + m*(J4')*J4p + me*(JE')*JEp);
     
-    C1(1,i) = (J + 0.25*l^2*m)*theta1_pp + J*J11*theta3_pp + m*a3*(l+0.5*l*J11) + J*J21*theta4_pp + 0.5*m*l*J21*a4 + me*aE*(l+l*J11);
-    C2(1,i) = (J + 0.25*l^2*m)*theta2_pp + J*J12*theta3_pp + m*a3*0.5*l*J12 + J*J22*theta4_pp + m*a4*(l+0.5*l*J22) + me*aE*l*J12;
-    
+     if i ==1
+       M = Mi;
+       K = Ki;
+     end
+      if i ~= 1
+       M = [M,Mi];
+       K = [K,Ki];
+      end
+
 end
-end
+
