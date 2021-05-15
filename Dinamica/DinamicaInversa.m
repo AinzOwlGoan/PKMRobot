@@ -1,6 +1,13 @@
 function [ThetaInt,Theta_pInt,Theta_ppInt] = DinamicaInversa(Tau,Condizioni)
 %DINAMICAINVERSA Summary of this function goes here
-
+% Inizializzazione variabili funzioni
+Theta_Succ = zeros(2,1);
+Theta_pSucc = zeros(2,1);
+Theta_ppSucc = zeros(2,1);
+ThetaInt = zeros(2,1000);
+Theta_pInt = zeros(2,1000);
+Theta_ppInt = zeros(2,1000);
+% Inizio del calcolo della dinamica inversa
 for i=1:length(Tau(1,:))
     
     if i > 1 
