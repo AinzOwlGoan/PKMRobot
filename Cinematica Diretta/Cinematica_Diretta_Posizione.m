@@ -1,9 +1,8 @@
-function [P, theta3, theta4, E1, E2] = Cinematica_Diretta_Posizione(PKM, theta1, theta2, thetaV)
+function [P, theta3_new, theta4_new, E1, E2] = Cinematica_Diretta_Posizione(PKM, theta1, theta2, thetaV,time)
 % Input: Posizione theta1, theta2 e thetaV e parametri robot
 % Output: Posizione End-effector, theta3, theta4, posizione E1 e E2
 d = PKM.link.d;
 l = PKM.link.l;
-ta = PKM.ta;
 E1 = zeros(1,length(theta1));
 E2 = zeros(1,length(theta1));
 theta3 = zeros(1,length(theta1));
@@ -49,7 +48,7 @@ E2(3,i) = 0;
            theta4(1,i) = atan2((y-E2Y)/l, (x-E2X)/l);
         else
            formatSpec = 'Configurazione impossibile con theta1 = %4.2f e theta2 = %4.2f\n';
-           fprintf(formatSpec, rad2deg(theta1(1,i)), rad2deg(theta2(1,i)))
+           %fprintf(formatSpec, rad2deg(theta1(1,i)), rad2deg(theta2(1,i)))
         end
 
 theta3_new(1,i) = 2*atan((sin(theta2(1,i)) - sin(theta1(1,i)) + ((cos(theta2(1,i)) - cos(theta1(1,i)) + 18/25)^2 - ((cos(theta2(1,i)) - cos(theta1(1,i)) + 18/25)^2/2 +...
@@ -79,18 +78,16 @@ P(3,i) = z;
 
 
 end
-
-time = linspace(0,ta,length(Err1));
-
-figure
-subplot(2,1,1);
-plot(time,Err1,'color','k')
-title('Test loop vettoriali coseno')
-grid on
-subplot(2,1,2); 
-plot(time,Err2,'color','k')
-title('Test loop vettoriali seno')
-grid on
+% 
+% figure
+% subplot(2,1,1);
+% plot(time,Err1,'color','k')
+% title('Test loop vettoriali coseno')
+% grid on
+% subplot(2,1,2); 
+% plot(time,Err2,'color','k')
+% title('Test loop vettoriali seno')
+% grid on
 
 % figure
 % subplot(2,1,1);
