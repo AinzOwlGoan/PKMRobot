@@ -1,4 +1,4 @@
-function [P, theta3_new, theta4_new, E1, E2] = Cinematica_Diretta_Posizione(PKM, theta1, theta2, thetaV,time)
+function [P, theta3_new, theta4_new, E1, E2] = Cinematica_Diretta_Posizione(PKM, theta1, theta2,time)
 % Input: Posizione theta1, theta2 e thetaV e parametri robot
 % Output: Posizione End-effector, theta3, theta4, posizione E1 e E2
 d = PKM.link.d;
@@ -23,7 +23,6 @@ C = l^2*d^2*(cos(theta2(1,i))+cos(theta1(1,i)))^2 -l*d*(cos(theta2(1,i))+cos(the
 y = (-B + sqrt(B^2 - 4*A*C))/(2*A);
 % Posizione X end-effector
 x = (y*l*(sin(theta2(1,i))-sin(theta1(1,i))) - l*d*(cos(theta2(1,i))+cos(theta1(1,i))))/(-2*d -l*(cos(theta2(1,i))-cos(theta1(1,i))));
-z = PKM.vite.z0 + PKM.vite.pv/(2*pi)*thetaV(1,i); % Legge della vite
 
 
 % X punto E1
@@ -74,7 +73,6 @@ Err_theta4(1,i) = theta4(1,i)-theta4_new(1,i);
 % Vettore posizione end-effector
 P(1,i) = x;
 P(2,i) = y;
-P(3,i) = z; 
 
 
 end

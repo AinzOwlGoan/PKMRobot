@@ -1,7 +1,6 @@
-function [theta3_p,theta4_p,J34] = Theta34p(PKM,theta1,theta2,theta3,theta4,theta1_p,theta2_p)
+function [theta3_p,theta4_p,J34] = Theta34p(PKM,theta1,theta2,theta3,theta4,theta1_p,theta2_p,time)
 %THETA34P Funzione che ritorna velocità e accelerazione dei link non
 %motorizzati
-ta = PKM.ta;
 
 for i=1:length(theta1)
     
@@ -47,8 +46,6 @@ end
 
 
 end
-
-time = linspace(0,ta,length(ErrLoop1));
 
 figure
 subplot(2,1,1);

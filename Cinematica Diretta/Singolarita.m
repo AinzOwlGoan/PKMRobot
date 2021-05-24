@@ -1,4 +1,4 @@
-function [theta1inv,theta2inv] =Singolarita(time)
+function Singolarita(Traiettoria,time)
 
 PKM = Define_Robot();
 
@@ -7,9 +7,8 @@ d = PKM.link.d;
 time = linspace(0,1,1000);
 %% Primo e secondo caso di singolarità (CD//DE - AB//BC)
 
-x1 = linspace(d-1.8*l,d+1.8*l,1000);
+x1 = linspace(d-2*l,d+2*l,1000);
 y1 = sqrt(4*l^2-(x1-d).^2);
-P1 = [x1;y1];
 % I valori ottenuti non sempre sono corretti in quanto quando
 % l'arcotangente da valori immaginari come output si prende il valore zero.
 %[theta1inv, theta2inv] = Cinematica_Inversa_Posizione(P1, PKM, zeros(1000,1)', zeros(1000,1)');
@@ -37,43 +36,39 @@ c = l^2-2*d^2-2*d*l*cos(thetas2);
 theta1p = 2*atan2(b+sqrt(a.^2+b.^2+c.^2),a+c);
 theta1m = 2*atan2(b-sqrt(a.^2+b.^2+c.^2),a+c);
 
-[P, t3, t4, ~, ~] = Cinematica_Diretta_Posizione(PKM, theta1p, thetas2, zeros(1000,1)',time);
+[P, t3, t4, ~, ~] = Cinematica_Diretta_Posizione(PKM, theta1p, thetas2,time);
 %animation(d, l ,theta1p,thetas2, t3, t4)
 
-[P2, t3m, t4m, ~, ~] = Cinematica_Diretta_Posizione(PKM, theta1m, thetas2, zeros(1000,1)',time);
-animation(d, l ,theta1m,thetas2, t3m, t4m)
+[P2, t3m, t4m, ~, ~] = Cinematica_Diretta_Posizione(PKM, theta1m, thetas2,time);
+%animation(d, l ,theta1m,thetas2, t3m, t4m)
 
 % Traiettoria di singolarità punto 5
 x5 = -d+l*cos(theta1m)+l*cos(t3m);
 y5 = l*sin(theta1m)+l*sin(t3m);
 
-
-
 %% Sesto caso
-thetasei2 = linspace(deg2rad(110),deg2rad(140),1000);
-c2 = -(l^2)-2*d^2-2*d*l*cos(thetas2);
-theta1p0 = 2*atan2(b+sqrt(a.^2+b.^2+c2.^2),a+c2);
-theta1m0 = 2*atan2(b-sqrt(a.^2+b.^2+c2.^2),a+c2);
+x6 = 0;
+y6p = sqrt(l^2-d^2);
+y6m = -sqrt(l^2-d^2);
 
-[P0, t31, t32, ~, ~] = Cinematica_Diretta_Posizione(PKM, theta1p0, thetasei2, zeros(1000,1)',time);
-animation(d, l ,theta1p0,thetas2, t31, t32)
-
-[P20, t33, t34, ~, ~] = Cinematica_Diretta_Posizione(PKM, theta1m0, thetasei2, zeros(1000,1)',time);
-animation(d, l ,theta1m0,thetas2, t33, t34)
-%% PLOT
+%% PLOT DEI PUNTI DI SINGOLARITà
 figure
-plot(x1,y1)
+plot(x1,y1,'linewidth',2)
 hold on
-plot(x2,y2)
+plot(x2,y2,'linewidth',2)
 hold on
-plot(x3,y3)
+plot(x3,y3,'-o','linewidth',2)
 hold on
-plot(x4,y4)
+plot(x4,y4,'-o','linewidth',2)
 hold on
-plot(x5,y5)
+plot(x5,y5,'linewidth',2)
+hold on
+plot(x6,y6p,'-o','linewidth',2)
 axis equal
 grid on
-legend('Caso 1','Caso 2', 'Caso 3','Caso 4','Caso 5');
+hold on
+plot(Traiettoria(1,:),Traiettoria(2,:),'linewidth', 2)
+legend('Caso 1','Caso 2', 'Caso 3','Caso 4','Caso 5','Caso 6','Traiettoria originale');
 % 
 % figure
 % % Caso 5 segno +
