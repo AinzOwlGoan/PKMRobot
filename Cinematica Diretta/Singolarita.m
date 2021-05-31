@@ -48,8 +48,8 @@ y5 = l*sin(theta1m)+l*sin(t3m);
 
 %% Sesto caso
 x6 = 0;
-y6p = sqrt(l^2-d^2);
-y6m = -sqrt(l^2-d^2);
+y6p = sqrt(l^2-d^2)+l;
+y6m = -sqrt(l^2-d^2)-l;
 
 %% PLOT DEI PUNTI DI SINGOLARITà
 figure
