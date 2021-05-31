@@ -1,4 +1,4 @@
-function Singolarita(Traiettoria,time)
+function Singolarita(Traiettoria,time,J)
 
 PKM = Define_Robot();
 
@@ -27,7 +27,7 @@ y4 = sqrt(-(x4+d)^2);
 
 %% Quinto caso
 
-thetas2 = linspace(deg2rad(5),deg2rad(85),1000);
+thetas2 = linspace(deg2rad(0),deg2rad(360),1000);
 
 a = -l^2*cos(thetas2)- 2*d*l;
 b = -l^2*sin(thetas2);
@@ -51,39 +51,61 @@ x6 = 0;
 y6p = sqrt(l^2-d^2)+l;
 y6m = -sqrt(l^2-d^2)-l;
 
+%% Calcolo della Manipolabilità 
+[Aval,Avet,r] = Manipolabilita(J);
+figure
+plot(time,r);
+title('Manipolabilità')
+
+[valmax,posmax] = max(r);
+tellisse = linspace(0,2*pi,1000);
+x1e = Aval(1,1)*cos(tellisse)+Traiettoria(1,1);
+y1e = Aval(2,1)*sin(tellisse)+Traiettoria(2,1);
+xy1 = Avet(:,1:2)*[x1e;y1e];
+
+
+x2e = Aval(1,1000)*cos(tellisse)+Traiettoria(1,1000);
+y2e = Aval(2,1000)*sin(tellisse)+Traiettoria(2,1000);
+xy2 = Avet(:,999:1000)*[x2e;y2e];
+
+
+x3e = Aval(1,posmax)*cos(tellisse)+Traiettoria(1,posmax);
+y3e = Aval(2,posmax)*sin(tellisse)+Traiettoria(2,posmax);
+xy3 = Avet(:,posmax-1:posmax)*[x3e;y3e];
+
+
 %% PLOT DEI PUNTI DI SINGOLARITà
 figure
-plot(x1,y1,'linewidth',2)
+plot(x1,y1,'linewidth',2,'color',[0, 0.4470, 0.7410])
 hold on
-plot(x2,y2,'linewidth',2)
+plot(x2,y2,'linewidth',2,'color',[0.8500, 0.3250, 0.0980])
 hold on
 plot(x3,y3,'-o','linewidth',2)
 hold on
 plot(x4,y4,'-o','linewidth',2)
 hold on
-plot(x5,y5,'linewidth',2)
+plot(x5,y5,'linewidth',2,'color','green')
 hold on
-plot(x6,y6p,'-o','linewidth',2)
+plot(x6,y6p,'-o','linewidth',2,'color',[0.3010, 0.7450, 0.9330])
 axis equal
 grid on
 hold on
 plot(Traiettoria(1,:),Traiettoria(2,:),'linewidth', 2)
+hold on
+plot(x1,-y1,'linewidth',2,'color',[0, 0.4470, 0.7410])
+hold on
+plot(x2,-y2,'linewidth',2,'color',[0.8500, 0.3250, 0.0980])
+hold on
+plot(x5,-y5,'linewidth',2,'color','green')
+hold on
+plot(x6,-y6p,'-o','linewidth',2,'color',[0.3010, 0.7450, 0.9330])
+% hold on
+% plot(xy1(1,:),xy1(2,:))
+% hold on
+% plot(xy2(1,:),xy2(2,:))
+% hold on
+% plot(xy3(1,:),xy3(2,:))
 legend('Caso 1','Caso 2', 'Caso 3','Caso 4','Caso 5','Caso 6','Traiettoria originale');
-% 
-% figure
-% % Caso 5 segno +
-% plot(P(1,:),P(2,:),'color','r');
-% grid on
-% hold on
-% % Caso 5 segno -
-% plot(P2(1,:),P2(2,:),'color','b');
-% hold on
-% % Caso 6 segno +
-% plot(P0(1,:),P0(2,:),'color','r');
-% grid on
-% hold on
-% % Caso 6 segno -
-% plot(P20(1,:),P20(2,:),'color','b');
-% legend ('p1+','p1-','p2+','p2-')
+
 end
 

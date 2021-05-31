@@ -1,13 +1,14 @@
-function [z,z_p,z_pp,Jvite] = CinematicaVite(zvldm,thetavldm,zvldm_p,thetavldm_p,zvldm_pp,thetavldm_pp)
+function [V,V_p,V_pp,Jvite] = CinematicaVite(phi1ldm,phi2ldm,phi1ldm_p,phi2ldm_p,phi1ldm_pp,phi2ldm_pp)
 %CINEMATICAVITE Calcolo cinematica della vite
 PKM = Define_Robot();
 pv = PKM.vite.pv;
 
-z = zvldm + (pv/2*pi)*thetavldm;
+%z = zvldm + (pv/2*pi)*thetavldm;
 
-Jvite = [pv/(2*pi) , 1];
-z_p = Jvite*[thetavldm_p;zvldm_p];
-z_pp = Jvite*[thetavldm_pp;zvldm_pp];
+Jvite = [pv/(2*pi),pv/(2*pi); 0,1];
+V = Jvite*[phi1ldm;phi2ldm];
+V_p = Jvite*[phi1ldm_p;phi2ldm_p];
+V_pp = Jvite*[phi1ldm_pp;phi2ldm_pp];
 
 
 end
