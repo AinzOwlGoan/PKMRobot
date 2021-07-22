@@ -1,5 +1,10 @@
 function [csi_p] = F(u,csi)
 
+
+% time -> external
+% settings -> fixed step, tempo max inf, passo 0.001
+% metodo di risoluzione DISCRETE
+% code generator -> simulink real time
 PKM = Define_Robot();
 m = PKM.link.m;
 me = PKM.vite.me;

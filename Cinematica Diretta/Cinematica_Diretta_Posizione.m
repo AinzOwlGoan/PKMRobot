@@ -22,7 +22,7 @@ C = l^2*d^2*(cos(theta2(1,i))+cos(theta1(1,i)))^2 -l*d*(cos(theta2(1,i))+cos(the
 % Posizione Y end-effector
 y = (-B + sqrt(B^2 - 4*A*C))/(2*A);
 % Posizione X end-effector
-x = (y*l*(sin(theta2(1,i))-sin(theta1(1,i))) - l*d*(cos(theta2(1,i))+cos(theta1(1,i))))q/(-2*d -l*(cos(theta2(1,i))-cos(theta1(1,i))));
+x = (y*l*(sin(theta2(1,i))-sin(theta1(1,i))) - l*d*(cos(theta2(1,i))+cos(theta1(1,i))))/(-2*d -l*(cos(theta2(1,i))-cos(theta1(1,i))));
 
 
 % X punto E1
