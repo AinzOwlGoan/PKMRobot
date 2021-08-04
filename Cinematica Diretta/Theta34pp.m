@@ -25,15 +25,15 @@ for i=1:length(theta1ldm)
     ErrLoop2(1,i) = B1 - B2 - sin(theta3)*theta3_p^2 + cos(theta3)*theta3_pp(1,i) + sin(theta4)*theta4_p^2 - cos(theta4)*theta4_pp(1,i);
     
     
-    N11 = cos(theta4)/sin(theta4)*sin(theta1)-cos(theta1);
-    N12 = cos(theta2)-cos(theta4)/sin(theta4)*sin(theta2);
-    D1 = cos(theta3)-cos(theta4)/sin(theta4)*sin(theta3);
+    N11 = cos(theta4)/sin(theta4)*sin(theta1)-cos(theta1);%N13
+    N12 = cos(theta2)-cos(theta4)/sin(theta4)*sin(theta2);%N23
+    D1 = cos(theta3)-cos(theta4)/sin(theta4)*sin(theta3);%D13
     
     N21 = sin(theta1)*(cos(theta3)/sin(theta3) - cos(theta4)/sin(theta4)) +...
-        cos(theta4)/sin(theta4)*sin(theta1) - cos(theta1);
+        cos(theta4)/sin(theta4)*sin(theta1) - cos(theta1); %N14
     N22 = -sin(theta2)*(cos(theta3)/sin(theta3) - cos(theta4)/sin(theta4)) -...
-        cos(theta4)/sin(theta4)*sin(theta2) + cos(theta2);
-    D2 = sin(theta4)*(cos(theta3)/sin(theta3) - cos(theta4)/sin(theta4));
+        cos(theta4)/sin(theta4)*sin(theta2) + cos(theta2);%N24
+    D2 = sin(theta4)*(cos(theta3)/sin(theta3) - cos(theta4)/sin(theta4));%D14
     
     N11p =  (-1)/(sin(theta4)^2)*theta4_p*sin(theta1) + cos(theta4)/sin(theta4)*cos(theta1)*theta1_p + sin(theta1)*theta1_p;
     
