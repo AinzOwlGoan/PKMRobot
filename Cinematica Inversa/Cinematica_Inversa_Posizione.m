@@ -14,13 +14,12 @@ function [theta1inv, theta2inv] = Cinematica_Inversa_Posizione(P, PKM, theta1ldm
         a = -2*d*l + 2*P_x(i)*l;
         b = +2*P_y(i)*l;
         c = P_x(i)^2 + d^2 + P_y(i)^2 - 2*P_x(i)*d;
-        
 
         
         if p^2 + e^2 -f^2 > 0 
            theta1inv(1,i) = 2*atan2(e + sqrt(p^2 + e^2 -f^2), p +f);
         else
-           %formatSpec = 'Possibile singolarità in theta1 = %4.2f\n';
+           %formatSpec = 'Possibile singolarit?? in theta1 = %4.2f\n';
            %fprintf(formatSpec, rad2deg(theta1ldm(1,i)))
         end
         if a^2 + b^2 -c^2 > 0
@@ -32,7 +31,7 @@ function [theta1inv, theta2inv] = Cinematica_Inversa_Posizione(P, PKM, theta1ldm
                theta2inv(1,i) = theta2inv(1,i) + 2*pi;
            end           
         else
-           %formatSpec = 'Possibile singolarità in theta2 = %4.2f\n';
+           %formatSpec = 'Possibile singolarit?? in theta2 = %4.2f\n';
            %fprintf(formatSpec, rad2deg(theta2ldm(1,i)))
         end
         
