@@ -1,0 +1,4184 @@
+<?xml version="1.0" encoding="UTF-8"?><Root>
+      		<SubSystem>
+		<Name>Finecorsa Vite</Name>
+		<xPCName>State_Flow_vel/Finecorsa Vite</xPCName>
+		
+		
+            <block>
+            <blkName>EtherCAT PDO Receive16</blkName>
+            <xpcblkName>Finecorsa Vite/EtherCAT PDO Receive16</xpcblkName>
+            <SLblockPath>State_Flow_vel/Finecorsa Vite/EtherCAT PDO Receive16</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>P1</paramName>
+          <dim>[1, 41]</dim>  
+		  <SubSystemName>State_Flow_vel/Finecorsa Vite</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P2</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Finecorsa Vite</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P3</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Finecorsa Vite</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P4</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Finecorsa Vite</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P5</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Finecorsa Vite</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P6</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Finecorsa Vite</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P7</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Finecorsa Vite</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>Data Type Conversion8</sigName>
+              <xpcsigName>Finecorsa Vite/Data Type Conversion8</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Finecorsa Vite</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>EtherCAT PDO Receive16</sigName>
+              <xpcsigName>Finecorsa Vite/EtherCAT PDO Receive16</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Finecorsa Vite</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Integer to Bit
+Converter</sigName>
+              <xpcsigName>Finecorsa Vite/Integer to Bit Converter</xpcsigName>
+              <sigWidth>16</sigWidth>
+              <sigDim>[16, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Finecorsa Vite</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Finecorsa braccia</Name>
+		<xPCName>State_Flow_vel/Finecorsa braccia</xPCName>
+		
+		
+            <block>
+            <blkName>EtherCAT PDO Receive16</blkName>
+            <xpcblkName>Finecorsa braccia/EtherCAT PDO Receive16</xpcblkName>
+            <SLblockPath>State_Flow_vel/Finecorsa braccia/EtherCAT PDO Receive16</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>P1</paramName>
+          <dim>[1, 41]</dim>  
+		  <SubSystemName>State_Flow_vel/Finecorsa braccia</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P2</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Finecorsa braccia</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P3</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Finecorsa braccia</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P4</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Finecorsa braccia</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P5</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Finecorsa braccia</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P6</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Finecorsa braccia</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P7</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Finecorsa braccia</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>Data Type Conversion8</sigName>
+              <xpcsigName>Finecorsa braccia/Data Type Conversion8</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Finecorsa braccia</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>EtherCAT PDO Receive16</sigName>
+              <xpcsigName>Finecorsa braccia/EtherCAT PDO Receive16</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Finecorsa braccia</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Integer to Bit
+Converter</sigName>
+              <xpcsigName>Finecorsa braccia/Integer to Bit Converter</xpcsigName>
+              <sigWidth>16</sigWidth>
+              <sigDim>[16, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Finecorsa braccia</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>LED Status</Name>
+		<xPCName>State_Flow_vel/LED Status</xPCName>
+				<SubSystem>
+		<Name>MATLAB Function</Name>
+		<xPCName>State_Flow_vel/LED Status/MATLAB Function</xPCName>
+		
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>MATLAB Function1</Name>
+		<xPCName>State_Flow_vel/LED Status/MATLAB Function1</xPCName>
+		
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>MATLAB Function2</Name>
+		<xPCName>State_Flow_vel/LED Status/MATLAB Function2</xPCName>
+		
+		
+
+		</SubSystem>
+
+		
+            <block>
+            <blkName>Luce Bianca</blkName>
+            <xpcblkName>LED Status/Luce Bianca</xpcblkName>
+            <SLblockPath>State_Flow_vel/LED Status/Luce Bianca</SLblockPath>
+            <isSrc>[0 1 0]</isSrc>
+          <parameter>
+          <paramName>P1</paramName>
+          <dim>[1, 24]</dim>  
+		  <SubSystemName>State_Flow_vel/LED Status</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P2</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/LED Status</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P3</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/LED Status</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P4</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/LED Status</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P5</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/LED Status</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P6</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/LED Status</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P7</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/LED Status</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Luce Rossa </blkName>
+            <xpcblkName>LED Status/Luce Rossa </xpcblkName>
+            <SLblockPath>State_Flow_vel/LED Status/Luce Rossa </SLblockPath>
+            <isSrc>[0 1 0]</isSrc>
+          <parameter>
+          <paramName>P1</paramName>
+          <dim>[1, 24]</dim>  
+		  <SubSystemName>State_Flow_vel/LED Status</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P2</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/LED Status</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P3</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/LED Status</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P4</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/LED Status</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P5</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/LED Status</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P6</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/LED Status</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P7</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/LED Status</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Luce Verde</blkName>
+            <xpcblkName>LED Status/Luce Verde</xpcblkName>
+            <SLblockPath>State_Flow_vel/LED Status/Luce Verde</SLblockPath>
+            <isSrc>[0 1 0]</isSrc>
+          <parameter>
+          <paramName>P1</paramName>
+          <dim>[1, 24]</dim>  
+		  <SubSystemName>State_Flow_vel/LED Status</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P2</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/LED Status</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P3</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/LED Status</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P4</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/LED Status</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P5</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/LED Status</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P6</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/LED Status</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P7</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/LED Status</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>MATLAB Function</sigName>
+              <xpcsigName>LED Status/MATLAB Function</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/LED Status</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>MATLAB Function1</sigName>
+              <xpcsigName>LED Status/MATLAB Function1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/LED Status</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>MATLAB Function2</sigName>
+              <xpcsigName>LED Status/MATLAB Function2</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/LED Status</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Data Type Conversion24</sigName>
+              <xpcsigName>LED Status/Data Type Conversion24</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/LED Status</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Data Type Conversion25</sigName>
+              <xpcsigName>LED Status/Data Type Conversion25</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/LED Status</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Data Type Conversion26</sigName>
+              <xpcsigName>LED Status/Data Type Conversion26</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/LED Status</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Movimento Braccia</Name>
+		<xPCName>State_Flow_vel/Movimento Braccia</xPCName>
+				<SubSystem>
+		<Name>Clock reale</Name>
+		<xPCName>State_Flow_vel/Movimento Braccia/Clock reale</xPCName>
+		
+		
+			  
+			  
+              <signal>
+              <sigName>Sum2</sigName>
+              <xpcsigName>Movimento Braccia/Clock reale/Sum2</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Movimento Braccia/Clock reale</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>PID Controller1</Name>
+		<xPCName>State_Flow_vel/Movimento Braccia/PID Controller1</xPCName>
+		
+		
+            <block>
+            <blkName>Filter</blkName>
+            <xpcblkName>Movimento Braccia/PID Controller1/Filter</xpcblkName>
+            <SLblockPath>State_Flow_vel/Movimento Braccia/PID Controller1/Filter</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>gainval</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Movimento Braccia/PID Controller1</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>InitialCondition</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Movimento Braccia/PID Controller1</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Integrator</blkName>
+            <xpcblkName>Movimento Braccia/PID Controller1/Integrator</xpcblkName>
+            <SLblockPath>State_Flow_vel/Movimento Braccia/PID Controller1/Integrator</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>gainval</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Movimento Braccia/PID Controller1</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>InitialCondition</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Movimento Braccia/PID Controller1</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Derivative Gain</blkName>
+            <xpcblkName>Movimento Braccia/PID Controller1/Derivative Gain</xpcblkName>
+            <SLblockPath>State_Flow_vel/Movimento Braccia/PID Controller1/Derivative Gain</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>D</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Movimento Braccia/PID Controller1</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Filter Coefficient</blkName>
+            <xpcblkName>Movimento Braccia/PID Controller1/Filter Coefficient</xpcblkName>
+            <SLblockPath>State_Flow_vel/Movimento Braccia/PID Controller1/Filter Coefficient</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>N</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Movimento Braccia/PID Controller1</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Integral Gain</blkName>
+            <xpcblkName>Movimento Braccia/PID Controller1/Integral Gain</xpcblkName>
+            <SLblockPath>State_Flow_vel/Movimento Braccia/PID Controller1/Integral Gain</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>I</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Movimento Braccia/PID Controller1</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Proportional Gain</blkName>
+            <xpcblkName>Movimento Braccia/PID Controller1/Proportional Gain</xpcblkName>
+            <SLblockPath>State_Flow_vel/Movimento Braccia/PID Controller1/Proportional Gain</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>P</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Movimento Braccia/PID Controller1</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>Filter</sigName>
+              <xpcsigName>Movimento Braccia/PID Controller1/Filter</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Movimento Braccia/PID Controller1</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Integrator</sigName>
+              <xpcsigName>Movimento Braccia/PID Controller1/Integrator</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Movimento Braccia/PID Controller1</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Derivative Gain</sigName>
+              <xpcsigName>Movimento Braccia/PID Controller1/Derivative Gain</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Movimento Braccia/PID Controller1</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Filter Coefficient</sigName>
+              <xpcsigName>Movimento Braccia/PID Controller1/Filter Coefficient</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Movimento Braccia/PID Controller1</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Integral Gain</sigName>
+              <xpcsigName>Movimento Braccia/PID Controller1/Integral Gain</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Movimento Braccia/PID Controller1</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Proportional Gain</sigName>
+              <xpcsigName>Movimento Braccia/PID Controller1/Proportional Gain</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Movimento Braccia/PID Controller1</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Sum</sigName>
+              <xpcsigName>Movimento Braccia/PID Controller1/Sum</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Movimento Braccia/PID Controller1</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>SumD</sigName>
+              <xpcsigName>Movimento Braccia/PID Controller1/SumD</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Movimento Braccia/PID Controller1</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>PID Controller2</Name>
+		<xPCName>State_Flow_vel/Movimento Braccia/PID Controller2</xPCName>
+		
+		
+            <block>
+            <blkName>Filter</blkName>
+            <xpcblkName>Movimento Braccia/PID Controller2/Filter</xpcblkName>
+            <SLblockPath>State_Flow_vel/Movimento Braccia/PID Controller2/Filter</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>gainval</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Movimento Braccia/PID Controller2</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>InitialCondition</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Movimento Braccia/PID Controller2</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Integrator</blkName>
+            <xpcblkName>Movimento Braccia/PID Controller2/Integrator</xpcblkName>
+            <SLblockPath>State_Flow_vel/Movimento Braccia/PID Controller2/Integrator</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>gainval</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Movimento Braccia/PID Controller2</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>InitialCondition</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Movimento Braccia/PID Controller2</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Derivative Gain</blkName>
+            <xpcblkName>Movimento Braccia/PID Controller2/Derivative Gain</xpcblkName>
+            <SLblockPath>State_Flow_vel/Movimento Braccia/PID Controller2/Derivative Gain</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>D</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Movimento Braccia/PID Controller2</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Filter Coefficient</blkName>
+            <xpcblkName>Movimento Braccia/PID Controller2/Filter Coefficient</xpcblkName>
+            <SLblockPath>State_Flow_vel/Movimento Braccia/PID Controller2/Filter Coefficient</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>N</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Movimento Braccia/PID Controller2</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Integral Gain</blkName>
+            <xpcblkName>Movimento Braccia/PID Controller2/Integral Gain</xpcblkName>
+            <SLblockPath>State_Flow_vel/Movimento Braccia/PID Controller2/Integral Gain</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>I</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Movimento Braccia/PID Controller2</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Proportional Gain</blkName>
+            <xpcblkName>Movimento Braccia/PID Controller2/Proportional Gain</xpcblkName>
+            <SLblockPath>State_Flow_vel/Movimento Braccia/PID Controller2/Proportional Gain</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>P</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Movimento Braccia/PID Controller2</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>Filter</sigName>
+              <xpcsigName>Movimento Braccia/PID Controller2/Filter</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Movimento Braccia/PID Controller2</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Integrator</sigName>
+              <xpcsigName>Movimento Braccia/PID Controller2/Integrator</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Movimento Braccia/PID Controller2</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Derivative Gain</sigName>
+              <xpcsigName>Movimento Braccia/PID Controller2/Derivative Gain</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Movimento Braccia/PID Controller2</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Filter Coefficient</sigName>
+              <xpcsigName>Movimento Braccia/PID Controller2/Filter Coefficient</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Movimento Braccia/PID Controller2</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Integral Gain</sigName>
+              <xpcsigName>Movimento Braccia/PID Controller2/Integral Gain</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Movimento Braccia/PID Controller2</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Proportional Gain</sigName>
+              <xpcsigName>Movimento Braccia/PID Controller2/Proportional Gain</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Movimento Braccia/PID Controller2</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Sum</sigName>
+              <xpcsigName>Movimento Braccia/PID Controller2/Sum</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Movimento Braccia/PID Controller2</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>SumD</sigName>
+              <xpcsigName>Movimento Braccia/PID Controller2/SumD</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Movimento Braccia/PID Controller2</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Velocita vite
+</Name>
+		<xPCName>State_Flow_vel/Movimento Braccia/Velocita vite </xPCName>
+				<SubSystem>
+		<Name>Vel Asse A conv</Name>
+		<xPCName>State_Flow_vel/Movimento Braccia/Velocita vite /Vel Asse A conv</xPCName>
+		
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Vel Asse B conv</Name>
+		<xPCName>State_Flow_vel/Movimento Braccia/Velocita vite /Vel Asse B conv</xPCName>
+		
+		
+
+		</SubSystem>
+
+		
+            <block>
+            <blkName>EtherCAT PDO Receive14</blkName>
+            <xpcblkName>Movimento Braccia/Velocita vite /EtherCAT PDO Receive14</xpcblkName>
+            <SLblockPath>State_Flow_vel/Movimento Braccia/Velocita vite /EtherCAT PDO Receive14</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>P1</paramName>
+          <dim>[1, 47]</dim>  
+		  <SubSystemName>State_Flow_vel/Movimento Braccia/Velocita vite </SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P2</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Movimento Braccia/Velocita vite </SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P3</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Movimento Braccia/Velocita vite </SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P4</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Movimento Braccia/Velocita vite </SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P5</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Movimento Braccia/Velocita vite </SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P6</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Movimento Braccia/Velocita vite </SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P7</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Movimento Braccia/Velocita vite </SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>EtherCAT PDO Receive15</blkName>
+            <xpcblkName>Movimento Braccia/Velocita vite /EtherCAT PDO Receive15</xpcblkName>
+            <SLblockPath>State_Flow_vel/Movimento Braccia/Velocita vite /EtherCAT PDO Receive15</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>P1</paramName>
+          <dim>[1, 47]</dim>  
+		  <SubSystemName>State_Flow_vel/Movimento Braccia/Velocita vite </SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P2</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Movimento Braccia/Velocita vite </SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P3</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Movimento Braccia/Velocita vite </SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P4</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Movimento Braccia/Velocita vite </SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P5</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Movimento Braccia/Velocita vite </SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P6</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Movimento Braccia/Velocita vite </SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P7</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Movimento Braccia/Velocita vite </SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>Vel Asse A conv</sigName>
+              <xpcsigName>Movimento Braccia/Velocita vite /Vel Asse A conv</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Movimento Braccia/Velocita vite </SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Vel Asse B conv</sigName>
+              <xpcsigName>Movimento Braccia/Velocita vite /Vel Asse B conv</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Movimento Braccia/Velocita vite </SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Velocity A</sigName>
+              <xpcsigName>Movimento Braccia/Velocita vite /Velocity A</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Movimento Braccia/Velocita vite </SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Velocity B</sigName>
+              <xpcsigName>Movimento Braccia/Velocita vite /Velocity B</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Movimento Braccia/Velocita vite </SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>EtherCAT PDO Receive14</sigName>
+              <xpcsigName>Movimento Braccia/Velocita vite /EtherCAT PDO Receive14</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Movimento Braccia/Velocita vite </SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>EtherCAT PDO Receive15</sigName>
+              <xpcsigName>Movimento Braccia/Velocita vite /EtherCAT PDO Receive15</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Movimento Braccia/Velocita vite </SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>theta1deg</Name>
+		<xPCName>State_Flow_vel/Movimento Braccia/theta1deg</xPCName>
+		
+		
+            <block>
+            <blkName>Gain</blkName>
+            <xpcblkName>Movimento Braccia/theta1deg/Gain</xpcblkName>
+            <SLblockPath>State_Flow_vel/Movimento Braccia/theta1deg/Gain</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>Gain</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Movimento Braccia/theta1deg</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>Gain</sigName>
+              <xpcsigName>Movimento Braccia/theta1deg/Gain</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Movimento Braccia/theta1deg</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>theta1err</Name>
+		<xPCName>State_Flow_vel/Movimento Braccia/theta1err</xPCName>
+		
+		
+            <block>
+            <blkName>Gain</blkName>
+            <xpcblkName>Movimento Braccia/theta1err/Gain</xpcblkName>
+            <SLblockPath>State_Flow_vel/Movimento Braccia/theta1err/Gain</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>Gain</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Movimento Braccia/theta1err</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>Gain</sigName>
+              <xpcsigName>Movimento Braccia/theta1err/Gain</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Movimento Braccia/theta1err</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>theta2deg</Name>
+		<xPCName>State_Flow_vel/Movimento Braccia/theta2deg</xPCName>
+		
+		
+            <block>
+            <blkName>Gain</blkName>
+            <xpcblkName>Movimento Braccia/theta2deg/Gain</xpcblkName>
+            <SLblockPath>State_Flow_vel/Movimento Braccia/theta2deg/Gain</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>Gain</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Movimento Braccia/theta2deg</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>Gain</sigName>
+              <xpcsigName>Movimento Braccia/theta2deg/Gain</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Movimento Braccia/theta2deg</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>theta2err</Name>
+		<xPCName>State_Flow_vel/Movimento Braccia/theta2err</xPCName>
+		
+		
+            <block>
+            <blkName>Gain</blkName>
+            <xpcblkName>Movimento Braccia/theta2err/Gain</xpcblkName>
+            <SLblockPath>State_Flow_vel/Movimento Braccia/theta2err/Gain</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>Gain</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Movimento Braccia/theta2err</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>Gain</sigName>
+              <xpcsigName>Movimento Braccia/theta2err/Gain</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Movimento Braccia/theta2err</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Asse A conv brac</Name>
+		<xPCName>State_Flow_vel/Movimento Braccia/Asse A conv brac</xPCName>
+		
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Asse B conv brac1</Name>
+		<xPCName>State_Flow_vel/Movimento Braccia/Asse B conv brac1</xPCName>
+		
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Cerchio</Name>
+		<xPCName>State_Flow_vel/Movimento Braccia/Cerchio</xPCName>
+		
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Cinematica Inversa</Name>
+		<xPCName>State_Flow_vel/Movimento Braccia/Cinematica Inversa</xPCName>
+		
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Cinematica Inversa vel</Name>
+		<xPCName>State_Flow_vel/Movimento Braccia/Cinematica Inversa vel</xPCName>
+		
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Cinematica Inversa1</Name>
+		<xPCName>State_Flow_vel/Movimento Braccia/Cinematica Inversa1</xPCName>
+		
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Quadrato</Name>
+		<xPCName>State_Flow_vel/Movimento Braccia/Quadrato</xPCName>
+		
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Selettore</Name>
+		<xPCName>State_Flow_vel/Movimento Braccia/Selettore</xPCName>
+		
+		
+
+		</SubSystem>
+
+		
+            <block>
+            <blkName>PID Controller1</blkName>
+            <xpcblkName>Movimento Braccia/PID Controller1</xpcblkName>
+            <SLblockPath>State_Flow_vel/Movimento Braccia/PID Controller1</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>P</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Movimento Braccia</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>I</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Movimento Braccia</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>D</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Movimento Braccia</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>N</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Movimento Braccia</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>PID Controller2</blkName>
+            <xpcblkName>Movimento Braccia/PID Controller2</xpcblkName>
+            <SLblockPath>State_Flow_vel/Movimento Braccia/PID Controller2</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>P</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Movimento Braccia</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>I</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Movimento Braccia</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>D</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Movimento Braccia</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>N</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Movimento Braccia</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Alzata C</blkName>
+            <xpcblkName>Movimento Braccia/Alzata C</xpcblkName>
+            <SLblockPath>State_Flow_vel/Movimento Braccia/Alzata C</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Movimento Braccia</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Alzata Q</blkName>
+            <xpcblkName>Movimento Braccia/Alzata Q</xpcblkName>
+            <SLblockPath>State_Flow_vel/Movimento Braccia/Alzata Q</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Movimento Braccia</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Constant</blkName>
+            <xpcblkName>Movimento Braccia/Constant</xpcblkName>
+            <SLblockPath>State_Flow_vel/Movimento Braccia/Constant</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Movimento Braccia</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Constant1</blkName>
+            <xpcblkName>Movimento Braccia/Constant1</xpcblkName>
+            <SLblockPath>State_Flow_vel/Movimento Braccia/Constant1</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Movimento Braccia</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Constant2</blkName>
+            <xpcblkName>Movimento Braccia/Constant2</xpcblkName>
+            <SLblockPath>State_Flow_vel/Movimento Braccia/Constant2</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Movimento Braccia</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Periodo C</blkName>
+            <xpcblkName>Movimento Braccia/Periodo C</xpcblkName>
+            <SLblockPath>State_Flow_vel/Movimento Braccia/Periodo C</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Movimento Braccia</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Periodo Q</blkName>
+            <xpcblkName>Movimento Braccia/Periodo Q</xpcblkName>
+            <SLblockPath>State_Flow_vel/Movimento Braccia/Periodo Q</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Movimento Braccia</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Coppia theta 1 vel</blkName>
+            <xpcblkName>Movimento Braccia/Coppia theta 1 vel</xpcblkName>
+            <SLblockPath>State_Flow_vel/Movimento Braccia/Coppia theta 1 vel</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>Gain</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Movimento Braccia</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Coppia theta 2 vel</blkName>
+            <xpcblkName>Movimento Braccia/Coppia theta 2 vel</xpcblkName>
+            <SLblockPath>State_Flow_vel/Movimento Braccia/Coppia theta 2 vel</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>Gain</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Movimento Braccia</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>Asse A conv brac</sigName>
+              <xpcsigName>Movimento Braccia/Asse A conv brac</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Movimento Braccia</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Asse B conv brac1</sigName>
+              <xpcsigName>Movimento Braccia/Asse B conv brac1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Movimento Braccia</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Cerchio/p1</sigName>
+              <xpcsigName>Movimento Braccia/Cerchio/p1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Movimento Braccia</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Cerchio/p2</sigName>
+              <xpcsigName>Movimento Braccia/Cerchio/p2</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Movimento Braccia</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Cinematica Inversa/p1</sigName>
+              <xpcsigName>Movimento Braccia/Cinematica Inversa/p1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Movimento Braccia</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Cinematica Inversa/p2</sigName>
+              <xpcsigName>Movimento Braccia/Cinematica Inversa/p2</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Movimento Braccia</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Cinematica Inversa vel/p1</sigName>
+              <xpcsigName>Movimento Braccia/Cinematica Inversa vel/p1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Movimento Braccia</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Cinematica Inversa vel/p2</sigName>
+              <xpcsigName>Movimento Braccia/Cinematica Inversa vel/p2</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Movimento Braccia</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Cinematica Inversa1/p1</sigName>
+              <xpcsigName>Movimento Braccia/Cinematica Inversa1/p1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Movimento Braccia</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Cinematica Inversa1/p2</sigName>
+              <xpcsigName>Movimento Braccia/Cinematica Inversa1/p2</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Movimento Braccia</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Quadrato/p1</sigName>
+              <xpcsigName>Movimento Braccia/Quadrato/p1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Movimento Braccia</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Quadrato/p2</sigName>
+              <xpcsigName>Movimento Braccia/Quadrato/p2</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Movimento Braccia</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Quadrato/p3</sigName>
+              <xpcsigName>Movimento Braccia/Quadrato/p3</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Movimento Braccia</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Quadrato/p4</sigName>
+              <xpcsigName>Movimento Braccia/Quadrato/p4</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Movimento Braccia</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Selettore/p1</sigName>
+              <xpcsigName>Movimento Braccia/Selettore/p1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Movimento Braccia</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Selettore/p2</sigName>
+              <xpcsigName>Movimento Braccia/Selettore/p2</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Movimento Braccia</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Coppia theta 1 vel</sigName>
+              <xpcsigName>Movimento Braccia/Coppia theta 1 vel</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Movimento Braccia</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Coppia theta 2 vel</sigName>
+              <xpcsigName>Movimento Braccia/Coppia theta 2 vel</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Movimento Braccia</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Sum</sigName>
+              <xpcsigName>Movimento Braccia/Sum</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Movimento Braccia</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Sum1</sigName>
+              <xpcsigName>Movimento Braccia/Sum1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Movimento Braccia</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Sum12</sigName>
+              <xpcsigName>Movimento Braccia/Sum12</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Movimento Braccia</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Sum14</sigName>
+              <xpcsigName>Movimento Braccia/Sum14</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Movimento Braccia</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Sum17</sigName>
+              <xpcsigName>Movimento Braccia/Sum17</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Movimento Braccia</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Sum2</sigName>
+              <xpcsigName>Movimento Braccia/Sum2</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Movimento Braccia</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Sum3</sigName>
+              <xpcsigName>Movimento Braccia/Sum3</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Movimento Braccia</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Sum4</sigName>
+              <xpcsigName>Movimento Braccia/Sum4</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Movimento Braccia</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Sum5</sigName>
+              <xpcsigName>Movimento Braccia/Sum5</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Movimento Braccia</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Sum6</sigName>
+              <xpcsigName>Movimento Braccia/Sum6</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Movimento Braccia</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Sum7</sigName>
+              <xpcsigName>Movimento Braccia/Sum7</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Movimento Braccia</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Sum8</sigName>
+              <xpcsigName>Movimento Braccia/Sum8</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Movimento Braccia</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Out Asse A Braccia</Name>
+		<xPCName>State_Flow_vel/Out Asse A Braccia</xPCName>
+				<SubSystem>
+		<Name>Fungo</Name>
+		<xPCName>State_Flow_vel/Out Asse A Braccia/Fungo</xPCName>
+				<SubSystem>
+		<Name>MATLAB Function</Name>
+		<xPCName>State_Flow_vel/Out Asse A Braccia/Fungo/MATLAB Function</xPCName>
+		
+		
+
+		</SubSystem>
+
+		
+            <block>
+            <blkName>Constant</blkName>
+            <xpcblkName>Out Asse A Braccia/Fungo/Constant</xpcblkName>
+            <SLblockPath>State_Flow_vel/Out Asse A Braccia/Fungo/Constant</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Out Asse A Braccia/Fungo</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Memory</blkName>
+            <xpcblkName>Out Asse A Braccia/Fungo/Memory</xpcblkName>
+            <SLblockPath>State_Flow_vel/Out Asse A Braccia/Fungo/Memory</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>X0</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Out Asse A Braccia/Fungo</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>EtherCAT PDO Receive9</blkName>
+            <xpcblkName>Out Asse A Braccia/Fungo/EtherCAT PDO Receive9</xpcblkName>
+            <SLblockPath>State_Flow_vel/Out Asse A Braccia/Fungo/EtherCAT PDO Receive9</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>P1</paramName>
+          <dim>[1, 23]</dim>  
+		  <SubSystemName>State_Flow_vel/Out Asse A Braccia/Fungo</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P2</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Out Asse A Braccia/Fungo</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P3</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Out Asse A Braccia/Fungo</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P4</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Out Asse A Braccia/Fungo</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P5</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Out Asse A Braccia/Fungo</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P6</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Out Asse A Braccia/Fungo</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P7</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Out Asse A Braccia/Fungo</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>MATLAB Function</sigName>
+              <xpcsigName>Out Asse A Braccia/Fungo/MATLAB Function</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Out Asse A Braccia/Fungo</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Data Type Conversion14</sigName>
+              <xpcsigName>Out Asse A Braccia/Fungo/Data Type Conversion14</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Out Asse A Braccia/Fungo</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Memory</sigName>
+              <xpcsigName>Out Asse A Braccia/Fungo/Memory</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Out Asse A Braccia/Fungo</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>EtherCAT PDO Receive9</sigName>
+              <xpcsigName>Out Asse A Braccia/Fungo/EtherCAT PDO Receive9</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Out Asse A Braccia/Fungo</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Switch1</sigName>
+              <xpcsigName>Out Asse A Braccia/Fungo/Switch1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Out Asse A Braccia/Fungo</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+
+		
+            <block>
+            <blkName>Saturation</blkName>
+            <xpcblkName>Out Asse A Braccia/Saturation</xpcblkName>
+            <SLblockPath>State_Flow_vel/Out Asse A Braccia/Saturation</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>UpperLimit</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Out Asse A Braccia</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>LowerLimit</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Out Asse A Braccia</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>EtherCAT PDO Transmit 1</blkName>
+            <xpcblkName>Out Asse A Braccia/EtherCAT PDO Transmit 1</xpcblkName>
+            <SLblockPath>State_Flow_vel/Out Asse A Braccia/EtherCAT PDO Transmit 1</SLblockPath>
+            <isSrc>[0 1 0]</isSrc>
+          <parameter>
+          <paramName>P1</paramName>
+          <dim>[1, 38]</dim>  
+		  <SubSystemName>State_Flow_vel/Out Asse A Braccia</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P2</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Out Asse A Braccia</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P3</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Out Asse A Braccia</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P4</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Out Asse A Braccia</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P5</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Out Asse A Braccia</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P6</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Out Asse A Braccia</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P7</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Out Asse A Braccia</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Switch1</blkName>
+            <xpcblkName>Out Asse A Braccia/Switch1</xpcblkName>
+            <SLblockPath>State_Flow_vel/Out Asse A Braccia/Switch1</SLblockPath>
+            <isSrc>[0 3 1]</isSrc>
+          <parameter>
+          <paramName>Threshold</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Out Asse A Braccia</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>Data Type Conversion3</sigName>
+              <xpcsigName>Out Asse A Braccia/Data Type Conversion3</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Out Asse A Braccia</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Saturation</sigName>
+              <xpcsigName>Out Asse A Braccia/Saturation</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Out Asse A Braccia</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Switch1</sigName>
+              <xpcsigName>Out Asse A Braccia/Switch1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Out Asse A Braccia</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Out Asse B Braccia</Name>
+		<xPCName>State_Flow_vel/Out Asse B Braccia</xPCName>
+				<SubSystem>
+		<Name>Fungo</Name>
+		<xPCName>State_Flow_vel/Out Asse B Braccia/Fungo</xPCName>
+				<SubSystem>
+		<Name>MATLAB Function</Name>
+		<xPCName>State_Flow_vel/Out Asse B Braccia/Fungo/MATLAB Function</xPCName>
+		
+		
+
+		</SubSystem>
+
+		
+            <block>
+            <blkName>Constant</blkName>
+            <xpcblkName>Out Asse B Braccia/Fungo/Constant</xpcblkName>
+            <SLblockPath>State_Flow_vel/Out Asse B Braccia/Fungo/Constant</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Out Asse B Braccia/Fungo</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Memory</blkName>
+            <xpcblkName>Out Asse B Braccia/Fungo/Memory</xpcblkName>
+            <SLblockPath>State_Flow_vel/Out Asse B Braccia/Fungo/Memory</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>X0</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Out Asse B Braccia/Fungo</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>EtherCAT PDO Receive9</blkName>
+            <xpcblkName>Out Asse B Braccia/Fungo/EtherCAT PDO Receive9</xpcblkName>
+            <SLblockPath>State_Flow_vel/Out Asse B Braccia/Fungo/EtherCAT PDO Receive9</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>P1</paramName>
+          <dim>[1, 23]</dim>  
+		  <SubSystemName>State_Flow_vel/Out Asse B Braccia/Fungo</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P2</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Out Asse B Braccia/Fungo</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P3</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Out Asse B Braccia/Fungo</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P4</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Out Asse B Braccia/Fungo</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P5</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Out Asse B Braccia/Fungo</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P6</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Out Asse B Braccia/Fungo</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P7</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Out Asse B Braccia/Fungo</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>MATLAB Function</sigName>
+              <xpcsigName>Out Asse B Braccia/Fungo/MATLAB Function</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Out Asse B Braccia/Fungo</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Data Type Conversion14</sigName>
+              <xpcsigName>Out Asse B Braccia/Fungo/Data Type Conversion14</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Out Asse B Braccia/Fungo</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Memory</sigName>
+              <xpcsigName>Out Asse B Braccia/Fungo/Memory</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Out Asse B Braccia/Fungo</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>EtherCAT PDO Receive9</sigName>
+              <xpcsigName>Out Asse B Braccia/Fungo/EtherCAT PDO Receive9</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Out Asse B Braccia/Fungo</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Switch1</sigName>
+              <xpcsigName>Out Asse B Braccia/Fungo/Switch1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Out Asse B Braccia/Fungo</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+
+		
+            <block>
+            <blkName>Saturation</blkName>
+            <xpcblkName>Out Asse B Braccia/Saturation</xpcblkName>
+            <SLblockPath>State_Flow_vel/Out Asse B Braccia/Saturation</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>UpperLimit</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Out Asse B Braccia</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>LowerLimit</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Out Asse B Braccia</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>EtherCAT PDO Transmit 7</blkName>
+            <xpcblkName>Out Asse B Braccia/EtherCAT PDO Transmit 7</xpcblkName>
+            <SLblockPath>State_Flow_vel/Out Asse B Braccia/EtherCAT PDO Transmit 7</SLblockPath>
+            <isSrc>[0 1 0]</isSrc>
+          <parameter>
+          <paramName>P1</paramName>
+          <dim>[1, 38]</dim>  
+		  <SubSystemName>State_Flow_vel/Out Asse B Braccia</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P2</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Out Asse B Braccia</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P3</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Out Asse B Braccia</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P4</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Out Asse B Braccia</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P5</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Out Asse B Braccia</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P6</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Out Asse B Braccia</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P7</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Out Asse B Braccia</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Switch1</blkName>
+            <xpcblkName>Out Asse B Braccia/Switch1</xpcblkName>
+            <SLblockPath>State_Flow_vel/Out Asse B Braccia/Switch1</SLblockPath>
+            <isSrc>[0 3 1]</isSrc>
+          <parameter>
+          <paramName>Threshold</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Out Asse B Braccia</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>Data Type Conversion4</sigName>
+              <xpcsigName>Out Asse B Braccia/Data Type Conversion4</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Out Asse B Braccia</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Saturation</sigName>
+              <xpcsigName>Out Asse B Braccia/Saturation</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Out Asse B Braccia</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Switch1</sigName>
+              <xpcsigName>Out Asse B Braccia/Switch1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Out Asse B Braccia</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Out asse A Vite</Name>
+		<xPCName>State_Flow_vel/Out asse A Vite</xPCName>
+				<SubSystem>
+		<Name>Fungo</Name>
+		<xPCName>State_Flow_vel/Out asse A Vite/Fungo</xPCName>
+				<SubSystem>
+		<Name>MATLAB Function</Name>
+		<xPCName>State_Flow_vel/Out asse A Vite/Fungo/MATLAB Function</xPCName>
+		
+		
+
+		</SubSystem>
+
+		
+            <block>
+            <blkName>Constant</blkName>
+            <xpcblkName>Out asse A Vite/Fungo/Constant</xpcblkName>
+            <SLblockPath>State_Flow_vel/Out asse A Vite/Fungo/Constant</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Out asse A Vite/Fungo</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Memory</blkName>
+            <xpcblkName>Out asse A Vite/Fungo/Memory</xpcblkName>
+            <SLblockPath>State_Flow_vel/Out asse A Vite/Fungo/Memory</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>X0</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Out asse A Vite/Fungo</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>EtherCAT PDO Receive9</blkName>
+            <xpcblkName>Out asse A Vite/Fungo/EtherCAT PDO Receive9</xpcblkName>
+            <SLblockPath>State_Flow_vel/Out asse A Vite/Fungo/EtherCAT PDO Receive9</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>P1</paramName>
+          <dim>[1, 23]</dim>  
+		  <SubSystemName>State_Flow_vel/Out asse A Vite/Fungo</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P2</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Out asse A Vite/Fungo</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P3</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Out asse A Vite/Fungo</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P4</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Out asse A Vite/Fungo</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P5</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Out asse A Vite/Fungo</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P6</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Out asse A Vite/Fungo</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P7</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Out asse A Vite/Fungo</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>MATLAB Function</sigName>
+              <xpcsigName>Out asse A Vite/Fungo/MATLAB Function</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Out asse A Vite/Fungo</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Data Type Conversion14</sigName>
+              <xpcsigName>Out asse A Vite/Fungo/Data Type Conversion14</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Out asse A Vite/Fungo</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Memory</sigName>
+              <xpcsigName>Out asse A Vite/Fungo/Memory</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Out asse A Vite/Fungo</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>EtherCAT PDO Receive9</sigName>
+              <xpcsigName>Out asse A Vite/Fungo/EtherCAT PDO Receive9</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Out asse A Vite/Fungo</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Switch1</sigName>
+              <xpcsigName>Out asse A Vite/Fungo/Switch1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Out asse A Vite/Fungo</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+
+		
+            <block>
+            <blkName>Constant</blkName>
+            <xpcblkName>Out asse A Vite/Constant</xpcblkName>
+            <SLblockPath>State_Flow_vel/Out asse A Vite/Constant</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Out asse A Vite</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Gain</blkName>
+            <xpcblkName>Out asse A Vite/Gain</xpcblkName>
+            <SLblockPath>State_Flow_vel/Out asse A Vite/Gain</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>Gain</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Out asse A Vite</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Torque send</blkName>
+            <xpcblkName>Out asse A Vite/Torque send</xpcblkName>
+            <SLblockPath>State_Flow_vel/Out asse A Vite/Torque send</SLblockPath>
+            <isSrc>[0 1 0]</isSrc>
+          <parameter>
+          <paramName>P1</paramName>
+          <dim>[1, 38]</dim>  
+		  <SubSystemName>State_Flow_vel/Out asse A Vite</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P2</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Out asse A Vite</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P3</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Out asse A Vite</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P4</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Out asse A Vite</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P5</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Out asse A Vite</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P6</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Out asse A Vite</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P7</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Out asse A Vite</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Switch</blkName>
+            <xpcblkName>Out asse A Vite/Switch</xpcblkName>
+            <SLblockPath>State_Flow_vel/Out asse A Vite/Switch</SLblockPath>
+            <isSrc>[0 3 1]</isSrc>
+          <parameter>
+          <paramName>Threshold</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Out asse A Vite</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>Convert A</sigName>
+              <xpcsigName>Out asse A Vite/Convert A</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Out asse A Vite</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Gain</sigName>
+              <xpcsigName>Out asse A Vite/Gain</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Out asse A Vite</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Switch</sigName>
+              <xpcsigName>Out asse A Vite/Switch</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Out asse A Vite</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Out asse B Vite</Name>
+		<xPCName>State_Flow_vel/Out asse B Vite</xPCName>
+				<SubSystem>
+		<Name>Fungo</Name>
+		<xPCName>State_Flow_vel/Out asse B Vite/Fungo</xPCName>
+				<SubSystem>
+		<Name>MATLAB Function</Name>
+		<xPCName>State_Flow_vel/Out asse B Vite/Fungo/MATLAB Function</xPCName>
+		
+		
+
+		</SubSystem>
+
+		
+            <block>
+            <blkName>Constant</blkName>
+            <xpcblkName>Out asse B Vite/Fungo/Constant</xpcblkName>
+            <SLblockPath>State_Flow_vel/Out asse B Vite/Fungo/Constant</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Out asse B Vite/Fungo</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Memory</blkName>
+            <xpcblkName>Out asse B Vite/Fungo/Memory</xpcblkName>
+            <SLblockPath>State_Flow_vel/Out asse B Vite/Fungo/Memory</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>X0</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Out asse B Vite/Fungo</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>EtherCAT PDO Receive9</blkName>
+            <xpcblkName>Out asse B Vite/Fungo/EtherCAT PDO Receive9</xpcblkName>
+            <SLblockPath>State_Flow_vel/Out asse B Vite/Fungo/EtherCAT PDO Receive9</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>P1</paramName>
+          <dim>[1, 23]</dim>  
+		  <SubSystemName>State_Flow_vel/Out asse B Vite/Fungo</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P2</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Out asse B Vite/Fungo</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P3</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Out asse B Vite/Fungo</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P4</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Out asse B Vite/Fungo</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P5</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Out asse B Vite/Fungo</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P6</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Out asse B Vite/Fungo</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P7</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Out asse B Vite/Fungo</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>MATLAB Function</sigName>
+              <xpcsigName>Out asse B Vite/Fungo/MATLAB Function</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Out asse B Vite/Fungo</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Data Type Conversion14</sigName>
+              <xpcsigName>Out asse B Vite/Fungo/Data Type Conversion14</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Out asse B Vite/Fungo</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Memory</sigName>
+              <xpcsigName>Out asse B Vite/Fungo/Memory</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Out asse B Vite/Fungo</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>EtherCAT PDO Receive9</sigName>
+              <xpcsigName>Out asse B Vite/Fungo/EtherCAT PDO Receive9</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Out asse B Vite/Fungo</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Switch1</sigName>
+              <xpcsigName>Out asse B Vite/Fungo/Switch1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Out asse B Vite/Fungo</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+
+		
+            <block>
+            <blkName>Constant1</blkName>
+            <xpcblkName>Out asse B Vite/Constant1</xpcblkName>
+            <SLblockPath>State_Flow_vel/Out asse B Vite/Constant1</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Out asse B Vite</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>EtherCAT PDO Transmit 2</blkName>
+            <xpcblkName>Out asse B Vite/EtherCAT PDO Transmit 2</xpcblkName>
+            <SLblockPath>State_Flow_vel/Out asse B Vite/EtherCAT PDO Transmit 2</SLblockPath>
+            <isSrc>[0 1 0]</isSrc>
+          <parameter>
+          <paramName>P1</paramName>
+          <dim>[1, 38]</dim>  
+		  <SubSystemName>State_Flow_vel/Out asse B Vite</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P2</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Out asse B Vite</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P3</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Out asse B Vite</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P4</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Out asse B Vite</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P5</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Out asse B Vite</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P6</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Out asse B Vite</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P7</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Out asse B Vite</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Switch2</blkName>
+            <xpcblkName>Out asse B Vite/Switch2</xpcblkName>
+            <SLblockPath>State_Flow_vel/Out asse B Vite/Switch2</SLblockPath>
+            <isSrc>[0 3 1]</isSrc>
+          <parameter>
+          <paramName>Threshold</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Out asse B Vite</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>Convert B</sigName>
+              <xpcsigName>Out asse B Vite/Convert B</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Out asse B Vite</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Switch2</sigName>
+              <xpcsigName>Out asse B Vite/Switch2</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Out asse B Vite</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>PosAtest
+</Name>
+		<xPCName>State_Flow_vel/PosAtest </xPCName>
+		
+		
+            <block>
+            <blkName>Gain</blkName>
+            <xpcblkName>PosAtest /Gain</xpcblkName>
+            <SLblockPath>State_Flow_vel/PosAtest /Gain</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>Gain</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/PosAtest </SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>Gain</sigName>
+              <xpcsigName>PosAtest /Gain</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/PosAtest </SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>PosBtest
+</Name>
+		<xPCName>State_Flow_vel/PosBtest </xPCName>
+		
+		
+            <block>
+            <blkName>Gain</blkName>
+            <xpcblkName>PosBtest /Gain</xpcblkName>
+            <SLblockPath>State_Flow_vel/PosBtest /Gain</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>Gain</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/PosBtest </SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>Gain</sigName>
+              <xpcsigName>PosBtest /Gain</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/PosBtest </SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Posizione Braccia </Name>
+		<xPCName>State_Flow_vel/Posizione Braccia </xPCName>
+		
+		
+            <block>
+            <blkName>Motore braccia A</blkName>
+            <xpcblkName>Posizione Braccia /Motore braccia A</xpcblkName>
+            <SLblockPath>State_Flow_vel/Posizione Braccia /Motore braccia A</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>P1</paramName>
+          <dim>[1, 47]</dim>  
+		  <SubSystemName>State_Flow_vel/Posizione Braccia </SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P2</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Posizione Braccia </SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P3</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Posizione Braccia </SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P4</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Posizione Braccia </SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P5</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Posizione Braccia </SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P6</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Posizione Braccia </SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P7</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Posizione Braccia </SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Motore braccia B</blkName>
+            <xpcblkName>Posizione Braccia /Motore braccia B</xpcblkName>
+            <SLblockPath>State_Flow_vel/Posizione Braccia /Motore braccia B</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>P1</paramName>
+          <dim>[1, 47]</dim>  
+		  <SubSystemName>State_Flow_vel/Posizione Braccia </SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P2</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Posizione Braccia </SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P3</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Posizione Braccia </SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P4</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Posizione Braccia </SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P5</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Posizione Braccia </SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P6</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Posizione Braccia </SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P7</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Posizione Braccia </SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>convert</sigName>
+              <xpcsigName>Posizione Braccia /convert</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Posizione Braccia </SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>convert 10
+</sigName>
+              <xpcsigName>Posizione Braccia /convert 10 </xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Posizione Braccia </SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Motore braccia A</sigName>
+              <xpcsigName>Posizione Braccia /Motore braccia A</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Posizione Braccia </SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Motore braccia B</sigName>
+              <xpcsigName>Posizione Braccia /Motore braccia B</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Posizione Braccia </SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Posizione Vite</Name>
+		<xPCName>State_Flow_vel/Posizione Vite</xPCName>
+		
+		
+            <block>
+            <blkName>Motore vite A</blkName>
+            <xpcblkName>Posizione Vite/Motore vite A</xpcblkName>
+            <SLblockPath>State_Flow_vel/Posizione Vite/Motore vite A</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>P1</paramName>
+          <dim>[1, 47]</dim>  
+		  <SubSystemName>State_Flow_vel/Posizione Vite</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P2</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Posizione Vite</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P3</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Posizione Vite</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P4</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Posizione Vite</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P5</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Posizione Vite</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P6</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Posizione Vite</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P7</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Posizione Vite</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Motore vite B</blkName>
+            <xpcblkName>Posizione Vite/Motore vite B</xpcblkName>
+            <SLblockPath>State_Flow_vel/Posizione Vite/Motore vite B</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>P1</paramName>
+          <dim>[1, 47]</dim>  
+		  <SubSystemName>State_Flow_vel/Posizione Vite</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P2</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Posizione Vite</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P3</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Posizione Vite</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P4</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Posizione Vite</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P5</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Posizione Vite</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P6</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Posizione Vite</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P7</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Posizione Vite</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>convert</sigName>
+              <xpcsigName>Posizione Vite/convert</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Posizione Vite</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>convert 10
+</sigName>
+              <xpcsigName>Posizione Vite/convert 10 </xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Posizione Vite</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Motore vite A</sigName>
+              <xpcsigName>Posizione Vite/Motore vite A</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Posizione Vite</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Motore vite B</sigName>
+              <xpcsigName>Posizione Vite/Motore vite B</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Posizione Vite</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Sistema Vite</Name>
+		<xPCName>State_Flow_vel/Sistema Vite</xPCName>
+				<SubSystem>
+		<Name>Actual A</Name>
+		<xPCName>State_Flow_vel/Sistema Vite/Actual A</xPCName>
+				<SubSystem>
+		<Name>Discrete Derivative A</Name>
+		<xPCName>State_Flow_vel/Sistema Vite/Actual A/Discrete Derivative A</xPCName>
+		
+		
+            <block>
+            <blkName>TSamp</blkName>
+            <xpcblkName>Sistema Vite/Actual A/Discrete Derivative A/TSamp</xpcblkName>
+            <SLblockPath>State_Flow_vel/Sistema Vite/Actual A/Discrete Derivative A/TSamp</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>WtEt</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Sistema Vite/Actual A/Discrete Derivative A</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>UD</blkName>
+            <xpcblkName>Sistema Vite/Actual A/Discrete Derivative A/UD</xpcblkName>
+            <SLblockPath>State_Flow_vel/Sistema Vite/Actual A/Discrete Derivative A/UD</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>ICPrevScaledInput</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Sistema Vite/Actual A/Discrete Derivative A</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>Diff</sigName>
+              <xpcsigName>Sistema Vite/Actual A/Discrete Derivative A/Diff</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Sistema Vite/Actual A/Discrete Derivative A</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>TSamp</sigName>
+              <xpcsigName>Sistema Vite/Actual A/Discrete Derivative A/TSamp</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Sistema Vite/Actual A/Discrete Derivative A</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>UD</sigName>
+              <xpcsigName>Sistema Vite/Actual A/Discrete Derivative A/UD</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Sistema Vite/Actual A/Discrete Derivative A</SubSystemName>
+                
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Posizione attuale Vite A</Name>
+		<xPCName>State_Flow_vel/Sistema Vite/Actual A/Posizione attuale Vite A</xPCName>
+				<SubSystem>
+		<Name>Asse A conv</Name>
+		<xPCName>State_Flow_vel/Sistema Vite/Actual A/Posizione attuale Vite A/Asse A conv</xPCName>
+		
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Asse B conv v</Name>
+		<xPCName>State_Flow_vel/Sistema Vite/Actual A/Posizione attuale Vite A/Asse B conv v</xPCName>
+		
+		
+
+		</SubSystem>
+
+		
+			  
+			  
+              <signal>
+              <sigName>Asse A conv</sigName>
+              <xpcsigName>Sistema Vite/Actual A/Posizione attuale Vite A/Asse A conv</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Sistema Vite/Actual A/Posizione attuale Vite A</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Asse B conv v</sigName>
+              <xpcsigName>Sistema Vite/Actual A/Posizione attuale Vite A/Asse B conv v</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Sistema Vite/Actual A/Posizione attuale Vite A</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Sum5</sigName>
+              <xpcsigName>Sistema Vite/Actual A/Posizione attuale Vite A/Sum5</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Sistema Vite/Actual A/Posizione attuale Vite A</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+
+		
+            <block>
+            <blkName>Discrete Derivative A</blkName>
+            <xpcblkName>Sistema Vite/Actual A/Discrete Derivative A</xpcblkName>
+            <SLblockPath>State_Flow_vel/Sistema Vite/Actual A/Discrete Derivative A</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>ICPrevScaledInput</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Sistema Vite/Actual A</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>Sum</sigName>
+              <xpcsigName>Sistema Vite/Actual A/Sum</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Sistema Vite/Actual A</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Clock reale</Name>
+		<xPCName>State_Flow_vel/Sistema Vite/Clock reale</xPCName>
+		
+		
+			  
+			  
+              <signal>
+              <sigName>Sum2</sigName>
+              <xpcsigName>Sistema Vite/Clock reale/Sum2</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Sistema Vite/Clock reale</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Coppia VIte A finale</Name>
+		<xPCName>State_Flow_vel/Sistema Vite/Coppia VIte A finale</xPCName>
+		
+		
+            <block>
+            <blkName>Gain</blkName>
+            <xpcblkName>Sistema Vite/Coppia VIte A finale/Gain</xpcblkName>
+            <SLblockPath>State_Flow_vel/Sistema Vite/Coppia VIte A finale/Gain</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>Gain</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Sistema Vite/Coppia VIte A finale</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Gain6</blkName>
+            <xpcblkName>Sistema Vite/Coppia VIte A finale/Gain6</xpcblkName>
+            <SLblockPath>State_Flow_vel/Sistema Vite/Coppia VIte A finale/Gain6</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>Gain</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Sistema Vite/Coppia VIte A finale</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>Gain</sigName>
+              <xpcsigName>Sistema Vite/Coppia VIte A finale/Gain</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Sistema Vite/Coppia VIte A finale</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Gain6</sigName>
+              <xpcsigName>Sistema Vite/Coppia VIte A finale/Gain6</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Sistema Vite/Coppia VIte A finale</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Sum9</sigName>
+              <xpcsigName>Sistema Vite/Coppia VIte A finale/Sum9</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Sistema Vite/Coppia VIte A finale</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Discrete Derivative B</Name>
+		<xPCName>State_Flow_vel/Sistema Vite/Discrete Derivative B</xPCName>
+		
+		
+            <block>
+            <blkName>TSamp</blkName>
+            <xpcblkName>Sistema Vite/Discrete Derivative B/TSamp</xpcblkName>
+            <SLblockPath>State_Flow_vel/Sistema Vite/Discrete Derivative B/TSamp</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>WtEt</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Sistema Vite/Discrete Derivative B</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>UD</blkName>
+            <xpcblkName>Sistema Vite/Discrete Derivative B/UD</xpcblkName>
+            <SLblockPath>State_Flow_vel/Sistema Vite/Discrete Derivative B/UD</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>ICPrevScaledInput</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Sistema Vite/Discrete Derivative B</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>Diff</sigName>
+              <xpcsigName>Sistema Vite/Discrete Derivative B/Diff</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Sistema Vite/Discrete Derivative B</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>TSamp</sigName>
+              <xpcsigName>Sistema Vite/Discrete Derivative B/TSamp</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Sistema Vite/Discrete Derivative B</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>UD</sigName>
+              <xpcsigName>Sistema Vite/Discrete Derivative B/UD</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Sistema Vite/Discrete Derivative B</SubSystemName>
+                
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Velocita vite
+</Name>
+		<xPCName>State_Flow_vel/Sistema Vite/Velocita vite </xPCName>
+				<SubSystem>
+		<Name>Vel Asse A conv</Name>
+		<xPCName>State_Flow_vel/Sistema Vite/Velocita vite /Vel Asse A conv</xPCName>
+		
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Vel Asse B conv</Name>
+		<xPCName>State_Flow_vel/Sistema Vite/Velocita vite /Vel Asse B conv</xPCName>
+		
+		
+
+		</SubSystem>
+
+		
+            <block>
+            <blkName>EtherCAT PDO Receive14</blkName>
+            <xpcblkName>Sistema Vite/Velocita vite /EtherCAT PDO Receive14</xpcblkName>
+            <SLblockPath>State_Flow_vel/Sistema Vite/Velocita vite /EtherCAT PDO Receive14</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>P1</paramName>
+          <dim>[1, 47]</dim>  
+		  <SubSystemName>State_Flow_vel/Sistema Vite/Velocita vite </SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P2</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Sistema Vite/Velocita vite </SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P3</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Sistema Vite/Velocita vite </SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P4</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Sistema Vite/Velocita vite </SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P5</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Sistema Vite/Velocita vite </SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P6</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Sistema Vite/Velocita vite </SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P7</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Sistema Vite/Velocita vite </SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>EtherCAT PDO Receive15</blkName>
+            <xpcblkName>Sistema Vite/Velocita vite /EtherCAT PDO Receive15</xpcblkName>
+            <SLblockPath>State_Flow_vel/Sistema Vite/Velocita vite /EtherCAT PDO Receive15</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>P1</paramName>
+          <dim>[1, 47]</dim>  
+		  <SubSystemName>State_Flow_vel/Sistema Vite/Velocita vite </SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P2</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Sistema Vite/Velocita vite </SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P3</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Sistema Vite/Velocita vite </SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P4</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Sistema Vite/Velocita vite </SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P5</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Sistema Vite/Velocita vite </SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P6</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Sistema Vite/Velocita vite </SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P7</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Sistema Vite/Velocita vite </SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>Vel Asse A conv</sigName>
+              <xpcsigName>Sistema Vite/Velocita vite /Vel Asse A conv</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Sistema Vite/Velocita vite </SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Vel Asse B conv</sigName>
+              <xpcsigName>Sistema Vite/Velocita vite /Vel Asse B conv</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Sistema Vite/Velocita vite </SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Velocity A</sigName>
+              <xpcsigName>Sistema Vite/Velocita vite /Velocity A</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Sistema Vite/Velocita vite </SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Velocity B</sigName>
+              <xpcsigName>Sistema Vite/Velocita vite /Velocity B</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Sistema Vite/Velocita vite </SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>EtherCAT PDO Receive14</sigName>
+              <xpcsigName>Sistema Vite/Velocita vite /EtherCAT PDO Receive14</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Sistema Vite/Velocita vite </SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>EtherCAT PDO Receive15</sigName>
+              <xpcsigName>Sistema Vite/Velocita vite /EtherCAT PDO Receive15</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Sistema Vite/Velocita vite </SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Asse B</Name>
+		<xPCName>State_Flow_vel/Sistema Vite/Asse B</xPCName>
+		
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Asse B conv</Name>
+		<xPCName>State_Flow_vel/Sistema Vite/Asse B conv</xPCName>
+		
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Rifermento Asse A Vite</Name>
+		<xPCName>State_Flow_vel/Sistema Vite/Rifermento Asse A Vite</xPCName>
+		
+		
+
+		</SubSystem>
+
+		
+            <block>
+            <blkName>Discrete Derivative B</blkName>
+            <xpcblkName>Sistema Vite/Discrete Derivative B</xpcblkName>
+            <SLblockPath>State_Flow_vel/Sistema Vite/Discrete Derivative B</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>ICPrevScaledInput</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Sistema Vite</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Gain2</blkName>
+            <xpcblkName>Sistema Vite/Gain2</xpcblkName>
+            <SLblockPath>State_Flow_vel/Sistema Vite/Gain2</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>Gain</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Sistema Vite</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Gain4</blkName>
+            <xpcblkName>Sistema Vite/Gain4</xpcblkName>
+            <SLblockPath>State_Flow_vel/Sistema Vite/Gain4</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>Gain</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Sistema Vite</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>Asse B/p1</sigName>
+              <xpcsigName>Sistema Vite/Asse B/p1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Sistema Vite</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Asse B/p2</sigName>
+              <xpcsigName>Sistema Vite/Asse B/p2</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Sistema Vite</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Asse B conv</sigName>
+              <xpcsigName>Sistema Vite/Asse B conv</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Sistema Vite</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Rifermento Asse A Vite/p1</sigName>
+              <xpcsigName>Sistema Vite/Rifermento Asse A Vite/p1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Sistema Vite</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Rifermento Asse A Vite/p2</sigName>
+              <xpcsigName>Sistema Vite/Rifermento Asse A Vite/p2</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Sistema Vite</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Gain2</sigName>
+              <xpcsigName>Sistema Vite/Gain2</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Sistema Vite</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Gain4</sigName>
+              <xpcsigName>Sistema Vite/Gain4</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Sistema Vite</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Sum1</sigName>
+              <xpcsigName>Sistema Vite/Sum1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Sistema Vite</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Sum3</sigName>
+              <xpcsigName>Sistema Vite/Sum3</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Sistema Vite</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Sum4</sigName>
+              <xpcsigName>Sistema Vite/Sum4</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Sistema Vite</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Sum6</sigName>
+              <xpcsigName>Sistema Vite/Sum6</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Sistema Vite</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Sum7</sigName>
+              <xpcsigName>Sistema Vite/Sum7</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Sistema Vite</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Sum8</sigName>
+              <xpcsigName>Sistema Vite/Sum8</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Sistema Vite</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Status</Name>
+		<xPCName>State_Flow_vel/Status</xPCName>
+		
+		
+            <block>
+            <blkName>Status Word</blkName>
+            <xpcblkName>Status/Status Word</xpcblkName>
+            <SLblockPath>State_Flow_vel/Status/Status Word</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>P1</paramName>
+          <dim>[1, 37]</dim>  
+		  <SubSystemName>State_Flow_vel/Status</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P2</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Status</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P3</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Status</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P4</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Status</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P5</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Status</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P6</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Status</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P7</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Status</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>Data Type Conversion6</sigName>
+              <xpcsigName>Status/Data Type Conversion6</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Status</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Status Word</sigName>
+              <xpcsigName>Status/Status Word</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Status</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Velocita vite
+</Name>
+		<xPCName>State_Flow_vel/Velocita vite </xPCName>
+				<SubSystem>
+		<Name>Vel Asse A conv</Name>
+		<xPCName>State_Flow_vel/Velocita vite /Vel Asse A conv</xPCName>
+		
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Vel Asse B conv</Name>
+		<xPCName>State_Flow_vel/Velocita vite /Vel Asse B conv</xPCName>
+		
+		
+
+		</SubSystem>
+
+		
+            <block>
+            <blkName>EtherCAT PDO Receive14</blkName>
+            <xpcblkName>Velocita vite /EtherCAT PDO Receive14</xpcblkName>
+            <SLblockPath>State_Flow_vel/Velocita vite /EtherCAT PDO Receive14</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>P1</paramName>
+          <dim>[1, 47]</dim>  
+		  <SubSystemName>State_Flow_vel/Velocita vite </SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P2</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Velocita vite </SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P3</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Velocita vite </SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P4</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Velocita vite </SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P5</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Velocita vite </SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P6</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Velocita vite </SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P7</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Velocita vite </SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>EtherCAT PDO Receive15</blkName>
+            <xpcblkName>Velocita vite /EtherCAT PDO Receive15</xpcblkName>
+            <SLblockPath>State_Flow_vel/Velocita vite /EtherCAT PDO Receive15</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>P1</paramName>
+          <dim>[1, 47]</dim>  
+		  <SubSystemName>State_Flow_vel/Velocita vite </SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P2</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Velocita vite </SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P3</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Velocita vite </SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P4</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Velocita vite </SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P5</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Velocita vite </SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P6</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Velocita vite </SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P7</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/Velocita vite </SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>Vel Asse A conv</sigName>
+              <xpcsigName>Velocita vite /Vel Asse A conv</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Velocita vite </SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Vel Asse B conv</sigName>
+              <xpcsigName>Velocita vite /Vel Asse B conv</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Velocita vite </SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Velocity A</sigName>
+              <xpcsigName>Velocita vite /Velocity A</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Velocita vite </SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Velocity B</sigName>
+              <xpcsigName>Velocita vite /Velocity B</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Velocita vite </SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>EtherCAT PDO Receive14</sigName>
+              <xpcsigName>Velocita vite /EtherCAT PDO Receive14</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Velocita vite </SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>EtherCAT PDO Receive15</sigName>
+              <xpcsigName>Velocita vite /EtherCAT PDO Receive15</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/Velocita vite </SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>State flow robot</Name>
+		<xPCName>State_Flow_vel/State flow robot</xPCName>
+				<SubSystem>
+		<Name>Homing</Name>
+		<xPCName>State_Flow_vel/State flow robot/Homing</xPCName>
+				<SubSystem>
+		<Name>MATLAB Function</Name>
+		<xPCName>State_Flow_vel/State flow robot/Homing/MATLAB Function</xPCName>
+		
+		
+
+		</SubSystem>
+
+		
+            <block>
+            <blkName>CA</blkName>
+            <xpcblkName>State flow robot/Homing/CA</xpcblkName>
+            <SLblockPath>State_Flow_vel/State flow robot/Homing/CA</SLblockPath>
+            <isSrc>[0 1 0]</isSrc>
+          <parameter>
+          <paramName>InitialOutput</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/State flow robot/Homing</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>CB</blkName>
+            <xpcblkName>State flow robot/Homing/CB</xpcblkName>
+            <SLblockPath>State_Flow_vel/State flow robot/Homing/CB</SLblockPath>
+            <isSrc>[0 1 0]</isSrc>
+          <parameter>
+          <paramName>InitialOutput</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/State flow robot/Homing</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>CH</blkName>
+            <xpcblkName>State flow robot/Homing/CH</xpcblkName>
+            <SLblockPath>State_Flow_vel/State flow robot/Homing/CH</SLblockPath>
+            <isSrc>[0 1 0]</isSrc>
+          <parameter>
+          <paramName>InitialOutput</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel/State flow robot/Homing</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>MATLAB Function/p1</sigName>
+              <xpcsigName>State flow robot/Homing/MATLAB Function/p1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/State flow robot/Homing</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>MATLAB Function/p2</sigName>
+              <xpcsigName>State flow robot/Homing/MATLAB Function/p2</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/State flow robot/Homing</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>MATLAB Function/p3</sigName>
+              <xpcsigName>State flow robot/Homing/MATLAB Function/p3</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel/State flow robot/Homing</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+
+		
+
+		</SubSystem>
+
+      
+            <block>
+            <blkName>Alzata A</blkName>
+            <xpcblkName>Alzata A</xpcblkName>
+            <SLblockPath>State_Flow_vel/Alzata A</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Alzata B </blkName>
+            <xpcblkName>Alzata B </xpcblkName>
+            <SLblockPath>State_Flow_vel/Alzata B </SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Asse A braccia</blkName>
+            <xpcblkName>Asse A braccia</xpcblkName>
+            <SLblockPath>State_Flow_vel/Asse A braccia</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Asse A vite</blkName>
+            <xpcblkName>Asse A vite</xpcblkName>
+            <SLblockPath>State_Flow_vel/Asse A vite</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Asse B braccia</blkName>
+            <xpcblkName>Asse B braccia</xpcblkName>
+            <SLblockPath>State_Flow_vel/Asse B braccia</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Asse B vite</blkName>
+            <xpcblkName>Asse B vite</xpcblkName>
+            <SLblockPath>State_Flow_vel/Asse B vite</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Periodo A</blkName>
+            <xpcblkName>Periodo A</xpcblkName>
+            <SLblockPath>State_Flow_vel/Periodo A</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Periodo B</blkName>
+            <xpcblkName>Periodo B</xpcblkName>
+            <SLblockPath>State_Flow_vel/Periodo B</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Gain</blkName>
+            <xpcblkName>Gain</xpcblkName>
+            <SLblockPath>State_Flow_vel/Gain</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>Gain</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Gain1</blkName>
+            <xpcblkName>Gain1</xpcblkName>
+            <SLblockPath>State_Flow_vel/Gain1</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>Gain</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>EtherCAT PDO Transmit 3</blkName>
+            <xpcblkName>EtherCAT PDO Transmit 3</xpcblkName>
+            <SLblockPath>State_Flow_vel/EtherCAT PDO Transmit 3</SLblockPath>
+            <isSrc>[0 1 0]</isSrc>
+          <parameter>
+          <paramName>P1</paramName>
+          <dim>[1, 43]</dim>  
+		  <SubSystemName>State_Flow_vel</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P2</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P3</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P4</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P5</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P6</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P7</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>EtherCAT PDO Transmit 4</blkName>
+            <xpcblkName>EtherCAT PDO Transmit 4</xpcblkName>
+            <SLblockPath>State_Flow_vel/EtherCAT PDO Transmit 4</SLblockPath>
+            <isSrc>[0 1 0]</isSrc>
+          <parameter>
+          <paramName>P1</paramName>
+          <dim>[1, 43]</dim>  
+		  <SubSystemName>State_Flow_vel</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P2</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P3</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P4</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P5</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P6</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P7</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>EtherCAT PDO Transmit 5</blkName>
+            <xpcblkName>EtherCAT PDO Transmit 5</xpcblkName>
+            <SLblockPath>State_Flow_vel/EtherCAT PDO Transmit 5</SLblockPath>
+            <isSrc>[0 1 0]</isSrc>
+          <parameter>
+          <paramName>P1</paramName>
+          <dim>[1, 43]</dim>  
+		  <SubSystemName>State_Flow_vel</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P2</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P3</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P4</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P5</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P6</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P7</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>EtherCAT PDO Transmit 6</blkName>
+            <xpcblkName>EtherCAT PDO Transmit 6</xpcblkName>
+            <SLblockPath>State_Flow_vel/EtherCAT PDO Transmit 6</SLblockPath>
+            <isSrc>[0 1 0]</isSrc>
+          <parameter>
+          <paramName>P1</paramName>
+          <dim>[1, 43]</dim>  
+		  <SubSystemName>State_Flow_vel</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P2</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P3</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P4</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P5</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P6</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P7</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>State_Flow_vel</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>State flow robot/p1</sigName>
+              <xpcsigName>State flow robot/p1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>State flow robot/p2</sigName>
+              <xpcsigName>State flow robot/p2</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>State flow robot/p3</sigName>
+              <xpcsigName>State flow robot/p3</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>State flow robot/p4</sigName>
+              <xpcsigName>State flow robot/p4</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>State flow robot/p5</sigName>
+              <xpcsigName>State flow robot/p5</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>State flow robot/p6</sigName>
+              <xpcsigName>State flow robot/p6</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>State flow robot/p7</sigName>
+              <xpcsigName>State flow robot/p7</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>State flow robot/p8</sigName>
+              <xpcsigName>State flow robot/p8</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>State flow robot/p9</sigName>
+              <xpcsigName>State flow robot/p9</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>State flow robot/p10</sigName>
+              <xpcsigName>State flow robot/p10</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>State flow robot/p11</sigName>
+              <xpcsigName>State flow robot/p11</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>State flow robot/p12</sigName>
+              <xpcsigName>State flow robot/p12</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Clock</sigName>
+              <xpcsigName>Clock</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Data Type Conversion1</sigName>
+              <xpcsigName>Data Type Conversion1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Data Type Conversion2</sigName>
+              <xpcsigName>Data Type Conversion2</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Data Type Conversion5</sigName>
+              <xpcsigName>Data Type Conversion5</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Data Type Conversion7</sigName>
+              <xpcsigName>Data Type Conversion7</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Gain</sigName>
+              <xpcsigName>Gain</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Gain1</sigName>
+              <xpcsigName>Gain1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>EtherCAT Init </sigName>
+              <xpcsigName>EtherCAT Init </xpcsigName>
+              <sigWidth>6</sigWidth>
+              <sigDim>[6, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Sum</sigName>
+              <xpcsigName>Sum</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Sum1</sigName>
+              <xpcsigName>Sum1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>State_Flow_vel</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+</Root>
