@@ -1,0 +1,18 @@
+
+  <Object type="Desktop.Xpc.Designer.InstrumentPanel, Desktop.Xpc.Designer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ControlloHoming" children="Controls">
+    <Object type="MW.Instruments.Panel, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Panel1" children="Controls">
+      <Object type="MW.Instruments.SwitchLED, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Homing" children="Controls">
+        <Property name="BindingSrcPath">H</Property>
+        <Property name="TargetName">TargetPC1</Property>
+        <Property name="BindingSrcType">None</Property>
+        <Property name="Text">Homing</Property>
+        <Property name="Size">120, 40</Property>
+        <Property name="Location">275, 102</Property>
+        <Property name="Name">Homing</Property>
+      </Object>
+      <Property name="Size">669, 278</Property>
+      <Property name="Location">166, 288</Property>
+      <Property name="Name">Panel1</Property>
+    </Object>
+    <Property name="ClientSize">1536, 864</Property>
+  </Object>
