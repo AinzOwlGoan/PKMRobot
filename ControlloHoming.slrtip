@@ -1,13 +1,30 @@
 
   <Object type="Desktop.Xpc.Designer.InstrumentPanel, Desktop.Xpc.Designer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ControlloHoming" children="Controls">
     <Object type="MW.Instruments.Panel, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Panel1" children="Controls">
+      <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="Label2147483646" children="Controls">
+        <Property name="Text">Fungo non premuto</Property>
+        <Property name="UseCompatibleTextRendering">True</Property>
+        <Property name="Location">52, 77</Property>
+        <Property name="Name">Label2147483646</Property>
+        <Property name="Size">158, 23</Property>
+      </Object>
+      <Object type="MW.Instruments.LED, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="LED2" children="Controls">
+        <Property name="OutputValue">0</Property>
+        <Property name="BindingSrcObject" />
+        <Property name="BindingSrcType">Signal</Property>
+        <Property name="BindingSrcPath">Out Asse A Braccia/Coppia A braccia saturata</Property>
+        <Property name="TargetName">TargetPC1</Property>
+        <Property name="Size">52, 51</Property>
+        <Property name="Location">52, 14</Property>
+        <Property name="Name">LED2</Property>
+      </Object>
       <Object type="MW.Instruments.SwitchLED, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Homing" children="Controls">
         <Property name="BindingSrcPath">H</Property>
         <Property name="TargetName">TargetPC1</Property>
         <Property name="BindingSrcType">None</Property>
         <Property name="Text">Homing</Property>
         <Property name="Size">120, 40</Property>
-        <Property name="Location">275, 102</Property>
+        <Property name="Location">262, 25</Property>
         <Property name="Name">Homing</Property>
       </Object>
       <Property name="Size">669, 278</Property>
