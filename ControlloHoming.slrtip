@@ -1,10 +1,283 @@
 
   <Object type="Desktop.Xpc.Designer.InstrumentPanel, Desktop.Xpc.Designer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ControlloHoming" children="Controls">
     <Object type="MW.Instruments.Panel, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Panel1" children="Controls">
-      <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="Label2147483646" children="Controls">
-        <Property name="Text">Fungo non premuto</Property>
+      <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="Label2147483634" children="Controls">
+        <Property name="Text">Posizione Y</Property>
         <Property name="UseCompatibleTextRendering">True</Property>
-        <Property name="Location">52, 77</Property>
+        <Property name="Location">500, 248</Property>
+        <Property name="Name">Label2147483634</Property>
+        <Property name="Size">126, 23</Property>
+      </Object>
+      <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="Label2147483633" children="Controls">
+        <Property name="Text">Posizione X</Property>
+        <Property name="UseCompatibleTextRendering">True</Property>
+        <Property name="Location">500, 215</Property>
+        <Property name="Name">Label2147483633</Property>
+        <Property name="Size">126, 23</Property>
+      </Object>
+      <Object type="MW.Instruments.NumericDisplay, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="NumericDisplay7" children="Controls">
+        <Property name="BindingSrcType">Signal</Property>
+        <Property name="OutputValue">0</Property>
+        <Property name="BindingSrcPath">Movimento/Sum1</Property>
+        <Property name="BindingSrcObject" />
+        <Property name="TargetName">TargetPC1</Property>
+        <Property name="Size">100, 29</Property>
+        <Property name="Location">641, 242</Property>
+        <Property name="Name">NumericDisplay7</Property>
+      </Object>
+      <Object type="MW.Instruments.NumericDisplay, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="NumericDisplay8" children="Controls">
+        <Property name="BindingSrcType">Signal</Property>
+        <Property name="OutputValue">0</Property>
+        <Property name="BindingSrcPath">Movimento/Sum</Property>
+        <Property name="BindingSrcObject" />
+        <Property name="TargetName">TargetPC1</Property>
+        <Property name="Size">100, 29</Property>
+        <Property name="Location">641, 209</Property>
+        <Property name="Name">NumericDisplay8</Property>
+      </Object>
+      <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="Label2147483635" children="Controls">
+        <Property name="Text">Fine lavoro</Property>
+        <Property name="UseCompatibleTextRendering">True</Property>
+        <Property name="Location">66, 290</Property>
+        <Property name="Name">Label2147483635</Property>
+        <Property name="Size">100, 23</Property>
+      </Object>
+      <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="Label2147483636" children="Controls">
+        <Property name="Text">A fine lavorazione spegnere Homing e Work</Property>
+        <Property name="UseCompatibleTextRendering">True</Property>
+        <Property name="Location">242, 254</Property>
+        <Property name="Name">Label2147483636</Property>
+        <Property name="Size">226, 46</Property>
+      </Object>
+      <Object type="MW.Instruments.LED, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="LED5" children="Controls">
+        <Property name="OutputValue">0</Property>
+        <Property name="BindingSrcObject" />
+        <Property name="BindingSrcType">Signal</Property>
+        <Property name="BindingSrcPath">State flow robot/p15</Property>
+        <Property name="TargetName">TargetPC1</Property>
+        <Property name="Indicator">
+          <Property name="Bezel">
+            <Property name="Thickness">1</Property>
+            <Property name="Style">Sunken</Property>
+          </Property>
+          <Property name="Style">Rectangle</Property>
+          <Property name="ColorActive">Crimson</Property>
+        </Property>
+        <Property name="Size">121, 50</Property>
+        <Property name="Location">51, 237</Property>
+        <Property name="Name">LED5</Property>
+      </Object>
+      <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="Label2147483637" children="Controls">
+        <Property name="Text">1. Quadrato
+2. Cerchio
+3. Ghirigori
+4. Cerchi tangenti
+5. Spirale</Property>
+        <Property name="UseCompatibleTextRendering">True</Property>
+        <Property name="Location">242, 363</Property>
+        <Property name="Name">Label2147483637</Property>
+        <Property name="Size">127, 107</Property>
+      </Object>
+      <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="Label2147483638" children="Controls">
+        <Property name="Text">Traiettoria 1-5</Property>
+        <Property name="UseCompatibleTextRendering">True</Property>
+        <Property name="Location">391, 363</Property>
+        <Property name="Name">Label2147483638</Property>
+        <Property name="Size">107, 23</Property>
+      </Object>
+      <Object type="MW.Instruments.NumericalUpDownEntry, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="NumericalUpDownEntry1" children="Controls">
+        <Property name="BindingSrcPath">Movimento/selettore/Value</Property>
+        <Property name="TargetName">TargetPC1</Property>
+        <Property name="BindingSrcType">Parameter</Property>
+        <Property name="Location">391, 398</Property>
+        <Property name="Name">NumericalUpDownEntry1</Property>
+        <Property name="Size">120, 27</Property>
+      </Object>
+      <Object type="MW.Instruments.GaugeAngular, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GaugeAngular1" children="Controls">
+        <Property name="OutputValue">0</Property>
+        <Property name="BindingSrcType">Signal</Property>
+        <Property name="BindingSrcObject" />
+        <Property name="BindingSrcPath">State flow robot/p1</Property>
+        <Property name="TargetName">TargetPC1</Property>
+        <Property name="Pointers">
+          <Item type="Iocomp.Classes.PointerGaugeAngular, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">(sub-class)</Item>
+        </Property>
+        <Property name="Pointer">
+          <Property name="Color">Gold</Property>
+        </Property>
+        <Property name="ScaleRange">
+          <Property name="Min">-1</Property>
+          <Property name="Span">6</Property>
+        </Property>
+        <Property name="InnerRadius">54</Property>
+        <Property name="Size">98, 98</Property>
+        <Property name="ForeColor">Black</Property>
+        <Property name="Location">46, 363</Property>
+        <Property name="Name">GaugeAngular1</Property>
+        <Property name="Text">GaugeAngular1</Property>
+      </Object>
+      <Object type="MW.Instruments.LED, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="LED4" children="Controls">
+        <Property name="OutputValue">0</Property>
+        <Property name="BindingSrcObject" />
+        <Property name="BindingSrcType">Signal</Property>
+        <Property name="BindingSrcPath">State flow robot/p14</Property>
+        <Property name="TargetName">TargetPC1</Property>
+        <Property name="BlinkerEnabled">True</Property>
+        <Property name="Size">37, 40</Property>
+        <Property name="Location">391, 32</Property>
+        <Property name="Name">LED4</Property>
+      </Object>
+      <Object type="MW.Instruments.SwitchLED, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="SwitchLavoro" children="Controls">
+        <Property name="BindingSrcPath">StartWork/Value</Property>
+        <Property name="TargetName">TargetPC1</Property>
+        <Property name="BindingSrcType">Parameter</Property>
+        <Property name="Text">Work</Property>
+        <Property name="Size">120, 40</Property>
+        <Property name="Location">249, 198</Property>
+        <Property name="Name">SwitchLavoro</Property>
+      </Object>
+      <Object type="MW.Instruments.SwitchLED, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="SwitchStart" children="Controls">
+        <Property name="BindingSrcPath">StartRobot/Value</Property>
+        <Property name="TargetName">TargetPC1</Property>
+        <Property name="BindingSrcType">Parameter</Property>
+        <Property name="Text">Avvio</Property>
+        <Property name="Size">120, 40</Property>
+        <Property name="Location">249, 32</Property>
+        <Property name="Name">SwitchStart</Property>
+      </Object>
+      <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="Label2147483639" children="Controls">
+        <Property name="Text">Vite                 Braccia</Property>
+        <Property name="UseCompatibleTextRendering">True</Property>
+        <Property name="Location">66, 195</Property>
+        <Property name="Name">Label2147483639</Property>
+        <Property name="Size">177, 23</Property>
+      </Object>
+      <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="Label2147483640" children="Controls">
+        <Property name="Text">Homing</Property>
+        <Property name="UseCompatibleTextRendering">True</Property>
+        <Property name="Location">46, 107</Property>
+        <Property name="Name">Label2147483640</Property>
+        <Property name="Size">159, 23</Property>
+      </Object>
+      <Object type="MW.Instruments.LED, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="LED3" children="Controls">
+        <Property name="OutputValue">0</Property>
+        <Property name="BindingSrcObject" />
+        <Property name="BindingSrcType">Signal</Property>
+        <Property name="BindingSrcPath">State flow robot/p13</Property>
+        <Property name="TargetName">TargetPC1</Property>
+        <Property name="Indicator">
+          <Property name="Style">Diamond</Property>
+          <Property name="ColorActive">Lime</Property>
+        </Property>
+        <Property name="Size">58, 59</Property>
+        <Property name="BackColor">Control</Property>
+        <Property name="BackgroundImageLayout">None</Property>
+        <Property name="Location">146, 133</Property>
+        <Property name="Name">LED3</Property>
+      </Object>
+      <Object type="MW.Instruments.LED, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="LED1" children="Controls">
+        <Property name="OutputValue">0</Property>
+        <Property name="BindingSrcObject" />
+        <Property name="BindingSrcType">Signal</Property>
+        <Property name="BindingSrcPath">State flow robot/p12</Property>
+        <Property name="TargetName">TargetPC1</Property>
+        <Property name="Indicator">
+          <Property name="Style">Diamond</Property>
+          <Property name="ColorActive">Lime</Property>
+        </Property>
+        <Property name="Size">58, 58</Property>
+        <Property name="Location">51, 133</Property>
+        <Property name="Name">LED1</Property>
+      </Object>
+      <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="Label2147483641" children="Controls">
+        <Property name="Text">Fase di lavoro</Property>
+        <Property name="UseCompatibleTextRendering">True</Property>
+        <Property name="Location">44, 337</Property>
+        <Property name="Name">Label2147483641</Property>
+        <Property name="Size">100, 23</Property>
+      </Object>
+      <Object type="MW.Instruments.NumericDisplay, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="NumericDisplay6" children="Controls">
+        <Property name="BindingSrcType">Signal</Property>
+        <Property name="OutputValue">0</Property>
+        <Property name="BindingSrcPath">State flow robot/p1</Property>
+        <Property name="BindingSrcObject" />
+        <Property name="TargetName">TargetPC1</Property>
+        <Property name="Size">100, 29</Property>
+        <Property name="Location">51, 467</Property>
+        <Property name="Name">NumericDisplay6</Property>
+      </Object>
+      <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="Label2147483643" children="Controls">
+        <Property name="Text">Coppia Vite B</Property>
+        <Property name="UseCompatibleTextRendering">True</Property>
+        <Property name="Location">500, 165</Property>
+        <Property name="Name">Label2147483643</Property>
+        <Property name="Size">126, 23</Property>
+      </Object>
+      <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="Label2147483642" children="Controls">
+        <Property name="Text">Coppia Vite A</Property>
+        <Property name="UseCompatibleTextRendering">True</Property>
+        <Property name="Location">500, 132</Property>
+        <Property name="Name">Label2147483642</Property>
+        <Property name="Size">126, 23</Property>
+      </Object>
+      <Object type="MW.Instruments.NumericDisplay, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="NumericDisplay3" children="Controls">
+        <Property name="BindingSrcType">Signal</Property>
+        <Property name="OutputValue">0</Property>
+        <Property name="BindingSrcPath">Out asse B Vite/Convert B</Property>
+        <Property name="BindingSrcObject" />
+        <Property name="TargetName">TargetPC1</Property>
+        <Property name="Size">100, 29</Property>
+        <Property name="Location">641, 159</Property>
+        <Property name="Name">NumericDisplay3</Property>
+      </Object>
+      <Object type="MW.Instruments.NumericDisplay, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="NumericDisplay4" children="Controls">
+        <Property name="BindingSrcType">Signal</Property>
+        <Property name="OutputValue">0</Property>
+        <Property name="BindingSrcPath">Out asse A Vite/Convert A</Property>
+        <Property name="BindingSrcObject" />
+        <Property name="TargetName">TargetPC1</Property>
+        <Property name="Size">100, 29</Property>
+        <Property name="Location">641, 126</Property>
+        <Property name="Name">NumericDisplay4</Property>
+      </Object>
+      <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="Label2147483644" children="Controls">
+        <Property name="Text">Coppia braccio B</Property>
+        <Property name="UseCompatibleTextRendering">True</Property>
+        <Property name="Location">500, 82</Property>
+        <Property name="Name">Label2147483644</Property>
+        <Property name="Size">126, 23</Property>
+      </Object>
+      <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="Label2147483645" children="Controls">
+        <Property name="Text">Coppia braccio A</Property>
+        <Property name="UseCompatibleTextRendering">True</Property>
+        <Property name="Location">500, 49</Property>
+        <Property name="Name">Label2147483645</Property>
+        <Property name="Size">126, 23</Property>
+      </Object>
+      <Object type="MW.Instruments.NumericDisplay, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="NumericDisplay2" children="Controls">
+        <Property name="BindingSrcType">Signal</Property>
+        <Property name="OutputValue">0</Property>
+        <Property name="BindingSrcPath">Out Asse B Braccia/Data Type Conversion4</Property>
+        <Property name="BindingSrcObject" />
+        <Property name="TargetName">TargetPC1</Property>
+        <Property name="Size">100, 29</Property>
+        <Property name="Location">641, 76</Property>
+        <Property name="Name">NumericDisplay2</Property>
+      </Object>
+      <Object type="MW.Instruments.NumericDisplay, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="NumericDisplay1" children="Controls">
+        <Property name="BindingSrcType">Signal</Property>
+        <Property name="OutputValue">0</Property>
+        <Property name="BindingSrcPath">Out Asse A Braccia/Data Type Conversion3</Property>
+        <Property name="BindingSrcObject" />
+        <Property name="TargetName">TargetPC1</Property>
+        <Property name="Size">100, 29</Property>
+        <Property name="Location">641, 43</Property>
+        <Property name="Name">NumericDisplay1</Property>
+      </Object>
+      <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="Label2147483646" children="Controls">
+        <Property name="Text">Fungo</Property>
+        <Property name="UseCompatibleTextRendering">True</Property>
+        <Property name="Location">51, 18</Property>
         <Property name="Name">Label2147483646</Property>
         <Property name="Size">158, 23</Property>
       </Object>
@@ -12,23 +285,27 @@
         <Property name="OutputValue">0</Property>
         <Property name="BindingSrcObject" />
         <Property name="BindingSrcType">Signal</Property>
-        <Property name="BindingSrcPath">Out Asse A Braccia/Coppia A braccia saturata</Property>
+        <Property name="BindingSrcPath">Out Asse A Braccia/Fungo/Switch1</Property>
         <Property name="TargetName">TargetPC1</Property>
+        <Property name="Indicator">
+          <Property name="Text">ON</Property>
+        </Property>
         <Property name="Size">52, 51</Property>
-        <Property name="Location">52, 14</Property>
+        <Property name="BackColor">WhiteSmoke</Property>
+        <Property name="Location">51, 44</Property>
         <Property name="Name">LED2</Property>
       </Object>
       <Object type="MW.Instruments.SwitchLED, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Homing" children="Controls">
-        <Property name="BindingSrcPath">H</Property>
+        <Property name="BindingSrcPath">StartHome/Value</Property>
         <Property name="TargetName">TargetPC1</Property>
-        <Property name="BindingSrcType">None</Property>
+        <Property name="BindingSrcType">Parameter</Property>
         <Property name="Text">Homing</Property>
         <Property name="Size">120, 40</Property>
-        <Property name="Location">262, 25</Property>
+        <Property name="Location">249, 115</Property>
         <Property name="Name">Homing</Property>
       </Object>
-      <Property name="Size">669, 278</Property>
-      <Property name="Location">166, 288</Property>
+      <Property name="Size">926, 508</Property>
+      <Property name="Location">91, 190</Property>
       <Property name="Name">Panel1</Property>
     </Object>
     <Property name="ClientSize">1536, 864</Property>

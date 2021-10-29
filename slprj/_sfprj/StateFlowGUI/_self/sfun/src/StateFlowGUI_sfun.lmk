@@ -1,0 +1,26 @@
+CC     = "C:\Program Files\MATLAB\R2017a\sys\lcc64\lcc64\bin\lcc64.exe"
+LD     = "C:\Program Files\MATLAB\R2017a\sys\lcc64\lcc64\bin\lcclnk64.exe"
+LIBCMD = "C:\Program Files\MATLAB\R2017a\sys\lcc64\lcc64\bin\lcclib64.exe"
+CFLAGS = -dll -noregistrylookup  -c -Zp8 -DLCC_WIN64 -DMATLAB_MEX_FILE -DMX_COMPAT_32 -nodeclspec 
+LDFLAGS = -s -dll -L"C:\Program Files\MATLAB\R2017a\sys\lcc64\lcc64\lib64" -entry LibMain -map sfun.map 
+LIBFLAGS = 
+
+OBJECTS = \
+	"StateFlowGUI_sfun.obj"\
+	"c15_StateFlowGUI.obj"\
+	"StateFlowGUI_sfun_registry.obj"\
+	"lccstub.obj"\
+
+INCLUDE_PATH= -I"C:\Program Files\MATLAB\R2017a\sys\lcc64\lcc64\include64"  -I"C:\Program Files\MATLAB\R2017a\extern\include"  -I"C:\Program Files\MATLAB\R2017a\simulink\include"  -I"C:\Program Files\MATLAB\R2017a\simulink\include\sf_runtime"  -I"C:\Program Files\MATLAB\R2017a\stateflow\c\mex\include"  -I"C:\Program Files\MATLAB\R2017a\rtw\c\src"  -I"C:\Users\Danie\Documenti\MATLAB\PKMRobot\slprj\_sfprj\StateFlowGUI\_self\sfun\src" 
+ 
+
+StateFlowGUI_sfun.mexw64 : $(MAKEFILE) $(OBJECTS)
+	$(LD) $(LDFLAGS) -o StateFlowGUI_sfun.mexw64 @StateFlowGUI_sfun.lmko
+StateFlowGUI_sfun.obj :	"StateFlowGUI_sfun.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "StateFlowGUI_sfun.c"
+c15_StateFlowGUI.obj :	"c15_StateFlowGUI.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c15_StateFlowGUI.c"
+StateFlowGUI_sfun_registry.obj :	"StateFlowGUI_sfun_registry.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "StateFlowGUI_sfun_registry.c"
+lccstub.obj :	"C:\Program Files\MATLAB\R2017a\sys\lcc64\lcc64\mex\lccstub.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "C:\Program Files\MATLAB\R2017a\sys\lcc64\lcc64\mex\lccstub.c"

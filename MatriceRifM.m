@@ -6,11 +6,12 @@ pv = 0.02;
 Jv = 6.4e-06;
 J = 5.22e-02;
 xs = linspace(-0.15,0.15,100);
-ys = linspace(0.25,0.4,100);
-xp = .06;
+ys = linspace(0.3,0.4,100);
+xp = 0.06;
 yp = 0.06;
 Mfin = zeros(200);
 Mnorm = zeros(100);
+Determinante = zeros(100);
 xpp = 0.2;
 ypp = 0.2;
 
@@ -190,8 +191,8 @@ Thetam_p = Jtrasm^-1*[theta1_p; theta2_p];
 
 
 Mm = (Jtrasm'*M*Jtrasm + Jm);
-Mnorm(i,j) = norm((Mm));
-
+Mnorm(i,j) = norm((Mm)^-1);
+Determinante(i,j) = det(Mm);
 Km = (Jtrasm'*K*Jtrasm);
 Cm = Mm*Thetam_pp  +  Km*Thetam_p;
 
@@ -207,6 +208,16 @@ Cm = Mm*Thetam_pp  +  Km*Thetam_p;
     end
      fv = fv+2;
 end
+Maxnorm = max(Mnorm)
+Minnorm = min(Mnorm)
+Mnorm(Mnorm>10^5) = -1;
+[xsgrid, ysgrid] = meshgrid(xs,ys);
+contourf(xsgrid,ysgrid,Mnorm);
+colorbar
+figure
+contourf(xsgrid,ysgrid,Determinante);
+colorbar
+
 
 % for i=1:200
 %     for j = 1:200

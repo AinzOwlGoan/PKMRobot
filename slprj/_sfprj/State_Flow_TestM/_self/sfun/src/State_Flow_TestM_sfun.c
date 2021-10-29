@@ -173,7 +173,7 @@ unsigned int sf_State_Flow_TestM_autoinheritance_info( int nlhs, mxArray * plhs[
     switch (chartFileNumber) {
      case 15:
       {
-        if (strcmp(aiChksum, "v3MCnb46iWgxmZ8JXdhq8B") == 0) {
+        if (strcmp(aiChksum, "hqNn9nng5vcYdwIc0jeVwB") == 0) {
           extern mxArray *sf_c15_State_Flow_TestM_get_autoinheritance_info(void);
           plhs[0] = sf_c15_State_Flow_TestM_get_autoinheritance_info();
           break;
@@ -266,7 +266,7 @@ unsigned int sf_State_Flow_TestM_third_party_uses_info( int nlhs, mxArray *
     switch (chartFileNumber) {
      case 15:
       {
-        if (strcmp(tpChksum, "sMizKQjU2UhryZbgTtMwBBG") == 0) {
+        if (strcmp(tpChksum, "sELC6DSfwcTLbv5kZio1UV") == 0) {
           extern mxArray *sf_c15_State_Flow_TestM_third_party_uses_info(void);
           plhs[0] = sf_c15_State_Flow_TestM_third_party_uses_info();
           break;
@@ -303,7 +303,7 @@ unsigned int sf_State_Flow_TestM_jit_fallback_info( int nlhs, mxArray * plhs[],
     switch (chartFileNumber) {
      case 15:
       {
-        if (strcmp(tpChksum, "sMizKQjU2UhryZbgTtMwBBG") == 0) {
+        if (strcmp(tpChksum, "sELC6DSfwcTLbv5kZio1UV") == 0) {
           extern mxArray *sf_c15_State_Flow_TestM_jit_fallback_info(void);
           plhs[0] = sf_c15_State_Flow_TestM_jit_fallback_info();
           break;
@@ -340,7 +340,7 @@ unsigned int sf_State_Flow_TestM_updateBuildInfo_args_info( int nlhs, mxArray *
     switch (chartFileNumber) {
      case 15:
       {
-        if (strcmp(tpChksum, "sMizKQjU2UhryZbgTtMwBBG") == 0) {
+        if (strcmp(tpChksum, "sELC6DSfwcTLbv5kZio1UV") == 0) {
           extern mxArray *sf_c15_State_Flow_TestM_updateBuildInfo_args_info(void);
           plhs[0] = sf_c15_State_Flow_TestM_updateBuildInfo_args_info();
           break;
@@ -359,7 +359,7 @@ void State_Flow_TestM_debug_initialize(struct SfDebugInstanceStruct*
   debugInstance)
 {
   _State_Flow_TestMMachineNumber_ = sf_debug_initialize_machine(debugInstance,
-    "State_Flow_TestM","sfun",0,49,0,0,0);
+    "State_Flow_TestM","sfun",0,44,0,0,0);
   sf_debug_set_machine_event_thresholds(debugInstance,
     _State_Flow_TestMMachineNumber_,0,0);
   sf_debug_set_machine_data_thresholds(debugInstance,

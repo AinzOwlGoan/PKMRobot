@@ -17,7 +17,7 @@ typedef struct {
   uint32_T chartNumber;
   uint32_T instanceNumber;
   real_T c15_SampleTime;
-  boolean_T c15_dataWrittenToVector[20];
+  boolean_T c15_dataWrittenToVector[22];
   uint8_T c15_doSetSimStateSideEffects;
   const mxArray *c15_setSimStateSideEffectsInfo;
   void *c15_fEmlrtCtx;
@@ -49,10 +49,13 @@ typedef struct {
   real_T *c15_C1;
   real_T *c15_C2;
   real_T *c15_conv_vite;
-  real_T *c15_velA;
-  real_T *c15_velB;
   real_T *c15_Kp;
   real_T *c15_KP;
+  real_T *c15_Hb;
+  real_T *c15_Hv;
+  real_T *c15_HomeSignal;
+  real_T *c15_avvio;
+  real_T *c15_BeginWork;
   real_T *c15_b_fc;
   real_T *c15_CA;
   real_T *c15_CB;

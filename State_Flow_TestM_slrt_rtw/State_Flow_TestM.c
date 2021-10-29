@@ -7,9 +7,9 @@
  *
  * Code generation for model "State_Flow_TestM".
  *
- * Model version              : 1.635
+ * Model version              : 1.674
  * Simulink Coder version : 8.12 (R2017a) 16-Feb-2017
- * C source code generated on : Mon Oct 25 13:26:12 2021
+ * C source code generated on : Fri Oct 29 13:48:35 2021
  *
  * Target selection: slrt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -221,31 +221,6 @@ void State_Flow_CinematicaInversavel(real_T rtu_theta1, real_T rtu_theta2,
 
 /*
  * Output and update for atomic system:
- *    '<S4>/MATLAB Function'
- *    '<S4>/MATLAB Function2'
- */
-void State_Flow_TestM_MATLABFunction(real_T rtu_x, real_T rtu_y, real_T rtu_bool,
-  B_MATLABFunction_State_Flow_T_T *localB)
-{
-  /* MATLAB Function 'Movimento/MATLAB Function': '<S29>:1' */
-  if (rtu_bool == 4.0) {
-    /* '<S29>:1:2' */
-    /* '<S29>:1:3' */
-    localB->xp = rtu_x;
-
-    /* '<S29>:1:4' */
-    localB->yp = rtu_y;
-  } else {
-    /* '<S29>:1:6' */
-    localB->xp = 0.0;
-
-    /* '<S29>:1:7' */
-    localB->yp = 0.0;
-  }
-}
-
-/*
- * Output and update for atomic system:
  *    '<S34>/Asse A conv bracc'
  *    '<S34>/Asse B conv brac1'
  *    '<S5>/Asse B conv brac1'
@@ -262,7 +237,6 @@ void State_Flow_TestM_AsseAconvbracc(real_T rtu_p,
  * Output and update for atomic system:
  *    '<S35>/Vel Asse A conv'
  *    '<S85>/Vel Asse A conv'
- *    '<S16>/Vel Asse A conv'
  */
 void State_Flow_TestM_VelAsseAconv(real_T rtu_vA,
   B_VelAsseAconv_State_Flow_Tes_T *localB)
@@ -276,7 +250,6 @@ void State_Flow_TestM_VelAsseAconv(real_T rtu_vA,
  * Output and update for atomic system:
  *    '<S35>/Vel Asse B conv'
  *    '<S85>/Vel Asse B conv'
- *    '<S16>/Vel Asse B conv'
  */
 void State_Flow_TestM_VelAsseBconv(real_T rtu_p, B_VelAsseBconv_State_Flow_Tes_T
   *localB)
@@ -293,8 +266,8 @@ void State_Flow_TestM_VelAsseBconv(real_T rtu_p, B_VelAsseBconv_State_Flow_Tes_T
  *    '<S103>/MATLAB Function'
  *    '<S105>/MATLAB Function'
  */
-void State_Flow_Tes_MATLABFunction_e(real_T rtu_now, real_T rtu_old,
-  B_MATLABFunction_State_Flow_l_T *localB)
+void State_Flow_TestM_MATLABFunction(real_T rtu_now, real_T rtu_old,
+  B_MATLABFunction_State_Flow_T_T *localB)
 {
   /* MATLAB Function 'Out Asse A Braccia/Fungo/MATLAB Function': '<S98>:1' */
   if ((rtu_old == 0.0) && (rtu_now == 1.0)) {
@@ -751,28 +724,6 @@ static void State_Flow_TestM_output(void)
       sfcnOutputs(rts,1);
     }
 
-    /* S-Function (xpcethercatpdorx): '<S10>/Motore braccia B' */
-
-    /* Level2 S-Function Block: '<S10>/Motore braccia B' (xpcethercatpdorx) */
-    {
-      SimStruct *rts = State_Flow_TestM_M->childSfunctions[4];
-      sfcnOutputs(rts,1);
-    }
-
-    /* DataTypeConversion: '<S10>/convert 10 ' */
-    State_Flow_TestM_B.convert10 = State_Flow_TestM_B.MotorebracciaB;
-
-    /* S-Function (xpcethercatpdorx): '<S10>/Motore braccia A' */
-
-    /* Level2 S-Function Block: '<S10>/Motore braccia A' (xpcethercatpdorx) */
-    {
-      SimStruct *rts = State_Flow_TestM_M->childSfunctions[5];
-      sfcnOutputs(rts,1);
-    }
-
-    /* DataTypeConversion: '<S10>/convert' */
-    State_Flow_TestM_B.convert = State_Flow_TestM_B.MotorebracciaA;
-
     /* Clock: '<Root>/Clock' */
     State_Flow_TestM_B.Clock = State_Flow_TestM_M->Timing.t[0];
 
@@ -780,29 +731,29 @@ static void State_Flow_TestM_output(void)
 
     /* Level2 S-Function Block: '<S11>/Motore vite A' (xpcethercatpdorx) */
     {
-      SimStruct *rts = State_Flow_TestM_M->childSfunctions[6];
+      SimStruct *rts = State_Flow_TestM_M->childSfunctions[4];
       sfcnOutputs(rts,1);
     }
 
     /* DataTypeConversion: '<S11>/convert' */
-    State_Flow_TestM_B.convert_k = State_Flow_TestM_B.MotoreviteA;
+    State_Flow_TestM_B.convert = State_Flow_TestM_B.MotoreviteA;
 
     /* S-Function (xpcethercatpdorx): '<S11>/Motore vite B' */
 
     /* Level2 S-Function Block: '<S11>/Motore vite B' (xpcethercatpdorx) */
     {
-      SimStruct *rts = State_Flow_TestM_M->childSfunctions[7];
+      SimStruct *rts = State_Flow_TestM_M->childSfunctions[5];
       sfcnOutputs(rts,1);
     }
 
     /* DataTypeConversion: '<S11>/convert 10 ' */
-    State_Flow_TestM_B.convert10_p = State_Flow_TestM_B.MotoreviteB;
+    State_Flow_TestM_B.convert10 = State_Flow_TestM_B.MotoreviteB;
 
     /* S-Function (xpcethercatpdorx): '<S15>/Status Word' */
 
     /* Level2 S-Function Block: '<S15>/Status Word' (xpcethercatpdorx) */
     {
-      SimStruct *rts = State_Flow_TestM_M->childSfunctions[8];
+      SimStruct *rts = State_Flow_TestM_M->childSfunctions[6];
       sfcnOutputs(rts,1);
     }
 
@@ -813,7 +764,7 @@ static void State_Flow_TestM_output(void)
 
     /* Level2 S-Function Block: '<S1>/EtherCAT PDO Receive16' (xpcethercatpdorx) */
     {
-      SimStruct *rts = State_Flow_TestM_M->childSfunctions[9];
+      SimStruct *rts = State_Flow_TestM_M->childSfunctions[7];
       sfcnOutputs(rts,1);
     }
 
@@ -837,6 +788,28 @@ static void State_Flow_TestM_output(void)
     }
 
     /* End of S-Function (scominttobit): '<S1>/Integer to Bit Converter' */
+
+    /* S-Function (xpcethercatpdorx): '<S10>/Motore braccia A' */
+
+    /* Level2 S-Function Block: '<S10>/Motore braccia A' (xpcethercatpdorx) */
+    {
+      SimStruct *rts = State_Flow_TestM_M->childSfunctions[8];
+      sfcnOutputs(rts,1);
+    }
+
+    /* DataTypeConversion: '<S10>/convert' */
+    State_Flow_TestM_B.convert_g = State_Flow_TestM_B.MotorebracciaA;
+
+    /* S-Function (xpcethercatpdorx): '<S10>/Motore braccia B' */
+
+    /* Level2 S-Function Block: '<S10>/Motore braccia B' (xpcethercatpdorx) */
+    {
+      SimStruct *rts = State_Flow_TestM_M->childSfunctions[9];
+      sfcnOutputs(rts,1);
+    }
+
+    /* DataTypeConversion: '<S10>/convert 10 ' */
+    State_Flow_TestM_B.convert10_d = State_Flow_TestM_B.MotorebracciaB;
 
     /* S-Function (xpcethercatpdorx): '<S2>/EtherCAT PDO Receive16' */
 
@@ -867,38 +840,17 @@ static void State_Flow_TestM_output(void)
 
     /* End of S-Function (scominttobit): '<S2>/Integer to Bit Converter' */
 
-    /* S-Function (xpcethercatpdorx): '<S16>/EtherCAT PDO Receive14' */
-
-    /* Level2 S-Function Block: '<S16>/EtherCAT PDO Receive14' (xpcethercatpdorx) */
-    {
-      SimStruct *rts = State_Flow_TestM_M->childSfunctions[11];
-      sfcnOutputs(rts,1);
-    }
-
-    /* DataTypeConversion: '<S16>/Velocity A' */
-    State_Flow_TestM_B.VelocityA = State_Flow_TestM_B.EtherCATPDOReceive14;
-
-    /* MATLAB Function: '<S16>/Vel Asse A conv' */
-    State_Flow_TestM_VelAsseAconv(State_Flow_TestM_B.VelocityA,
-      &State_Flow_TestM_B.sf_VelAsseAconv);
-
-    /* S-Function (xpcethercatpdorx): '<S16>/EtherCAT PDO Receive15' */
-
-    /* Level2 S-Function Block: '<S16>/EtherCAT PDO Receive15' (xpcethercatpdorx) */
-    {
-      SimStruct *rts = State_Flow_TestM_M->childSfunctions[12];
-      sfcnOutputs(rts,1);
-    }
-
-    /* DataTypeConversion: '<S16>/Velocity B' */
-    State_Flow_TestM_B.VelocityB = State_Flow_TestM_B.EtherCATPDOReceive15;
-
-    /* MATLAB Function: '<S16>/Vel Asse B conv' */
-    State_Flow_TestM_VelAsseBconv(State_Flow_TestM_B.VelocityB,
-      &State_Flow_TestM_B.sf_VelAsseBconv);
-
     /* Constant: '<Root>/Kp' */
     State_Flow_TestM_B.Kp = State_Flow_TestM_P.Kp_Value;
+
+    /* Constant: '<Root>/StartHome' */
+    State_Flow_TestM_B.StartHome = State_Flow_TestM_P.StartHome_Value;
+
+    /* Constant: '<Root>/StartRobot' */
+    State_Flow_TestM_B.StartRobot = State_Flow_TestM_P.StartRobot_Value;
+
+    /* Constant: '<Root>/StartWork' */
+    State_Flow_TestM_B.StartWork = State_Flow_TestM_P.StartWork_Value;
 
     /* Chart: '<Root>/State flow robot' */
     if (State_Flow_TestM_DW.temporalCounter_i1 < 8191U) {
@@ -932,7 +884,7 @@ static void State_Flow_TestM_output(void)
         State_Flow_TestM_B.Luci = 2.0;
 
         /* During 'Coppie': '<S14>:95' */
-        if (State_Flow_TestM_B.convert - State_Flow_TestM_DW.OffA_0 >=
+        if (State_Flow_TestM_B.convert_g - State_Flow_TestM_DW.OffA_0 >=
             1.9198621771937625 / State_Flow_TestM_DW.conv) {
           /* Transition: '<S14>:131' */
           State_Flow_TestM_DW.is_c15_State_Flow_TestM = State_Flow_TestM_IN_SetA;
@@ -941,7 +893,7 @@ static void State_Flow_TestM_output(void)
           State_Flow_TestM_B.CoppiaA = 0.0;
           State_Flow_TestM_DW.C1 = 0.0;
         } else {
-          if (State_Flow_TestM_B.convert10 - State_Flow_TestM_DW.OffB_0 >=
+          if (State_Flow_TestM_B.convert10_d - State_Flow_TestM_DW.OffB_0 >=
               0.69813170079773179 / State_Flow_TestM_DW.conv) {
             /* Transition: '<S14>:132' */
             State_Flow_TestM_DW.is_c15_State_Flow_TestM =
@@ -956,8 +908,8 @@ static void State_Flow_TestM_output(void)
 
        case State_Flow_Test_IN_Discesa_Vite:
         /* During 'Discesa_Vite': '<S14>:176' */
-        if (State_Flow_TestM_B.convert_k - State_Flow_TestM_B.OffA_vite >= 0.038
-            / State_Flow_TestM_DW.conv_vite) {
+        if (State_Flow_TestM_B.convert - State_Flow_TestM_B.OffA_vite >= 0.038 /
+            State_Flow_TestM_DW.conv_vite) {
           /* Transition: '<S14>:177' */
           State_Flow_TestM_DW.is_c15_State_Flow_TestM =
             State_Flow_TestM_IN_OffSet;
@@ -966,17 +918,20 @@ static void State_Flow_TestM_output(void)
           State_Flow_TestM_B.CoppiaH = 0.0;
           State_Flow_TestM_B.CoppiaA = 0.0;
           State_Flow_TestM_B.CoppiaB = 0.0;
-          State_Flow_TestM_B.OffA = State_Flow_TestM_B.convert;
-          State_Flow_TestM_B.OffB = State_Flow_TestM_B.convert10;
-          State_Flow_TestM_DW.OffA_0 = State_Flow_TestM_B.convert;
-          State_Flow_TestM_DW.OffB_0 = State_Flow_TestM_B.convert10;
+          State_Flow_TestM_B.OffA = State_Flow_TestM_B.convert_g;
+          State_Flow_TestM_B.OffB = State_Flow_TestM_B.convert10_d;
+          State_Flow_TestM_DW.OffA_0 = State_Flow_TestM_B.convert_g;
+          State_Flow_TestM_DW.OffB_0 = State_Flow_TestM_B.convert10_d;
           State_Flow_TestM_B.Bool = 2.0;
           State_Flow_TestM_B.Luci = 3.0;
+          State_Flow_TestM_B.Hv = 1.0;
         }
         break;
 
        case State_Flow_TestM_IN_Home:
+        State_Flow_TestM_B.Hv = 0.0;
         State_Flow_TestM_B.Luci = 1.0;
+        State_Flow_TestM_B.Hb = 0.0;
         State_Flow_TestM_B.Bool = 1.0;
 
         /* During 'Home': '<S14>:29' */
@@ -1004,23 +959,30 @@ static void State_Flow_TestM_output(void)
         break;
 
        case State_Flow_TestM_IN_OffSet:
-        /* During 'OffSet': '<S14>:87' */
-        /* Transition: '<S14>:90' */
-        State_Flow_TestM_DW.is_c15_State_Flow_TestM =
-          State_Flow_TestM_IN_Traiettoria;
-        State_Flow_TestM_DW.temporalCounter_i1 = 0U;
+        State_Flow_TestM_B.Hv = 1.0;
+        State_Flow_TestM_B.Luci = 3.0;
+        State_Flow_TestM_B.Bool = 2.0;
 
-        /* Entry 'Traiettoria': '<S14>:147' */
-        State_Flow_TestM_B.OffT = State_Flow_TestM_B.Clock;
-        State_Flow_TestM_B.OffA_vite = State_Flow_TestM_B.convert_k;
-        State_Flow_TestM_B.OffB_vite = State_Flow_TestM_B.convert10_p;
-        State_Flow_TestM_B.Luci = 4.0;
-        State_Flow_TestM_B.Bool = 4.0;
+        /* During 'OffSet': '<S14>:87' */
+        if (State_Flow_TestM_B.StartWork == 1.0) {
+          /* Transition: '<S14>:90' */
+          State_Flow_TestM_DW.is_c15_State_Flow_TestM =
+            State_Flow_TestM_IN_Traiettoria;
+          State_Flow_TestM_DW.temporalCounter_i1 = 0U;
+
+          /* Entry 'Traiettoria': '<S14>:147' */
+          State_Flow_TestM_B.OffT = State_Flow_TestM_B.Clock;
+          State_Flow_TestM_B.OffA_vite = State_Flow_TestM_B.convert;
+          State_Flow_TestM_B.OffB_vite = State_Flow_TestM_B.convert10;
+          State_Flow_TestM_B.Luci = 4.0;
+          State_Flow_TestM_B.Bool = 4.0;
+          State_Flow_TestM_B.Hb = 1.0;
+        }
         break;
 
        case State_Flow_TestM_IN_SetA:
         /* During 'SetA': '<S14>:129' */
-        if (State_Flow_TestM_B.convert10 - State_Flow_TestM_DW.OffB_0 >=
+        if (State_Flow_TestM_B.convert10_d - State_Flow_TestM_DW.OffB_0 >=
             0.69813170079773179 / State_Flow_TestM_DW.conv) {
           /* Transition: '<S14>:133' */
           State_Flow_TestM_DW.is_c15_State_Flow_TestM =
@@ -1040,14 +1002,14 @@ static void State_Flow_TestM_output(void)
             State_Flow_Test_IN_Discesa_Vite;
 
           /* Entry 'Discesa_Vite': '<S14>:176' */
-          State_Flow_TestM_B.OffA_vite = State_Flow_TestM_B.convert_k;
+          State_Flow_TestM_B.OffA_vite = State_Flow_TestM_B.convert;
           State_Flow_TestM_B.CoppiaH = 700.0;
         }
         break;
 
        case State_Flow_TestM_IN_SetB:
         /* During 'SetB': '<S14>:130' */
-        if (State_Flow_TestM_B.convert - State_Flow_TestM_DW.OffA_0 >=
+        if (State_Flow_TestM_B.convert_g - State_Flow_TestM_DW.OffA_0 >=
             1.9198621771937625 / State_Flow_TestM_DW.conv) {
           /* Transition: '<S14>:134' */
           State_Flow_TestM_DW.is_c15_State_Flow_TestM =
@@ -1067,7 +1029,7 @@ static void State_Flow_TestM_output(void)
             State_Flow_Test_IN_Discesa_Vite;
 
           /* Entry 'Discesa_Vite': '<S14>:176' */
-          State_Flow_TestM_B.OffA_vite = State_Flow_TestM_B.convert_k;
+          State_Flow_TestM_B.OffA_vite = State_Flow_TestM_B.convert;
           State_Flow_TestM_B.CoppiaH = 700.0;
         }
         break;
@@ -1076,7 +1038,9 @@ static void State_Flow_TestM_output(void)
         State_Flow_TestM_B.Bool = -1.0;
 
         /* During 'Step1': '<S14>:28' */
-        if (State_Flow_TestM_B.DataTypeConversion6 == 1079.0) {
+        sf_internal_predicateOutput = ((State_Flow_TestM_B.DataTypeConversion6 ==
+          1079.0) && (State_Flow_TestM_B.StartRobot == 1.0));
+        if (sf_internal_predicateOutput) {
           /* Transition: '<S14>:35' */
           State_Flow_TestM_DW.is_c15_State_Flow_TestM =
             State_Flow_TestM_IN_Step4;
@@ -1097,8 +1061,8 @@ static void State_Flow_TestM_output(void)
             State_Flow_TestM_IN_Coppie;
 
           /* Entry 'Coppie': '<S14>:95' */
-          State_Flow_TestM_DW.OffA_0 = State_Flow_TestM_B.convert;
-          State_Flow_TestM_DW.OffB_0 = State_Flow_TestM_B.convert10;
+          State_Flow_TestM_DW.OffA_0 = State_Flow_TestM_B.convert_g;
+          State_Flow_TestM_DW.OffB_0 = State_Flow_TestM_B.convert10_d;
           State_Flow_TestM_B.CoppiaA = 250.0;
           State_Flow_TestM_B.CoppiaB = 250.0;
           State_Flow_TestM_B.CoppiaH = 0.0;
@@ -1114,8 +1078,8 @@ static void State_Flow_TestM_output(void)
             State_Flow_TestM_IN_Coppie;
 
           /* Entry 'Coppie': '<S14>:95' */
-          State_Flow_TestM_DW.OffA_0 = State_Flow_TestM_B.convert;
-          State_Flow_TestM_DW.OffB_0 = State_Flow_TestM_B.convert10;
+          State_Flow_TestM_DW.OffA_0 = State_Flow_TestM_B.convert_g;
+          State_Flow_TestM_DW.OffB_0 = State_Flow_TestM_B.convert10_d;
           State_Flow_TestM_B.CoppiaA = 250.0;
           State_Flow_TestM_B.CoppiaB = 250.0;
           State_Flow_TestM_B.CoppiaH = 0.0;
@@ -1127,58 +1091,62 @@ static void State_Flow_TestM_output(void)
         State_Flow_TestM_B.Bool = 0.0;
 
         /* During 'Step4': '<S14>:231' */
-        /* Transition: '<S14>:232' */
-        State_Flow_TestM_DW.is_c15_State_Flow_TestM = State_Flow_TestM_IN_Home;
+        if (State_Flow_TestM_B.StartHome == 1.0) {
+          /* Transition: '<S14>:232' */
+          State_Flow_TestM_DW.is_c15_State_Flow_TestM = State_Flow_TestM_IN_Home;
 
-        /* Entry 'Home': '<S14>:29' */
-        /* Simulink Function 'Homing': '<S14>:31' */
-        State_Flow_TestM_B.fc = State_Flow_TestM_B.IntegertoBitConverter[14];
-        State_Flow_TestM_B.fcA = State_Flow_TestM_B.IntegertoBitConverter_d[7];
-        State_Flow_TestM_B.fcB = State_Flow_TestM_B.IntegertoBitConverter_d[14];
+          /* Entry 'Home': '<S14>:29' */
+          /* Simulink Function 'Homing': '<S14>:31' */
+          State_Flow_TestM_B.fc = State_Flow_TestM_B.IntegertoBitConverter[14];
+          State_Flow_TestM_B.fcA = State_Flow_TestM_B.IntegertoBitConverter_d[7];
+          State_Flow_TestM_B.fcB = State_Flow_TestM_B.IntegertoBitConverter_d[14];
 
-        /* Outputs for Function Call SubSystem: '<S14>/Homing' */
-        /* MATLAB Function: '<S131>/MATLAB Function' */
-        /* MATLAB Function 'State flow robot/Homing/MATLAB Function': '<S134>:1' */
-        /* '<S134>:1:3' */
-        State_Flow_TestM_B.CA = -250.0;
+          /* Outputs for Function Call SubSystem: '<S14>/Homing' */
+          /* MATLAB Function: '<S131>/MATLAB Function' */
+          /* MATLAB Function 'State flow robot/Homing/MATLAB Function': '<S134>:1' */
+          /* '<S134>:1:3' */
+          State_Flow_TestM_B.CA = -250.0;
 
-        /* '<S134>:1:4' */
-        State_Flow_TestM_B.CB = -250.0;
+          /* '<S134>:1:4' */
+          State_Flow_TestM_B.CB = -250.0;
 
-        /* '<S134>:1:5' */
-        State_Flow_TestM_B.CH = -600.0;
-        if (State_Flow_TestM_B.fc < 1.0) {
-          /* '<S134>:1:7' */
-          /* '<S134>:1:8' */
-          State_Flow_TestM_B.CH = 0.0;
+          /* '<S134>:1:5' */
+          State_Flow_TestM_B.CH = -600.0;
+          if (State_Flow_TestM_B.fc < 1.0) {
+            /* '<S134>:1:7' */
+            /* '<S134>:1:8' */
+            State_Flow_TestM_B.CH = 0.0;
+          }
+
+          if (State_Flow_TestM_B.fcA == 1.0) {
+            /* '<S134>:1:10' */
+            /* '<S134>:1:11' */
+            State_Flow_TestM_B.CA = 0.0;
+          }
+
+          if (State_Flow_TestM_B.fcB == 1.0) {
+            /* '<S134>:1:13' */
+            /* '<S134>:1:14' */
+            State_Flow_TestM_B.CB = 0.0;
+          }
+
+          /* End of MATLAB Function: '<S131>/MATLAB Function' */
+          State_Flow_TestM_DW.Homing_SubsysRanBC = 4;
+
+          /* End of Outputs for SubSystem: '<S14>/Homing' */
+          State_Flow_TestM_B.CoppiaA = State_Flow_TestM_B.CA;
+          State_Flow_TestM_B.CoppiaB = State_Flow_TestM_B.CB;
+          State_Flow_TestM_B.CoppiaH = State_Flow_TestM_B.CH;
+          State_Flow_TestM_B.Bool = 1.0;
+          State_Flow_TestM_DW.conv = 5.9921124526782858E-6;
+          State_Flow_TestM_DW.conv_vite = 1.220703125E-7;
+          State_Flow_TestM_B.Luci = 1.0;
+          State_Flow_TestM_DW.C1 = 1.0;
+          State_Flow_TestM_DW.C2 = 1.0;
+          State_Flow_TestM_B.Kp_a = State_Flow_TestM_B.Kp;
+          State_Flow_TestM_B.Hb = 0.0;
+          State_Flow_TestM_B.Hv = 0.0;
         }
-
-        if (State_Flow_TestM_B.fcA == 1.0) {
-          /* '<S134>:1:10' */
-          /* '<S134>:1:11' */
-          State_Flow_TestM_B.CA = 0.0;
-        }
-
-        if (State_Flow_TestM_B.fcB == 1.0) {
-          /* '<S134>:1:13' */
-          /* '<S134>:1:14' */
-          State_Flow_TestM_B.CB = 0.0;
-        }
-
-        /* End of MATLAB Function: '<S131>/MATLAB Function' */
-        State_Flow_TestM_DW.Homing_SubsysRanBC = 4;
-
-        /* End of Outputs for SubSystem: '<S14>/Homing' */
-        State_Flow_TestM_B.CoppiaA = State_Flow_TestM_B.CA;
-        State_Flow_TestM_B.CoppiaB = State_Flow_TestM_B.CB;
-        State_Flow_TestM_B.CoppiaH = State_Flow_TestM_B.CH;
-        State_Flow_TestM_B.Bool = 1.0;
-        State_Flow_TestM_DW.conv = 5.9921124526782858E-6;
-        State_Flow_TestM_DW.conv_vite = 1.220703125E-7;
-        State_Flow_TestM_B.Luci = 1.0;
-        State_Flow_TestM_DW.C1 = 1.0;
-        State_Flow_TestM_DW.C2 = 1.0;
-        State_Flow_TestM_B.Kp_a = State_Flow_TestM_B.Kp;
         break;
 
        case State_Flow_TestM_IN_Test_Kp:
@@ -1195,12 +1163,13 @@ static void State_Flow_TestM_output(void)
           State_Flow_TestM_B.CoppiaH = 0.0;
           State_Flow_TestM_B.CoppiaA = 0.0;
           State_Flow_TestM_B.CoppiaB = 0.0;
-          State_Flow_TestM_B.OffA = State_Flow_TestM_B.convert;
-          State_Flow_TestM_B.OffB = State_Flow_TestM_B.convert10;
-          State_Flow_TestM_DW.OffA_0 = State_Flow_TestM_B.convert;
-          State_Flow_TestM_DW.OffB_0 = State_Flow_TestM_B.convert10;
+          State_Flow_TestM_B.OffA = State_Flow_TestM_B.convert_g;
+          State_Flow_TestM_B.OffB = State_Flow_TestM_B.convert10_d;
+          State_Flow_TestM_DW.OffA_0 = State_Flow_TestM_B.convert_g;
+          State_Flow_TestM_DW.OffB_0 = State_Flow_TestM_B.convert10_d;
           State_Flow_TestM_B.Bool = 2.0;
           State_Flow_TestM_B.Luci = 3.0;
+          State_Flow_TestM_B.Hv = 1.0;
         } else {
           if (State_Flow_TestM_B.Kp_a >= 7000.0) {
             /* Transition: '<S14>:229' */
@@ -1216,6 +1185,7 @@ static void State_Flow_TestM_output(void)
 
        default:
         State_Flow_TestM_B.Luci = 4.0;
+        State_Flow_TestM_B.Hb = 1.0;
         State_Flow_TestM_B.Bool = 4.0;
 
         /* During 'Traiettoria': '<S14>:147' */
@@ -1234,7 +1204,6 @@ static void State_Flow_TestM_output(void)
     }
 
     /* End of Chart: '<Root>/State flow robot' */
-
     /* MATLAB Function: '<S3>/MATLAB Function1' */
     /* MATLAB Function 'LED Status/MATLAB Function1': '<S18>:1' */
     if ((State_Flow_TestM_B.Luci == 1.0) || (State_Flow_TestM_B.Luci == 2.0) ||
@@ -1256,7 +1225,7 @@ static void State_Flow_TestM_output(void)
 
     /* Level2 S-Function Block: '<S3>/Luce Bianca' (xpcethercatpdotx) */
     {
-      SimStruct *rts = State_Flow_TestM_M->childSfunctions[13];
+      SimStruct *rts = State_Flow_TestM_M->childSfunctions[11];
       sfcnOutputs(rts,1);
     }
 
@@ -1280,7 +1249,7 @@ static void State_Flow_TestM_output(void)
 
     /* Level2 S-Function Block: '<S3>/Luce Rossa ' (xpcethercatpdotx) */
     {
-      SimStruct *rts = State_Flow_TestM_M->childSfunctions[14];
+      SimStruct *rts = State_Flow_TestM_M->childSfunctions[12];
       sfcnOutputs(rts,1);
     }
 
@@ -1304,7 +1273,7 @@ static void State_Flow_TestM_output(void)
 
     /* Level2 S-Function Block: '<S3>/Luce Verde' (xpcethercatpdotx) */
     {
-      SimStruct *rts = State_Flow_TestM_M->childSfunctions[15];
+      SimStruct *rts = State_Flow_TestM_M->childSfunctions[13];
       sfcnOutputs(rts,1);
     }
 
@@ -1312,7 +1281,7 @@ static void State_Flow_TestM_output(void)
     State_Flow_TestM_B.Memory = State_Flow_TestM_DW.Memory_PreviousInput;
 
     /* Sum: '<S34>/Sum12' */
-    State_Flow_TestM_B.Sum12 = State_Flow_TestM_B.convert10 -
+    State_Flow_TestM_B.Sum12 = State_Flow_TestM_B.convert10_d -
       State_Flow_TestM_B.OffB;
 
     /* MATLAB Function: '<S34>/Asse B conv brac1' */
@@ -1326,7 +1295,7 @@ static void State_Flow_TestM_output(void)
       State_Flow_TestM_P.Constant4_Value;
 
     /* Sum: '<S34>/Sum9' */
-    State_Flow_TestM_B.Sum9 = State_Flow_TestM_B.convert -
+    State_Flow_TestM_B.Sum9 = State_Flow_TestM_B.convert_g -
       State_Flow_TestM_B.OffA;
 
     /* MATLAB Function: '<S34>/Asse A conv bracc' */
@@ -1343,34 +1312,34 @@ static void State_Flow_TestM_output(void)
 
     /* Level2 S-Function Block: '<S36>/EtherCAT PDO Receive15' (xpcethercatpdorx) */
     {
-      SimStruct *rts = State_Flow_TestM_M->childSfunctions[16];
+      SimStruct *rts = State_Flow_TestM_M->childSfunctions[14];
       sfcnOutputs(rts,1);
     }
 
     /* DataTypeConversion: '<S36>/Velocity B' */
-    State_Flow_TestM_B.VelocityB_c = State_Flow_TestM_B.EtherCATPDOReceive15_i;
+    State_Flow_TestM_B.VelocityB = State_Flow_TestM_B.EtherCATPDOReceive15;
 
     /* MATLAB Function: '<S36>/Vel Asse B conv' */
-    /* MATLAB Function 'Movimento/Velocita vite 1/Vel Asse B conv': '<S72>:1' */
+    /* MATLAB Function 'Movimento/Velocita braccia 1/Vel Asse B conv': '<S72>:1' */
     /* '<S72>:1:2' */
-    State_Flow_TestM_B.vel_B_conv_a = State_Flow_TestM_B.VelocityB_c *
+    State_Flow_TestM_B.vel_B_conv_a = State_Flow_TestM_B.VelocityB *
       6.2831853071795862 / 163840.0 / 64.0;
 
     /* S-Function (xpcethercatpdorx): '<S36>/EtherCAT PDO Receive14' */
 
     /* Level2 S-Function Block: '<S36>/EtherCAT PDO Receive14' (xpcethercatpdorx) */
     {
-      SimStruct *rts = State_Flow_TestM_M->childSfunctions[17];
+      SimStruct *rts = State_Flow_TestM_M->childSfunctions[15];
       sfcnOutputs(rts,1);
     }
 
     /* DataTypeConversion: '<S36>/Velocity A' */
-    State_Flow_TestM_B.VelocityA_g = State_Flow_TestM_B.EtherCATPDOReceive14_k;
+    State_Flow_TestM_B.VelocityA = State_Flow_TestM_B.EtherCATPDOReceive14;
 
     /* MATLAB Function: '<S36>/Vel Asse A conv' */
-    /* MATLAB Function 'Movimento/Velocita vite 1/Vel Asse A conv': '<S71>:1' */
+    /* MATLAB Function 'Movimento/Velocita braccia 1/Vel Asse A conv': '<S71>:1' */
     /* '<S71>:1:2' */
-    State_Flow_TestM_B.vel_A_conv_b = State_Flow_TestM_B.VelocityA_g *
+    State_Flow_TestM_B.vel_A_conv_b = State_Flow_TestM_B.VelocityA *
       6.2831853071795862 / 163840.0 / 64.0;
 
     /* MATLAB Function: '<S33>/Cinematica Inversa2' incorporates:
@@ -4519,7 +4488,7 @@ static void State_Flow_TestM_output(void)
 
     /* Level2 S-Function Block: '<S35>/EtherCAT PDO Receive15' (xpcethercatpdorx) */
     {
-      SimStruct *rts = State_Flow_TestM_M->childSfunctions[18];
+      SimStruct *rts = State_Flow_TestM_M->childSfunctions[16];
       sfcnOutputs(rts,1);
     }
 
@@ -4534,7 +4503,7 @@ static void State_Flow_TestM_output(void)
 
     /* Level2 S-Function Block: '<S35>/EtherCAT PDO Receive14' (xpcethercatpdorx) */
     {
-      SimStruct *rts = State_Flow_TestM_M->childSfunctions[19];
+      SimStruct *rts = State_Flow_TestM_M->childSfunctions[17];
       sfcnOutputs(rts,1);
     }
 
@@ -4980,31 +4949,40 @@ static void State_Flow_TestM_output(void)
       State_Flow_TestM_B.Mm[bitIdx + 2] = Jm[bitIdx + 2] + x2;
     }
 
-    sf_internal_predicateOutput = true;
-    bitIdx = 0;
-    exitg1 = false;
-    while ((!exitg1) && (bitIdx + 1 < 5)) {
-      if (!(State_Flow_TestM_B.Mm[bitIdx] < State_Flow_TestM_B.Memory_d[bitIdx]))
-      {
-        sf_internal_predicateOutput = false;
-        exitg1 = true;
-      } else {
-        bitIdx++;
+    if (State_Flow_TestM_B.Bool == 4.0) {
+      /* '<S27>:1:108' */
+      sf_internal_predicateOutput = true;
+      bitIdx = 0;
+      exitg1 = false;
+      while ((!exitg1) && (bitIdx + 1 < 5)) {
+        if (!(State_Flow_TestM_B.Mm[bitIdx] < State_Flow_TestM_B.Memory_d[bitIdx]))
+        {
+          sf_internal_predicateOutput = false;
+          exitg1 = true;
+        } else {
+          bitIdx++;
+        }
       }
-    }
 
-    if (sf_internal_predicateOutput) {
-      /* '<S27>:1:110' */
-      State_Flow_TestM_B.Mpi[0] = State_Flow_TestM_B.Mm[0];
-      State_Flow_TestM_B.Mpi[1] = State_Flow_TestM_B.Mm[1];
-      State_Flow_TestM_B.Mpi[2] = State_Flow_TestM_B.Mm[2];
-      State_Flow_TestM_B.Mpi[3] = State_Flow_TestM_B.Mm[3];
+      if (sf_internal_predicateOutput) {
+        /* '<S27>:1:110' */
+        State_Flow_TestM_B.Mpi[0] = State_Flow_TestM_B.Mm[0];
+        State_Flow_TestM_B.Mpi[1] = State_Flow_TestM_B.Mm[1];
+        State_Flow_TestM_B.Mpi[2] = State_Flow_TestM_B.Mm[2];
+        State_Flow_TestM_B.Mpi[3] = State_Flow_TestM_B.Mm[3];
+      } else {
+        /* '<S27>:1:112' */
+        State_Flow_TestM_B.Mpi[0] = State_Flow_TestM_B.Memory_d[0];
+        State_Flow_TestM_B.Mpi[1] = State_Flow_TestM_B.Memory_d[1];
+        State_Flow_TestM_B.Mpi[2] = State_Flow_TestM_B.Memory_d[2];
+        State_Flow_TestM_B.Mpi[3] = State_Flow_TestM_B.Memory_d[3];
+      }
     } else {
-      /* '<S27>:1:112' */
-      State_Flow_TestM_B.Mpi[0] = State_Flow_TestM_B.Memory_d[0];
-      State_Flow_TestM_B.Mpi[1] = State_Flow_TestM_B.Memory_d[1];
-      State_Flow_TestM_B.Mpi[2] = State_Flow_TestM_B.Memory_d[2];
-      State_Flow_TestM_B.Mpi[3] = State_Flow_TestM_B.Memory_d[3];
+      /* '<S27>:1:115' */
+      State_Flow_TestM_B.Mpi[0] = 2.0;
+      State_Flow_TestM_B.Mpi[1] = 2.0;
+      State_Flow_TestM_B.Mpi[2] = 2.0;
+      State_Flow_TestM_B.Mpi[3] = 2.0;
     }
 
     /*  Km = (Jtrasm'*K*Jtrasm); */
@@ -5016,10 +4994,10 @@ static void State_Flow_TestM_output(void)
     /*  Aol = [zeros(2,2) eye(2,2); zeros(2,2), zeros(2,2)]; */
     /*  Bt = [zeros(2,2); Mm_^-1]; */
     /*  Acl = Aol - Bt*[Kp Kd]; */
-    /* '<S27>:1:126' */
+    /* '<S27>:1:129' */
     State_Flow_TestM_B.C1 = Theta_pp[0];
 
-    /* '<S27>:1:127' */
+    /* '<S27>:1:130' */
     State_Flow_TestM_B.C2 = Theta_pp[1];
 
     /* End of MATLAB Function: '<S4>/Dinamica Inversa1' */
@@ -5090,7 +5068,7 @@ static void State_Flow_TestM_output(void)
 
     /* Level2 S-Function Block: '<S6>/EtherCAT PDO Transmit 1' (xpcethercatpdotx) */
     {
-      SimStruct *rts = State_Flow_TestM_M->childSfunctions[20];
+      SimStruct *rts = State_Flow_TestM_M->childSfunctions[18];
       sfcnOutputs(rts,1);
     }
 
@@ -5098,7 +5076,7 @@ static void State_Flow_TestM_output(void)
 
     /* Level2 S-Function Block: '<S95>/EtherCAT PDO Receive9' (xpcethercatpdorx) */
     {
-      SimStruct *rts = State_Flow_TestM_M->childSfunctions[21];
+      SimStruct *rts = State_Flow_TestM_M->childSfunctions[19];
       sfcnOutputs(rts,1);
     }
 
@@ -5107,7 +5085,7 @@ static void State_Flow_TestM_output(void)
       State_Flow_TestM_B.EtherCATPDOReceive9;
 
     /* MATLAB Function: '<S95>/MATLAB Function' */
-    State_Flow_Tes_MATLABFunction_e(State_Flow_TestM_B.Memory,
+    State_Flow_TestM_MATLABFunction(State_Flow_TestM_B.Memory,
       State_Flow_TestM_B.DataTypeConversion14,
       &State_Flow_TestM_B.sf_MATLABFunction_e);
 
@@ -5169,7 +5147,7 @@ static void State_Flow_TestM_output(void)
 
     /* Level2 S-Function Block: '<S7>/EtherCAT PDO Transmit 7' (xpcethercatpdotx) */
     {
-      SimStruct *rts = State_Flow_TestM_M->childSfunctions[22];
+      SimStruct *rts = State_Flow_TestM_M->childSfunctions[20];
       sfcnOutputs(rts,1);
     }
 
@@ -5177,7 +5155,7 @@ static void State_Flow_TestM_output(void)
 
     /* Level2 S-Function Block: '<S99>/EtherCAT PDO Receive9' (xpcethercatpdorx) */
     {
-      SimStruct *rts = State_Flow_TestM_M->childSfunctions[23];
+      SimStruct *rts = State_Flow_TestM_M->childSfunctions[21];
       sfcnOutputs(rts,1);
     }
 
@@ -5186,7 +5164,7 @@ static void State_Flow_TestM_output(void)
       State_Flow_TestM_B.EtherCATPDOReceive9_h;
 
     /* MATLAB Function: '<S99>/MATLAB Function' */
-    State_Flow_Tes_MATLABFunction_e(State_Flow_TestM_B.Memory_g,
+    State_Flow_TestM_MATLABFunction(State_Flow_TestM_B.Memory_g,
       State_Flow_TestM_B.DataTypeConversion14_g,
       &State_Flow_TestM_B.sf_MATLABFunction_a);
 
@@ -5194,7 +5172,7 @@ static void State_Flow_TestM_output(void)
     State_Flow_TestM_B.Memory_n = State_Flow_TestM_DW.Memory_PreviousInput_g;
 
     /* Sum: '<S117>/Sum' */
-    State_Flow_TestM_B.Sum_i = State_Flow_TestM_B.convert_k -
+    State_Flow_TestM_B.Sum_i = State_Flow_TestM_B.convert -
       State_Flow_TestM_B.OffA_vite;
 
     /* MATLAB Function: '<S126>/Asse A conv' */
@@ -5204,7 +5182,7 @@ static void State_Flow_TestM_output(void)
       6.2831853071795862 * 3.1415926535897931 / 2048.0 / 40.0;
 
     /* Sum: '<S13>/Sum3' */
-    State_Flow_TestM_B.Sum3 = State_Flow_TestM_B.convert10_p -
+    State_Flow_TestM_B.Sum3 = State_Flow_TestM_B.convert10 -
       State_Flow_TestM_B.OffB_vite;
 
     /* MATLAB Function: '<S126>/Asse B conv v' */
@@ -5233,7 +5211,7 @@ static void State_Flow_TestM_output(void)
 
     /* Level2 S-Function Block: '<S124>/EtherCAT PDO Receive14' (xpcethercatpdorx) */
     {
-      SimStruct *rts = State_Flow_TestM_M->childSfunctions[24];
+      SimStruct *rts = State_Flow_TestM_M->childSfunctions[22];
       sfcnOutputs(rts,1);
     }
 
@@ -5244,7 +5222,7 @@ static void State_Flow_TestM_output(void)
 
     /* Level2 S-Function Block: '<S124>/EtherCAT PDO Receive15' (xpcethercatpdorx) */
     {
-      SimStruct *rts = State_Flow_TestM_M->childSfunctions[25];
+      SimStruct *rts = State_Flow_TestM_M->childSfunctions[23];
       sfcnOutputs(rts,1);
     }
 
@@ -5346,7 +5324,7 @@ static void State_Flow_TestM_output(void)
 
     /* Level2 S-Function Block: '<S8>/Torque send' (xpcethercatpdotx) */
     {
-      SimStruct *rts = State_Flow_TestM_M->childSfunctions[26];
+      SimStruct *rts = State_Flow_TestM_M->childSfunctions[24];
       sfcnOutputs(rts,1);
     }
 
@@ -5354,7 +5332,7 @@ static void State_Flow_TestM_output(void)
 
     /* Level2 S-Function Block: '<S103>/EtherCAT PDO Receive9' (xpcethercatpdorx) */
     {
-      SimStruct *rts = State_Flow_TestM_M->childSfunctions[27];
+      SimStruct *rts = State_Flow_TestM_M->childSfunctions[25];
       sfcnOutputs(rts,1);
     }
 
@@ -5363,7 +5341,7 @@ static void State_Flow_TestM_output(void)
       State_Flow_TestM_B.EtherCATPDOReceive9_hd;
 
     /* MATLAB Function: '<S103>/MATLAB Function' */
-    State_Flow_Tes_MATLABFunction_e(State_Flow_TestM_B.Memory_n,
+    State_Flow_TestM_MATLABFunction(State_Flow_TestM_B.Memory_n,
       State_Flow_TestM_B.DataTypeConversion14_k,
       &State_Flow_TestM_B.sf_MATLABFunction_f);
 
@@ -5459,7 +5437,7 @@ static void State_Flow_TestM_output(void)
 
     /* Level2 S-Function Block: '<S9>/EtherCAT PDO Transmit 2' (xpcethercatpdotx) */
     {
-      SimStruct *rts = State_Flow_TestM_M->childSfunctions[28];
+      SimStruct *rts = State_Flow_TestM_M->childSfunctions[26];
       sfcnOutputs(rts,1);
     }
 
@@ -5467,7 +5445,7 @@ static void State_Flow_TestM_output(void)
 
     /* Level2 S-Function Block: '<S105>/EtherCAT PDO Receive9' (xpcethercatpdorx) */
     {
-      SimStruct *rts = State_Flow_TestM_M->childSfunctions[29];
+      SimStruct *rts = State_Flow_TestM_M->childSfunctions[27];
       sfcnOutputs(rts,1);
     }
 
@@ -5476,7 +5454,7 @@ static void State_Flow_TestM_output(void)
       State_Flow_TestM_B.EtherCATPDOReceive9_d;
 
     /* MATLAB Function: '<S105>/MATLAB Function' */
-    State_Flow_Tes_MATLABFunction_e(State_Flow_TestM_B.Memory_a,
+    State_Flow_TestM_MATLABFunction(State_Flow_TestM_B.Memory_a,
       State_Flow_TestM_B.DataTypeConversion14_e,
       &State_Flow_TestM_B.sf_MATLABFunction_i);
 
@@ -5673,34 +5651,24 @@ static void State_Flow_TestM_output(void)
     State_Flow_TestM_B.Sum3_b = State_Flow_TestM_B.y_pp_l -
       State_Flow_TestM_B.MultiportSwitch[5];
 
-    /* MATLAB Function: '<S4>/MATLAB Function' */
-    State_Flow_TestM_MATLABFunction(State_Flow_TestM_B.MultiportSwitch[0],
-      State_Flow_TestM_B.MultiportSwitch[1], State_Flow_TestM_B.Bool,
-      &State_Flow_TestM_B.sf_MATLABFunction_p);
-
-    /* MATLAB Function: '<S4>/MATLAB Function1' */
-    /* MATLAB Function 'Movimento/MATLAB Function1': '<S30>:1' */
+    /* MATLAB Function: '<S4>/MATLAB Function2' */
+    /* MATLAB Function 'Movimento/MATLAB Function2': '<S31>:1' */
     if (State_Flow_TestM_B.Bool == 4.0) {
-      /* '<S30>:1:2' */
-      /* '<S30>:1:3' */
-      State_Flow_TestM_B.xp = State_Flow_TestM_B.MultiportSwitch[0];
+      /* '<S31>:1:2' */
+      /* '<S31>:1:3' */
+      State_Flow_TestM_B.xp = State_Flow_TestM_B.x_n;
 
-      /* '<S30>:1:4' */
-      State_Flow_TestM_B.zp = -State_Flow_TestM_B.sf_RifermentoAsseAVite.ldm_pos;
+      /* '<S31>:1:4' */
+      State_Flow_TestM_B.yp = State_Flow_TestM_B.y_k;
     } else {
-      /* '<S30>:1:6' */
+      /* '<S31>:1:6' */
       State_Flow_TestM_B.xp = 0.0;
 
-      /* '<S30>:1:7' */
-      State_Flow_TestM_B.zp = 0.0;
+      /* '<S31>:1:7' */
+      State_Flow_TestM_B.yp = 0.0;
     }
 
-    /* End of MATLAB Function: '<S4>/MATLAB Function1' */
-
-    /* MATLAB Function: '<S4>/MATLAB Function2' */
-    State_Flow_TestM_MATLABFunction(State_Flow_TestM_B.x_n,
-      State_Flow_TestM_B.y_k, State_Flow_TestM_B.Bool,
-      &State_Flow_TestM_B.sf_MATLABFunction2_i);
+    /* End of MATLAB Function: '<S4>/MATLAB Function2' */
 
     /* SampleTimeMath: '<S50>/TSamp'
      *
@@ -5993,7 +5961,7 @@ static void State_Flow_TestM_output(void)
     State_Flow_TestM_B.Memory1 = State_Flow_TestM_DW.Memory1_PreviousInput;
 
     /* Sum: '<S5>/Sum12' */
-    State_Flow_TestM_B.Sum12_a = State_Flow_TestM_B.convert10 -
+    State_Flow_TestM_B.Sum12_a = State_Flow_TestM_B.convert10_d -
       State_Flow_TestM_B.OffB;
 
     /* MATLAB Function: '<S5>/Asse B conv brac1' */
@@ -6007,7 +5975,7 @@ static void State_Flow_TestM_output(void)
       State_Flow_TestM_B.sf_AsseBconvbrac1_f.pos_B_conv;
 
     /* Sum: '<S5>/Sum4' */
-    State_Flow_TestM_B.Sum4_nw = State_Flow_TestM_B.convert -
+    State_Flow_TestM_B.Sum4_nw = State_Flow_TestM_B.convert_g -
       State_Flow_TestM_B.OffA;
 
     /* MATLAB Function: '<S5>/Asse A conv brac' */
@@ -6104,7 +6072,7 @@ static void State_Flow_TestM_output(void)
 
     /* Level2 S-Function Block: '<S85>/EtherCAT PDO Receive15' (xpcethercatpdorx) */
     {
-      SimStruct *rts = State_Flow_TestM_M->childSfunctions[30];
+      SimStruct *rts = State_Flow_TestM_M->childSfunctions[28];
       sfcnOutputs(rts,1);
     }
 
@@ -6127,7 +6095,7 @@ static void State_Flow_TestM_output(void)
 
     /* Level2 S-Function Block: '<S85>/EtherCAT PDO Receive14' (xpcethercatpdorx) */
     {
-      SimStruct *rts = State_Flow_TestM_M->childSfunctions[31];
+      SimStruct *rts = State_Flow_TestM_M->childSfunctions[29];
       sfcnOutputs(rts,1);
     }
 
@@ -6609,28 +6577,10 @@ static void State_Flow_TestM_initialize(void)
         return;
     }
 
-    /* Start for S-Function (xpcethercatpdorx): '<S10>/Motore braccia B' */
-    /* Level2 S-Function Block: '<S10>/Motore braccia B' (xpcethercatpdorx) */
-    {
-      SimStruct *rts = State_Flow_TestM_M->childSfunctions[4];
-      sfcnStart(rts);
-      if (ssGetErrorStatus(rts) != (NULL))
-        return;
-    }
-
-    /* Start for S-Function (xpcethercatpdorx): '<S10>/Motore braccia A' */
-    /* Level2 S-Function Block: '<S10>/Motore braccia A' (xpcethercatpdorx) */
-    {
-      SimStruct *rts = State_Flow_TestM_M->childSfunctions[5];
-      sfcnStart(rts);
-      if (ssGetErrorStatus(rts) != (NULL))
-        return;
-    }
-
     /* Start for S-Function (xpcethercatpdorx): '<S11>/Motore vite A' */
     /* Level2 S-Function Block: '<S11>/Motore vite A' (xpcethercatpdorx) */
     {
-      SimStruct *rts = State_Flow_TestM_M->childSfunctions[6];
+      SimStruct *rts = State_Flow_TestM_M->childSfunctions[4];
       sfcnStart(rts);
       if (ssGetErrorStatus(rts) != (NULL))
         return;
@@ -6639,7 +6589,7 @@ static void State_Flow_TestM_initialize(void)
     /* Start for S-Function (xpcethercatpdorx): '<S11>/Motore vite B' */
     /* Level2 S-Function Block: '<S11>/Motore vite B' (xpcethercatpdorx) */
     {
-      SimStruct *rts = State_Flow_TestM_M->childSfunctions[7];
+      SimStruct *rts = State_Flow_TestM_M->childSfunctions[5];
       sfcnStart(rts);
       if (ssGetErrorStatus(rts) != (NULL))
         return;
@@ -6648,7 +6598,7 @@ static void State_Flow_TestM_initialize(void)
     /* Start for S-Function (xpcethercatpdorx): '<S15>/Status Word' */
     /* Level2 S-Function Block: '<S15>/Status Word' (xpcethercatpdorx) */
     {
-      SimStruct *rts = State_Flow_TestM_M->childSfunctions[8];
+      SimStruct *rts = State_Flow_TestM_M->childSfunctions[6];
       sfcnStart(rts);
       if (ssGetErrorStatus(rts) != (NULL))
         return;
@@ -6656,6 +6606,24 @@ static void State_Flow_TestM_initialize(void)
 
     /* Start for S-Function (xpcethercatpdorx): '<S1>/EtherCAT PDO Receive16' */
     /* Level2 S-Function Block: '<S1>/EtherCAT PDO Receive16' (xpcethercatpdorx) */
+    {
+      SimStruct *rts = State_Flow_TestM_M->childSfunctions[7];
+      sfcnStart(rts);
+      if (ssGetErrorStatus(rts) != (NULL))
+        return;
+    }
+
+    /* Start for S-Function (xpcethercatpdorx): '<S10>/Motore braccia A' */
+    /* Level2 S-Function Block: '<S10>/Motore braccia A' (xpcethercatpdorx) */
+    {
+      SimStruct *rts = State_Flow_TestM_M->childSfunctions[8];
+      sfcnStart(rts);
+      if (ssGetErrorStatus(rts) != (NULL))
+        return;
+    }
+
+    /* Start for S-Function (xpcethercatpdorx): '<S10>/Motore braccia B' */
+    /* Level2 S-Function Block: '<S10>/Motore braccia B' (xpcethercatpdorx) */
     {
       SimStruct *rts = State_Flow_TestM_M->childSfunctions[9];
       sfcnStart(rts);
@@ -6672,31 +6640,22 @@ static void State_Flow_TestM_initialize(void)
         return;
     }
 
-    /* Start for S-Function (xpcethercatpdorx): '<S16>/EtherCAT PDO Receive14' */
-    /* Level2 S-Function Block: '<S16>/EtherCAT PDO Receive14' (xpcethercatpdorx) */
-    {
-      SimStruct *rts = State_Flow_TestM_M->childSfunctions[11];
-      sfcnStart(rts);
-      if (ssGetErrorStatus(rts) != (NULL))
-        return;
-    }
-
-    /* Start for S-Function (xpcethercatpdorx): '<S16>/EtherCAT PDO Receive15' */
-    /* Level2 S-Function Block: '<S16>/EtherCAT PDO Receive15' (xpcethercatpdorx) */
-    {
-      SimStruct *rts = State_Flow_TestM_M->childSfunctions[12];
-      sfcnStart(rts);
-      if (ssGetErrorStatus(rts) != (NULL))
-        return;
-    }
-
     /* Start for Constant: '<Root>/Kp' */
     State_Flow_TestM_B.Kp = State_Flow_TestM_P.Kp_Value;
+
+    /* Start for Constant: '<Root>/StartHome' */
+    State_Flow_TestM_B.StartHome = State_Flow_TestM_P.StartHome_Value;
+
+    /* Start for Constant: '<Root>/StartRobot' */
+    State_Flow_TestM_B.StartRobot = State_Flow_TestM_P.StartRobot_Value;
+
+    /* Start for Constant: '<Root>/StartWork' */
+    State_Flow_TestM_B.StartWork = State_Flow_TestM_P.StartWork_Value;
 
     /* Start for S-Function (xpcethercatpdotx): '<S3>/Luce Bianca' */
     /* Level2 S-Function Block: '<S3>/Luce Bianca' (xpcethercatpdotx) */
     {
-      SimStruct *rts = State_Flow_TestM_M->childSfunctions[13];
+      SimStruct *rts = State_Flow_TestM_M->childSfunctions[11];
       sfcnStart(rts);
       if (ssGetErrorStatus(rts) != (NULL))
         return;
@@ -6705,7 +6664,7 @@ static void State_Flow_TestM_initialize(void)
     /* Start for S-Function (xpcethercatpdotx): '<S3>/Luce Rossa ' */
     /* Level2 S-Function Block: '<S3>/Luce Rossa ' (xpcethercatpdotx) */
     {
-      SimStruct *rts = State_Flow_TestM_M->childSfunctions[14];
+      SimStruct *rts = State_Flow_TestM_M->childSfunctions[12];
       sfcnStart(rts);
       if (ssGetErrorStatus(rts) != (NULL))
         return;
@@ -6714,7 +6673,7 @@ static void State_Flow_TestM_initialize(void)
     /* Start for S-Function (xpcethercatpdotx): '<S3>/Luce Verde' */
     /* Level2 S-Function Block: '<S3>/Luce Verde' (xpcethercatpdotx) */
     {
-      SimStruct *rts = State_Flow_TestM_M->childSfunctions[15];
+      SimStruct *rts = State_Flow_TestM_M->childSfunctions[13];
       sfcnStart(rts);
       if (ssGetErrorStatus(rts) != (NULL))
         return;
@@ -6723,7 +6682,7 @@ static void State_Flow_TestM_initialize(void)
     /* Start for S-Function (xpcethercatpdorx): '<S36>/EtherCAT PDO Receive15' */
     /* Level2 S-Function Block: '<S36>/EtherCAT PDO Receive15' (xpcethercatpdorx) */
     {
-      SimStruct *rts = State_Flow_TestM_M->childSfunctions[16];
+      SimStruct *rts = State_Flow_TestM_M->childSfunctions[14];
       sfcnStart(rts);
       if (ssGetErrorStatus(rts) != (NULL))
         return;
@@ -6732,7 +6691,7 @@ static void State_Flow_TestM_initialize(void)
     /* Start for S-Function (xpcethercatpdorx): '<S36>/EtherCAT PDO Receive14' */
     /* Level2 S-Function Block: '<S36>/EtherCAT PDO Receive14' (xpcethercatpdorx) */
     {
-      SimStruct *rts = State_Flow_TestM_M->childSfunctions[17];
+      SimStruct *rts = State_Flow_TestM_M->childSfunctions[15];
       sfcnStart(rts);
       if (ssGetErrorStatus(rts) != (NULL))
         return;
@@ -6741,7 +6700,7 @@ static void State_Flow_TestM_initialize(void)
     /* Start for S-Function (xpcethercatpdorx): '<S35>/EtherCAT PDO Receive15' */
     /* Level2 S-Function Block: '<S35>/EtherCAT PDO Receive15' (xpcethercatpdorx) */
     {
-      SimStruct *rts = State_Flow_TestM_M->childSfunctions[18];
+      SimStruct *rts = State_Flow_TestM_M->childSfunctions[16];
       sfcnStart(rts);
       if (ssGetErrorStatus(rts) != (NULL))
         return;
@@ -6750,7 +6709,7 @@ static void State_Flow_TestM_initialize(void)
     /* Start for S-Function (xpcethercatpdorx): '<S35>/EtherCAT PDO Receive14' */
     /* Level2 S-Function Block: '<S35>/EtherCAT PDO Receive14' (xpcethercatpdorx) */
     {
-      SimStruct *rts = State_Flow_TestM_M->childSfunctions[19];
+      SimStruct *rts = State_Flow_TestM_M->childSfunctions[17];
       sfcnStart(rts);
       if (ssGetErrorStatus(rts) != (NULL))
         return;
@@ -6759,7 +6718,7 @@ static void State_Flow_TestM_initialize(void)
     /* Start for S-Function (xpcethercatpdotx): '<S6>/EtherCAT PDO Transmit 1' */
     /* Level2 S-Function Block: '<S6>/EtherCAT PDO Transmit 1' (xpcethercatpdotx) */
     {
-      SimStruct *rts = State_Flow_TestM_M->childSfunctions[20];
+      SimStruct *rts = State_Flow_TestM_M->childSfunctions[18];
       sfcnStart(rts);
       if (ssGetErrorStatus(rts) != (NULL))
         return;
@@ -6768,7 +6727,7 @@ static void State_Flow_TestM_initialize(void)
     /* Start for S-Function (xpcethercatpdorx): '<S95>/EtherCAT PDO Receive9' */
     /* Level2 S-Function Block: '<S95>/EtherCAT PDO Receive9' (xpcethercatpdorx) */
     {
-      SimStruct *rts = State_Flow_TestM_M->childSfunctions[21];
+      SimStruct *rts = State_Flow_TestM_M->childSfunctions[19];
       sfcnStart(rts);
       if (ssGetErrorStatus(rts) != (NULL))
         return;
@@ -6777,7 +6736,7 @@ static void State_Flow_TestM_initialize(void)
     /* Start for S-Function (xpcethercatpdotx): '<S7>/EtherCAT PDO Transmit 7' */
     /* Level2 S-Function Block: '<S7>/EtherCAT PDO Transmit 7' (xpcethercatpdotx) */
     {
-      SimStruct *rts = State_Flow_TestM_M->childSfunctions[22];
+      SimStruct *rts = State_Flow_TestM_M->childSfunctions[20];
       sfcnStart(rts);
       if (ssGetErrorStatus(rts) != (NULL))
         return;
@@ -6786,7 +6745,7 @@ static void State_Flow_TestM_initialize(void)
     /* Start for S-Function (xpcethercatpdorx): '<S99>/EtherCAT PDO Receive9' */
     /* Level2 S-Function Block: '<S99>/EtherCAT PDO Receive9' (xpcethercatpdorx) */
     {
-      SimStruct *rts = State_Flow_TestM_M->childSfunctions[23];
+      SimStruct *rts = State_Flow_TestM_M->childSfunctions[21];
       sfcnStart(rts);
       if (ssGetErrorStatus(rts) != (NULL))
         return;
@@ -6795,7 +6754,7 @@ static void State_Flow_TestM_initialize(void)
     /* Start for S-Function (xpcethercatpdorx): '<S124>/EtherCAT PDO Receive14' */
     /* Level2 S-Function Block: '<S124>/EtherCAT PDO Receive14' (xpcethercatpdorx) */
     {
-      SimStruct *rts = State_Flow_TestM_M->childSfunctions[24];
+      SimStruct *rts = State_Flow_TestM_M->childSfunctions[22];
       sfcnStart(rts);
       if (ssGetErrorStatus(rts) != (NULL))
         return;
@@ -6804,7 +6763,7 @@ static void State_Flow_TestM_initialize(void)
     /* Start for S-Function (xpcethercatpdorx): '<S124>/EtherCAT PDO Receive15' */
     /* Level2 S-Function Block: '<S124>/EtherCAT PDO Receive15' (xpcethercatpdorx) */
     {
-      SimStruct *rts = State_Flow_TestM_M->childSfunctions[25];
+      SimStruct *rts = State_Flow_TestM_M->childSfunctions[23];
       sfcnStart(rts);
       if (ssGetErrorStatus(rts) != (NULL))
         return;
@@ -6813,7 +6772,7 @@ static void State_Flow_TestM_initialize(void)
     /* Start for S-Function (xpcethercatpdotx): '<S8>/Torque send' */
     /* Level2 S-Function Block: '<S8>/Torque send' (xpcethercatpdotx) */
     {
-      SimStruct *rts = State_Flow_TestM_M->childSfunctions[26];
+      SimStruct *rts = State_Flow_TestM_M->childSfunctions[24];
       sfcnStart(rts);
       if (ssGetErrorStatus(rts) != (NULL))
         return;
@@ -6822,7 +6781,7 @@ static void State_Flow_TestM_initialize(void)
     /* Start for S-Function (xpcethercatpdorx): '<S103>/EtherCAT PDO Receive9' */
     /* Level2 S-Function Block: '<S103>/EtherCAT PDO Receive9' (xpcethercatpdorx) */
     {
-      SimStruct *rts = State_Flow_TestM_M->childSfunctions[27];
+      SimStruct *rts = State_Flow_TestM_M->childSfunctions[25];
       sfcnStart(rts);
       if (ssGetErrorStatus(rts) != (NULL))
         return;
@@ -6831,7 +6790,7 @@ static void State_Flow_TestM_initialize(void)
     /* Start for S-Function (xpcethercatpdotx): '<S9>/EtherCAT PDO Transmit 2' */
     /* Level2 S-Function Block: '<S9>/EtherCAT PDO Transmit 2' (xpcethercatpdotx) */
     {
-      SimStruct *rts = State_Flow_TestM_M->childSfunctions[28];
+      SimStruct *rts = State_Flow_TestM_M->childSfunctions[26];
       sfcnStart(rts);
       if (ssGetErrorStatus(rts) != (NULL))
         return;
@@ -6840,7 +6799,7 @@ static void State_Flow_TestM_initialize(void)
     /* Start for S-Function (xpcethercatpdorx): '<S105>/EtherCAT PDO Receive9' */
     /* Level2 S-Function Block: '<S105>/EtherCAT PDO Receive9' (xpcethercatpdorx) */
     {
-      SimStruct *rts = State_Flow_TestM_M->childSfunctions[29];
+      SimStruct *rts = State_Flow_TestM_M->childSfunctions[27];
       sfcnStart(rts);
       if (ssGetErrorStatus(rts) != (NULL))
         return;
@@ -6849,7 +6808,7 @@ static void State_Flow_TestM_initialize(void)
     /* Start for S-Function (xpcethercatpdorx): '<S85>/EtherCAT PDO Receive15' */
     /* Level2 S-Function Block: '<S85>/EtherCAT PDO Receive15' (xpcethercatpdorx) */
     {
-      SimStruct *rts = State_Flow_TestM_M->childSfunctions[30];
+      SimStruct *rts = State_Flow_TestM_M->childSfunctions[28];
       sfcnStart(rts);
       if (ssGetErrorStatus(rts) != (NULL))
         return;
@@ -6858,7 +6817,7 @@ static void State_Flow_TestM_initialize(void)
     /* Start for S-Function (xpcethercatpdorx): '<S85>/EtherCAT PDO Receive14' */
     /* Level2 S-Function Block: '<S85>/EtherCAT PDO Receive14' (xpcethercatpdorx) */
     {
-      SimStruct *rts = State_Flow_TestM_M->childSfunctions[31];
+      SimStruct *rts = State_Flow_TestM_M->childSfunctions[29];
       sfcnStart(rts);
       if (ssGetErrorStatus(rts) != (NULL))
         return;
@@ -7009,43 +6968,43 @@ static void State_Flow_TestM_terminate(void)
     sfcnTerminate(rts);
   }
 
-  /* Terminate for S-Function (xpcethercatpdorx): '<S10>/Motore braccia B' */
-  /* Level2 S-Function Block: '<S10>/Motore braccia B' (xpcethercatpdorx) */
-  {
-    SimStruct *rts = State_Flow_TestM_M->childSfunctions[4];
-    sfcnTerminate(rts);
-  }
-
-  /* Terminate for S-Function (xpcethercatpdorx): '<S10>/Motore braccia A' */
-  /* Level2 S-Function Block: '<S10>/Motore braccia A' (xpcethercatpdorx) */
-  {
-    SimStruct *rts = State_Flow_TestM_M->childSfunctions[5];
-    sfcnTerminate(rts);
-  }
-
   /* Terminate for S-Function (xpcethercatpdorx): '<S11>/Motore vite A' */
   /* Level2 S-Function Block: '<S11>/Motore vite A' (xpcethercatpdorx) */
   {
-    SimStruct *rts = State_Flow_TestM_M->childSfunctions[6];
+    SimStruct *rts = State_Flow_TestM_M->childSfunctions[4];
     sfcnTerminate(rts);
   }
 
   /* Terminate for S-Function (xpcethercatpdorx): '<S11>/Motore vite B' */
   /* Level2 S-Function Block: '<S11>/Motore vite B' (xpcethercatpdorx) */
   {
-    SimStruct *rts = State_Flow_TestM_M->childSfunctions[7];
+    SimStruct *rts = State_Flow_TestM_M->childSfunctions[5];
     sfcnTerminate(rts);
   }
 
   /* Terminate for S-Function (xpcethercatpdorx): '<S15>/Status Word' */
   /* Level2 S-Function Block: '<S15>/Status Word' (xpcethercatpdorx) */
   {
-    SimStruct *rts = State_Flow_TestM_M->childSfunctions[8];
+    SimStruct *rts = State_Flow_TestM_M->childSfunctions[6];
     sfcnTerminate(rts);
   }
 
   /* Terminate for S-Function (xpcethercatpdorx): '<S1>/EtherCAT PDO Receive16' */
   /* Level2 S-Function Block: '<S1>/EtherCAT PDO Receive16' (xpcethercatpdorx) */
+  {
+    SimStruct *rts = State_Flow_TestM_M->childSfunctions[7];
+    sfcnTerminate(rts);
+  }
+
+  /* Terminate for S-Function (xpcethercatpdorx): '<S10>/Motore braccia A' */
+  /* Level2 S-Function Block: '<S10>/Motore braccia A' (xpcethercatpdorx) */
+  {
+    SimStruct *rts = State_Flow_TestM_M->childSfunctions[8];
+    sfcnTerminate(rts);
+  }
+
+  /* Terminate for S-Function (xpcethercatpdorx): '<S10>/Motore braccia B' */
+  /* Level2 S-Function Block: '<S10>/Motore braccia B' (xpcethercatpdorx) */
   {
     SimStruct *rts = State_Flow_TestM_M->childSfunctions[9];
     sfcnTerminate(rts);
@@ -7058,150 +7017,136 @@ static void State_Flow_TestM_terminate(void)
     sfcnTerminate(rts);
   }
 
-  /* Terminate for S-Function (xpcethercatpdorx): '<S16>/EtherCAT PDO Receive14' */
-  /* Level2 S-Function Block: '<S16>/EtherCAT PDO Receive14' (xpcethercatpdorx) */
-  {
-    SimStruct *rts = State_Flow_TestM_M->childSfunctions[11];
-    sfcnTerminate(rts);
-  }
-
-  /* Terminate for S-Function (xpcethercatpdorx): '<S16>/EtherCAT PDO Receive15' */
-  /* Level2 S-Function Block: '<S16>/EtherCAT PDO Receive15' (xpcethercatpdorx) */
-  {
-    SimStruct *rts = State_Flow_TestM_M->childSfunctions[12];
-    sfcnTerminate(rts);
-  }
-
   /* Terminate for S-Function (xpcethercatpdotx): '<S3>/Luce Bianca' */
   /* Level2 S-Function Block: '<S3>/Luce Bianca' (xpcethercatpdotx) */
   {
-    SimStruct *rts = State_Flow_TestM_M->childSfunctions[13];
+    SimStruct *rts = State_Flow_TestM_M->childSfunctions[11];
     sfcnTerminate(rts);
   }
 
   /* Terminate for S-Function (xpcethercatpdotx): '<S3>/Luce Rossa ' */
   /* Level2 S-Function Block: '<S3>/Luce Rossa ' (xpcethercatpdotx) */
   {
-    SimStruct *rts = State_Flow_TestM_M->childSfunctions[14];
+    SimStruct *rts = State_Flow_TestM_M->childSfunctions[12];
     sfcnTerminate(rts);
   }
 
   /* Terminate for S-Function (xpcethercatpdotx): '<S3>/Luce Verde' */
   /* Level2 S-Function Block: '<S3>/Luce Verde' (xpcethercatpdotx) */
   {
-    SimStruct *rts = State_Flow_TestM_M->childSfunctions[15];
+    SimStruct *rts = State_Flow_TestM_M->childSfunctions[13];
     sfcnTerminate(rts);
   }
 
   /* Terminate for S-Function (xpcethercatpdorx): '<S36>/EtherCAT PDO Receive15' */
   /* Level2 S-Function Block: '<S36>/EtherCAT PDO Receive15' (xpcethercatpdorx) */
   {
-    SimStruct *rts = State_Flow_TestM_M->childSfunctions[16];
+    SimStruct *rts = State_Flow_TestM_M->childSfunctions[14];
     sfcnTerminate(rts);
   }
 
   /* Terminate for S-Function (xpcethercatpdorx): '<S36>/EtherCAT PDO Receive14' */
   /* Level2 S-Function Block: '<S36>/EtherCAT PDO Receive14' (xpcethercatpdorx) */
   {
-    SimStruct *rts = State_Flow_TestM_M->childSfunctions[17];
+    SimStruct *rts = State_Flow_TestM_M->childSfunctions[15];
     sfcnTerminate(rts);
   }
 
   /* Terminate for S-Function (xpcethercatpdorx): '<S35>/EtherCAT PDO Receive15' */
   /* Level2 S-Function Block: '<S35>/EtherCAT PDO Receive15' (xpcethercatpdorx) */
   {
-    SimStruct *rts = State_Flow_TestM_M->childSfunctions[18];
+    SimStruct *rts = State_Flow_TestM_M->childSfunctions[16];
     sfcnTerminate(rts);
   }
 
   /* Terminate for S-Function (xpcethercatpdorx): '<S35>/EtherCAT PDO Receive14' */
   /* Level2 S-Function Block: '<S35>/EtherCAT PDO Receive14' (xpcethercatpdorx) */
   {
-    SimStruct *rts = State_Flow_TestM_M->childSfunctions[19];
+    SimStruct *rts = State_Flow_TestM_M->childSfunctions[17];
     sfcnTerminate(rts);
   }
 
   /* Terminate for S-Function (xpcethercatpdotx): '<S6>/EtherCAT PDO Transmit 1' */
   /* Level2 S-Function Block: '<S6>/EtherCAT PDO Transmit 1' (xpcethercatpdotx) */
   {
-    SimStruct *rts = State_Flow_TestM_M->childSfunctions[20];
+    SimStruct *rts = State_Flow_TestM_M->childSfunctions[18];
     sfcnTerminate(rts);
   }
 
   /* Terminate for S-Function (xpcethercatpdorx): '<S95>/EtherCAT PDO Receive9' */
   /* Level2 S-Function Block: '<S95>/EtherCAT PDO Receive9' (xpcethercatpdorx) */
   {
-    SimStruct *rts = State_Flow_TestM_M->childSfunctions[21];
+    SimStruct *rts = State_Flow_TestM_M->childSfunctions[19];
     sfcnTerminate(rts);
   }
 
   /* Terminate for S-Function (xpcethercatpdotx): '<S7>/EtherCAT PDO Transmit 7' */
   /* Level2 S-Function Block: '<S7>/EtherCAT PDO Transmit 7' (xpcethercatpdotx) */
   {
-    SimStruct *rts = State_Flow_TestM_M->childSfunctions[22];
+    SimStruct *rts = State_Flow_TestM_M->childSfunctions[20];
     sfcnTerminate(rts);
   }
 
   /* Terminate for S-Function (xpcethercatpdorx): '<S99>/EtherCAT PDO Receive9' */
   /* Level2 S-Function Block: '<S99>/EtherCAT PDO Receive9' (xpcethercatpdorx) */
   {
-    SimStruct *rts = State_Flow_TestM_M->childSfunctions[23];
+    SimStruct *rts = State_Flow_TestM_M->childSfunctions[21];
     sfcnTerminate(rts);
   }
 
   /* Terminate for S-Function (xpcethercatpdorx): '<S124>/EtherCAT PDO Receive14' */
   /* Level2 S-Function Block: '<S124>/EtherCAT PDO Receive14' (xpcethercatpdorx) */
   {
-    SimStruct *rts = State_Flow_TestM_M->childSfunctions[24];
+    SimStruct *rts = State_Flow_TestM_M->childSfunctions[22];
     sfcnTerminate(rts);
   }
 
   /* Terminate for S-Function (xpcethercatpdorx): '<S124>/EtherCAT PDO Receive15' */
   /* Level2 S-Function Block: '<S124>/EtherCAT PDO Receive15' (xpcethercatpdorx) */
   {
-    SimStruct *rts = State_Flow_TestM_M->childSfunctions[25];
+    SimStruct *rts = State_Flow_TestM_M->childSfunctions[23];
     sfcnTerminate(rts);
   }
 
   /* Terminate for S-Function (xpcethercatpdotx): '<S8>/Torque send' */
   /* Level2 S-Function Block: '<S8>/Torque send' (xpcethercatpdotx) */
   {
-    SimStruct *rts = State_Flow_TestM_M->childSfunctions[26];
+    SimStruct *rts = State_Flow_TestM_M->childSfunctions[24];
     sfcnTerminate(rts);
   }
 
   /* Terminate for S-Function (xpcethercatpdorx): '<S103>/EtherCAT PDO Receive9' */
   /* Level2 S-Function Block: '<S103>/EtherCAT PDO Receive9' (xpcethercatpdorx) */
   {
-    SimStruct *rts = State_Flow_TestM_M->childSfunctions[27];
+    SimStruct *rts = State_Flow_TestM_M->childSfunctions[25];
     sfcnTerminate(rts);
   }
 
   /* Terminate for S-Function (xpcethercatpdotx): '<S9>/EtherCAT PDO Transmit 2' */
   /* Level2 S-Function Block: '<S9>/EtherCAT PDO Transmit 2' (xpcethercatpdotx) */
   {
-    SimStruct *rts = State_Flow_TestM_M->childSfunctions[28];
+    SimStruct *rts = State_Flow_TestM_M->childSfunctions[26];
     sfcnTerminate(rts);
   }
 
   /* Terminate for S-Function (xpcethercatpdorx): '<S105>/EtherCAT PDO Receive9' */
   /* Level2 S-Function Block: '<S105>/EtherCAT PDO Receive9' (xpcethercatpdorx) */
   {
-    SimStruct *rts = State_Flow_TestM_M->childSfunctions[29];
+    SimStruct *rts = State_Flow_TestM_M->childSfunctions[27];
     sfcnTerminate(rts);
   }
 
   /* Terminate for S-Function (xpcethercatpdorx): '<S85>/EtherCAT PDO Receive15' */
   /* Level2 S-Function Block: '<S85>/EtherCAT PDO Receive15' (xpcethercatpdorx) */
   {
-    SimStruct *rts = State_Flow_TestM_M->childSfunctions[30];
+    SimStruct *rts = State_Flow_TestM_M->childSfunctions[28];
     sfcnTerminate(rts);
   }
 
   /* Terminate for S-Function (xpcethercatpdorx): '<S85>/EtherCAT PDO Receive14' */
   /* Level2 S-Function Block: '<S85>/EtherCAT PDO Receive14' (xpcethercatpdorx) */
   {
-    SimStruct *rts = State_Flow_TestM_M->childSfunctions[31];
+    SimStruct *rts = State_Flow_TestM_M->childSfunctions[29];
     sfcnTerminate(rts);
   }
 
@@ -7387,19 +7332,19 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
     rtssSetSolverInfoPtr(sfcnInfo, &State_Flow_TestM_M->solverInfoPtr);
   }
 
-  State_Flow_TestM_M->Sizes.numSFcns = (32);
+  State_Flow_TestM_M->Sizes.numSFcns = (30);
 
   /* register each child */
   {
     (void) memset((void *)&State_Flow_TestM_M->NonInlinedSFcns.childSFunctions[0],
                   0,
-                  32*sizeof(SimStruct));
+                  30*sizeof(SimStruct));
     State_Flow_TestM_M->childSfunctions =
       (&State_Flow_TestM_M->NonInlinedSFcns.childSFunctionPtrs[0]);
 
     {
       int_T i;
-      for (i = 0; i < 32; i++) {
+      for (i = 0; i < 30; i++) {
         State_Flow_TestM_M->childSfunctions[i] =
           (&State_Flow_TestM_M->NonInlinedSFcns.childSFunctions[i]);
       }
@@ -7925,7 +7870,7 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
       ssSetInputPortBufferDstPort(rts, 0, -1);
     }
 
-    /* Level2 S-Function Block: State_Flow_TestM/<S10>/Motore braccia B (xpcethercatpdorx) */
+    /* Level2 S-Function Block: State_Flow_TestM/<S11>/Motore vite A (xpcethercatpdorx) */
     {
       SimStruct *rts = State_Flow_TestM_M->childSfunctions[4];
 
@@ -7981,13 +7926,13 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
           _ssSetOutputPortNumDimensions(rts, 0, 1);
           ssSetOutputPortWidth(rts, 0, 1);
           ssSetOutputPortSignal(rts, 0, ((int32_T *)
-            &State_Flow_TestM_B.MotorebracciaB));
+            &State_Flow_TestM_B.MotoreviteA));
         }
       }
 
       /* path info */
-      ssSetModelName(rts, "Motore braccia B");
-      ssSetPath(rts, "State_Flow_TestM/Posizione Braccia /Motore braccia B");
+      ssSetModelName(rts, "Motore vite A");
+      ssSetPath(rts, "State_Flow_TestM/Posizione Vite/Motore vite A");
       ssSetRTModel(rts,State_Flow_TestM_M);
       ssSetParentSS(rts, (NULL));
       ssSetRootSS(rts, rts);
@@ -7999,24 +7944,17 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
           &State_Flow_TestM_M->NonInlinedSFcns.Sfcn4.params;
         ssSetSFcnParamsCount(rts, 7);
         ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
-        ssSetSFcnParam(rts, 0, (mxArray*)
-                       State_Flow_TestM_P.MotorebracciaB_P1_Size);
-        ssSetSFcnParam(rts, 1, (mxArray*)
-                       State_Flow_TestM_P.MotorebracciaB_P2_Size);
-        ssSetSFcnParam(rts, 2, (mxArray*)
-                       State_Flow_TestM_P.MotorebracciaB_P3_Size);
-        ssSetSFcnParam(rts, 3, (mxArray*)
-                       State_Flow_TestM_P.MotorebracciaB_P4_Size);
-        ssSetSFcnParam(rts, 4, (mxArray*)
-                       State_Flow_TestM_P.MotorebracciaB_P5_Size);
-        ssSetSFcnParam(rts, 5, (mxArray*)
-                       State_Flow_TestM_P.MotorebracciaB_P6_Size);
-        ssSetSFcnParam(rts, 6, (mxArray*)
-                       State_Flow_TestM_P.MotorebracciaB_P7_Size);
+        ssSetSFcnParam(rts, 0, (mxArray*)State_Flow_TestM_P.MotoreviteA_P1_Size);
+        ssSetSFcnParam(rts, 1, (mxArray*)State_Flow_TestM_P.MotoreviteA_P2_Size);
+        ssSetSFcnParam(rts, 2, (mxArray*)State_Flow_TestM_P.MotoreviteA_P3_Size);
+        ssSetSFcnParam(rts, 3, (mxArray*)State_Flow_TestM_P.MotoreviteA_P4_Size);
+        ssSetSFcnParam(rts, 4, (mxArray*)State_Flow_TestM_P.MotoreviteA_P5_Size);
+        ssSetSFcnParam(rts, 5, (mxArray*)State_Flow_TestM_P.MotoreviteA_P6_Size);
+        ssSetSFcnParam(rts, 6, (mxArray*)State_Flow_TestM_P.MotoreviteA_P7_Size);
       }
 
       /* work vectors */
-      ssSetIWork(rts, (int_T *) &State_Flow_TestM_DW.MotorebracciaB_IWORK[0]);
+      ssSetIWork(rts, (int_T *) &State_Flow_TestM_DW.MotoreviteA_IWORK[0]);
 
       {
         struct _ssDWorkRecord *dWorkRecord = (struct _ssDWorkRecord *)
@@ -8031,7 +7969,7 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
         ssSetDWorkWidth(rts, 0, 7);
         ssSetDWorkDataType(rts, 0,SS_INTEGER);
         ssSetDWorkComplexSignal(rts, 0, 0);
-        ssSetDWork(rts, 0, &State_Flow_TestM_DW.MotorebracciaB_IWORK[0]);
+        ssSetDWork(rts, 0, &State_Flow_TestM_DW.MotoreviteA_IWORK[0]);
       }
 
       /* registration */
@@ -8054,7 +7992,7 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
       /* Update the BufferDstPort flags for each input port */
     }
 
-    /* Level2 S-Function Block: State_Flow_TestM/<S10>/Motore braccia A (xpcethercatpdorx) */
+    /* Level2 S-Function Block: State_Flow_TestM/<S11>/Motore vite B (xpcethercatpdorx) */
     {
       SimStruct *rts = State_Flow_TestM_M->childSfunctions[5];
 
@@ -8110,13 +8048,13 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
           _ssSetOutputPortNumDimensions(rts, 0, 1);
           ssSetOutputPortWidth(rts, 0, 1);
           ssSetOutputPortSignal(rts, 0, ((int32_T *)
-            &State_Flow_TestM_B.MotorebracciaA));
+            &State_Flow_TestM_B.MotoreviteB));
         }
       }
 
       /* path info */
-      ssSetModelName(rts, "Motore braccia A");
-      ssSetPath(rts, "State_Flow_TestM/Posizione Braccia /Motore braccia A");
+      ssSetModelName(rts, "Motore vite B");
+      ssSetPath(rts, "State_Flow_TestM/Posizione Vite/Motore vite B");
       ssSetRTModel(rts,State_Flow_TestM_M);
       ssSetParentSS(rts, (NULL));
       ssSetRootSS(rts, rts);
@@ -8128,24 +8066,17 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
           &State_Flow_TestM_M->NonInlinedSFcns.Sfcn5.params;
         ssSetSFcnParamsCount(rts, 7);
         ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
-        ssSetSFcnParam(rts, 0, (mxArray*)
-                       State_Flow_TestM_P.MotorebracciaA_P1_Size);
-        ssSetSFcnParam(rts, 1, (mxArray*)
-                       State_Flow_TestM_P.MotorebracciaA_P2_Size);
-        ssSetSFcnParam(rts, 2, (mxArray*)
-                       State_Flow_TestM_P.MotorebracciaA_P3_Size);
-        ssSetSFcnParam(rts, 3, (mxArray*)
-                       State_Flow_TestM_P.MotorebracciaA_P4_Size);
-        ssSetSFcnParam(rts, 4, (mxArray*)
-                       State_Flow_TestM_P.MotorebracciaA_P5_Size);
-        ssSetSFcnParam(rts, 5, (mxArray*)
-                       State_Flow_TestM_P.MotorebracciaA_P6_Size);
-        ssSetSFcnParam(rts, 6, (mxArray*)
-                       State_Flow_TestM_P.MotorebracciaA_P7_Size);
+        ssSetSFcnParam(rts, 0, (mxArray*)State_Flow_TestM_P.MotoreviteB_P1_Size);
+        ssSetSFcnParam(rts, 1, (mxArray*)State_Flow_TestM_P.MotoreviteB_P2_Size);
+        ssSetSFcnParam(rts, 2, (mxArray*)State_Flow_TestM_P.MotoreviteB_P3_Size);
+        ssSetSFcnParam(rts, 3, (mxArray*)State_Flow_TestM_P.MotoreviteB_P4_Size);
+        ssSetSFcnParam(rts, 4, (mxArray*)State_Flow_TestM_P.MotoreviteB_P5_Size);
+        ssSetSFcnParam(rts, 5, (mxArray*)State_Flow_TestM_P.MotoreviteB_P6_Size);
+        ssSetSFcnParam(rts, 6, (mxArray*)State_Flow_TestM_P.MotoreviteB_P7_Size);
       }
 
       /* work vectors */
-      ssSetIWork(rts, (int_T *) &State_Flow_TestM_DW.MotorebracciaA_IWORK[0]);
+      ssSetIWork(rts, (int_T *) &State_Flow_TestM_DW.MotoreviteB_IWORK[0]);
 
       {
         struct _ssDWorkRecord *dWorkRecord = (struct _ssDWorkRecord *)
@@ -8160,7 +8091,7 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
         ssSetDWorkWidth(rts, 0, 7);
         ssSetDWorkDataType(rts, 0,SS_INTEGER);
         ssSetDWorkComplexSignal(rts, 0, 0);
-        ssSetDWork(rts, 0, &State_Flow_TestM_DW.MotorebracciaA_IWORK[0]);
+        ssSetDWork(rts, 0, &State_Flow_TestM_DW.MotoreviteB_IWORK[0]);
       }
 
       /* registration */
@@ -8183,7 +8114,7 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
       /* Update the BufferDstPort flags for each input port */
     }
 
-    /* Level2 S-Function Block: State_Flow_TestM/<S11>/Motore vite A (xpcethercatpdorx) */
+    /* Level2 S-Function Block: State_Flow_TestM/<S15>/Status Word (xpcethercatpdorx) */
     {
       SimStruct *rts = State_Flow_TestM_M->childSfunctions[6];
 
@@ -8238,14 +8169,14 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
         {
           _ssSetOutputPortNumDimensions(rts, 0, 1);
           ssSetOutputPortWidth(rts, 0, 1);
-          ssSetOutputPortSignal(rts, 0, ((int32_T *)
-            &State_Flow_TestM_B.MotoreviteA));
+          ssSetOutputPortSignal(rts, 0, ((uint16_T *)
+            &State_Flow_TestM_B.StatusWord));
         }
       }
 
       /* path info */
-      ssSetModelName(rts, "Motore vite A");
-      ssSetPath(rts, "State_Flow_TestM/Posizione Vite/Motore vite A");
+      ssSetModelName(rts, "Status Word");
+      ssSetPath(rts, "State_Flow_TestM/Status/Status Word");
       ssSetRTModel(rts,State_Flow_TestM_M);
       ssSetParentSS(rts, (NULL));
       ssSetRootSS(rts, rts);
@@ -8257,17 +8188,17 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
           &State_Flow_TestM_M->NonInlinedSFcns.Sfcn6.params;
         ssSetSFcnParamsCount(rts, 7);
         ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
-        ssSetSFcnParam(rts, 0, (mxArray*)State_Flow_TestM_P.MotoreviteA_P1_Size);
-        ssSetSFcnParam(rts, 1, (mxArray*)State_Flow_TestM_P.MotoreviteA_P2_Size);
-        ssSetSFcnParam(rts, 2, (mxArray*)State_Flow_TestM_P.MotoreviteA_P3_Size);
-        ssSetSFcnParam(rts, 3, (mxArray*)State_Flow_TestM_P.MotoreviteA_P4_Size);
-        ssSetSFcnParam(rts, 4, (mxArray*)State_Flow_TestM_P.MotoreviteA_P5_Size);
-        ssSetSFcnParam(rts, 5, (mxArray*)State_Flow_TestM_P.MotoreviteA_P6_Size);
-        ssSetSFcnParam(rts, 6, (mxArray*)State_Flow_TestM_P.MotoreviteA_P7_Size);
+        ssSetSFcnParam(rts, 0, (mxArray*)State_Flow_TestM_P.StatusWord_P1_Size);
+        ssSetSFcnParam(rts, 1, (mxArray*)State_Flow_TestM_P.StatusWord_P2_Size);
+        ssSetSFcnParam(rts, 2, (mxArray*)State_Flow_TestM_P.StatusWord_P3_Size);
+        ssSetSFcnParam(rts, 3, (mxArray*)State_Flow_TestM_P.StatusWord_P4_Size);
+        ssSetSFcnParam(rts, 4, (mxArray*)State_Flow_TestM_P.StatusWord_P5_Size);
+        ssSetSFcnParam(rts, 5, (mxArray*)State_Flow_TestM_P.StatusWord_P6_Size);
+        ssSetSFcnParam(rts, 6, (mxArray*)State_Flow_TestM_P.StatusWord_P7_Size);
       }
 
       /* work vectors */
-      ssSetIWork(rts, (int_T *) &State_Flow_TestM_DW.MotoreviteA_IWORK[0]);
+      ssSetIWork(rts, (int_T *) &State_Flow_TestM_DW.StatusWord_IWORK[0]);
 
       {
         struct _ssDWorkRecord *dWorkRecord = (struct _ssDWorkRecord *)
@@ -8282,7 +8213,7 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
         ssSetDWorkWidth(rts, 0, 7);
         ssSetDWorkDataType(rts, 0,SS_INTEGER);
         ssSetDWorkComplexSignal(rts, 0, 0);
-        ssSetDWork(rts, 0, &State_Flow_TestM_DW.MotoreviteA_IWORK[0]);
+        ssSetDWork(rts, 0, &State_Flow_TestM_DW.StatusWord_IWORK[0]);
       }
 
       /* registration */
@@ -8305,7 +8236,7 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
       /* Update the BufferDstPort flags for each input port */
     }
 
-    /* Level2 S-Function Block: State_Flow_TestM/<S11>/Motore vite B (xpcethercatpdorx) */
+    /* Level2 S-Function Block: State_Flow_TestM/<S1>/EtherCAT PDO Receive16 (xpcethercatpdorx) */
     {
       SimStruct *rts = State_Flow_TestM_M->childSfunctions[7];
 
@@ -8360,14 +8291,14 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
         {
           _ssSetOutputPortNumDimensions(rts, 0, 1);
           ssSetOutputPortWidth(rts, 0, 1);
-          ssSetOutputPortSignal(rts, 0, ((int32_T *)
-            &State_Flow_TestM_B.MotoreviteB));
+          ssSetOutputPortSignal(rts, 0, ((uint16_T *)
+            &State_Flow_TestM_B.EtherCATPDOReceive16));
         }
       }
 
       /* path info */
-      ssSetModelName(rts, "Motore vite B");
-      ssSetPath(rts, "State_Flow_TestM/Posizione Vite/Motore vite B");
+      ssSetModelName(rts, "EtherCAT PDO Receive16");
+      ssSetPath(rts, "State_Flow_TestM/Finecorsa Vite/EtherCAT PDO Receive16");
       ssSetRTModel(rts,State_Flow_TestM_M);
       ssSetParentSS(rts, (NULL));
       ssSetRootSS(rts, rts);
@@ -8379,17 +8310,25 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
           &State_Flow_TestM_M->NonInlinedSFcns.Sfcn7.params;
         ssSetSFcnParamsCount(rts, 7);
         ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
-        ssSetSFcnParam(rts, 0, (mxArray*)State_Flow_TestM_P.MotoreviteB_P1_Size);
-        ssSetSFcnParam(rts, 1, (mxArray*)State_Flow_TestM_P.MotoreviteB_P2_Size);
-        ssSetSFcnParam(rts, 2, (mxArray*)State_Flow_TestM_P.MotoreviteB_P3_Size);
-        ssSetSFcnParam(rts, 3, (mxArray*)State_Flow_TestM_P.MotoreviteB_P4_Size);
-        ssSetSFcnParam(rts, 4, (mxArray*)State_Flow_TestM_P.MotoreviteB_P5_Size);
-        ssSetSFcnParam(rts, 5, (mxArray*)State_Flow_TestM_P.MotoreviteB_P6_Size);
-        ssSetSFcnParam(rts, 6, (mxArray*)State_Flow_TestM_P.MotoreviteB_P7_Size);
+        ssSetSFcnParam(rts, 0, (mxArray*)
+                       State_Flow_TestM_P.EtherCATPDOReceive16_P1_Size);
+        ssSetSFcnParam(rts, 1, (mxArray*)
+                       State_Flow_TestM_P.EtherCATPDOReceive16_P2_Size);
+        ssSetSFcnParam(rts, 2, (mxArray*)
+                       State_Flow_TestM_P.EtherCATPDOReceive16_P3_Size);
+        ssSetSFcnParam(rts, 3, (mxArray*)
+                       State_Flow_TestM_P.EtherCATPDOReceive16_P4_Size);
+        ssSetSFcnParam(rts, 4, (mxArray*)
+                       State_Flow_TestM_P.EtherCATPDOReceive16_P5_Size);
+        ssSetSFcnParam(rts, 5, (mxArray*)
+                       State_Flow_TestM_P.EtherCATPDOReceive16_P6_Size);
+        ssSetSFcnParam(rts, 6, (mxArray*)
+                       State_Flow_TestM_P.EtherCATPDOReceive16_P7_Size);
       }
 
       /* work vectors */
-      ssSetIWork(rts, (int_T *) &State_Flow_TestM_DW.MotoreviteB_IWORK[0]);
+      ssSetIWork(rts, (int_T *) &State_Flow_TestM_DW.EtherCATPDOReceive16_IWORK
+                 [0]);
 
       {
         struct _ssDWorkRecord *dWorkRecord = (struct _ssDWorkRecord *)
@@ -8404,7 +8343,7 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
         ssSetDWorkWidth(rts, 0, 7);
         ssSetDWorkDataType(rts, 0,SS_INTEGER);
         ssSetDWorkComplexSignal(rts, 0, 0);
-        ssSetDWork(rts, 0, &State_Flow_TestM_DW.MotoreviteB_IWORK[0]);
+        ssSetDWork(rts, 0, &State_Flow_TestM_DW.EtherCATPDOReceive16_IWORK[0]);
       }
 
       /* registration */
@@ -8427,7 +8366,7 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
       /* Update the BufferDstPort flags for each input port */
     }
 
-    /* Level2 S-Function Block: State_Flow_TestM/<S15>/Status Word (xpcethercatpdorx) */
+    /* Level2 S-Function Block: State_Flow_TestM/<S10>/Motore braccia A (xpcethercatpdorx) */
     {
       SimStruct *rts = State_Flow_TestM_M->childSfunctions[8];
 
@@ -8482,14 +8421,14 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
         {
           _ssSetOutputPortNumDimensions(rts, 0, 1);
           ssSetOutputPortWidth(rts, 0, 1);
-          ssSetOutputPortSignal(rts, 0, ((uint16_T *)
-            &State_Flow_TestM_B.StatusWord));
+          ssSetOutputPortSignal(rts, 0, ((int32_T *)
+            &State_Flow_TestM_B.MotorebracciaA));
         }
       }
 
       /* path info */
-      ssSetModelName(rts, "Status Word");
-      ssSetPath(rts, "State_Flow_TestM/Status/Status Word");
+      ssSetModelName(rts, "Motore braccia A");
+      ssSetPath(rts, "State_Flow_TestM/Posizione Braccia /Motore braccia A");
       ssSetRTModel(rts,State_Flow_TestM_M);
       ssSetParentSS(rts, (NULL));
       ssSetRootSS(rts, rts);
@@ -8501,17 +8440,24 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
           &State_Flow_TestM_M->NonInlinedSFcns.Sfcn8.params;
         ssSetSFcnParamsCount(rts, 7);
         ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
-        ssSetSFcnParam(rts, 0, (mxArray*)State_Flow_TestM_P.StatusWord_P1_Size);
-        ssSetSFcnParam(rts, 1, (mxArray*)State_Flow_TestM_P.StatusWord_P2_Size);
-        ssSetSFcnParam(rts, 2, (mxArray*)State_Flow_TestM_P.StatusWord_P3_Size);
-        ssSetSFcnParam(rts, 3, (mxArray*)State_Flow_TestM_P.StatusWord_P4_Size);
-        ssSetSFcnParam(rts, 4, (mxArray*)State_Flow_TestM_P.StatusWord_P5_Size);
-        ssSetSFcnParam(rts, 5, (mxArray*)State_Flow_TestM_P.StatusWord_P6_Size);
-        ssSetSFcnParam(rts, 6, (mxArray*)State_Flow_TestM_P.StatusWord_P7_Size);
+        ssSetSFcnParam(rts, 0, (mxArray*)
+                       State_Flow_TestM_P.MotorebracciaA_P1_Size);
+        ssSetSFcnParam(rts, 1, (mxArray*)
+                       State_Flow_TestM_P.MotorebracciaA_P2_Size);
+        ssSetSFcnParam(rts, 2, (mxArray*)
+                       State_Flow_TestM_P.MotorebracciaA_P3_Size);
+        ssSetSFcnParam(rts, 3, (mxArray*)
+                       State_Flow_TestM_P.MotorebracciaA_P4_Size);
+        ssSetSFcnParam(rts, 4, (mxArray*)
+                       State_Flow_TestM_P.MotorebracciaA_P5_Size);
+        ssSetSFcnParam(rts, 5, (mxArray*)
+                       State_Flow_TestM_P.MotorebracciaA_P6_Size);
+        ssSetSFcnParam(rts, 6, (mxArray*)
+                       State_Flow_TestM_P.MotorebracciaA_P7_Size);
       }
 
       /* work vectors */
-      ssSetIWork(rts, (int_T *) &State_Flow_TestM_DW.StatusWord_IWORK[0]);
+      ssSetIWork(rts, (int_T *) &State_Flow_TestM_DW.MotorebracciaA_IWORK[0]);
 
       {
         struct _ssDWorkRecord *dWorkRecord = (struct _ssDWorkRecord *)
@@ -8526,7 +8472,7 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
         ssSetDWorkWidth(rts, 0, 7);
         ssSetDWorkDataType(rts, 0,SS_INTEGER);
         ssSetDWorkComplexSignal(rts, 0, 0);
-        ssSetDWork(rts, 0, &State_Flow_TestM_DW.StatusWord_IWORK[0]);
+        ssSetDWork(rts, 0, &State_Flow_TestM_DW.MotorebracciaA_IWORK[0]);
       }
 
       /* registration */
@@ -8549,7 +8495,7 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
       /* Update the BufferDstPort flags for each input port */
     }
 
-    /* Level2 S-Function Block: State_Flow_TestM/<S1>/EtherCAT PDO Receive16 (xpcethercatpdorx) */
+    /* Level2 S-Function Block: State_Flow_TestM/<S10>/Motore braccia B (xpcethercatpdorx) */
     {
       SimStruct *rts = State_Flow_TestM_M->childSfunctions[9];
 
@@ -8604,14 +8550,14 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
         {
           _ssSetOutputPortNumDimensions(rts, 0, 1);
           ssSetOutputPortWidth(rts, 0, 1);
-          ssSetOutputPortSignal(rts, 0, ((uint16_T *)
-            &State_Flow_TestM_B.EtherCATPDOReceive16));
+          ssSetOutputPortSignal(rts, 0, ((int32_T *)
+            &State_Flow_TestM_B.MotorebracciaB));
         }
       }
 
       /* path info */
-      ssSetModelName(rts, "EtherCAT PDO Receive16");
-      ssSetPath(rts, "State_Flow_TestM/Finecorsa Vite/EtherCAT PDO Receive16");
+      ssSetModelName(rts, "Motore braccia B");
+      ssSetPath(rts, "State_Flow_TestM/Posizione Braccia /Motore braccia B");
       ssSetRTModel(rts,State_Flow_TestM_M);
       ssSetParentSS(rts, (NULL));
       ssSetRootSS(rts, rts);
@@ -8624,24 +8570,23 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
         ssSetSFcnParamsCount(rts, 7);
         ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
         ssSetSFcnParam(rts, 0, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive16_P1_Size);
+                       State_Flow_TestM_P.MotorebracciaB_P1_Size);
         ssSetSFcnParam(rts, 1, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive16_P2_Size);
+                       State_Flow_TestM_P.MotorebracciaB_P2_Size);
         ssSetSFcnParam(rts, 2, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive16_P3_Size);
+                       State_Flow_TestM_P.MotorebracciaB_P3_Size);
         ssSetSFcnParam(rts, 3, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive16_P4_Size);
+                       State_Flow_TestM_P.MotorebracciaB_P4_Size);
         ssSetSFcnParam(rts, 4, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive16_P5_Size);
+                       State_Flow_TestM_P.MotorebracciaB_P5_Size);
         ssSetSFcnParam(rts, 5, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive16_P6_Size);
+                       State_Flow_TestM_P.MotorebracciaB_P6_Size);
         ssSetSFcnParam(rts, 6, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive16_P7_Size);
+                       State_Flow_TestM_P.MotorebracciaB_P7_Size);
       }
 
       /* work vectors */
-      ssSetIWork(rts, (int_T *) &State_Flow_TestM_DW.EtherCATPDOReceive16_IWORK
-                 [0]);
+      ssSetIWork(rts, (int_T *) &State_Flow_TestM_DW.MotorebracciaB_IWORK[0]);
 
       {
         struct _ssDWorkRecord *dWorkRecord = (struct _ssDWorkRecord *)
@@ -8656,7 +8601,7 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
         ssSetDWorkWidth(rts, 0, 7);
         ssSetDWorkDataType(rts, 0,SS_INTEGER);
         ssSetDWorkComplexSignal(rts, 0, 0);
-        ssSetDWork(rts, 0, &State_Flow_TestM_DW.EtherCATPDOReceive16_IWORK[0]);
+        ssSetDWork(rts, 0, &State_Flow_TestM_DW.MotorebracciaB_IWORK[0]);
       }
 
       /* registration */
@@ -8810,7 +8755,7 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
       /* Update the BufferDstPort flags for each input port */
     }
 
-    /* Level2 S-Function Block: State_Flow_TestM/<S16>/EtherCAT PDO Receive14 (xpcethercatpdorx) */
+    /* Level2 S-Function Block: State_Flow_TestM/<S3>/Luce Bianca (xpcethercatpdotx) */
     {
       SimStruct *rts = State_Flow_TestM_M->childSfunctions[11];
 
@@ -8856,24 +8801,24 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
           &State_Flow_TestM_M->NonInlinedSFcns.periodicStatesInfo[11]);
       }
 
-      /* outputs */
+      /* inputs */
       {
-        ssSetPortInfoForOutputs(rts,
-          &State_Flow_TestM_M->NonInlinedSFcns.Sfcn11.outputPortInfo[0]);
-        _ssSetNumOutputPorts(rts, 1);
+        _ssSetNumInputPorts(rts, 1);
+        ssSetPortInfoForInputs(rts,
+          &State_Flow_TestM_M->NonInlinedSFcns.Sfcn11.inputPortInfo[0]);
 
         /* port 0 */
         {
-          _ssSetOutputPortNumDimensions(rts, 0, 1);
-          ssSetOutputPortWidth(rts, 0, 1);
-          ssSetOutputPortSignal(rts, 0, ((int32_T *)
-            &State_Flow_TestM_B.EtherCATPDOReceive14));
+          ssSetInputPortRequiredContiguous(rts, 0, 1);
+          ssSetInputPortSignal(rts, 0, &State_Flow_TestM_B.DataTypeConversion25);
+          _ssSetInputPortNumDimensions(rts, 0, 1);
+          ssSetInputPortWidth(rts, 0, 1);
         }
       }
 
       /* path info */
-      ssSetModelName(rts, "EtherCAT PDO Receive14");
-      ssSetPath(rts, "State_Flow_TestM/Velocita vite /EtherCAT PDO Receive14");
+      ssSetModelName(rts, "Luce Bianca");
+      ssSetPath(rts, "State_Flow_TestM/LED Status/Luce Bianca");
       ssSetRTModel(rts,State_Flow_TestM_M);
       ssSetParentSS(rts, (NULL));
       ssSetRootSS(rts, rts);
@@ -8885,25 +8830,17 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
           &State_Flow_TestM_M->NonInlinedSFcns.Sfcn11.params;
         ssSetSFcnParamsCount(rts, 7);
         ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
-        ssSetSFcnParam(rts, 0, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive14_P1_Size);
-        ssSetSFcnParam(rts, 1, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive14_P2_Size);
-        ssSetSFcnParam(rts, 2, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive14_P3_Size);
-        ssSetSFcnParam(rts, 3, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive14_P4_Size);
-        ssSetSFcnParam(rts, 4, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive14_P5_Size);
-        ssSetSFcnParam(rts, 5, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive14_P6_Size);
-        ssSetSFcnParam(rts, 6, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive14_P7_Size);
+        ssSetSFcnParam(rts, 0, (mxArray*)State_Flow_TestM_P.LuceBianca_P1_Size);
+        ssSetSFcnParam(rts, 1, (mxArray*)State_Flow_TestM_P.LuceBianca_P2_Size);
+        ssSetSFcnParam(rts, 2, (mxArray*)State_Flow_TestM_P.LuceBianca_P3_Size);
+        ssSetSFcnParam(rts, 3, (mxArray*)State_Flow_TestM_P.LuceBianca_P4_Size);
+        ssSetSFcnParam(rts, 4, (mxArray*)State_Flow_TestM_P.LuceBianca_P5_Size);
+        ssSetSFcnParam(rts, 5, (mxArray*)State_Flow_TestM_P.LuceBianca_P6_Size);
+        ssSetSFcnParam(rts, 6, (mxArray*)State_Flow_TestM_P.LuceBianca_P7_Size);
       }
 
       /* work vectors */
-      ssSetIWork(rts, (int_T *) &State_Flow_TestM_DW.EtherCATPDOReceive14_IWORK
-                 [0]);
+      ssSetIWork(rts, (int_T *) &State_Flow_TestM_DW.LuceBianca_IWORK[0]);
 
       {
         struct _ssDWorkRecord *dWorkRecord = (struct _ssDWorkRecord *)
@@ -8918,11 +8855,11 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
         ssSetDWorkWidth(rts, 0, 7);
         ssSetDWorkDataType(rts, 0,SS_INTEGER);
         ssSetDWorkComplexSignal(rts, 0, 0);
-        ssSetDWork(rts, 0, &State_Flow_TestM_DW.EtherCATPDOReceive14_IWORK[0]);
+        ssSetDWork(rts, 0, &State_Flow_TestM_DW.LuceBianca_IWORK[0]);
       }
 
       /* registration */
-      xpcethercatpdorx(rts);
+      xpcethercatpdotx(rts);
       sfcnInitializeSizes(rts);
       sfcnInitializeSampleTimes(rts);
 
@@ -8935,13 +8872,13 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
       ssSetNumNonsampledZCs(rts, 0);
 
       /* Update connectivity flags for each port */
-      _ssSetOutputPortConnected(rts, 0, 1);
-      _ssSetOutputPortBeingMerged(rts, 0, 0);
+      _ssSetInputPortConnected(rts, 0, 1);
 
       /* Update the BufferDstPort flags for each input port */
+      ssSetInputPortBufferDstPort(rts, 0, -1);
     }
 
-    /* Level2 S-Function Block: State_Flow_TestM/<S16>/EtherCAT PDO Receive15 (xpcethercatpdorx) */
+    /* Level2 S-Function Block: State_Flow_TestM/<S3>/Luce Rossa  (xpcethercatpdotx) */
     {
       SimStruct *rts = State_Flow_TestM_M->childSfunctions[12];
 
@@ -8987,24 +8924,24 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
           &State_Flow_TestM_M->NonInlinedSFcns.periodicStatesInfo[12]);
       }
 
-      /* outputs */
+      /* inputs */
       {
-        ssSetPortInfoForOutputs(rts,
-          &State_Flow_TestM_M->NonInlinedSFcns.Sfcn12.outputPortInfo[0]);
-        _ssSetNumOutputPorts(rts, 1);
+        _ssSetNumInputPorts(rts, 1);
+        ssSetPortInfoForInputs(rts,
+          &State_Flow_TestM_M->NonInlinedSFcns.Sfcn12.inputPortInfo[0]);
 
         /* port 0 */
         {
-          _ssSetOutputPortNumDimensions(rts, 0, 1);
-          ssSetOutputPortWidth(rts, 0, 1);
-          ssSetOutputPortSignal(rts, 0, ((int32_T *)
-            &State_Flow_TestM_B.EtherCATPDOReceive15));
+          ssSetInputPortRequiredContiguous(rts, 0, 1);
+          ssSetInputPortSignal(rts, 0, &State_Flow_TestM_B.DataTypeConversion24);
+          _ssSetInputPortNumDimensions(rts, 0, 1);
+          ssSetInputPortWidth(rts, 0, 1);
         }
       }
 
       /* path info */
-      ssSetModelName(rts, "EtherCAT PDO Receive15");
-      ssSetPath(rts, "State_Flow_TestM/Velocita vite /EtherCAT PDO Receive15");
+      ssSetModelName(rts, "Luce Rossa ");
+      ssSetPath(rts, "State_Flow_TestM/LED Status/Luce Rossa ");
       ssSetRTModel(rts,State_Flow_TestM_M);
       ssSetParentSS(rts, (NULL));
       ssSetRootSS(rts, rts);
@@ -9016,25 +8953,17 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
           &State_Flow_TestM_M->NonInlinedSFcns.Sfcn12.params;
         ssSetSFcnParamsCount(rts, 7);
         ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
-        ssSetSFcnParam(rts, 0, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive15_P1_Size);
-        ssSetSFcnParam(rts, 1, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive15_P2_Size);
-        ssSetSFcnParam(rts, 2, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive15_P3_Size);
-        ssSetSFcnParam(rts, 3, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive15_P4_Size);
-        ssSetSFcnParam(rts, 4, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive15_P5_Size);
-        ssSetSFcnParam(rts, 5, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive15_P6_Size);
-        ssSetSFcnParam(rts, 6, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive15_P7_Size);
+        ssSetSFcnParam(rts, 0, (mxArray*)State_Flow_TestM_P.LuceRossa_P1_Size);
+        ssSetSFcnParam(rts, 1, (mxArray*)State_Flow_TestM_P.LuceRossa_P2_Size);
+        ssSetSFcnParam(rts, 2, (mxArray*)State_Flow_TestM_P.LuceRossa_P3_Size);
+        ssSetSFcnParam(rts, 3, (mxArray*)State_Flow_TestM_P.LuceRossa_P4_Size);
+        ssSetSFcnParam(rts, 4, (mxArray*)State_Flow_TestM_P.LuceRossa_P5_Size);
+        ssSetSFcnParam(rts, 5, (mxArray*)State_Flow_TestM_P.LuceRossa_P6_Size);
+        ssSetSFcnParam(rts, 6, (mxArray*)State_Flow_TestM_P.LuceRossa_P7_Size);
       }
 
       /* work vectors */
-      ssSetIWork(rts, (int_T *) &State_Flow_TestM_DW.EtherCATPDOReceive15_IWORK
-                 [0]);
+      ssSetIWork(rts, (int_T *) &State_Flow_TestM_DW.LuceRossa_IWORK[0]);
 
       {
         struct _ssDWorkRecord *dWorkRecord = (struct _ssDWorkRecord *)
@@ -9049,11 +8978,11 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
         ssSetDWorkWidth(rts, 0, 7);
         ssSetDWorkDataType(rts, 0,SS_INTEGER);
         ssSetDWorkComplexSignal(rts, 0, 0);
-        ssSetDWork(rts, 0, &State_Flow_TestM_DW.EtherCATPDOReceive15_IWORK[0]);
+        ssSetDWork(rts, 0, &State_Flow_TestM_DW.LuceRossa_IWORK[0]);
       }
 
       /* registration */
-      xpcethercatpdorx(rts);
+      xpcethercatpdotx(rts);
       sfcnInitializeSizes(rts);
       sfcnInitializeSampleTimes(rts);
 
@@ -9066,13 +8995,13 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
       ssSetNumNonsampledZCs(rts, 0);
 
       /* Update connectivity flags for each port */
-      _ssSetOutputPortConnected(rts, 0, 1);
-      _ssSetOutputPortBeingMerged(rts, 0, 0);
+      _ssSetInputPortConnected(rts, 0, 1);
 
       /* Update the BufferDstPort flags for each input port */
+      ssSetInputPortBufferDstPort(rts, 0, -1);
     }
 
-    /* Level2 S-Function Block: State_Flow_TestM/<S3>/Luce Bianca (xpcethercatpdotx) */
+    /* Level2 S-Function Block: State_Flow_TestM/<S3>/Luce Verde (xpcethercatpdotx) */
     {
       SimStruct *rts = State_Flow_TestM_M->childSfunctions[13];
 
@@ -9127,15 +9056,15 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
         /* port 0 */
         {
           ssSetInputPortRequiredContiguous(rts, 0, 1);
-          ssSetInputPortSignal(rts, 0, &State_Flow_TestM_B.DataTypeConversion25);
+          ssSetInputPortSignal(rts, 0, &State_Flow_TestM_B.DataTypeConversion26);
           _ssSetInputPortNumDimensions(rts, 0, 1);
           ssSetInputPortWidth(rts, 0, 1);
         }
       }
 
       /* path info */
-      ssSetModelName(rts, "Luce Bianca");
-      ssSetPath(rts, "State_Flow_TestM/LED Status/Luce Bianca");
+      ssSetModelName(rts, "Luce Verde");
+      ssSetPath(rts, "State_Flow_TestM/LED Status/Luce Verde");
       ssSetRTModel(rts,State_Flow_TestM_M);
       ssSetParentSS(rts, (NULL));
       ssSetRootSS(rts, rts);
@@ -9147,17 +9076,17 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
           &State_Flow_TestM_M->NonInlinedSFcns.Sfcn13.params;
         ssSetSFcnParamsCount(rts, 7);
         ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
-        ssSetSFcnParam(rts, 0, (mxArray*)State_Flow_TestM_P.LuceBianca_P1_Size);
-        ssSetSFcnParam(rts, 1, (mxArray*)State_Flow_TestM_P.LuceBianca_P2_Size);
-        ssSetSFcnParam(rts, 2, (mxArray*)State_Flow_TestM_P.LuceBianca_P3_Size);
-        ssSetSFcnParam(rts, 3, (mxArray*)State_Flow_TestM_P.LuceBianca_P4_Size);
-        ssSetSFcnParam(rts, 4, (mxArray*)State_Flow_TestM_P.LuceBianca_P5_Size);
-        ssSetSFcnParam(rts, 5, (mxArray*)State_Flow_TestM_P.LuceBianca_P6_Size);
-        ssSetSFcnParam(rts, 6, (mxArray*)State_Flow_TestM_P.LuceBianca_P7_Size);
+        ssSetSFcnParam(rts, 0, (mxArray*)State_Flow_TestM_P.LuceVerde_P1_Size);
+        ssSetSFcnParam(rts, 1, (mxArray*)State_Flow_TestM_P.LuceVerde_P2_Size);
+        ssSetSFcnParam(rts, 2, (mxArray*)State_Flow_TestM_P.LuceVerde_P3_Size);
+        ssSetSFcnParam(rts, 3, (mxArray*)State_Flow_TestM_P.LuceVerde_P4_Size);
+        ssSetSFcnParam(rts, 4, (mxArray*)State_Flow_TestM_P.LuceVerde_P5_Size);
+        ssSetSFcnParam(rts, 5, (mxArray*)State_Flow_TestM_P.LuceVerde_P6_Size);
+        ssSetSFcnParam(rts, 6, (mxArray*)State_Flow_TestM_P.LuceVerde_P7_Size);
       }
 
       /* work vectors */
-      ssSetIWork(rts, (int_T *) &State_Flow_TestM_DW.LuceBianca_IWORK[0]);
+      ssSetIWork(rts, (int_T *) &State_Flow_TestM_DW.LuceVerde_IWORK[0]);
 
       {
         struct _ssDWorkRecord *dWorkRecord = (struct _ssDWorkRecord *)
@@ -9172,7 +9101,7 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
         ssSetDWorkWidth(rts, 0, 7);
         ssSetDWorkDataType(rts, 0,SS_INTEGER);
         ssSetDWorkComplexSignal(rts, 0, 0);
-        ssSetDWork(rts, 0, &State_Flow_TestM_DW.LuceBianca_IWORK[0]);
+        ssSetDWork(rts, 0, &State_Flow_TestM_DW.LuceVerde_IWORK[0]);
       }
 
       /* registration */
@@ -9195,7 +9124,7 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
       ssSetInputPortBufferDstPort(rts, 0, -1);
     }
 
-    /* Level2 S-Function Block: State_Flow_TestM/<S3>/Luce Rossa  (xpcethercatpdotx) */
+    /* Level2 S-Function Block: State_Flow_TestM/<S36>/EtherCAT PDO Receive15 (xpcethercatpdorx) */
     {
       SimStruct *rts = State_Flow_TestM_M->childSfunctions[14];
 
@@ -9241,24 +9170,25 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
           &State_Flow_TestM_M->NonInlinedSFcns.periodicStatesInfo[14]);
       }
 
-      /* inputs */
+      /* outputs */
       {
-        _ssSetNumInputPorts(rts, 1);
-        ssSetPortInfoForInputs(rts,
-          &State_Flow_TestM_M->NonInlinedSFcns.Sfcn14.inputPortInfo[0]);
+        ssSetPortInfoForOutputs(rts,
+          &State_Flow_TestM_M->NonInlinedSFcns.Sfcn14.outputPortInfo[0]);
+        _ssSetNumOutputPorts(rts, 1);
 
         /* port 0 */
         {
-          ssSetInputPortRequiredContiguous(rts, 0, 1);
-          ssSetInputPortSignal(rts, 0, &State_Flow_TestM_B.DataTypeConversion24);
-          _ssSetInputPortNumDimensions(rts, 0, 1);
-          ssSetInputPortWidth(rts, 0, 1);
+          _ssSetOutputPortNumDimensions(rts, 0, 1);
+          ssSetOutputPortWidth(rts, 0, 1);
+          ssSetOutputPortSignal(rts, 0, ((int32_T *)
+            &State_Flow_TestM_B.EtherCATPDOReceive15));
         }
       }
 
       /* path info */
-      ssSetModelName(rts, "Luce Rossa ");
-      ssSetPath(rts, "State_Flow_TestM/LED Status/Luce Rossa ");
+      ssSetModelName(rts, "EtherCAT PDO Receive15");
+      ssSetPath(rts,
+                "State_Flow_TestM/Movimento/Velocita braccia 1/EtherCAT PDO Receive15");
       ssSetRTModel(rts,State_Flow_TestM_M);
       ssSetParentSS(rts, (NULL));
       ssSetRootSS(rts, rts);
@@ -9270,17 +9200,25 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
           &State_Flow_TestM_M->NonInlinedSFcns.Sfcn14.params;
         ssSetSFcnParamsCount(rts, 7);
         ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
-        ssSetSFcnParam(rts, 0, (mxArray*)State_Flow_TestM_P.LuceRossa_P1_Size);
-        ssSetSFcnParam(rts, 1, (mxArray*)State_Flow_TestM_P.LuceRossa_P2_Size);
-        ssSetSFcnParam(rts, 2, (mxArray*)State_Flow_TestM_P.LuceRossa_P3_Size);
-        ssSetSFcnParam(rts, 3, (mxArray*)State_Flow_TestM_P.LuceRossa_P4_Size);
-        ssSetSFcnParam(rts, 4, (mxArray*)State_Flow_TestM_P.LuceRossa_P5_Size);
-        ssSetSFcnParam(rts, 5, (mxArray*)State_Flow_TestM_P.LuceRossa_P6_Size);
-        ssSetSFcnParam(rts, 6, (mxArray*)State_Flow_TestM_P.LuceRossa_P7_Size);
+        ssSetSFcnParam(rts, 0, (mxArray*)
+                       State_Flow_TestM_P.EtherCATPDOReceive15_P1_Size);
+        ssSetSFcnParam(rts, 1, (mxArray*)
+                       State_Flow_TestM_P.EtherCATPDOReceive15_P2_Size);
+        ssSetSFcnParam(rts, 2, (mxArray*)
+                       State_Flow_TestM_P.EtherCATPDOReceive15_P3_Size);
+        ssSetSFcnParam(rts, 3, (mxArray*)
+                       State_Flow_TestM_P.EtherCATPDOReceive15_P4_Size);
+        ssSetSFcnParam(rts, 4, (mxArray*)
+                       State_Flow_TestM_P.EtherCATPDOReceive15_P5_Size);
+        ssSetSFcnParam(rts, 5, (mxArray*)
+                       State_Flow_TestM_P.EtherCATPDOReceive15_P6_Size);
+        ssSetSFcnParam(rts, 6, (mxArray*)
+                       State_Flow_TestM_P.EtherCATPDOReceive15_P7_Size);
       }
 
       /* work vectors */
-      ssSetIWork(rts, (int_T *) &State_Flow_TestM_DW.LuceRossa_IWORK[0]);
+      ssSetIWork(rts, (int_T *) &State_Flow_TestM_DW.EtherCATPDOReceive15_IWORK
+                 [0]);
 
       {
         struct _ssDWorkRecord *dWorkRecord = (struct _ssDWorkRecord *)
@@ -9295,11 +9233,11 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
         ssSetDWorkWidth(rts, 0, 7);
         ssSetDWorkDataType(rts, 0,SS_INTEGER);
         ssSetDWorkComplexSignal(rts, 0, 0);
-        ssSetDWork(rts, 0, &State_Flow_TestM_DW.LuceRossa_IWORK[0]);
+        ssSetDWork(rts, 0, &State_Flow_TestM_DW.EtherCATPDOReceive15_IWORK[0]);
       }
 
       /* registration */
-      xpcethercatpdotx(rts);
+      xpcethercatpdorx(rts);
       sfcnInitializeSizes(rts);
       sfcnInitializeSampleTimes(rts);
 
@@ -9312,13 +9250,13 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
       ssSetNumNonsampledZCs(rts, 0);
 
       /* Update connectivity flags for each port */
-      _ssSetInputPortConnected(rts, 0, 1);
+      _ssSetOutputPortConnected(rts, 0, 1);
+      _ssSetOutputPortBeingMerged(rts, 0, 0);
 
       /* Update the BufferDstPort flags for each input port */
-      ssSetInputPortBufferDstPort(rts, 0, -1);
     }
 
-    /* Level2 S-Function Block: State_Flow_TestM/<S3>/Luce Verde (xpcethercatpdotx) */
+    /* Level2 S-Function Block: State_Flow_TestM/<S36>/EtherCAT PDO Receive14 (xpcethercatpdorx) */
     {
       SimStruct *rts = State_Flow_TestM_M->childSfunctions[15];
 
@@ -9364,24 +9302,25 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
           &State_Flow_TestM_M->NonInlinedSFcns.periodicStatesInfo[15]);
       }
 
-      /* inputs */
+      /* outputs */
       {
-        _ssSetNumInputPorts(rts, 1);
-        ssSetPortInfoForInputs(rts,
-          &State_Flow_TestM_M->NonInlinedSFcns.Sfcn15.inputPortInfo[0]);
+        ssSetPortInfoForOutputs(rts,
+          &State_Flow_TestM_M->NonInlinedSFcns.Sfcn15.outputPortInfo[0]);
+        _ssSetNumOutputPorts(rts, 1);
 
         /* port 0 */
         {
-          ssSetInputPortRequiredContiguous(rts, 0, 1);
-          ssSetInputPortSignal(rts, 0, &State_Flow_TestM_B.DataTypeConversion26);
-          _ssSetInputPortNumDimensions(rts, 0, 1);
-          ssSetInputPortWidth(rts, 0, 1);
+          _ssSetOutputPortNumDimensions(rts, 0, 1);
+          ssSetOutputPortWidth(rts, 0, 1);
+          ssSetOutputPortSignal(rts, 0, ((int32_T *)
+            &State_Flow_TestM_B.EtherCATPDOReceive14));
         }
       }
 
       /* path info */
-      ssSetModelName(rts, "Luce Verde");
-      ssSetPath(rts, "State_Flow_TestM/LED Status/Luce Verde");
+      ssSetModelName(rts, "EtherCAT PDO Receive14");
+      ssSetPath(rts,
+                "State_Flow_TestM/Movimento/Velocita braccia 1/EtherCAT PDO Receive14");
       ssSetRTModel(rts,State_Flow_TestM_M);
       ssSetParentSS(rts, (NULL));
       ssSetRootSS(rts, rts);
@@ -9393,17 +9332,25 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
           &State_Flow_TestM_M->NonInlinedSFcns.Sfcn15.params;
         ssSetSFcnParamsCount(rts, 7);
         ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
-        ssSetSFcnParam(rts, 0, (mxArray*)State_Flow_TestM_P.LuceVerde_P1_Size);
-        ssSetSFcnParam(rts, 1, (mxArray*)State_Flow_TestM_P.LuceVerde_P2_Size);
-        ssSetSFcnParam(rts, 2, (mxArray*)State_Flow_TestM_P.LuceVerde_P3_Size);
-        ssSetSFcnParam(rts, 3, (mxArray*)State_Flow_TestM_P.LuceVerde_P4_Size);
-        ssSetSFcnParam(rts, 4, (mxArray*)State_Flow_TestM_P.LuceVerde_P5_Size);
-        ssSetSFcnParam(rts, 5, (mxArray*)State_Flow_TestM_P.LuceVerde_P6_Size);
-        ssSetSFcnParam(rts, 6, (mxArray*)State_Flow_TestM_P.LuceVerde_P7_Size);
+        ssSetSFcnParam(rts, 0, (mxArray*)
+                       State_Flow_TestM_P.EtherCATPDOReceive14_P1_Size);
+        ssSetSFcnParam(rts, 1, (mxArray*)
+                       State_Flow_TestM_P.EtherCATPDOReceive14_P2_Size);
+        ssSetSFcnParam(rts, 2, (mxArray*)
+                       State_Flow_TestM_P.EtherCATPDOReceive14_P3_Size);
+        ssSetSFcnParam(rts, 3, (mxArray*)
+                       State_Flow_TestM_P.EtherCATPDOReceive14_P4_Size);
+        ssSetSFcnParam(rts, 4, (mxArray*)
+                       State_Flow_TestM_P.EtherCATPDOReceive14_P5_Size);
+        ssSetSFcnParam(rts, 5, (mxArray*)
+                       State_Flow_TestM_P.EtherCATPDOReceive14_P6_Size);
+        ssSetSFcnParam(rts, 6, (mxArray*)
+                       State_Flow_TestM_P.EtherCATPDOReceive14_P7_Size);
       }
 
       /* work vectors */
-      ssSetIWork(rts, (int_T *) &State_Flow_TestM_DW.LuceVerde_IWORK[0]);
+      ssSetIWork(rts, (int_T *) &State_Flow_TestM_DW.EtherCATPDOReceive14_IWORK
+                 [0]);
 
       {
         struct _ssDWorkRecord *dWorkRecord = (struct _ssDWorkRecord *)
@@ -9418,11 +9365,11 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
         ssSetDWorkWidth(rts, 0, 7);
         ssSetDWorkDataType(rts, 0,SS_INTEGER);
         ssSetDWorkComplexSignal(rts, 0, 0);
-        ssSetDWork(rts, 0, &State_Flow_TestM_DW.LuceVerde_IWORK[0]);
+        ssSetDWork(rts, 0, &State_Flow_TestM_DW.EtherCATPDOReceive14_IWORK[0]);
       }
 
       /* registration */
-      xpcethercatpdotx(rts);
+      xpcethercatpdorx(rts);
       sfcnInitializeSizes(rts);
       sfcnInitializeSampleTimes(rts);
 
@@ -9435,13 +9382,13 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
       ssSetNumNonsampledZCs(rts, 0);
 
       /* Update connectivity flags for each port */
-      _ssSetInputPortConnected(rts, 0, 1);
+      _ssSetOutputPortConnected(rts, 0, 1);
+      _ssSetOutputPortBeingMerged(rts, 0, 0);
 
       /* Update the BufferDstPort flags for each input port */
-      ssSetInputPortBufferDstPort(rts, 0, -1);
     }
 
-    /* Level2 S-Function Block: State_Flow_TestM/<S36>/EtherCAT PDO Receive15 (xpcethercatpdorx) */
+    /* Level2 S-Function Block: State_Flow_TestM/<S35>/EtherCAT PDO Receive15 (xpcethercatpdorx) */
     {
       SimStruct *rts = State_Flow_TestM_M->childSfunctions[16];
 
@@ -9498,14 +9445,14 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
           _ssSetOutputPortNumDimensions(rts, 0, 1);
           ssSetOutputPortWidth(rts, 0, 1);
           ssSetOutputPortSignal(rts, 0, ((int32_T *)
-            &State_Flow_TestM_B.EtherCATPDOReceive15_i));
+            &State_Flow_TestM_B.EtherCATPDOReceive15_d));
         }
       }
 
       /* path info */
       ssSetModelName(rts, "EtherCAT PDO Receive15");
       ssSetPath(rts,
-                "State_Flow_TestM/Movimento/Velocita vite 1/EtherCAT PDO Receive15");
+                "State_Flow_TestM/Movimento/Velocita /EtherCAT PDO Receive15");
       ssSetRTModel(rts,State_Flow_TestM_M);
       ssSetParentSS(rts, (NULL));
       ssSetRootSS(rts, rts);
@@ -9518,24 +9465,24 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
         ssSetSFcnParamsCount(rts, 7);
         ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
         ssSetSFcnParam(rts, 0, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive15_P1_Size_o);
+                       State_Flow_TestM_P.EtherCATPDOReceive15_P1_Size_j);
         ssSetSFcnParam(rts, 1, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive15_P2_Size_i);
+                       State_Flow_TestM_P.EtherCATPDOReceive15_P2_Size_n);
         ssSetSFcnParam(rts, 2, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive15_P3_Size_l);
+                       State_Flow_TestM_P.EtherCATPDOReceive15_P3_Size_j);
         ssSetSFcnParam(rts, 3, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive15_P4_Size_g);
+                       State_Flow_TestM_P.EtherCATPDOReceive15_P4_Size_c);
         ssSetSFcnParam(rts, 4, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive15_P5_Size_h);
+                       State_Flow_TestM_P.EtherCATPDOReceive15_P5_Size_k);
         ssSetSFcnParam(rts, 5, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive15_P6_Size_m);
+                       State_Flow_TestM_P.EtherCATPDOReceive15_P6_Size_j);
         ssSetSFcnParam(rts, 6, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive15_P7_Size_n);
+                       State_Flow_TestM_P.EtherCATPDOReceive15_P7_Size_f);
       }
 
       /* work vectors */
       ssSetIWork(rts, (int_T *)
-                 &State_Flow_TestM_DW.EtherCATPDOReceive15_IWORK_j[0]);
+                 &State_Flow_TestM_DW.EtherCATPDOReceive15_IWORK_o[0]);
 
       {
         struct _ssDWorkRecord *dWorkRecord = (struct _ssDWorkRecord *)
@@ -9550,7 +9497,7 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
         ssSetDWorkWidth(rts, 0, 7);
         ssSetDWorkDataType(rts, 0,SS_INTEGER);
         ssSetDWorkComplexSignal(rts, 0, 0);
-        ssSetDWork(rts, 0, &State_Flow_TestM_DW.EtherCATPDOReceive15_IWORK_j[0]);
+        ssSetDWork(rts, 0, &State_Flow_TestM_DW.EtherCATPDOReceive15_IWORK_o[0]);
       }
 
       /* registration */
@@ -9573,7 +9520,7 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
       /* Update the BufferDstPort flags for each input port */
     }
 
-    /* Level2 S-Function Block: State_Flow_TestM/<S36>/EtherCAT PDO Receive14 (xpcethercatpdorx) */
+    /* Level2 S-Function Block: State_Flow_TestM/<S35>/EtherCAT PDO Receive14 (xpcethercatpdorx) */
     {
       SimStruct *rts = State_Flow_TestM_M->childSfunctions[17];
 
@@ -9630,14 +9577,14 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
           _ssSetOutputPortNumDimensions(rts, 0, 1);
           ssSetOutputPortWidth(rts, 0, 1);
           ssSetOutputPortSignal(rts, 0, ((int32_T *)
-            &State_Flow_TestM_B.EtherCATPDOReceive14_k));
+            &State_Flow_TestM_B.EtherCATPDOReceive14_b));
         }
       }
 
       /* path info */
       ssSetModelName(rts, "EtherCAT PDO Receive14");
       ssSetPath(rts,
-                "State_Flow_TestM/Movimento/Velocita vite 1/EtherCAT PDO Receive14");
+                "State_Flow_TestM/Movimento/Velocita /EtherCAT PDO Receive14");
       ssSetRTModel(rts,State_Flow_TestM_M);
       ssSetParentSS(rts, (NULL));
       ssSetRootSS(rts, rts);
@@ -9650,24 +9597,24 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
         ssSetSFcnParamsCount(rts, 7);
         ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
         ssSetSFcnParam(rts, 0, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive14_P1_Size_o);
+                       State_Flow_TestM_P.EtherCATPDOReceive14_P1_Size_c);
         ssSetSFcnParam(rts, 1, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive14_P2_Size_e);
+                       State_Flow_TestM_P.EtherCATPDOReceive14_P2_Size_m);
         ssSetSFcnParam(rts, 2, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive14_P3_Size_o);
+                       State_Flow_TestM_P.EtherCATPDOReceive14_P3_Size_h);
         ssSetSFcnParam(rts, 3, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive14_P4_Size_f);
+                       State_Flow_TestM_P.EtherCATPDOReceive14_P4_Size_c);
         ssSetSFcnParam(rts, 4, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive14_P5_Size_k);
+                       State_Flow_TestM_P.EtherCATPDOReceive14_P5_Size_c);
         ssSetSFcnParam(rts, 5, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive14_P6_Size_p);
+                       State_Flow_TestM_P.EtherCATPDOReceive14_P6_Size_h);
         ssSetSFcnParam(rts, 6, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive14_P7_Size_k);
+                       State_Flow_TestM_P.EtherCATPDOReceive14_P7_Size_p);
       }
 
       /* work vectors */
       ssSetIWork(rts, (int_T *)
-                 &State_Flow_TestM_DW.EtherCATPDOReceive14_IWORK_b[0]);
+                 &State_Flow_TestM_DW.EtherCATPDOReceive14_IWORK_p[0]);
 
       {
         struct _ssDWorkRecord *dWorkRecord = (struct _ssDWorkRecord *)
@@ -9682,7 +9629,7 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
         ssSetDWorkWidth(rts, 0, 7);
         ssSetDWorkDataType(rts, 0,SS_INTEGER);
         ssSetDWorkComplexSignal(rts, 0, 0);
-        ssSetDWork(rts, 0, &State_Flow_TestM_DW.EtherCATPDOReceive14_IWORK_b[0]);
+        ssSetDWork(rts, 0, &State_Flow_TestM_DW.EtherCATPDOReceive14_IWORK_p[0]);
       }
 
       /* registration */
@@ -9705,7 +9652,7 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
       /* Update the BufferDstPort flags for each input port */
     }
 
-    /* Level2 S-Function Block: State_Flow_TestM/<S35>/EtherCAT PDO Receive15 (xpcethercatpdorx) */
+    /* Level2 S-Function Block: State_Flow_TestM/<S6>/EtherCAT PDO Transmit 1 (xpcethercatpdotx) */
     {
       SimStruct *rts = State_Flow_TestM_M->childSfunctions[18];
 
@@ -9751,25 +9698,25 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
           &State_Flow_TestM_M->NonInlinedSFcns.periodicStatesInfo[18]);
       }
 
-      /* outputs */
+      /* inputs */
       {
-        ssSetPortInfoForOutputs(rts,
-          &State_Flow_TestM_M->NonInlinedSFcns.Sfcn18.outputPortInfo[0]);
-        _ssSetNumOutputPorts(rts, 1);
+        _ssSetNumInputPorts(rts, 1);
+        ssSetPortInfoForInputs(rts,
+          &State_Flow_TestM_M->NonInlinedSFcns.Sfcn18.inputPortInfo[0]);
 
         /* port 0 */
         {
-          _ssSetOutputPortNumDimensions(rts, 0, 1);
-          ssSetOutputPortWidth(rts, 0, 1);
-          ssSetOutputPortSignal(rts, 0, ((int32_T *)
-            &State_Flow_TestM_B.EtherCATPDOReceive15_d));
+          ssSetInputPortRequiredContiguous(rts, 0, 1);
+          ssSetInputPortSignal(rts, 0, &State_Flow_TestM_B.DataTypeConversion3);
+          _ssSetInputPortNumDimensions(rts, 0, 1);
+          ssSetInputPortWidth(rts, 0, 1);
         }
       }
 
       /* path info */
-      ssSetModelName(rts, "EtherCAT PDO Receive15");
+      ssSetModelName(rts, "EtherCAT PDO Transmit 1");
       ssSetPath(rts,
-                "State_Flow_TestM/Movimento/Velocita /EtherCAT PDO Receive15");
+                "State_Flow_TestM/Out Asse A Braccia/EtherCAT PDO Transmit 1");
       ssSetRTModel(rts,State_Flow_TestM_M);
       ssSetParentSS(rts, (NULL));
       ssSetRootSS(rts, rts);
@@ -9782,24 +9729,24 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
         ssSetSFcnParamsCount(rts, 7);
         ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
         ssSetSFcnParam(rts, 0, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive15_P1_Size_j);
+                       State_Flow_TestM_P.EtherCATPDOTransmit1_P1_Size);
         ssSetSFcnParam(rts, 1, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive15_P2_Size_n);
+                       State_Flow_TestM_P.EtherCATPDOTransmit1_P2_Size);
         ssSetSFcnParam(rts, 2, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive15_P3_Size_j);
+                       State_Flow_TestM_P.EtherCATPDOTransmit1_P3_Size);
         ssSetSFcnParam(rts, 3, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive15_P4_Size_c);
+                       State_Flow_TestM_P.EtherCATPDOTransmit1_P4_Size);
         ssSetSFcnParam(rts, 4, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive15_P5_Size_k);
+                       State_Flow_TestM_P.EtherCATPDOTransmit1_P5_Size);
         ssSetSFcnParam(rts, 5, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive15_P6_Size_j);
+                       State_Flow_TestM_P.EtherCATPDOTransmit1_P6_Size);
         ssSetSFcnParam(rts, 6, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive15_P7_Size_f);
+                       State_Flow_TestM_P.EtherCATPDOTransmit1_P7_Size);
       }
 
       /* work vectors */
-      ssSetIWork(rts, (int_T *)
-                 &State_Flow_TestM_DW.EtherCATPDOReceive15_IWORK_o[0]);
+      ssSetIWork(rts, (int_T *) &State_Flow_TestM_DW.EtherCATPDOTransmit1_IWORK
+                 [0]);
 
       {
         struct _ssDWorkRecord *dWorkRecord = (struct _ssDWorkRecord *)
@@ -9814,11 +9761,11 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
         ssSetDWorkWidth(rts, 0, 7);
         ssSetDWorkDataType(rts, 0,SS_INTEGER);
         ssSetDWorkComplexSignal(rts, 0, 0);
-        ssSetDWork(rts, 0, &State_Flow_TestM_DW.EtherCATPDOReceive15_IWORK_o[0]);
+        ssSetDWork(rts, 0, &State_Flow_TestM_DW.EtherCATPDOTransmit1_IWORK[0]);
       }
 
       /* registration */
-      xpcethercatpdorx(rts);
+      xpcethercatpdotx(rts);
       sfcnInitializeSizes(rts);
       sfcnInitializeSampleTimes(rts);
 
@@ -9831,13 +9778,13 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
       ssSetNumNonsampledZCs(rts, 0);
 
       /* Update connectivity flags for each port */
-      _ssSetOutputPortConnected(rts, 0, 1);
-      _ssSetOutputPortBeingMerged(rts, 0, 0);
+      _ssSetInputPortConnected(rts, 0, 1);
 
       /* Update the BufferDstPort flags for each input port */
+      ssSetInputPortBufferDstPort(rts, 0, -1);
     }
 
-    /* Level2 S-Function Block: State_Flow_TestM/<S35>/EtherCAT PDO Receive14 (xpcethercatpdorx) */
+    /* Level2 S-Function Block: State_Flow_TestM/<S95>/EtherCAT PDO Receive9 (xpcethercatpdorx) */
     {
       SimStruct *rts = State_Flow_TestM_M->childSfunctions[19];
 
@@ -9893,15 +9840,15 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
         {
           _ssSetOutputPortNumDimensions(rts, 0, 1);
           ssSetOutputPortWidth(rts, 0, 1);
-          ssSetOutputPortSignal(rts, 0, ((int32_T *)
-            &State_Flow_TestM_B.EtherCATPDOReceive14_b));
+          ssSetOutputPortSignal(rts, 0, ((boolean_T *)
+            &State_Flow_TestM_B.EtherCATPDOReceive9));
         }
       }
 
       /* path info */
-      ssSetModelName(rts, "EtherCAT PDO Receive14");
+      ssSetModelName(rts, "EtherCAT PDO Receive9");
       ssSetPath(rts,
-                "State_Flow_TestM/Movimento/Velocita /EtherCAT PDO Receive14");
+                "State_Flow_TestM/Out Asse A Braccia/Fungo/EtherCAT PDO Receive9");
       ssSetRTModel(rts,State_Flow_TestM_M);
       ssSetParentSS(rts, (NULL));
       ssSetRootSS(rts, rts);
@@ -9914,24 +9861,23 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
         ssSetSFcnParamsCount(rts, 7);
         ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
         ssSetSFcnParam(rts, 0, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive14_P1_Size_c);
+                       State_Flow_TestM_P.EtherCATPDOReceive9_P1_Size);
         ssSetSFcnParam(rts, 1, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive14_P2_Size_m);
+                       State_Flow_TestM_P.EtherCATPDOReceive9_P2_Size);
         ssSetSFcnParam(rts, 2, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive14_P3_Size_h);
+                       State_Flow_TestM_P.EtherCATPDOReceive9_P3_Size);
         ssSetSFcnParam(rts, 3, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive14_P4_Size_c);
+                       State_Flow_TestM_P.EtherCATPDOReceive9_P4_Size);
         ssSetSFcnParam(rts, 4, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive14_P5_Size_c);
+                       State_Flow_TestM_P.EtherCATPDOReceive9_P5_Size);
         ssSetSFcnParam(rts, 5, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive14_P6_Size_h);
+                       State_Flow_TestM_P.EtherCATPDOReceive9_P6_Size);
         ssSetSFcnParam(rts, 6, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive14_P7_Size_p);
+                       State_Flow_TestM_P.EtherCATPDOReceive9_P7_Size);
       }
 
       /* work vectors */
-      ssSetIWork(rts, (int_T *)
-                 &State_Flow_TestM_DW.EtherCATPDOReceive14_IWORK_p[0]);
+      ssSetIWork(rts, (int_T *) &State_Flow_TestM_DW.EtherCATPDOReceive9_IWORK[0]);
 
       {
         struct _ssDWorkRecord *dWorkRecord = (struct _ssDWorkRecord *)
@@ -9946,7 +9892,7 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
         ssSetDWorkWidth(rts, 0, 7);
         ssSetDWorkDataType(rts, 0,SS_INTEGER);
         ssSetDWorkComplexSignal(rts, 0, 0);
-        ssSetDWork(rts, 0, &State_Flow_TestM_DW.EtherCATPDOReceive14_IWORK_p[0]);
+        ssSetDWork(rts, 0, &State_Flow_TestM_DW.EtherCATPDOReceive9_IWORK[0]);
       }
 
       /* registration */
@@ -9969,7 +9915,7 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
       /* Update the BufferDstPort flags for each input port */
     }
 
-    /* Level2 S-Function Block: State_Flow_TestM/<S6>/EtherCAT PDO Transmit 1 (xpcethercatpdotx) */
+    /* Level2 S-Function Block: State_Flow_TestM/<S7>/EtherCAT PDO Transmit 7 (xpcethercatpdotx) */
     {
       SimStruct *rts = State_Flow_TestM_M->childSfunctions[20];
 
@@ -10024,16 +9970,16 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
         /* port 0 */
         {
           ssSetInputPortRequiredContiguous(rts, 0, 1);
-          ssSetInputPortSignal(rts, 0, &State_Flow_TestM_B.DataTypeConversion3);
+          ssSetInputPortSignal(rts, 0, &State_Flow_TestM_B.DataTypeConversion4);
           _ssSetInputPortNumDimensions(rts, 0, 1);
           ssSetInputPortWidth(rts, 0, 1);
         }
       }
 
       /* path info */
-      ssSetModelName(rts, "EtherCAT PDO Transmit 1");
+      ssSetModelName(rts, "EtherCAT PDO Transmit 7");
       ssSetPath(rts,
-                "State_Flow_TestM/Out Asse A Braccia/EtherCAT PDO Transmit 1");
+                "State_Flow_TestM/Out Asse B Braccia/EtherCAT PDO Transmit 7");
       ssSetRTModel(rts,State_Flow_TestM_M);
       ssSetParentSS(rts, (NULL));
       ssSetRootSS(rts, rts);
@@ -10046,23 +9992,23 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
         ssSetSFcnParamsCount(rts, 7);
         ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
         ssSetSFcnParam(rts, 0, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOTransmit1_P1_Size);
+                       State_Flow_TestM_P.EtherCATPDOTransmit7_P1_Size);
         ssSetSFcnParam(rts, 1, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOTransmit1_P2_Size);
+                       State_Flow_TestM_P.EtherCATPDOTransmit7_P2_Size);
         ssSetSFcnParam(rts, 2, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOTransmit1_P3_Size);
+                       State_Flow_TestM_P.EtherCATPDOTransmit7_P3_Size);
         ssSetSFcnParam(rts, 3, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOTransmit1_P4_Size);
+                       State_Flow_TestM_P.EtherCATPDOTransmit7_P4_Size);
         ssSetSFcnParam(rts, 4, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOTransmit1_P5_Size);
+                       State_Flow_TestM_P.EtherCATPDOTransmit7_P5_Size);
         ssSetSFcnParam(rts, 5, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOTransmit1_P6_Size);
+                       State_Flow_TestM_P.EtherCATPDOTransmit7_P6_Size);
         ssSetSFcnParam(rts, 6, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOTransmit1_P7_Size);
+                       State_Flow_TestM_P.EtherCATPDOTransmit7_P7_Size);
       }
 
       /* work vectors */
-      ssSetIWork(rts, (int_T *) &State_Flow_TestM_DW.EtherCATPDOTransmit1_IWORK
+      ssSetIWork(rts, (int_T *) &State_Flow_TestM_DW.EtherCATPDOTransmit7_IWORK
                  [0]);
 
       {
@@ -10078,7 +10024,7 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
         ssSetDWorkWidth(rts, 0, 7);
         ssSetDWorkDataType(rts, 0,SS_INTEGER);
         ssSetDWorkComplexSignal(rts, 0, 0);
-        ssSetDWork(rts, 0, &State_Flow_TestM_DW.EtherCATPDOTransmit1_IWORK[0]);
+        ssSetDWork(rts, 0, &State_Flow_TestM_DW.EtherCATPDOTransmit7_IWORK[0]);
       }
 
       /* registration */
@@ -10101,7 +10047,7 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
       ssSetInputPortBufferDstPort(rts, 0, -1);
     }
 
-    /* Level2 S-Function Block: State_Flow_TestM/<S95>/EtherCAT PDO Receive9 (xpcethercatpdorx) */
+    /* Level2 S-Function Block: State_Flow_TestM/<S99>/EtherCAT PDO Receive9 (xpcethercatpdorx) */
     {
       SimStruct *rts = State_Flow_TestM_M->childSfunctions[21];
 
@@ -10158,14 +10104,14 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
           _ssSetOutputPortNumDimensions(rts, 0, 1);
           ssSetOutputPortWidth(rts, 0, 1);
           ssSetOutputPortSignal(rts, 0, ((boolean_T *)
-            &State_Flow_TestM_B.EtherCATPDOReceive9));
+            &State_Flow_TestM_B.EtherCATPDOReceive9_h));
         }
       }
 
       /* path info */
       ssSetModelName(rts, "EtherCAT PDO Receive9");
       ssSetPath(rts,
-                "State_Flow_TestM/Out Asse A Braccia/Fungo/EtherCAT PDO Receive9");
+                "State_Flow_TestM/Out Asse B Braccia/Fungo/EtherCAT PDO Receive9");
       ssSetRTModel(rts,State_Flow_TestM_M);
       ssSetParentSS(rts, (NULL));
       ssSetRootSS(rts, rts);
@@ -10178,23 +10124,24 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
         ssSetSFcnParamsCount(rts, 7);
         ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
         ssSetSFcnParam(rts, 0, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive9_P1_Size);
+                       State_Flow_TestM_P.EtherCATPDOReceive9_P1_Size_m);
         ssSetSFcnParam(rts, 1, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive9_P2_Size);
+                       State_Flow_TestM_P.EtherCATPDOReceive9_P2_Size_i);
         ssSetSFcnParam(rts, 2, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive9_P3_Size);
+                       State_Flow_TestM_P.EtherCATPDOReceive9_P3_Size_g);
         ssSetSFcnParam(rts, 3, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive9_P4_Size);
+                       State_Flow_TestM_P.EtherCATPDOReceive9_P4_Size_e);
         ssSetSFcnParam(rts, 4, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive9_P5_Size);
+                       State_Flow_TestM_P.EtherCATPDOReceive9_P5_Size_n);
         ssSetSFcnParam(rts, 5, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive9_P6_Size);
+                       State_Flow_TestM_P.EtherCATPDOReceive9_P6_Size_e);
         ssSetSFcnParam(rts, 6, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive9_P7_Size);
+                       State_Flow_TestM_P.EtherCATPDOReceive9_P7_Size_a);
       }
 
       /* work vectors */
-      ssSetIWork(rts, (int_T *) &State_Flow_TestM_DW.EtherCATPDOReceive9_IWORK[0]);
+      ssSetIWork(rts, (int_T *)
+                 &State_Flow_TestM_DW.EtherCATPDOReceive9_IWORK_n[0]);
 
       {
         struct _ssDWorkRecord *dWorkRecord = (struct _ssDWorkRecord *)
@@ -10209,7 +10156,7 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
         ssSetDWorkWidth(rts, 0, 7);
         ssSetDWorkDataType(rts, 0,SS_INTEGER);
         ssSetDWorkComplexSignal(rts, 0, 0);
-        ssSetDWork(rts, 0, &State_Flow_TestM_DW.EtherCATPDOReceive9_IWORK[0]);
+        ssSetDWork(rts, 0, &State_Flow_TestM_DW.EtherCATPDOReceive9_IWORK_n[0]);
       }
 
       /* registration */
@@ -10232,7 +10179,7 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
       /* Update the BufferDstPort flags for each input port */
     }
 
-    /* Level2 S-Function Block: State_Flow_TestM/<S7>/EtherCAT PDO Transmit 7 (xpcethercatpdotx) */
+    /* Level2 S-Function Block: State_Flow_TestM/<S124>/EtherCAT PDO Receive14 (xpcethercatpdorx) */
     {
       SimStruct *rts = State_Flow_TestM_M->childSfunctions[22];
 
@@ -10278,25 +10225,25 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
           &State_Flow_TestM_M->NonInlinedSFcns.periodicStatesInfo[22]);
       }
 
-      /* inputs */
+      /* outputs */
       {
-        _ssSetNumInputPorts(rts, 1);
-        ssSetPortInfoForInputs(rts,
-          &State_Flow_TestM_M->NonInlinedSFcns.Sfcn22.inputPortInfo[0]);
+        ssSetPortInfoForOutputs(rts,
+          &State_Flow_TestM_M->NonInlinedSFcns.Sfcn22.outputPortInfo[0]);
+        _ssSetNumOutputPorts(rts, 1);
 
         /* port 0 */
         {
-          ssSetInputPortRequiredContiguous(rts, 0, 1);
-          ssSetInputPortSignal(rts, 0, &State_Flow_TestM_B.DataTypeConversion4);
-          _ssSetInputPortNumDimensions(rts, 0, 1);
-          ssSetInputPortWidth(rts, 0, 1);
+          _ssSetOutputPortNumDimensions(rts, 0, 1);
+          ssSetOutputPortWidth(rts, 0, 1);
+          ssSetOutputPortSignal(rts, 0, ((int32_T *)
+            &State_Flow_TestM_B.EtherCATPDOReceive14_l));
         }
       }
 
       /* path info */
-      ssSetModelName(rts, "EtherCAT PDO Transmit 7");
+      ssSetModelName(rts, "EtherCAT PDO Receive14");
       ssSetPath(rts,
-                "State_Flow_TestM/Out Asse B Braccia/EtherCAT PDO Transmit 7");
+                "State_Flow_TestM/Sistema Vite/Velocita vite /EtherCAT PDO Receive14");
       ssSetRTModel(rts,State_Flow_TestM_M);
       ssSetParentSS(rts, (NULL));
       ssSetRootSS(rts, rts);
@@ -10309,24 +10256,24 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
         ssSetSFcnParamsCount(rts, 7);
         ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
         ssSetSFcnParam(rts, 0, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOTransmit7_P1_Size);
+                       State_Flow_TestM_P.EtherCATPDOReceive14_P1_Size_o);
         ssSetSFcnParam(rts, 1, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOTransmit7_P2_Size);
+                       State_Flow_TestM_P.EtherCATPDOReceive14_P2_Size_i);
         ssSetSFcnParam(rts, 2, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOTransmit7_P3_Size);
+                       State_Flow_TestM_P.EtherCATPDOReceive14_P3_Size_c);
         ssSetSFcnParam(rts, 3, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOTransmit7_P4_Size);
+                       State_Flow_TestM_P.EtherCATPDOReceive14_P4_Size_g);
         ssSetSFcnParam(rts, 4, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOTransmit7_P5_Size);
+                       State_Flow_TestM_P.EtherCATPDOReceive14_P5_Size_d);
         ssSetSFcnParam(rts, 5, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOTransmit7_P6_Size);
+                       State_Flow_TestM_P.EtherCATPDOReceive14_P6_Size_j);
         ssSetSFcnParam(rts, 6, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOTransmit7_P7_Size);
+                       State_Flow_TestM_P.EtherCATPDOReceive14_P7_Size_c);
       }
 
       /* work vectors */
-      ssSetIWork(rts, (int_T *) &State_Flow_TestM_DW.EtherCATPDOTransmit7_IWORK
-                 [0]);
+      ssSetIWork(rts, (int_T *)
+                 &State_Flow_TestM_DW.EtherCATPDOReceive14_IWORK_j[0]);
 
       {
         struct _ssDWorkRecord *dWorkRecord = (struct _ssDWorkRecord *)
@@ -10341,11 +10288,11 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
         ssSetDWorkWidth(rts, 0, 7);
         ssSetDWorkDataType(rts, 0,SS_INTEGER);
         ssSetDWorkComplexSignal(rts, 0, 0);
-        ssSetDWork(rts, 0, &State_Flow_TestM_DW.EtherCATPDOTransmit7_IWORK[0]);
+        ssSetDWork(rts, 0, &State_Flow_TestM_DW.EtherCATPDOReceive14_IWORK_j[0]);
       }
 
       /* registration */
-      xpcethercatpdotx(rts);
+      xpcethercatpdorx(rts);
       sfcnInitializeSizes(rts);
       sfcnInitializeSampleTimes(rts);
 
@@ -10358,13 +10305,13 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
       ssSetNumNonsampledZCs(rts, 0);
 
       /* Update connectivity flags for each port */
-      _ssSetInputPortConnected(rts, 0, 1);
+      _ssSetOutputPortConnected(rts, 0, 1);
+      _ssSetOutputPortBeingMerged(rts, 0, 0);
 
       /* Update the BufferDstPort flags for each input port */
-      ssSetInputPortBufferDstPort(rts, 0, -1);
     }
 
-    /* Level2 S-Function Block: State_Flow_TestM/<S99>/EtherCAT PDO Receive9 (xpcethercatpdorx) */
+    /* Level2 S-Function Block: State_Flow_TestM/<S124>/EtherCAT PDO Receive15 (xpcethercatpdorx) */
     {
       SimStruct *rts = State_Flow_TestM_M->childSfunctions[23];
 
@@ -10420,15 +10367,15 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
         {
           _ssSetOutputPortNumDimensions(rts, 0, 1);
           ssSetOutputPortWidth(rts, 0, 1);
-          ssSetOutputPortSignal(rts, 0, ((boolean_T *)
-            &State_Flow_TestM_B.EtherCATPDOReceive9_h));
+          ssSetOutputPortSignal(rts, 0, ((int32_T *)
+            &State_Flow_TestM_B.EtherCATPDOReceive15_e));
         }
       }
 
       /* path info */
-      ssSetModelName(rts, "EtherCAT PDO Receive9");
+      ssSetModelName(rts, "EtherCAT PDO Receive15");
       ssSetPath(rts,
-                "State_Flow_TestM/Out Asse B Braccia/Fungo/EtherCAT PDO Receive9");
+                "State_Flow_TestM/Sistema Vite/Velocita vite /EtherCAT PDO Receive15");
       ssSetRTModel(rts,State_Flow_TestM_M);
       ssSetParentSS(rts, (NULL));
       ssSetRootSS(rts, rts);
@@ -10441,24 +10388,24 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
         ssSetSFcnParamsCount(rts, 7);
         ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
         ssSetSFcnParam(rts, 0, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive9_P1_Size_m);
+                       State_Flow_TestM_P.EtherCATPDOReceive15_P1_Size_k);
         ssSetSFcnParam(rts, 1, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive9_P2_Size_i);
+                       State_Flow_TestM_P.EtherCATPDOReceive15_P2_Size_b);
         ssSetSFcnParam(rts, 2, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive9_P3_Size_g);
+                       State_Flow_TestM_P.EtherCATPDOReceive15_P3_Size_b);
         ssSetSFcnParam(rts, 3, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive9_P4_Size_e);
+                       State_Flow_TestM_P.EtherCATPDOReceive15_P4_Size_d);
         ssSetSFcnParam(rts, 4, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive9_P5_Size_n);
+                       State_Flow_TestM_P.EtherCATPDOReceive15_P5_Size_l);
         ssSetSFcnParam(rts, 5, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive9_P6_Size_e);
+                       State_Flow_TestM_P.EtherCATPDOReceive15_P6_Size_o);
         ssSetSFcnParam(rts, 6, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive9_P7_Size_a);
+                       State_Flow_TestM_P.EtherCATPDOReceive15_P7_Size_g);
       }
 
       /* work vectors */
       ssSetIWork(rts, (int_T *)
-                 &State_Flow_TestM_DW.EtherCATPDOReceive9_IWORK_n[0]);
+                 &State_Flow_TestM_DW.EtherCATPDOReceive15_IWORK_e[0]);
 
       {
         struct _ssDWorkRecord *dWorkRecord = (struct _ssDWorkRecord *)
@@ -10473,7 +10420,7 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
         ssSetDWorkWidth(rts, 0, 7);
         ssSetDWorkDataType(rts, 0,SS_INTEGER);
         ssSetDWorkComplexSignal(rts, 0, 0);
-        ssSetDWork(rts, 0, &State_Flow_TestM_DW.EtherCATPDOReceive9_IWORK_n[0]);
+        ssSetDWork(rts, 0, &State_Flow_TestM_DW.EtherCATPDOReceive15_IWORK_e[0]);
       }
 
       /* registration */
@@ -10496,7 +10443,7 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
       /* Update the BufferDstPort flags for each input port */
     }
 
-    /* Level2 S-Function Block: State_Flow_TestM/<S124>/EtherCAT PDO Receive14 (xpcethercatpdorx) */
+    /* Level2 S-Function Block: State_Flow_TestM/<S8>/Torque send (xpcethercatpdotx) */
     {
       SimStruct *rts = State_Flow_TestM_M->childSfunctions[24];
 
@@ -10542,25 +10489,24 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
           &State_Flow_TestM_M->NonInlinedSFcns.periodicStatesInfo[24]);
       }
 
-      /* outputs */
+      /* inputs */
       {
-        ssSetPortInfoForOutputs(rts,
-          &State_Flow_TestM_M->NonInlinedSFcns.Sfcn24.outputPortInfo[0]);
-        _ssSetNumOutputPorts(rts, 1);
+        _ssSetNumInputPorts(rts, 1);
+        ssSetPortInfoForInputs(rts,
+          &State_Flow_TestM_M->NonInlinedSFcns.Sfcn24.inputPortInfo[0]);
 
         /* port 0 */
         {
-          _ssSetOutputPortNumDimensions(rts, 0, 1);
-          ssSetOutputPortWidth(rts, 0, 1);
-          ssSetOutputPortSignal(rts, 0, ((int32_T *)
-            &State_Flow_TestM_B.EtherCATPDOReceive14_l));
+          ssSetInputPortRequiredContiguous(rts, 0, 1);
+          ssSetInputPortSignal(rts, 0, &State_Flow_TestM_B.ConvertA);
+          _ssSetInputPortNumDimensions(rts, 0, 1);
+          ssSetInputPortWidth(rts, 0, 1);
         }
       }
 
       /* path info */
-      ssSetModelName(rts, "EtherCAT PDO Receive14");
-      ssSetPath(rts,
-                "State_Flow_TestM/Sistema Vite/Velocita vite /EtherCAT PDO Receive14");
+      ssSetModelName(rts, "Torque send");
+      ssSetPath(rts, "State_Flow_TestM/Out asse A Vite/Torque send");
       ssSetRTModel(rts,State_Flow_TestM_M);
       ssSetParentSS(rts, (NULL));
       ssSetRootSS(rts, rts);
@@ -10572,25 +10518,17 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
           &State_Flow_TestM_M->NonInlinedSFcns.Sfcn24.params;
         ssSetSFcnParamsCount(rts, 7);
         ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
-        ssSetSFcnParam(rts, 0, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive14_P1_Size_oh);
-        ssSetSFcnParam(rts, 1, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive14_P2_Size_i);
-        ssSetSFcnParam(rts, 2, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive14_P3_Size_c);
-        ssSetSFcnParam(rts, 3, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive14_P4_Size_g);
-        ssSetSFcnParam(rts, 4, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive14_P5_Size_d);
-        ssSetSFcnParam(rts, 5, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive14_P6_Size_j);
-        ssSetSFcnParam(rts, 6, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive14_P7_Size_c);
+        ssSetSFcnParam(rts, 0, (mxArray*)State_Flow_TestM_P.Torquesend_P1_Size);
+        ssSetSFcnParam(rts, 1, (mxArray*)State_Flow_TestM_P.Torquesend_P2_Size);
+        ssSetSFcnParam(rts, 2, (mxArray*)State_Flow_TestM_P.Torquesend_P3_Size);
+        ssSetSFcnParam(rts, 3, (mxArray*)State_Flow_TestM_P.Torquesend_P4_Size);
+        ssSetSFcnParam(rts, 4, (mxArray*)State_Flow_TestM_P.Torquesend_P5_Size);
+        ssSetSFcnParam(rts, 5, (mxArray*)State_Flow_TestM_P.Torquesend_P6_Size);
+        ssSetSFcnParam(rts, 6, (mxArray*)State_Flow_TestM_P.Torquesend_P7_Size);
       }
 
       /* work vectors */
-      ssSetIWork(rts, (int_T *)
-                 &State_Flow_TestM_DW.EtherCATPDOReceive14_IWORK_j[0]);
+      ssSetIWork(rts, (int_T *) &State_Flow_TestM_DW.Torquesend_IWORK[0]);
 
       {
         struct _ssDWorkRecord *dWorkRecord = (struct _ssDWorkRecord *)
@@ -10605,11 +10543,11 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
         ssSetDWorkWidth(rts, 0, 7);
         ssSetDWorkDataType(rts, 0,SS_INTEGER);
         ssSetDWorkComplexSignal(rts, 0, 0);
-        ssSetDWork(rts, 0, &State_Flow_TestM_DW.EtherCATPDOReceive14_IWORK_j[0]);
+        ssSetDWork(rts, 0, &State_Flow_TestM_DW.Torquesend_IWORK[0]);
       }
 
       /* registration */
-      xpcethercatpdorx(rts);
+      xpcethercatpdotx(rts);
       sfcnInitializeSizes(rts);
       sfcnInitializeSampleTimes(rts);
 
@@ -10622,13 +10560,13 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
       ssSetNumNonsampledZCs(rts, 0);
 
       /* Update connectivity flags for each port */
-      _ssSetOutputPortConnected(rts, 0, 1);
-      _ssSetOutputPortBeingMerged(rts, 0, 0);
+      _ssSetInputPortConnected(rts, 0, 1);
 
       /* Update the BufferDstPort flags for each input port */
+      ssSetInputPortBufferDstPort(rts, 0, -1);
     }
 
-    /* Level2 S-Function Block: State_Flow_TestM/<S124>/EtherCAT PDO Receive15 (xpcethercatpdorx) */
+    /* Level2 S-Function Block: State_Flow_TestM/<S103>/EtherCAT PDO Receive9 (xpcethercatpdorx) */
     {
       SimStruct *rts = State_Flow_TestM_M->childSfunctions[25];
 
@@ -10684,15 +10622,15 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
         {
           _ssSetOutputPortNumDimensions(rts, 0, 1);
           ssSetOutputPortWidth(rts, 0, 1);
-          ssSetOutputPortSignal(rts, 0, ((int32_T *)
-            &State_Flow_TestM_B.EtherCATPDOReceive15_e));
+          ssSetOutputPortSignal(rts, 0, ((boolean_T *)
+            &State_Flow_TestM_B.EtherCATPDOReceive9_hd));
         }
       }
 
       /* path info */
-      ssSetModelName(rts, "EtherCAT PDO Receive15");
+      ssSetModelName(rts, "EtherCAT PDO Receive9");
       ssSetPath(rts,
-                "State_Flow_TestM/Sistema Vite/Velocita vite /EtherCAT PDO Receive15");
+                "State_Flow_TestM/Out asse A Vite/Fungo/EtherCAT PDO Receive9");
       ssSetRTModel(rts,State_Flow_TestM_M);
       ssSetParentSS(rts, (NULL));
       ssSetRootSS(rts, rts);
@@ -10705,24 +10643,24 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
         ssSetSFcnParamsCount(rts, 7);
         ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
         ssSetSFcnParam(rts, 0, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive15_P1_Size_k);
+                       State_Flow_TestM_P.EtherCATPDOReceive9_P1_Size_i);
         ssSetSFcnParam(rts, 1, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive15_P2_Size_b);
+                       State_Flow_TestM_P.EtherCATPDOReceive9_P2_Size_a);
         ssSetSFcnParam(rts, 2, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive15_P3_Size_b);
+                       State_Flow_TestM_P.EtherCATPDOReceive9_P3_Size_h);
         ssSetSFcnParam(rts, 3, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive15_P4_Size_d);
+                       State_Flow_TestM_P.EtherCATPDOReceive9_P4_Size_f);
         ssSetSFcnParam(rts, 4, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive15_P5_Size_l);
+                       State_Flow_TestM_P.EtherCATPDOReceive9_P5_Size_a);
         ssSetSFcnParam(rts, 5, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive15_P6_Size_o);
+                       State_Flow_TestM_P.EtherCATPDOReceive9_P6_Size_i);
         ssSetSFcnParam(rts, 6, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive15_P7_Size_g);
+                       State_Flow_TestM_P.EtherCATPDOReceive9_P7_Size_p);
       }
 
       /* work vectors */
       ssSetIWork(rts, (int_T *)
-                 &State_Flow_TestM_DW.EtherCATPDOReceive15_IWORK_e[0]);
+                 &State_Flow_TestM_DW.EtherCATPDOReceive9_IWORK_g[0]);
 
       {
         struct _ssDWorkRecord *dWorkRecord = (struct _ssDWorkRecord *)
@@ -10737,7 +10675,7 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
         ssSetDWorkWidth(rts, 0, 7);
         ssSetDWorkDataType(rts, 0,SS_INTEGER);
         ssSetDWorkComplexSignal(rts, 0, 0);
-        ssSetDWork(rts, 0, &State_Flow_TestM_DW.EtherCATPDOReceive15_IWORK_e[0]);
+        ssSetDWork(rts, 0, &State_Flow_TestM_DW.EtherCATPDOReceive9_IWORK_g[0]);
       }
 
       /* registration */
@@ -10760,7 +10698,7 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
       /* Update the BufferDstPort flags for each input port */
     }
 
-    /* Level2 S-Function Block: State_Flow_TestM/<S8>/Torque send (xpcethercatpdotx) */
+    /* Level2 S-Function Block: State_Flow_TestM/<S9>/EtherCAT PDO Transmit 2 (xpcethercatpdotx) */
     {
       SimStruct *rts = State_Flow_TestM_M->childSfunctions[26];
 
@@ -10815,15 +10753,15 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
         /* port 0 */
         {
           ssSetInputPortRequiredContiguous(rts, 0, 1);
-          ssSetInputPortSignal(rts, 0, &State_Flow_TestM_B.ConvertA);
+          ssSetInputPortSignal(rts, 0, &State_Flow_TestM_B.ConvertB);
           _ssSetInputPortNumDimensions(rts, 0, 1);
           ssSetInputPortWidth(rts, 0, 1);
         }
       }
 
       /* path info */
-      ssSetModelName(rts, "Torque send");
-      ssSetPath(rts, "State_Flow_TestM/Out asse A Vite/Torque send");
+      ssSetModelName(rts, "EtherCAT PDO Transmit 2");
+      ssSetPath(rts, "State_Flow_TestM/Out asse B Vite/EtherCAT PDO Transmit 2");
       ssSetRTModel(rts,State_Flow_TestM_M);
       ssSetParentSS(rts, (NULL));
       ssSetRootSS(rts, rts);
@@ -10835,17 +10773,25 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
           &State_Flow_TestM_M->NonInlinedSFcns.Sfcn26.params;
         ssSetSFcnParamsCount(rts, 7);
         ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
-        ssSetSFcnParam(rts, 0, (mxArray*)State_Flow_TestM_P.Torquesend_P1_Size);
-        ssSetSFcnParam(rts, 1, (mxArray*)State_Flow_TestM_P.Torquesend_P2_Size);
-        ssSetSFcnParam(rts, 2, (mxArray*)State_Flow_TestM_P.Torquesend_P3_Size);
-        ssSetSFcnParam(rts, 3, (mxArray*)State_Flow_TestM_P.Torquesend_P4_Size);
-        ssSetSFcnParam(rts, 4, (mxArray*)State_Flow_TestM_P.Torquesend_P5_Size);
-        ssSetSFcnParam(rts, 5, (mxArray*)State_Flow_TestM_P.Torquesend_P6_Size);
-        ssSetSFcnParam(rts, 6, (mxArray*)State_Flow_TestM_P.Torquesend_P7_Size);
+        ssSetSFcnParam(rts, 0, (mxArray*)
+                       State_Flow_TestM_P.EtherCATPDOTransmit2_P1_Size);
+        ssSetSFcnParam(rts, 1, (mxArray*)
+                       State_Flow_TestM_P.EtherCATPDOTransmit2_P2_Size);
+        ssSetSFcnParam(rts, 2, (mxArray*)
+                       State_Flow_TestM_P.EtherCATPDOTransmit2_P3_Size);
+        ssSetSFcnParam(rts, 3, (mxArray*)
+                       State_Flow_TestM_P.EtherCATPDOTransmit2_P4_Size);
+        ssSetSFcnParam(rts, 4, (mxArray*)
+                       State_Flow_TestM_P.EtherCATPDOTransmit2_P5_Size);
+        ssSetSFcnParam(rts, 5, (mxArray*)
+                       State_Flow_TestM_P.EtherCATPDOTransmit2_P6_Size);
+        ssSetSFcnParam(rts, 6, (mxArray*)
+                       State_Flow_TestM_P.EtherCATPDOTransmit2_P7_Size);
       }
 
       /* work vectors */
-      ssSetIWork(rts, (int_T *) &State_Flow_TestM_DW.Torquesend_IWORK[0]);
+      ssSetIWork(rts, (int_T *) &State_Flow_TestM_DW.EtherCATPDOTransmit2_IWORK
+                 [0]);
 
       {
         struct _ssDWorkRecord *dWorkRecord = (struct _ssDWorkRecord *)
@@ -10860,7 +10806,7 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
         ssSetDWorkWidth(rts, 0, 7);
         ssSetDWorkDataType(rts, 0,SS_INTEGER);
         ssSetDWorkComplexSignal(rts, 0, 0);
-        ssSetDWork(rts, 0, &State_Flow_TestM_DW.Torquesend_IWORK[0]);
+        ssSetDWork(rts, 0, &State_Flow_TestM_DW.EtherCATPDOTransmit2_IWORK[0]);
       }
 
       /* registration */
@@ -10883,7 +10829,7 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
       ssSetInputPortBufferDstPort(rts, 0, -1);
     }
 
-    /* Level2 S-Function Block: State_Flow_TestM/<S103>/EtherCAT PDO Receive9 (xpcethercatpdorx) */
+    /* Level2 S-Function Block: State_Flow_TestM/<S105>/EtherCAT PDO Receive9 (xpcethercatpdorx) */
     {
       SimStruct *rts = State_Flow_TestM_M->childSfunctions[27];
 
@@ -10940,14 +10886,14 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
           _ssSetOutputPortNumDimensions(rts, 0, 1);
           ssSetOutputPortWidth(rts, 0, 1);
           ssSetOutputPortSignal(rts, 0, ((boolean_T *)
-            &State_Flow_TestM_B.EtherCATPDOReceive9_hd));
+            &State_Flow_TestM_B.EtherCATPDOReceive9_d));
         }
       }
 
       /* path info */
       ssSetModelName(rts, "EtherCAT PDO Receive9");
       ssSetPath(rts,
-                "State_Flow_TestM/Out asse A Vite/Fungo/EtherCAT PDO Receive9");
+                "State_Flow_TestM/Out asse B Vite/Fungo/EtherCAT PDO Receive9");
       ssSetRTModel(rts,State_Flow_TestM_M);
       ssSetParentSS(rts, (NULL));
       ssSetRootSS(rts, rts);
@@ -10960,24 +10906,24 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
         ssSetSFcnParamsCount(rts, 7);
         ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
         ssSetSFcnParam(rts, 0, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive9_P1_Size_i);
+                       State_Flow_TestM_P.EtherCATPDOReceive9_P1_Size_o);
         ssSetSFcnParam(rts, 1, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive9_P2_Size_a);
+                       State_Flow_TestM_P.EtherCATPDOReceive9_P2_Size_h);
         ssSetSFcnParam(rts, 2, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive9_P3_Size_h);
+                       State_Flow_TestM_P.EtherCATPDOReceive9_P3_Size_i);
         ssSetSFcnParam(rts, 3, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive9_P4_Size_f);
+                       State_Flow_TestM_P.EtherCATPDOReceive9_P4_Size_l);
         ssSetSFcnParam(rts, 4, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive9_P5_Size_a);
+                       State_Flow_TestM_P.EtherCATPDOReceive9_P5_Size_aa);
         ssSetSFcnParam(rts, 5, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive9_P6_Size_i);
+                       State_Flow_TestM_P.EtherCATPDOReceive9_P6_Size_m);
         ssSetSFcnParam(rts, 6, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive9_P7_Size_p);
+                       State_Flow_TestM_P.EtherCATPDOReceive9_P7_Size_pq);
       }
 
       /* work vectors */
       ssSetIWork(rts, (int_T *)
-                 &State_Flow_TestM_DW.EtherCATPDOReceive9_IWORK_g[0]);
+                 &State_Flow_TestM_DW.EtherCATPDOReceive9_IWORK_l[0]);
 
       {
         struct _ssDWorkRecord *dWorkRecord = (struct _ssDWorkRecord *)
@@ -10992,7 +10938,7 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
         ssSetDWorkWidth(rts, 0, 7);
         ssSetDWorkDataType(rts, 0,SS_INTEGER);
         ssSetDWorkComplexSignal(rts, 0, 0);
-        ssSetDWork(rts, 0, &State_Flow_TestM_DW.EtherCATPDOReceive9_IWORK_g[0]);
+        ssSetDWork(rts, 0, &State_Flow_TestM_DW.EtherCATPDOReceive9_IWORK_l[0]);
       }
 
       /* registration */
@@ -11015,7 +10961,7 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
       /* Update the BufferDstPort flags for each input port */
     }
 
-    /* Level2 S-Function Block: State_Flow_TestM/<S9>/EtherCAT PDO Transmit 2 (xpcethercatpdotx) */
+    /* Level2 S-Function Block: State_Flow_TestM/<S85>/EtherCAT PDO Receive15 (xpcethercatpdorx) */
     {
       SimStruct *rts = State_Flow_TestM_M->childSfunctions[28];
 
@@ -11061,24 +11007,25 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
           &State_Flow_TestM_M->NonInlinedSFcns.periodicStatesInfo[28]);
       }
 
-      /* inputs */
+      /* outputs */
       {
-        _ssSetNumInputPorts(rts, 1);
-        ssSetPortInfoForInputs(rts,
-          &State_Flow_TestM_M->NonInlinedSFcns.Sfcn28.inputPortInfo[0]);
+        ssSetPortInfoForOutputs(rts,
+          &State_Flow_TestM_M->NonInlinedSFcns.Sfcn28.outputPortInfo[0]);
+        _ssSetNumOutputPorts(rts, 1);
 
         /* port 0 */
         {
-          ssSetInputPortRequiredContiguous(rts, 0, 1);
-          ssSetInputPortSignal(rts, 0, &State_Flow_TestM_B.ConvertB);
-          _ssSetInputPortNumDimensions(rts, 0, 1);
-          ssSetInputPortWidth(rts, 0, 1);
+          _ssSetOutputPortNumDimensions(rts, 0, 1);
+          ssSetOutputPortWidth(rts, 0, 1);
+          ssSetOutputPortSignal(rts, 0, ((int32_T *)
+            &State_Flow_TestM_B.EtherCATPDOReceive15_l));
         }
       }
 
       /* path info */
-      ssSetModelName(rts, "EtherCAT PDO Transmit 2");
-      ssSetPath(rts, "State_Flow_TestM/Out asse B Vite/EtherCAT PDO Transmit 2");
+      ssSetModelName(rts, "EtherCAT PDO Receive15");
+      ssSetPath(rts,
+                "State_Flow_TestM/Movimento Braccia/Velocita vite /EtherCAT PDO Receive15");
       ssSetRTModel(rts,State_Flow_TestM_M);
       ssSetParentSS(rts, (NULL));
       ssSetRootSS(rts, rts);
@@ -11091,24 +11038,24 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
         ssSetSFcnParamsCount(rts, 7);
         ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
         ssSetSFcnParam(rts, 0, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOTransmit2_P1_Size);
+                       State_Flow_TestM_P.EtherCATPDOReceive15_P1_Size_h);
         ssSetSFcnParam(rts, 1, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOTransmit2_P2_Size);
+                       State_Flow_TestM_P.EtherCATPDOReceive15_P2_Size_j);
         ssSetSFcnParam(rts, 2, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOTransmit2_P3_Size);
+                       State_Flow_TestM_P.EtherCATPDOReceive15_P3_Size_o);
         ssSetSFcnParam(rts, 3, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOTransmit2_P4_Size);
+                       State_Flow_TestM_P.EtherCATPDOReceive15_P4_Size_m);
         ssSetSFcnParam(rts, 4, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOTransmit2_P5_Size);
+                       State_Flow_TestM_P.EtherCATPDOReceive15_P5_Size_j);
         ssSetSFcnParam(rts, 5, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOTransmit2_P6_Size);
+                       State_Flow_TestM_P.EtherCATPDOReceive15_P6_Size_c);
         ssSetSFcnParam(rts, 6, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOTransmit2_P7_Size);
+                       State_Flow_TestM_P.EtherCATPDOReceive15_P7_Size_n);
       }
 
       /* work vectors */
-      ssSetIWork(rts, (int_T *) &State_Flow_TestM_DW.EtherCATPDOTransmit2_IWORK
-                 [0]);
+      ssSetIWork(rts, (int_T *)
+                 &State_Flow_TestM_DW.EtherCATPDOReceive15_IWORK_m[0]);
 
       {
         struct _ssDWorkRecord *dWorkRecord = (struct _ssDWorkRecord *)
@@ -11123,11 +11070,11 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
         ssSetDWorkWidth(rts, 0, 7);
         ssSetDWorkDataType(rts, 0,SS_INTEGER);
         ssSetDWorkComplexSignal(rts, 0, 0);
-        ssSetDWork(rts, 0, &State_Flow_TestM_DW.EtherCATPDOTransmit2_IWORK[0]);
+        ssSetDWork(rts, 0, &State_Flow_TestM_DW.EtherCATPDOReceive15_IWORK_m[0]);
       }
 
       /* registration */
-      xpcethercatpdotx(rts);
+      xpcethercatpdorx(rts);
       sfcnInitializeSizes(rts);
       sfcnInitializeSampleTimes(rts);
 
@@ -11140,13 +11087,13 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
       ssSetNumNonsampledZCs(rts, 0);
 
       /* Update connectivity flags for each port */
-      _ssSetInputPortConnected(rts, 0, 1);
+      _ssSetOutputPortConnected(rts, 0, 1);
+      _ssSetOutputPortBeingMerged(rts, 0, 0);
 
       /* Update the BufferDstPort flags for each input port */
-      ssSetInputPortBufferDstPort(rts, 0, -1);
     }
 
-    /* Level2 S-Function Block: State_Flow_TestM/<S105>/EtherCAT PDO Receive9 (xpcethercatpdorx) */
+    /* Level2 S-Function Block: State_Flow_TestM/<S85>/EtherCAT PDO Receive14 (xpcethercatpdorx) */
     {
       SimStruct *rts = State_Flow_TestM_M->childSfunctions[29];
 
@@ -11202,270 +11149,6 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
         {
           _ssSetOutputPortNumDimensions(rts, 0, 1);
           ssSetOutputPortWidth(rts, 0, 1);
-          ssSetOutputPortSignal(rts, 0, ((boolean_T *)
-            &State_Flow_TestM_B.EtherCATPDOReceive9_d));
-        }
-      }
-
-      /* path info */
-      ssSetModelName(rts, "EtherCAT PDO Receive9");
-      ssSetPath(rts,
-                "State_Flow_TestM/Out asse B Vite/Fungo/EtherCAT PDO Receive9");
-      ssSetRTModel(rts,State_Flow_TestM_M);
-      ssSetParentSS(rts, (NULL));
-      ssSetRootSS(rts, rts);
-      ssSetVersion(rts, SIMSTRUCT_VERSION_LEVEL2);
-
-      /* parameters */
-      {
-        mxArray **sfcnParams = (mxArray **)
-          &State_Flow_TestM_M->NonInlinedSFcns.Sfcn29.params;
-        ssSetSFcnParamsCount(rts, 7);
-        ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
-        ssSetSFcnParam(rts, 0, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive9_P1_Size_o);
-        ssSetSFcnParam(rts, 1, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive9_P2_Size_h);
-        ssSetSFcnParam(rts, 2, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive9_P3_Size_i);
-        ssSetSFcnParam(rts, 3, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive9_P4_Size_l);
-        ssSetSFcnParam(rts, 4, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive9_P5_Size_aa);
-        ssSetSFcnParam(rts, 5, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive9_P6_Size_m);
-        ssSetSFcnParam(rts, 6, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive9_P7_Size_pq);
-      }
-
-      /* work vectors */
-      ssSetIWork(rts, (int_T *)
-                 &State_Flow_TestM_DW.EtherCATPDOReceive9_IWORK_l[0]);
-
-      {
-        struct _ssDWorkRecord *dWorkRecord = (struct _ssDWorkRecord *)
-          &State_Flow_TestM_M->NonInlinedSFcns.Sfcn29.dWork;
-        struct _ssDWorkAuxRecord *dWorkAuxRecord = (struct _ssDWorkAuxRecord *)
-          &State_Flow_TestM_M->NonInlinedSFcns.Sfcn29.dWorkAux;
-        ssSetSFcnDWork(rts, dWorkRecord);
-        ssSetSFcnDWorkAux(rts, dWorkAuxRecord);
-        _ssSetNumDWork(rts, 1);
-
-        /* IWORK */
-        ssSetDWorkWidth(rts, 0, 7);
-        ssSetDWorkDataType(rts, 0,SS_INTEGER);
-        ssSetDWorkComplexSignal(rts, 0, 0);
-        ssSetDWork(rts, 0, &State_Flow_TestM_DW.EtherCATPDOReceive9_IWORK_l[0]);
-      }
-
-      /* registration */
-      xpcethercatpdorx(rts);
-      sfcnInitializeSizes(rts);
-      sfcnInitializeSampleTimes(rts);
-
-      /* adjust sample time */
-      ssSetSampleTime(rts, 0, 0.001);
-      ssSetOffsetTime(rts, 0, 0.0);
-      sfcnTsMap[0] = 1;
-
-      /* set compiled values of dynamic vector attributes */
-      ssSetNumNonsampledZCs(rts, 0);
-
-      /* Update connectivity flags for each port */
-      _ssSetOutputPortConnected(rts, 0, 1);
-      _ssSetOutputPortBeingMerged(rts, 0, 0);
-
-      /* Update the BufferDstPort flags for each input port */
-    }
-
-    /* Level2 S-Function Block: State_Flow_TestM/<S85>/EtherCAT PDO Receive15 (xpcethercatpdorx) */
-    {
-      SimStruct *rts = State_Flow_TestM_M->childSfunctions[30];
-
-      /* timing info */
-      time_T *sfcnPeriod = State_Flow_TestM_M->NonInlinedSFcns.Sfcn30.sfcnPeriod;
-      time_T *sfcnOffset = State_Flow_TestM_M->NonInlinedSFcns.Sfcn30.sfcnOffset;
-      int_T *sfcnTsMap = State_Flow_TestM_M->NonInlinedSFcns.Sfcn30.sfcnTsMap;
-      (void) memset((void*)sfcnPeriod, 0,
-                    sizeof(time_T)*1);
-      (void) memset((void*)sfcnOffset, 0,
-                    sizeof(time_T)*1);
-      ssSetSampleTimePtr(rts, &sfcnPeriod[0]);
-      ssSetOffsetTimePtr(rts, &sfcnOffset[0]);
-      ssSetSampleTimeTaskIDPtr(rts, sfcnTsMap);
-
-      /* Set up the mdlInfo pointer */
-      {
-        ssSetBlkInfo2Ptr(rts, &State_Flow_TestM_M->NonInlinedSFcns.blkInfo2[30]);
-      }
-
-      ssSetRTWSfcnInfo(rts, State_Flow_TestM_M->sfcnInfo);
-
-      /* Allocate memory of model methods 2 */
-      {
-        ssSetModelMethods2(rts, &State_Flow_TestM_M->NonInlinedSFcns.methods2[30]);
-      }
-
-      /* Allocate memory of model methods 3 */
-      {
-        ssSetModelMethods3(rts, &State_Flow_TestM_M->NonInlinedSFcns.methods3[30]);
-      }
-
-      /* Allocate memory of model methods 4 */
-      {
-        ssSetModelMethods4(rts, &State_Flow_TestM_M->NonInlinedSFcns.methods4[30]);
-      }
-
-      /* Allocate memory for states auxilliary information */
-      {
-        ssSetStatesInfo2(rts, &State_Flow_TestM_M->NonInlinedSFcns.statesInfo2
-                         [30]);
-        ssSetPeriodicStatesInfo(rts,
-          &State_Flow_TestM_M->NonInlinedSFcns.periodicStatesInfo[30]);
-      }
-
-      /* outputs */
-      {
-        ssSetPortInfoForOutputs(rts,
-          &State_Flow_TestM_M->NonInlinedSFcns.Sfcn30.outputPortInfo[0]);
-        _ssSetNumOutputPorts(rts, 1);
-
-        /* port 0 */
-        {
-          _ssSetOutputPortNumDimensions(rts, 0, 1);
-          ssSetOutputPortWidth(rts, 0, 1);
-          ssSetOutputPortSignal(rts, 0, ((int32_T *)
-            &State_Flow_TestM_B.EtherCATPDOReceive15_l));
-        }
-      }
-
-      /* path info */
-      ssSetModelName(rts, "EtherCAT PDO Receive15");
-      ssSetPath(rts,
-                "State_Flow_TestM/Movimento Braccia/Velocita vite /EtherCAT PDO Receive15");
-      ssSetRTModel(rts,State_Flow_TestM_M);
-      ssSetParentSS(rts, (NULL));
-      ssSetRootSS(rts, rts);
-      ssSetVersion(rts, SIMSTRUCT_VERSION_LEVEL2);
-
-      /* parameters */
-      {
-        mxArray **sfcnParams = (mxArray **)
-          &State_Flow_TestM_M->NonInlinedSFcns.Sfcn30.params;
-        ssSetSFcnParamsCount(rts, 7);
-        ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
-        ssSetSFcnParam(rts, 0, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive15_P1_Size_h);
-        ssSetSFcnParam(rts, 1, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive15_P2_Size_j);
-        ssSetSFcnParam(rts, 2, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive15_P3_Size_o);
-        ssSetSFcnParam(rts, 3, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive15_P4_Size_m);
-        ssSetSFcnParam(rts, 4, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive15_P5_Size_j);
-        ssSetSFcnParam(rts, 5, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive15_P6_Size_c);
-        ssSetSFcnParam(rts, 6, (mxArray*)
-                       State_Flow_TestM_P.EtherCATPDOReceive15_P7_Size_nx);
-      }
-
-      /* work vectors */
-      ssSetIWork(rts, (int_T *)
-                 &State_Flow_TestM_DW.EtherCATPDOReceive15_IWORK_m[0]);
-
-      {
-        struct _ssDWorkRecord *dWorkRecord = (struct _ssDWorkRecord *)
-          &State_Flow_TestM_M->NonInlinedSFcns.Sfcn30.dWork;
-        struct _ssDWorkAuxRecord *dWorkAuxRecord = (struct _ssDWorkAuxRecord *)
-          &State_Flow_TestM_M->NonInlinedSFcns.Sfcn30.dWorkAux;
-        ssSetSFcnDWork(rts, dWorkRecord);
-        ssSetSFcnDWorkAux(rts, dWorkAuxRecord);
-        _ssSetNumDWork(rts, 1);
-
-        /* IWORK */
-        ssSetDWorkWidth(rts, 0, 7);
-        ssSetDWorkDataType(rts, 0,SS_INTEGER);
-        ssSetDWorkComplexSignal(rts, 0, 0);
-        ssSetDWork(rts, 0, &State_Flow_TestM_DW.EtherCATPDOReceive15_IWORK_m[0]);
-      }
-
-      /* registration */
-      xpcethercatpdorx(rts);
-      sfcnInitializeSizes(rts);
-      sfcnInitializeSampleTimes(rts);
-
-      /* adjust sample time */
-      ssSetSampleTime(rts, 0, 0.001);
-      ssSetOffsetTime(rts, 0, 0.0);
-      sfcnTsMap[0] = 1;
-
-      /* set compiled values of dynamic vector attributes */
-      ssSetNumNonsampledZCs(rts, 0);
-
-      /* Update connectivity flags for each port */
-      _ssSetOutputPortConnected(rts, 0, 1);
-      _ssSetOutputPortBeingMerged(rts, 0, 0);
-
-      /* Update the BufferDstPort flags for each input port */
-    }
-
-    /* Level2 S-Function Block: State_Flow_TestM/<S85>/EtherCAT PDO Receive14 (xpcethercatpdorx) */
-    {
-      SimStruct *rts = State_Flow_TestM_M->childSfunctions[31];
-
-      /* timing info */
-      time_T *sfcnPeriod = State_Flow_TestM_M->NonInlinedSFcns.Sfcn31.sfcnPeriod;
-      time_T *sfcnOffset = State_Flow_TestM_M->NonInlinedSFcns.Sfcn31.sfcnOffset;
-      int_T *sfcnTsMap = State_Flow_TestM_M->NonInlinedSFcns.Sfcn31.sfcnTsMap;
-      (void) memset((void*)sfcnPeriod, 0,
-                    sizeof(time_T)*1);
-      (void) memset((void*)sfcnOffset, 0,
-                    sizeof(time_T)*1);
-      ssSetSampleTimePtr(rts, &sfcnPeriod[0]);
-      ssSetOffsetTimePtr(rts, &sfcnOffset[0]);
-      ssSetSampleTimeTaskIDPtr(rts, sfcnTsMap);
-
-      /* Set up the mdlInfo pointer */
-      {
-        ssSetBlkInfo2Ptr(rts, &State_Flow_TestM_M->NonInlinedSFcns.blkInfo2[31]);
-      }
-
-      ssSetRTWSfcnInfo(rts, State_Flow_TestM_M->sfcnInfo);
-
-      /* Allocate memory of model methods 2 */
-      {
-        ssSetModelMethods2(rts, &State_Flow_TestM_M->NonInlinedSFcns.methods2[31]);
-      }
-
-      /* Allocate memory of model methods 3 */
-      {
-        ssSetModelMethods3(rts, &State_Flow_TestM_M->NonInlinedSFcns.methods3[31]);
-      }
-
-      /* Allocate memory of model methods 4 */
-      {
-        ssSetModelMethods4(rts, &State_Flow_TestM_M->NonInlinedSFcns.methods4[31]);
-      }
-
-      /* Allocate memory for states auxilliary information */
-      {
-        ssSetStatesInfo2(rts, &State_Flow_TestM_M->NonInlinedSFcns.statesInfo2
-                         [31]);
-        ssSetPeriodicStatesInfo(rts,
-          &State_Flow_TestM_M->NonInlinedSFcns.periodicStatesInfo[31]);
-      }
-
-      /* outputs */
-      {
-        ssSetPortInfoForOutputs(rts,
-          &State_Flow_TestM_M->NonInlinedSFcns.Sfcn31.outputPortInfo[0]);
-        _ssSetNumOutputPorts(rts, 1);
-
-        /* port 0 */
-        {
-          _ssSetOutputPortNumDimensions(rts, 0, 1);
-          ssSetOutputPortWidth(rts, 0, 1);
           ssSetOutputPortSignal(rts, 0, ((int32_T *)
             &State_Flow_TestM_B.EtherCATPDOReceive14_c));
         }
@@ -11483,7 +11166,7 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
       /* parameters */
       {
         mxArray **sfcnParams = (mxArray **)
-          &State_Flow_TestM_M->NonInlinedSFcns.Sfcn31.params;
+          &State_Flow_TestM_M->NonInlinedSFcns.Sfcn29.params;
         ssSetSFcnParamsCount(rts, 7);
         ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
         ssSetSFcnParam(rts, 0, (mxArray*)
@@ -11508,9 +11191,9 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
 
       {
         struct _ssDWorkRecord *dWorkRecord = (struct _ssDWorkRecord *)
-          &State_Flow_TestM_M->NonInlinedSFcns.Sfcn31.dWork;
+          &State_Flow_TestM_M->NonInlinedSFcns.Sfcn29.dWork;
         struct _ssDWorkAuxRecord *dWorkAuxRecord = (struct _ssDWorkAuxRecord *)
-          &State_Flow_TestM_M->NonInlinedSFcns.Sfcn31.dWorkAux;
+          &State_Flow_TestM_M->NonInlinedSFcns.Sfcn29.dWorkAux;
         ssSetSFcnDWork(rts, dWorkRecord);
         ssSetSFcnDWorkAux(rts, dWorkAuxRecord);
         _ssSetNumDWork(rts, 1);
@@ -11549,9 +11232,9 @@ RT_MODEL_State_Flow_TestM_T *State_Flow_TestM(void)
   State_Flow_TestM_M->Sizes.numU = (0);/* Number of model inputs */
   State_Flow_TestM_M->Sizes.sysDirFeedThru = (0);/* The model is not direct feedthrough */
   State_Flow_TestM_M->Sizes.numSampTimes = (2);/* Number of sample times */
-  State_Flow_TestM_M->Sizes.numBlocks = (416);/* Number of blocks */
-  State_Flow_TestM_M->Sizes.numBlockIO = (338);/* Number of block outputs */
-  State_Flow_TestM_M->Sizes.numBlockPrms = (2037);/* Sum of parameter "widths" */
+  State_Flow_TestM_M->Sizes.numBlocks = (409);/* Number of blocks */
+  State_Flow_TestM_M->Sizes.numBlockIO = (333);/* Number of block outputs */
+  State_Flow_TestM_M->Sizes.numBlockPrms = (1906);/* Sum of parameter "widths" */
   return State_Flow_TestM_M;
 }
 

@@ -7,9 +7,9 @@
  *
  * Code generation for model "State_Flow_TestM".
  *
- * Model version              : 1.635
+ * Model version              : 1.674
  * Simulink Coder version : 8.12 (R2017a) 16-Feb-2017
- * C source code generated on : Mon Oct 25 13:26:12 2021
+ * C source code generated on : Fri Oct 29 13:48:35 2021
  *
  * Target selection: slrt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -44,16 +44,14 @@ extern void State_Flow_Te_CinematicaInversa(real_T rtu_x, real_T rtu_y,
 extern void State_Flow_CinematicaInversavel(real_T rtu_theta1, real_T rtu_theta2,
   real_T rtu_x, real_T rtu_y, real_T rtu_xp, real_T rtu_yp,
   B_CinematicaInversavel_State__T *localB);
-extern void State_Flow_TestM_MATLABFunction(real_T rtu_x, real_T rtu_y, real_T
-  rtu_bool, B_MATLABFunction_State_Flow_T_T *localB);
 extern void State_Flow_TestM_AsseAconvbracc(real_T rtu_p,
   B_AsseAconvbracc_State_Flow_T_T *localB);
 extern void State_Flow_TestM_VelAsseAconv(real_T rtu_vA,
   B_VelAsseAconv_State_Flow_Tes_T *localB);
 extern void State_Flow_TestM_VelAsseBconv(real_T rtu_p,
   B_VelAsseBconv_State_Flow_Tes_T *localB);
-extern void State_Flow_Tes_MATLABFunction_e(real_T rtu_now, real_T rtu_old,
-  B_MATLABFunction_State_Flow_l_T *localB);
+extern void State_Flow_TestM_MATLABFunction(real_T rtu_now, real_T rtu_old,
+  B_MATLABFunction_State_Flow_T_T *localB);
 extern void State_Flow_TestM_AsseB(real_T rtu_t, real_T rtu_h, real_T rtu_T,
   B_AsseB_State_Flow_TestM_T *localB);
 

@@ -7,9 +7,9 @@
  *
  * Code generation for model "State_Flow_TestM".
  *
- * Model version              : 1.635
+ * Model version              : 1.674
  * Simulink Coder version : 8.12 (R2017a) 16-Feb-2017
- * C source code generated on : Mon Oct 25 13:26:12 2021
+ * C source code generated on : Fri Oct 29 13:48:35 2021
  *
  * Target selection: slrt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -839,12 +839,6 @@ typedef struct {
   real_T theta2_p;                     /* '<S4>/Cinematica Inversa vel' */
 } B_CinematicaInversavel_State__T;
 
-/* Block signals for system '<S4>/MATLAB Function' */
-typedef struct {
-  real_T xp;                           /* '<S4>/MATLAB Function' */
-  real_T yp;                           /* '<S4>/MATLAB Function' */
-} B_MATLABFunction_State_Flow_T_T;
-
 /* Block signals for system '<S34>/Asse A conv bracc' */
 typedef struct {
   real_T pos_B_conv;                   /* '<S34>/Asse A conv bracc' */
@@ -863,7 +857,7 @@ typedef struct {
 /* Block signals for system '<S95>/MATLAB Function' */
 typedef struct {
   real_T y;                            /* '<S95>/MATLAB Function' */
-} B_MATLABFunction_State_Flow_l_T;
+} B_MATLABFunction_State_Flow_T_T;
 
 /* Block signals for system '<S13>/Asse B' */
 typedef struct {
@@ -873,26 +867,27 @@ typedef struct {
 
 /* Block signals (auto storage) */
 typedef struct {
-  real_T convert10;                    /* '<S10>/convert 10 ' */
-  real_T convert;                      /* '<S10>/convert' */
   real_T Clock;                        /* '<Root>/Clock' */
-  real_T convert_k;                    /* '<S11>/convert' */
-  real_T convert10_p;                  /* '<S11>/convert 10 ' */
+  real_T convert;                      /* '<S11>/convert' */
+  real_T convert10;                    /* '<S11>/convert 10 ' */
   real_T DataTypeConversion6;          /* '<S15>/Data Type Conversion6' */
   real_T DataTypeConversion8;          /* '<S1>/Data Type Conversion8' */
   real_T IntegertoBitConverter[16];    /* '<S1>/Integer to Bit Converter' */
+  real_T convert_g;                    /* '<S10>/convert' */
+  real_T convert10_d;                  /* '<S10>/convert 10 ' */
   real_T DataTypeConversion8_f;        /* '<S2>/Data Type Conversion8' */
   real_T IntegertoBitConverter_d[16];  /* '<S2>/Integer to Bit Converter' */
-  real_T VelocityA;                    /* '<S16>/Velocity A' */
-  real_T VelocityB;                    /* '<S16>/Velocity B' */
   real_T Kp;                           /* '<Root>/Kp' */
+  real_T StartHome;                    /* '<Root>/StartHome' */
+  real_T StartRobot;                   /* '<Root>/StartRobot' */
+  real_T StartWork;                    /* '<Root>/StartWork' */
   real_T Memory;                       /* '<S95>/Memory' */
   real_T Sum12;                        /* '<S34>/Sum12' */
   real_T Sum4;                         /* '<S34>/Sum4' */
   real_T Sum9;                         /* '<S34>/Sum9' */
   real_T Sum7;                         /* '<S34>/Sum7' */
-  real_T VelocityB_c;                  /* '<S36>/Velocity B' */
-  real_T VelocityA_g;                  /* '<S36>/Velocity A' */
+  real_T VelocityB;                    /* '<S36>/Velocity B' */
+  real_T VelocityA;                    /* '<S36>/Velocity A' */
   real_T Sum2;                         /* '<S25>/Sum2' */
   real_T MultiportSwitch[6];           /* '<S28>/Multiport Switch' */
   real_T Sum;                          /* '<S4>/Sum' */
@@ -1052,11 +1047,11 @@ typedef struct {
   real_T CoppiaB;                      /* '<Root>/State flow robot' */
   real_T Luci;                         /* '<Root>/State flow robot' */
   real_T Kp_a;                         /* '<Root>/State flow robot' */
+  real_T Hb;                           /* '<Root>/State flow robot' */
+  real_T Hv;                           /* '<Root>/State flow robot' */
   real_T fc;                           /* '<Root>/State flow robot' */
   real_T fcA;                          /* '<Root>/State flow robot' */
   real_T fcB;                          /* '<Root>/State flow robot' */
-  real_T SFunction_o16;                /* '<Root>/State flow robot' */
-  real_T SFunction_o17;                /* '<Root>/State flow robot' */
   real_T SFunction_o18;                /* '<Root>/State flow robot' */
   real_T SFunction_o19;                /* '<Root>/State flow robot' */
   real_T SFunction_o20;                /* '<Root>/State flow robot' */
@@ -1069,6 +1064,8 @@ typedef struct {
   real_T SFunction_o27;                /* '<Root>/State flow robot' */
   real_T SFunction_o28;                /* '<Root>/State flow robot' */
   real_T SFunction_o29;                /* '<Root>/State flow robot' */
+  real_T SFunction_o30;                /* '<Root>/State flow robot' */
+  real_T SFunction_o31;                /* '<Root>/State flow robot' */
   real_T CA;                           /* '<S131>/MATLAB Function' */
   real_T CB;                           /* '<S131>/MATLAB Function' */
   real_T CH;                           /* '<S131>/MATLAB Function' */
@@ -1101,8 +1098,8 @@ typedef struct {
   real_T y0_p;                         /* '<S33>/Cinematica Inversa2' */
   real_T x_p;                          /* '<S4>/MATLAB Jin' */
   real_T y_p;                          /* '<S4>/MATLAB Jin' */
-  real_T xp;                           /* '<S4>/MATLAB Function1' */
-  real_T zp;                           /* '<S4>/MATLAB Function1' */
+  real_T xp;                           /* '<S4>/MATLAB Function2' */
+  real_T yp;                           /* '<S4>/MATLAB Function2' */
   real_T xs;                           /* '<S28>/spirale' */
   real_T ys;                           /* '<S28>/spirale' */
   real_T xs_p;                         /* '<S28>/spirale' */
@@ -1150,14 +1147,12 @@ typedef struct {
   real_T y_b;                          /* '<S3>/MATLAB Function1' */
   real_T y_i;                          /* '<S3>/MATLAB Function' */
   int32_T EtherCATInit[6];             /* '<Root>/EtherCAT Init ' */
-  int32_T MotorebracciaB;              /* '<S10>/Motore braccia B' */
-  int32_T MotorebracciaA;              /* '<S10>/Motore braccia A' */
   int32_T MotoreviteA;                 /* '<S11>/Motore vite A' */
   int32_T MotoreviteB;                 /* '<S11>/Motore vite B' */
-  int32_T EtherCATPDOReceive14;        /* '<S16>/EtherCAT PDO Receive14' */
-  int32_T EtherCATPDOReceive15;        /* '<S16>/EtherCAT PDO Receive15' */
-  int32_T EtherCATPDOReceive15_i;      /* '<S36>/EtherCAT PDO Receive15' */
-  int32_T EtherCATPDOReceive14_k;      /* '<S36>/EtherCAT PDO Receive14' */
+  int32_T MotorebracciaA;              /* '<S10>/Motore braccia A' */
+  int32_T MotorebracciaB;              /* '<S10>/Motore braccia B' */
+  int32_T EtherCATPDOReceive15;        /* '<S36>/EtherCAT PDO Receive15' */
+  int32_T EtherCATPDOReceive14;        /* '<S36>/EtherCAT PDO Receive14' */
   int32_T EtherCATPDOReceive15_d;      /* '<S35>/EtherCAT PDO Receive15' */
   int32_T EtherCATPDOReceive14_b;      /* '<S35>/EtherCAT PDO Receive14' */
   int32_T EtherCATPDOReceive14_l;      /* '<S124>/EtherCAT PDO Receive14' */
@@ -1182,14 +1177,12 @@ typedef struct {
   boolean_T EtherCATPDOReceive9_h;     /* '<S99>/EtherCAT PDO Receive9' */
   boolean_T EtherCATPDOReceive9_hd;    /* '<S103>/EtherCAT PDO Receive9' */
   boolean_T EtherCATPDOReceive9_d;     /* '<S105>/EtherCAT PDO Receive9' */
-  B_VelAsseBconv_State_Flow_Tes_T sf_VelAsseBconv;/* '<S16>/Vel Asse B conv' */
-  B_VelAsseAconv_State_Flow_Tes_T sf_VelAsseAconv;/* '<S16>/Vel Asse A conv' */
   B_AsseB_State_Flow_TestM_T sf_RifermentoAsseAVite;/* '<S13>/Rifermento Asse A Vite' */
   B_AsseB_State_Flow_TestM_T sf_AsseB; /* '<S13>/Asse B' */
-  B_MATLABFunction_State_Flow_l_T sf_MATLABFunction_i;/* '<S105>/MATLAB Function' */
-  B_MATLABFunction_State_Flow_l_T sf_MATLABFunction_f;/* '<S103>/MATLAB Function' */
-  B_MATLABFunction_State_Flow_l_T sf_MATLABFunction_a;/* '<S99>/MATLAB Function' */
-  B_MATLABFunction_State_Flow_l_T sf_MATLABFunction_e;/* '<S95>/MATLAB Function' */
+  B_MATLABFunction_State_Flow_T_T sf_MATLABFunction_i;/* '<S105>/MATLAB Function' */
+  B_MATLABFunction_State_Flow_T_T sf_MATLABFunction_f;/* '<S103>/MATLAB Function' */
+  B_MATLABFunction_State_Flow_T_T sf_MATLABFunction_a;/* '<S99>/MATLAB Function' */
+  B_MATLABFunction_State_Flow_T_T sf_MATLABFunction_e;/* '<S95>/MATLAB Function' */
   B_VelAsseBconv_State_Flow_Tes_T sf_VelAsseBconv_o;/* '<S85>/Vel Asse B conv' */
   B_VelAsseAconv_State_Flow_Tes_T sf_VelAsseAconv_o;/* '<S85>/Vel Asse A conv' */
   B_CinematicaInversavel_State__T sf_CinematicaInversavel_l;/* '<S5>/Cinematica Inversa vel' */
@@ -1199,8 +1192,6 @@ typedef struct {
   B_VelAsseAconv_State_Flow_Tes_T sf_VelAsseAconv_a;/* '<S35>/Vel Asse A conv' */
   B_AsseAconvbracc_State_Flow_T_T sf_AsseBconvbrac1;/* '<S34>/Asse B conv brac1' */
   B_AsseAconvbracc_State_Flow_T_T sf_AsseAconvbracc;/* '<S34>/Asse A conv bracc' */
-  B_MATLABFunction_State_Flow_T_T sf_MATLABFunction2_i;/* '<S4>/MATLAB Function2' */
-  B_MATLABFunction_State_Flow_T_T sf_MATLABFunction_p;/* '<S4>/MATLAB Function' */
   B_CinematicaInversavel_State__T sf_CinematicaInversavel;/* '<S4>/Cinematica Inversa vel' */
   B_CinematicaInversa_State_Flo_T sf_CinematicaInversa;/* '<S4>/Cinematica Inversa' */
 } B_State_Flow_TestM_T;
@@ -1301,11 +1292,6 @@ typedef struct {
     void *AQHandles;
     void *SlioLTF;
   } HiddenToAsyncQueue_InsertedF_pc;   /* synthesized block */
-
-  struct {
-    void *AQHandles;
-    void *SlioLTF;
-  } HiddenToAsyncQueue_InsertedF_dx;   /* synthesized block */
 
   struct {
     void *AQHandles;
@@ -1462,35 +1448,23 @@ typedef struct {
     void *SlioLTF;
   } HiddenToAsyncQueue_InsertedF_d4;   /* synthesized block */
 
-  struct {
-    void *AQHandles;
-    void *SlioLTF;
-  } HiddenToAsyncQueue_Inserted_d4c;   /* synthesized block */
-
-  struct {
-    void *AQHandles;
-    void *SlioLTF;
-  } HiddenToAsyncQueue_Inserted_ib0;   /* synthesized block */
-
   int32_T sfEvent;                     /* '<Root>/State flow robot' */
   int_T EtherCATPDOTransmit5_IWORK[7]; /* '<Root>/EtherCAT PDO Transmit 5' */
   int_T EtherCATPDOTransmit6_IWORK[7]; /* '<Root>/EtherCAT PDO Transmit 6' */
   int_T EtherCATPDOTransmit3_IWORK[7]; /* '<Root>/EtherCAT PDO Transmit 3' */
   int_T EtherCATPDOTransmit4_IWORK[7]; /* '<Root>/EtherCAT PDO Transmit 4' */
-  int_T MotorebracciaB_IWORK[7];       /* '<S10>/Motore braccia B' */
-  int_T MotorebracciaA_IWORK[7];       /* '<S10>/Motore braccia A' */
   int_T MotoreviteA_IWORK[7];          /* '<S11>/Motore vite A' */
   int_T MotoreviteB_IWORK[7];          /* '<S11>/Motore vite B' */
   int_T StatusWord_IWORK[7];           /* '<S15>/Status Word' */
   int_T EtherCATPDOReceive16_IWORK[7]; /* '<S1>/EtherCAT PDO Receive16' */
+  int_T MotorebracciaA_IWORK[7];       /* '<S10>/Motore braccia A' */
+  int_T MotorebracciaB_IWORK[7];       /* '<S10>/Motore braccia B' */
   int_T EtherCATPDOReceive16_IWORK_l[7];/* '<S2>/EtherCAT PDO Receive16' */
-  int_T EtherCATPDOReceive14_IWORK[7]; /* '<S16>/EtherCAT PDO Receive14' */
-  int_T EtherCATPDOReceive15_IWORK[7]; /* '<S16>/EtherCAT PDO Receive15' */
   int_T LuceBianca_IWORK[7];           /* '<S3>/Luce Bianca' */
   int_T LuceRossa_IWORK[7];            /* '<S3>/Luce Rossa ' */
   int_T LuceVerde_IWORK[7];            /* '<S3>/Luce Verde' */
-  int_T EtherCATPDOReceive15_IWORK_j[7];/* '<S36>/EtherCAT PDO Receive15' */
-  int_T EtherCATPDOReceive14_IWORK_b[7];/* '<S36>/EtherCAT PDO Receive14' */
+  int_T EtherCATPDOReceive15_IWORK[7]; /* '<S36>/EtherCAT PDO Receive15' */
+  int_T EtherCATPDOReceive14_IWORK[7]; /* '<S36>/EtherCAT PDO Receive14' */
   int_T EtherCATPDOReceive15_IWORK_o[7];/* '<S35>/EtherCAT PDO Receive15' */
   int_T EtherCATPDOReceive14_IWORK_p[7];/* '<S35>/EtherCAT PDO Receive14' */
   int_T EtherCATPDOTransmit1_IWORK[7]; /* '<S6>/EtherCAT PDO Transmit 1' */
@@ -1785,90 +1759,6 @@ struct P_State_Flow_TestM_T_ {
   real_T EtherCATPDOTransmit4_P7;      /* Expression: sample_time
                                         * Referenced by: '<Root>/EtherCAT PDO Transmit 4'
                                         */
-  real_T MotorebracciaB_P1_Size[2];    /* Computed Parameter: MotorebracciaB_P1_Size
-                                        * Referenced by: '<S10>/Motore braccia B'
-                                        */
-  real_T MotorebracciaB_P1[47];        /* Computed Parameter: MotorebracciaB_P1
-                                        * Referenced by: '<S10>/Motore braccia B'
-                                        */
-  real_T MotorebracciaB_P2_Size[2];    /* Computed Parameter: MotorebracciaB_P2_Size
-                                        * Referenced by: '<S10>/Motore braccia B'
-                                        */
-  real_T MotorebracciaB_P2;            /* Expression: sig_offset
-                                        * Referenced by: '<S10>/Motore braccia B'
-                                        */
-  real_T MotorebracciaB_P3_Size[2];    /* Computed Parameter: MotorebracciaB_P3_Size
-                                        * Referenced by: '<S10>/Motore braccia B'
-                                        */
-  real_T MotorebracciaB_P3;            /* Expression: sig_type
-                                        * Referenced by: '<S10>/Motore braccia B'
-                                        */
-  real_T MotorebracciaB_P4_Size[2];    /* Computed Parameter: MotorebracciaB_P4_Size
-                                        * Referenced by: '<S10>/Motore braccia B'
-                                        */
-  real_T MotorebracciaB_P4;            /* Expression: type_size
-                                        * Referenced by: '<S10>/Motore braccia B'
-                                        */
-  real_T MotorebracciaB_P5_Size[2];    /* Computed Parameter: MotorebracciaB_P5_Size
-                                        * Referenced by: '<S10>/Motore braccia B'
-                                        */
-  real_T MotorebracciaB_P5;            /* Expression: sig_dim
-                                        * Referenced by: '<S10>/Motore braccia B'
-                                        */
-  real_T MotorebracciaB_P6_Size[2];    /* Computed Parameter: MotorebracciaB_P6_Size
-                                        * Referenced by: '<S10>/Motore braccia B'
-                                        */
-  real_T MotorebracciaB_P6;            /* Expression: device_id
-                                        * Referenced by: '<S10>/Motore braccia B'
-                                        */
-  real_T MotorebracciaB_P7_Size[2];    /* Computed Parameter: MotorebracciaB_P7_Size
-                                        * Referenced by: '<S10>/Motore braccia B'
-                                        */
-  real_T MotorebracciaB_P7;            /* Expression: sample_time
-                                        * Referenced by: '<S10>/Motore braccia B'
-                                        */
-  real_T MotorebracciaA_P1_Size[2];    /* Computed Parameter: MotorebracciaA_P1_Size
-                                        * Referenced by: '<S10>/Motore braccia A'
-                                        */
-  real_T MotorebracciaA_P1[47];        /* Computed Parameter: MotorebracciaA_P1
-                                        * Referenced by: '<S10>/Motore braccia A'
-                                        */
-  real_T MotorebracciaA_P2_Size[2];    /* Computed Parameter: MotorebracciaA_P2_Size
-                                        * Referenced by: '<S10>/Motore braccia A'
-                                        */
-  real_T MotorebracciaA_P2;            /* Expression: sig_offset
-                                        * Referenced by: '<S10>/Motore braccia A'
-                                        */
-  real_T MotorebracciaA_P3_Size[2];    /* Computed Parameter: MotorebracciaA_P3_Size
-                                        * Referenced by: '<S10>/Motore braccia A'
-                                        */
-  real_T MotorebracciaA_P3;            /* Expression: sig_type
-                                        * Referenced by: '<S10>/Motore braccia A'
-                                        */
-  real_T MotorebracciaA_P4_Size[2];    /* Computed Parameter: MotorebracciaA_P4_Size
-                                        * Referenced by: '<S10>/Motore braccia A'
-                                        */
-  real_T MotorebracciaA_P4;            /* Expression: type_size
-                                        * Referenced by: '<S10>/Motore braccia A'
-                                        */
-  real_T MotorebracciaA_P5_Size[2];    /* Computed Parameter: MotorebracciaA_P5_Size
-                                        * Referenced by: '<S10>/Motore braccia A'
-                                        */
-  real_T MotorebracciaA_P5;            /* Expression: sig_dim
-                                        * Referenced by: '<S10>/Motore braccia A'
-                                        */
-  real_T MotorebracciaA_P6_Size[2];    /* Computed Parameter: MotorebracciaA_P6_Size
-                                        * Referenced by: '<S10>/Motore braccia A'
-                                        */
-  real_T MotorebracciaA_P6;            /* Expression: device_id
-                                        * Referenced by: '<S10>/Motore braccia A'
-                                        */
-  real_T MotorebracciaA_P7_Size[2];    /* Computed Parameter: MotorebracciaA_P7_Size
-                                        * Referenced by: '<S10>/Motore braccia A'
-                                        */
-  real_T MotorebracciaA_P7;            /* Expression: sample_time
-                                        * Referenced by: '<S10>/Motore braccia A'
-                                        */
   real_T MotoreviteA_P1_Size[2];       /* Computed Parameter: MotoreviteA_P1_Size
                                         * Referenced by: '<S11>/Motore vite A'
                                         */
@@ -2037,6 +1927,90 @@ struct P_State_Flow_TestM_T_ {
   real_T EtherCATPDOReceive16_P7;      /* Expression: sample_time
                                         * Referenced by: '<S1>/EtherCAT PDO Receive16'
                                         */
+  real_T MotorebracciaA_P1_Size[2];    /* Computed Parameter: MotorebracciaA_P1_Size
+                                        * Referenced by: '<S10>/Motore braccia A'
+                                        */
+  real_T MotorebracciaA_P1[47];        /* Computed Parameter: MotorebracciaA_P1
+                                        * Referenced by: '<S10>/Motore braccia A'
+                                        */
+  real_T MotorebracciaA_P2_Size[2];    /* Computed Parameter: MotorebracciaA_P2_Size
+                                        * Referenced by: '<S10>/Motore braccia A'
+                                        */
+  real_T MotorebracciaA_P2;            /* Expression: sig_offset
+                                        * Referenced by: '<S10>/Motore braccia A'
+                                        */
+  real_T MotorebracciaA_P3_Size[2];    /* Computed Parameter: MotorebracciaA_P3_Size
+                                        * Referenced by: '<S10>/Motore braccia A'
+                                        */
+  real_T MotorebracciaA_P3;            /* Expression: sig_type
+                                        * Referenced by: '<S10>/Motore braccia A'
+                                        */
+  real_T MotorebracciaA_P4_Size[2];    /* Computed Parameter: MotorebracciaA_P4_Size
+                                        * Referenced by: '<S10>/Motore braccia A'
+                                        */
+  real_T MotorebracciaA_P4;            /* Expression: type_size
+                                        * Referenced by: '<S10>/Motore braccia A'
+                                        */
+  real_T MotorebracciaA_P5_Size[2];    /* Computed Parameter: MotorebracciaA_P5_Size
+                                        * Referenced by: '<S10>/Motore braccia A'
+                                        */
+  real_T MotorebracciaA_P5;            /* Expression: sig_dim
+                                        * Referenced by: '<S10>/Motore braccia A'
+                                        */
+  real_T MotorebracciaA_P6_Size[2];    /* Computed Parameter: MotorebracciaA_P6_Size
+                                        * Referenced by: '<S10>/Motore braccia A'
+                                        */
+  real_T MotorebracciaA_P6;            /* Expression: device_id
+                                        * Referenced by: '<S10>/Motore braccia A'
+                                        */
+  real_T MotorebracciaA_P7_Size[2];    /* Computed Parameter: MotorebracciaA_P7_Size
+                                        * Referenced by: '<S10>/Motore braccia A'
+                                        */
+  real_T MotorebracciaA_P7;            /* Expression: sample_time
+                                        * Referenced by: '<S10>/Motore braccia A'
+                                        */
+  real_T MotorebracciaB_P1_Size[2];    /* Computed Parameter: MotorebracciaB_P1_Size
+                                        * Referenced by: '<S10>/Motore braccia B'
+                                        */
+  real_T MotorebracciaB_P1[47];        /* Computed Parameter: MotorebracciaB_P1
+                                        * Referenced by: '<S10>/Motore braccia B'
+                                        */
+  real_T MotorebracciaB_P2_Size[2];    /* Computed Parameter: MotorebracciaB_P2_Size
+                                        * Referenced by: '<S10>/Motore braccia B'
+                                        */
+  real_T MotorebracciaB_P2;            /* Expression: sig_offset
+                                        * Referenced by: '<S10>/Motore braccia B'
+                                        */
+  real_T MotorebracciaB_P3_Size[2];    /* Computed Parameter: MotorebracciaB_P3_Size
+                                        * Referenced by: '<S10>/Motore braccia B'
+                                        */
+  real_T MotorebracciaB_P3;            /* Expression: sig_type
+                                        * Referenced by: '<S10>/Motore braccia B'
+                                        */
+  real_T MotorebracciaB_P4_Size[2];    /* Computed Parameter: MotorebracciaB_P4_Size
+                                        * Referenced by: '<S10>/Motore braccia B'
+                                        */
+  real_T MotorebracciaB_P4;            /* Expression: type_size
+                                        * Referenced by: '<S10>/Motore braccia B'
+                                        */
+  real_T MotorebracciaB_P5_Size[2];    /* Computed Parameter: MotorebracciaB_P5_Size
+                                        * Referenced by: '<S10>/Motore braccia B'
+                                        */
+  real_T MotorebracciaB_P5;            /* Expression: sig_dim
+                                        * Referenced by: '<S10>/Motore braccia B'
+                                        */
+  real_T MotorebracciaB_P6_Size[2];    /* Computed Parameter: MotorebracciaB_P6_Size
+                                        * Referenced by: '<S10>/Motore braccia B'
+                                        */
+  real_T MotorebracciaB_P6;            /* Expression: device_id
+                                        * Referenced by: '<S10>/Motore braccia B'
+                                        */
+  real_T MotorebracciaB_P7_Size[2];    /* Computed Parameter: MotorebracciaB_P7_Size
+                                        * Referenced by: '<S10>/Motore braccia B'
+                                        */
+  real_T MotorebracciaB_P7;            /* Expression: sample_time
+                                        * Referenced by: '<S10>/Motore braccia B'
+                                        */
   real_T EtherCATPDOReceive16_P1_Size_g[2];/* Computed Parameter: EtherCATPDOReceive16_P1_Size_g
                                             * Referenced by: '<S2>/EtherCAT PDO Receive16'
                                             */
@@ -2079,92 +2053,17 @@ struct P_State_Flow_TestM_T_ {
   real_T EtherCATPDOReceive16_P7_h;    /* Expression: sample_time
                                         * Referenced by: '<S2>/EtherCAT PDO Receive16'
                                         */
-  real_T EtherCATPDOReceive14_P1_Size[2];/* Computed Parameter: EtherCATPDOReceive14_P1_Size
-                                          * Referenced by: '<S16>/EtherCAT PDO Receive14'
-                                          */
-  real_T EtherCATPDOReceive14_P1[47];  /* Computed Parameter: EtherCATPDOReceive14_P1
-                                        * Referenced by: '<S16>/EtherCAT PDO Receive14'
-                                        */
-  real_T EtherCATPDOReceive14_P2_Size[2];/* Computed Parameter: EtherCATPDOReceive14_P2_Size
-                                          * Referenced by: '<S16>/EtherCAT PDO Receive14'
-                                          */
-  real_T EtherCATPDOReceive14_P2;      /* Expression: sig_offset
-                                        * Referenced by: '<S16>/EtherCAT PDO Receive14'
-                                        */
-  real_T EtherCATPDOReceive14_P3_Size[2];/* Computed Parameter: EtherCATPDOReceive14_P3_Size
-                                          * Referenced by: '<S16>/EtherCAT PDO Receive14'
-                                          */
-  real_T EtherCATPDOReceive14_P3;      /* Expression: sig_type
-                                        * Referenced by: '<S16>/EtherCAT PDO Receive14'
-                                        */
-  real_T EtherCATPDOReceive14_P4_Size[2];/* Computed Parameter: EtherCATPDOReceive14_P4_Size
-                                          * Referenced by: '<S16>/EtherCAT PDO Receive14'
-                                          */
-  real_T EtherCATPDOReceive14_P4;      /* Expression: type_size
-                                        * Referenced by: '<S16>/EtherCAT PDO Receive14'
-                                        */
-  real_T EtherCATPDOReceive14_P5_Size[2];/* Computed Parameter: EtherCATPDOReceive14_P5_Size
-                                          * Referenced by: '<S16>/EtherCAT PDO Receive14'
-                                          */
-  real_T EtherCATPDOReceive14_P5;      /* Expression: sig_dim
-                                        * Referenced by: '<S16>/EtherCAT PDO Receive14'
-                                        */
-  real_T EtherCATPDOReceive14_P6_Size[2];/* Computed Parameter: EtherCATPDOReceive14_P6_Size
-                                          * Referenced by: '<S16>/EtherCAT PDO Receive14'
-                                          */
-  real_T EtherCATPDOReceive14_P6;      /* Expression: device_id
-                                        * Referenced by: '<S16>/EtherCAT PDO Receive14'
-                                        */
-  real_T EtherCATPDOReceive14_P7_Size[2];/* Computed Parameter: EtherCATPDOReceive14_P7_Size
-                                          * Referenced by: '<S16>/EtherCAT PDO Receive14'
-                                          */
-  real_T EtherCATPDOReceive14_P7;      /* Expression: sample_time
-                                        * Referenced by: '<S16>/EtherCAT PDO Receive14'
-                                        */
-  real_T EtherCATPDOReceive15_P1_Size[2];/* Computed Parameter: EtherCATPDOReceive15_P1_Size
-                                          * Referenced by: '<S16>/EtherCAT PDO Receive15'
-                                          */
-  real_T EtherCATPDOReceive15_P1[47];  /* Computed Parameter: EtherCATPDOReceive15_P1
-                                        * Referenced by: '<S16>/EtherCAT PDO Receive15'
-                                        */
-  real_T EtherCATPDOReceive15_P2_Size[2];/* Computed Parameter: EtherCATPDOReceive15_P2_Size
-                                          * Referenced by: '<S16>/EtherCAT PDO Receive15'
-                                          */
-  real_T EtherCATPDOReceive15_P2;      /* Expression: sig_offset
-                                        * Referenced by: '<S16>/EtherCAT PDO Receive15'
-                                        */
-  real_T EtherCATPDOReceive15_P3_Size[2];/* Computed Parameter: EtherCATPDOReceive15_P3_Size
-                                          * Referenced by: '<S16>/EtherCAT PDO Receive15'
-                                          */
-  real_T EtherCATPDOReceive15_P3;      /* Expression: sig_type
-                                        * Referenced by: '<S16>/EtherCAT PDO Receive15'
-                                        */
-  real_T EtherCATPDOReceive15_P4_Size[2];/* Computed Parameter: EtherCATPDOReceive15_P4_Size
-                                          * Referenced by: '<S16>/EtherCAT PDO Receive15'
-                                          */
-  real_T EtherCATPDOReceive15_P4;      /* Expression: type_size
-                                        * Referenced by: '<S16>/EtherCAT PDO Receive15'
-                                        */
-  real_T EtherCATPDOReceive15_P5_Size[2];/* Computed Parameter: EtherCATPDOReceive15_P5_Size
-                                          * Referenced by: '<S16>/EtherCAT PDO Receive15'
-                                          */
-  real_T EtherCATPDOReceive15_P5;      /* Expression: sig_dim
-                                        * Referenced by: '<S16>/EtherCAT PDO Receive15'
-                                        */
-  real_T EtherCATPDOReceive15_P6_Size[2];/* Computed Parameter: EtherCATPDOReceive15_P6_Size
-                                          * Referenced by: '<S16>/EtherCAT PDO Receive15'
-                                          */
-  real_T EtherCATPDOReceive15_P6;      /* Expression: device_id
-                                        * Referenced by: '<S16>/EtherCAT PDO Receive15'
-                                        */
-  real_T EtherCATPDOReceive15_P7_Size[2];/* Computed Parameter: EtherCATPDOReceive15_P7_Size
-                                          * Referenced by: '<S16>/EtherCAT PDO Receive15'
-                                          */
-  real_T EtherCATPDOReceive15_P7;      /* Expression: sample_time
-                                        * Referenced by: '<S16>/EtherCAT PDO Receive15'
-                                        */
   real_T Kp_Value;                     /* Expression: 3000
                                         * Referenced by: '<Root>/Kp'
+                                        */
+  real_T StartHome_Value;              /* Expression: 0
+                                        * Referenced by: '<Root>/StartHome'
+                                        */
+  real_T StartRobot_Value;             /* Expression: 0
+                                        * Referenced by: '<Root>/StartRobot'
+                                        */
+  real_T StartWork_Value;              /* Expression: 0
+                                        * Referenced by: '<Root>/StartWork'
                                         */
   real_T LuceBianca_P1_Size[2];        /* Computed Parameter: LuceBianca_P1_Size
                                         * Referenced by: '<S3>/Luce Bianca'
@@ -2304,88 +2203,88 @@ struct P_State_Flow_TestM_T_ {
   real_T Constant5_Value;              /* Expression: deg2rad(80)
                                         * Referenced by: '<S34>/Constant5'
                                         */
-  real_T EtherCATPDOReceive15_P1_Size_o[2];/* Computed Parameter: EtherCATPDOReceive15_P1_Size_o
-                                            * Referenced by: '<S36>/EtherCAT PDO Receive15'
-                                            */
-  real_T EtherCATPDOReceive15_P1_n[47];/* Computed Parameter: EtherCATPDOReceive15_P1_n
+  real_T EtherCATPDOReceive15_P1_Size[2];/* Computed Parameter: EtherCATPDOReceive15_P1_Size
+                                          * Referenced by: '<S36>/EtherCAT PDO Receive15'
+                                          */
+  real_T EtherCATPDOReceive15_P1[47];  /* Computed Parameter: EtherCATPDOReceive15_P1
                                         * Referenced by: '<S36>/EtherCAT PDO Receive15'
                                         */
-  real_T EtherCATPDOReceive15_P2_Size_i[2];/* Computed Parameter: EtherCATPDOReceive15_P2_Size_i
-                                            * Referenced by: '<S36>/EtherCAT PDO Receive15'
-                                            */
-  real_T EtherCATPDOReceive15_P2_p;    /* Expression: sig_offset
+  real_T EtherCATPDOReceive15_P2_Size[2];/* Computed Parameter: EtherCATPDOReceive15_P2_Size
+                                          * Referenced by: '<S36>/EtherCAT PDO Receive15'
+                                          */
+  real_T EtherCATPDOReceive15_P2;      /* Expression: sig_offset
                                         * Referenced by: '<S36>/EtherCAT PDO Receive15'
                                         */
-  real_T EtherCATPDOReceive15_P3_Size_l[2];/* Computed Parameter: EtherCATPDOReceive15_P3_Size_l
-                                            * Referenced by: '<S36>/EtherCAT PDO Receive15'
-                                            */
-  real_T EtherCATPDOReceive15_P3_m;    /* Expression: sig_type
+  real_T EtherCATPDOReceive15_P3_Size[2];/* Computed Parameter: EtherCATPDOReceive15_P3_Size
+                                          * Referenced by: '<S36>/EtherCAT PDO Receive15'
+                                          */
+  real_T EtherCATPDOReceive15_P3;      /* Expression: sig_type
                                         * Referenced by: '<S36>/EtherCAT PDO Receive15'
                                         */
-  real_T EtherCATPDOReceive15_P4_Size_g[2];/* Computed Parameter: EtherCATPDOReceive15_P4_Size_g
-                                            * Referenced by: '<S36>/EtherCAT PDO Receive15'
-                                            */
-  real_T EtherCATPDOReceive15_P4_o;    /* Expression: type_size
+  real_T EtherCATPDOReceive15_P4_Size[2];/* Computed Parameter: EtherCATPDOReceive15_P4_Size
+                                          * Referenced by: '<S36>/EtherCAT PDO Receive15'
+                                          */
+  real_T EtherCATPDOReceive15_P4;      /* Expression: type_size
                                         * Referenced by: '<S36>/EtherCAT PDO Receive15'
                                         */
-  real_T EtherCATPDOReceive15_P5_Size_h[2];/* Computed Parameter: EtherCATPDOReceive15_P5_Size_h
-                                            * Referenced by: '<S36>/EtherCAT PDO Receive15'
-                                            */
-  real_T EtherCATPDOReceive15_P5_k;    /* Expression: sig_dim
+  real_T EtherCATPDOReceive15_P5_Size[2];/* Computed Parameter: EtherCATPDOReceive15_P5_Size
+                                          * Referenced by: '<S36>/EtherCAT PDO Receive15'
+                                          */
+  real_T EtherCATPDOReceive15_P5;      /* Expression: sig_dim
                                         * Referenced by: '<S36>/EtherCAT PDO Receive15'
                                         */
-  real_T EtherCATPDOReceive15_P6_Size_m[2];/* Computed Parameter: EtherCATPDOReceive15_P6_Size_m
-                                            * Referenced by: '<S36>/EtherCAT PDO Receive15'
-                                            */
-  real_T EtherCATPDOReceive15_P6_i;    /* Expression: device_id
+  real_T EtherCATPDOReceive15_P6_Size[2];/* Computed Parameter: EtherCATPDOReceive15_P6_Size
+                                          * Referenced by: '<S36>/EtherCAT PDO Receive15'
+                                          */
+  real_T EtherCATPDOReceive15_P6;      /* Expression: device_id
                                         * Referenced by: '<S36>/EtherCAT PDO Receive15'
                                         */
-  real_T EtherCATPDOReceive15_P7_Size_n[2];/* Computed Parameter: EtherCATPDOReceive15_P7_Size_n
-                                            * Referenced by: '<S36>/EtherCAT PDO Receive15'
-                                            */
-  real_T EtherCATPDOReceive15_P7_e;    /* Expression: sample_time
+  real_T EtherCATPDOReceive15_P7_Size[2];/* Computed Parameter: EtherCATPDOReceive15_P7_Size
+                                          * Referenced by: '<S36>/EtherCAT PDO Receive15'
+                                          */
+  real_T EtherCATPDOReceive15_P7;      /* Expression: sample_time
                                         * Referenced by: '<S36>/EtherCAT PDO Receive15'
                                         */
-  real_T EtherCATPDOReceive14_P1_Size_o[2];/* Computed Parameter: EtherCATPDOReceive14_P1_Size_o
-                                            * Referenced by: '<S36>/EtherCAT PDO Receive14'
-                                            */
-  real_T EtherCATPDOReceive14_P1_m[47];/* Computed Parameter: EtherCATPDOReceive14_P1_m
+  real_T EtherCATPDOReceive14_P1_Size[2];/* Computed Parameter: EtherCATPDOReceive14_P1_Size
+                                          * Referenced by: '<S36>/EtherCAT PDO Receive14'
+                                          */
+  real_T EtherCATPDOReceive14_P1[47];  /* Computed Parameter: EtherCATPDOReceive14_P1
                                         * Referenced by: '<S36>/EtherCAT PDO Receive14'
                                         */
-  real_T EtherCATPDOReceive14_P2_Size_e[2];/* Computed Parameter: EtherCATPDOReceive14_P2_Size_e
-                                            * Referenced by: '<S36>/EtherCAT PDO Receive14'
-                                            */
-  real_T EtherCATPDOReceive14_P2_g;    /* Expression: sig_offset
+  real_T EtherCATPDOReceive14_P2_Size[2];/* Computed Parameter: EtherCATPDOReceive14_P2_Size
+                                          * Referenced by: '<S36>/EtherCAT PDO Receive14'
+                                          */
+  real_T EtherCATPDOReceive14_P2;      /* Expression: sig_offset
                                         * Referenced by: '<S36>/EtherCAT PDO Receive14'
                                         */
-  real_T EtherCATPDOReceive14_P3_Size_o[2];/* Computed Parameter: EtherCATPDOReceive14_P3_Size_o
-                                            * Referenced by: '<S36>/EtherCAT PDO Receive14'
-                                            */
-  real_T EtherCATPDOReceive14_P3_d;    /* Expression: sig_type
+  real_T EtherCATPDOReceive14_P3_Size[2];/* Computed Parameter: EtherCATPDOReceive14_P3_Size
+                                          * Referenced by: '<S36>/EtherCAT PDO Receive14'
+                                          */
+  real_T EtherCATPDOReceive14_P3;      /* Expression: sig_type
                                         * Referenced by: '<S36>/EtherCAT PDO Receive14'
                                         */
-  real_T EtherCATPDOReceive14_P4_Size_f[2];/* Computed Parameter: EtherCATPDOReceive14_P4_Size_f
-                                            * Referenced by: '<S36>/EtherCAT PDO Receive14'
-                                            */
-  real_T EtherCATPDOReceive14_P4_a;    /* Expression: type_size
+  real_T EtherCATPDOReceive14_P4_Size[2];/* Computed Parameter: EtherCATPDOReceive14_P4_Size
+                                          * Referenced by: '<S36>/EtherCAT PDO Receive14'
+                                          */
+  real_T EtherCATPDOReceive14_P4;      /* Expression: type_size
                                         * Referenced by: '<S36>/EtherCAT PDO Receive14'
                                         */
-  real_T EtherCATPDOReceive14_P5_Size_k[2];/* Computed Parameter: EtherCATPDOReceive14_P5_Size_k
-                                            * Referenced by: '<S36>/EtherCAT PDO Receive14'
-                                            */
-  real_T EtherCATPDOReceive14_P5_g;    /* Expression: sig_dim
+  real_T EtherCATPDOReceive14_P5_Size[2];/* Computed Parameter: EtherCATPDOReceive14_P5_Size
+                                          * Referenced by: '<S36>/EtherCAT PDO Receive14'
+                                          */
+  real_T EtherCATPDOReceive14_P5;      /* Expression: sig_dim
                                         * Referenced by: '<S36>/EtherCAT PDO Receive14'
                                         */
-  real_T EtherCATPDOReceive14_P6_Size_p[2];/* Computed Parameter: EtherCATPDOReceive14_P6_Size_p
-                                            * Referenced by: '<S36>/EtherCAT PDO Receive14'
-                                            */
-  real_T EtherCATPDOReceive14_P6_a;    /* Expression: device_id
+  real_T EtherCATPDOReceive14_P6_Size[2];/* Computed Parameter: EtherCATPDOReceive14_P6_Size
+                                          * Referenced by: '<S36>/EtherCAT PDO Receive14'
+                                          */
+  real_T EtherCATPDOReceive14_P6;      /* Expression: device_id
                                         * Referenced by: '<S36>/EtherCAT PDO Receive14'
                                         */
-  real_T EtherCATPDOReceive14_P7_Size_k[2];/* Computed Parameter: EtherCATPDOReceive14_P7_Size_k
-                                            * Referenced by: '<S36>/EtherCAT PDO Receive14'
-                                            */
-  real_T EtherCATPDOReceive14_P7_i;    /* Expression: sample_time
+  real_T EtherCATPDOReceive14_P7_Size[2];/* Computed Parameter: EtherCATPDOReceive14_P7_Size
+                                          * Referenced by: '<S36>/EtherCAT PDO Receive14'
+                                          */
+  real_T EtherCATPDOReceive14_P7;      /* Expression: sample_time
                                         * Referenced by: '<S36>/EtherCAT PDO Receive14'
                                         */
   real_T Constant_Value_b;             /* Expression: deg2rad(100)
@@ -2727,16 +2626,16 @@ struct P_State_Flow_TestM_T_ {
   real_T PeriodoA_Value;               /* Expression: 22
                                         * Referenced by: '<Root>/Periodo A'
                                         */
-  real_T EtherCATPDOReceive14_P1_Size_oh[2];/* Computed Parameter: EtherCATPDOReceive14_P1_Size_oh
-                                             * Referenced by: '<S124>/EtherCAT PDO Receive14'
-                                             */
+  real_T EtherCATPDOReceive14_P1_Size_o[2];/* Computed Parameter: EtherCATPDOReceive14_P1_Size_o
+                                            * Referenced by: '<S124>/EtherCAT PDO Receive14'
+                                            */
   real_T EtherCATPDOReceive14_P1_n[47];/* Computed Parameter: EtherCATPDOReceive14_P1_n
                                         * Referenced by: '<S124>/EtherCAT PDO Receive14'
                                         */
   real_T EtherCATPDOReceive14_P2_Size_i[2];/* Computed Parameter: EtherCATPDOReceive14_P2_Size_i
                                             * Referenced by: '<S124>/EtherCAT PDO Receive14'
                                             */
-  real_T EtherCATPDOReceive14_P2_gr;   /* Expression: sig_offset
+  real_T EtherCATPDOReceive14_P2_g;    /* Expression: sig_offset
                                         * Referenced by: '<S124>/EtherCAT PDO Receive14'
                                         */
   real_T EtherCATPDOReceive14_P3_Size_c[2];/* Computed Parameter: EtherCATPDOReceive14_P3_Size_c
@@ -3165,9 +3064,9 @@ struct P_State_Flow_TestM_T_ {
   real_T EtherCATPDOReceive15_P6_h;    /* Expression: device_id
                                         * Referenced by: '<S85>/EtherCAT PDO Receive15'
                                         */
-  real_T EtherCATPDOReceive15_P7_Size_nx[2];/* Computed Parameter: EtherCATPDOReceive15_P7_Size_nx
-                                             * Referenced by: '<S85>/EtherCAT PDO Receive15'
-                                             */
+  real_T EtherCATPDOReceive15_P7_Size_n[2];/* Computed Parameter: EtherCATPDOReceive15_P7_Size_n
+                                            * Referenced by: '<S85>/EtherCAT PDO Receive15'
+                                            */
   real_T EtherCATPDOReceive15_P7_lo;   /* Expression: sample_time
                                         * Referenced by: '<S85>/EtherCAT PDO Receive15'
                                         */
@@ -3275,14 +3174,14 @@ struct tag_RTM_State_Flow_TestM_T {
   struct {
     RTWSfcnInfo sfcnInfo;
     time_T *taskTimePtrs[2];
-    SimStruct childSFunctions[32];
-    SimStruct *childSFunctionPtrs[32];
-    struct _ssBlkInfo2 blkInfo2[32];
-    struct _ssSFcnModelMethods2 methods2[32];
-    struct _ssSFcnModelMethods3 methods3[32];
-    struct _ssSFcnModelMethods4 methods4[32];
-    struct _ssStatesInfo2 statesInfo2[32];
-    ssPeriodicStatesInfo periodicStatesInfo[32];
+    SimStruct childSFunctions[30];
+    SimStruct *childSFunctionPtrs[30];
+    struct _ssBlkInfo2 blkInfo2[30];
+    struct _ssSFcnModelMethods2 methods2[30];
+    struct _ssSFcnModelMethods3 methods3[30];
+    struct _ssSFcnModelMethods4 methods4[30];
+    struct _ssStatesInfo2 statesInfo2[30];
+    ssPeriodicStatesInfo periodicStatesInfo[30];
     struct {
       time_T sfcnPeriod[1];
       time_T sfcnOffset[1];
@@ -3408,7 +3307,7 @@ struct tag_RTM_State_Flow_TestM_T {
       time_T sfcnPeriod[1];
       time_T sfcnOffset[1];
       int_T sfcnTsMap[1];
-      struct _ssPortOutputs outputPortInfo[1];
+      struct _ssPortInputs inputPortInfo[1];
       uint_T attribs[7];
       mxArray *params[7];
       struct _ssDWorkRecord dWork[1];
@@ -3419,7 +3318,7 @@ struct tag_RTM_State_Flow_TestM_T {
       time_T sfcnPeriod[1];
       time_T sfcnOffset[1];
       int_T sfcnTsMap[1];
-      struct _ssPortOutputs outputPortInfo[1];
+      struct _ssPortInputs inputPortInfo[1];
       uint_T attribs[7];
       mxArray *params[7];
       struct _ssDWorkRecord dWork[1];
@@ -3441,7 +3340,7 @@ struct tag_RTM_State_Flow_TestM_T {
       time_T sfcnPeriod[1];
       time_T sfcnOffset[1];
       int_T sfcnTsMap[1];
-      struct _ssPortInputs inputPortInfo[1];
+      struct _ssPortOutputs outputPortInfo[1];
       uint_T attribs[7];
       mxArray *params[7];
       struct _ssDWorkRecord dWork[1];
@@ -3452,7 +3351,7 @@ struct tag_RTM_State_Flow_TestM_T {
       time_T sfcnPeriod[1];
       time_T sfcnOffset[1];
       int_T sfcnTsMap[1];
-      struct _ssPortInputs inputPortInfo[1];
+      struct _ssPortOutputs outputPortInfo[1];
       uint_T attribs[7];
       mxArray *params[7];
       struct _ssDWorkRecord dWork[1];
@@ -3485,7 +3384,7 @@ struct tag_RTM_State_Flow_TestM_T {
       time_T sfcnPeriod[1];
       time_T sfcnOffset[1];
       int_T sfcnTsMap[1];
-      struct _ssPortOutputs outputPortInfo[1];
+      struct _ssPortInputs inputPortInfo[1];
       uint_T attribs[7];
       mxArray *params[7];
       struct _ssDWorkRecord dWork[1];
@@ -3529,7 +3428,7 @@ struct tag_RTM_State_Flow_TestM_T {
       time_T sfcnPeriod[1];
       time_T sfcnOffset[1];
       int_T sfcnTsMap[1];
-      struct _ssPortInputs inputPortInfo[1];
+      struct _ssPortOutputs outputPortInfo[1];
       uint_T attribs[7];
       mxArray *params[7];
       struct _ssDWorkRecord dWork[1];
@@ -3551,7 +3450,7 @@ struct tag_RTM_State_Flow_TestM_T {
       time_T sfcnPeriod[1];
       time_T sfcnOffset[1];
       int_T sfcnTsMap[1];
-      struct _ssPortOutputs outputPortInfo[1];
+      struct _ssPortInputs inputPortInfo[1];
       uint_T attribs[7];
       mxArray *params[7];
       struct _ssDWorkRecord dWork[1];
@@ -3595,7 +3494,7 @@ struct tag_RTM_State_Flow_TestM_T {
       time_T sfcnPeriod[1];
       time_T sfcnOffset[1];
       int_T sfcnTsMap[1];
-      struct _ssPortInputs inputPortInfo[1];
+      struct _ssPortOutputs outputPortInfo[1];
       uint_T attribs[7];
       mxArray *params[7];
       struct _ssDWorkRecord dWork[1];
@@ -3612,28 +3511,6 @@ struct tag_RTM_State_Flow_TestM_T {
       struct _ssDWorkRecord dWork[1];
       struct _ssDWorkAuxRecord dWorkAux[1];
     } Sfcn29;
-
-    struct {
-      time_T sfcnPeriod[1];
-      time_T sfcnOffset[1];
-      int_T sfcnTsMap[1];
-      struct _ssPortOutputs outputPortInfo[1];
-      uint_T attribs[7];
-      mxArray *params[7];
-      struct _ssDWorkRecord dWork[1];
-      struct _ssDWorkAuxRecord dWorkAux[1];
-    } Sfcn30;
-
-    struct {
-      time_T sfcnPeriod[1];
-      time_T sfcnOffset[1];
-      int_T sfcnTsMap[1];
-      struct _ssPortOutputs outputPortInfo[1];
-      uint_T attribs[7];
-      mxArray *params[7];
-      struct _ssDWorkRecord dWork[1];
-      struct _ssDWorkAuxRecord dWorkAux[1];
-    } Sfcn31;
   } NonInlinedSFcns;
 
   void *blockIO;
@@ -3812,7 +3689,7 @@ extern RT_MODEL_State_Flow_TestM_T *const State_Flow_TestM_M;
  * '<S33>'  : 'State_Flow_TestM/Movimento/Pos iniziali'
  * '<S34>'  : 'State_Flow_TestM/Movimento/Posizioni'
  * '<S35>'  : 'State_Flow_TestM/Movimento/Velocita '
- * '<S36>'  : 'State_Flow_TestM/Movimento/Velocita vite 1'
+ * '<S36>'  : 'State_Flow_TestM/Movimento/Velocita braccia 1'
  * '<S37>'  : 'State_Flow_TestM/Movimento/XY Graph'
  * '<S38>'  : 'State_Flow_TestM/Movimento/XY Graph1'
  * '<S39>'  : 'State_Flow_TestM/Movimento/XZ Graph'
@@ -3847,8 +3724,8 @@ extern RT_MODEL_State_Flow_TestM_T *const State_Flow_TestM_M;
  * '<S68>'  : 'State_Flow_TestM/Movimento/Posizioni/Second-Order Filter2/Model/C*x(k)'
  * '<S69>'  : 'State_Flow_TestM/Movimento/Velocita /Vel Asse A conv'
  * '<S70>'  : 'State_Flow_TestM/Movimento/Velocita /Vel Asse B conv'
- * '<S71>'  : 'State_Flow_TestM/Movimento/Velocita vite 1/Vel Asse A conv'
- * '<S72>'  : 'State_Flow_TestM/Movimento/Velocita vite 1/Vel Asse B conv'
+ * '<S71>'  : 'State_Flow_TestM/Movimento/Velocita braccia 1/Vel Asse A conv'
+ * '<S72>'  : 'State_Flow_TestM/Movimento/Velocita braccia 1/Vel Asse B conv'
  * '<S73>'  : 'State_Flow_TestM/Movimento Braccia/Asse A conv brac'
  * '<S74>'  : 'State_Flow_TestM/Movimento Braccia/Asse B conv brac1'
  * '<S75>'  : 'State_Flow_TestM/Movimento Braccia/Cinematica Inversa'
