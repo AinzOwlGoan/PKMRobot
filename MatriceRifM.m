@@ -7,13 +7,14 @@ Jv = 6.4e-06;
 J = 5.22e-02;
 xs = linspace(-0.15,0.15,100);
 ys = linspace(0.3,0.4,100);
-xp = 0.06;
-yp = 0.06;
+xp = 0.02;
+yp = 0.02;
 Mfin = zeros(200);
 Mnorm = zeros(100);
+Knorm = zeros(100);
 Determinante = zeros(100);
-xpp = 0.2;
-ypp = 0.2;
+xpp = 0.6;
+ypp = 0.6;
 
 fv = 1;
 hv = 1;
@@ -194,6 +195,7 @@ Mm = (Jtrasm'*M*Jtrasm + Jm);
 Mnorm(i,j) = norm((Mm)^-1);
 Determinante(i,j) = det(Mm);
 Km = (Jtrasm'*K*Jtrasm);
+Knorm(i,j) = norm((Km)^-1);
 Cm = Mm*Thetam_pp  +  Km*Thetam_p;
 
 % Mm_ = Jm;
@@ -208,8 +210,8 @@ Cm = Mm*Thetam_pp  +  Km*Thetam_p;
     end
      fv = fv+2;
 end
-Maxnorm = max(Mnorm)
-Minnorm = min(Mnorm)
+Maxnorm = max(Mnorm);
+Minnorm = min(Mnorm);
 Mnorm(Mnorm>10^5) = -1;
 [xsgrid, ysgrid] = meshgrid(xs,ys);
 contourf(xsgrid,ysgrid,Mnorm);
@@ -217,6 +219,8 @@ colorbar
 figure
 contourf(xsgrid,ysgrid,Determinante);
 colorbar
+figure
+scatter3(xsgrid(:),ysgrid(:),Knorm(:));
 
 
 % for i=1:200

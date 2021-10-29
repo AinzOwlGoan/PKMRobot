@@ -7,7 +7,7 @@ Jv = 6.4e-06;
 J = 5.22e-02;
 theta1s = linspace(deg2rad(90),deg2rad(110),100);
 theta2s = linspace(deg2rad(70),deg2rad(90),100);
-theta1_p = 0;
+theta1_p = 0.02;
 theta1_pp = 0;
 theta2_p = 0;
 theta2_pp = 0;
@@ -17,7 +17,7 @@ Determinante = zeros(100);
 Ms = zeros(2);
 fv = 1;
 hv = 1;
-
+Knorm = zeros(100);
 Maxnorm =  1.4604e+04;
 Minnorm =  9.5631e+03;
 alpha = (Maxnorm-Minnorm)/(Maxnorm+Minnorm);
@@ -135,8 +135,10 @@ Thetam_p = Jtrasm^-1*[theta1_p; theta2_p];
 
 Mm = (M*(Jtrasm)^2 + Jm);
 Mnorm(i,j) = norm(((Mm)^-1),Inf);
+
 Mfin(i,j) = norm(Mm^-1*Mcap-eye(2));
-Km = (Jtrasm'*K*Jtrasm);
+Km = (K*(Jtrasm)^2);
+Knorm(i,j) = norm(Km^-1);
 Cm = Mm*Thetam_pp  +  Km*Thetam_p;
 
 if i == 1 && j == 1
