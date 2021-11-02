@@ -1559,11 +1559,11 @@ static void c15_enter_atomic_Coppie(SFc15_StateFlowGUIInstanceStruct
   chartInstance->c15_dataWrittenToVector[12U] = true;
   _SFD_DATA_RANGE_CHECK(*chartInstance->c15_OffB_0, 3U, 4U, 1U,
                         *chartInstance->c15_sfEvent, false);
-  *chartInstance->c15_CoppiaA = 250.0;
+  *chartInstance->c15_CoppiaA = 270.0;
   chartInstance->c15_dataWrittenToVector[7U] = true;
   _SFD_DATA_RANGE_CHECK(*chartInstance->c15_CoppiaA, 28U, 4U, 1U,
                         *chartInstance->c15_sfEvent, false);
-  *chartInstance->c15_CoppiaB = 250.0;
+  *chartInstance->c15_CoppiaB = 270.0;
   chartInstance->c15_dataWrittenToVector[8U] = true;
   _SFD_DATA_RANGE_CHECK(*chartInstance->c15_CoppiaB, 29U, 4U, 1U,
                         *chartInstance->c15_sfEvent, false);
@@ -2570,10 +2570,10 @@ extern void utFree(void*);
 static uint32_T* sf_get_sfun_dwork_checksum(void);
 void sf_c15_StateFlowGUI_get_check_sum(mxArray *plhs[])
 {
-  ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(3378910524U);
-  ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(2718394441U);
-  ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(1584904296U);
-  ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(224338977U);
+  ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(4240436461U);
+  ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(4254172646U);
+  ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(1478787740U);
+  ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(612244591U);
 }
 
 mxArray* sf_c15_StateFlowGUI_get_post_codegen_info(void);
@@ -2587,7 +2587,7 @@ mxArray *sf_c15_StateFlowGUI_get_autoinheritance_info(void)
     autoinheritanceFields);
 
   {
-    mxArray *mxChecksum = mxCreateString("vESJtDmzXOA0s73tFnYkpF");
+    mxArray *mxChecksum = mxCreateString("yv0uhaV2eqRlZpqAKgBg7D");
     mxSetField(mxAutoinheritanceInfo,0,"checksum",mxChecksum);
   }
 
@@ -3884,7 +3884,7 @@ static void chart_debug_initialize_data_addresses(SimStruct *S)
 
 static const char* sf_get_instance_specialization(void)
 {
-  return "sBauVCQFxkqKoWDLMCpHMzE";
+  return "sFvwTuLIC3XsT62RMYPbukD";
 }
 
 static void sf_check_dwork_consistency(SimStruct *S)
@@ -4098,10 +4098,10 @@ static void mdlSetWorkWidths_c15_StateFlowGUI(SimStruct *S)
   }
 
   ssSetOptions(S,ssGetOptions(S)|SS_OPTION_WORKS_WITH_CODE_REUSE);
-  ssSetChecksum0(S,(2880646766U));
-  ssSetChecksum1(S,(1547807344U));
-  ssSetChecksum2(S,(960567250U));
-  ssSetChecksum3(S,(1841713022U));
+  ssSetChecksum0(S,(3325204799U));
+  ssSetChecksum1(S,(4087999845U));
+  ssSetChecksum2(S,(2563082398U));
+  ssSetChecksum3(S,(3916162254U));
   ssSetmdlDerivatives(S, NULL);
   ssSetExplicitFCSSCtrl(S,1);
   ssSetStateSemanticsClassicAndSynchronous(S, true);

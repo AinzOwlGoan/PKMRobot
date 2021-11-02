@@ -7,9 +7,9 @@
  *
  * Code generation for model "StateFlowGUI".
  *
- * Model version              : 1.741
+ * Model version              : 1.746
  * Simulink Coder version : 8.12 (R2017a) 16-Feb-2017
- * C source code generated on : Tue Nov 02 15:15:15 2021
+ * C source code generated on : Tue Nov 02 15:30:51 2021
  *
  * Target selection: slrt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -1082,8 +1082,8 @@ static void StateFlowGUI_output(void)
           /* Entry 'Coppie': '<S14>:95' */
           StateFlowGUI_DW.OffA_0 = StateFlowGUI_B.convert_g;
           StateFlowGUI_DW.OffB_0 = StateFlowGUI_B.convert10_d;
-          StateFlowGUI_B.CoppiaA = 250.0;
-          StateFlowGUI_B.CoppiaB = 250.0;
+          StateFlowGUI_B.CoppiaA = 270.0;
+          StateFlowGUI_B.CoppiaB = 270.0;
           StateFlowGUI_B.CoppiaH = 0.0;
           StateFlowGUI_B.Luci = 2.0;
         }
@@ -1098,8 +1098,8 @@ static void StateFlowGUI_output(void)
           /* Entry 'Coppie': '<S14>:95' */
           StateFlowGUI_DW.OffA_0 = StateFlowGUI_B.convert_g;
           StateFlowGUI_DW.OffB_0 = StateFlowGUI_B.convert10_d;
-          StateFlowGUI_B.CoppiaA = 250.0;
-          StateFlowGUI_B.CoppiaB = 250.0;
+          StateFlowGUI_B.CoppiaA = 270.0;
+          StateFlowGUI_B.CoppiaB = 270.0;
           StateFlowGUI_B.CoppiaH = 0.0;
           StateFlowGUI_B.Luci = 2.0;
         }
@@ -5236,10 +5236,10 @@ static void StateFlowGUI_output(void)
     /* '<S31>:1:3' */
     /* '<S31>:1:4' */
     /* '<S31>:1:5' */
-    B = StateFlowGUI_B.Sum4_n[0];
-    J_p_idx_0 = StateFlowGUI_B.Sum7_j[0];
-    x5 = StateFlowGUI_B.Sum4_n[1];
-    J_p_idx_1 = StateFlowGUI_B.Sum7_j[1];
+    B = 64.0 * StateFlowGUI_B.Sum4_n[0];
+    J_p_idx_0 = 64.0 * StateFlowGUI_B.Sum7_j[0];
+    x5 = 64.0 * StateFlowGUI_B.Sum4_n[1];
+    J_p_idx_1 = 64.0 * StateFlowGUI_B.Sum7_j[1];
 
     /* '<S31>:1:6' */
     x2 = 2.2250738585072014E-308;
@@ -5285,7 +5285,7 @@ static void StateFlowGUI_output(void)
     A = x2 * sqrt(A);
 
     /* '<S31>:1:7' */
-    StateFlowGUI_B.phi = (0.01 * A + 0.15) + A * A * -0.0015;
+    StateFlowGUI_B.phi = (0.001 * A + 0.005) + A * A * -1.5E-5;
 
     /* End of MATLAB Function: '<S4>/MATLAB Function3' */
     /* MATLAB Function: '<S4>/Cinematica diretta Acc' */
