@@ -2465,6 +2465,64 @@ Filter2</Name>
 
 		</SubSystem>
 		<SubSystem>
+		<Name>Radians
+to Degrees</Name>
+		<xPCName>StateFlowGUI/Movimento/Radians to Degrees</xPCName>
+		
+		
+            <block>
+            <blkName>Gain</blkName>
+            <xpcblkName>Movimento/Radians to Degrees/Gain</xpcblkName>
+            <SLblockPath>StateFlowGUI/Movimento/Radians to Degrees/Gain</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>Gain</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowGUI/Movimento/Radians to Degrees</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>Gain</sigName>
+              <xpcsigName>Movimento/Radians to Degrees/Gain</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowGUI/Movimento/Radians to Degrees</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Radians
+to Degrees1</Name>
+		<xPCName>StateFlowGUI/Movimento/Radians to Degrees1</xPCName>
+		
+		
+            <block>
+            <blkName>Gain</blkName>
+            <xpcblkName>Movimento/Radians to Degrees1/Gain</xpcblkName>
+            <SLblockPath>StateFlowGUI/Movimento/Radians to Degrees1/Gain</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>Gain</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowGUI/Movimento/Radians to Degrees1</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>Gain</sigName>
+              <xpcsigName>Movimento/Radians to Degrees1/Gain</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowGUI/Movimento/Radians to Degrees1</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
 		<Name>Velocita
 </Name>
 		<xPCName>StateFlowGUI/Movimento/Velocita </xPCName>
@@ -2849,6 +2907,13 @@ Filter2</Name>
 
 		</SubSystem>
 		<SubSystem>
+		<Name>MATLAB Function3</Name>
+		<xPCName>StateFlowGUI/Movimento/MATLAB Function3</xPCName>
+		
+		
+
+		</SubSystem>
+		<SubSystem>
 		<Name>MATLAB Jin</Name>
 		<xPCName>StateFlowGUI/Movimento/MATLAB Jin</xPCName>
 		
@@ -2908,7 +2973,7 @@ Filter2</Name>
             <isSrc>[0 1 1]</isSrc>
           <parameter>
           <paramName>X0</paramName>
-          <dim>[2, 2]</dim>  
+          <dim>[2, 1]</dim>  
 		  <SubSystemName>StateFlowGUI/Movimento</SubSystemName>
           </parameter>
           </block>
@@ -3067,8 +3132,8 @@ Filter2</Name>
               <signal>
               <sigName>Dinamica Inversa1/p4</sigName>
               <xpcsigName>Movimento/Dinamica Inversa1/p4</xpcsigName>
-              <sigWidth>4</sigWidth>
-              <sigDim>[2, 2]</sigDim>
+              <sigWidth>2</sigWidth>
+              <sigDim>[2, 1]</sigDim>
 			  <SubSystemName>StateFlowGUI/Movimento</SubSystemName>
 			  <sigTestPoint>false</sigTestPoint>
             </signal>
@@ -3077,8 +3142,8 @@ Filter2</Name>
               <signal>
               <sigName>Dinamica Inversa1/p5</sigName>
               <xpcsigName>Movimento/Dinamica Inversa1/p5</xpcsigName>
-              <sigWidth>4</sigWidth>
-              <sigDim>[2, 2]</sigDim>
+              <sigWidth>2</sigWidth>
+              <sigDim>[2, 1]</sigDim>
 			  <SubSystemName>StateFlowGUI/Movimento</SubSystemName>
 			  <sigTestPoint>false</sigTestPoint>
             </signal>
@@ -3097,6 +3162,16 @@ Filter2</Name>
               <signal>
               <sigName>MATLAB Function2/p2</sigName>
               <xpcsigName>Movimento/MATLAB Function2/p2</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowGUI/Movimento</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>MATLAB Function3</sigName>
+              <xpcsigName>Movimento/MATLAB Function3</xpcsigName>
               <sigWidth>1</sigWidth>
               <sigDim>[1, 1]</sigDim>
 			  <SubSystemName>StateFlowGUI/Movimento</SubSystemName>
@@ -3157,8 +3232,8 @@ Filter2</Name>
               <signal>
               <sigName>Memory</sigName>
               <xpcsigName>Movimento/Memory</xpcsigName>
-              <sigWidth>4</sigWidth>
-              <sigDim>[2, 2]</sigDim>
+              <sigWidth>2</sigWidth>
+              <sigDim>[2, 1]</sigDim>
 			  <SubSystemName>StateFlowGUI/Movimento</SubSystemName>
 			  <sigTestPoint>false</sigTestPoint>
             </signal>
@@ -3190,6 +3265,7 @@ Filter2</Name>
               <sigWidth>1</sigWidth>
               <sigDim>[1, 1]</sigDim>
 			  <SubSystemName>StateFlowGUI/Movimento</SubSystemName>
+                <sigLabel>Ymov</sigLabel>
 			  <sigTestPoint>false</sigTestPoint>
             </signal>
 			  
@@ -3217,6 +3293,16 @@ Filter2</Name>
               <signal>
               <sigName>Sum4</sigName>
               <xpcsigName>Movimento/Sum4</xpcsigName>
+              <sigWidth>2</sigWidth>
+              <sigDim>[2, 1]</sigDim>
+			  <SubSystemName>StateFlowGUI/Movimento</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Sum5</sigName>
+              <xpcsigName>Movimento/Sum5</xpcsigName>
               <sigWidth>2</sigWidth>
               <sigDim>[2, 1]</sigDim>
 			  <SubSystemName>StateFlowGUI/Movimento</SubSystemName>
@@ -6250,6 +6336,17 @@ Filter2</Name>
           </parameter>
           </block>
             <block>
+            <blkName>Reset</blkName>
+            <xpcblkName>Reset</xpcblkName>
+            <SLblockPath>StateFlowGUI/Reset</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowGUI</SubSystemName>
+          </parameter>
+          </block>
+            <block>
             <blkName>StartHome</blkName>
             <xpcblkName>StartHome</xpcblkName>
             <SLblockPath>StateFlowGUI/StartHome</SLblockPath>
@@ -6275,6 +6372,17 @@ Filter2</Name>
             <blkName>StartWork</blkName>
             <xpcblkName>StartWork</xpcblkName>
             <SLblockPath>StateFlowGUI/StartWork</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowGUI</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Stop</blkName>
+            <xpcblkName>Stop</xpcblkName>
+            <SLblockPath>StateFlowGUI/Stop</SLblockPath>
             <isSrc>[1 0 1]</isSrc>
           <parameter>
           <paramName>Value</paramName>
@@ -6619,6 +6727,16 @@ Filter2</Name>
 			  
 			  
               <signal>
+              <sigName>Reset</sigName>
+              <xpcsigName>Reset</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowGUI</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
               <sigName>StartHome</sigName>
               <xpcsigName>StartHome</xpcsigName>
               <sigWidth>1</sigWidth>
@@ -6641,6 +6759,16 @@ Filter2</Name>
               <signal>
               <sigName>StartWork</sigName>
               <xpcsigName>StartWork</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowGUI</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Stop</sigName>
+              <xpcsigName>Stop</xpcsigName>
               <sigWidth>1</sigWidth>
               <sigDim>[1, 1]</sigDim>
 			  <SubSystemName>StateFlowGUI</SubSystemName>

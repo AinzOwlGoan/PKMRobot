@@ -7,73 +7,46 @@ Jv = 6.4e-06;
 J = 5.22e-02;
 theta1s = linspace(deg2rad(90),deg2rad(110),100);
 theta2s = linspace(deg2rad(70),deg2rad(90),100);
-theta1_p = 0;
+theta1_p = 0.02;
 theta1_pp = 0;
 theta2_p = 0;
 theta2_pp = 0;
-Mfin = zeros(200);
+Mfin = zeros(100);
 Mnorm = zeros(100);
 Determinante = zeros(100);
 Ms = zeros(2);
 fv = 1;
 hv = 1;
+Kfin = zeros(100);
+Ksomma = [0;0];
+%% PARAMETRI CONTROLLO ROBUSTO
+Kd = 5;
+Kp = 3000;
+Maxnorm =  1.4604e+04;
+Minnorm =  9.5631e+03;
+alpha = (Maxnorm-Minnorm)/(Maxnorm+Minnorm);
+Mcap = 2/(Maxnorm+Minnorm)*eye(2);
+Qm = 1.5;
+Kmean = 1e-06*[0.7436;-0.1554];
+H = [0,1;0,0];
+D = [0;1];
+Ht = [0,1;-Kp,-Kd];
+P = eye(2);
+Q1 = 1.1;
+p = [Kp^2, -Kd, 1-2K
+Q2 = 
+Q = [1, Q1-Kp*Q2; Q1-Kp*Q2, 1-Kd*Q2];
+%% ESECUZIONE ROBUSTO
+
+
 for i = 1:100
      hv = 1;
     for j = 1:100
         
     theta1 = theta1s(i);
     theta2 = theta2s(j);
-   N21 = -l*sin(theta1)*(x+d-l*cos(theta1)) + l*cos(theta1)*(y-l*sin(theta1));
-
-N22 = -l*cos(theta2)*(y-l*sin(theta2))*(x+d-l*cos(theta1))/(x-d-l*cos(theta2)) + l*sin(theta2)*(x+d-l*cos(theta1));
-
-D2 = y-l*sin(theta1) - (y-l*sin(theta2))*(x+d-l*cos(theta1))/(x-d-l*cos(theta2));
-
-J21 = N21/D2;
-
-J22 = N22/D2;
-
-J11 = -(y-l*sin(theta2))/(x-d-l*cos(theta2))*(J21);
-
-J12 = -(y-l*sin(theta2))/(x-d-l*cos(theta2))*(J22) -l*sin(theta2) + (y-l*sin(theta2))/(x-d-l*cos(theta2))*(l*cos(theta2));
-
-J = [J11 J12; J21 J22];
 
 
-theta_p = J^-1 * [xp; yp];
-theta1_p = 0;
-theta2_p = 0;
-
-N21 = -l*sin(theta1)*(x+d-l*cos(theta1)) + l*cos(theta1)*(y-l*sin(theta1));
-
-N22 = -l*cos(theta2)*(y-l*sin(theta2))*(x+d-l*cos(theta1))/(x-d-l*cos(theta2)) + l*sin(theta2)*(x+d-l*cos(theta1));
-
-D2 = y-l*sin(theta1) - (y-l*sin(theta2))*(x+d-l*cos(theta1))/(x-d-l*cos(theta2));
-
-J21 = N21/D2;
-
-J22 = N22/D2;
-
-J11 = -(y-l*sin(theta2))/(x-d-l*cos(theta2))*(J21);
-
-J12 = -(y-l*sin(theta2))/(x-d-l*cos(theta2))*(J22) -l*sin(theta2) + (y-l*sin(theta2))/(x-d-l*cos(theta2))*(l*cos(theta2));
-
-J = [J11 J12; J21 J22];
-
-J_p11 = ((l*cos(theta1)*(y - l*sin(theta1)) - l*sin(theta1)*(d + x - l*cos(theta1)))*(yp - l*cos(theta2)*theta2_p))/((d - x + l*cos(theta2))*(y - l*sin(theta1) + ((y - l*sin(theta2))*(d + x - l*cos(theta1)))/(d - x + l*cos(theta2)))) - ((y - l*sin(theta2))*(l*sin(theta1)*(xp + l*sin(theta1)*theta1_p) - l*cos(theta1)*(yp - l*cos(theta1)*theta1_p) + l*sin(theta1)*(y - l*sin(theta1))*theta1_p + l*cos(theta1)*theta1_p*(d + x - l*cos(theta1))))/((d - x + l*cos(theta2))*(y - l*sin(theta1) + ((y - l*sin(theta2))*(d + x - l*cos(theta1)))/(d - x + l*cos(theta2)))) + ((xp + l*sin(theta2)*theta2_p)*(y - l*sin(theta2))*(l*cos(theta1)*(y - l*sin(theta1)) - l*sin(theta1)*(d + x - l*cos(theta1))))/((d - x + l*cos(theta2))^2*(y - l*sin(theta1) + ((y - l*sin(theta2))*(d + x - l*cos(theta1)))/(d - x + l*cos(theta2)))) - ((y - l*sin(theta2))*(l*cos(theta1)*(y - l*sin(theta1)) - l*sin(theta1)*(d + x - l*cos(theta1)))*(yp + ((xp + l*sin(theta1)*theta1_p)*(y - l*sin(theta2)))/(d - x + l*cos(theta2)) + ((yp - l*cos(theta2)*theta2_p)*(d + x - l*cos(theta1)))/(d - x + l*cos(theta2)) - l*cos(theta1)*theta1_p + ((xp + l*sin(theta2)*theta2_p)*(y - l*sin(theta2))*(d + x - l*cos(theta1)))/(d - x + l*cos(theta2))^2))/((d - x + l*cos(theta2))*(y - l*sin(theta1) + ((y - l*sin(theta2))*(d + x - l*cos(theta1)))/(d - x + l*cos(theta2)))^2);
- 
- 
-J_p12 = ((y - l*sin(theta2))*(l*sin(theta2)*(xp + l*sin(theta1)*theta1_p) + l*cos(theta2)*theta2_p*(d + x - l*cos(theta1)) + (l*cos(theta2)*(xp + l*sin(theta1)*theta1_p)*(y - l*sin(theta2)))/(d - x + l*cos(theta2)) + (l*cos(theta2)*(yp - l*cos(theta2)*theta2_p)*(d + x - l*cos(theta1)))/(d - x + l*cos(theta2)) - (l*sin(theta2)*(y - l*sin(theta2))*theta2_p*(d + x - l*cos(theta1)))/(d - x + l*cos(theta2)) + (l*cos(theta2)*(xp + l*sin(theta2)*theta2_p)*(y - l*sin(theta2))*(d + x - l*cos(theta1)))/(d - x + l*cos(theta2))^2))/((d - x + l*cos(theta2))*(y - l*sin(theta1) + ((y - l*sin(theta2))*(d + x - l*cos(theta1)))/(d - x + l*cos(theta2)))) - l*cos(theta2)*theta2_p - (l*cos(theta2)*(yp - l*cos(theta2)*theta2_p))/(d - x + l*cos(theta2)) + ((l*sin(theta2)*(d + x - l*cos(theta1)) + (l*cos(theta2)*(y - l*sin(theta2))*(d + x - l*cos(theta1)))/(d - x + l*cos(theta2)))*(yp - l*cos(theta2)*theta2_p))/((d - x + l*cos(theta2))*(y - l*sin(theta1) + ((y - l*sin(theta2))*(d + x - l*cos(theta1)))/(d - x + l*cos(theta2)))) - (l*cos(theta2)*(xp + l*sin(theta2)*theta2_p)*(y - l*sin(theta2)))/(d - x + l*cos(theta2))^2 + ((xp + l*sin(theta2)*theta2_p)*(l*sin(theta2)*(d + x - l*cos(theta1)) + (l*cos(theta2)*(y - l*sin(theta2))*(d + x - l*cos(theta1)))/(d - x + l*cos(theta2)))*(y - l*sin(theta2)))/((d - x + l*cos(theta2))^2*(y - l*sin(theta1) + ((y - l*sin(theta2))*(d + x - l*cos(theta1)))/(d - x + l*cos(theta2)))) - ((l*sin(theta2)*(d + x - l*cos(theta1)) + (l*cos(theta2)*(y - l*sin(theta2))*(d + x - l*cos(theta1)))/(d - x + l*cos(theta2)))*(y - l*sin(theta2))*(yp + ((xp + l*sin(theta1)*theta1_p)*(y - l*sin(theta2)))/(d - x + l*cos(theta2)) + ((yp - l*cos(theta2)*theta2_p)*(d + x - l*cos(theta1)))/(d - x + l*cos(theta2)) - l*cos(theta1)*theta1_p + ((xp + l*sin(theta2)*theta2_p)*(y - l*sin(theta2))*(d + x - l*cos(theta1)))/(d - x + l*cos(theta2))^2))/((d - x + l*cos(theta2))*(y - l*sin(theta1) + ((y - l*sin(theta2))*(d + x - l*cos(theta1)))/(d - x + l*cos(theta2)))^2) + (l*sin(theta2)*(y - l*sin(theta2))*theta2_p)/(d - x + l*cos(theta2));
- 
- 
-J_p21 = - (l*sin(theta1)*(xp + l*sin(theta1)*theta1_p) - l*cos(theta1)*(yp - l*cos(theta1)*theta1_p) + l*sin(theta1)*(y - l*sin(theta1))*theta1_p + l*cos(theta1)*theta1_p*(d + x - l*cos(theta1)))/(y - l*sin(theta1) + ((y - l*sin(theta2))*(d + x - l*cos(theta1)))/(d - x + l*cos(theta2))) - ((l*cos(theta1)*(y - l*sin(theta1)) - l*sin(theta1)*(d + x - l*cos(theta1)))*(yp + ((xp + l*sin(theta1)*theta1_p)*(y - l*sin(theta2)))/(d - x + l*cos(theta2)) + ((yp - l*cos(theta2)*theta2_p)*(d + x - l*cos(theta1)))/(d - x + l*cos(theta2)) - l*cos(theta1)*theta1_p + ((xp + l*sin(theta2)*theta2_p)*(y - l*sin(theta2))*(d + x - l*cos(theta1)))/(d - x + l*cos(theta2))^2))/(y - l*sin(theta1) + ((y - l*sin(theta2))*(d + x - l*cos(theta1)))/(d - x + l*cos(theta2)))^2;
- 
- 
-J_p22 = (l*sin(theta2)*(xp + l*sin(theta1)*theta1_p) + l*cos(theta2)*theta2_p*(d + x - l*cos(theta1)) + (l*cos(theta2)*(xp + l*sin(theta1)*theta1_p)*(y - l*sin(theta2)))/(d - x + l*cos(theta2)) + (l*cos(theta2)*(yp - l*cos(theta2)*theta2_p)*(d + x - l*cos(theta1)))/(d - x + l*cos(theta2)) - (l*sin(theta2)*(y - l*sin(theta2))*theta2_p*(d + x - l*cos(theta1)))/(d - x + l*cos(theta2)) + (l*cos(theta2)*(xp + l*sin(theta2)*theta2_p)*(y - l*sin(theta2))*(d + x - l*cos(theta1)))/(d - x + l*cos(theta2))^2)/(y - l*sin(theta1) + ((y - l*sin(theta2))*(d + x - l*cos(theta1)))/(d - x + l*cos(theta2))) - ((l*sin(theta2)*(d + x - l*cos(theta1)) + (l*cos(theta2)*(y - l*sin(theta2))*(d + x - l*cos(theta1)))/(d - x + l*cos(theta2)))*(yp + ((xp + l*sin(theta1)*theta1_p)*(y - l*sin(theta2)))/(d - x + l*cos(theta2)) + ((yp - l*cos(theta2)*theta2_p)*(d + x - l*cos(theta1)))/(d - x + l*cos(theta2)) - l*cos(theta1)*theta1_p + ((xp + l*sin(theta2)*theta2_p)*(y - l*sin(theta2))*(d + x - l*cos(theta1)))/(d - x + l*cos(theta2))^2))/(y - l*sin(theta1) + ((y - l*sin(theta2))*(d + x - l*cos(theta1)))/(d - x + l*cos(theta2)))^2;
- 
-
-J_p = [J_p11, J_p12
-    J_p21, J_p22];
      
 Theta_pp = 0;
 
@@ -177,9 +150,17 @@ Thetam_p = Jtrasm^-1*[theta1_p; theta2_p];
 
 
 Mm = (M*(Jtrasm)^2 + Jm);
-Mnorm(i,j) = norm((Mm)^-1);
-Determinante(i,j) = cond(Mm);
-Km = (Jtrasm'*K*Jtrasm);
+Mnorm(i,j) = norm(((Mm)^-1),Inf);
+
+Mfin(i,j) = norm(Mm^-1*Mcap-eye(2));
+Km = (K*(Jtrasm)^2);
+Kfin(i,j) = Km;
+Kf = Km*Thetam_p;
+
+Ksomma = Ksomma+Kf;
+
+%Knorm(i,j) =Knorm(i,j)+Kf;
+
 Cm = Mm*Thetam_pp  +  Km*Thetam_p;
 
 if i == 1 && j == 1
@@ -195,15 +176,22 @@ end
     end
      fv = fv+2;
 end
-Maxnorm = max(Mnorm)
-Minnorm = min(Mnorm)
-Mnorm(Mnorm>10^5) = -1;
+
+
 [xsgrid, ysgrid] = meshgrid(theta1s,theta2s);
-contourf(xsgrid,ysgrid,Mnorm);
+contourf(xsgrid,ysgrid,Kfin);
 colorbar
-figure
-contourf(xsgrid,ysgrid,Determinante);
-colorbar
+% 
+% figure
+% Mfin(Mfin>alpha) = 0.23;
+% contourf(xsgrid,ysgrid,Mfin);
+% colorbar
+
+
+% figure
+% contourf(xsgrid,ysgrid,Determinante);
+% colorbar
+
 
 
 % for i=1:200

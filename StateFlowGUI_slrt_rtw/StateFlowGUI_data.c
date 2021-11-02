@@ -7,9 +7,9 @@
  *
  * Code generation for model "StateFlowGUI".
  *
- * Model version              : 1.703
+ * Model version              : 1.741
  * Simulink Coder version : 8.12 (R2017a) 16-Feb-2017
- * C source code generated on : Fri Oct 29 15:13:07 2021
+ * C source code generated on : Tue Nov 02 15:15:15 2021
  *
  * Target selection: slrt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -334,6 +334,8 @@ P_StateFlowGUI_T StateFlowGUI_P = {
   0.0,
   0.0,
   0.0,
+  0.0,
+  0.0,
 
   { 1.0, 24.0 },
 
@@ -527,7 +529,7 @@ P_StateFlowGUI_T StateFlowGUI_P = {
   0.001,
   5.0,
 
-  { 10.0, 10.0, 10.0, 10.0 },
+  { 0.0, 0.0 },
   3333.3333333333335,
   2500.0,
   -2500.0,
@@ -832,6 +834,8 @@ P_StateFlowGUI_T StateFlowGUI_P = {
   -0.065420560747663448,
   0.00023364485981308415,
   0.46728971962616822,
+  57.295779513082323,
+  57.295779513082323,
   0.0,
   0.0,
   1.9198621771937625,

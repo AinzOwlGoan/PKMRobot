@@ -58,6 +58,8 @@ typedef struct {
   real_T *c15_BeginWork;
   real_T *c15_Enable;
   real_T *c15_FineLavorazione;
+  real_T *c15_ResetButton;
+  real_T *c15_StopPressed;
   real_T *c15_b_fc;
   real_T *c15_CA;
   real_T *c15_CB;

@@ -7,21 +7,41 @@ Jv = 6.4e-06;
 J = 5.22e-02;
 theta1s = linspace(deg2rad(90),deg2rad(110),100);
 theta2s = linspace(deg2rad(70),deg2rad(90),100);
-theta1_p = 0.02;
-theta1_pp = 0;
-theta2_p = 0;
-theta2_pp = 0;
+theta1_p = pi/2;
+theta1_pp = pi/4;
+theta2_p = pi/2;
+theta2_pp = pi/4;
 Mfin = zeros(100);
 Mnorm = zeros(100);
 Determinante = zeros(100);
 Ms = zeros(2);
 fv = 1;
 hv = 1;
-Knorm = zeros(100);
+Kfin = zeros(100);
+Ksomma = [0;0];
+%% PARAMETRI CONTROLLO ROBUSTO
+Kd = 5;
+Kp = 3000;
 Maxnorm =  1.4604e+04;
 Minnorm =  9.5631e+03;
 alpha = (Maxnorm-Minnorm)/(Maxnorm+Minnorm);
 Mcap = 2/(Maxnorm+Minnorm)*eye(2);
+Qm = 1.5;
+Kmean = 1e-03*[0.2485; -0.2483];
+H = [0,1;0,0];
+D = [0;1];
+Ht = [0,1;-Kp,-Kd];
+P = eye(2);
+Q1 = -2; % vale per i valori negativi
+p = [Kp^2, -Kd-2*Kp, 1-Q1^2];
+Q2s = roots(p);
+Q2p = Q2s(1);
+Q2n = Q2s(2);
+Qp = [1, Q1-Kp*Q2p; Q1-Kp*Q2p, 1-Kd*Q2p];
+Qn = [1, Q1-Kp*Q2n; Q1-Kp*Q2n, 1-Kd*Q2n];
+
+%% ESECUZIONE ROBUSTO
+
 
 for i = 1:100
      hv = 1;
@@ -138,7 +158,12 @@ Mnorm(i,j) = norm(((Mm)^-1),Inf);
 
 Mfin(i,j) = norm(Mm^-1*Mcap-eye(2));
 Km = (K*(Jtrasm)^2);
-Knorm(i,j) = norm(Km^-1);
+Kf = Km*Thetam_p;
+
+Ksomma = Ksomma+Kf;
+
+%Knorm(i,j) =Knorm(i,j)+Kf;
+
 Cm = Mm*Thetam_pp  +  Km*Thetam_p;
 
 if i == 1 && j == 1
@@ -154,15 +179,19 @@ end
     end
      fv = fv+2;
 end
+Km = Ksomma/(100*100)
+norm(Km);
 
-[xsgrid, ysgrid] = meshgrid(theta1s,theta2s);
-contourf(xsgrid,ysgrid,Mfin);
-colorbar
+% [xsgrid, ysgrid] = meshgrid(theta1s,theta2s);
+% contourf(xsgrid,ysgrid,Kfin);
+% colorbar
+% 
+% figure
+% Mfin(Mfin>alpha) = 0.23;
+% contourf(xsgrid,ysgrid,Mfin);
+% colorbar
 
-figure
-Mfin(Mfin>alpha) = 0.23;
-contourf(xsgrid,ysgrid,Mfin);
-colorbar
+
 % figure
 % contourf(xsgrid,ysgrid,Determinante);
 % colorbar

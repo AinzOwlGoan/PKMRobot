@@ -1,6 +1,218 @@
 
   <Object type="Desktop.Xpc.Designer.InstrumentPanel, Desktop.Xpc.Designer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ControlloHoming" children="Controls">
     <Object type="MW.Instruments.Panel, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Panel1" children="Controls">
+      <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="Label2147483624" children="Controls">
+        <Property name="Text">Errore Pos</Property>
+        <Property name="UseCompatibleTextRendering">True</Property>
+        <Property name="Location">817, 302</Property>
+        <Property name="Name">Label2147483624</Property>
+        <Property name="Size">71, 23</Property>
+      </Object>
+      <Object type="MW.Instruments.NumericDisplay, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="NumericDisplay17" children="Controls">
+        <Property name="BindingSrcType">Signal</Property>
+        <Property name="OutputValue">0</Property>
+        <Property name="BindingSrcPath">Movimento/Sum4/s1</Property>
+        <Property name="BindingSrcObject" />
+        <Property name="TargetName">TargetPC1</Property>
+        <Property name="TextFormatting">
+          <Property name="PrecisionStyle">FixedDecimalPoints</Property>
+          <Property name="UnitsText"> °</Property>
+        </Property>
+        <Property name="Size">100, 29</Property>
+        <Property name="Location">901, 296</Property>
+        <Property name="Name">NumericDisplay17</Property>
+      </Object>
+      <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="Label2147483625" children="Controls">
+        <Property name="Text">Errore vel</Property>
+        <Property name="UseCompatibleTextRendering">True</Property>
+        <Property name="Location">817, 337</Property>
+        <Property name="Name">Label2147483625</Property>
+        <Property name="Size">71, 23</Property>
+      </Object>
+      <Object type="MW.Instruments.NumericDisplay, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="NumericDisplay16" children="Controls">
+        <Property name="BindingSrcType">Signal</Property>
+        <Property name="OutputValue">0</Property>
+        <Property name="BindingSrcPath">Movimento/Sum7/s1</Property>
+        <Property name="BindingSrcObject" />
+        <Property name="TargetName">TargetPC1</Property>
+        <Property name="TextFormatting">
+          <Property name="PrecisionStyle">FixedDecimalPoints</Property>
+          <Property name="UnitsText"> °</Property>
+        </Property>
+        <Property name="Size">100, 29</Property>
+        <Property name="Location">901, 331</Property>
+        <Property name="Name">NumericDisplay16</Property>
+      </Object>
+      <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="Label2147483627" children="Controls">
+        <Property name="Text">Theta2pp</Property>
+        <Property name="UseCompatibleTextRendering">True</Property>
+        <Property name="Location">817, 248</Property>
+        <Property name="Name">Label2147483627</Property>
+        <Property name="Size">78, 23</Property>
+      </Object>
+      <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="Label2147483626" children="Controls">
+        <Property name="Text">Theta1pp</Property>
+        <Property name="UseCompatibleTextRendering">True</Property>
+        <Property name="Location">817, 215</Property>
+        <Property name="Name">Label2147483626</Property>
+        <Property name="Size">78, 23</Property>
+      </Object>
+      <Object type="MW.Instruments.NumericDisplay, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="NumericDisplay14" children="Controls">
+        <Property name="BindingSrcType">Signal</Property>
+        <Property name="OutputValue">0</Property>
+        <Property name="BindingSrcPath">Movimento/Cinematica Inversa Acc/p2</Property>
+        <Property name="BindingSrcObject" />
+        <Property name="TargetName">TargetPC1</Property>
+        <Property name="TextFormatting">
+          <Property name="Precision">2</Property>
+          <Property name="PrecisionStyle">SignificantDigits</Property>
+          <Property name="UnitsText"> rad/s^2</Property>
+        </Property>
+        <Property name="Size">100, 29</Property>
+        <Property name="Location">901, 242</Property>
+        <Property name="Name">NumericDisplay14</Property>
+      </Object>
+      <Object type="MW.Instruments.NumericDisplay, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="NumericDisplay15" children="Controls">
+        <Property name="BindingSrcType">Signal</Property>
+        <Property name="OutputValue">0</Property>
+        <Property name="BindingSrcPath">Movimento/Cinematica Inversa Acc/p1</Property>
+        <Property name="BindingSrcObject" />
+        <Property name="TargetName">TargetPC1</Property>
+        <Property name="TextFormatting">
+          <Property name="Precision">2</Property>
+          <Property name="PrecisionStyle">SignificantDigits</Property>
+          <Property name="UnitsText"> rad/s^2</Property>
+        </Property>
+        <Property name="Size">100, 29</Property>
+        <Property name="Location">901, 209</Property>
+        <Property name="Name">NumericDisplay15</Property>
+      </Object>
+      <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="Label2147483629" children="Controls">
+        <Property name="Text">Theta2p</Property>
+        <Property name="UseCompatibleTextRendering">True</Property>
+        <Property name="Location">817, 165</Property>
+        <Property name="Name">Label2147483629</Property>
+        <Property name="Size">71, 23</Property>
+      </Object>
+      <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="Label2147483628" children="Controls">
+        <Property name="Text">Theta1p</Property>
+        <Property name="UseCompatibleTextRendering">True</Property>
+        <Property name="Location">817, 132</Property>
+        <Property name="Name">Label2147483628</Property>
+        <Property name="Size">78, 23</Property>
+      </Object>
+      <Object type="MW.Instruments.NumericDisplay, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="NumericDisplay12" children="Controls">
+        <Property name="BindingSrcType">Signal</Property>
+        <Property name="OutputValue">0</Property>
+        <Property name="BindingSrcPath">Movimento/Cinematica Inversa vel/p2</Property>
+        <Property name="BindingSrcObject" />
+        <Property name="TargetName">TargetPC1</Property>
+        <Property name="TextFormatting">
+          <Property name="Precision">2</Property>
+          <Property name="PrecisionStyle">SignificantDigits</Property>
+          <Property name="UnitsText"> rad/s</Property>
+        </Property>
+        <Property name="Size">100, 29</Property>
+        <Property name="Location">901, 159</Property>
+        <Property name="Name">NumericDisplay12</Property>
+      </Object>
+      <Object type="MW.Instruments.NumericDisplay, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="NumericDisplay13" children="Controls">
+        <Property name="BindingSrcType">Signal</Property>
+        <Property name="OutputValue">0</Property>
+        <Property name="BindingSrcPath">Movimento/Cinematica Inversa vel/p1</Property>
+        <Property name="BindingSrcObject" />
+        <Property name="TargetName">TargetPC1</Property>
+        <Property name="TextFormatting">
+          <Property name="Precision">2</Property>
+          <Property name="PrecisionStyle">SignificantDigits</Property>
+          <Property name="UnitsText"> rad/s</Property>
+        </Property>
+        <Property name="Size">100, 29</Property>
+        <Property name="Location">901, 126</Property>
+        <Property name="Name">NumericDisplay13</Property>
+      </Object>
+      <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="Label2147483631" children="Controls">
+        <Property name="Text">Theta2</Property>
+        <Property name="UseCompatibleTextRendering">True</Property>
+        <Property name="Location">817, 82</Property>
+        <Property name="Name">Label2147483631</Property>
+        <Property name="Size">59, 23</Property>
+      </Object>
+      <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="Label2147483630" children="Controls">
+        <Property name="Text">Theta1</Property>
+        <Property name="UseCompatibleTextRendering">True</Property>
+        <Property name="Location">817, 49</Property>
+        <Property name="Name">Label2147483630</Property>
+        <Property name="Size">78, 23</Property>
+      </Object>
+      <Object type="MW.Instruments.NumericDisplay, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="NumericDisplay10" children="Controls">
+        <Property name="BindingSrcType">Signal</Property>
+        <Property name="OutputValue">0</Property>
+        <Property name="BindingSrcPath">Movimento/Radians to Degrees1/Gain</Property>
+        <Property name="BindingSrcObject" />
+        <Property name="TargetName">TargetPC1</Property>
+        <Property name="TextFormatting">
+          <Property name="Precision">2</Property>
+          <Property name="PrecisionStyle">SignificantDigits</Property>
+          <Property name="UnitsText">°</Property>
+        </Property>
+        <Property name="Size">100, 29</Property>
+        <Property name="Location">901, 76</Property>
+        <Property name="Name">NumericDisplay10</Property>
+      </Object>
+      <Object type="MW.Instruments.NumericDisplay, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="NumericDisplay11" children="Controls">
+        <Property name="BindingSrcType">Signal</Property>
+        <Property name="OutputValue">0</Property>
+        <Property name="BindingSrcPath">Movimento/Radians to Degrees/Gain</Property>
+        <Property name="BindingSrcObject" />
+        <Property name="TargetName">TargetPC1</Property>
+        <Property name="TextFormatting">
+          <Property name="Precision">2</Property>
+          <Property name="PrecisionStyle">SignificantDigits</Property>
+          <Property name="UnitsText">°</Property>
+        </Property>
+        <Property name="Size">100, 29</Property>
+        <Property name="Location">901, 43</Property>
+        <Property name="Name">NumericDisplay11</Property>
+      </Object>
+      <Object type="MW.Instruments.SwitchLED, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="SwitchLED2147483645" children="Controls">
+        <Property name="BindingSrcPath">Reset/Value</Property>
+        <Property name="TargetName">TargetPC1</Property>
+        <Property name="BindingSrcType">Parameter</Property>
+        <Property name="Text">Reset</Property>
+        <Property name="Size">50, 40</Property>
+        <Property name="Location">365, 266</Property>
+        <Property name="Name">SwitchLED2147483645</Property>
+      </Object>
+      <Object type="MW.Instruments.SwitchLED, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Stop" children="Controls">
+        <Property name="BindingSrcPath">Stop/Value</Property>
+        <Property name="TargetName">TargetPC1</Property>
+        <Property name="BindingSrcType">Parameter</Property>
+        <Property name="Text">Stop</Property>
+        <Property name="Size">120, 40</Property>
+        <Property name="Location">249, 266</Property>
+        <Property name="Name">Stop</Property>
+      </Object>
+      <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="Label2147483632" children="Controls">
+        <Property name="Text">Posizione Z</Property>
+        <Property name="UseCompatibleTextRendering">True</Property>
+        <Property name="Location">500, 283</Property>
+        <Property name="Name">Label2147483632</Property>
+        <Property name="Size">126, 23</Property>
+      </Object>
+      <Object type="MW.Instruments.NumericDisplay, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="NumericDisplay9" children="Controls">
+        <Property name="BindingSrcType">Signal</Property>
+        <Property name="OutputValue">0</Property>
+        <Property name="BindingSrcPath">Sistema Vite/Rifermento Asse A Vite/p1</Property>
+        <Property name="BindingSrcObject" />
+        <Property name="TargetName">TargetPC1</Property>
+        <Property name="TextFormatting">
+          <Property name="PrecisionStyle">FixedDecimalPoints</Property>
+        </Property>
+        <Property name="Size">100, 29</Property>
+        <Property name="Location">641, 277</Property>
+        <Property name="Name">NumericDisplay9</Property>
+      </Object>
       <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="Label2147483634" children="Controls">
         <Property name="Text">Posizione Y</Property>
         <Property name="UseCompatibleTextRendering">True</Property>
@@ -21,6 +233,10 @@
         <Property name="BindingSrcPath">Movimento/Sum1</Property>
         <Property name="BindingSrcObject" />
         <Property name="TargetName">TargetPC1</Property>
+        <Property name="TextFormatting">
+          <Property name="PrecisionStyle">SignificantDigits</Property>
+          <Property name="UnitsText"> m</Property>
+        </Property>
         <Property name="Size">100, 29</Property>
         <Property name="Location">641, 242</Property>
         <Property name="Name">NumericDisplay7</Property>
@@ -31,6 +247,10 @@
         <Property name="BindingSrcPath">Movimento/Sum</Property>
         <Property name="BindingSrcObject" />
         <Property name="TargetName">TargetPC1</Property>
+        <Property name="TextFormatting">
+          <Property name="PrecisionStyle">FixedDecimalPoints</Property>
+          <Property name="UnitsText"> m</Property>
+        </Property>
         <Property name="Size">100, 29</Property>
         <Property name="Location">641, 209</Property>
         <Property name="Name">NumericDisplay8</Property>
@@ -45,7 +265,7 @@
       <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="Label2147483636" children="Controls">
         <Property name="Text">A fine lavorazione spegnere Homing e Work</Property>
         <Property name="UseCompatibleTextRendering">True</Property>
-        <Property name="Location">242, 254</Property>
+        <Property name="Location">222, 372</Property>
         <Property name="Name">Label2147483636</Property>
         <Property name="Size">226, 46</Property>
       </Object>
@@ -70,18 +290,18 @@
       <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="Label2147483637" children="Controls">
         <Property name="Text">1. Quadrato
 2. Cerchio
-3. Ghirigori
+3. Pattern
 4. Cerchi tangenti
 5. Spirale</Property>
         <Property name="UseCompatibleTextRendering">True</Property>
-        <Property name="Location">242, 363</Property>
+        <Property name="Location">499, 337</Property>
         <Property name="Name">Label2147483637</Property>
         <Property name="Size">127, 107</Property>
       </Object>
       <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="Label2147483638" children="Controls">
         <Property name="Text">Traiettoria 1-5</Property>
         <Property name="UseCompatibleTextRendering">True</Property>
-        <Property name="Location">391, 363</Property>
+        <Property name="Location">641, 382</Property>
         <Property name="Name">Label2147483638</Property>
         <Property name="Size">107, 23</Property>
       </Object>
@@ -89,7 +309,7 @@
         <Property name="BindingSrcPath">Movimento/selettore/Value</Property>
         <Property name="TargetName">TargetPC1</Property>
         <Property name="BindingSrcType">Parameter</Property>
-        <Property name="Location">391, 398</Property>
+        <Property name="Location">641, 417</Property>
         <Property name="Name">NumericalUpDownEntry1</Property>
         <Property name="Size">120, 27</Property>
       </Object>
@@ -109,8 +329,8 @@
           <Property name="Min">-1</Property>
           <Property name="Span">6</Property>
         </Property>
-        <Property name="InnerRadius">54</Property>
-        <Property name="Size">98, 98</Property>
+        <Property name="InnerRadius">58</Property>
+        <Property name="Size">102, 102</Property>
         <Property name="ForeColor">Black</Property>
         <Property name="Location">46, 363</Property>
         <Property name="Name">GaugeAngular1</Property>
@@ -122,7 +342,6 @@
         <Property name="BindingSrcType">Signal</Property>
         <Property name="BindingSrcPath">State flow robot/p14</Property>
         <Property name="TargetName">TargetPC1</Property>
-        <Property name="BlinkerEnabled">True</Property>
         <Property name="Size">37, 40</Property>
         <Property name="Location">391, 32</Property>
         <Property name="Name">LED4</Property>
@@ -304,7 +523,7 @@
         <Property name="Location">249, 115</Property>
         <Property name="Name">Homing</Property>
       </Object>
-      <Property name="Size">926, 508</Property>
+      <Property name="Size">1056, 515</Property>
       <Property name="Location">91, 190</Property>
       <Property name="Name">Panel1</Property>
     </Object>

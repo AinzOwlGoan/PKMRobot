@@ -7,9 +7,9 @@
  *
  * Code generation for model "StateFlowGUI".
  *
- * Model version              : 1.703
+ * Model version              : 1.741
  * Simulink Coder version : 8.12 (R2017a) 16-Feb-2017
- * C source code generated on : Fri Oct 29 15:13:07 2021
+ * C source code generated on : Tue Nov 02 15:15:15 2021
  *
  * Target selection: slrt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -827,36 +827,30 @@
 /* user code (top of export header file) */
 #include "xpcdatatypes.h"
 
-/* Block signals for system '<S4>/Cinematica Inversa' */
-typedef struct {
-  real_T theta1;                       /* '<S4>/Cinematica Inversa' */
-  real_T theta2;                       /* '<S4>/Cinematica Inversa' */
-} B_CinematicaInversa_StateFlow_T;
-
 /* Block signals for system '<S4>/Cinematica Inversa vel' */
 typedef struct {
   real_T theta1_p;                     /* '<S4>/Cinematica Inversa vel' */
   real_T theta2_p;                     /* '<S4>/Cinematica Inversa vel' */
 } B_CinematicaInversavel_StateF_T;
 
-/* Block signals for system '<S33>/Asse A conv bracc' */
+/* Block signals for system '<S34>/Asse A conv bracc' */
 typedef struct {
-  real_T pos_B_conv;                   /* '<S33>/Asse A conv bracc' */
+  real_T pos_B_conv;                   /* '<S34>/Asse A conv bracc' */
 } B_AsseAconvbracc_StateFlowGUI_T;
 
-/* Block signals for system '<S34>/Vel Asse A conv' */
+/* Block signals for system '<S37>/Vel Asse A conv' */
 typedef struct {
-  real_T vel_A_conv;                   /* '<S34>/Vel Asse A conv' */
+  real_T vel_A_conv;                   /* '<S37>/Vel Asse A conv' */
 } B_VelAsseAconv_StateFlowGUI_T;
 
-/* Block signals for system '<S34>/Vel Asse B conv' */
+/* Block signals for system '<S37>/Vel Asse B conv' */
 typedef struct {
-  real_T vel_B_conv;                   /* '<S34>/Vel Asse B conv' */
+  real_T vel_B_conv;                   /* '<S37>/Vel Asse B conv' */
 } B_VelAsseBconv_StateFlowGUI_T;
 
-/* Block signals for system '<S94>/MATLAB Function' */
+/* Block signals for system '<S97>/MATLAB Function' */
 typedef struct {
-  real_T y;                            /* '<S94>/MATLAB Function' */
+  real_T y;                            /* '<S97>/MATLAB Function' */
 } B_MATLABFunction_StateFlowGUI_T;
 
 /* Block signals for system '<S13>/Asse B' */
@@ -881,161 +875,166 @@ typedef struct {
   real_T StartHome;                    /* '<Root>/StartHome' */
   real_T StartRobot;                   /* '<Root>/StartRobot' */
   real_T StartWork;                    /* '<Root>/StartWork' */
-  real_T Memory;                       /* '<S94>/Memory' */
-  real_T Sum12;                        /* '<S33>/Sum12' */
-  real_T Sum4;                         /* '<S33>/Sum4' */
-  real_T Sum9;                         /* '<S33>/Sum9' */
-  real_T Sum7;                         /* '<S33>/Sum7' */
-  real_T VelocityB;                    /* '<S35>/Velocity B' */
-  real_T VelocityA;                    /* '<S35>/Velocity A' */
+  real_T Reset;                        /* '<Root>/Reset' */
+  real_T Stop;                         /* '<Root>/Stop' */
+  real_T Memory;                       /* '<S97>/Memory' */
+  real_T Sum12;                        /* '<S34>/Sum12' */
+  real_T Sum4;                         /* '<S34>/Sum4' */
+  real_T Sum9;                         /* '<S34>/Sum9' */
+  real_T Sum7;                         /* '<S34>/Sum7' */
+  real_T VelocityB;                    /* '<S38>/Velocity B' */
+  real_T VelocityA;                    /* '<S38>/Velocity A' */
   real_T Sum2;                         /* '<S24>/Sum2' */
   real_T MultiportSwitch[6];           /* '<S27>/Multiport Switch' */
   real_T Sum;                          /* '<S4>/Sum' */
-  real_T Sum1;                         /* '<S4>/Sum1' */
-  real_T VelocityB_f;                  /* '<S34>/Velocity B' */
-  real_T VelocityA_o;                  /* '<S34>/Velocity A' */
+  real_T Ymov;                         /* '<S4>/Sum1' */
+  real_T VelocityB_f;                  /* '<S37>/Velocity B' */
+  real_T VelocityA_o;                  /* '<S37>/Velocity A' */
   real_T Sum7_j[2];                    /* '<S4>/Sum7' */
   real_T Kd[2];                        /* '<S4>/Kd' */
   real_T Sum4_n[2];                    /* '<S4>/Sum4' */
   real_T Product[2];                   /* '<S4>/Product' */
   real_T Sum9_a[2];                    /* '<S4>/Sum9' */
-  real_T Memory_d[4];                  /* '<S4>/Memory' */
+  real_T Memory_d[2];                  /* '<S4>/Memory' */
   real_T Gain1;                        /* '<S4>/Gain1' */
-  real_T Switch1;                      /* '<S94>/Switch1' */
+  real_T Switch1;                      /* '<S97>/Switch1' */
   real_T CoppiaAbracciasaturata;       /* '<S6>/Coppia A braccia saturata' */
-  real_T DataTypeConversion14;         /* '<S94>/Data Type Conversion14' */
-  real_T Memory_g;                     /* '<S98>/Memory' */
+  real_T DataTypeConversion14;         /* '<S97>/Data Type Conversion14' */
+  real_T Memory_g;                     /* '<S101>/Memory' */
   real_T Gain;                         /* '<S4>/Gain' */
-  real_T Switch1_l;                    /* '<S98>/Switch1' */
+  real_T Switch1_l;                    /* '<S101>/Switch1' */
   real_T CoppiaBbracciasaturata;       /* '<S7>/Coppia B braccia saturata' */
-  real_T DataTypeConversion14_g;       /* '<S98>/Data Type Conversion14' */
-  real_T Memory_n;                     /* '<S102>/Memory' */
-  real_T Sum_i;                        /* '<S116>/Sum' */
+  real_T DataTypeConversion14_g;       /* '<S101>/Data Type Conversion14' */
+  real_T Memory_n;                     /* '<S105>/Memory' */
+  real_T Sum_i;                        /* '<S119>/Sum' */
   real_T Sum3;                         /* '<S13>/Sum3' */
-  real_T Sum5;                         /* '<S125>/Sum5' */
-  real_T Sum2_b;                       /* '<S119>/Sum2' */
-  real_T VelocityA_m;                  /* '<S123>/Velocity A' */
-  real_T VelocityB_h;                  /* '<S123>/Velocity B' */
-  real_T Switch1_f;                    /* '<S102>/Switch1' */
+  real_T Sum5;                         /* '<S128>/Sum5' */
+  real_T Sum2_b;                       /* '<S122>/Sum2' */
+  real_T VelocityA_m;                  /* '<S126>/Velocity A' */
+  real_T VelocityB_h;                  /* '<S126>/Velocity B' */
+  real_T Switch1_f;                    /* '<S105>/Switch1' */
   real_T CoppiaAvitesaturata;          /* '<S8>/Coppia A vite saturata' */
-  real_T DataTypeConversion14_k;       /* '<S102>/Data Type Conversion14' */
-  real_T Memory_a;                     /* '<S104>/Memory' */
-  real_T Switch1_k;                    /* '<S104>/Switch1' */
-  real_T DataTypeConversion14_e;       /* '<S104>/Data Type Conversion14' */
+  real_T DataTypeConversion14_k;       /* '<S105>/Data Type Conversion14' */
+  real_T Memory_a;                     /* '<S107>/Memory' */
+  real_T Switch1_k;                    /* '<S107>/Switch1' */
+  real_T DataTypeConversion14_e;       /* '<S107>/Data Type Conversion14' */
   real_T Sum2_d;                       /* '<S4>/Sum2' */
   real_T Sum3_b;                       /* '<S4>/Sum3' */
-  real_T TSamp;                        /* '<S49>/TSamp' */
-  real_T Uk1;                          /* '<S49>/UD' */
-  real_T Diff;                         /* '<S49>/Diff' */
-  real_T Duk;                          /* '<S60>/D*u(k)' */
-  real_T x1k;                          /* '<S60>/Delay_x1' */
-  real_T C11;                          /* '<S63>/C11' */
-  real_T x2k;                          /* '<S60>/Delay_x2' */
-  real_T C12;                          /* '<S63>/C12' */
-  real_T sum2;                         /* '<S63>/sum2' */
-  real_T yk;                           /* '<S60>/C*X(k)+D*u(k)' */
-  real_T TSamp_n;                      /* '<S47>/TSamp' */
-  real_T Uk1_d;                        /* '<S47>/UD' */
-  real_T Diff_i;                       /* '<S47>/Diff' */
-  real_T A11;                          /* '<S61>/A11' */
-  real_T A12;                          /* '<S61>/A12' */
-  real_T A21;                          /* '<S61>/A21' */
-  real_T A22;                          /* '<S61>/A22' */
-  real_T sum2_n;                       /* '<S61>/sum2' */
-  real_T sum3;                         /* '<S61>/sum3' */
-  real_T B11;                          /* '<S62>/B11' */
-  real_T x1k1;                         /* '<S60>/A*x1(k) + B*u1(k) ' */
-  real_T B21;                          /* '<S62>/B21' */
-  real_T x2k1;                         /* '<S60>/A*x2(k) + B*u2(k)' */
-  real_T Duk_h;                        /* '<S56>/D*u(k)' */
-  real_T x1k_a;                        /* '<S56>/Delay_x1' */
-  real_T C11_h;                        /* '<S59>/C11' */
-  real_T x2k_g;                        /* '<S56>/Delay_x2' */
-  real_T C12_e;                        /* '<S59>/C12' */
-  real_T sum2_k;                       /* '<S59>/sum2' */
-  real_T yk_i;                         /* '<S56>/C*X(k)+D*u(k)' */
-  real_T TSamp_h;                      /* '<S48>/TSamp' */
-  real_T Uk1_b;                        /* '<S48>/UD' */
-  real_T Diff_d;                       /* '<S48>/Diff' */
-  real_T TSamp_nd;                     /* '<S50>/TSamp' */
-  real_T Uk1_l;                        /* '<S50>/UD' */
-  real_T Diff_n;                       /* '<S50>/Diff' */
-  real_T A11_p;                        /* '<S57>/A11' */
-  real_T A12_c;                        /* '<S57>/A12' */
-  real_T A21_h;                        /* '<S57>/A21' */
-  real_T A22_d;                        /* '<S57>/A22' */
-  real_T sum2_nk;                      /* '<S57>/sum2' */
-  real_T sum3_e;                       /* '<S57>/sum3' */
-  real_T B11_k;                        /* '<S58>/B11' */
-  real_T x1k1_g;                       /* '<S56>/A*x1(k) + B*u1(k) ' */
-  real_T B21_l;                        /* '<S58>/B21' */
-  real_T x2k1_n;                       /* '<S56>/A*x2(k) + B*u2(k)' */
-  real_T DigitalClock;                 /* '<S33>/Digital Clock' */
-  real_T Duk_n;                        /* '<S64>/D*u(k)' */
-  real_T x1k_i;                        /* '<S64>/Delay_x1' */
-  real_T C11_e;                        /* '<S67>/C11' */
-  real_T x2k_d;                        /* '<S64>/Delay_x2' */
-  real_T C12_m;                        /* '<S67>/C12' */
-  real_T sum2_ka;                      /* '<S67>/sum2' */
-  real_T yk_m;                         /* '<S64>/C*X(k)+D*u(k)' */
-  real_T TSamp_f;                      /* '<S51>/TSamp' */
-  real_T Uk1_j;                        /* '<S51>/UD' */
-  real_T Diff_b;                       /* '<S51>/Diff' */
-  real_T TSamp_i;                      /* '<S52>/TSamp' */
-  real_T Uk1_bl;                       /* '<S52>/UD' */
-  real_T Diff_bt;                      /* '<S52>/Diff' */
-  real_T A11_h;                        /* '<S65>/A11' */
-  real_T A12_g;                        /* '<S65>/A12' */
-  real_T A21_p;                        /* '<S65>/A21' */
-  real_T A22_j;                        /* '<S65>/A22' */
-  real_T sum2_e;                       /* '<S65>/sum2' */
-  real_T sum3_b;                       /* '<S65>/sum3' */
-  real_T B11_d;                        /* '<S66>/B11' */
-  real_T x1k1_h;                       /* '<S64>/A*x1(k) + B*u1(k) ' */
-  real_T B21_h;                        /* '<S66>/B21' */
-  real_T x2k1_h;                       /* '<S64>/A*x2(k) + B*u2(k)' */
+  real_T Sum5_a[2];                    /* '<S4>/Sum5' */
+  real_T TSamp;                        /* '<S52>/TSamp' */
+  real_T Uk1;                          /* '<S52>/UD' */
+  real_T Diff;                         /* '<S52>/Diff' */
+  real_T Duk;                          /* '<S63>/D*u(k)' */
+  real_T x1k;                          /* '<S63>/Delay_x1' */
+  real_T C11;                          /* '<S66>/C11' */
+  real_T x2k;                          /* '<S63>/Delay_x2' */
+  real_T C12;                          /* '<S66>/C12' */
+  real_T sum2;                         /* '<S66>/sum2' */
+  real_T yk;                           /* '<S63>/C*X(k)+D*u(k)' */
+  real_T TSamp_n;                      /* '<S50>/TSamp' */
+  real_T Uk1_d;                        /* '<S50>/UD' */
+  real_T Diff_i;                       /* '<S50>/Diff' */
+  real_T A11;                          /* '<S64>/A11' */
+  real_T A12;                          /* '<S64>/A12' */
+  real_T A21;                          /* '<S64>/A21' */
+  real_T A22;                          /* '<S64>/A22' */
+  real_T sum2_n;                       /* '<S64>/sum2' */
+  real_T sum3;                         /* '<S64>/sum3' */
+  real_T B11;                          /* '<S65>/B11' */
+  real_T x1k1;                         /* '<S63>/A*x1(k) + B*u1(k) ' */
+  real_T B21;                          /* '<S65>/B21' */
+  real_T x2k1;                         /* '<S63>/A*x2(k) + B*u2(k)' */
+  real_T Duk_h;                        /* '<S59>/D*u(k)' */
+  real_T x1k_a;                        /* '<S59>/Delay_x1' */
+  real_T C11_h;                        /* '<S62>/C11' */
+  real_T x2k_g;                        /* '<S59>/Delay_x2' */
+  real_T C12_e;                        /* '<S62>/C12' */
+  real_T sum2_k;                       /* '<S62>/sum2' */
+  real_T yk_i;                         /* '<S59>/C*X(k)+D*u(k)' */
+  real_T TSamp_h;                      /* '<S51>/TSamp' */
+  real_T Uk1_b;                        /* '<S51>/UD' */
+  real_T Diff_d;                       /* '<S51>/Diff' */
+  real_T TSamp_nd;                     /* '<S53>/TSamp' */
+  real_T Uk1_l;                        /* '<S53>/UD' */
+  real_T Diff_n;                       /* '<S53>/Diff' */
+  real_T A11_p;                        /* '<S60>/A11' */
+  real_T A12_c;                        /* '<S60>/A12' */
+  real_T A21_h;                        /* '<S60>/A21' */
+  real_T A22_d;                        /* '<S60>/A22' */
+  real_T sum2_nk;                      /* '<S60>/sum2' */
+  real_T sum3_e;                       /* '<S60>/sum3' */
+  real_T B11_k;                        /* '<S61>/B11' */
+  real_T x1k1_g;                       /* '<S59>/A*x1(k) + B*u1(k) ' */
+  real_T B21_l;                        /* '<S61>/B21' */
+  real_T x2k1_n;                       /* '<S59>/A*x2(k) + B*u2(k)' */
+  real_T DigitalClock;                 /* '<S34>/Digital Clock' */
+  real_T Duk_n;                        /* '<S67>/D*u(k)' */
+  real_T x1k_i;                        /* '<S67>/Delay_x1' */
+  real_T C11_e;                        /* '<S70>/C11' */
+  real_T x2k_d;                        /* '<S67>/Delay_x2' */
+  real_T C12_m;                        /* '<S70>/C12' */
+  real_T sum2_ka;                      /* '<S70>/sum2' */
+  real_T yk_m;                         /* '<S67>/C*X(k)+D*u(k)' */
+  real_T TSamp_f;                      /* '<S54>/TSamp' */
+  real_T Uk1_j;                        /* '<S54>/UD' */
+  real_T Diff_b;                       /* '<S54>/Diff' */
+  real_T TSamp_i;                      /* '<S55>/TSamp' */
+  real_T Uk1_bl;                       /* '<S55>/UD' */
+  real_T Diff_bt;                      /* '<S55>/Diff' */
+  real_T A11_h;                        /* '<S68>/A11' */
+  real_T A12_g;                        /* '<S68>/A12' */
+  real_T A21_p;                        /* '<S68>/A21' */
+  real_T A22_j;                        /* '<S68>/A22' */
+  real_T sum2_e;                       /* '<S68>/sum2' */
+  real_T sum3_b;                       /* '<S68>/sum3' */
+  real_T B11_d;                        /* '<S69>/B11' */
+  real_T x1k1_h;                       /* '<S67>/A*x1(k) + B*u1(k) ' */
+  real_T B21_h;                        /* '<S69>/B21' */
+  real_T x2k1_h;                       /* '<S67>/A*x2(k) + B*u2(k)' */
+  real_T Gain_p;                       /* '<S35>/Gain' */
+  real_T Gain_n;                       /* '<S36>/Gain' */
   real_T Memory_h;                     /* '<S5>/Memory' */
   real_T Memory1;                      /* '<S5>/Memory1' */
   real_T Sum12_a;                      /* '<S5>/Sum12' */
   real_T Sum2_f;                       /* '<S5>/Sum2' */
   real_T Sum4_nw;                      /* '<S5>/Sum4' */
   real_T Sum3_l;                       /* '<S5>/Sum3' */
-  real_T Sum2_bi;                      /* '<S77>/Sum2' */
+  real_T Sum2_bi;                      /* '<S80>/Sum2' */
   real_T Sum_e;                        /* '<S5>/Sum' */
-  real_T Sum1_g;                       /* '<S5>/Sum1' */
-  real_T VelocityB_p;                  /* '<S84>/Velocity B' */
+  real_T Sum1;                         /* '<S5>/Sum1' */
+  real_T VelocityB_p;                  /* '<S87>/Velocity B' */
   real_T Sum6;                         /* '<S5>/Sum6' */
   real_T Coppiatheta1vel;              /* '<S5>/Coppia theta 1 vel' */
-  real_T VelocityA_a;                  /* '<S84>/Velocity A' */
+  real_T VelocityA_a;                  /* '<S87>/Velocity A' */
   real_T Sum17;                        /* '<S5>/Sum17' */
   real_T Coppiatheta2vel;              /* '<S5>/Coppia theta 2 vel' */
   real_T Sum5_g;                       /* '<S5>/Sum5' */
-  real_T DerivativeGain;               /* '<S80>/Derivative Gain' */
-  real_T Filter;                       /* '<S80>/Filter' */
-  real_T SumD;                         /* '<S80>/SumD' */
-  real_T FilterCoefficient;            /* '<S80>/Filter Coefficient' */
-  real_T IntegralGain;                 /* '<S80>/Integral Gain' */
-  real_T Integrator;                   /* '<S80>/Integrator' */
-  real_T ProportionalGain;             /* '<S80>/Proportional Gain' */
-  real_T Sum_h;                        /* '<S80>/Sum' */
+  real_T DerivativeGain;               /* '<S83>/Derivative Gain' */
+  real_T Filter;                       /* '<S83>/Filter' */
+  real_T SumD;                         /* '<S83>/SumD' */
+  real_T FilterCoefficient;            /* '<S83>/Filter Coefficient' */
+  real_T IntegralGain;                 /* '<S83>/Integral Gain' */
+  real_T Integrator;                   /* '<S83>/Integrator' */
+  real_T ProportionalGain;             /* '<S83>/Proportional Gain' */
+  real_T Sum_h;                        /* '<S83>/Sum' */
   real_T Sum14;                        /* '<S5>/Sum14' */
-  real_T DerivativeGain_b;             /* '<S81>/Derivative Gain' */
-  real_T Filter_d;                     /* '<S81>/Filter' */
-  real_T SumD_e;                       /* '<S81>/SumD' */
-  real_T FilterCoefficient_g;          /* '<S81>/Filter Coefficient' */
-  real_T IntegralGain_f;               /* '<S81>/Integral Gain' */
-  real_T Integrator_d;                 /* '<S81>/Integrator' */
-  real_T ProportionalGain_p;           /* '<S81>/Proportional Gain' */
-  real_T Sum_n;                        /* '<S81>/Sum' */
+  real_T DerivativeGain_b;             /* '<S84>/Derivative Gain' */
+  real_T Filter_d;                     /* '<S84>/Filter' */
+  real_T SumD_e;                       /* '<S84>/SumD' */
+  real_T FilterCoefficient_g;          /* '<S84>/Filter Coefficient' */
+  real_T IntegralGain_f;               /* '<S84>/Integral Gain' */
+  real_T Integrator_d;                 /* '<S84>/Integrator' */
+  real_T ProportionalGain_p;           /* '<S84>/Proportional Gain' */
+  real_T Sum_n;                        /* '<S84>/Sum' */
   real_T Sum7_l;                       /* '<S5>/Sum7' */
   real_T Sum8;                         /* '<S5>/Sum8' */
   real_T selettore;                    /* '<S5>/selettore' */
-  real_T TSamp_d;                      /* '<S121>/TSamp' */
-  real_T Uk1_h;                        /* '<S121>/UD' */
-  real_T Diff_c;                       /* '<S121>/Diff' */
-  real_T TSamp_c;                      /* '<S124>/TSamp' */
-  real_T Uk1_f;                        /* '<S124>/UD' */
-  real_T Diff_iq;                      /* '<S124>/Diff' */
+  real_T TSamp_d;                      /* '<S124>/TSamp' */
+  real_T Uk1_h;                        /* '<S124>/UD' */
+  real_T Diff_c;                       /* '<S124>/Diff' */
+  real_T TSamp_c;                      /* '<S127>/TSamp' */
+  real_T Uk1_f;                        /* '<S127>/UD' */
+  real_T Diff_iq;                      /* '<S127>/Diff' */
   real_T Bool;                         /* '<Root>/State flow robot' */
   real_T OffT;                         /* '<Root>/State flow robot' */
   real_T CoppiaH;                      /* '<Root>/State flow robot' */
@@ -1046,36 +1045,36 @@ typedef struct {
   real_T CoppiaA;                      /* '<Root>/State flow robot' */
   real_T CoppiaB;                      /* '<Root>/State flow robot' */
   real_T Luci;                         /* '<Root>/State flow robot' */
-  real_T Kp_n;                         /* '<Root>/State flow robot' */
+  real_T Kp_l;                         /* '<Root>/State flow robot' */
   real_T Hv;                           /* '<Root>/State flow robot' */
   real_T Hb;                           /* '<Root>/State flow robot' */
   real_T Enable;                       /* '<Root>/State flow robot' */
   real_T FineLavorazione;              /* '<Root>/State flow robot' */
-  real_T SFunction_o17;                /* '<Root>/State flow robot' */
-  real_T SFunction_o18;                /* '<Root>/State flow robot' */
-  real_T SFunction_o19;                /* '<Root>/State flow robot' */
+  real_T fc;                           /* '<Root>/State flow robot' */
+  real_T fcA;                          /* '<Root>/State flow robot' */
+  real_T fcB;                          /* '<Root>/State flow robot' */
   real_T SFunction_o20;                /* '<Root>/State flow robot' */
   real_T SFunction_o21;                /* '<Root>/State flow robot' */
   real_T SFunction_o22;                /* '<Root>/State flow robot' */
   real_T SFunction_o23;                /* '<Root>/State flow robot' */
   real_T SFunction_o24;                /* '<Root>/State flow robot' */
-  real_T fc;                           /* '<Root>/State flow robot' */
-  real_T fcA;                          /* '<Root>/State flow robot' */
-  real_T fcB;                          /* '<Root>/State flow robot' */
+  real_T SFunction_o25;                /* '<Root>/State flow robot' */
+  real_T SFunction_o26;                /* '<Root>/State flow robot' */
+  real_T SFunction_o27;                /* '<Root>/State flow robot' */
   real_T SFunction_o28;                /* '<Root>/State flow robot' */
   real_T SFunction_o29;                /* '<Root>/State flow robot' */
   real_T SFunction_o30;                /* '<Root>/State flow robot' */
   real_T SFunction_o31;                /* '<Root>/State flow robot' */
   real_T SFunction_o32;                /* '<Root>/State flow robot' */
   real_T SFunction_o33;                /* '<Root>/State flow robot' */
-  real_T CA;                           /* '<S130>/MATLAB Function' */
-  real_T CB;                           /* '<S130>/MATLAB Function' */
-  real_T CH;                           /* '<S130>/MATLAB Function' */
-  real_T vel_B_conv;                   /* '<S123>/Vel Asse B conv' */
-  real_T vel_A_conv;                   /* '<S123>/Vel Asse A conv' */
+  real_T CA;                           /* '<S133>/MATLAB Function' */
+  real_T CB;                           /* '<S133>/MATLAB Function' */
+  real_T CH;                           /* '<S133>/MATLAB Function' */
+  real_T vel_B_conv;                   /* '<S126>/Vel Asse B conv' */
+  real_T vel_A_conv;                   /* '<S126>/Vel Asse A conv' */
   real_T pos_B_conv;                   /* '<S13>/Asse B conv' */
-  real_T pos_B_conv_v;                 /* '<S125>/Asse B conv v' */
-  real_T pos_A_conv;                   /* '<S125>/Asse A conv' */
+  real_T pos_B_conv_v;                 /* '<S128>/Asse B conv v' */
+  real_T pos_A_conv;                   /* '<S128>/Asse A conv' */
   real_T Switch2;                      /* '<S9>/Switch2' */
   real_T Sum6_f;                       /* '<S13>/Sum6' */
   real_T Gain4;                        /* '<S13>/Gain4' */
@@ -1084,22 +1083,25 @@ typedef struct {
   real_T Sum7_i;                       /* '<S13>/Sum7' */
   real_T Switch;                       /* '<S8>/Switch' */
   real_T Sum8_p;                       /* '<S13>/Sum8' */
-  real_T Gain6;                        /* '<S120>/Gain6' */
+  real_T Gain6;                        /* '<S123>/Gain6' */
   real_T Sum1_o;                       /* '<S13>/Sum1' */
-  real_T Gain_h;                       /* '<S120>/Gain' */
-  real_T Sum9_d;                       /* '<S120>/Sum9' */
+  real_T Gain_h;                       /* '<S123>/Gain' */
+  real_T Sum9_d;                       /* '<S123>/Sum9' */
   real_T Gain_a;                       /* '<S8>/Gain' */
   real_T Switch1_i;                    /* '<S7>/Switch1' */
   real_T Switch1_c;                    /* '<S6>/Switch1' */
   real_T x0;                           /* '<S5>/Cinematica Inversa1' */
   real_T y0;                           /* '<S5>/Cinematica Inversa1' */
+  real_T theta1;                       /* '<S5>/Cinematica Inversa' */
+  real_T theta2;                       /* '<S5>/Cinematica Inversa' */
   real_T pos_A_conv_e;                 /* '<S5>/Asse A conv brac' */
-  real_T vel_B_conv_a;                 /* '<S35>/Vel Asse B conv' */
-  real_T vel_A_conv_b;                 /* '<S35>/Vel Asse A conv' */
-  real_T x0_l;                         /* '<S32>/Cinematica Inversa2' */
-  real_T y0_p;                         /* '<S32>/Cinematica Inversa2' */
+  real_T vel_B_conv_a;                 /* '<S38>/Vel Asse B conv' */
+  real_T vel_A_conv_b;                 /* '<S38>/Vel Asse A conv' */
+  real_T x0_l;                         /* '<S33>/Cinematica Inversa2' */
+  real_T y0_p;                         /* '<S33>/Cinematica Inversa2' */
   real_T x_p;                          /* '<S4>/MATLAB Jin' */
   real_T y_p;                          /* '<S4>/MATLAB Jin' */
+  real_T phi;                          /* '<S4>/MATLAB Function3' */
   real_T xp;                           /* '<S4>/MATLAB Function2' */
   real_T yp;                           /* '<S4>/MATLAB Function2' */
   real_T xs;                           /* '<S27>/spirale' */
@@ -1135,8 +1137,8 @@ typedef struct {
   real_T C1;                           /* '<S4>/Dinamica Inversa1' */
   real_T C2;                           /* '<S4>/Dinamica Inversa1' */
   real_T Mm[4];                        /* '<S4>/Dinamica Inversa1' */
-  real_T K[4];                         /* '<S4>/Dinamica Inversa1' */
-  real_T Mpi[4];                       /* '<S4>/Dinamica Inversa1' */
+  real_T ntilde[2];                    /* '<S4>/Dinamica Inversa1' */
+  real_T Mpi[2];                       /* '<S4>/Dinamica Inversa1' */
   real_T Cm1;                          /* '<S4>/Coppia motrice' */
   real_T Cm2;                          /* '<S4>/Coppia motrice' */
   real_T x_pp_f;                       /* '<S4>/Cinematica diretta Acc' */
@@ -1145,6 +1147,8 @@ typedef struct {
   real_T y_k;                          /* '<S4>/Cinematica diretta' */
   real_T theta1_pp;                    /* '<S4>/Cinematica Inversa Acc' */
   real_T theta2_pp;                    /* '<S4>/Cinematica Inversa Acc' */
+  real_T theta1_l;                     /* '<S4>/Cinematica Inversa' */
+  real_T theta2_j;                     /* '<S4>/Cinematica Inversa' */
   real_T y_f;                          /* '<S3>/MATLAB Function2' */
   real_T y_b;                          /* '<S3>/MATLAB Function1' */
   real_T y_i;                          /* '<S3>/MATLAB Function' */
@@ -1153,14 +1157,14 @@ typedef struct {
   int32_T MotoreviteB;                 /* '<S11>/Motore vite B' */
   int32_T MotorebracciaA;              /* '<S10>/Motore braccia A' */
   int32_T MotorebracciaB;              /* '<S10>/Motore braccia B' */
-  int32_T EtherCATPDOReceive15;        /* '<S35>/EtherCAT PDO Receive15' */
-  int32_T EtherCATPDOReceive14;        /* '<S35>/EtherCAT PDO Receive14' */
-  int32_T EtherCATPDOReceive15_d;      /* '<S34>/EtherCAT PDO Receive15' */
-  int32_T EtherCATPDOReceive14_b;      /* '<S34>/EtherCAT PDO Receive14' */
-  int32_T EtherCATPDOReceive14_l;      /* '<S123>/EtherCAT PDO Receive14' */
-  int32_T EtherCATPDOReceive15_e;      /* '<S123>/EtherCAT PDO Receive15' */
-  int32_T EtherCATPDOReceive15_l;      /* '<S84>/EtherCAT PDO Receive15' */
-  int32_T EtherCATPDOReceive14_c;      /* '<S84>/EtherCAT PDO Receive14' */
+  int32_T EtherCATPDOReceive15;        /* '<S38>/EtherCAT PDO Receive15' */
+  int32_T EtherCATPDOReceive14;        /* '<S38>/EtherCAT PDO Receive14' */
+  int32_T EtherCATPDOReceive15_d;      /* '<S37>/EtherCAT PDO Receive15' */
+  int32_T EtherCATPDOReceive14_b;      /* '<S37>/EtherCAT PDO Receive14' */
+  int32_T EtherCATPDOReceive14_l;      /* '<S126>/EtherCAT PDO Receive14' */
+  int32_T EtherCATPDOReceive15_e;      /* '<S126>/EtherCAT PDO Receive15' */
+  int32_T EtherCATPDOReceive15_l;      /* '<S87>/EtherCAT PDO Receive15' */
+  int32_T EtherCATPDOReceive14_c;      /* '<S87>/EtherCAT PDO Receive14' */
   int16_T DataTypeConversion3;         /* '<S6>/Data Type Conversion3' */
   int16_T DataTypeConversion4;         /* '<S7>/Data Type Conversion4' */
   int16_T ConvertA;                    /* '<S8>/Convert A' */
@@ -1175,54 +1179,52 @@ typedef struct {
   boolean_T DataTypeConversion25;      /* '<S3>/Data Type Conversion25' */
   boolean_T DataTypeConversion24;      /* '<S3>/Data Type Conversion24' */
   boolean_T DataTypeConversion26;      /* '<S3>/Data Type Conversion26' */
-  boolean_T EtherCATPDOReceive9;       /* '<S94>/EtherCAT PDO Receive9' */
-  boolean_T EtherCATPDOReceive9_h;     /* '<S98>/EtherCAT PDO Receive9' */
-  boolean_T EtherCATPDOReceive9_hd;    /* '<S102>/EtherCAT PDO Receive9' */
-  boolean_T EtherCATPDOReceive9_d;     /* '<S104>/EtherCAT PDO Receive9' */
+  boolean_T EtherCATPDOReceive9;       /* '<S97>/EtherCAT PDO Receive9' */
+  boolean_T EtherCATPDOReceive9_h;     /* '<S101>/EtherCAT PDO Receive9' */
+  boolean_T EtherCATPDOReceive9_hd;    /* '<S105>/EtherCAT PDO Receive9' */
+  boolean_T EtherCATPDOReceive9_d;     /* '<S107>/EtherCAT PDO Receive9' */
   B_AsseB_StateFlowGUI_T sf_RifermentoAsseAVite;/* '<S13>/Rifermento Asse A Vite' */
   B_AsseB_StateFlowGUI_T sf_AsseB;     /* '<S13>/Asse B' */
-  B_MATLABFunction_StateFlowGUI_T sf_MATLABFunction_i;/* '<S104>/MATLAB Function' */
-  B_MATLABFunction_StateFlowGUI_T sf_MATLABFunction_f;/* '<S102>/MATLAB Function' */
-  B_MATLABFunction_StateFlowGUI_T sf_MATLABFunction_a;/* '<S98>/MATLAB Function' */
-  B_MATLABFunction_StateFlowGUI_T sf_MATLABFunction_e;/* '<S94>/MATLAB Function' */
-  B_VelAsseBconv_StateFlowGUI_T sf_VelAsseBconv_o;/* '<S84>/Vel Asse B conv' */
-  B_VelAsseAconv_StateFlowGUI_T sf_VelAsseAconv_o;/* '<S84>/Vel Asse A conv' */
+  B_MATLABFunction_StateFlowGUI_T sf_MATLABFunction_i;/* '<S107>/MATLAB Function' */
+  B_MATLABFunction_StateFlowGUI_T sf_MATLABFunction_f;/* '<S105>/MATLAB Function' */
+  B_MATLABFunction_StateFlowGUI_T sf_MATLABFunction_a;/* '<S101>/MATLAB Function' */
+  B_MATLABFunction_StateFlowGUI_T sf_MATLABFunction_e;/* '<S97>/MATLAB Function' */
+  B_VelAsseBconv_StateFlowGUI_T sf_VelAsseBconv_o;/* '<S87>/Vel Asse B conv' */
+  B_VelAsseAconv_StateFlowGUI_T sf_VelAsseAconv_o;/* '<S87>/Vel Asse A conv' */
   B_CinematicaInversavel_StateF_T sf_CinematicaInversavel_l;/* '<S5>/Cinematica Inversa vel' */
-  B_CinematicaInversa_StateFlow_T sf_CinematicaInversa_a;/* '<S5>/Cinematica Inversa' */
   B_AsseAconvbracc_StateFlowGUI_T sf_AsseBconvbrac1_f;/* '<S5>/Asse B conv brac1' */
-  B_VelAsseBconv_StateFlowGUI_T sf_VelAsseBconv_d;/* '<S34>/Vel Asse B conv' */
-  B_VelAsseAconv_StateFlowGUI_T sf_VelAsseAconv_a;/* '<S34>/Vel Asse A conv' */
-  B_AsseAconvbracc_StateFlowGUI_T sf_AsseBconvbrac1;/* '<S33>/Asse B conv brac1' */
-  B_AsseAconvbracc_StateFlowGUI_T sf_AsseAconvbracc;/* '<S33>/Asse A conv bracc' */
+  B_VelAsseBconv_StateFlowGUI_T sf_VelAsseBconv_d;/* '<S37>/Vel Asse B conv' */
+  B_VelAsseAconv_StateFlowGUI_T sf_VelAsseAconv_a;/* '<S37>/Vel Asse A conv' */
+  B_AsseAconvbracc_StateFlowGUI_T sf_AsseBconvbrac1;/* '<S34>/Asse B conv brac1' */
+  B_AsseAconvbracc_StateFlowGUI_T sf_AsseAconvbracc;/* '<S34>/Asse A conv bracc' */
   B_CinematicaInversavel_StateF_T sf_CinematicaInversavel;/* '<S4>/Cinematica Inversa vel' */
-  B_CinematicaInversa_StateFlow_T sf_CinematicaInversa;/* '<S4>/Cinematica Inversa' */
 } B_StateFlowGUI_T;
 
 /* Block states (auto storage) for system '<Root>' */
 typedef struct {
-  real_T UD_DSTATE;                    /* '<S49>/UD' */
-  real_T Delay_x1_DSTATE;              /* '<S60>/Delay_x1' */
-  real_T Delay_x2_DSTATE;              /* '<S60>/Delay_x2' */
-  real_T UD_DSTATE_a;                  /* '<S47>/UD' */
-  real_T Delay_x1_DSTATE_g;            /* '<S56>/Delay_x1' */
-  real_T Delay_x2_DSTATE_m;            /* '<S56>/Delay_x2' */
-  real_T UD_DSTATE_j;                  /* '<S48>/UD' */
-  real_T UD_DSTATE_f;                  /* '<S50>/UD' */
-  real_T Delay_x1_DSTATE_k;            /* '<S64>/Delay_x1' */
-  real_T Delay_x2_DSTATE_k;            /* '<S64>/Delay_x2' */
-  real_T UD_DSTATE_g;                  /* '<S51>/UD' */
-  real_T UD_DSTATE_k;                  /* '<S52>/UD' */
-  real_T Filter_DSTATE;                /* '<S80>/Filter' */
-  real_T Integrator_DSTATE;            /* '<S80>/Integrator' */
-  real_T Filter_DSTATE_d;              /* '<S81>/Filter' */
-  real_T Integrator_DSTATE_a;          /* '<S81>/Integrator' */
-  real_T UD_DSTATE_m;                  /* '<S121>/UD' */
-  real_T UD_DSTATE_fc;                 /* '<S124>/UD' */
-  real_T Memory_PreviousInput;         /* '<S94>/Memory' */
-  real_T Memory_PreviousInput_h[4];    /* '<S4>/Memory' */
-  real_T Memory_PreviousInput_o;       /* '<S98>/Memory' */
-  real_T Memory_PreviousInput_g;       /* '<S102>/Memory' */
-  real_T Memory_PreviousInput_hp;      /* '<S104>/Memory' */
+  real_T UD_DSTATE;                    /* '<S52>/UD' */
+  real_T Delay_x1_DSTATE;              /* '<S63>/Delay_x1' */
+  real_T Delay_x2_DSTATE;              /* '<S63>/Delay_x2' */
+  real_T UD_DSTATE_a;                  /* '<S50>/UD' */
+  real_T Delay_x1_DSTATE_g;            /* '<S59>/Delay_x1' */
+  real_T Delay_x2_DSTATE_m;            /* '<S59>/Delay_x2' */
+  real_T UD_DSTATE_j;                  /* '<S51>/UD' */
+  real_T UD_DSTATE_f;                  /* '<S53>/UD' */
+  real_T Delay_x1_DSTATE_k;            /* '<S67>/Delay_x1' */
+  real_T Delay_x2_DSTATE_k;            /* '<S67>/Delay_x2' */
+  real_T UD_DSTATE_g;                  /* '<S54>/UD' */
+  real_T UD_DSTATE_k;                  /* '<S55>/UD' */
+  real_T Filter_DSTATE;                /* '<S83>/Filter' */
+  real_T Integrator_DSTATE;            /* '<S83>/Integrator' */
+  real_T Filter_DSTATE_d;              /* '<S84>/Filter' */
+  real_T Integrator_DSTATE_a;          /* '<S84>/Integrator' */
+  real_T UD_DSTATE_m;                  /* '<S124>/UD' */
+  real_T UD_DSTATE_fc;                 /* '<S127>/UD' */
+  real_T Memory_PreviousInput;         /* '<S97>/Memory' */
+  real_T Memory_PreviousInput_h[2];    /* '<S4>/Memory' */
+  real_T Memory_PreviousInput_o;       /* '<S101>/Memory' */
+  real_T Memory_PreviousInput_g;       /* '<S105>/Memory' */
+  real_T Memory_PreviousInput_hp;      /* '<S107>/Memory' */
   real_T Memory_PreviousInput_e;       /* '<S5>/Memory' */
   real_T Memory1_PreviousInput;        /* '<S5>/Memory1' */
   real_T conv;                         /* '<Root>/State flow robot' */
@@ -1263,42 +1265,12 @@ typedef struct {
   struct {
     void *AQHandles;
     void *SlioLTF;
-  } HiddenToAsyncQueue_InsertedFo_c;   /* synthesized block */
-
-  struct {
-    void *AQHandles;
-    void *SlioLTF;
-  } HiddenToAsyncQueue_InsertedF_pt;   /* synthesized block */
-
-  struct {
-    void *AQHandles;
-    void *SlioLTF;
-  } HiddenToAsyncQueue_InsertedFo_g;   /* synthesized block */
-
-  struct {
-    void *AQHandles;
-    void *SlioLTF;
-  } HiddenToAsyncQueue_InsertedF_ex;   /* synthesized block */
-
-  struct {
-    void *AQHandles;
-    void *SlioLTF;
   } HiddenToAsyncQueue_InsertedFo_i;   /* synthesized block */
 
   struct {
     void *AQHandles;
     void *SlioLTF;
-  } HiddenToAsyncQueue_InsertedFo_m;   /* synthesized block */
-
-  struct {
-    void *AQHandles;
-    void *SlioLTF;
-  } HiddenToAsyncQueue_InsertedF_cl;   /* synthesized block */
-
-  struct {
-    void *AQHandles;
-    void *SlioLTF;
-  } HiddenToAsyncQueue_InsertedFo_o;   /* synthesized block */
+  } HiddenToAsyncQueue_InsertedF_dx;   /* synthesized block */
 
   struct {
     void *AQHandles;
@@ -1308,12 +1280,17 @@ typedef struct {
   struct {
     void *AQHandles;
     void *SlioLTF;
-  } HiddenToAsyncQueue_InsertedFo_l;   /* synthesized block */
+  } HiddenToAsyncQueue_InsertedFo_m;   /* synthesized block */
 
   struct {
     void *AQHandles;
     void *SlioLTF;
-  } HiddenToAsyncQueue_InsertedFo_f;   /* synthesized block */
+  } HiddenToAsyncQueue_InsertedFo_c;   /* synthesized block */
+
+  struct {
+    void *AQHandles;
+    void *SlioLTF;
+  } HiddenToAsyncQueue_InsertedF_nk;   /* synthesized block */
 
   struct {
     void *AQHandles;
@@ -1323,12 +1300,22 @@ typedef struct {
   struct {
     void *AQHandles;
     void *SlioLTF;
+  } HiddenToAsyncQueue_InsertedF_ej;   /* synthesized block */
+
+  struct {
+    void *AQHandles;
+    void *SlioLTF;
   } HiddenToAsyncQueue_InsertedF_mr;   /* synthesized block */
 
   struct {
     void *AQHandles;
     void *SlioLTF;
-  } HiddenToAsyncQueue_InsertedF_ok;   /* synthesized block */
+  } HiddenToAsyncQueue_InsertedFo_o;   /* synthesized block */
+
+  struct {
+    void *AQHandles;
+    void *SlioLTF;
+  } HiddenToAsyncQueue_InsertedF_cy;   /* synthesized block */
 
   struct {
     void *AQHandles;
@@ -1368,12 +1355,12 @@ typedef struct {
   struct {
     void *AQHandles;
     void *SlioLTF;
-  } HiddenToAsyncQueue_InsertedF_g3;   /* synthesized block */
+  } HiddenToAsyncQueue_InsertedFo_g;   /* synthesized block */
 
   struct {
     void *AQHandles;
     void *SlioLTF;
-  } HiddenToAsyncQueue_InsertedF_fz;   /* synthesized block */
+  } HiddenToAsyncQueue_InsertedFo_f;   /* synthesized block */
 
   struct {
     void *AQHandles;
@@ -1388,7 +1375,7 @@ typedef struct {
   struct {
     void *AQHandles;
     void *SlioLTF;
-  } HiddenToAsyncQueue_InsertedF_l3;   /* synthesized block */
+  } HiddenToAsyncQueue_InsertedFo_l;   /* synthesized block */
 
   struct {
     void *AQHandles;
@@ -1403,7 +1390,7 @@ typedef struct {
   struct {
     void *AQHandles;
     void *SlioLTF;
-  } HiddenToAsyncQueue_Inserted_ptw;   /* synthesized block */
+  } HiddenToAsyncQueue_InsertedF_pt;   /* synthesized block */
 
   struct {
     void *AQHandles;
@@ -1435,22 +1422,22 @@ typedef struct {
   int_T LuceBianca_IWORK[7];           /* '<S3>/Luce Bianca' */
   int_T LuceRossa_IWORK[7];            /* '<S3>/Luce Rossa ' */
   int_T LuceVerde_IWORK[7];            /* '<S3>/Luce Verde' */
-  int_T EtherCATPDOReceive15_IWORK[7]; /* '<S35>/EtherCAT PDO Receive15' */
-  int_T EtherCATPDOReceive14_IWORK[7]; /* '<S35>/EtherCAT PDO Receive14' */
-  int_T EtherCATPDOReceive15_IWORK_o[7];/* '<S34>/EtherCAT PDO Receive15' */
-  int_T EtherCATPDOReceive14_IWORK_p[7];/* '<S34>/EtherCAT PDO Receive14' */
+  int_T EtherCATPDOReceive15_IWORK[7]; /* '<S38>/EtherCAT PDO Receive15' */
+  int_T EtherCATPDOReceive14_IWORK[7]; /* '<S38>/EtherCAT PDO Receive14' */
+  int_T EtherCATPDOReceive15_IWORK_o[7];/* '<S37>/EtherCAT PDO Receive15' */
+  int_T EtherCATPDOReceive14_IWORK_p[7];/* '<S37>/EtherCAT PDO Receive14' */
   int_T EtherCATPDOTransmit1_IWORK[7]; /* '<S6>/EtherCAT PDO Transmit 1' */
-  int_T EtherCATPDOReceive9_IWORK[7];  /* '<S94>/EtherCAT PDO Receive9' */
+  int_T EtherCATPDOReceive9_IWORK[7];  /* '<S97>/EtherCAT PDO Receive9' */
   int_T EtherCATPDOTransmit7_IWORK[7]; /* '<S7>/EtherCAT PDO Transmit 7' */
-  int_T EtherCATPDOReceive9_IWORK_n[7];/* '<S98>/EtherCAT PDO Receive9' */
-  int_T EtherCATPDOReceive14_IWORK_j[7];/* '<S123>/EtherCAT PDO Receive14' */
-  int_T EtherCATPDOReceive15_IWORK_e[7];/* '<S123>/EtherCAT PDO Receive15' */
+  int_T EtherCATPDOReceive9_IWORK_n[7];/* '<S101>/EtherCAT PDO Receive9' */
+  int_T EtherCATPDOReceive14_IWORK_j[7];/* '<S126>/EtherCAT PDO Receive14' */
+  int_T EtherCATPDOReceive15_IWORK_e[7];/* '<S126>/EtherCAT PDO Receive15' */
   int_T Torquesend_IWORK[7];           /* '<S8>/Torque send' */
-  int_T EtherCATPDOReceive9_IWORK_g[7];/* '<S102>/EtherCAT PDO Receive9' */
+  int_T EtherCATPDOReceive9_IWORK_g[7];/* '<S105>/EtherCAT PDO Receive9' */
   int_T EtherCATPDOTransmit2_IWORK[7]; /* '<S9>/EtherCAT PDO Transmit 2' */
-  int_T EtherCATPDOReceive9_IWORK_l[7];/* '<S104>/EtherCAT PDO Receive9' */
-  int_T EtherCATPDOReceive15_IWORK_m[7];/* '<S84>/EtherCAT PDO Receive15' */
-  int_T EtherCATPDOReceive14_IWORK_jl[7];/* '<S84>/EtherCAT PDO Receive14' */
+  int_T EtherCATPDOReceive9_IWORK_l[7];/* '<S107>/EtherCAT PDO Receive9' */
+  int_T EtherCATPDOReceive15_IWORK_m[7];/* '<S87>/EtherCAT PDO Receive15' */
+  int_T EtherCATPDOReceive14_IWORK_jl[7];/* '<S87>/EtherCAT PDO Receive14' */
   uint16_T temporalCounter_i1;         /* '<Root>/State flow robot' */
   int8_T Homing_SubsysRanBC;           /* '<S14>/Homing' */
   uint8_T is_active_c15_StateFlowGUI;  /* '<Root>/State flow robot' */
@@ -1468,52 +1455,52 @@ typedef struct {
 /* Parameters (auto storage) */
 struct P_StateFlowGUI_T_ {
   real_T PIDController1_D;             /* Mask Parameter: PIDController1_D
-                                        * Referenced by: '<S80>/Derivative Gain'
+                                        * Referenced by: '<S83>/Derivative Gain'
                                         */
   real_T PIDController2_D;             /* Mask Parameter: PIDController2_D
-                                        * Referenced by: '<S81>/Derivative Gain'
+                                        * Referenced by: '<S84>/Derivative Gain'
                                         */
   real_T PIDController1_I;             /* Mask Parameter: PIDController1_I
-                                        * Referenced by: '<S80>/Integral Gain'
+                                        * Referenced by: '<S83>/Integral Gain'
                                         */
   real_T PIDController2_I;             /* Mask Parameter: PIDController2_I
-                                        * Referenced by: '<S81>/Integral Gain'
+                                        * Referenced by: '<S84>/Integral Gain'
                                         */
   real_T DiscreteDerivativeB2_ICPrevScal;/* Mask Parameter: DiscreteDerivativeB2_ICPrevScal
-                                          * Referenced by: '<S49>/UD'
-                                          */
-  real_T DiscreteDerivativeB_ICPrevScale;/* Mask Parameter: DiscreteDerivativeB_ICPrevScale
-                                          * Referenced by: '<S47>/UD'
-                                          */
-  real_T DiscreteDerivativeB1_ICPrevScal;/* Mask Parameter: DiscreteDerivativeB1_ICPrevScal
-                                          * Referenced by: '<S48>/UD'
-                                          */
-  real_T DiscreteDerivativeB3_ICPrevScal;/* Mask Parameter: DiscreteDerivativeB3_ICPrevScal
-                                          * Referenced by: '<S50>/UD'
-                                          */
-  real_T DiscreteDerivativeB4_ICPrevScal;/* Mask Parameter: DiscreteDerivativeB4_ICPrevScal
-                                          * Referenced by: '<S51>/UD'
-                                          */
-  real_T DiscreteDerivativeB5_ICPrevScal;/* Mask Parameter: DiscreteDerivativeB5_ICPrevScal
                                           * Referenced by: '<S52>/UD'
                                           */
-  real_T DiscreteDerivativeB_ICPrevSca_f;/* Mask Parameter: DiscreteDerivativeB_ICPrevSca_f
-                                          * Referenced by: '<S121>/UD'
+  real_T DiscreteDerivativeB_ICPrevScale;/* Mask Parameter: DiscreteDerivativeB_ICPrevScale
+                                          * Referenced by: '<S50>/UD'
                                           */
-  real_T DiscreteDerivativeA_ICPrevScale;/* Mask Parameter: DiscreteDerivativeA_ICPrevScale
+  real_T DiscreteDerivativeB1_ICPrevScal;/* Mask Parameter: DiscreteDerivativeB1_ICPrevScal
+                                          * Referenced by: '<S51>/UD'
+                                          */
+  real_T DiscreteDerivativeB3_ICPrevScal;/* Mask Parameter: DiscreteDerivativeB3_ICPrevScal
+                                          * Referenced by: '<S53>/UD'
+                                          */
+  real_T DiscreteDerivativeB4_ICPrevScal;/* Mask Parameter: DiscreteDerivativeB4_ICPrevScal
+                                          * Referenced by: '<S54>/UD'
+                                          */
+  real_T DiscreteDerivativeB5_ICPrevScal;/* Mask Parameter: DiscreteDerivativeB5_ICPrevScal
+                                          * Referenced by: '<S55>/UD'
+                                          */
+  real_T DiscreteDerivativeB_ICPrevSca_f;/* Mask Parameter: DiscreteDerivativeB_ICPrevSca_f
                                           * Referenced by: '<S124>/UD'
                                           */
+  real_T DiscreteDerivativeA_ICPrevScale;/* Mask Parameter: DiscreteDerivativeA_ICPrevScale
+                                          * Referenced by: '<S127>/UD'
+                                          */
   real_T PIDController1_N;             /* Mask Parameter: PIDController1_N
-                                        * Referenced by: '<S80>/Filter Coefficient'
+                                        * Referenced by: '<S83>/Filter Coefficient'
                                         */
   real_T PIDController2_N;             /* Mask Parameter: PIDController2_N
-                                        * Referenced by: '<S81>/Filter Coefficient'
+                                        * Referenced by: '<S84>/Filter Coefficient'
                                         */
   real_T PIDController1_P;             /* Mask Parameter: PIDController1_P
-                                        * Referenced by: '<S80>/Proportional Gain'
+                                        * Referenced by: '<S83>/Proportional Gain'
                                         */
   real_T PIDController2_P;             /* Mask Parameter: PIDController2_P
-                                        * Referenced by: '<S81>/Proportional Gain'
+                                        * Referenced by: '<S84>/Proportional Gain'
                                         */
   real_T Switch1_Threshold;            /* Expression: 3
                                         * Referenced by: '<S6>/Switch1'
@@ -1522,10 +1509,10 @@ struct P_StateFlowGUI_T_ {
                                         * Referenced by: '<S7>/Switch1'
                                         */
   real_T Gain6_Gain;                   /* Expression: 7.5*1000/0.36
-                                        * Referenced by: '<S120>/Gain6'
+                                        * Referenced by: '<S123>/Gain6'
                                         */
   real_T Gain_Gain;                    /* Expression: 300*1000/0.36
-                                        * Referenced by: '<S120>/Gain'
+                                        * Referenced by: '<S123>/Gain'
                                         */
   real_T Gain_Gain_j;                  /* Expression: 1
                                         * Referenced by: '<S8>/Gain'
@@ -1543,13 +1530,13 @@ struct P_StateFlowGUI_T_ {
                                         * Referenced by: '<S9>/Switch2'
                                         */
   real_T CA_Y0;                        /* Computed Parameter: CA_Y0
-                                        * Referenced by: '<S130>/CA'
+                                        * Referenced by: '<S133>/CA'
                                         */
   real_T CB_Y0;                        /* Computed Parameter: CB_Y0
-                                        * Referenced by: '<S130>/CB'
+                                        * Referenced by: '<S133>/CB'
                                         */
   real_T CH_Y0;                        /* Computed Parameter: CH_Y0
-                                        * Referenced by: '<S130>/CH'
+                                        * Referenced by: '<S133>/CH'
                                         */
   real_T AsseAbraccia_Value;           /* Expression: 4
                                         * Referenced by: '<Root>/Asse A braccia'
@@ -2037,6 +2024,12 @@ struct P_StateFlowGUI_T_ {
   real_T StartWork_Value;              /* Expression: 0
                                         * Referenced by: '<Root>/StartWork'
                                         */
+  real_T Reset_Value;                  /* Expression: 0
+                                        * Referenced by: '<Root>/Reset'
+                                        */
+  real_T Stop_Value;                   /* Expression: 0
+                                        * Referenced by: '<Root>/Stop'
+                                        */
   real_T LuceBianca_P1_Size[2];        /* Computed Parameter: LuceBianca_P1_Size
                                         * Referenced by: '<S3>/Luce Bianca'
                                         */
@@ -2164,106 +2157,106 @@ struct P_StateFlowGUI_T_ {
                                         * Referenced by: '<S3>/Luce Verde'
                                         */
   real_T Constant_Value;               /* Expression: 0
-                                        * Referenced by: '<S94>/Constant'
+                                        * Referenced by: '<S97>/Constant'
                                         */
   real_T Memory_X0;                    /* Expression: 0
-                                        * Referenced by: '<S94>/Memory'
+                                        * Referenced by: '<S97>/Memory'
                                         */
   real_T Constant4_Value;              /* Expression: deg2rad(100)
-                                        * Referenced by: '<S33>/Constant4'
+                                        * Referenced by: '<S34>/Constant4'
                                         */
   real_T Constant5_Value;              /* Expression: deg2rad(80)
-                                        * Referenced by: '<S33>/Constant5'
+                                        * Referenced by: '<S34>/Constant5'
                                         */
   real_T EtherCATPDOReceive15_P1_Size[2];/* Computed Parameter: EtherCATPDOReceive15_P1_Size
-                                          * Referenced by: '<S35>/EtherCAT PDO Receive15'
+                                          * Referenced by: '<S38>/EtherCAT PDO Receive15'
                                           */
   real_T EtherCATPDOReceive15_P1[47];  /* Computed Parameter: EtherCATPDOReceive15_P1
-                                        * Referenced by: '<S35>/EtherCAT PDO Receive15'
+                                        * Referenced by: '<S38>/EtherCAT PDO Receive15'
                                         */
   real_T EtherCATPDOReceive15_P2_Size[2];/* Computed Parameter: EtherCATPDOReceive15_P2_Size
-                                          * Referenced by: '<S35>/EtherCAT PDO Receive15'
+                                          * Referenced by: '<S38>/EtherCAT PDO Receive15'
                                           */
   real_T EtherCATPDOReceive15_P2;      /* Expression: sig_offset
-                                        * Referenced by: '<S35>/EtherCAT PDO Receive15'
+                                        * Referenced by: '<S38>/EtherCAT PDO Receive15'
                                         */
   real_T EtherCATPDOReceive15_P3_Size[2];/* Computed Parameter: EtherCATPDOReceive15_P3_Size
-                                          * Referenced by: '<S35>/EtherCAT PDO Receive15'
+                                          * Referenced by: '<S38>/EtherCAT PDO Receive15'
                                           */
   real_T EtherCATPDOReceive15_P3;      /* Expression: sig_type
-                                        * Referenced by: '<S35>/EtherCAT PDO Receive15'
+                                        * Referenced by: '<S38>/EtherCAT PDO Receive15'
                                         */
   real_T EtherCATPDOReceive15_P4_Size[2];/* Computed Parameter: EtherCATPDOReceive15_P4_Size
-                                          * Referenced by: '<S35>/EtherCAT PDO Receive15'
+                                          * Referenced by: '<S38>/EtherCAT PDO Receive15'
                                           */
   real_T EtherCATPDOReceive15_P4;      /* Expression: type_size
-                                        * Referenced by: '<S35>/EtherCAT PDO Receive15'
+                                        * Referenced by: '<S38>/EtherCAT PDO Receive15'
                                         */
   real_T EtherCATPDOReceive15_P5_Size[2];/* Computed Parameter: EtherCATPDOReceive15_P5_Size
-                                          * Referenced by: '<S35>/EtherCAT PDO Receive15'
+                                          * Referenced by: '<S38>/EtherCAT PDO Receive15'
                                           */
   real_T EtherCATPDOReceive15_P5;      /* Expression: sig_dim
-                                        * Referenced by: '<S35>/EtherCAT PDO Receive15'
+                                        * Referenced by: '<S38>/EtherCAT PDO Receive15'
                                         */
   real_T EtherCATPDOReceive15_P6_Size[2];/* Computed Parameter: EtherCATPDOReceive15_P6_Size
-                                          * Referenced by: '<S35>/EtherCAT PDO Receive15'
+                                          * Referenced by: '<S38>/EtherCAT PDO Receive15'
                                           */
   real_T EtherCATPDOReceive15_P6;      /* Expression: device_id
-                                        * Referenced by: '<S35>/EtherCAT PDO Receive15'
+                                        * Referenced by: '<S38>/EtherCAT PDO Receive15'
                                         */
   real_T EtherCATPDOReceive15_P7_Size[2];/* Computed Parameter: EtherCATPDOReceive15_P7_Size
-                                          * Referenced by: '<S35>/EtherCAT PDO Receive15'
+                                          * Referenced by: '<S38>/EtherCAT PDO Receive15'
                                           */
   real_T EtherCATPDOReceive15_P7;      /* Expression: sample_time
-                                        * Referenced by: '<S35>/EtherCAT PDO Receive15'
+                                        * Referenced by: '<S38>/EtherCAT PDO Receive15'
                                         */
   real_T EtherCATPDOReceive14_P1_Size[2];/* Computed Parameter: EtherCATPDOReceive14_P1_Size
-                                          * Referenced by: '<S35>/EtherCAT PDO Receive14'
+                                          * Referenced by: '<S38>/EtherCAT PDO Receive14'
                                           */
   real_T EtherCATPDOReceive14_P1[47];  /* Computed Parameter: EtherCATPDOReceive14_P1
-                                        * Referenced by: '<S35>/EtherCAT PDO Receive14'
+                                        * Referenced by: '<S38>/EtherCAT PDO Receive14'
                                         */
   real_T EtherCATPDOReceive14_P2_Size[2];/* Computed Parameter: EtherCATPDOReceive14_P2_Size
-                                          * Referenced by: '<S35>/EtherCAT PDO Receive14'
+                                          * Referenced by: '<S38>/EtherCAT PDO Receive14'
                                           */
   real_T EtherCATPDOReceive14_P2;      /* Expression: sig_offset
-                                        * Referenced by: '<S35>/EtherCAT PDO Receive14'
+                                        * Referenced by: '<S38>/EtherCAT PDO Receive14'
                                         */
   real_T EtherCATPDOReceive14_P3_Size[2];/* Computed Parameter: EtherCATPDOReceive14_P3_Size
-                                          * Referenced by: '<S35>/EtherCAT PDO Receive14'
+                                          * Referenced by: '<S38>/EtherCAT PDO Receive14'
                                           */
   real_T EtherCATPDOReceive14_P3;      /* Expression: sig_type
-                                        * Referenced by: '<S35>/EtherCAT PDO Receive14'
+                                        * Referenced by: '<S38>/EtherCAT PDO Receive14'
                                         */
   real_T EtherCATPDOReceive14_P4_Size[2];/* Computed Parameter: EtherCATPDOReceive14_P4_Size
-                                          * Referenced by: '<S35>/EtherCAT PDO Receive14'
+                                          * Referenced by: '<S38>/EtherCAT PDO Receive14'
                                           */
   real_T EtherCATPDOReceive14_P4;      /* Expression: type_size
-                                        * Referenced by: '<S35>/EtherCAT PDO Receive14'
+                                        * Referenced by: '<S38>/EtherCAT PDO Receive14'
                                         */
   real_T EtherCATPDOReceive14_P5_Size[2];/* Computed Parameter: EtherCATPDOReceive14_P5_Size
-                                          * Referenced by: '<S35>/EtherCAT PDO Receive14'
+                                          * Referenced by: '<S38>/EtherCAT PDO Receive14'
                                           */
   real_T EtherCATPDOReceive14_P5;      /* Expression: sig_dim
-                                        * Referenced by: '<S35>/EtherCAT PDO Receive14'
+                                        * Referenced by: '<S38>/EtherCAT PDO Receive14'
                                         */
   real_T EtherCATPDOReceive14_P6_Size[2];/* Computed Parameter: EtherCATPDOReceive14_P6_Size
-                                          * Referenced by: '<S35>/EtherCAT PDO Receive14'
+                                          * Referenced by: '<S38>/EtherCAT PDO Receive14'
                                           */
   real_T EtherCATPDOReceive14_P6;      /* Expression: device_id
-                                        * Referenced by: '<S35>/EtherCAT PDO Receive14'
+                                        * Referenced by: '<S38>/EtherCAT PDO Receive14'
                                         */
   real_T EtherCATPDOReceive14_P7_Size[2];/* Computed Parameter: EtherCATPDOReceive14_P7_Size
-                                          * Referenced by: '<S35>/EtherCAT PDO Receive14'
+                                          * Referenced by: '<S38>/EtherCAT PDO Receive14'
                                           */
   real_T EtherCATPDOReceive14_P7;      /* Expression: sample_time
-                                        * Referenced by: '<S35>/EtherCAT PDO Receive14'
+                                        * Referenced by: '<S38>/EtherCAT PDO Receive14'
                                         */
   real_T Constant_Value_b;             /* Expression: deg2rad(100)
-                                        * Referenced by: '<S32>/Constant'
+                                        * Referenced by: '<S33>/Constant'
                                         */
   real_T Constant1_Value;              /* Expression: deg2rad(80)
-                                        * Referenced by: '<S32>/Constant1'
+                                        * Referenced by: '<S33>/Constant1'
                                         */
   real_T selettore_Value;              /* Expression: 2
                                         * Referenced by: '<S4>/selettore'
@@ -2305,93 +2298,93 @@ struct P_StateFlowGUI_T_ {
                                         * Referenced by: '<S27>/Tempo spost. iniziale'
                                         */
   real_T EtherCATPDOReceive15_P1_Size_j[2];/* Computed Parameter: EtherCATPDOReceive15_P1_Size_j
-                                            * Referenced by: '<S34>/EtherCAT PDO Receive15'
+                                            * Referenced by: '<S37>/EtherCAT PDO Receive15'
                                             */
   real_T EtherCATPDOReceive15_P1_a[47];/* Computed Parameter: EtherCATPDOReceive15_P1_a
-                                        * Referenced by: '<S34>/EtherCAT PDO Receive15'
+                                        * Referenced by: '<S37>/EtherCAT PDO Receive15'
                                         */
   real_T EtherCATPDOReceive15_P2_Size_n[2];/* Computed Parameter: EtherCATPDOReceive15_P2_Size_n
-                                            * Referenced by: '<S34>/EtherCAT PDO Receive15'
+                                            * Referenced by: '<S37>/EtherCAT PDO Receive15'
                                             */
   real_T EtherCATPDOReceive15_P2_l;    /* Expression: sig_offset
-                                        * Referenced by: '<S34>/EtherCAT PDO Receive15'
+                                        * Referenced by: '<S37>/EtherCAT PDO Receive15'
                                         */
   real_T EtherCATPDOReceive15_P3_Size_j[2];/* Computed Parameter: EtherCATPDOReceive15_P3_Size_j
-                                            * Referenced by: '<S34>/EtherCAT PDO Receive15'
+                                            * Referenced by: '<S37>/EtherCAT PDO Receive15'
                                             */
   real_T EtherCATPDOReceive15_P3_a;    /* Expression: sig_type
-                                        * Referenced by: '<S34>/EtherCAT PDO Receive15'
+                                        * Referenced by: '<S37>/EtherCAT PDO Receive15'
                                         */
   real_T EtherCATPDOReceive15_P4_Size_c[2];/* Computed Parameter: EtherCATPDOReceive15_P4_Size_c
-                                            * Referenced by: '<S34>/EtherCAT PDO Receive15'
+                                            * Referenced by: '<S37>/EtherCAT PDO Receive15'
                                             */
   real_T EtherCATPDOReceive15_P4_f;    /* Expression: type_size
-                                        * Referenced by: '<S34>/EtherCAT PDO Receive15'
+                                        * Referenced by: '<S37>/EtherCAT PDO Receive15'
                                         */
   real_T EtherCATPDOReceive15_P5_Size_k[2];/* Computed Parameter: EtherCATPDOReceive15_P5_Size_k
-                                            * Referenced by: '<S34>/EtherCAT PDO Receive15'
+                                            * Referenced by: '<S37>/EtherCAT PDO Receive15'
                                             */
   real_T EtherCATPDOReceive15_P5_c;    /* Expression: sig_dim
-                                        * Referenced by: '<S34>/EtherCAT PDO Receive15'
+                                        * Referenced by: '<S37>/EtherCAT PDO Receive15'
                                         */
   real_T EtherCATPDOReceive15_P6_Size_j[2];/* Computed Parameter: EtherCATPDOReceive15_P6_Size_j
-                                            * Referenced by: '<S34>/EtherCAT PDO Receive15'
+                                            * Referenced by: '<S37>/EtherCAT PDO Receive15'
                                             */
   real_T EtherCATPDOReceive15_P6_g;    /* Expression: device_id
-                                        * Referenced by: '<S34>/EtherCAT PDO Receive15'
+                                        * Referenced by: '<S37>/EtherCAT PDO Receive15'
                                         */
   real_T EtherCATPDOReceive15_P7_Size_f[2];/* Computed Parameter: EtherCATPDOReceive15_P7_Size_f
-                                            * Referenced by: '<S34>/EtherCAT PDO Receive15'
+                                            * Referenced by: '<S37>/EtherCAT PDO Receive15'
                                             */
   real_T EtherCATPDOReceive15_P7_m;    /* Expression: sample_time
-                                        * Referenced by: '<S34>/EtherCAT PDO Receive15'
+                                        * Referenced by: '<S37>/EtherCAT PDO Receive15'
                                         */
   real_T EtherCATPDOReceive14_P1_Size_c[2];/* Computed Parameter: EtherCATPDOReceive14_P1_Size_c
-                                            * Referenced by: '<S34>/EtherCAT PDO Receive14'
+                                            * Referenced by: '<S37>/EtherCAT PDO Receive14'
                                             */
   real_T EtherCATPDOReceive14_P1_k[47];/* Computed Parameter: EtherCATPDOReceive14_P1_k
-                                        * Referenced by: '<S34>/EtherCAT PDO Receive14'
+                                        * Referenced by: '<S37>/EtherCAT PDO Receive14'
                                         */
   real_T EtherCATPDOReceive14_P2_Size_m[2];/* Computed Parameter: EtherCATPDOReceive14_P2_Size_m
-                                            * Referenced by: '<S34>/EtherCAT PDO Receive14'
+                                            * Referenced by: '<S37>/EtherCAT PDO Receive14'
                                             */
   real_T EtherCATPDOReceive14_P2_i;    /* Expression: sig_offset
-                                        * Referenced by: '<S34>/EtherCAT PDO Receive14'
+                                        * Referenced by: '<S37>/EtherCAT PDO Receive14'
                                         */
   real_T EtherCATPDOReceive14_P3_Size_h[2];/* Computed Parameter: EtherCATPDOReceive14_P3_Size_h
-                                            * Referenced by: '<S34>/EtherCAT PDO Receive14'
+                                            * Referenced by: '<S37>/EtherCAT PDO Receive14'
                                             */
   real_T EtherCATPDOReceive14_P3_a;    /* Expression: sig_type
-                                        * Referenced by: '<S34>/EtherCAT PDO Receive14'
+                                        * Referenced by: '<S37>/EtherCAT PDO Receive14'
                                         */
   real_T EtherCATPDOReceive14_P4_Size_c[2];/* Computed Parameter: EtherCATPDOReceive14_P4_Size_c
-                                            * Referenced by: '<S34>/EtherCAT PDO Receive14'
+                                            * Referenced by: '<S37>/EtherCAT PDO Receive14'
                                             */
   real_T EtherCATPDOReceive14_P4_e;    /* Expression: type_size
-                                        * Referenced by: '<S34>/EtherCAT PDO Receive14'
+                                        * Referenced by: '<S37>/EtherCAT PDO Receive14'
                                         */
   real_T EtherCATPDOReceive14_P5_Size_c[2];/* Computed Parameter: EtherCATPDOReceive14_P5_Size_c
-                                            * Referenced by: '<S34>/EtherCAT PDO Receive14'
+                                            * Referenced by: '<S37>/EtherCAT PDO Receive14'
                                             */
   real_T EtherCATPDOReceive14_P5_j;    /* Expression: sig_dim
-                                        * Referenced by: '<S34>/EtherCAT PDO Receive14'
+                                        * Referenced by: '<S37>/EtherCAT PDO Receive14'
                                         */
   real_T EtherCATPDOReceive14_P6_Size_h[2];/* Computed Parameter: EtherCATPDOReceive14_P6_Size_h
-                                            * Referenced by: '<S34>/EtherCAT PDO Receive14'
+                                            * Referenced by: '<S37>/EtherCAT PDO Receive14'
                                             */
   real_T EtherCATPDOReceive14_P6_m;    /* Expression: device_id
-                                        * Referenced by: '<S34>/EtherCAT PDO Receive14'
+                                        * Referenced by: '<S37>/EtherCAT PDO Receive14'
                                         */
   real_T EtherCATPDOReceive14_P7_Size_p[2];/* Computed Parameter: EtherCATPDOReceive14_P7_Size_p
-                                            * Referenced by: '<S34>/EtherCAT PDO Receive14'
+                                            * Referenced by: '<S37>/EtherCAT PDO Receive14'
                                             */
   real_T EtherCATPDOReceive14_P7_m;    /* Expression: sample_time
-                                        * Referenced by: '<S34>/EtherCAT PDO Receive14'
+                                        * Referenced by: '<S37>/EtherCAT PDO Receive14'
                                         */
   real_T Kd_Gain;                      /* Expression: 5
                                         * Referenced by: '<S4>/Kd'
                                         */
-  real_T Memory_X0_f[4];               /* Expression: [10,10;10,10]
+  real_T Memory_X0_f[2];               /* Expression: [0;0]
                                         * Referenced by: '<S4>/Memory'
                                         */
   real_T Gain1_Gain;                   /* Expression: 1000/0.3
@@ -2446,52 +2439,52 @@ struct P_StateFlowGUI_T_ {
                                         * Referenced by: '<S6>/EtherCAT PDO Transmit 1'
                                         */
   real_T EtherCATPDOReceive9_P1_Size[2];/* Computed Parameter: EtherCATPDOReceive9_P1_Size
-                                         * Referenced by: '<S94>/EtherCAT PDO Receive9'
+                                         * Referenced by: '<S97>/EtherCAT PDO Receive9'
                                          */
   real_T EtherCATPDOReceive9_P1[23];   /* Computed Parameter: EtherCATPDOReceive9_P1
-                                        * Referenced by: '<S94>/EtherCAT PDO Receive9'
+                                        * Referenced by: '<S97>/EtherCAT PDO Receive9'
                                         */
   real_T EtherCATPDOReceive9_P2_Size[2];/* Computed Parameter: EtherCATPDOReceive9_P2_Size
-                                         * Referenced by: '<S94>/EtherCAT PDO Receive9'
+                                         * Referenced by: '<S97>/EtherCAT PDO Receive9'
                                          */
   real_T EtherCATPDOReceive9_P2;       /* Expression: sig_offset
-                                        * Referenced by: '<S94>/EtherCAT PDO Receive9'
+                                        * Referenced by: '<S97>/EtherCAT PDO Receive9'
                                         */
   real_T EtherCATPDOReceive9_P3_Size[2];/* Computed Parameter: EtherCATPDOReceive9_P3_Size
-                                         * Referenced by: '<S94>/EtherCAT PDO Receive9'
+                                         * Referenced by: '<S97>/EtherCAT PDO Receive9'
                                          */
   real_T EtherCATPDOReceive9_P3;       /* Expression: sig_type
-                                        * Referenced by: '<S94>/EtherCAT PDO Receive9'
+                                        * Referenced by: '<S97>/EtherCAT PDO Receive9'
                                         */
   real_T EtherCATPDOReceive9_P4_Size[2];/* Computed Parameter: EtherCATPDOReceive9_P4_Size
-                                         * Referenced by: '<S94>/EtherCAT PDO Receive9'
+                                         * Referenced by: '<S97>/EtherCAT PDO Receive9'
                                          */
   real_T EtherCATPDOReceive9_P4;       /* Expression: type_size
-                                        * Referenced by: '<S94>/EtherCAT PDO Receive9'
+                                        * Referenced by: '<S97>/EtherCAT PDO Receive9'
                                         */
   real_T EtherCATPDOReceive9_P5_Size[2];/* Computed Parameter: EtherCATPDOReceive9_P5_Size
-                                         * Referenced by: '<S94>/EtherCAT PDO Receive9'
+                                         * Referenced by: '<S97>/EtherCAT PDO Receive9'
                                          */
   real_T EtherCATPDOReceive9_P5;       /* Expression: sig_dim
-                                        * Referenced by: '<S94>/EtherCAT PDO Receive9'
+                                        * Referenced by: '<S97>/EtherCAT PDO Receive9'
                                         */
   real_T EtherCATPDOReceive9_P6_Size[2];/* Computed Parameter: EtherCATPDOReceive9_P6_Size
-                                         * Referenced by: '<S94>/EtherCAT PDO Receive9'
+                                         * Referenced by: '<S97>/EtherCAT PDO Receive9'
                                          */
   real_T EtherCATPDOReceive9_P6;       /* Expression: device_id
-                                        * Referenced by: '<S94>/EtherCAT PDO Receive9'
+                                        * Referenced by: '<S97>/EtherCAT PDO Receive9'
                                         */
   real_T EtherCATPDOReceive9_P7_Size[2];/* Computed Parameter: EtherCATPDOReceive9_P7_Size
-                                         * Referenced by: '<S94>/EtherCAT PDO Receive9'
+                                         * Referenced by: '<S97>/EtherCAT PDO Receive9'
                                          */
   real_T EtherCATPDOReceive9_P7;       /* Expression: sample_time
-                                        * Referenced by: '<S94>/EtherCAT PDO Receive9'
+                                        * Referenced by: '<S97>/EtherCAT PDO Receive9'
                                         */
   real_T Constant_Value_l;             /* Expression: 0
-                                        * Referenced by: '<S98>/Constant'
+                                        * Referenced by: '<S101>/Constant'
                                         */
   real_T Memory_X0_m;                  /* Expression: 0
-                                        * Referenced by: '<S98>/Memory'
+                                        * Referenced by: '<S101>/Memory'
                                         */
   real_T Gain_Gain_jp;                 /* Expression: 1000/0.3
                                         * Referenced by: '<S4>/Gain'
@@ -2545,52 +2538,52 @@ struct P_StateFlowGUI_T_ {
                                         * Referenced by: '<S7>/EtherCAT PDO Transmit 7'
                                         */
   real_T EtherCATPDOReceive9_P1_Size_m[2];/* Computed Parameter: EtherCATPDOReceive9_P1_Size_m
-                                           * Referenced by: '<S98>/EtherCAT PDO Receive9'
+                                           * Referenced by: '<S101>/EtherCAT PDO Receive9'
                                            */
   real_T EtherCATPDOReceive9_P1_g[23]; /* Computed Parameter: EtherCATPDOReceive9_P1_g
-                                        * Referenced by: '<S98>/EtherCAT PDO Receive9'
+                                        * Referenced by: '<S101>/EtherCAT PDO Receive9'
                                         */
   real_T EtherCATPDOReceive9_P2_Size_i[2];/* Computed Parameter: EtherCATPDOReceive9_P2_Size_i
-                                           * Referenced by: '<S98>/EtherCAT PDO Receive9'
+                                           * Referenced by: '<S101>/EtherCAT PDO Receive9'
                                            */
   real_T EtherCATPDOReceive9_P2_p;     /* Expression: sig_offset
-                                        * Referenced by: '<S98>/EtherCAT PDO Receive9'
+                                        * Referenced by: '<S101>/EtherCAT PDO Receive9'
                                         */
   real_T EtherCATPDOReceive9_P3_Size_g[2];/* Computed Parameter: EtherCATPDOReceive9_P3_Size_g
-                                           * Referenced by: '<S98>/EtherCAT PDO Receive9'
+                                           * Referenced by: '<S101>/EtherCAT PDO Receive9'
                                            */
   real_T EtherCATPDOReceive9_P3_f;     /* Expression: sig_type
-                                        * Referenced by: '<S98>/EtherCAT PDO Receive9'
+                                        * Referenced by: '<S101>/EtherCAT PDO Receive9'
                                         */
   real_T EtherCATPDOReceive9_P4_Size_e[2];/* Computed Parameter: EtherCATPDOReceive9_P4_Size_e
-                                           * Referenced by: '<S98>/EtherCAT PDO Receive9'
+                                           * Referenced by: '<S101>/EtherCAT PDO Receive9'
                                            */
   real_T EtherCATPDOReceive9_P4_a;     /* Expression: type_size
-                                        * Referenced by: '<S98>/EtherCAT PDO Receive9'
+                                        * Referenced by: '<S101>/EtherCAT PDO Receive9'
                                         */
   real_T EtherCATPDOReceive9_P5_Size_n[2];/* Computed Parameter: EtherCATPDOReceive9_P5_Size_n
-                                           * Referenced by: '<S98>/EtherCAT PDO Receive9'
+                                           * Referenced by: '<S101>/EtherCAT PDO Receive9'
                                            */
   real_T EtherCATPDOReceive9_P5_d;     /* Expression: sig_dim
-                                        * Referenced by: '<S98>/EtherCAT PDO Receive9'
+                                        * Referenced by: '<S101>/EtherCAT PDO Receive9'
                                         */
   real_T EtherCATPDOReceive9_P6_Size_e[2];/* Computed Parameter: EtherCATPDOReceive9_P6_Size_e
-                                           * Referenced by: '<S98>/EtherCAT PDO Receive9'
+                                           * Referenced by: '<S101>/EtherCAT PDO Receive9'
                                            */
   real_T EtherCATPDOReceive9_P6_c;     /* Expression: device_id
-                                        * Referenced by: '<S98>/EtherCAT PDO Receive9'
+                                        * Referenced by: '<S101>/EtherCAT PDO Receive9'
                                         */
   real_T EtherCATPDOReceive9_P7_Size_a[2];/* Computed Parameter: EtherCATPDOReceive9_P7_Size_a
-                                           * Referenced by: '<S98>/EtherCAT PDO Receive9'
+                                           * Referenced by: '<S101>/EtherCAT PDO Receive9'
                                            */
   real_T EtherCATPDOReceive9_P7_a;     /* Expression: sample_time
-                                        * Referenced by: '<S98>/EtherCAT PDO Receive9'
+                                        * Referenced by: '<S101>/EtherCAT PDO Receive9'
                                         */
   real_T Constant_Value_e;             /* Expression: 0
-                                        * Referenced by: '<S102>/Constant'
+                                        * Referenced by: '<S105>/Constant'
                                         */
   real_T Memory_X0_o;                  /* Expression: 0
-                                        * Referenced by: '<S102>/Memory'
+                                        * Referenced by: '<S105>/Memory'
                                         */
   real_T AlzataA_Value;                /* Expression: 0
                                         * Referenced by: '<Root>/Alzata A'
@@ -2599,88 +2592,88 @@ struct P_StateFlowGUI_T_ {
                                         * Referenced by: '<Root>/Periodo A'
                                         */
   real_T EtherCATPDOReceive14_P1_Size_o[2];/* Computed Parameter: EtherCATPDOReceive14_P1_Size_o
-                                            * Referenced by: '<S123>/EtherCAT PDO Receive14'
+                                            * Referenced by: '<S126>/EtherCAT PDO Receive14'
                                             */
   real_T EtherCATPDOReceive14_P1_n[47];/* Computed Parameter: EtherCATPDOReceive14_P1_n
-                                        * Referenced by: '<S123>/EtherCAT PDO Receive14'
+                                        * Referenced by: '<S126>/EtherCAT PDO Receive14'
                                         */
   real_T EtherCATPDOReceive14_P2_Size_i[2];/* Computed Parameter: EtherCATPDOReceive14_P2_Size_i
-                                            * Referenced by: '<S123>/EtherCAT PDO Receive14'
+                                            * Referenced by: '<S126>/EtherCAT PDO Receive14'
                                             */
   real_T EtherCATPDOReceive14_P2_g;    /* Expression: sig_offset
-                                        * Referenced by: '<S123>/EtherCAT PDO Receive14'
+                                        * Referenced by: '<S126>/EtherCAT PDO Receive14'
                                         */
   real_T EtherCATPDOReceive14_P3_Size_c[2];/* Computed Parameter: EtherCATPDOReceive14_P3_Size_c
-                                            * Referenced by: '<S123>/EtherCAT PDO Receive14'
+                                            * Referenced by: '<S126>/EtherCAT PDO Receive14'
                                             */
   real_T EtherCATPDOReceive14_P3_n;    /* Expression: sig_type
-                                        * Referenced by: '<S123>/EtherCAT PDO Receive14'
+                                        * Referenced by: '<S126>/EtherCAT PDO Receive14'
                                         */
   real_T EtherCATPDOReceive14_P4_Size_g[2];/* Computed Parameter: EtherCATPDOReceive14_P4_Size_g
-                                            * Referenced by: '<S123>/EtherCAT PDO Receive14'
+                                            * Referenced by: '<S126>/EtherCAT PDO Receive14'
                                             */
   real_T EtherCATPDOReceive14_P4_p;    /* Expression: type_size
-                                        * Referenced by: '<S123>/EtherCAT PDO Receive14'
+                                        * Referenced by: '<S126>/EtherCAT PDO Receive14'
                                         */
   real_T EtherCATPDOReceive14_P5_Size_d[2];/* Computed Parameter: EtherCATPDOReceive14_P5_Size_d
-                                            * Referenced by: '<S123>/EtherCAT PDO Receive14'
+                                            * Referenced by: '<S126>/EtherCAT PDO Receive14'
                                             */
   real_T EtherCATPDOReceive14_P5_k;    /* Expression: sig_dim
-                                        * Referenced by: '<S123>/EtherCAT PDO Receive14'
+                                        * Referenced by: '<S126>/EtherCAT PDO Receive14'
                                         */
   real_T EtherCATPDOReceive14_P6_Size_j[2];/* Computed Parameter: EtherCATPDOReceive14_P6_Size_j
-                                            * Referenced by: '<S123>/EtherCAT PDO Receive14'
+                                            * Referenced by: '<S126>/EtherCAT PDO Receive14'
                                             */
   real_T EtherCATPDOReceive14_P6_mb;   /* Expression: device_id
-                                        * Referenced by: '<S123>/EtherCAT PDO Receive14'
+                                        * Referenced by: '<S126>/EtherCAT PDO Receive14'
                                         */
   real_T EtherCATPDOReceive14_P7_Size_c[2];/* Computed Parameter: EtherCATPDOReceive14_P7_Size_c
-                                            * Referenced by: '<S123>/EtherCAT PDO Receive14'
+                                            * Referenced by: '<S126>/EtherCAT PDO Receive14'
                                             */
   real_T EtherCATPDOReceive14_P7_g;    /* Expression: sample_time
-                                        * Referenced by: '<S123>/EtherCAT PDO Receive14'
+                                        * Referenced by: '<S126>/EtherCAT PDO Receive14'
                                         */
   real_T EtherCATPDOReceive15_P1_Size_k[2];/* Computed Parameter: EtherCATPDOReceive15_P1_Size_k
-                                            * Referenced by: '<S123>/EtherCAT PDO Receive15'
+                                            * Referenced by: '<S126>/EtherCAT PDO Receive15'
                                             */
   real_T EtherCATPDOReceive15_P1_l[47];/* Computed Parameter: EtherCATPDOReceive15_P1_l
-                                        * Referenced by: '<S123>/EtherCAT PDO Receive15'
+                                        * Referenced by: '<S126>/EtherCAT PDO Receive15'
                                         */
   real_T EtherCATPDOReceive15_P2_Size_b[2];/* Computed Parameter: EtherCATPDOReceive15_P2_Size_b
-                                            * Referenced by: '<S123>/EtherCAT PDO Receive15'
+                                            * Referenced by: '<S126>/EtherCAT PDO Receive15'
                                             */
   real_T EtherCATPDOReceive15_P2_n;    /* Expression: sig_offset
-                                        * Referenced by: '<S123>/EtherCAT PDO Receive15'
+                                        * Referenced by: '<S126>/EtherCAT PDO Receive15'
                                         */
   real_T EtherCATPDOReceive15_P3_Size_b[2];/* Computed Parameter: EtherCATPDOReceive15_P3_Size_b
-                                            * Referenced by: '<S123>/EtherCAT PDO Receive15'
+                                            * Referenced by: '<S126>/EtherCAT PDO Receive15'
                                             */
   real_T EtherCATPDOReceive15_P3_i;    /* Expression: sig_type
-                                        * Referenced by: '<S123>/EtherCAT PDO Receive15'
+                                        * Referenced by: '<S126>/EtherCAT PDO Receive15'
                                         */
   real_T EtherCATPDOReceive15_P4_Size_d[2];/* Computed Parameter: EtherCATPDOReceive15_P4_Size_d
-                                            * Referenced by: '<S123>/EtherCAT PDO Receive15'
+                                            * Referenced by: '<S126>/EtherCAT PDO Receive15'
                                             */
   real_T EtherCATPDOReceive15_P4_j;    /* Expression: type_size
-                                        * Referenced by: '<S123>/EtherCAT PDO Receive15'
+                                        * Referenced by: '<S126>/EtherCAT PDO Receive15'
                                         */
   real_T EtherCATPDOReceive15_P5_Size_l[2];/* Computed Parameter: EtherCATPDOReceive15_P5_Size_l
-                                            * Referenced by: '<S123>/EtherCAT PDO Receive15'
+                                            * Referenced by: '<S126>/EtherCAT PDO Receive15'
                                             */
   real_T EtherCATPDOReceive15_P5_l;    /* Expression: sig_dim
-                                        * Referenced by: '<S123>/EtherCAT PDO Receive15'
+                                        * Referenced by: '<S126>/EtherCAT PDO Receive15'
                                         */
   real_T EtherCATPDOReceive15_P6_Size_o[2];/* Computed Parameter: EtherCATPDOReceive15_P6_Size_o
-                                            * Referenced by: '<S123>/EtherCAT PDO Receive15'
+                                            * Referenced by: '<S126>/EtherCAT PDO Receive15'
                                             */
   real_T EtherCATPDOReceive15_P6_f;    /* Expression: device_id
-                                        * Referenced by: '<S123>/EtherCAT PDO Receive15'
+                                        * Referenced by: '<S126>/EtherCAT PDO Receive15'
                                         */
   real_T EtherCATPDOReceive15_P7_Size_g[2];/* Computed Parameter: EtherCATPDOReceive15_P7_Size_g
-                                            * Referenced by: '<S123>/EtherCAT PDO Receive15'
+                                            * Referenced by: '<S126>/EtherCAT PDO Receive15'
                                             */
   real_T EtherCATPDOReceive15_P7_l;    /* Expression: sample_time
-                                        * Referenced by: '<S123>/EtherCAT PDO Receive15'
+                                        * Referenced by: '<S126>/EtherCAT PDO Receive15'
                                         */
   real_T CoppiaAvitesaturata_UpperSat; /* Expression: 600
                                         * Referenced by: '<S8>/Coppia A vite saturata'
@@ -2731,52 +2724,52 @@ struct P_StateFlowGUI_T_ {
                                         * Referenced by: '<S8>/Torque send'
                                         */
   real_T EtherCATPDOReceive9_P1_Size_i[2];/* Computed Parameter: EtherCATPDOReceive9_P1_Size_i
-                                           * Referenced by: '<S102>/EtherCAT PDO Receive9'
+                                           * Referenced by: '<S105>/EtherCAT PDO Receive9'
                                            */
   real_T EtherCATPDOReceive9_P1_i[23]; /* Computed Parameter: EtherCATPDOReceive9_P1_i
-                                        * Referenced by: '<S102>/EtherCAT PDO Receive9'
+                                        * Referenced by: '<S105>/EtherCAT PDO Receive9'
                                         */
   real_T EtherCATPDOReceive9_P2_Size_a[2];/* Computed Parameter: EtherCATPDOReceive9_P2_Size_a
-                                           * Referenced by: '<S102>/EtherCAT PDO Receive9'
+                                           * Referenced by: '<S105>/EtherCAT PDO Receive9'
                                            */
   real_T EtherCATPDOReceive9_P2_m;     /* Expression: sig_offset
-                                        * Referenced by: '<S102>/EtherCAT PDO Receive9'
+                                        * Referenced by: '<S105>/EtherCAT PDO Receive9'
                                         */
   real_T EtherCATPDOReceive9_P3_Size_h[2];/* Computed Parameter: EtherCATPDOReceive9_P3_Size_h
-                                           * Referenced by: '<S102>/EtherCAT PDO Receive9'
+                                           * Referenced by: '<S105>/EtherCAT PDO Receive9'
                                            */
   real_T EtherCATPDOReceive9_P3_m;     /* Expression: sig_type
-                                        * Referenced by: '<S102>/EtherCAT PDO Receive9'
+                                        * Referenced by: '<S105>/EtherCAT PDO Receive9'
                                         */
   real_T EtherCATPDOReceive9_P4_Size_f[2];/* Computed Parameter: EtherCATPDOReceive9_P4_Size_f
-                                           * Referenced by: '<S102>/EtherCAT PDO Receive9'
+                                           * Referenced by: '<S105>/EtherCAT PDO Receive9'
                                            */
   real_T EtherCATPDOReceive9_P4_l;     /* Expression: type_size
-                                        * Referenced by: '<S102>/EtherCAT PDO Receive9'
+                                        * Referenced by: '<S105>/EtherCAT PDO Receive9'
                                         */
   real_T EtherCATPDOReceive9_P5_Size_a[2];/* Computed Parameter: EtherCATPDOReceive9_P5_Size_a
-                                           * Referenced by: '<S102>/EtherCAT PDO Receive9'
+                                           * Referenced by: '<S105>/EtherCAT PDO Receive9'
                                            */
   real_T EtherCATPDOReceive9_P5_b;     /* Expression: sig_dim
-                                        * Referenced by: '<S102>/EtherCAT PDO Receive9'
+                                        * Referenced by: '<S105>/EtherCAT PDO Receive9'
                                         */
   real_T EtherCATPDOReceive9_P6_Size_i[2];/* Computed Parameter: EtherCATPDOReceive9_P6_Size_i
-                                           * Referenced by: '<S102>/EtherCAT PDO Receive9'
+                                           * Referenced by: '<S105>/EtherCAT PDO Receive9'
                                            */
   real_T EtherCATPDOReceive9_P6_l;     /* Expression: device_id
-                                        * Referenced by: '<S102>/EtherCAT PDO Receive9'
+                                        * Referenced by: '<S105>/EtherCAT PDO Receive9'
                                         */
   real_T EtherCATPDOReceive9_P7_Size_p[2];/* Computed Parameter: EtherCATPDOReceive9_P7_Size_p
-                                           * Referenced by: '<S102>/EtherCAT PDO Receive9'
+                                           * Referenced by: '<S105>/EtherCAT PDO Receive9'
                                            */
   real_T EtherCATPDOReceive9_P7_b;     /* Expression: sample_time
-                                        * Referenced by: '<S102>/EtherCAT PDO Receive9'
+                                        * Referenced by: '<S105>/EtherCAT PDO Receive9'
                                         */
   real_T Constant_Value_o;             /* Expression: 0
-                                        * Referenced by: '<S104>/Constant'
+                                        * Referenced by: '<S107>/Constant'
                                         */
   real_T Memory_X0_e;                  /* Expression: 0
-                                        * Referenced by: '<S104>/Memory'
+                                        * Referenced by: '<S107>/Memory'
                                         */
   real_T AlzataB_Value;                /* Expression: 0
                                         * Referenced by: '<Root>/Alzata B '
@@ -2830,163 +2823,169 @@ struct P_StateFlowGUI_T_ {
                                         * Referenced by: '<S9>/EtherCAT PDO Transmit 2'
                                         */
   real_T EtherCATPDOReceive9_P1_Size_o[2];/* Computed Parameter: EtherCATPDOReceive9_P1_Size_o
-                                           * Referenced by: '<S104>/EtherCAT PDO Receive9'
+                                           * Referenced by: '<S107>/EtherCAT PDO Receive9'
                                            */
   real_T EtherCATPDOReceive9_P1_n[23]; /* Computed Parameter: EtherCATPDOReceive9_P1_n
-                                        * Referenced by: '<S104>/EtherCAT PDO Receive9'
+                                        * Referenced by: '<S107>/EtherCAT PDO Receive9'
                                         */
   real_T EtherCATPDOReceive9_P2_Size_h[2];/* Computed Parameter: EtherCATPDOReceive9_P2_Size_h
-                                           * Referenced by: '<S104>/EtherCAT PDO Receive9'
+                                           * Referenced by: '<S107>/EtherCAT PDO Receive9'
                                            */
   real_T EtherCATPDOReceive9_P2_d;     /* Expression: sig_offset
-                                        * Referenced by: '<S104>/EtherCAT PDO Receive9'
+                                        * Referenced by: '<S107>/EtherCAT PDO Receive9'
                                         */
   real_T EtherCATPDOReceive9_P3_Size_i[2];/* Computed Parameter: EtherCATPDOReceive9_P3_Size_i
-                                           * Referenced by: '<S104>/EtherCAT PDO Receive9'
+                                           * Referenced by: '<S107>/EtherCAT PDO Receive9'
                                            */
   real_T EtherCATPDOReceive9_P3_fe;    /* Expression: sig_type
-                                        * Referenced by: '<S104>/EtherCAT PDO Receive9'
+                                        * Referenced by: '<S107>/EtherCAT PDO Receive9'
                                         */
   real_T EtherCATPDOReceive9_P4_Size_l[2];/* Computed Parameter: EtherCATPDOReceive9_P4_Size_l
-                                           * Referenced by: '<S104>/EtherCAT PDO Receive9'
+                                           * Referenced by: '<S107>/EtherCAT PDO Receive9'
                                            */
   real_T EtherCATPDOReceive9_P4_ag;    /* Expression: type_size
-                                        * Referenced by: '<S104>/EtherCAT PDO Receive9'
+                                        * Referenced by: '<S107>/EtherCAT PDO Receive9'
                                         */
   real_T EtherCATPDOReceive9_P5_Size_aa[2];/* Computed Parameter: EtherCATPDOReceive9_P5_Size_aa
-                                            * Referenced by: '<S104>/EtherCAT PDO Receive9'
+                                            * Referenced by: '<S107>/EtherCAT PDO Receive9'
                                             */
   real_T EtherCATPDOReceive9_P5_h;     /* Expression: sig_dim
-                                        * Referenced by: '<S104>/EtherCAT PDO Receive9'
+                                        * Referenced by: '<S107>/EtherCAT PDO Receive9'
                                         */
   real_T EtherCATPDOReceive9_P6_Size_m[2];/* Computed Parameter: EtherCATPDOReceive9_P6_Size_m
-                                           * Referenced by: '<S104>/EtherCAT PDO Receive9'
+                                           * Referenced by: '<S107>/EtherCAT PDO Receive9'
                                            */
   real_T EtherCATPDOReceive9_P6_h;     /* Expression: device_id
-                                        * Referenced by: '<S104>/EtherCAT PDO Receive9'
+                                        * Referenced by: '<S107>/EtherCAT PDO Receive9'
                                         */
   real_T EtherCATPDOReceive9_P7_Size_pq[2];/* Computed Parameter: EtherCATPDOReceive9_P7_Size_pq
-                                            * Referenced by: '<S104>/EtherCAT PDO Receive9'
+                                            * Referenced by: '<S107>/EtherCAT PDO Receive9'
                                             */
   real_T EtherCATPDOReceive9_P7_l;     /* Expression: sample_time
-                                        * Referenced by: '<S104>/EtherCAT PDO Receive9'
+                                        * Referenced by: '<S107>/EtherCAT PDO Receive9'
                                         */
   real_T TSamp_WtEt;                   /* Computed Parameter: TSamp_WtEt
-                                        * Referenced by: '<S49>/TSamp'
-                                        */
-  real_T Duk_Gain;                     /* Expression: sps.D
-                                        * Referenced by: '<S60>/D*u(k)'
-                                        */
-  real_T Delay_x1_InitialCondition;    /* Expression: sps.x0(1,:)
-                                        * Referenced by: '<S60>/Delay_x1'
-                                        */
-  real_T C11_Gain;                     /* Expression: sps.C11
-                                        * Referenced by: '<S63>/C11'
-                                        */
-  real_T Delay_x2_InitialCondition;    /* Expression: sps.x0(2,:)
-                                        * Referenced by: '<S60>/Delay_x2'
-                                        */
-  real_T C12_Gain;                     /* Expression: sps.C12
-                                        * Referenced by: '<S63>/C12'
-                                        */
-  real_T TSamp_WtEt_e;                 /* Computed Parameter: TSamp_WtEt_e
-                                        * Referenced by: '<S47>/TSamp'
-                                        */
-  real_T A11_Gain;                     /* Expression: sps.A11
-                                        * Referenced by: '<S61>/A11'
-                                        */
-  real_T A12_Gain;                     /* Expression: sps.A12
-                                        * Referenced by: '<S61>/A12'
-                                        */
-  real_T A21_Gain;                     /* Expression: sps.A21
-                                        * Referenced by: '<S61>/A21'
-                                        */
-  real_T A22_Gain;                     /* Expression: sps.A22
-                                        * Referenced by: '<S61>/A22'
-                                        */
-  real_T B11_Gain;                     /* Expression: sps.B11
-                                        * Referenced by: '<S62>/B11'
-                                        */
-  real_T B21_Gain;                     /* Expression: sps.B21
-                                        * Referenced by: '<S62>/B21'
-                                        */
-  real_T Duk_Gain_h;                   /* Expression: sps.D
-                                        * Referenced by: '<S56>/D*u(k)'
-                                        */
-  real_T Delay_x1_InitialCondition_l;  /* Expression: sps.x0(1,:)
-                                        * Referenced by: '<S56>/Delay_x1'
-                                        */
-  real_T C11_Gain_n;                   /* Expression: sps.C11
-                                        * Referenced by: '<S59>/C11'
-                                        */
-  real_T Delay_x2_InitialCondition_l;  /* Expression: sps.x0(2,:)
-                                        * Referenced by: '<S56>/Delay_x2'
-                                        */
-  real_T C12_Gain_d;                   /* Expression: sps.C12
-                                        * Referenced by: '<S59>/C12'
-                                        */
-  real_T TSamp_WtEt_g;                 /* Computed Parameter: TSamp_WtEt_g
-                                        * Referenced by: '<S48>/TSamp'
-                                        */
-  real_T TSamp_WtEt_gh;                /* Computed Parameter: TSamp_WtEt_gh
-                                        * Referenced by: '<S50>/TSamp'
-                                        */
-  real_T A11_Gain_e;                   /* Expression: sps.A11
-                                        * Referenced by: '<S57>/A11'
-                                        */
-  real_T A12_Gain_a;                   /* Expression: sps.A12
-                                        * Referenced by: '<S57>/A12'
-                                        */
-  real_T A21_Gain_m;                   /* Expression: sps.A21
-                                        * Referenced by: '<S57>/A21'
-                                        */
-  real_T A22_Gain_g;                   /* Expression: sps.A22
-                                        * Referenced by: '<S57>/A22'
-                                        */
-  real_T B11_Gain_f;                   /* Expression: sps.B11
-                                        * Referenced by: '<S58>/B11'
-                                        */
-  real_T B21_Gain_p;                   /* Expression: sps.B21
-                                        * Referenced by: '<S58>/B21'
-                                        */
-  real_T Duk_Gain_g;                   /* Expression: sps.D
-                                        * Referenced by: '<S64>/D*u(k)'
-                                        */
-  real_T Delay_x1_InitialCondition_n;  /* Expression: sps.x0(1,:)
-                                        * Referenced by: '<S64>/Delay_x1'
-                                        */
-  real_T C11_Gain_g;                   /* Expression: sps.C11
-                                        * Referenced by: '<S67>/C11'
-                                        */
-  real_T Delay_x2_InitialCondition_e;  /* Expression: sps.x0(2,:)
-                                        * Referenced by: '<S64>/Delay_x2'
-                                        */
-  real_T C12_Gain_d1;                  /* Expression: sps.C12
-                                        * Referenced by: '<S67>/C12'
-                                        */
-  real_T TSamp_WtEt_d;                 /* Computed Parameter: TSamp_WtEt_d
-                                        * Referenced by: '<S51>/TSamp'
-                                        */
-  real_T TSamp_WtEt_p;                 /* Computed Parameter: TSamp_WtEt_p
                                         * Referenced by: '<S52>/TSamp'
                                         */
+  real_T Duk_Gain;                     /* Expression: sps.D
+                                        * Referenced by: '<S63>/D*u(k)'
+                                        */
+  real_T Delay_x1_InitialCondition;    /* Expression: sps.x0(1,:)
+                                        * Referenced by: '<S63>/Delay_x1'
+                                        */
+  real_T C11_Gain;                     /* Expression: sps.C11
+                                        * Referenced by: '<S66>/C11'
+                                        */
+  real_T Delay_x2_InitialCondition;    /* Expression: sps.x0(2,:)
+                                        * Referenced by: '<S63>/Delay_x2'
+                                        */
+  real_T C12_Gain;                     /* Expression: sps.C12
+                                        * Referenced by: '<S66>/C12'
+                                        */
+  real_T TSamp_WtEt_e;                 /* Computed Parameter: TSamp_WtEt_e
+                                        * Referenced by: '<S50>/TSamp'
+                                        */
+  real_T A11_Gain;                     /* Expression: sps.A11
+                                        * Referenced by: '<S64>/A11'
+                                        */
+  real_T A12_Gain;                     /* Expression: sps.A12
+                                        * Referenced by: '<S64>/A12'
+                                        */
+  real_T A21_Gain;                     /* Expression: sps.A21
+                                        * Referenced by: '<S64>/A21'
+                                        */
+  real_T A22_Gain;                     /* Expression: sps.A22
+                                        * Referenced by: '<S64>/A22'
+                                        */
+  real_T B11_Gain;                     /* Expression: sps.B11
+                                        * Referenced by: '<S65>/B11'
+                                        */
+  real_T B21_Gain;                     /* Expression: sps.B21
+                                        * Referenced by: '<S65>/B21'
+                                        */
+  real_T Duk_Gain_h;                   /* Expression: sps.D
+                                        * Referenced by: '<S59>/D*u(k)'
+                                        */
+  real_T Delay_x1_InitialCondition_l;  /* Expression: sps.x0(1,:)
+                                        * Referenced by: '<S59>/Delay_x1'
+                                        */
+  real_T C11_Gain_n;                   /* Expression: sps.C11
+                                        * Referenced by: '<S62>/C11'
+                                        */
+  real_T Delay_x2_InitialCondition_l;  /* Expression: sps.x0(2,:)
+                                        * Referenced by: '<S59>/Delay_x2'
+                                        */
+  real_T C12_Gain_d;                   /* Expression: sps.C12
+                                        * Referenced by: '<S62>/C12'
+                                        */
+  real_T TSamp_WtEt_g;                 /* Computed Parameter: TSamp_WtEt_g
+                                        * Referenced by: '<S51>/TSamp'
+                                        */
+  real_T TSamp_WtEt_gh;                /* Computed Parameter: TSamp_WtEt_gh
+                                        * Referenced by: '<S53>/TSamp'
+                                        */
+  real_T A11_Gain_e;                   /* Expression: sps.A11
+                                        * Referenced by: '<S60>/A11'
+                                        */
+  real_T A12_Gain_a;                   /* Expression: sps.A12
+                                        * Referenced by: '<S60>/A12'
+                                        */
+  real_T A21_Gain_m;                   /* Expression: sps.A21
+                                        * Referenced by: '<S60>/A21'
+                                        */
+  real_T A22_Gain_g;                   /* Expression: sps.A22
+                                        * Referenced by: '<S60>/A22'
+                                        */
+  real_T B11_Gain_f;                   /* Expression: sps.B11
+                                        * Referenced by: '<S61>/B11'
+                                        */
+  real_T B21_Gain_p;                   /* Expression: sps.B21
+                                        * Referenced by: '<S61>/B21'
+                                        */
+  real_T Duk_Gain_g;                   /* Expression: sps.D
+                                        * Referenced by: '<S67>/D*u(k)'
+                                        */
+  real_T Delay_x1_InitialCondition_n;  /* Expression: sps.x0(1,:)
+                                        * Referenced by: '<S67>/Delay_x1'
+                                        */
+  real_T C11_Gain_g;                   /* Expression: sps.C11
+                                        * Referenced by: '<S70>/C11'
+                                        */
+  real_T Delay_x2_InitialCondition_e;  /* Expression: sps.x0(2,:)
+                                        * Referenced by: '<S67>/Delay_x2'
+                                        */
+  real_T C12_Gain_d1;                  /* Expression: sps.C12
+                                        * Referenced by: '<S70>/C12'
+                                        */
+  real_T TSamp_WtEt_d;                 /* Computed Parameter: TSamp_WtEt_d
+                                        * Referenced by: '<S54>/TSamp'
+                                        */
+  real_T TSamp_WtEt_p;                 /* Computed Parameter: TSamp_WtEt_p
+                                        * Referenced by: '<S55>/TSamp'
+                                        */
   real_T A11_Gain_h;                   /* Expression: sps.A11
-                                        * Referenced by: '<S65>/A11'
+                                        * Referenced by: '<S68>/A11'
                                         */
   real_T A12_Gain_a3;                  /* Expression: sps.A12
-                                        * Referenced by: '<S65>/A12'
+                                        * Referenced by: '<S68>/A12'
                                         */
   real_T A21_Gain_f;                   /* Expression: sps.A21
-                                        * Referenced by: '<S65>/A21'
+                                        * Referenced by: '<S68>/A21'
                                         */
   real_T A22_Gain_d;                   /* Expression: sps.A22
-                                        * Referenced by: '<S65>/A22'
+                                        * Referenced by: '<S68>/A22'
                                         */
   real_T B11_Gain_n;                   /* Expression: sps.B11
-                                        * Referenced by: '<S66>/B11'
+                                        * Referenced by: '<S69>/B11'
                                         */
   real_T B21_Gain_l;                   /* Expression: sps.B21
-                                        * Referenced by: '<S66>/B21'
+                                        * Referenced by: '<S69>/B21'
+                                        */
+  real_T Gain_Gain_c;                  /* Expression: 180/pi
+                                        * Referenced by: '<S35>/Gain'
+                                        */
+  real_T Gain_Gain_d;                  /* Expression: 180/pi
+                                        * Referenced by: '<S36>/Gain'
                                         */
   real_T Memory_X0_d;                  /* Expression: 0
                                         * Referenced by: '<S5>/Memory'
@@ -3001,127 +3000,127 @@ struct P_StateFlowGUI_T_ {
                                         * Referenced by: '<S5>/Constant1'
                                         */
   real_T EtherCATPDOReceive15_P1_Size_h[2];/* Computed Parameter: EtherCATPDOReceive15_P1_Size_h
-                                            * Referenced by: '<S84>/EtherCAT PDO Receive15'
+                                            * Referenced by: '<S87>/EtherCAT PDO Receive15'
                                             */
   real_T EtherCATPDOReceive15_P1_f[47];/* Computed Parameter: EtherCATPDOReceive15_P1_f
-                                        * Referenced by: '<S84>/EtherCAT PDO Receive15'
+                                        * Referenced by: '<S87>/EtherCAT PDO Receive15'
                                         */
   real_T EtherCATPDOReceive15_P2_Size_j[2];/* Computed Parameter: EtherCATPDOReceive15_P2_Size_j
-                                            * Referenced by: '<S84>/EtherCAT PDO Receive15'
+                                            * Referenced by: '<S87>/EtherCAT PDO Receive15'
                                             */
   real_T EtherCATPDOReceive15_P2_c;    /* Expression: sig_offset
-                                        * Referenced by: '<S84>/EtherCAT PDO Receive15'
+                                        * Referenced by: '<S87>/EtherCAT PDO Receive15'
                                         */
   real_T EtherCATPDOReceive15_P3_Size_o[2];/* Computed Parameter: EtherCATPDOReceive15_P3_Size_o
-                                            * Referenced by: '<S84>/EtherCAT PDO Receive15'
+                                            * Referenced by: '<S87>/EtherCAT PDO Receive15'
                                             */
   real_T EtherCATPDOReceive15_P3_p;    /* Expression: sig_type
-                                        * Referenced by: '<S84>/EtherCAT PDO Receive15'
+                                        * Referenced by: '<S87>/EtherCAT PDO Receive15'
                                         */
   real_T EtherCATPDOReceive15_P4_Size_m[2];/* Computed Parameter: EtherCATPDOReceive15_P4_Size_m
-                                            * Referenced by: '<S84>/EtherCAT PDO Receive15'
+                                            * Referenced by: '<S87>/EtherCAT PDO Receive15'
                                             */
   real_T EtherCATPDOReceive15_P4_i;    /* Expression: type_size
-                                        * Referenced by: '<S84>/EtherCAT PDO Receive15'
+                                        * Referenced by: '<S87>/EtherCAT PDO Receive15'
                                         */
   real_T EtherCATPDOReceive15_P5_Size_j[2];/* Computed Parameter: EtherCATPDOReceive15_P5_Size_j
-                                            * Referenced by: '<S84>/EtherCAT PDO Receive15'
+                                            * Referenced by: '<S87>/EtherCAT PDO Receive15'
                                             */
   real_T EtherCATPDOReceive15_P5_h;    /* Expression: sig_dim
-                                        * Referenced by: '<S84>/EtherCAT PDO Receive15'
+                                        * Referenced by: '<S87>/EtherCAT PDO Receive15'
                                         */
   real_T EtherCATPDOReceive15_P6_Size_c[2];/* Computed Parameter: EtherCATPDOReceive15_P6_Size_c
-                                            * Referenced by: '<S84>/EtherCAT PDO Receive15'
+                                            * Referenced by: '<S87>/EtherCAT PDO Receive15'
                                             */
   real_T EtherCATPDOReceive15_P6_h;    /* Expression: device_id
-                                        * Referenced by: '<S84>/EtherCAT PDO Receive15'
+                                        * Referenced by: '<S87>/EtherCAT PDO Receive15'
                                         */
   real_T EtherCATPDOReceive15_P7_Size_n[2];/* Computed Parameter: EtherCATPDOReceive15_P7_Size_n
-                                            * Referenced by: '<S84>/EtherCAT PDO Receive15'
+                                            * Referenced by: '<S87>/EtherCAT PDO Receive15'
                                             */
   real_T EtherCATPDOReceive15_P7_lo;   /* Expression: sample_time
-                                        * Referenced by: '<S84>/EtherCAT PDO Receive15'
+                                        * Referenced by: '<S87>/EtherCAT PDO Receive15'
                                         */
   real_T Coppiatheta1vel_Gain;         /* Expression: 0
                                         * Referenced by: '<S5>/Coppia theta 1 vel'
                                         */
   real_T EtherCATPDOReceive14_P1_Size_h[2];/* Computed Parameter: EtherCATPDOReceive14_P1_Size_h
-                                            * Referenced by: '<S84>/EtherCAT PDO Receive14'
+                                            * Referenced by: '<S87>/EtherCAT PDO Receive14'
                                             */
   real_T EtherCATPDOReceive14_P1_kn[47];/* Computed Parameter: EtherCATPDOReceive14_P1_kn
-                                         * Referenced by: '<S84>/EtherCAT PDO Receive14'
+                                         * Referenced by: '<S87>/EtherCAT PDO Receive14'
                                          */
   real_T EtherCATPDOReceive14_P2_Size_m4[2];/* Computed Parameter: EtherCATPDOReceive14_P2_Size_m4
-                                             * Referenced by: '<S84>/EtherCAT PDO Receive14'
+                                             * Referenced by: '<S87>/EtherCAT PDO Receive14'
                                              */
   real_T EtherCATPDOReceive14_P2_k;    /* Expression: sig_offset
-                                        * Referenced by: '<S84>/EtherCAT PDO Receive14'
+                                        * Referenced by: '<S87>/EtherCAT PDO Receive14'
                                         */
   real_T EtherCATPDOReceive14_P3_Size_e[2];/* Computed Parameter: EtherCATPDOReceive14_P3_Size_e
-                                            * Referenced by: '<S84>/EtherCAT PDO Receive14'
+                                            * Referenced by: '<S87>/EtherCAT PDO Receive14'
                                             */
   real_T EtherCATPDOReceive14_P3_m;    /* Expression: sig_type
-                                        * Referenced by: '<S84>/EtherCAT PDO Receive14'
+                                        * Referenced by: '<S87>/EtherCAT PDO Receive14'
                                         */
   real_T EtherCATPDOReceive14_P4_Size_g0[2];/* Computed Parameter: EtherCATPDOReceive14_P4_Size_g0
-                                             * Referenced by: '<S84>/EtherCAT PDO Receive14'
+                                             * Referenced by: '<S87>/EtherCAT PDO Receive14'
                                              */
   real_T EtherCATPDOReceive14_P4_p1;   /* Expression: type_size
-                                        * Referenced by: '<S84>/EtherCAT PDO Receive14'
+                                        * Referenced by: '<S87>/EtherCAT PDO Receive14'
                                         */
   real_T EtherCATPDOReceive14_P5_Size_h[2];/* Computed Parameter: EtherCATPDOReceive14_P5_Size_h
-                                            * Referenced by: '<S84>/EtherCAT PDO Receive14'
+                                            * Referenced by: '<S87>/EtherCAT PDO Receive14'
                                             */
   real_T EtherCATPDOReceive14_P5_i;    /* Expression: sig_dim
-                                        * Referenced by: '<S84>/EtherCAT PDO Receive14'
+                                        * Referenced by: '<S87>/EtherCAT PDO Receive14'
                                         */
   real_T EtherCATPDOReceive14_P6_Size_g[2];/* Computed Parameter: EtherCATPDOReceive14_P6_Size_g
-                                            * Referenced by: '<S84>/EtherCAT PDO Receive14'
+                                            * Referenced by: '<S87>/EtherCAT PDO Receive14'
                                             */
   real_T EtherCATPDOReceive14_P6_d;    /* Expression: device_id
-                                        * Referenced by: '<S84>/EtherCAT PDO Receive14'
+                                        * Referenced by: '<S87>/EtherCAT PDO Receive14'
                                         */
   real_T EtherCATPDOReceive14_P7_Size_f[2];/* Computed Parameter: EtherCATPDOReceive14_P7_Size_f
-                                            * Referenced by: '<S84>/EtherCAT PDO Receive14'
+                                            * Referenced by: '<S87>/EtherCAT PDO Receive14'
                                             */
   real_T EtherCATPDOReceive14_P7_gg;   /* Expression: sample_time
-                                        * Referenced by: '<S84>/EtherCAT PDO Receive14'
+                                        * Referenced by: '<S87>/EtherCAT PDO Receive14'
                                         */
   real_T Coppiatheta2vel_Gain;         /* Expression: 0
                                         * Referenced by: '<S5>/Coppia theta 2 vel'
                                         */
   real_T Filter_gainval;               /* Computed Parameter: Filter_gainval
-                                        * Referenced by: '<S80>/Filter'
+                                        * Referenced by: '<S83>/Filter'
                                         */
   real_T Filter_IC;                    /* Expression: InitialConditionForFilter
-                                        * Referenced by: '<S80>/Filter'
+                                        * Referenced by: '<S83>/Filter'
                                         */
   real_T Integrator_gainval;           /* Computed Parameter: Integrator_gainval
-                                        * Referenced by: '<S80>/Integrator'
+                                        * Referenced by: '<S83>/Integrator'
                                         */
   real_T Integrator_IC;                /* Expression: InitialConditionForIntegrator
-                                        * Referenced by: '<S80>/Integrator'
+                                        * Referenced by: '<S83>/Integrator'
                                         */
   real_T Filter_gainval_m;             /* Computed Parameter: Filter_gainval_m
-                                        * Referenced by: '<S81>/Filter'
+                                        * Referenced by: '<S84>/Filter'
                                         */
   real_T Filter_IC_b;                  /* Expression: InitialConditionForFilter
-                                        * Referenced by: '<S81>/Filter'
+                                        * Referenced by: '<S84>/Filter'
                                         */
   real_T Integrator_gainval_o;         /* Computed Parameter: Integrator_gainval_o
-                                        * Referenced by: '<S81>/Integrator'
+                                        * Referenced by: '<S84>/Integrator'
                                         */
   real_T Integrator_IC_f;              /* Expression: InitialConditionForIntegrator
-                                        * Referenced by: '<S81>/Integrator'
+                                        * Referenced by: '<S84>/Integrator'
                                         */
   real_T selettore_Value_d;            /* Expression: 5
                                         * Referenced by: '<S5>/selettore'
                                         */
   real_T TSamp_WtEt_l;                 /* Computed Parameter: TSamp_WtEt_l
-                                        * Referenced by: '<S121>/TSamp'
+                                        * Referenced by: '<S124>/TSamp'
                                         */
   real_T TSamp_WtEt_n;                 /* Computed Parameter: TSamp_WtEt_n
-                                        * Referenced by: '<S124>/TSamp'
+                                        * Referenced by: '<S127>/TSamp'
                                         */
 };
 
@@ -3656,120 +3655,123 @@ extern RT_MODEL_StateFlowGUI_T *const StateFlowGUI_M;
  * '<S28>'  : 'StateFlowGUI/Movimento/MATLAB Function'
  * '<S29>'  : 'StateFlowGUI/Movimento/MATLAB Function1'
  * '<S30>'  : 'StateFlowGUI/Movimento/MATLAB Function2'
- * '<S31>'  : 'StateFlowGUI/Movimento/MATLAB Jin'
- * '<S32>'  : 'StateFlowGUI/Movimento/Pos iniziali'
- * '<S33>'  : 'StateFlowGUI/Movimento/Posizioni'
- * '<S34>'  : 'StateFlowGUI/Movimento/Velocita '
- * '<S35>'  : 'StateFlowGUI/Movimento/Velocita braccia 1'
- * '<S36>'  : 'StateFlowGUI/Movimento/XY Graph'
- * '<S37>'  : 'StateFlowGUI/Movimento/XY Graph1'
- * '<S38>'  : 'StateFlowGUI/Movimento/XZ Graph'
- * '<S39>'  : 'StateFlowGUI/Movimento/Leggi di moto/Cerchi Tangenti'
- * '<S40>'  : 'StateFlowGUI/Movimento/Leggi di moto/Cerchio'
- * '<S41>'  : 'StateFlowGUI/Movimento/Leggi di moto/Quadrato'
- * '<S42>'  : 'StateFlowGUI/Movimento/Leggi di moto/g'
- * '<S43>'  : 'StateFlowGUI/Movimento/Leggi di moto/spirale'
- * '<S44>'  : 'StateFlowGUI/Movimento/Pos iniziali/Cinematica Inversa2'
- * '<S45>'  : 'StateFlowGUI/Movimento/Posizioni/Asse A conv bracc'
- * '<S46>'  : 'StateFlowGUI/Movimento/Posizioni/Asse B conv brac1'
- * '<S47>'  : 'StateFlowGUI/Movimento/Posizioni/Discrete Derivative B'
- * '<S48>'  : 'StateFlowGUI/Movimento/Posizioni/Discrete Derivative B1'
- * '<S49>'  : 'StateFlowGUI/Movimento/Posizioni/Discrete Derivative B2'
- * '<S50>'  : 'StateFlowGUI/Movimento/Posizioni/Discrete Derivative B3'
- * '<S51>'  : 'StateFlowGUI/Movimento/Posizioni/Discrete Derivative B4'
- * '<S52>'  : 'StateFlowGUI/Movimento/Posizioni/Discrete Derivative B5'
- * '<S53>'  : 'StateFlowGUI/Movimento/Posizioni/Second-Order Filter'
- * '<S54>'  : 'StateFlowGUI/Movimento/Posizioni/Second-Order Filter1'
- * '<S55>'  : 'StateFlowGUI/Movimento/Posizioni/Second-Order Filter2'
- * '<S56>'  : 'StateFlowGUI/Movimento/Posizioni/Second-Order Filter/Model'
- * '<S57>'  : 'StateFlowGUI/Movimento/Posizioni/Second-Order Filter/Model/A*k(k-1)'
- * '<S58>'  : 'StateFlowGUI/Movimento/Posizioni/Second-Order Filter/Model/B*(u(k)+u(k-1))'
- * '<S59>'  : 'StateFlowGUI/Movimento/Posizioni/Second-Order Filter/Model/C*x(k)'
- * '<S60>'  : 'StateFlowGUI/Movimento/Posizioni/Second-Order Filter1/Model'
- * '<S61>'  : 'StateFlowGUI/Movimento/Posizioni/Second-Order Filter1/Model/A*k(k-1)'
- * '<S62>'  : 'StateFlowGUI/Movimento/Posizioni/Second-Order Filter1/Model/B*(u(k)+u(k-1))'
- * '<S63>'  : 'StateFlowGUI/Movimento/Posizioni/Second-Order Filter1/Model/C*x(k)'
- * '<S64>'  : 'StateFlowGUI/Movimento/Posizioni/Second-Order Filter2/Model'
- * '<S65>'  : 'StateFlowGUI/Movimento/Posizioni/Second-Order Filter2/Model/A*k(k-1)'
- * '<S66>'  : 'StateFlowGUI/Movimento/Posizioni/Second-Order Filter2/Model/B*(u(k)+u(k-1))'
- * '<S67>'  : 'StateFlowGUI/Movimento/Posizioni/Second-Order Filter2/Model/C*x(k)'
- * '<S68>'  : 'StateFlowGUI/Movimento/Velocita /Vel Asse A conv'
- * '<S69>'  : 'StateFlowGUI/Movimento/Velocita /Vel Asse B conv'
- * '<S70>'  : 'StateFlowGUI/Movimento/Velocita braccia 1/Vel Asse A conv'
- * '<S71>'  : 'StateFlowGUI/Movimento/Velocita braccia 1/Vel Asse B conv'
- * '<S72>'  : 'StateFlowGUI/Movimento Braccia/Asse A conv brac'
- * '<S73>'  : 'StateFlowGUI/Movimento Braccia/Asse B conv brac1'
- * '<S74>'  : 'StateFlowGUI/Movimento Braccia/Cinematica Inversa'
- * '<S75>'  : 'StateFlowGUI/Movimento Braccia/Cinematica Inversa vel'
- * '<S76>'  : 'StateFlowGUI/Movimento Braccia/Cinematica Inversa1'
- * '<S77>'  : 'StateFlowGUI/Movimento Braccia/Clock reale'
- * '<S78>'  : 'StateFlowGUI/Movimento Braccia/MATLAB Function'
- * '<S79>'  : 'StateFlowGUI/Movimento Braccia/MATLAB Function1'
- * '<S80>'  : 'StateFlowGUI/Movimento Braccia/PID Controller1'
- * '<S81>'  : 'StateFlowGUI/Movimento Braccia/PID Controller2'
- * '<S82>'  : 'StateFlowGUI/Movimento Braccia/Quadrato1'
- * '<S83>'  : 'StateFlowGUI/Movimento Braccia/Subsystem'
- * '<S84>'  : 'StateFlowGUI/Movimento Braccia/Velocita vite '
- * '<S85>'  : 'StateFlowGUI/Movimento Braccia/XY Graph'
- * '<S86>'  : 'StateFlowGUI/Movimento Braccia/XZ Graph'
- * '<S87>'  : 'StateFlowGUI/Movimento Braccia/Subsystem/Cerchi Tangenti'
- * '<S88>'  : 'StateFlowGUI/Movimento Braccia/Subsystem/Cerchio'
- * '<S89>'  : 'StateFlowGUI/Movimento Braccia/Subsystem/Quadrato'
- * '<S90>'  : 'StateFlowGUI/Movimento Braccia/Subsystem/g'
- * '<S91>'  : 'StateFlowGUI/Movimento Braccia/Subsystem/spirale'
- * '<S92>'  : 'StateFlowGUI/Movimento Braccia/Velocita vite /Vel Asse A conv'
- * '<S93>'  : 'StateFlowGUI/Movimento Braccia/Velocita vite /Vel Asse B conv'
- * '<S94>'  : 'StateFlowGUI/Out Asse A Braccia/Fungo'
- * '<S95>'  : 'StateFlowGUI/Out Asse A Braccia/MATLAB Function'
- * '<S96>'  : 'StateFlowGUI/Out Asse A Braccia/Ramp'
- * '<S97>'  : 'StateFlowGUI/Out Asse A Braccia/Fungo/MATLAB Function'
- * '<S98>'  : 'StateFlowGUI/Out Asse B Braccia/Fungo'
- * '<S99>'  : 'StateFlowGUI/Out Asse B Braccia/MATLAB Function'
- * '<S100>' : 'StateFlowGUI/Out Asse B Braccia/Ramp'
- * '<S101>' : 'StateFlowGUI/Out Asse B Braccia/Fungo/MATLAB Function'
- * '<S102>' : 'StateFlowGUI/Out asse A Vite/Fungo'
- * '<S103>' : 'StateFlowGUI/Out asse A Vite/Fungo/MATLAB Function'
- * '<S104>' : 'StateFlowGUI/Out asse B Vite/Fungo'
- * '<S105>' : 'StateFlowGUI/Out asse B Vite/Fungo/MATLAB Function'
- * '<S106>' : 'StateFlowGUI/Sistema Braccia Linea/Asse A conv bracc2'
- * '<S107>' : 'StateFlowGUI/Sistema Braccia Linea/Asse B conv brac1'
- * '<S108>' : 'StateFlowGUI/Sistema Braccia Linea/Cinematica Inversa'
- * '<S109>' : 'StateFlowGUI/Sistema Braccia Linea/Cinematica Inversa vel'
- * '<S110>' : 'StateFlowGUI/Sistema Braccia Linea/Cinematica Inversa1'
- * '<S111>' : 'StateFlowGUI/Sistema Braccia Linea/Velocita vite '
- * '<S112>' : 'StateFlowGUI/Sistema Braccia Linea/x'
- * '<S113>' : 'StateFlowGUI/Sistema Braccia Linea/y'
- * '<S114>' : 'StateFlowGUI/Sistema Braccia Linea/Velocita vite /Vel Asse A conv'
- * '<S115>' : 'StateFlowGUI/Sistema Braccia Linea/Velocita vite /Vel Asse B conv'
- * '<S116>' : 'StateFlowGUI/Sistema Vite/Actual A'
- * '<S117>' : 'StateFlowGUI/Sistema Vite/Asse B'
- * '<S118>' : 'StateFlowGUI/Sistema Vite/Asse B conv'
- * '<S119>' : 'StateFlowGUI/Sistema Vite/Clock reale'
- * '<S120>' : 'StateFlowGUI/Sistema Vite/Coppia VIte A finale'
- * '<S121>' : 'StateFlowGUI/Sistema Vite/Discrete Derivative B'
- * '<S122>' : 'StateFlowGUI/Sistema Vite/Rifermento Asse A Vite'
- * '<S123>' : 'StateFlowGUI/Sistema Vite/Velocita vite '
- * '<S124>' : 'StateFlowGUI/Sistema Vite/Actual A/Discrete Derivative A'
- * '<S125>' : 'StateFlowGUI/Sistema Vite/Actual A/Posizione attuale Vite A'
- * '<S126>' : 'StateFlowGUI/Sistema Vite/Actual A/Posizione attuale Vite A/Asse A conv'
- * '<S127>' : 'StateFlowGUI/Sistema Vite/Actual A/Posizione attuale Vite A/Asse B conv v'
- * '<S128>' : 'StateFlowGUI/Sistema Vite/Velocita vite /Vel Asse A conv'
- * '<S129>' : 'StateFlowGUI/Sistema Vite/Velocita vite /Vel Asse B conv'
- * '<S130>' : 'StateFlowGUI/State flow robot/Homing'
- * '<S131>' : 'StateFlowGUI/State flow robot/Mov'
- * '<S132>' : 'StateFlowGUI/State flow robot/Mov1'
- * '<S133>' : 'StateFlowGUI/State flow robot/Homing/MATLAB Function'
- * '<S134>' : 'StateFlowGUI/State flow robot/Mov/Asse A conv bracc2'
- * '<S135>' : 'StateFlowGUI/State flow robot/Mov/Asse B conv brac'
- * '<S136>' : 'StateFlowGUI/State flow robot/Mov/Cinematica Inversa'
- * '<S137>' : 'StateFlowGUI/State flow robot/Mov/Cinematica Inversa vel'
- * '<S138>' : 'StateFlowGUI/State flow robot/Mov/Cinematica Inversa1'
- * '<S139>' : 'StateFlowGUI/State flow robot/Mov/x'
- * '<S140>' : 'StateFlowGUI/State flow robot/Mov/y'
- * '<S141>' : 'StateFlowGUI/State flow robot/Mov1/Asse A conv bracc'
- * '<S142>' : 'StateFlowGUI/State flow robot/Mov1/Asse A conv bracc1'
- * '<S143>' : 'StateFlowGUI/State flow robot/Mov1/Clock reale'
- * '<S144>' : 'StateFlowGUI/State flow robot/Mov1/Ldm theta1'
- * '<S145>' : 'StateFlowGUI/State flow robot/Mov1/Ldm theta2'
+ * '<S31>'  : 'StateFlowGUI/Movimento/MATLAB Function3'
+ * '<S32>'  : 'StateFlowGUI/Movimento/MATLAB Jin'
+ * '<S33>'  : 'StateFlowGUI/Movimento/Pos iniziali'
+ * '<S34>'  : 'StateFlowGUI/Movimento/Posizioni'
+ * '<S35>'  : 'StateFlowGUI/Movimento/Radians to Degrees'
+ * '<S36>'  : 'StateFlowGUI/Movimento/Radians to Degrees1'
+ * '<S37>'  : 'StateFlowGUI/Movimento/Velocita '
+ * '<S38>'  : 'StateFlowGUI/Movimento/Velocita braccia 1'
+ * '<S39>'  : 'StateFlowGUI/Movimento/XY Graph'
+ * '<S40>'  : 'StateFlowGUI/Movimento/XY Graph1'
+ * '<S41>'  : 'StateFlowGUI/Movimento/XZ Graph'
+ * '<S42>'  : 'StateFlowGUI/Movimento/Leggi di moto/Cerchi Tangenti'
+ * '<S43>'  : 'StateFlowGUI/Movimento/Leggi di moto/Cerchio'
+ * '<S44>'  : 'StateFlowGUI/Movimento/Leggi di moto/Quadrato'
+ * '<S45>'  : 'StateFlowGUI/Movimento/Leggi di moto/g'
+ * '<S46>'  : 'StateFlowGUI/Movimento/Leggi di moto/spirale'
+ * '<S47>'  : 'StateFlowGUI/Movimento/Pos iniziali/Cinematica Inversa2'
+ * '<S48>'  : 'StateFlowGUI/Movimento/Posizioni/Asse A conv bracc'
+ * '<S49>'  : 'StateFlowGUI/Movimento/Posizioni/Asse B conv brac1'
+ * '<S50>'  : 'StateFlowGUI/Movimento/Posizioni/Discrete Derivative B'
+ * '<S51>'  : 'StateFlowGUI/Movimento/Posizioni/Discrete Derivative B1'
+ * '<S52>'  : 'StateFlowGUI/Movimento/Posizioni/Discrete Derivative B2'
+ * '<S53>'  : 'StateFlowGUI/Movimento/Posizioni/Discrete Derivative B3'
+ * '<S54>'  : 'StateFlowGUI/Movimento/Posizioni/Discrete Derivative B4'
+ * '<S55>'  : 'StateFlowGUI/Movimento/Posizioni/Discrete Derivative B5'
+ * '<S56>'  : 'StateFlowGUI/Movimento/Posizioni/Second-Order Filter'
+ * '<S57>'  : 'StateFlowGUI/Movimento/Posizioni/Second-Order Filter1'
+ * '<S58>'  : 'StateFlowGUI/Movimento/Posizioni/Second-Order Filter2'
+ * '<S59>'  : 'StateFlowGUI/Movimento/Posizioni/Second-Order Filter/Model'
+ * '<S60>'  : 'StateFlowGUI/Movimento/Posizioni/Second-Order Filter/Model/A*k(k-1)'
+ * '<S61>'  : 'StateFlowGUI/Movimento/Posizioni/Second-Order Filter/Model/B*(u(k)+u(k-1))'
+ * '<S62>'  : 'StateFlowGUI/Movimento/Posizioni/Second-Order Filter/Model/C*x(k)'
+ * '<S63>'  : 'StateFlowGUI/Movimento/Posizioni/Second-Order Filter1/Model'
+ * '<S64>'  : 'StateFlowGUI/Movimento/Posizioni/Second-Order Filter1/Model/A*k(k-1)'
+ * '<S65>'  : 'StateFlowGUI/Movimento/Posizioni/Second-Order Filter1/Model/B*(u(k)+u(k-1))'
+ * '<S66>'  : 'StateFlowGUI/Movimento/Posizioni/Second-Order Filter1/Model/C*x(k)'
+ * '<S67>'  : 'StateFlowGUI/Movimento/Posizioni/Second-Order Filter2/Model'
+ * '<S68>'  : 'StateFlowGUI/Movimento/Posizioni/Second-Order Filter2/Model/A*k(k-1)'
+ * '<S69>'  : 'StateFlowGUI/Movimento/Posizioni/Second-Order Filter2/Model/B*(u(k)+u(k-1))'
+ * '<S70>'  : 'StateFlowGUI/Movimento/Posizioni/Second-Order Filter2/Model/C*x(k)'
+ * '<S71>'  : 'StateFlowGUI/Movimento/Velocita /Vel Asse A conv'
+ * '<S72>'  : 'StateFlowGUI/Movimento/Velocita /Vel Asse B conv'
+ * '<S73>'  : 'StateFlowGUI/Movimento/Velocita braccia 1/Vel Asse A conv'
+ * '<S74>'  : 'StateFlowGUI/Movimento/Velocita braccia 1/Vel Asse B conv'
+ * '<S75>'  : 'StateFlowGUI/Movimento Braccia/Asse A conv brac'
+ * '<S76>'  : 'StateFlowGUI/Movimento Braccia/Asse B conv brac1'
+ * '<S77>'  : 'StateFlowGUI/Movimento Braccia/Cinematica Inversa'
+ * '<S78>'  : 'StateFlowGUI/Movimento Braccia/Cinematica Inversa vel'
+ * '<S79>'  : 'StateFlowGUI/Movimento Braccia/Cinematica Inversa1'
+ * '<S80>'  : 'StateFlowGUI/Movimento Braccia/Clock reale'
+ * '<S81>'  : 'StateFlowGUI/Movimento Braccia/MATLAB Function'
+ * '<S82>'  : 'StateFlowGUI/Movimento Braccia/MATLAB Function1'
+ * '<S83>'  : 'StateFlowGUI/Movimento Braccia/PID Controller1'
+ * '<S84>'  : 'StateFlowGUI/Movimento Braccia/PID Controller2'
+ * '<S85>'  : 'StateFlowGUI/Movimento Braccia/Quadrato1'
+ * '<S86>'  : 'StateFlowGUI/Movimento Braccia/Subsystem'
+ * '<S87>'  : 'StateFlowGUI/Movimento Braccia/Velocita vite '
+ * '<S88>'  : 'StateFlowGUI/Movimento Braccia/XY Graph'
+ * '<S89>'  : 'StateFlowGUI/Movimento Braccia/XZ Graph'
+ * '<S90>'  : 'StateFlowGUI/Movimento Braccia/Subsystem/Cerchi Tangenti'
+ * '<S91>'  : 'StateFlowGUI/Movimento Braccia/Subsystem/Cerchio'
+ * '<S92>'  : 'StateFlowGUI/Movimento Braccia/Subsystem/Quadrato'
+ * '<S93>'  : 'StateFlowGUI/Movimento Braccia/Subsystem/g'
+ * '<S94>'  : 'StateFlowGUI/Movimento Braccia/Subsystem/spirale'
+ * '<S95>'  : 'StateFlowGUI/Movimento Braccia/Velocita vite /Vel Asse A conv'
+ * '<S96>'  : 'StateFlowGUI/Movimento Braccia/Velocita vite /Vel Asse B conv'
+ * '<S97>'  : 'StateFlowGUI/Out Asse A Braccia/Fungo'
+ * '<S98>'  : 'StateFlowGUI/Out Asse A Braccia/MATLAB Function'
+ * '<S99>'  : 'StateFlowGUI/Out Asse A Braccia/Ramp'
+ * '<S100>' : 'StateFlowGUI/Out Asse A Braccia/Fungo/MATLAB Function'
+ * '<S101>' : 'StateFlowGUI/Out Asse B Braccia/Fungo'
+ * '<S102>' : 'StateFlowGUI/Out Asse B Braccia/MATLAB Function'
+ * '<S103>' : 'StateFlowGUI/Out Asse B Braccia/Ramp'
+ * '<S104>' : 'StateFlowGUI/Out Asse B Braccia/Fungo/MATLAB Function'
+ * '<S105>' : 'StateFlowGUI/Out asse A Vite/Fungo'
+ * '<S106>' : 'StateFlowGUI/Out asse A Vite/Fungo/MATLAB Function'
+ * '<S107>' : 'StateFlowGUI/Out asse B Vite/Fungo'
+ * '<S108>' : 'StateFlowGUI/Out asse B Vite/Fungo/MATLAB Function'
+ * '<S109>' : 'StateFlowGUI/Sistema Braccia Linea/Asse A conv bracc2'
+ * '<S110>' : 'StateFlowGUI/Sistema Braccia Linea/Asse B conv brac1'
+ * '<S111>' : 'StateFlowGUI/Sistema Braccia Linea/Cinematica Inversa'
+ * '<S112>' : 'StateFlowGUI/Sistema Braccia Linea/Cinematica Inversa vel'
+ * '<S113>' : 'StateFlowGUI/Sistema Braccia Linea/Cinematica Inversa1'
+ * '<S114>' : 'StateFlowGUI/Sistema Braccia Linea/Velocita vite '
+ * '<S115>' : 'StateFlowGUI/Sistema Braccia Linea/x'
+ * '<S116>' : 'StateFlowGUI/Sistema Braccia Linea/y'
+ * '<S117>' : 'StateFlowGUI/Sistema Braccia Linea/Velocita vite /Vel Asse A conv'
+ * '<S118>' : 'StateFlowGUI/Sistema Braccia Linea/Velocita vite /Vel Asse B conv'
+ * '<S119>' : 'StateFlowGUI/Sistema Vite/Actual A'
+ * '<S120>' : 'StateFlowGUI/Sistema Vite/Asse B'
+ * '<S121>' : 'StateFlowGUI/Sistema Vite/Asse B conv'
+ * '<S122>' : 'StateFlowGUI/Sistema Vite/Clock reale'
+ * '<S123>' : 'StateFlowGUI/Sistema Vite/Coppia VIte A finale'
+ * '<S124>' : 'StateFlowGUI/Sistema Vite/Discrete Derivative B'
+ * '<S125>' : 'StateFlowGUI/Sistema Vite/Rifermento Asse A Vite'
+ * '<S126>' : 'StateFlowGUI/Sistema Vite/Velocita vite '
+ * '<S127>' : 'StateFlowGUI/Sistema Vite/Actual A/Discrete Derivative A'
+ * '<S128>' : 'StateFlowGUI/Sistema Vite/Actual A/Posizione attuale Vite A'
+ * '<S129>' : 'StateFlowGUI/Sistema Vite/Actual A/Posizione attuale Vite A/Asse A conv'
+ * '<S130>' : 'StateFlowGUI/Sistema Vite/Actual A/Posizione attuale Vite A/Asse B conv v'
+ * '<S131>' : 'StateFlowGUI/Sistema Vite/Velocita vite /Vel Asse A conv'
+ * '<S132>' : 'StateFlowGUI/Sistema Vite/Velocita vite /Vel Asse B conv'
+ * '<S133>' : 'StateFlowGUI/State flow robot/Homing'
+ * '<S134>' : 'StateFlowGUI/State flow robot/Mov'
+ * '<S135>' : 'StateFlowGUI/State flow robot/Mov1'
+ * '<S136>' : 'StateFlowGUI/State flow robot/Homing/MATLAB Function'
+ * '<S137>' : 'StateFlowGUI/State flow robot/Mov/Asse A conv bracc2'
+ * '<S138>' : 'StateFlowGUI/State flow robot/Mov/Asse B conv brac'
+ * '<S139>' : 'StateFlowGUI/State flow robot/Mov/Cinematica Inversa'
+ * '<S140>' : 'StateFlowGUI/State flow robot/Mov/Cinematica Inversa vel'
+ * '<S141>' : 'StateFlowGUI/State flow robot/Mov/Cinematica Inversa1'
+ * '<S142>' : 'StateFlowGUI/State flow robot/Mov/x'
+ * '<S143>' : 'StateFlowGUI/State flow robot/Mov/y'
+ * '<S144>' : 'StateFlowGUI/State flow robot/Mov1/Asse A conv bracc'
+ * '<S145>' : 'StateFlowGUI/State flow robot/Mov1/Asse A conv bracc1'
+ * '<S146>' : 'StateFlowGUI/State flow robot/Mov1/Clock reale'
+ * '<S147>' : 'StateFlowGUI/State flow robot/Mov1/Ldm theta1'
+ * '<S148>' : 'StateFlowGUI/State flow robot/Mov1/Ldm theta2'
  */
 #endif                                 /* RTW_HEADER_StateFlowGUI_h_ */
