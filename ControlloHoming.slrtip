@@ -329,8 +329,8 @@
           <Property name="Min">-1</Property>
           <Property name="Span">6</Property>
         </Property>
-        <Property name="InnerRadius">58</Property>
-        <Property name="Size">102, 102</Property>
+        <Property name="InnerRadius">60</Property>
+        <Property name="Size">104, 104</Property>
         <Property name="ForeColor">Black</Property>
         <Property name="Location">46, 363</Property>
         <Property name="Name">GaugeAngular1</Property>

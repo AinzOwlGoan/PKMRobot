@@ -32,6 +32,7 @@ H = [0,1;0,0];
 D = [0;1];
 Ht = [0,1;-Kp,-Kd];
 P = eye(2);
+% sbagliati da canellare
 Q1 = -2; % vale per i valori negativi
 p = [Kp^2, -Kd-2*Kp, 1-Q1^2];
 Q2s = roots(p);

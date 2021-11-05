@@ -2914,6 +2914,13 @@ to Degrees1</Name>
 
 		</SubSystem>
 		<SubSystem>
+		<Name>MATLAB Function4</Name>
+		<xPCName>StateFlowGUI/Movimento/MATLAB Function4</xPCName>
+		
+		
+
+		</SubSystem>
+		<SubSystem>
 		<Name>MATLAB Jin</Name>
 		<xPCName>StateFlowGUI/Movimento/MATLAB Jin</xPCName>
 		
@@ -2967,13 +2974,24 @@ to Degrees1</Name>
           </parameter>
           </block>
             <block>
-            <blkName>Memory</blkName>
-            <xpcblkName>Movimento/Memory</xpcblkName>
-            <SLblockPath>StateFlowGUI/Movimento/Memory</SLblockPath>
+            <blkName>Kd1</blkName>
+            <xpcblkName>Movimento/Kd1</xpcblkName>
+            <SLblockPath>StateFlowGUI/Movimento/Kd1</SLblockPath>
             <isSrc>[0 1 1]</isSrc>
           <parameter>
-          <paramName>X0</paramName>
-          <dim>[2, 1]</dim>  
+          <paramName>Gain</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowGUI/Movimento</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Kp1</blkName>
+            <xpcblkName>Movimento/Kp1</xpcblkName>
+            <SLblockPath>StateFlowGUI/Movimento/Kp1</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>Gain</paramName>
+          <dim>[1, 1]</dim>  
 		  <SubSystemName>StateFlowGUI/Movimento</SubSystemName>
           </parameter>
           </block>
@@ -3132,19 +3150,10 @@ to Degrees1</Name>
               <signal>
               <sigName>Dinamica Inversa1/p4</sigName>
               <xpcsigName>Movimento/Dinamica Inversa1/p4</xpcsigName>
-              <sigWidth>2</sigWidth>
-              <sigDim>[2, 1]</sigDim>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
 			  <SubSystemName>StateFlowGUI/Movimento</SubSystemName>
-			  <sigTestPoint>false</sigTestPoint>
-            </signal>
-			  
-			  
-              <signal>
-              <sigName>Dinamica Inversa1/p5</sigName>
-              <xpcsigName>Movimento/Dinamica Inversa1/p5</xpcsigName>
-              <sigWidth>2</sigWidth>
-              <sigDim>[2, 1]</sigDim>
-			  <SubSystemName>StateFlowGUI/Movimento</SubSystemName>
+                <sigLabel>ntilde</sigLabel>
 			  <sigTestPoint>false</sigTestPoint>
             </signal>
 			  
@@ -3170,11 +3179,55 @@ to Degrees1</Name>
 			  
 			  
               <signal>
-              <sigName>MATLAB Function3</sigName>
-              <xpcsigName>Movimento/MATLAB Function3</xpcsigName>
+              <sigName>MATLAB Function3/p1</sigName>
+              <xpcsigName>Movimento/MATLAB Function3/p1</xpcsigName>
+              <sigWidth>4</sigWidth>
+              <sigDim>[4, 1]</sigDim>
+			  <SubSystemName>StateFlowGUI/Movimento</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>MATLAB Function3/p2</sigName>
+              <xpcsigName>Movimento/MATLAB Function3/p2</xpcsigName>
               <sigWidth>1</sigWidth>
               <sigDim>[1, 1]</sigDim>
 			  <SubSystemName>StateFlowGUI/Movimento</SubSystemName>
+                <sigLabel>phi</sigLabel>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>MATLAB Function4/p1</sigName>
+              <xpcsigName>Movimento/MATLAB Function4/p1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowGUI/Movimento</SubSystemName>
+                <sigLabel>Rho</sigLabel>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>MATLAB Function4/p2</sigName>
+              <xpcsigName>Movimento/MATLAB Function4/p2</xpcsigName>
+              <sigWidth>2</sigWidth>
+              <sigDim>[2, 1]</sigDim>
+			  <SubSystemName>StateFlowGUI/Movimento</SubSystemName>
+                <sigLabel>Omega</sigLabel>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>MATLAB Function4/p3</sigName>
+              <xpcsigName>Movimento/MATLAB Function4/p3</xpcsigName>
+              <sigWidth>2</sigWidth>
+              <sigDim>[2, 1]</sigDim>
+			  <SubSystemName>StateFlowGUI/Movimento</SubSystemName>
+                <sigLabel>zV</sigLabel>
 			  <sigTestPoint>false</sigTestPoint>
             </signal>
 			  
@@ -3230,8 +3283,18 @@ to Degrees1</Name>
 			  
 			  
               <signal>
-              <sigName>Memory</sigName>
-              <xpcsigName>Movimento/Memory</xpcsigName>
+              <sigName>Kd1</sigName>
+              <xpcsigName>Movimento/Kd1</xpcsigName>
+              <sigWidth>2</sigWidth>
+              <sigDim>[2, 1]</sigDim>
+			  <SubSystemName>StateFlowGUI/Movimento</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Kp1</sigName>
+              <xpcsigName>Movimento/Kp1</xpcsigName>
               <sigWidth>2</sigWidth>
               <sigDim>[2, 1]</sigDim>
 			  <SubSystemName>StateFlowGUI/Movimento</SubSystemName>
@@ -3296,6 +3359,7 @@ to Degrees1</Name>
               <sigWidth>2</sigWidth>
               <sigDim>[2, 1]</sigDim>
 			  <SubSystemName>StateFlowGUI/Movimento</SubSystemName>
+                <sigLabel>q</sigLabel>
 			  <sigTestPoint>false</sigTestPoint>
             </signal>
 			  
@@ -3303,9 +3367,10 @@ to Degrees1</Name>
               <signal>
               <sigName>Sum5</sigName>
               <xpcsigName>Movimento/Sum5</xpcsigName>
-              <sigWidth>2</sigWidth>
-              <sigDim>[2, 1]</sigDim>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
 			  <SubSystemName>StateFlowGUI/Movimento</SubSystemName>
+                <sigLabel>n-phi</sigLabel>
 			  <sigTestPoint>false</sigTestPoint>
             </signal>
 			  
@@ -3316,6 +3381,18 @@ to Degrees1</Name>
               <sigWidth>2</sigWidth>
               <sigDim>[2, 1]</sigDim>
 			  <SubSystemName>StateFlowGUI/Movimento</SubSystemName>
+                <sigLabel>qdot</sigLabel>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Sum8</sigName>
+              <xpcsigName>Movimento/Sum8</xpcsigName>
+              <sigWidth>2</sigWidth>
+              <sigDim>[2, 1]</sigDim>
+			  <SubSystemName>StateFlowGUI/Movimento</SubSystemName>
+                <sigLabel>YRobusto</sigLabel>
 			  <sigTestPoint>false</sigTestPoint>
             </signal>
 			  
@@ -3326,6 +3403,7 @@ to Degrees1</Name>
               <sigWidth>2</sigWidth>
               <sigDim>[2, 1]</sigDim>
 			  <SubSystemName>StateFlowGUI/Movimento</SubSystemName>
+                <sigLabel>Y</sigLabel>
 			  <sigTestPoint>false</sigTestPoint>
             </signal>
 

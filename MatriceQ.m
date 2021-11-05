@@ -15,6 +15,7 @@ B = A';
 Q = [Q1,Q12,Q13,Q14; Q12,Q2,Q23,Q24;Q13,Q23,Q3,Q34; Q14,Q24,Q34,Q4];
 
 S = A*Q+Q*B;
+% S = B*Q+Q*A; DUBBIO
 
 
 Sp = S*[1;1;1;1];
@@ -34,9 +35,12 @@ eqn10 = 2*(Q24-Kd*Q4) == -1;
 [Sa,Sb] = equationsToMatrix([eqn1,eqn2,eqn3,eqn4,eqn5,eqn6,eqn7,eqn8,eqn9,eqn10],[Q1 Q12 Q13 Q14 Q2 Q23 Q24 Q3 Q34 Q4]);
 
 Soluzioni = linsolve(Sa,Sb);
+
 Q = [ (Kd^2 + Kp^2 + Kp)/(2*Kd*Kp),0 1/(2*Kp),0;
     0, (Kd^2 + Kp^2 + Kp)/(2*Kd*Kp),0, 1/(2*Kp); 
     1/(2*Kp),0, (Kp + 1)/(2*Kd*Kp),0;
     0,1/(2*Kp),0,(Kp + 1)/(2*Kd*Kp)];
 
-final = A*Q+Q*B
+% Q funziona correttamente
+final = A*Q+Q*B; 
+

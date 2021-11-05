@@ -348,16 +348,16 @@ static void c15_update_debugger_state_c15_StateFlowGUI
     _SFD_CS_CALL(STATE_INACTIVE_TAG, 3U, *chartInstance->c15_sfEvent);
   }
 
-  if (*chartInstance->c15_is_c15_StateFlowGUI == c15_IN_Step3) {
-    _SFD_CS_CALL(STATE_ACTIVE_TAG, 12U, *chartInstance->c15_sfEvent);
-  } else {
-    _SFD_CS_CALL(STATE_INACTIVE_TAG, 12U, *chartInstance->c15_sfEvent);
-  }
-
   if (*chartInstance->c15_is_c15_StateFlowGUI == c15_IN_StopPhase) {
     _SFD_CS_CALL(STATE_ACTIVE_TAG, 14U, *chartInstance->c15_sfEvent);
   } else {
     _SFD_CS_CALL(STATE_INACTIVE_TAG, 14U, *chartInstance->c15_sfEvent);
+  }
+
+  if (*chartInstance->c15_is_c15_StateFlowGUI == c15_IN_Step3) {
+    _SFD_CS_CALL(STATE_ACTIVE_TAG, 12U, *chartInstance->c15_sfEvent);
+  } else {
+    _SFD_CS_CALL(STATE_INACTIVE_TAG, 12U, *chartInstance->c15_sfEvent);
   }
 
   _SFD_SET_ANIMATION(c15_prevAniVal);
@@ -916,7 +916,7 @@ static void c15_chartstep_c15_StateFlowGUI(SFc15_StateFlowGUIInstanceStruct
       CV_CHART_EVAL(11, 0, 12);
       _SFD_CT_CALL(TRANSITION_BEFORE_PROCESSING_TAG, 14U,
                    *chartInstance->c15_sfEvent);
-      _SFD_SYMBOL_SCOPE_PUSH_EML(0U, 3U, 3U, c15_eb_debug_family_names,
+      _SFD_SYMBOL_SCOPE_PUSH_EML(0U, 3U, 3U, c15_gb_debug_family_names,
         c15_debug_family_var_map);
       _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(&c15_b_nargin, 0U, c15_sf_marshallOut,
         c15_sf_marshallIn);
@@ -949,7 +949,7 @@ static void c15_chartstep_c15_StateFlowGUI(SFc15_StateFlowGUIInstanceStruct
       chartInstance->c15_dataWrittenToVector[0U] = true;
       _SFD_CT_CALL(TRANSITION_BEFORE_PROCESSING_TAG, 15U,
                    *chartInstance->c15_sfEvent);
-      _SFD_SYMBOL_SCOPE_PUSH_EML(0U, 3U, 3U, c15_y_debug_family_names,
+      _SFD_SYMBOL_SCOPE_PUSH_EML(0U, 3U, 3U, c15_ab_debug_family_names,
         c15_debug_family_var_map);
       _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(&c15_f_nargin, 0U, c15_sf_marshallOut,
         c15_sf_marshallIn);
@@ -981,7 +981,7 @@ static void c15_chartstep_c15_StateFlowGUI(SFc15_StateFlowGUIInstanceStruct
       chartInstance->c15_dataWrittenToVector[0U] = true;
       _SFD_CT_CALL(TRANSITION_BEFORE_PROCESSING_TAG, 18U,
                    *chartInstance->c15_sfEvent);
-      _SFD_SYMBOL_SCOPE_PUSH_EML(0U, 3U, 3U, c15_hb_debug_family_names,
+      _SFD_SYMBOL_SCOPE_PUSH_EML(0U, 3U, 3U, c15_w_debug_family_names,
         c15_debug_family_var_map);
       _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(&c15_d_nargin, 0U, c15_sf_marshallOut,
         c15_sf_marshallIn);
@@ -1029,7 +1029,7 @@ static void c15_chartstep_c15_StateFlowGUI(SFc15_StateFlowGUIInstanceStruct
       chartInstance->c15_dataWrittenToVector[0U] = true;
       _SFD_CT_CALL(TRANSITION_BEFORE_PROCESSING_TAG, 12U,
                    *chartInstance->c15_sfEvent);
-      _SFD_SYMBOL_SCOPE_PUSH_EML(0U, 3U, 3U, c15_w_debug_family_names,
+      _SFD_SYMBOL_SCOPE_PUSH_EML(0U, 3U, 3U, c15_x_debug_family_names,
         c15_debug_family_var_map);
       _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(&c15_g_nargin, 0U, c15_sf_marshallOut,
         c15_sf_marshallIn);
@@ -1076,7 +1076,7 @@ static void c15_chartstep_c15_StateFlowGUI(SFc15_StateFlowGUIInstanceStruct
       } else {
         _SFD_CT_CALL(TRANSITION_BEFORE_PROCESSING_TAG, 17U,
                      *chartInstance->c15_sfEvent);
-        _SFD_SYMBOL_SCOPE_PUSH_EML(0U, 3U, 3U, c15_gb_debug_family_names,
+        _SFD_SYMBOL_SCOPE_PUSH_EML(0U, 3U, 3U, c15_eb_debug_family_names,
           c15_debug_family_var_map);
         _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(&c15_h_nargin, 0U,
           c15_sf_marshallOut, c15_sf_marshallIn);
@@ -1093,7 +1093,7 @@ static void c15_chartstep_c15_StateFlowGUI(SFc15_StateFlowGUIInstanceStruct
           _SFD_CS_CALL(STATE_INACTIVE_TAG, 15U, *chartInstance->c15_sfEvent);
           *chartInstance->c15_is_c15_StateFlowGUI = c15_IN_StopPhase;
           _SFD_CS_CALL(STATE_ACTIVE_TAG, 14U, *chartInstance->c15_sfEvent);
-          _SFD_SYMBOL_SCOPE_PUSH_EML(0U, 2U, 2U, c15_o_debug_family_names,
+          _SFD_SYMBOL_SCOPE_PUSH_EML(0U, 2U, 2U, c15_n_debug_family_names,
             c15_b_debug_family_var_map);
           _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(&c15_l_nargin, 0U,
             c15_sf_marshallOut, c15_sf_marshallIn);
@@ -1248,7 +1248,7 @@ static void c15_OffSet(SFc15_StateFlowGUIInstanceStruct *chartInstance)
   *chartInstance->c15_Bool = 2.0;
   chartInstance->c15_dataWrittenToVector[0U] = true;
   _SFD_CT_CALL(TRANSITION_BEFORE_PROCESSING_TAG, 3U, *chartInstance->c15_sfEvent);
-  _SFD_SYMBOL_SCOPE_PUSH_EML(0U, 3U, 3U, c15_x_debug_family_names,
+  _SFD_SYMBOL_SCOPE_PUSH_EML(0U, 3U, 3U, c15_y_debug_family_names,
     c15_debug_family_var_map);
   _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(&c15_nargin, 0U, c15_sf_marshallOut,
     c15_sf_marshallIn);
@@ -1491,17 +1491,17 @@ static void c15_Controllo(SFc15_StateFlowGUIInstanceStruct *chartInstance)
   boolean_T c15_out;
   *chartInstance->c15_FineLavorazione = 1.0;
   chartInstance->c15_dataWrittenToVector[20U] = true;
+  *chartInstance->c15_Hb = 0.0;
+  chartInstance->c15_dataWrittenToVector[18U] = true;
   *chartInstance->c15_Luci = 5.0;
   chartInstance->c15_dataWrittenToVector[10U] = true;
   *chartInstance->c15_Hv = 0.0;
   chartInstance->c15_dataWrittenToVector[17U] = true;
-  *chartInstance->c15_Hb = 0.0;
-  chartInstance->c15_dataWrittenToVector[18U] = true;
   *chartInstance->c15_Bool = 5.0;
   chartInstance->c15_dataWrittenToVector[0U] = true;
   _SFD_CT_CALL(TRANSITION_BEFORE_PROCESSING_TAG, 16U,
                *chartInstance->c15_sfEvent);
-  _SFD_SYMBOL_SCOPE_PUSH_EML(0U, 3U, 3U, c15_bb_debug_family_names,
+  _SFD_SYMBOL_SCOPE_PUSH_EML(0U, 3U, 3U, c15_fb_debug_family_names,
     c15_debug_family_var_map);
   _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(&c15_nargin, 0U, c15_sf_marshallOut,
     c15_sf_marshallIn);
@@ -1559,11 +1559,11 @@ static void c15_enter_atomic_Coppie(SFc15_StateFlowGUIInstanceStruct
   chartInstance->c15_dataWrittenToVector[12U] = true;
   _SFD_DATA_RANGE_CHECK(*chartInstance->c15_OffB_0, 3U, 4U, 1U,
                         *chartInstance->c15_sfEvent, false);
-  *chartInstance->c15_CoppiaA = 270.0;
+  *chartInstance->c15_CoppiaA = 250.0;
   chartInstance->c15_dataWrittenToVector[7U] = true;
   _SFD_DATA_RANGE_CHECK(*chartInstance->c15_CoppiaA, 28U, 4U, 1U,
                         *chartInstance->c15_sfEvent, false);
-  *chartInstance->c15_CoppiaB = 270.0;
+  *chartInstance->c15_CoppiaB = 250.0;
   chartInstance->c15_dataWrittenToVector[8U] = true;
   _SFD_DATA_RANGE_CHECK(*chartInstance->c15_CoppiaB, 29U, 4U, 1U,
                         *chartInstance->c15_sfEvent, false);
@@ -1846,7 +1846,7 @@ static void c15_SetA1(SFc15_StateFlowGUIInstanceStruct *chartInstance)
   real_T c15_b_nargout = 0.0;
   _SFD_CT_CALL(TRANSITION_BEFORE_PROCESSING_TAG, 11U,
                *chartInstance->c15_sfEvent);
-  _SFD_SYMBOL_SCOPE_PUSH_EML(0U, 3U, 3U, c15_ab_debug_family_names,
+  _SFD_SYMBOL_SCOPE_PUSH_EML(0U, 3U, 3U, c15_bb_debug_family_names,
     c15_debug_family_var_map);
   _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(&c15_nargin, 0U, c15_sf_marshallOut,
     c15_sf_marshallIn);
@@ -2050,16 +2050,16 @@ static void c15_Home(SFc15_StateFlowGUIInstanceStruct *chartInstance)
   real_T c15_d_nargout = 0.0;
   *chartInstance->c15_FineLavorazione = 0.0;
   chartInstance->c15_dataWrittenToVector[20U] = true;
+  *chartInstance->c15_Hb = 0.0;
+  chartInstance->c15_dataWrittenToVector[18U] = true;
   *chartInstance->c15_Luci = 1.0;
   chartInstance->c15_dataWrittenToVector[10U] = true;
   *chartInstance->c15_Hv = 0.0;
   chartInstance->c15_dataWrittenToVector[17U] = true;
-  *chartInstance->c15_Hb = 0.0;
-  chartInstance->c15_dataWrittenToVector[18U] = true;
   *chartInstance->c15_Bool = 1.0;
   chartInstance->c15_dataWrittenToVector[0U] = true;
   _SFD_CT_CALL(TRANSITION_BEFORE_PROCESSING_TAG, 2U, *chartInstance->c15_sfEvent);
-  _SFD_SYMBOL_SCOPE_PUSH_EML(0U, 3U, 3U, c15_fb_debug_family_names,
+  _SFD_SYMBOL_SCOPE_PUSH_EML(0U, 3U, 3U, c15_hb_debug_family_names,
     c15_debug_family_var_map);
   _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(&c15_nargin, 0U, c15_sf_marshallOut,
     c15_sf_marshallIn);
@@ -2086,7 +2086,7 @@ static void c15_Home(SFc15_StateFlowGUIInstanceStruct *chartInstance)
     _SFD_CS_CALL(STATE_INACTIVE_TAG, 3U, *chartInstance->c15_sfEvent);
     *chartInstance->c15_is_c15_StateFlowGUI = c15_IN_Step3;
     _SFD_CS_CALL(STATE_ACTIVE_TAG, 12U, *chartInstance->c15_sfEvent);
-    _SFD_SYMBOL_SCOPE_PUSH_EML(0U, 2U, 2U, c15_n_debug_family_names,
+    _SFD_SYMBOL_SCOPE_PUSH_EML(0U, 2U, 2U, c15_o_debug_family_names,
       c15_b_debug_family_var_map);
     _SFD_SYMBOL_SCOPE_ADD_EML_IMPORTABLE(&c15_c_nargin, 0U, c15_sf_marshallOut,
       c15_sf_marshallIn);
@@ -2570,10 +2570,10 @@ extern void utFree(void*);
 static uint32_T* sf_get_sfun_dwork_checksum(void);
 void sf_c15_StateFlowGUI_get_check_sum(mxArray *plhs[])
 {
-  ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(4240436461U);
-  ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(4254172646U);
-  ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(1478787740U);
-  ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(612244591U);
+  ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(3378910524U);
+  ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(2718394441U);
+  ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(1584904296U);
+  ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(224338977U);
 }
 
 mxArray* sf_c15_StateFlowGUI_get_post_codegen_info(void);
@@ -2587,7 +2587,7 @@ mxArray *sf_c15_StateFlowGUI_get_autoinheritance_info(void)
     autoinheritanceFields);
 
   {
-    mxArray *mxChecksum = mxCreateString("yv0uhaV2eqRlZpqAKgBg7D");
+    mxArray *mxChecksum = mxCreateString("ayzqDGk6QNMbp1fiz3JZ2F");
     mxSetField(mxAutoinheritanceInfo,0,"checksum",mxChecksum);
   }
 
@@ -3592,14 +3592,14 @@ static void chart_debug_initialization(SimStruct *S, unsigned int
 
         _SFD_CV_INIT_TRANS(1,0,NULL,NULL,0,NULL);
         _SFD_CV_INIT_TRANS(0,0,NULL,NULL,0,NULL);
-        _SFD_CV_INIT_TRANS(4,0,NULL,NULL,0,NULL);
         _SFD_CV_INIT_TRANS(6,0,NULL,NULL,0,NULL);
+        _SFD_CV_INIT_TRANS(4,0,NULL,NULL,0,NULL);
         _SFD_CV_INIT_TRANS(5,0,NULL,NULL,0,NULL);
         _SFD_CV_INIT_TRANS(13,0,NULL,NULL,0,NULL);
         _SFD_CV_INIT_TRANS(8,0,NULL,NULL,0,NULL);
         _SFD_CV_INIT_TRANS(10,0,NULL,NULL,0,NULL);
-        _SFD_CV_INIT_TRANS(18,0,NULL,NULL,0,NULL);
         _SFD_CV_INIT_TRANS(12,0,NULL,NULL,0,NULL);
+        _SFD_CV_INIT_TRANS(18,0,NULL,NULL,0,NULL);
         _SFD_CV_INIT_TRANS(3,0,NULL,NULL,0,NULL);
         _SFD_CV_INIT_TRANS(15,0,NULL,NULL,0,NULL);
         _SFD_CV_INIT_TRANS(11,0,NULL,NULL,0,NULL);
@@ -3624,8 +3624,8 @@ static void chart_debug_initialization(SimStruct *S, unsigned int
         _SFD_CV_INIT_EML(8,1,0,0,0,0,0,0,0,0,0,0);
         _SFD_CV_INIT_EML(7,1,0,0,0,0,0,0,0,0,0,0);
         _SFD_CV_INIT_EML(3,1,0,0,0,0,0,0,0,0,0,0);
-        _SFD_CV_INIT_EML(12,1,0,0,0,0,0,0,0,0,0,0);
         _SFD_CV_INIT_EML(14,1,0,0,0,0,0,0,0,0,0,0);
+        _SFD_CV_INIT_EML(12,1,0,0,0,0,0,0,0,0,0,0);
         _SFD_CV_INIT_EML(0,0,0,0,1,0,0,0,0,0,2,1);
         _SFD_CV_INIT_EML_IF(0,0,0,1,27,1,27);
 
@@ -3673,6 +3673,9 @@ static void chart_debug_initialization(SimStruct *S, unsigned int
         _SFD_CV_INIT_EML(10,0,0,0,1,0,0,0,0,0,0,0);
         _SFD_CV_INIT_EML_IF(10,0,0,1,8,1,8);
         _SFD_CV_INIT_EML_RELATIONAL(10,0,0,1,8,-1,0);
+        _SFD_CV_INIT_EML(18,0,0,0,1,0,0,0,0,0,0,0);
+        _SFD_CV_INIT_EML_IF(18,0,0,1,17,1,17);
+        _SFD_CV_INIT_EML_RELATIONAL(18,0,0,1,17,-1,0);
         _SFD_CV_INIT_EML(12,0,0,0,1,0,0,0,0,0,0,0);
         _SFD_CV_INIT_EML_IF(12,0,0,0,13,0,13);
         _SFD_CV_INIT_EML(3,0,0,0,1,0,0,0,0,0,0,0);
@@ -3684,6 +3687,15 @@ static void chart_debug_initialization(SimStruct *S, unsigned int
         _SFD_CV_INIT_EML(11,0,0,0,1,0,0,0,0,0,0,0);
         _SFD_CV_INIT_EML_IF(11,0,0,1,8,1,8);
         _SFD_CV_INIT_EML_RELATIONAL(11,0,0,1,8,-1,0);
+        _SFD_CV_INIT_EML(9,0,0,0,1,0,0,0,0,0,0,0);
+        _SFD_CV_INIT_EML_IF(9,0,0,1,33,1,33);
+        _SFD_CV_INIT_EML_RELATIONAL(9,0,0,1,33,-1,5);
+        _SFD_CV_INIT_EML(7,0,0,0,1,0,0,0,0,0,0,0);
+        _SFD_CV_INIT_EML_IF(7,0,0,1,32,1,32);
+        _SFD_CV_INIT_EML_RELATIONAL(7,0,0,1,32,-1,5);
+        _SFD_CV_INIT_EML(17,0,0,0,1,0,0,0,0,0,0,0);
+        _SFD_CV_INIT_EML_IF(17,0,0,1,17,1,17);
+        _SFD_CV_INIT_EML_RELATIONAL(17,0,0,1,17,-1,0);
         _SFD_CV_INIT_EML(16,0,0,0,1,0,0,0,0,0,3,1);
         _SFD_CV_INIT_EML_IF(16,0,0,1,51,1,48);
 
@@ -3700,12 +3712,6 @@ static void chart_debug_initialization(SimStruct *S, unsigned int
 
         _SFD_CV_INIT_EML_RELATIONAL(16,0,0,18,31,-1,0);
         _SFD_CV_INIT_EML_RELATIONAL(16,0,1,35,51,-1,0);
-        _SFD_CV_INIT_EML(9,0,0,0,1,0,0,0,0,0,0,0);
-        _SFD_CV_INIT_EML_IF(9,0,0,1,33,1,33);
-        _SFD_CV_INIT_EML_RELATIONAL(9,0,0,1,33,-1,5);
-        _SFD_CV_INIT_EML(7,0,0,0,1,0,0,0,0,0,0,0);
-        _SFD_CV_INIT_EML_IF(7,0,0,1,32,1,32);
-        _SFD_CV_INIT_EML_RELATIONAL(7,0,0,1,32,-1,5);
         _SFD_CV_INIT_EML(14,0,0,0,1,0,0,0,0,0,0,0);
         _SFD_CV_INIT_EML_IF(14,0,0,1,6,1,6);
         _SFD_CV_INIT_EML_RELATIONAL(14,0,0,1,6,-1,0);
@@ -3725,12 +3731,6 @@ static void chart_debug_initialization(SimStruct *S, unsigned int
 
         _SFD_CV_INIT_EML_RELATIONAL(2,0,0,1,7,-1,0);
         _SFD_CV_INIT_EML_RELATIONAL(2,0,1,11,17,-1,0);
-        _SFD_CV_INIT_EML(17,0,0,0,1,0,0,0,0,0,0,0);
-        _SFD_CV_INIT_EML_IF(17,0,0,1,17,1,17);
-        _SFD_CV_INIT_EML_RELATIONAL(17,0,0,1,17,-1,0);
-        _SFD_CV_INIT_EML(18,0,0,0,1,0,0,0,0,0,0,0);
-        _SFD_CV_INIT_EML_IF(18,0,0,1,17,1,17);
-        _SFD_CV_INIT_EML_RELATIONAL(18,0,0,1,17,-1,0);
         _SFD_SET_DATA_COMPILED_PROPS(0,SF_DOUBLE,0,NULL,0,0,0,0.0,1.0,0,0,
           (MexFcnForType)c15_sf_marshallOut,(MexInFcnForType)c15_sf_marshallIn);
         _SFD_SET_DATA_COMPILED_PROPS(1,SF_DOUBLE,0,NULL,0,0,0,0.0,1.0,0,0,
@@ -3884,7 +3884,7 @@ static void chart_debug_initialize_data_addresses(SimStruct *S)
 
 static const char* sf_get_instance_specialization(void)
 {
-  return "sFvwTuLIC3XsT62RMYPbukD";
+  return "sBauVCQFxkqKoWDLMCpHMzE";
 }
 
 static void sf_check_dwork_consistency(SimStruct *S)
@@ -4098,10 +4098,10 @@ static void mdlSetWorkWidths_c15_StateFlowGUI(SimStruct *S)
   }
 
   ssSetOptions(S,ssGetOptions(S)|SS_OPTION_WORKS_WITH_CODE_REUSE);
-  ssSetChecksum0(S,(3325204799U));
-  ssSetChecksum1(S,(4087999845U));
-  ssSetChecksum2(S,(2563082398U));
-  ssSetChecksum3(S,(3916162254U));
+  ssSetChecksum0(S,(2880646766U));
+  ssSetChecksum1(S,(1547807344U));
+  ssSetChecksum2(S,(960567250U));
+  ssSetChecksum3(S,(1841713022U));
   ssSetmdlDerivatives(S, NULL);
   ssSetExplicitFCSSCtrl(S,1);
   ssSetStateSemanticsClassicAndSynchronous(S, true);
