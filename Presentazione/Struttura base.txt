@@ -1,0 +1,24 @@
+Settore di ricerca: Il progetto di tesi presentato in questo elaborato si inserisce in un ambito di ricerca più ampio che ha come oggetto d'indagine la dinamica dei sistemi di azionamento e delle trasmissioni. 
+Nello specifico il banco prova è stato progettato per testare la rigidezza delle viti a ricircolo di sfere.
+
+Suddivisione del lavoro: Modellazione manipolatore, attività sperimentale
+
+Modellazione: cinematica, dinamica, cinetostatica + singolarità,  braccia + vite
+Attività sperimentale: progettazione controllore, modello del manipolatore, altro
+
+Manipolatore: foto + componenti 
+Modello braccia + modello vite -> inserisci anche equazioni
+
+Parte di controllo: inserisci schemi di controllo 
+
+Software realizzato: stateflow + schemi di controllo , + interfaccia grafica
+
+Test effettuati, confronto tra controlli
+
+Conclusioni e sviluppi futuri
+
+-----------
+Cosa è il dispositivo?
+Come lo controlliamo? PC Utente -> PC Target, protocollo ethercat, pdo ed IP
+
+Obiettivo della tesi

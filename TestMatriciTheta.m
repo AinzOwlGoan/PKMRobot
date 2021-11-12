@@ -5,12 +5,13 @@ me = 0.36;
 pv = 0.02;
 Jv = 6.4e-06;
 J = 5.22e-02;
-theta1s = linspace(deg2rad(90),deg2rad(110),100);
-theta2s = linspace(deg2rad(70),deg2rad(90),100);
-theta1_p = pi/2;
-theta1_pp = pi/4;
-theta2_p = pi/2;
-theta2_pp = pi/4;
+theta1s = linspace(deg2rad(95),deg2rad(125),100);
+theta2s = linspace(1.08,deg2rad(85),100);
+theta1_p = 0.5;
+theta2_p = 0.5;
+
+theta1_pp = 1.1;
+theta2_pp = 1.1;
 Mfin = zeros(100);
 Mnorm = zeros(100);
 Determinante = zeros(100);
@@ -22,11 +23,11 @@ Ksomma = [0;0];
 %% PARAMETRI CONTROLLO ROBUSTO
 Kd = 5;
 Kp = 3000;
-Maxnorm =  1.4604e+04;
-Minnorm =  9.5631e+03;
+Maxnorm =  3.3415; %1.4604e+04;
+Minnorm =  0.0012; %9.5631e+03;
 alpha = (Maxnorm-Minnorm)/(Maxnorm+Minnorm);
 Mcap = 2/(Maxnorm+Minnorm)*eye(2);
-Qm = 1.5;
+
 Kmean = 1e-03*[0.2485; -0.2483];
 H = [0,1;0,0];
 D = [0;1];
@@ -145,31 +146,29 @@ JE = [ -l*(sin(theta1)+sin(theta3)*J34(1,1)), -l*(sin(theta3)*J34(1,2));
 JEp = [ -l*(cos(theta1)*theta1_p+cos(theta3)*theta3_p*J34(1,1)+sin(theta3)*J34p(1,1)), -l*(cos(theta3)*theta3_p*J34(1,2)+sin(theta3)*J34p(1,2));
         l*(-sin(theta1)*theta1_p-sin(theta3)*theta3_p*J34(1,1)+cos(theta3)*J34p(1,1)), l*(-sin(theta3)*theta3_p*J34(1,2)+cos(theta3)*J34p(1,2))];
   
-  
+Jm = [1.7e-05, 0; 0, 1.7e-05]*64^2;
+J = J+Jm;
+
 M = (J*eye(2) + m*(J1')*J1 + m*(J2')*J2 + J*(J34')*J34 + m*(J3')*J3 + m*(J4')*J4 + me*(JE')*JE);
 K = (m*(J1')*J1p + m*(J2')*J2p + J*(J34')*J34p + m*(J3')*J3p + m*(J4')*J4p + me*(JE')*JEp);
-Jm = [1.7e-05, 0; 0, 1.7e-05];
-Jtrasm = [1/64, 0; 0, 1/64];
-Thetam_pp = Jtrasm^-1*[theta1_pp; theta2_pp];
-Thetam_p = Jtrasm^-1*[theta1_p; theta2_p];
+
+%Jtrasm = [1/64, 0; 0, 1/64];
+%Thetam_pp = Jtrasm^-1*[theta1_pp; theta2_pp];
+%Thetam_p = Jtrasm^-1*[theta1_p; theta2_p];
 
 
-Mm = (M*(Jtrasm)^2 + Jm);
-Mnorm(i,j) = norm(((Mm)^-1),Inf);
+%Mm = (M*(Jtrasm)^2 + Jm);
+Mnorm(i,j) = norm(((M)^-1));
 
-Mfin(i,j) = norm(Mm^-1*Mcap-eye(2));
-Km = (K*(Jtrasm)^2);
-Kf = Km*Thetam_p;
+Mfin(i,j) = norm(M^-1*Mcap-eye(2));
+Km = (K);
+Theta_p = [theta1_p;theta2_pp];
+Kf = Km*Theta_p;
 
 Ksomma = Ksomma+Kf;
 
 %Knorm(i,j) =Knorm(i,j)+Kf;
 
-Cm = Mm*Thetam_pp  +  Km*Thetam_p;
-
-if i == 1 && j == 1
-    Ms = Mm;
-end
 % Mm_ = Jm;
 % DMm = Mm-Jm;
 % D = DMm*Thetam_pp + Km*Thetam_p;
@@ -183,14 +182,14 @@ end
 Km = Ksomma/(100*100)
 norm(Km);
 
-% [xsgrid, ysgrid] = meshgrid(theta1s,theta2s);
+ [xsgrid, ysgrid] = meshgrid(theta1s,theta2s);
 % contourf(xsgrid,ysgrid,Kfin);
 % colorbar
 % 
 % figure
-% Mfin(Mfin>alpha) = 0.23;
-% contourf(xsgrid,ysgrid,Mfin);
-% colorbar
+ %Mfin(Mfin>alpha) = 0.23;
+ scatter3(xsgrid(:),ysgrid(:),Mfin(:));
+ colorbar
 
 
 % figure

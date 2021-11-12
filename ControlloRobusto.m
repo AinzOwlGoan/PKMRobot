@@ -1,18 +1,15 @@
 
 % Mm e Nm si riescono a ricavare dallo script TestMatriciTheta
 
-Maxnorm =  1.4604e+04;
-Minnorm =  9.5631e+03;
+Maxnorm =  3.3415; %1.4604e+04;
+Minnorm =  0.0012; %9.5631e+03;
 alpha = (Maxnorm-Minnorm)/(Maxnorm+Minnorm);
 Mhat = 2/(Maxnorm+Minnorm)*eye(2);
 
 % Calcolo Phi(||Csi||)
-alpha0 = 0.0005;
-alpha1 = 0.002;
-alpha2 = -0.000015;
-
-q =  [0.003;-0.002];
-qdot = [0.01;-0.0005];
+alpha0 = 0.05;
+alpha1 = 0.02;
+alpha2 = -0.0015;
 
 csiH = 1*[q;qdot];
 y = norm(csiH);
@@ -35,7 +32,7 @@ Q = [ (Kd^2 + Kp^2 + Kp)/(2*Kd*Kp),0 1/(2*Kp),0;
 D = [zeros(2);eye(2)];
 z = D'*Q*csiH; % Il risultato ? una 2x1 [2x4][4x4][4x1]
 zV = z/norm(z);
-Qm = pi/2;
+Qm = 1.1;
 % norma di omega = rho
 K = [Kp,0,Kd,0; 0,Kp,0,Kd];
 %y = theta_pp + K*csiH+omega;
