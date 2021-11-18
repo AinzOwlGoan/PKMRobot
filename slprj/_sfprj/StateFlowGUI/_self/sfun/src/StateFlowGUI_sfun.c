@@ -173,7 +173,7 @@ unsigned int sf_StateFlowGUI_autoinheritance_info( int nlhs, mxArray * plhs[],
     switch (chartFileNumber) {
      case 15:
       {
-        if (strcmp(aiChksum, "ayzqDGk6QNMbp1fiz3JZ2F") == 0) {
+        if (strcmp(aiChksum, "gSLl7Uvi9LQSujcQMTdtQB") == 0) {
           extern mxArray *sf_c15_StateFlowGUI_get_autoinheritance_info(void);
           plhs[0] = sf_c15_StateFlowGUI_get_autoinheritance_info();
           break;
@@ -266,7 +266,7 @@ unsigned int sf_StateFlowGUI_third_party_uses_info( int nlhs, mxArray * plhs[],
     switch (chartFileNumber) {
      case 15:
       {
-        if (strcmp(tpChksum, "sBauVCQFxkqKoWDLMCpHMzE") == 0) {
+        if (strcmp(tpChksum, "s4OvS7UfGIprGmlyCz6rjO") == 0) {
           extern mxArray *sf_c15_StateFlowGUI_third_party_uses_info(void);
           plhs[0] = sf_c15_StateFlowGUI_third_party_uses_info();
           break;
@@ -303,7 +303,7 @@ unsigned int sf_StateFlowGUI_jit_fallback_info( int nlhs, mxArray * plhs[], int
     switch (chartFileNumber) {
      case 15:
       {
-        if (strcmp(tpChksum, "sBauVCQFxkqKoWDLMCpHMzE") == 0) {
+        if (strcmp(tpChksum, "s4OvS7UfGIprGmlyCz6rjO") == 0) {
           extern mxArray *sf_c15_StateFlowGUI_jit_fallback_info(void);
           plhs[0] = sf_c15_StateFlowGUI_jit_fallback_info();
           break;
@@ -340,7 +340,7 @@ unsigned int sf_StateFlowGUI_updateBuildInfo_args_info( int nlhs, mxArray *
     switch (chartFileNumber) {
      case 15:
       {
-        if (strcmp(tpChksum, "sBauVCQFxkqKoWDLMCpHMzE") == 0) {
+        if (strcmp(tpChksum, "s4OvS7UfGIprGmlyCz6rjO") == 0) {
           extern mxArray *sf_c15_StateFlowGUI_updateBuildInfo_args_info(void);
           plhs[0] = sf_c15_StateFlowGUI_updateBuildInfo_args_info();
           break;
@@ -358,7 +358,7 @@ unsigned int sf_StateFlowGUI_updateBuildInfo_args_info( int nlhs, mxArray *
 void StateFlowGUI_debug_initialize(struct SfDebugInstanceStruct* debugInstance)
 {
   _StateFlowGUIMachineNumber_ = sf_debug_initialize_machine(debugInstance,
-    "StateFlowGUI","sfun",0,46,0,0,0);
+    "StateFlowGUI","sfun",0,51,0,0,0);
   sf_debug_set_machine_event_thresholds(debugInstance,
     _StateFlowGUIMachineNumber_,0,0);
   sf_debug_set_machine_data_thresholds(debugInstance,_StateFlowGUIMachineNumber_,

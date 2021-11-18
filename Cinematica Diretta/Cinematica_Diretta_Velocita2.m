@@ -1,6 +1,7 @@
 function [P_p,J,P_pM] = Cinematica_Diretta_Velocita2(PKM, theta1ldm,theta2ldm, theta1_p,theta2_p,P)
-%CINEMATICA_DIRETTA_VELOCITA_1000 Calcolo della velocità a partire dalle
+%CINEMATICA_DIRETTA_VELOCITA_1000 Calcolo della velocit?? a partire dalle
 %derivate
+
 d = PKM.link.d;
 l = PKM.link.l;
 for i=1:length(theta1_p)

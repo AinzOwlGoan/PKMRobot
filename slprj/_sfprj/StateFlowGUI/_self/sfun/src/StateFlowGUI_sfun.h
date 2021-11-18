@@ -22,9 +22,6 @@
 struct SfDebugInstanceStruct;
 extern struct SfDebugInstanceStruct* sfGlobalDebugInstanceStruct;
 
-/* Auxiliary Header Files */
-#include "blas.h"
-
 /* Type Definitions */
 
 /* Named Constants */

@@ -1,6 +1,23 @@
 
   <Object type="Desktop.Xpc.Designer.InstrumentPanel, Desktop.Xpc.Designer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ControlloHoming" children="Controls">
     <Object type="MW.Instruments.Panel, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Panel1" children="Controls">
+      <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="Label2147483623" children="Controls">
+        <Property name="Text">Tempo esecuzione</Property>
+        <Property name="UseCompatibleTextRendering">True</Property>
+        <Property name="Location">487, 473</Property>
+        <Property name="Name">Label2147483623</Property>
+        <Property name="Size">148, 23</Property>
+      </Object>
+      <Object type="MW.Instruments.NumericDisplay, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="NumericDisplay18" children="Controls">
+        <Property name="BindingSrcType">Signal</Property>
+        <Property name="OutputValue">0</Property>
+        <Property name="BindingSrcPath">Sistema Vite/Clock reale/Sum2</Property>
+        <Property name="BindingSrcObject" />
+        <Property name="TargetName">TargetPC1</Property>
+        <Property name="Size">100, 29</Property>
+        <Property name="Location">641, 467</Property>
+        <Property name="Name">NumericDisplay18</Property>
+      </Object>
       <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="Label2147483624" children="Controls">
         <Property name="Text">Errore Pos</Property>
         <Property name="UseCompatibleTextRendering">True</Property>
@@ -11,7 +28,7 @@
       <Object type="MW.Instruments.NumericDisplay, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="NumericDisplay17" children="Controls">
         <Property name="BindingSrcType">Signal</Property>
         <Property name="OutputValue">0</Property>
-        <Property name="BindingSrcPath">Movimento/Sum4/s1</Property>
+        <Property name="BindingSrcPath">Sistema_braccia/Sum4/s1</Property>
         <Property name="BindingSrcObject" />
         <Property name="TargetName">TargetPC1</Property>
         <Property name="TextFormatting">
@@ -32,7 +49,7 @@
       <Object type="MW.Instruments.NumericDisplay, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="NumericDisplay16" children="Controls">
         <Property name="BindingSrcType">Signal</Property>
         <Property name="OutputValue">0</Property>
-        <Property name="BindingSrcPath">Movimento/Sum7/s1</Property>
+        <Property name="BindingSrcPath">Sistema_braccia/Sum7/s1</Property>
         <Property name="BindingSrcObject" />
         <Property name="TargetName">TargetPC1</Property>
         <Property name="TextFormatting">
@@ -60,7 +77,7 @@
       <Object type="MW.Instruments.NumericDisplay, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="NumericDisplay14" children="Controls">
         <Property name="BindingSrcType">Signal</Property>
         <Property name="OutputValue">0</Property>
-        <Property name="BindingSrcPath">Movimento/Cinematica Inversa Acc/p2</Property>
+        <Property name="BindingSrcPath">Sistema_braccia/Cinematica Inversa Acc/p2</Property>
         <Property name="BindingSrcObject" />
         <Property name="TargetName">TargetPC1</Property>
         <Property name="TextFormatting">
@@ -75,7 +92,7 @@
       <Object type="MW.Instruments.NumericDisplay, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="NumericDisplay15" children="Controls">
         <Property name="BindingSrcType">Signal</Property>
         <Property name="OutputValue">0</Property>
-        <Property name="BindingSrcPath">Movimento/Cinematica Inversa Acc/p1</Property>
+        <Property name="BindingSrcPath">Sistema_braccia/Cinematica Inversa Acc/p1</Property>
         <Property name="BindingSrcObject" />
         <Property name="TargetName">TargetPC1</Property>
         <Property name="TextFormatting">
@@ -104,7 +121,7 @@
       <Object type="MW.Instruments.NumericDisplay, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="NumericDisplay12" children="Controls">
         <Property name="BindingSrcType">Signal</Property>
         <Property name="OutputValue">0</Property>
-        <Property name="BindingSrcPath">Movimento/Cinematica Inversa vel/p2</Property>
+        <Property name="BindingSrcPath">Sistema_braccia/Cinematica Inversa vel/p2</Property>
         <Property name="BindingSrcObject" />
         <Property name="TargetName">TargetPC1</Property>
         <Property name="TextFormatting">
@@ -119,7 +136,7 @@
       <Object type="MW.Instruments.NumericDisplay, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="NumericDisplay13" children="Controls">
         <Property name="BindingSrcType">Signal</Property>
         <Property name="OutputValue">0</Property>
-        <Property name="BindingSrcPath">Movimento/Cinematica Inversa vel/p1</Property>
+        <Property name="BindingSrcPath">Sistema_braccia/Cinematica Inversa vel/p1</Property>
         <Property name="BindingSrcObject" />
         <Property name="TargetName">TargetPC1</Property>
         <Property name="TextFormatting">
@@ -148,7 +165,7 @@
       <Object type="MW.Instruments.NumericDisplay, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="NumericDisplay10" children="Controls">
         <Property name="BindingSrcType">Signal</Property>
         <Property name="OutputValue">0</Property>
-        <Property name="BindingSrcPath">Movimento/Radians to Degrees1/Gain</Property>
+        <Property name="BindingSrcPath">Sistema_braccia/Radians to Degrees1/Gain</Property>
         <Property name="BindingSrcObject" />
         <Property name="TargetName">TargetPC1</Property>
         <Property name="TextFormatting">
@@ -163,7 +180,7 @@
       <Object type="MW.Instruments.NumericDisplay, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="NumericDisplay11" children="Controls">
         <Property name="BindingSrcType">Signal</Property>
         <Property name="OutputValue">0</Property>
-        <Property name="BindingSrcPath">Movimento/Radians to Degrees/Gain</Property>
+        <Property name="BindingSrcPath">Sistema_braccia/Radians to Degrees/Gain</Property>
         <Property name="BindingSrcObject" />
         <Property name="TargetName">TargetPC1</Property>
         <Property name="TextFormatting">
@@ -230,7 +247,7 @@
       <Object type="MW.Instruments.NumericDisplay, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="NumericDisplay7" children="Controls">
         <Property name="BindingSrcType">Signal</Property>
         <Property name="OutputValue">0</Property>
-        <Property name="BindingSrcPath">Movimento/Sum1</Property>
+        <Property name="BindingSrcPath">Sistema_braccia/Sum1</Property>
         <Property name="BindingSrcObject" />
         <Property name="TargetName">TargetPC1</Property>
         <Property name="TextFormatting">
@@ -244,7 +261,7 @@
       <Object type="MW.Instruments.NumericDisplay, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="NumericDisplay8" children="Controls">
         <Property name="BindingSrcType">Signal</Property>
         <Property name="OutputValue">0</Property>
-        <Property name="BindingSrcPath">Movimento/Sum</Property>
+        <Property name="BindingSrcPath">Sistema_braccia/Sum</Property>
         <Property name="BindingSrcObject" />
         <Property name="TargetName">TargetPC1</Property>
         <Property name="TextFormatting">
@@ -306,7 +323,7 @@
         <Property name="Size">107, 23</Property>
       </Object>
       <Object type="MW.Instruments.NumericalUpDownEntry, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="NumericalUpDownEntry1" children="Controls">
-        <Property name="BindingSrcPath">Movimento/selettore/Value</Property>
+        <Property name="BindingSrcPath">Sistema_braccia/selettore/Value</Property>
         <Property name="TargetName">TargetPC1</Property>
         <Property name="BindingSrcType">Parameter</Property>
         <Property name="Location">641, 417</Property>
@@ -329,8 +346,8 @@
           <Property name="Min">-1</Property>
           <Property name="Span">6</Property>
         </Property>
-        <Property name="InnerRadius">60</Property>
-        <Property name="Size">104, 104</Property>
+        <Property name="InnerRadius">65</Property>
+        <Property name="Size">109, 109</Property>
         <Property name="ForeColor">Black</Property>
         <Property name="Location">46, 363</Property>
         <Property name="Name">GaugeAngular1</Property>

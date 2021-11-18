@@ -7,9 +7,9 @@
  *
  * Code generation for model "StateFlowGUI".
  *
- * Model version              : 1.799
+ * Model version              : 1.845
  * Simulink Coder version : 8.12 (R2017a) 16-Feb-2017
- * C source code generated on : Fri Nov 05 12:06:47 2021
+ * C source code generated on : Thu Nov 18 17:23:28 2021
  *
  * Target selection: slrt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -35,15 +35,17 @@ extern const serialfifoptr serialfifoground;
 extern const bcmsglist1553 bcmsg1553ground;
 extern const bcstatus1553 bcstatground;
 extern const bmmsglist1553 bmmsg1553ground;
-extern real_T rt_powd_snf(real_T u0, real_T u1);
 extern real_T rt_atan2d_snf(real_T u0, real_T u1);
+extern real_T rt_powd_snf(real_T u0, real_T u1);
 extern void xpcethercatpdotx(SimStruct *rts);
 extern void xpcethercatpdorx(SimStruct *rts);
+extern void StateFlowGUI_AsseBconvbrac1(real_T rtu_p,
+  B_AsseBconvbrac1_StateFlowGUI_T *localB);
+extern void StateFlowGUI_CinematicaInversa(real_T rtu_x, real_T rtu_y,
+  B_CinematicaInversa_StateFlow_T *localB);
 extern void StateFlowG_CinematicaInversavel(real_T rtu_theta1, real_T rtu_theta2,
   real_T rtu_x, real_T rtu_y, real_T rtu_xp, real_T rtu_yp,
   B_CinematicaInversavel_StateF_T *localB);
-extern void StateFlowGUI_AsseAconvbracc(real_T rtu_p,
-  B_AsseAconvbracc_StateFlowGUI_T *localB);
 extern void StateFlowGUI_VelAsseAconv(real_T rtu_vA,
   B_VelAsseAconv_StateFlowGUI_T *localB);
 extern void StateFlowGUI_VelAsseBconv(real_T rtu_p,
