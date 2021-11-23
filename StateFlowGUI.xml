@@ -2281,22 +2281,6 @@ Switch</sigName>
           </parameter>
           </block>
             <block>
-            <blkName>Coppia A vite saturata</blkName>
-            <xpcblkName>Out asse A Vite/Coppia A vite saturata</xpcblkName>
-            <SLblockPath>StateFlowGUI/Out asse A Vite/Coppia A vite saturata</SLblockPath>
-            <isSrc>[0 1 1]</isSrc>
-          <parameter>
-          <paramName>UpperLimit</paramName>
-          <dim>[1, 1]</dim>  
-		  <SubSystemName>StateFlowGUI/Out asse A Vite</SubSystemName>
-          </parameter>
-          <parameter>
-          <paramName>LowerLimit</paramName>
-          <dim>[1, 1]</dim>  
-		  <SubSystemName>StateFlowGUI/Out asse A Vite</SubSystemName>
-          </parameter>
-          </block>
-            <block>
             <blkName>Torque send</blkName>
             <xpcblkName>Out asse A Vite/Torque send</xpcblkName>
             <SLblockPath>StateFlowGUI/Out asse A Vite/Torque send</SLblockPath>
@@ -2363,16 +2347,6 @@ Switch</sigName>
               <signal>
               <sigName>Gain</sigName>
               <xpcsigName>Out asse A Vite/Gain</xpcsigName>
-              <sigWidth>1</sigWidth>
-              <sigDim>[1, 1]</sigDim>
-			  <SubSystemName>StateFlowGUI/Out asse A Vite</SubSystemName>
-			  <sigTestPoint>false</sigTestPoint>
-            </signal>
-			  
-			  
-              <signal>
-              <sigName>Coppia A vite saturata</sigName>
-              <xpcsigName>Out asse A Vite/Coppia A vite saturata</xpcsigName>
               <sigWidth>1</sigWidth>
               <sigDim>[1, 1]</sigDim>
 			  <SubSystemName>StateFlowGUI/Out asse A Vite</SubSystemName>
@@ -2534,6 +2508,22 @@ Switch</sigName>
           </parameter>
           </block>
             <block>
+            <blkName>Coppia A vite saturata</blkName>
+            <xpcblkName>Out asse B Vite/Coppia A vite saturata</xpcblkName>
+            <SLblockPath>StateFlowGUI/Out asse B Vite/Coppia A vite saturata</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>UpperLimit</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowGUI/Out asse B Vite</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>LowerLimit</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowGUI/Out asse B Vite</SubSystemName>
+          </parameter>
+          </block>
+            <block>
             <blkName>EtherCAT PDO Transmit 2</blkName>
             <xpcblkName>Out asse B Vite/EtherCAT PDO Transmit 2</xpcblkName>
             <SLblockPath>StateFlowGUI/Out asse B Vite/EtherCAT PDO Transmit 2</SLblockPath>
@@ -2590,6 +2580,16 @@ Switch</sigName>
               <signal>
               <sigName>Convert B</sigName>
               <xpcsigName>Out asse B Vite/Convert B</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowGUI/Out asse B Vite</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Coppia A vite saturata</sigName>
+              <xpcsigName>Out asse B Vite/Coppia A vite saturata</xpcsigName>
               <sigWidth>1</sigWidth>
               <sigDim>[1, 1]</sigDim>
 			  <SubSystemName>StateFlowGUI/Out asse B Vite</SubSystemName>
@@ -3613,6 +3613,28 @@ Switch</sigName>
           </parameter>
           </block>
             <block>
+            <blkName>N giri1</blkName>
+            <xpcblkName>Sistema_braccia/Leggi di moto/N giri1</xpcblkName>
+            <SLblockPath>StateFlowGUI/Sistema_braccia/Leggi di moto/N giri1</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowGUI/Sistema_braccia/Leggi di moto</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>N giri2</blkName>
+            <xpcblkName>Sistema_braccia/Leggi di moto/N giri2</xpcblkName>
+            <SLblockPath>StateFlowGUI/Sistema_braccia/Leggi di moto/N giri2</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowGUI/Sistema_braccia/Leggi di moto</SubSystemName>
+          </parameter>
+          </block>
+            <block>
             <blkName>Periodo</blkName>
             <xpcblkName>Sistema_braccia/Leggi di moto/Periodo</xpcblkName>
             <SLblockPath>StateFlowGUI/Sistema_braccia/Leggi di moto/Periodo</SLblockPath>
@@ -3668,9 +3690,53 @@ Switch</sigName>
           </parameter>
           </block>
             <block>
+            <blkName>Rmax1</blkName>
+            <xpcblkName>Sistema_braccia/Leggi di moto/Rmax1</xpcblkName>
+            <SLblockPath>StateFlowGUI/Sistema_braccia/Leggi di moto/Rmax1</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowGUI/Sistema_braccia/Leggi di moto</SubSystemName>
+          </parameter>
+          </block>
+            <block>
             <blkName>Rmin</blkName>
             <xpcblkName>Sistema_braccia/Leggi di moto/Rmin</xpcblkName>
             <SLblockPath>StateFlowGUI/Sistema_braccia/Leggi di moto/Rmin</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowGUI/Sistema_braccia/Leggi di moto</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Rmin1</blkName>
+            <xpcblkName>Sistema_braccia/Leggi di moto/Rmin1</xpcblkName>
+            <SLblockPath>StateFlowGUI/Sistema_braccia/Leggi di moto/Rmin1</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowGUI/Sistema_braccia/Leggi di moto</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Rmin2</blkName>
+            <xpcblkName>Sistema_braccia/Leggi di moto/Rmin2</xpcblkName>
+            <SLblockPath>StateFlowGUI/Sistema_braccia/Leggi di moto/Rmin2</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowGUI/Sistema_braccia/Leggi di moto</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Rmin3</blkName>
+            <xpcblkName>Sistema_braccia/Leggi di moto/Rmin3</xpcblkName>
+            <SLblockPath>StateFlowGUI/Sistema_braccia/Leggi di moto/Rmin3</SLblockPath>
             <isSrc>[1 0 1]</isSrc>
           <parameter>
           <paramName>Value</paramName>

@@ -95,14 +95,16 @@ plot(x1,y1,'linewidth',2,'color',[0, 0.4470, 0.7410])
 hold on
 plot(x2,y2,'linewidth',2,'color',[0.8500, 0.3250, 0.0980])
 hold on
+
+%plot(x5p,y5p,'-o','linewidth',2,'color','green')
+scatter(x5m,y5m,[],[0.4660 0.6740 0.1880])
+hold on
 plot(x3,y3,'-o','linewidth',2)
 hold on
 plot(x4,y4,'-o','linewidth',2)
 hold on
-%plot(x5p,y5p,'-o','linewidth',2,'color','green')
-scatter(x5m,y5m)
-hold on
-plot(x6,y6p,'-o','linewidth',2,'color',[0.3010, 0.7450, 0.9330])
+rectangle('Position', [-0.1,0.3, 0.2,0.15],'linewidth',2)
+    %plot(x6,y6p,'-o','linewidth',2,'color',[0.3010, 0.7450, 0.9330])
 axis equal
 grid on
 hold on
@@ -112,17 +114,17 @@ plot(x1,-y1,'linewidth',2,'color',[0, 0.4470, 0.7410])
 hold on
 plot(x2,-y2,'linewidth',2,'color',[0.8500, 0.3250, 0.0980])
 hold on
-plot(x6,-y6p,'-o','linewidth',2,'color',[0.3010, 0.7450, 0.9330])
-hold on
 scatter(-x5m,y5m,[],[0.4660 0.6740 0.1880])
-hold on 
+
+hold on
+
 % hold on
 % plot(xy1(1,:),xy1(2,:))
 % hold on
 % plot(xy2(1,:),xy2(2,:))
 % hold on
 % plot(xy3(1,:),xy3(2,:))
-legend('Caso 1','Caso 2', 'Caso 3','Caso 4','Caso 5','Caso 6');
+legend('Caso 1','Caso 2', 'Caso 3','Caso 4','Caso 5','Spazio di lavoro');
 
 end
 

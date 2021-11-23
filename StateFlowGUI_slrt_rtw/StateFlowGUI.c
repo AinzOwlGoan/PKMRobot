@@ -7,9 +7,9 @@
  *
  * Code generation for model "StateFlowGUI".
  *
- * Model version              : 1.845
+ * Model version              : 1.882
  * Simulink Coder version : 8.12 (R2017a) 16-Feb-2017
- * C source code generated on : Thu Nov 18 17:23:28 2021
+ * C source code generated on : Tue Nov 23 10:48:39 2021
  *
  * Target selection: slrt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -65,8 +65,20 @@ static real_T StateFlowGUI_norm_n(const real_T x[4]);
 
 /*
  * Output and update for atomic system:
- *    '<S4>/Asse B conv brac1'
+ *    '<S4>/Asse A conv brac'
  *    '<S78>/Asse A conv bracc'
+ */
+void StateFlowGUI_AsseAconvbrac(real_T rtu_p, B_AsseAconvbrac_StateFlowGUI_T
+  *localB)
+{
+  /* MATLAB Function 'Movimento Braccia/Asse A conv brac': '<S18>:1' */
+  /* '<S18>:1:2' */
+  localB->pos_A_conv = rtu_p * 6.2831853071795862 / 16384.0 / 64.0;
+}
+
+/*
+ * Output and update for atomic system:
+ *    '<S4>/Asse B conv brac1'
  *    '<S78>/Asse B conv brac1'
  */
 void StateFlowGUI_AsseBconvbrac1(real_T rtu_p, B_AsseBconvbrac1_StateFlowGUI_T
@@ -165,83 +177,6 @@ void StateFlowGUI_CinematicaInversa(real_T rtu_x, real_T rtu_y,
 
 /*
  * Output and update for atomic system:
- *    '<S4>/Cinematica Inversa vel'
- *    '<S12>/Cinematica Inversa vel'
- */
-void StateFlowG_CinematicaInversavel(real_T rtu_theta1, real_T rtu_theta2,
-  real_T rtu_x, real_T rtu_y, real_T rtu_xp, real_T rtu_yp,
-  B_CinematicaInversavel_StateF_T *localB)
-{
-  real_T D2;
-  real_T J21;
-  real_T J_idx_0;
-  real_T J_idx_2;
-  real_T J_idx_1;
-  real_T J_idx_3;
-  real_T c_idx_0;
-
-  /* MATLAB Function 'Movimento Braccia/Cinematica Inversa vel': '<S21>:1' */
-  /* '<S21>:1:3' */
-  /* '<S21>:1:4' */
-  /* '<S21>:1:6' */
-  /* '<S21>:1:8' */
-  /* '<S21>:1:10' */
-  D2 = (rtu_y - 0.25 * sin(rtu_theta1)) - (rtu_y - 0.25 * sin(rtu_theta2)) *
-    ((rtu_x + 0.09) - 0.25 * cos(rtu_theta1)) / ((rtu_x - 0.09) - 0.25 * cos
-    (rtu_theta2));
-
-  /* '<S21>:1:12' */
-  J21 = (((rtu_x + 0.09) - 0.25 * cos(rtu_theta1)) * (-0.25 * sin(rtu_theta1)) +
-         (rtu_y - 0.25 * sin(rtu_theta1)) * (0.25 * cos(rtu_theta1))) / D2;
-
-  /* '<S21>:1:14' */
-  D2 = ((rtu_y - 0.25 * sin(rtu_theta2)) * (-0.25 * cos(rtu_theta2)) * ((rtu_x +
-          0.09) - 0.25 * cos(rtu_theta1)) / ((rtu_x - 0.09) - 0.25 * cos
-         (rtu_theta2)) + ((rtu_x + 0.09) - 0.25 * cos(rtu_theta1)) * (0.25 * sin
-         (rtu_theta2))) / D2;
-
-  /* '<S21>:1:16' */
-  /* '<S21>:1:18' */
-  /* '<S21>:1:20' */
-  J_idx_0 = -(rtu_y - 0.25 * sin(rtu_theta2)) / ((rtu_x - 0.09) - 0.25 * cos
-    (rtu_theta2)) * J21;
-  J_idx_2 = (-(rtu_y - 0.25 * sin(rtu_theta2)) / ((rtu_x - 0.09) - 0.25 * cos
-              (rtu_theta2)) * D2 - 0.25 * sin(rtu_theta2)) + (rtu_y - 0.25 * sin
-    (rtu_theta2)) / ((rtu_x - 0.09) - 0.25 * cos(rtu_theta2)) * (0.25 * cos
-    (rtu_theta2));
-  J_idx_1 = J21;
-  J_idx_3 = D2;
-
-  /* '<S21>:1:22' */
-  if (fabs(J_idx_1) > fabs(J_idx_0)) {
-    J21 = J_idx_0 / J_idx_1;
-    D2 = 1.0 / (J21 * J_idx_3 - J_idx_2);
-    c_idx_0 = J_idx_3 / J_idx_1 * D2;
-    J_idx_3 = -D2;
-    J_idx_0 = -J_idx_2 / J_idx_1 * D2;
-    D2 *= J21;
-  } else {
-    J21 = J_idx_1 / J_idx_0;
-    D2 = 1.0 / (J_idx_3 - J21 * J_idx_2);
-    c_idx_0 = J_idx_3 / J_idx_0 * D2;
-    J_idx_3 = -J21 * D2;
-    J_idx_0 = -J_idx_2 / J_idx_0 * D2;
-  }
-
-  J_idx_2 = c_idx_0 * rtu_xp;
-  J_idx_2 += J_idx_0 * rtu_yp;
-  J21 = J_idx_2;
-  J_idx_2 = J_idx_3 * rtu_xp;
-  J_idx_2 += D2 * rtu_yp;
-
-  /* '<S21>:1:23' */
-  /* '<S21>:1:24' */
-  localB->theta1_p = J21;
-  localB->theta2_p = J_idx_2;
-}
-
-/*
- * Output and update for atomic system:
  *    '<S28>/Vel Asse A conv'
  *    '<S81>/Vel Asse A conv'
  */
@@ -285,62 +220,6 @@ void StateFlowGUI_MATLABFunction(real_T rtu_now, real_T rtu_old,
     /* '<S39>:1:5' */
     localB->y = rtu_old;
   }
-}
-
-/*
- * Output and update for atomic system:
- *    '<S11>/Asse B'
- *    '<S11>/Rifermento Asse A Vite'
- */
-void StateFlowGUI_AsseB(real_T rtu_t, real_T rtu_h, real_T rtu_T,
-  B_AsseB_StateFlowGUI_T *localB)
-{
-  real_T x;
-  real_T F;
-
-  /* MATLAB Function 'Sistema Vite/Asse B': '<S49>:1' */
-  /* '<S49>:1:3' */
-  /* '<S49>:1:4' */
-  x = rtu_t / rtu_T;
-
-  /* '<S49>:1:5' */
-  /* '<S49>:1:6' */
-  if ((x >= 0.0) && (x < 0.3)) {
-    /* '<S49>:1:8' */
-    /* '<S49>:1:10' */
-    F = 4.7619047619047619 * x;
-
-    /* '<S49>:1:11' */
-    x = x * x * 4.7619047619047619 / 2.0;
-  } else if ((x >= 0.3) && (x < 0.7)) {
-    /* '<S49>:1:12' */
-    /* '<S49>:1:14' */
-    F = 1.4285714285714286;
-
-    /* '<S49>:1:15' */
-    x = (x - 0.3) * 1.4285714285714286 + 0.21428571428571427;
-  } else if ((x >= 0.7) && (x <= 1.0)) {
-    /* '<S49>:1:16' */
-    /* '<S49>:1:18' */
-    /* '<S49>:1:19' */
-    F = 1.4285714285714286 - (x - 0.7) * 4.7619047619047619;
-
-    /* '<S49>:1:20' */
-    x = ((x - 0.7) * 1.4285714285714286 + 0.78571428571428581) - (x - 0.7) * (x
-      - 0.7) * 4.7619047619047619 / 2.0;
-  } else {
-    /* '<S49>:1:23' */
-    F = 0.0;
-
-    /* '<S49>:1:24' */
-    x = 1.0000000000000002;
-  }
-
-  /* '<S49>:1:27' */
-  localB->ldm_pos = x * rtu_h;
-
-  /* '<S49>:1:28' */
-  localB->ldm_vel = F * rtu_h / rtu_T;
 }
 
 /* Function for Chart: '<Root>/State flow robot' */
@@ -840,7 +719,7 @@ static void StateFlowGUI_output(void)
   real_T F;
   real_T T5;
   real_T J[4];
-  real_T Theta_pp[2];
+  real_T theta_p[2];
   real_T g_a;
   real_T i_a;
   real_T j_a;
@@ -1151,10 +1030,10 @@ static void StateFlowGUI_output(void)
       switch (StateFlowGUI_DW.is_c15_StateFlowGUI) {
        case StateFlowGUI_IN_Controllo:
         StateFlowGUI_B.FineLavorazione = 1.0;
-        StateFlowGUI_B.Hv = 0.0;
         StateFlowGUI_B.Hb = 0.0;
         StateFlowGUI_B.Luci = 5.0;
         StateFlowGUI_B.Bool = 5.0;
+        StateFlowGUI_B.Hv = 0.0;
 
         /* During 'Controllo': '<S13>:69' */
         sf_internal_predicateOutput = (((StateFlowGUI_DW.temporalCounter_i1 >=
@@ -1196,7 +1075,7 @@ static void StateFlowGUI_output(void)
         StateFlowGUI_B.Hb = 1.0;
 
         /* During 'Discesa_Vite': '<S13>:176' */
-        /* Transition: '<S13>:254' */
+        /* Transition: '<S13>:256' */
         StateFlowGUI_DW.is_c15_StateFlowGUI = StateFlowGUI_IN_OffSet;
 
         /* Entry 'OffSet': '<S13>:87' */
@@ -1210,14 +1089,16 @@ static void StateFlowGUI_output(void)
         StateFlowGUI_B.Bool = 2.0;
         StateFlowGUI_B.Luci = 3.0;
         StateFlowGUI_B.Hv = 1.0;
+        StateFlowGUI_B.OffA_vite = StateFlowGUI_B.convert;
+        StateFlowGUI_B.OffB_vite = StateFlowGUI_B.convert10;
         break;
 
        case StateFlowGUI_IN_Home:
         StateFlowGUI_B.FineLavorazione = 0.0;
-        StateFlowGUI_B.Hv = 0.0;
         StateFlowGUI_B.Hb = 0.0;
         StateFlowGUI_B.Luci = 1.0;
         StateFlowGUI_B.Bool = 1.0;
+        StateFlowGUI_B.Hv = 0.0;
 
         /* During 'Home': '<S13>:29' */
         sf_internal_predicateOutput = ((StateFlowGUI_B.IntegertoBitConverter_d[7]
@@ -1241,9 +1122,9 @@ static void StateFlowGUI_output(void)
         break;
 
        case StateFlowGUI_IN_OffSet:
-        StateFlowGUI_B.Hv = 1.0;
         StateFlowGUI_B.Luci = 3.0;
         StateFlowGUI_B.Bool = 2.0;
+        StateFlowGUI_B.Hv = 1.0;
 
         /* During 'OffSet': '<S13>:87' */
         if (StateFlowGUI_B.StartWork == 1.0) {
@@ -1253,8 +1134,6 @@ static void StateFlowGUI_output(void)
 
           /* Entry 'Traiettoria': '<S13>:147' */
           StateFlowGUI_B.OffT = StateFlowGUI_B.Clock;
-          StateFlowGUI_B.OffA_vite = StateFlowGUI_B.convert;
-          StateFlowGUI_B.OffB_vite = StateFlowGUI_B.convert10;
           StateFlowGUI_B.Luci = 4.0;
           StateFlowGUI_B.Bool = 4.0;
         }
@@ -1281,7 +1160,7 @@ static void StateFlowGUI_output(void)
 
           /* Entry 'Discesa_Vite': '<S13>:176' */
           StateFlowGUI_B.OffA_vite = StateFlowGUI_B.convert;
-          StateFlowGUI_B.CoppiaH = 700.0;
+          StateFlowGUI_B.CoppiaH = 0.0;
           StateFlowGUI_B.Hb = 1.0;
         }
         break;
@@ -1307,7 +1186,7 @@ static void StateFlowGUI_output(void)
 
           /* Entry 'Discesa_Vite': '<S13>:176' */
           StateFlowGUI_B.OffA_vite = StateFlowGUI_B.convert;
-          StateFlowGUI_B.CoppiaH = 700.0;
+          StateFlowGUI_B.CoppiaH = 0.0;
           StateFlowGUI_B.Hb = 1.0;
         }
         break;
@@ -1515,13 +1394,13 @@ static void StateFlowGUI_output(void)
     StateFlowGUI_B.Sum9 = StateFlowGUI_B.convert_g - StateFlowGUI_B.OffA;
 
     /* MATLAB Function: '<S78>/Asse A conv bracc' */
-    StateFlowGUI_AsseBconvbrac1(StateFlowGUI_B.Sum9,
+    StateFlowGUI_AsseAconvbrac(StateFlowGUI_B.Sum9,
       &StateFlowGUI_B.sf_AsseAconvbracc);
 
     /* Sum: '<S78>/Sum7' incorporates:
      *  Constant: '<S78>/Constant5'
      */
-    StateFlowGUI_B.Sum7 = StateFlowGUI_B.sf_AsseAconvbracc.pos_B_conv +
+    StateFlowGUI_B.Sum7 = StateFlowGUI_B.sf_AsseAconvbracc.pos_A_conv +
       StateFlowGUI_P.Constant5_Value;
 
     /* S-Function (xpcethercatpdorx): '<S82>/EtherCAT PDO Receive15' */
@@ -1566,11 +1445,11 @@ static void StateFlowGUI_output(void)
     /* '<S91>:1:3' */
     /* '<S91>:1:4' */
     /* '<S91>:1:6' */
-    x2 = sin(StateFlowGUI_P.Constant1_Value) - sin
+    A = sin(StateFlowGUI_P.Constant1_Value) - sin
       (StateFlowGUI_P.Constant_Value_b);
     J_p_idx_1 = -0.18 - (cos(StateFlowGUI_P.Constant1_Value) - cos
                          (StateFlowGUI_P.Constant_Value_b)) * 0.25;
-    A = x2 * x2 * 0.0625 + J_p_idx_1 * J_p_idx_1;
+    A = A * A * 0.0625 + J_p_idx_1 * J_p_idx_1;
 
     /* '<S91>:1:7' */
     J_p_idx_3 = -0.18 - (cos(StateFlowGUI_P.Constant1_Value) - cos
@@ -2286,8 +2165,8 @@ static void StateFlowGUI_output(void)
       StateFlowGUI_B.yq_p = 0.0;
 
       /* '<S88>:1:314' */
-      A = StateFlowGUI_P.PeriodoQ_Value / 4.0;
-      StateFlowGUI_B.xq_pp = StateFlowGUI_P.AlzataQ_Value / 2.0 * B / (A * A);
+      x2 = StateFlowGUI_P.PeriodoQ_Value / 4.0;
+      StateFlowGUI_B.xq_pp = StateFlowGUI_P.AlzataQ_Value / 2.0 * B / (x2 * x2);
 
       /* '<S88>:1:315' */
       StateFlowGUI_B.yq_pp = 0.0;
@@ -3602,10 +3481,10 @@ static void StateFlowGUI_output(void)
       /*  44 */
       /* '<S89>:1:436' */
       StateFlowGUI_ldm7t_k((StateFlowGUI_B.Sum2 - 63.0 * A / 2.0) / (A / 2.0),
-                           &B, &F, &x2);
+                           &x2, &F, &B);
 
       /* '<S89>:1:437' */
-      StateFlowGUI_B.x = StateFlowGUI_P.AlzataC1_Value - B *
+      StateFlowGUI_B.x = StateFlowGUI_P.AlzataC1_Value - x2 *
         StateFlowGUI_P.AlzataC1_Value;
 
       /* '<S89>:1:438' */
@@ -3618,8 +3497,8 @@ static void StateFlowGUI_output(void)
       StateFlowGUI_B.y_p_o = 0.0;
 
       /* '<S89>:1:441' */
-      A /= 2.0;
-      StateFlowGUI_B.x_pp = -x2 * StateFlowGUI_P.AlzataC1_Value / (A * A);
+      x2 = A / 2.0;
+      StateFlowGUI_B.x_pp = -B * StateFlowGUI_P.AlzataC1_Value / (x2 * x2);
 
       /* '<S89>:1:442' */
       StateFlowGUI_B.y_pp = 0.0;
@@ -3960,13 +3839,13 @@ static void StateFlowGUI_output(void)
                            StateFlowGUI_P.Periodo_Value, &x2, &F, &x3);
 
       /* '<S90>:1:15' */
-      x4 = x2 * StateFlowGUI_P.Rmax_Value + StateFlowGUI_P.Rmin_Value;
+      A = x2 * StateFlowGUI_P.Rmax_Value + StateFlowGUI_P.Rmin_Value;
 
       /* '<S90>:1:16' */
-      A = F * StateFlowGUI_P.Rmax_Value / StateFlowGUI_P.Periodo_Value;
+      B = F * StateFlowGUI_P.Rmax_Value / StateFlowGUI_P.Periodo_Value;
 
       /* '<S90>:1:17' */
-      B = x3 * StateFlowGUI_P.Rmax_Value / (StateFlowGUI_P.Periodo_Value *
+      x4 = x3 * StateFlowGUI_P.Rmax_Value / (StateFlowGUI_P.Periodo_Value *
         StateFlowGUI_P.Periodo_Value);
 
       /* '<S90>:1:18' */
@@ -3981,24 +3860,24 @@ static void StateFlowGUI_output(void)
         (StateFlowGUI_P.Periodo_Value * StateFlowGUI_P.Periodo_Value);
 
       /* '<S90>:1:21' */
-      StateFlowGUI_B.xs = x4 * cos(x2);
+      StateFlowGUI_B.xs = A * cos(x2);
 
       /* '<S90>:1:22' */
-      StateFlowGUI_B.ys = x4 * sin(x2);
+      StateFlowGUI_B.ys = A * sin(x2);
 
       /* '<S90>:1:23' */
-      StateFlowGUI_B.xs_p = -x4 * sin(x2) * F + A * cos(x2);
+      StateFlowGUI_B.xs_p = -A * sin(x2) * F + B * cos(x2);
 
       /* '<S90>:1:24' */
-      StateFlowGUI_B.ys_p = x4 * cos(x2) * F + A * sin(x2);
+      StateFlowGUI_B.ys_p = A * cos(x2) * F + B * sin(x2);
 
       /* '<S90>:1:25' */
-      StateFlowGUI_B.xs_pp = ((-A * sin(x2) * F - (F * F * cos(x2) + sin(x2) *
-        x3) * x4) + B * cos(x2)) - A * sin(x2) * F;
+      StateFlowGUI_B.xs_pp = ((-B * sin(x2) * F - (F * F * cos(x2) + sin(x2) *
+        x3) * A) + x4 * cos(x2)) - B * sin(x2) * F;
 
       /* '<S90>:1:26' */
-      StateFlowGUI_B.ys_pp = (((F * F * -sin(x2) + cos(x2) * x3) * x4 + A * cos
-        (x2) * F) + B * sin(x2)) + A * cos(x2) * F;
+      StateFlowGUI_B.ys_pp = (((F * F * -sin(x2) + cos(x2) * x3) * A + B * cos
+        (x2) * F) + x4 * sin(x2)) + B * cos(x2) * F;
     } else {
       /* '<S90>:1:28' */
       StateFlowGUI_B.xs = cos(StateFlowGUI_P.Ngiri_Value * 2.0 *
@@ -4027,6 +3906,12 @@ static void StateFlowGUI_output(void)
 
     /* MultiPortSwitch: '<S70>/Multiport Switch' incorporates:
      *  Constant: '<S12>/selettore'
+     *  Constant: '<S70>/N giri1'
+     *  Constant: '<S70>/N giri2'
+     *  Constant: '<S70>/Rmax1'
+     *  Constant: '<S70>/Rmin1'
+     *  Constant: '<S70>/Rmin2'
+     *  Constant: '<S70>/Rmin3'
      */
     switch ((int32_T)StateFlowGUI_P.selettore_Value) {
      case 1:
@@ -4065,13 +3950,22 @@ static void StateFlowGUI_output(void)
       StateFlowGUI_B.MultiportSwitch[5] = StateFlowGUI_B.yct_pp;
       break;
 
-     default:
+     case 5:
       StateFlowGUI_B.MultiportSwitch[0] = StateFlowGUI_B.xs;
       StateFlowGUI_B.MultiportSwitch[1] = StateFlowGUI_B.ys;
       StateFlowGUI_B.MultiportSwitch[2] = StateFlowGUI_B.xs_p;
       StateFlowGUI_B.MultiportSwitch[3] = StateFlowGUI_B.ys_p;
       StateFlowGUI_B.MultiportSwitch[4] = StateFlowGUI_B.xs_pp;
       StateFlowGUI_B.MultiportSwitch[5] = StateFlowGUI_B.ys_pp;
+      break;
+
+     default:
+      StateFlowGUI_B.MultiportSwitch[0] = StateFlowGUI_P.Rmax1_Value;
+      StateFlowGUI_B.MultiportSwitch[1] = StateFlowGUI_P.Ngiri1_Value;
+      StateFlowGUI_B.MultiportSwitch[2] = StateFlowGUI_P.Rmin1_Value;
+      StateFlowGUI_B.MultiportSwitch[3] = StateFlowGUI_P.Ngiri2_Value;
+      StateFlowGUI_B.MultiportSwitch[4] = StateFlowGUI_P.Rmin2_Value;
+      StateFlowGUI_B.MultiportSwitch[5] = StateFlowGUI_P.Rmin3_Value;
       break;
     }
 
@@ -4088,16 +3982,98 @@ static void StateFlowGUI_output(void)
       &StateFlowGUI_B.sf_CinematicaInversa);
 
     /* MATLAB Function: '<S12>/Cinematica Inversa vel' */
-    StateFlowG_CinematicaInversavel(StateFlowGUI_B.sf_CinematicaInversa.theta1,
-      StateFlowGUI_B.sf_CinematicaInversa.theta2, StateFlowGUI_B.Sum,
-      StateFlowGUI_B.Ymov, StateFlowGUI_B.MultiportSwitch[2],
-      StateFlowGUI_B.MultiportSwitch[3], &StateFlowGUI_B.sf_CinematicaInversavel);
+    x2 = StateFlowGUI_B.MultiportSwitch[2];
+    B = StateFlowGUI_B.MultiportSwitch[3];
+
+    /* MATLAB Function 'Sistema_braccia/Cinematica Inversa vel': '<S64>:1' */
+    /* '<S64>:1:3' */
+    /* '<S64>:1:4' */
+    /* '<S64>:1:6' */
+    /* '<S64>:1:8' */
+    /* '<S64>:1:10' */
+    A = (StateFlowGUI_B.Ymov - 0.25 * sin
+         (StateFlowGUI_B.sf_CinematicaInversa.theta1)) - (StateFlowGUI_B.Ymov -
+      0.25 * sin(StateFlowGUI_B.sf_CinematicaInversa.theta2)) *
+      ((StateFlowGUI_B.Sum + 0.09) - 0.25 * cos
+       (StateFlowGUI_B.sf_CinematicaInversa.theta1)) / ((StateFlowGUI_B.Sum -
+      0.09) - 0.25 * cos(StateFlowGUI_B.sf_CinematicaInversa.theta2));
+
+    /* '<S64>:1:12' */
+    x4 = (((StateFlowGUI_B.Sum + 0.09) - 0.25 * cos
+           (StateFlowGUI_B.sf_CinematicaInversa.theta1)) * (-0.25 * sin
+           (StateFlowGUI_B.sf_CinematicaInversa.theta1)) + (StateFlowGUI_B.Ymov
+           - 0.25 * sin(StateFlowGUI_B.sf_CinematicaInversa.theta1)) * (0.25 *
+           cos(StateFlowGUI_B.sf_CinematicaInversa.theta1))) / A;
+
+    /* '<S64>:1:14' */
+    A = ((StateFlowGUI_B.Ymov - 0.25 * sin
+          (StateFlowGUI_B.sf_CinematicaInversa.theta2)) * (-0.25 * cos
+          (StateFlowGUI_B.sf_CinematicaInversa.theta2)) * ((StateFlowGUI_B.Sum +
+           0.09) - 0.25 * cos(StateFlowGUI_B.sf_CinematicaInversa.theta1)) /
+         ((StateFlowGUI_B.Sum - 0.09) - 0.25 * cos
+          (StateFlowGUI_B.sf_CinematicaInversa.theta2)) + ((StateFlowGUI_B.Sum +
+           0.09) - 0.25 * cos(StateFlowGUI_B.sf_CinematicaInversa.theta1)) *
+         (0.25 * sin(StateFlowGUI_B.sf_CinematicaInversa.theta2))) / A;
+
+    /* '<S64>:1:16' */
+    /* '<S64>:1:18' */
+    /* '<S64>:1:20' */
+    J[0] = -(StateFlowGUI_B.Ymov - 0.25 * sin
+             (StateFlowGUI_B.sf_CinematicaInversa.theta2)) /
+      ((StateFlowGUI_B.Sum - 0.09) - 0.25 * cos
+       (StateFlowGUI_B.sf_CinematicaInversa.theta2)) * x4;
+    J[2] = (-(StateFlowGUI_B.Ymov - 0.25 * sin
+              (StateFlowGUI_B.sf_CinematicaInversa.theta2)) /
+            ((StateFlowGUI_B.Sum - 0.09) - 0.25 * cos
+             (StateFlowGUI_B.sf_CinematicaInversa.theta2)) * A - 0.25 * sin
+            (StateFlowGUI_B.sf_CinematicaInversa.theta2)) + (StateFlowGUI_B.Ymov
+      - 0.25 * sin(StateFlowGUI_B.sf_CinematicaInversa.theta2)) /
+      ((StateFlowGUI_B.Sum - 0.09) - 0.25 * cos
+       (StateFlowGUI_B.sf_CinematicaInversa.theta2)) * (0.25 * cos
+      (StateFlowGUI_B.sf_CinematicaInversa.theta2));
+    J[1] = x4;
+    J[3] = A;
+
+    /* '<S64>:1:22' */
+    if (fabs(J[1]) > fabs(J[0])) {
+      A = J[0] / J[1];
+      x4 = 1.0 / (A * J[3] - J[2]);
+      J_p_idx_0 = J[3] / J[1] * x4;
+      J_p_idx_1 = -x4;
+      x5 = -J[2] / J[1] * x4;
+      J_p_idx_3 = A * x4;
+    } else {
+      A = J[1] / J[0];
+      x4 = 1.0 / (J[3] - A * J[2]);
+      J_p_idx_0 = J[3] / J[0] * x4;
+      J_p_idx_1 = -A * x4;
+      x5 = -J[2] / J[0] * x4;
+      J_p_idx_3 = x4;
+    }
+
+    F = J_p_idx_0 * x2;
+    theta_p[0] = F;
+    F = theta_p[0];
+    F += x5 * B;
+    theta_p[0] = F;
+    F = J_p_idx_1 * x2;
+    theta_p[1] = F;
+    F = theta_p[1];
+    F += J_p_idx_3 * B;
+    theta_p[1] = F;
+
+    /* '<S64>:1:23' */
+    /* '<S64>:1:24' */
+    StateFlowGUI_B.theta1_p = theta_p[0];
+    StateFlowGUI_B.theta2_p = theta_p[1];
+
+    /* End of MATLAB Function: '<S12>/Cinematica Inversa vel' */
 
     /* MATLAB Function: '<S12>/Cinematica Inversa Acc' */
     B = StateFlowGUI_B.MultiportSwitch[4];
-    A = StateFlowGUI_B.MultiportSwitch[5];
-    F = StateFlowGUI_B.sf_CinematicaInversavel.theta1_p;
-    x3 = StateFlowGUI_B.sf_CinematicaInversavel.theta2_p;
+    x2 = StateFlowGUI_B.MultiportSwitch[5];
+    F = StateFlowGUI_B.theta1_p;
+    x3 = StateFlowGUI_B.theta2_p;
 
     /* MATLAB Function 'Sistema_braccia/Cinematica Inversa Acc': '<S63>:1' */
     /* '<S63>:1:3' */
@@ -4105,8 +4081,8 @@ static void StateFlowGUI_output(void)
     /* '<S63>:1:6' */
     /* '<S63>:1:8' */
     /* '<S63>:1:10' */
-    x2 = (StateFlowGUI_B.Ymov - 0.25 * sin
-          (StateFlowGUI_B.sf_CinematicaInversa.theta1)) - (StateFlowGUI_B.Ymov -
+    A = (StateFlowGUI_B.Ymov - 0.25 * sin
+         (StateFlowGUI_B.sf_CinematicaInversa.theta1)) - (StateFlowGUI_B.Ymov -
       0.25 * sin(StateFlowGUI_B.sf_CinematicaInversa.theta2)) *
       ((StateFlowGUI_B.Sum + 0.09) - 0.25 * cos
        (StateFlowGUI_B.sf_CinematicaInversa.theta1)) / ((StateFlowGUI_B.Sum -
@@ -4117,17 +4093,17 @@ static void StateFlowGUI_output(void)
            (StateFlowGUI_B.sf_CinematicaInversa.theta1)) * (-0.25 * sin
            (StateFlowGUI_B.sf_CinematicaInversa.theta1)) + (StateFlowGUI_B.Ymov
            - 0.25 * sin(StateFlowGUI_B.sf_CinematicaInversa.theta1)) * (0.25 *
-           cos(StateFlowGUI_B.sf_CinematicaInversa.theta1))) / x2;
+           cos(StateFlowGUI_B.sf_CinematicaInversa.theta1))) / A;
 
     /* '<S63>:1:14' */
-    x2 = ((StateFlowGUI_B.Ymov - 0.25 * sin
-           (StateFlowGUI_B.sf_CinematicaInversa.theta2)) * (-0.25 * cos
-           (StateFlowGUI_B.sf_CinematicaInversa.theta2)) * ((StateFlowGUI_B.Sum
-            + 0.09) - 0.25 * cos(StateFlowGUI_B.sf_CinematicaInversa.theta1)) /
-          ((StateFlowGUI_B.Sum - 0.09) - 0.25 * cos
-           (StateFlowGUI_B.sf_CinematicaInversa.theta2)) + ((StateFlowGUI_B.Sum
-            + 0.09) - 0.25 * cos(StateFlowGUI_B.sf_CinematicaInversa.theta1)) *
-          (0.25 * sin(StateFlowGUI_B.sf_CinematicaInversa.theta2))) / x2;
+    A = ((StateFlowGUI_B.Ymov - 0.25 * sin
+          (StateFlowGUI_B.sf_CinematicaInversa.theta2)) * (-0.25 * cos
+          (StateFlowGUI_B.sf_CinematicaInversa.theta2)) * ((StateFlowGUI_B.Sum +
+           0.09) - 0.25 * cos(StateFlowGUI_B.sf_CinematicaInversa.theta1)) /
+         ((StateFlowGUI_B.Sum - 0.09) - 0.25 * cos
+          (StateFlowGUI_B.sf_CinematicaInversa.theta2)) + ((StateFlowGUI_B.Sum +
+           0.09) - 0.25 * cos(StateFlowGUI_B.sf_CinematicaInversa.theta1)) *
+         (0.25 * sin(StateFlowGUI_B.sf_CinematicaInversa.theta2))) / A;
 
     /* '<S63>:1:16' */
     /* '<S63>:1:18' */
@@ -4139,17 +4115,17 @@ static void StateFlowGUI_output(void)
     J[2] = (-(StateFlowGUI_B.Ymov - 0.25 * sin
               (StateFlowGUI_B.sf_CinematicaInversa.theta2)) /
             ((StateFlowGUI_B.Sum - 0.09) - 0.25 * cos
-             (StateFlowGUI_B.sf_CinematicaInversa.theta2)) * x2 - 0.25 * sin
+             (StateFlowGUI_B.sf_CinematicaInversa.theta2)) * A - 0.25 * sin
             (StateFlowGUI_B.sf_CinematicaInversa.theta2)) + (StateFlowGUI_B.Ymov
       - 0.25 * sin(StateFlowGUI_B.sf_CinematicaInversa.theta2)) /
       ((StateFlowGUI_B.Sum - 0.09) - 0.25 * cos
        (StateFlowGUI_B.sf_CinematicaInversa.theta2)) * (0.25 * cos
       (StateFlowGUI_B.sf_CinematicaInversa.theta2));
     J[1] = x4;
-    J[3] = x2;
+    J[3] = A;
 
     /* '<S63>:1:22' */
-    x2 = (0.09 - StateFlowGUI_B.Sum) + 0.25 * cos
+    A = (0.09 - StateFlowGUI_B.Sum) + 0.25 * cos
       (StateFlowGUI_B.sf_CinematicaInversa.theta2);
     J_p_idx_1 = (0.09 - StateFlowGUI_B.Sum) + 0.25 * cos
       (StateFlowGUI_B.sf_CinematicaInversa.theta2);
@@ -4211,9 +4187,8 @@ static void StateFlowGUI_output(void)
       (StateFlowGUI_B.sf_CinematicaInversa.theta1))) *
                   (StateFlowGUI_B.MultiportSwitch[3] - 0.25 * cos
                    (StateFlowGUI_B.sf_CinematicaInversa.theta2) *
-                   StateFlowGUI_B.sf_CinematicaInversavel.theta2_p) /
-                  (((StateFlowGUI_B.Ymov - 0.25 * sin
-                     (StateFlowGUI_B.sf_CinematicaInversa.theta2)) * ((0.09 +
+                   StateFlowGUI_B.theta2_p) / (((StateFlowGUI_B.Ymov - 0.25 *
+      sin(StateFlowGUI_B.sf_CinematicaInversa.theta2)) * ((0.09 +
       StateFlowGUI_B.Sum) - 0.25 * cos
       (StateFlowGUI_B.sf_CinematicaInversa.theta1)) / ((0.09 -
       StateFlowGUI_B.Sum) + 0.25 * cos
@@ -4221,20 +4196,17 @@ static void StateFlowGUI_output(void)
       0.25 * sin(StateFlowGUI_B.sf_CinematicaInversa.theta1))) * ((0.09 -
       StateFlowGUI_B.Sum) + 0.25 * cos
       (StateFlowGUI_B.sf_CinematicaInversa.theta2))) - ((((0.25 * sin
-      (StateFlowGUI_B.sf_CinematicaInversa.theta1) *
-      StateFlowGUI_B.sf_CinematicaInversavel.theta1_p +
+      (StateFlowGUI_B.sf_CinematicaInversa.theta1) * StateFlowGUI_B.theta1_p +
       StateFlowGUI_B.MultiportSwitch[2]) * (0.25 * sin
       (StateFlowGUI_B.sf_CinematicaInversa.theta1)) -
       (StateFlowGUI_B.MultiportSwitch[3] - 0.25 * cos
-       (StateFlowGUI_B.sf_CinematicaInversa.theta1) *
-       StateFlowGUI_B.sf_CinematicaInversavel.theta1_p) * (0.25 * cos
-      (StateFlowGUI_B.sf_CinematicaInversa.theta1))) + (StateFlowGUI_B.Ymov -
-      0.25 * sin(StateFlowGUI_B.sf_CinematicaInversa.theta1)) * (0.25 * sin
-      (StateFlowGUI_B.sf_CinematicaInversa.theta1)) *
-      StateFlowGUI_B.sf_CinematicaInversavel.theta1_p) + 0.25 * cos
-      (StateFlowGUI_B.sf_CinematicaInversa.theta1) *
-      StateFlowGUI_B.sf_CinematicaInversavel.theta1_p * ((0.09 +
-      StateFlowGUI_B.Sum) - 0.25 * cos
+       (StateFlowGUI_B.sf_CinematicaInversa.theta1) * StateFlowGUI_B.theta1_p) *
+      (0.25 * cos(StateFlowGUI_B.sf_CinematicaInversa.theta1))) +
+      (StateFlowGUI_B.Ymov - 0.25 * sin
+       (StateFlowGUI_B.sf_CinematicaInversa.theta1)) * (0.25 * sin
+      (StateFlowGUI_B.sf_CinematicaInversa.theta1)) * StateFlowGUI_B.theta1_p) +
+      0.25 * cos(StateFlowGUI_B.sf_CinematicaInversa.theta1) *
+      StateFlowGUI_B.theta1_p * ((0.09 + StateFlowGUI_B.Sum) - 0.25 * cos
       (StateFlowGUI_B.sf_CinematicaInversa.theta1))) * (StateFlowGUI_B.Ymov -
       0.25 * sin(StateFlowGUI_B.sf_CinematicaInversa.theta2)) /
                   (((StateFlowGUI_B.Ymov - 0.25 * sin
@@ -4246,8 +4218,7 @@ static void StateFlowGUI_output(void)
       0.25 * sin(StateFlowGUI_B.sf_CinematicaInversa.theta1))) * ((0.09 -
       StateFlowGUI_B.Sum) + 0.25 * cos
       (StateFlowGUI_B.sf_CinematicaInversa.theta2)))) + (0.25 * sin
-      (StateFlowGUI_B.sf_CinematicaInversa.theta2) *
-      StateFlowGUI_B.sf_CinematicaInversavel.theta2_p +
+      (StateFlowGUI_B.sf_CinematicaInversa.theta2) * StateFlowGUI_B.theta2_p +
       StateFlowGUI_B.MultiportSwitch[2]) * (StateFlowGUI_B.Ymov - 0.25 * sin
       (StateFlowGUI_B.sf_CinematicaInversa.theta2)) * ((StateFlowGUI_B.Ymov -
       0.25 * sin(StateFlowGUI_B.sf_CinematicaInversa.theta1)) * (0.25 * cos
@@ -4260,25 +4231,23 @@ static void StateFlowGUI_output(void)
       (StateFlowGUI_B.sf_CinematicaInversa.theta1)) / ((0.09 -
       StateFlowGUI_B.Sum) + 0.25 * cos
       (StateFlowGUI_B.sf_CinematicaInversa.theta2)) + (StateFlowGUI_B.Ymov -
-      0.25 * sin(StateFlowGUI_B.sf_CinematicaInversa.theta1))) * (x2 * x2))) -
+      0.25 * sin(StateFlowGUI_B.sf_CinematicaInversa.theta1))) * (A * A))) -
       (((((0.25 * sin(StateFlowGUI_B.sf_CinematicaInversa.theta1) *
-           StateFlowGUI_B.sf_CinematicaInversavel.theta1_p +
-           StateFlowGUI_B.MultiportSwitch[2]) * (StateFlowGUI_B.Ymov - 0.25 *
-           sin(StateFlowGUI_B.sf_CinematicaInversa.theta2)) / ((0.09 -
+           StateFlowGUI_B.theta1_p + StateFlowGUI_B.MultiportSwitch[2]) *
+          (StateFlowGUI_B.Ymov - 0.25 * sin
+           (StateFlowGUI_B.sf_CinematicaInversa.theta2)) / ((0.09 -
             StateFlowGUI_B.Sum) + 0.25 * cos
            (StateFlowGUI_B.sf_CinematicaInversa.theta2)) +
           StateFlowGUI_B.MultiportSwitch[3]) + (StateFlowGUI_B.MultiportSwitch[3]
           - 0.25 * cos(StateFlowGUI_B.sf_CinematicaInversa.theta2) *
-          StateFlowGUI_B.sf_CinematicaInversavel.theta2_p) * ((0.09 +
-           StateFlowGUI_B.Sum) - 0.25 * cos
+          StateFlowGUI_B.theta2_p) * ((0.09 + StateFlowGUI_B.Sum) - 0.25 * cos
           (StateFlowGUI_B.sf_CinematicaInversa.theta1)) / ((0.09 -
            StateFlowGUI_B.Sum) + 0.25 * cos
           (StateFlowGUI_B.sf_CinematicaInversa.theta2))) - 0.25 * cos
-        (StateFlowGUI_B.sf_CinematicaInversa.theta1) *
-        StateFlowGUI_B.sf_CinematicaInversavel.theta1_p) + (0.25 * sin
-        (StateFlowGUI_B.sf_CinematicaInversa.theta2) *
-        StateFlowGUI_B.sf_CinematicaInversavel.theta2_p +
-        StateFlowGUI_B.MultiportSwitch[2]) * (StateFlowGUI_B.Ymov - 0.25 * sin
+        (StateFlowGUI_B.sf_CinematicaInversa.theta1) * StateFlowGUI_B.theta1_p)
+       + (0.25 * sin(StateFlowGUI_B.sf_CinematicaInversa.theta2) *
+          StateFlowGUI_B.theta2_p + StateFlowGUI_B.MultiportSwitch[2]) *
+       (StateFlowGUI_B.Ymov - 0.25 * sin
         (StateFlowGUI_B.sf_CinematicaInversa.theta2)) * ((0.09 +
          StateFlowGUI_B.Sum) - 0.25 * cos
         (StateFlowGUI_B.sf_CinematicaInversa.theta1)) / (J_p_idx_1 * J_p_idx_1))
@@ -4292,37 +4261,33 @@ static void StateFlowGUI_output(void)
       StateFlowGUI_B.Sum) + 0.25 * cos
       (StateFlowGUI_B.sf_CinematicaInversa.theta2)) * (J_p_idx_3 * J_p_idx_3));
     x5 = (((((((((((0.25 * sin(StateFlowGUI_B.sf_CinematicaInversa.theta1) *
-                    StateFlowGUI_B.sf_CinematicaInversavel.theta1_p +
-                    StateFlowGUI_B.MultiportSwitch[2]) * (0.25 * cos
-      (StateFlowGUI_B.sf_CinematicaInversa.theta2)) * (StateFlowGUI_B.Ymov -
-      0.25 * sin(StateFlowGUI_B.sf_CinematicaInversa.theta2)) / ((0.09 -
+                    StateFlowGUI_B.theta1_p + StateFlowGUI_B.MultiportSwitch[2])
+                   * (0.25 * cos(StateFlowGUI_B.sf_CinematicaInversa.theta2)) *
+                   (StateFlowGUI_B.Ymov - 0.25 * sin
+                    (StateFlowGUI_B.sf_CinematicaInversa.theta2)) / ((0.09 -
       StateFlowGUI_B.Sum) + 0.25 * cos
       (StateFlowGUI_B.sf_CinematicaInversa.theta2)) + ((0.25 * sin
-      (StateFlowGUI_B.sf_CinematicaInversa.theta1) *
-      StateFlowGUI_B.sf_CinematicaInversavel.theta1_p +
+      (StateFlowGUI_B.sf_CinematicaInversa.theta1) * StateFlowGUI_B.theta1_p +
       StateFlowGUI_B.MultiportSwitch[2]) * (0.25 * sin
       (StateFlowGUI_B.sf_CinematicaInversa.theta2)) + 0.25 * cos
-      (StateFlowGUI_B.sf_CinematicaInversa.theta2) *
-      StateFlowGUI_B.sf_CinematicaInversavel.theta2_p * ((0.09 +
-      StateFlowGUI_B.Sum) - 0.25 * cos
-      (StateFlowGUI_B.sf_CinematicaInversa.theta1)))) +
+      (StateFlowGUI_B.sf_CinematicaInversa.theta2) * StateFlowGUI_B.theta2_p *
+      ((0.09 + StateFlowGUI_B.Sum) - 0.25 * cos
+       (StateFlowGUI_B.sf_CinematicaInversa.theta1)))) +
                   (StateFlowGUI_B.MultiportSwitch[3] - 0.25 * cos
                    (StateFlowGUI_B.sf_CinematicaInversa.theta2) *
-                   StateFlowGUI_B.sf_CinematicaInversavel.theta2_p) * (0.25 *
-      cos(StateFlowGUI_B.sf_CinematicaInversa.theta2)) * ((0.09 +
+                   StateFlowGUI_B.theta2_p) * (0.25 * cos
+      (StateFlowGUI_B.sf_CinematicaInversa.theta2)) * ((0.09 +
       StateFlowGUI_B.Sum) - 0.25 * cos
       (StateFlowGUI_B.sf_CinematicaInversa.theta1)) / ((0.09 -
       StateFlowGUI_B.Sum) + 0.25 * cos
       (StateFlowGUI_B.sf_CinematicaInversa.theta2))) - (StateFlowGUI_B.Ymov -
       0.25 * sin(StateFlowGUI_B.sf_CinematicaInversa.theta2)) * (0.25 * sin
-      (StateFlowGUI_B.sf_CinematicaInversa.theta2)) *
-                 StateFlowGUI_B.sf_CinematicaInversavel.theta2_p * ((0.09 +
-      StateFlowGUI_B.Sum) - 0.25 * cos
-      (StateFlowGUI_B.sf_CinematicaInversa.theta1)) / ((0.09 -
+      (StateFlowGUI_B.sf_CinematicaInversa.theta2)) * StateFlowGUI_B.theta2_p *
+                 ((0.09 + StateFlowGUI_B.Sum) - 0.25 * cos
+                  (StateFlowGUI_B.sf_CinematicaInversa.theta1)) / ((0.09 -
       StateFlowGUI_B.Sum) + 0.25 * cos
       (StateFlowGUI_B.sf_CinematicaInversa.theta2))) + (0.25 * sin
-      (StateFlowGUI_B.sf_CinematicaInversa.theta2) *
-      StateFlowGUI_B.sf_CinematicaInversavel.theta2_p +
+      (StateFlowGUI_B.sf_CinematicaInversa.theta2) * StateFlowGUI_B.theta2_p +
       StateFlowGUI_B.MultiportSwitch[2]) * (0.25 * cos
       (StateFlowGUI_B.sf_CinematicaInversa.theta2)) * (StateFlowGUI_B.Ymov -
       0.25 * sin(StateFlowGUI_B.sf_CinematicaInversa.theta2)) * ((0.09 +
@@ -4340,10 +4305,9 @@ static void StateFlowGUI_output(void)
       StateFlowGUI_B.Sum) + 0.25 * cos
       (StateFlowGUI_B.sf_CinematicaInversa.theta2))) - 0.25 * cos
                (StateFlowGUI_B.sf_CinematicaInversa.theta2) *
-               StateFlowGUI_B.sf_CinematicaInversavel.theta2_p) -
-              (StateFlowGUI_B.MultiportSwitch[3] - 0.25 * cos
-               (StateFlowGUI_B.sf_CinematicaInversa.theta2) *
-               StateFlowGUI_B.sf_CinematicaInversavel.theta2_p) * (0.25 * cos
+               StateFlowGUI_B.theta2_p) - (StateFlowGUI_B.MultiportSwitch[3] -
+               0.25 * cos(StateFlowGUI_B.sf_CinematicaInversa.theta2) *
+               StateFlowGUI_B.theta2_p) * (0.25 * cos
                (StateFlowGUI_B.sf_CinematicaInversa.theta2)) / ((0.09 -
                 StateFlowGUI_B.Sum) + 0.25 * cos
                (StateFlowGUI_B.sf_CinematicaInversa.theta2))) +
@@ -4359,8 +4323,7 @@ static void StateFlowGUI_output(void)
                (StateFlowGUI_B.sf_CinematicaInversa.theta2))) *
              (StateFlowGUI_B.MultiportSwitch[3] - 0.25 * cos
               (StateFlowGUI_B.sf_CinematicaInversa.theta2) *
-              StateFlowGUI_B.sf_CinematicaInversavel.theta2_p) /
-             (((StateFlowGUI_B.Ymov - 0.25 * sin
+              StateFlowGUI_B.theta2_p) / (((StateFlowGUI_B.Ymov - 0.25 * sin
                 (StateFlowGUI_B.sf_CinematicaInversa.theta2)) * ((0.09 +
       StateFlowGUI_B.Sum) - 0.25 * cos
                 (StateFlowGUI_B.sf_CinematicaInversa.theta1)) / ((0.09 -
@@ -4371,9 +4334,8 @@ static void StateFlowGUI_output(void)
                 StateFlowGUI_B.Sum) + 0.25 * cos
                (StateFlowGUI_B.sf_CinematicaInversa.theta2)))) - (0.25 * sin
              (StateFlowGUI_B.sf_CinematicaInversa.theta2) *
-             StateFlowGUI_B.sf_CinematicaInversavel.theta2_p +
-             StateFlowGUI_B.MultiportSwitch[2]) * (0.25 * cos
-             (StateFlowGUI_B.sf_CinematicaInversa.theta2)) *
+             StateFlowGUI_B.theta2_p + StateFlowGUI_B.MultiportSwitch[2]) *
+            (0.25 * cos(StateFlowGUI_B.sf_CinematicaInversa.theta2)) *
             (StateFlowGUI_B.Ymov - 0.25 * sin
              (StateFlowGUI_B.sf_CinematicaInversa.theta2)) / (x5 * x5)) +
            ((StateFlowGUI_B.Ymov - 0.25 * sin
@@ -4387,9 +4349,9 @@ static void StateFlowGUI_output(void)
              (StateFlowGUI_B.sf_CinematicaInversa.theta1)) * (0.25 * sin
              (StateFlowGUI_B.sf_CinematicaInversa.theta2))) * (0.25 * sin
             (StateFlowGUI_B.sf_CinematicaInversa.theta2) *
-            StateFlowGUI_B.sf_CinematicaInversavel.theta2_p +
-            StateFlowGUI_B.MultiportSwitch[2]) * (StateFlowGUI_B.Ymov - 0.25 *
-            sin(StateFlowGUI_B.sf_CinematicaInversa.theta2)) /
+            StateFlowGUI_B.theta2_p + StateFlowGUI_B.MultiportSwitch[2]) *
+           (StateFlowGUI_B.Ymov - 0.25 * sin
+            (StateFlowGUI_B.sf_CinematicaInversa.theta2)) /
            (((StateFlowGUI_B.Ymov - 0.25 * sin
               (StateFlowGUI_B.sf_CinematicaInversa.theta2)) * ((0.09 +
                StateFlowGUI_B.Sum) - 0.25 * cos
@@ -4399,25 +4361,24 @@ static void StateFlowGUI_output(void)
              (StateFlowGUI_B.Ymov - 0.25 * sin
               (StateFlowGUI_B.sf_CinematicaInversa.theta1))) * (D2p * D2p))) -
           (((((0.25 * sin(StateFlowGUI_B.sf_CinematicaInversa.theta1) *
-               StateFlowGUI_B.sf_CinematicaInversavel.theta1_p +
-               StateFlowGUI_B.MultiportSwitch[2]) * (StateFlowGUI_B.Ymov - 0.25 *
-               sin(StateFlowGUI_B.sf_CinematicaInversa.theta2)) / ((0.09 -
+               StateFlowGUI_B.theta1_p + StateFlowGUI_B.MultiportSwitch[2]) *
+              (StateFlowGUI_B.Ymov - 0.25 * sin
+               (StateFlowGUI_B.sf_CinematicaInversa.theta2)) / ((0.09 -
                 StateFlowGUI_B.Sum) + 0.25 * cos
                (StateFlowGUI_B.sf_CinematicaInversa.theta2)) +
               StateFlowGUI_B.MultiportSwitch[3]) +
              (StateFlowGUI_B.MultiportSwitch[3] - 0.25 * cos
               (StateFlowGUI_B.sf_CinematicaInversa.theta2) *
-              StateFlowGUI_B.sf_CinematicaInversavel.theta2_p) * ((0.09 +
-               StateFlowGUI_B.Sum) - 0.25 * cos
-              (StateFlowGUI_B.sf_CinematicaInversa.theta1)) / ((0.09 -
+              StateFlowGUI_B.theta2_p) * ((0.09 + StateFlowGUI_B.Sum) - 0.25 *
+              cos(StateFlowGUI_B.sf_CinematicaInversa.theta1)) / ((0.09 -
                StateFlowGUI_B.Sum) + 0.25 * cos
               (StateFlowGUI_B.sf_CinematicaInversa.theta2))) - 0.25 * cos
             (StateFlowGUI_B.sf_CinematicaInversa.theta1) *
-            StateFlowGUI_B.sf_CinematicaInversavel.theta1_p) + (0.25 * sin
+            StateFlowGUI_B.theta1_p) + (0.25 * sin
             (StateFlowGUI_B.sf_CinematicaInversa.theta2) *
-            StateFlowGUI_B.sf_CinematicaInversavel.theta2_p +
-            StateFlowGUI_B.MultiportSwitch[2]) * (StateFlowGUI_B.Ymov - 0.25 *
-            sin(StateFlowGUI_B.sf_CinematicaInversa.theta2)) * ((0.09 +
+            StateFlowGUI_B.theta2_p + StateFlowGUI_B.MultiportSwitch[2]) *
+           (StateFlowGUI_B.Ymov - 0.25 * sin
+            (StateFlowGUI_B.sf_CinematicaInversa.theta2)) * ((0.09 +
              StateFlowGUI_B.Sum) - 0.25 * cos
             (StateFlowGUI_B.sf_CinematicaInversa.theta1)) / (g_a * g_a)) *
           (((StateFlowGUI_B.Ymov - 0.25 * sin
@@ -4436,50 +4397,43 @@ static void StateFlowGUI_output(void)
             (StateFlowGUI_B.sf_CinematicaInversa.theta2)) * (T5 * T5))) +
       (StateFlowGUI_B.Ymov - 0.25 * sin
        (StateFlowGUI_B.sf_CinematicaInversa.theta2)) * (0.25 * sin
-      (StateFlowGUI_B.sf_CinematicaInversa.theta2)) *
-      StateFlowGUI_B.sf_CinematicaInversavel.theta2_p / ((0.09 -
-      StateFlowGUI_B.Sum) + 0.25 * cos
-      (StateFlowGUI_B.sf_CinematicaInversa.theta2));
+      (StateFlowGUI_B.sf_CinematicaInversa.theta2)) * StateFlowGUI_B.theta2_p /
+      ((0.09 - StateFlowGUI_B.Sum) + 0.25 * cos
+       (StateFlowGUI_B.sf_CinematicaInversa.theta2));
     J_p_idx_1 = -((((0.25 * sin(StateFlowGUI_B.sf_CinematicaInversa.theta1) *
-                     StateFlowGUI_B.sf_CinematicaInversavel.theta1_p +
-                     StateFlowGUI_B.MultiportSwitch[2]) * (0.25 * sin
-      (StateFlowGUI_B.sf_CinematicaInversa.theta1)) -
+                     StateFlowGUI_B.theta1_p + StateFlowGUI_B.MultiportSwitch[2])
+                    * (0.25 * sin(StateFlowGUI_B.sf_CinematicaInversa.theta1)) -
                     (StateFlowGUI_B.MultiportSwitch[3] - 0.25 * cos
                      (StateFlowGUI_B.sf_CinematicaInversa.theta1) *
-                     StateFlowGUI_B.sf_CinematicaInversavel.theta1_p) * (0.25 *
-      cos(StateFlowGUI_B.sf_CinematicaInversa.theta1))) + (StateFlowGUI_B.Ymov -
+                     StateFlowGUI_B.theta1_p) * (0.25 * cos
+      (StateFlowGUI_B.sf_CinematicaInversa.theta1))) + (StateFlowGUI_B.Ymov -
       0.25 * sin(StateFlowGUI_B.sf_CinematicaInversa.theta1)) * (0.25 * sin
-      (StateFlowGUI_B.sf_CinematicaInversa.theta1)) *
-                   StateFlowGUI_B.sf_CinematicaInversavel.theta1_p) + 0.25 * cos
-                  (StateFlowGUI_B.sf_CinematicaInversa.theta1) *
-                  StateFlowGUI_B.sf_CinematicaInversavel.theta1_p * ((0.09 +
-      StateFlowGUI_B.Sum) - 0.25 * cos
-      (StateFlowGUI_B.sf_CinematicaInversa.theta1))) / ((StateFlowGUI_B.Ymov -
-      0.25 * sin(StateFlowGUI_B.sf_CinematicaInversa.theta2)) * ((0.09 +
+      (StateFlowGUI_B.sf_CinematicaInversa.theta1)) * StateFlowGUI_B.theta1_p) +
+                  0.25 * cos(StateFlowGUI_B.sf_CinematicaInversa.theta1) *
+                  StateFlowGUI_B.theta1_p * ((0.09 + StateFlowGUI_B.Sum) - 0.25 *
+      cos(StateFlowGUI_B.sf_CinematicaInversa.theta1))) / ((StateFlowGUI_B.Ymov
+      - 0.25 * sin(StateFlowGUI_B.sf_CinematicaInversa.theta2)) * ((0.09 +
       StateFlowGUI_B.Sum) - 0.25 * cos
       (StateFlowGUI_B.sf_CinematicaInversa.theta1)) / ((0.09 -
       StateFlowGUI_B.Sum) + 0.25 * cos
       (StateFlowGUI_B.sf_CinematicaInversa.theta2)) + (StateFlowGUI_B.Ymov -
       0.25 * sin(StateFlowGUI_B.sf_CinematicaInversa.theta1))) - (((((0.25 * sin
-      (StateFlowGUI_B.sf_CinematicaInversa.theta1) *
-      StateFlowGUI_B.sf_CinematicaInversavel.theta1_p +
+      (StateFlowGUI_B.sf_CinematicaInversa.theta1) * StateFlowGUI_B.theta1_p +
       StateFlowGUI_B.MultiportSwitch[2]) * (StateFlowGUI_B.Ymov - 0.25 * sin
       (StateFlowGUI_B.sf_CinematicaInversa.theta2)) / ((0.09 -
       StateFlowGUI_B.Sum) + 0.25 * cos
       (StateFlowGUI_B.sf_CinematicaInversa.theta2)) +
       StateFlowGUI_B.MultiportSwitch[3]) + (StateFlowGUI_B.MultiportSwitch[3] -
       0.25 * cos(StateFlowGUI_B.sf_CinematicaInversa.theta2) *
-      StateFlowGUI_B.sf_CinematicaInversavel.theta2_p) * ((0.09 +
-      StateFlowGUI_B.Sum) - 0.25 * cos
+      StateFlowGUI_B.theta2_p) * ((0.09 + StateFlowGUI_B.Sum) - 0.25 * cos
       (StateFlowGUI_B.sf_CinematicaInversa.theta1)) / ((0.09 -
       StateFlowGUI_B.Sum) + 0.25 * cos
       (StateFlowGUI_B.sf_CinematicaInversa.theta2))) - 0.25 * cos
-      (StateFlowGUI_B.sf_CinematicaInversa.theta1) *
-      StateFlowGUI_B.sf_CinematicaInversavel.theta1_p) + (0.25 * sin
-      (StateFlowGUI_B.sf_CinematicaInversa.theta2) *
-      StateFlowGUI_B.sf_CinematicaInversavel.theta2_p +
-      StateFlowGUI_B.MultiportSwitch[2]) * (StateFlowGUI_B.Ymov - 0.25 * sin
-      (StateFlowGUI_B.sf_CinematicaInversa.theta2)) * ((0.09 +
+      (StateFlowGUI_B.sf_CinematicaInversa.theta1) * StateFlowGUI_B.theta1_p) +
+      (0.25 * sin(StateFlowGUI_B.sf_CinematicaInversa.theta2) *
+       StateFlowGUI_B.theta2_p + StateFlowGUI_B.MultiportSwitch[2]) *
+      (StateFlowGUI_B.Ymov - 0.25 * sin
+       (StateFlowGUI_B.sf_CinematicaInversa.theta2)) * ((0.09 +
       StateFlowGUI_B.Sum) - 0.25 * cos
       (StateFlowGUI_B.sf_CinematicaInversa.theta1)) / (i_a * i_a)) *
       ((StateFlowGUI_B.Ymov - 0.25 * sin
@@ -4489,37 +4443,33 @@ static void StateFlowGUI_output(void)
         (StateFlowGUI_B.sf_CinematicaInversa.theta1)) * (0.25 * sin
         (StateFlowGUI_B.sf_CinematicaInversa.theta1))) / (j_a * j_a);
     J_p_idx_3 = (((((0.25 * sin(StateFlowGUI_B.sf_CinematicaInversa.theta1) *
-                     StateFlowGUI_B.sf_CinematicaInversavel.theta1_p +
-                     StateFlowGUI_B.MultiportSwitch[2]) * (0.25 * cos
-      (StateFlowGUI_B.sf_CinematicaInversa.theta2)) * (StateFlowGUI_B.Ymov -
-      0.25 * sin(StateFlowGUI_B.sf_CinematicaInversa.theta2)) / ((0.09 -
+                     StateFlowGUI_B.theta1_p + StateFlowGUI_B.MultiportSwitch[2])
+                    * (0.25 * cos(StateFlowGUI_B.sf_CinematicaInversa.theta2)) *
+                    (StateFlowGUI_B.Ymov - 0.25 * sin
+                     (StateFlowGUI_B.sf_CinematicaInversa.theta2)) / ((0.09 -
       StateFlowGUI_B.Sum) + 0.25 * cos
       (StateFlowGUI_B.sf_CinematicaInversa.theta2)) + ((0.25 * sin
-      (StateFlowGUI_B.sf_CinematicaInversa.theta1) *
-      StateFlowGUI_B.sf_CinematicaInversavel.theta1_p +
+      (StateFlowGUI_B.sf_CinematicaInversa.theta1) * StateFlowGUI_B.theta1_p +
       StateFlowGUI_B.MultiportSwitch[2]) * (0.25 * sin
       (StateFlowGUI_B.sf_CinematicaInversa.theta2)) + 0.25 * cos
-      (StateFlowGUI_B.sf_CinematicaInversa.theta2) *
-      StateFlowGUI_B.sf_CinematicaInversavel.theta2_p * ((0.09 +
-      StateFlowGUI_B.Sum) - 0.25 * cos
-      (StateFlowGUI_B.sf_CinematicaInversa.theta1)))) +
+      (StateFlowGUI_B.sf_CinematicaInversa.theta2) * StateFlowGUI_B.theta2_p *
+      ((0.09 + StateFlowGUI_B.Sum) - 0.25 * cos
+       (StateFlowGUI_B.sf_CinematicaInversa.theta1)))) +
                    (StateFlowGUI_B.MultiportSwitch[3] - 0.25 * cos
                     (StateFlowGUI_B.sf_CinematicaInversa.theta2) *
-                    StateFlowGUI_B.sf_CinematicaInversavel.theta2_p) * (0.25 *
-      cos(StateFlowGUI_B.sf_CinematicaInversa.theta2)) * ((0.09 +
+                    StateFlowGUI_B.theta2_p) * (0.25 * cos
+      (StateFlowGUI_B.sf_CinematicaInversa.theta2)) * ((0.09 +
       StateFlowGUI_B.Sum) - 0.25 * cos
       (StateFlowGUI_B.sf_CinematicaInversa.theta1)) / ((0.09 -
       StateFlowGUI_B.Sum) + 0.25 * cos
       (StateFlowGUI_B.sf_CinematicaInversa.theta2))) - (StateFlowGUI_B.Ymov -
       0.25 * sin(StateFlowGUI_B.sf_CinematicaInversa.theta2)) * (0.25 * sin
-      (StateFlowGUI_B.sf_CinematicaInversa.theta2)) *
-                  StateFlowGUI_B.sf_CinematicaInversavel.theta2_p * ((0.09 +
-      StateFlowGUI_B.Sum) - 0.25 * cos
-      (StateFlowGUI_B.sf_CinematicaInversa.theta1)) / ((0.09 -
+      (StateFlowGUI_B.sf_CinematicaInversa.theta2)) * StateFlowGUI_B.theta2_p *
+                  ((0.09 + StateFlowGUI_B.Sum) - 0.25 * cos
+                   (StateFlowGUI_B.sf_CinematicaInversa.theta1)) / ((0.09 -
       StateFlowGUI_B.Sum) + 0.25 * cos
       (StateFlowGUI_B.sf_CinematicaInversa.theta2))) + (0.25 * sin
-      (StateFlowGUI_B.sf_CinematicaInversa.theta2) *
-      StateFlowGUI_B.sf_CinematicaInversavel.theta2_p +
+      (StateFlowGUI_B.sf_CinematicaInversa.theta2) * StateFlowGUI_B.theta2_p +
       StateFlowGUI_B.MultiportSwitch[2]) * (0.25 * cos
       (StateFlowGUI_B.sf_CinematicaInversa.theta2)) * (StateFlowGUI_B.Ymov -
       0.25 * sin(StateFlowGUI_B.sf_CinematicaInversa.theta2)) * ((0.09 +
@@ -4532,25 +4482,22 @@ static void StateFlowGUI_output(void)
          StateFlowGUI_B.Sum) + 0.25 * cos
         (StateFlowGUI_B.sf_CinematicaInversa.theta2)) + (StateFlowGUI_B.Ymov -
         0.25 * sin(StateFlowGUI_B.sf_CinematicaInversa.theta1))) - (((((0.25 *
-      sin(StateFlowGUI_B.sf_CinematicaInversa.theta1) *
-      StateFlowGUI_B.sf_CinematicaInversavel.theta1_p +
-      StateFlowGUI_B.MultiportSwitch[2]) * (StateFlowGUI_B.Ymov - 0.25 * sin
+      sin(StateFlowGUI_B.sf_CinematicaInversa.theta1) * StateFlowGUI_B.theta1_p
+      + StateFlowGUI_B.MultiportSwitch[2]) * (StateFlowGUI_B.Ymov - 0.25 * sin
       (StateFlowGUI_B.sf_CinematicaInversa.theta2)) / ((0.09 -
       StateFlowGUI_B.Sum) + 0.25 * cos
       (StateFlowGUI_B.sf_CinematicaInversa.theta2)) +
       StateFlowGUI_B.MultiportSwitch[3]) + (StateFlowGUI_B.MultiportSwitch[3] -
       0.25 * cos(StateFlowGUI_B.sf_CinematicaInversa.theta2) *
-      StateFlowGUI_B.sf_CinematicaInversavel.theta2_p) * ((0.09 +
-      StateFlowGUI_B.Sum) - 0.25 * cos
+      StateFlowGUI_B.theta2_p) * ((0.09 + StateFlowGUI_B.Sum) - 0.25 * cos
       (StateFlowGUI_B.sf_CinematicaInversa.theta1)) / ((0.09 -
       StateFlowGUI_B.Sum) + 0.25 * cos
       (StateFlowGUI_B.sf_CinematicaInversa.theta2))) - 0.25 * cos
-      (StateFlowGUI_B.sf_CinematicaInversa.theta1) *
-      StateFlowGUI_B.sf_CinematicaInversavel.theta1_p) + (0.25 * sin
-      (StateFlowGUI_B.sf_CinematicaInversa.theta2) *
-      StateFlowGUI_B.sf_CinematicaInversavel.theta2_p +
-      StateFlowGUI_B.MultiportSwitch[2]) * (StateFlowGUI_B.Ymov - 0.25 * sin
-      (StateFlowGUI_B.sf_CinematicaInversa.theta2)) * ((0.09 +
+      (StateFlowGUI_B.sf_CinematicaInversa.theta1) * StateFlowGUI_B.theta1_p) +
+      (0.25 * sin(StateFlowGUI_B.sf_CinematicaInversa.theta2) *
+       StateFlowGUI_B.theta2_p + StateFlowGUI_B.MultiportSwitch[2]) *
+      (StateFlowGUI_B.Ymov - 0.25 * sin
+       (StateFlowGUI_B.sf_CinematicaInversa.theta2)) * ((0.09 +
       StateFlowGUI_B.Sum) - 0.25 * cos
       (StateFlowGUI_B.sf_CinematicaInversa.theta1)) / (N22 * N22)) *
       ((StateFlowGUI_B.Ymov - 0.25 * sin
@@ -4566,19 +4513,19 @@ static void StateFlowGUI_output(void)
 
     /* '<S63>:1:37' */
     if (fabs(J[1]) > fabs(J[0])) {
-      x4 = J[0] / J[1];
-      x2 = 1.0 / (x4 * J[3] - J[2]);
-      J1[0] = J[3] / J[1] * x2;
-      J1[1] = -x2;
-      J1[2] = -J[2] / J[1] * x2;
-      J1[3] = x4 * x2;
+      A = J[0] / J[1];
+      x4 = 1.0 / (A * J[3] - J[2]);
+      J1[0] = J[3] / J[1] * x4;
+      J1[1] = -x4;
+      J1[2] = -J[2] / J[1] * x4;
+      J1[3] = A * x4;
     } else {
-      x4 = J[1] / J[0];
-      x2 = 1.0 / (J[3] - x4 * J[2]);
-      J1[0] = J[3] / J[0] * x2;
-      J1[1] = -x4 * x2;
-      J1[2] = -J[2] / J[0] * x2;
-      J1[3] = x2;
+      A = J[1] / J[0];
+      x4 = 1.0 / (J[3] - A * J[2]);
+      J1[0] = J[3] / J[0] * x4;
+      J1[1] = -A * x4;
+      J1[2] = -J[2] / J[0] * x4;
+      J1[3] = x4;
     }
 
     J_p_idx_0 *= F;
@@ -4586,22 +4533,22 @@ static void StateFlowGUI_output(void)
     x5 = B - J_p_idx_0;
     J_p_idx_0 = J_p_idx_1 * F;
     J_p_idx_0 += J_p_idx_3 * x3;
-    A -= J_p_idx_0;
+    x2 -= J_p_idx_0;
     F = J1[0] * x5;
-    Theta_pp[0] = F;
-    F = Theta_pp[0];
-    F += J1[2] * A;
-    Theta_pp[0] = F;
+    theta_p[0] = F;
+    F = theta_p[0];
+    F += J1[2] * x2;
+    theta_p[0] = F;
     F = J1[1] * x5;
-    Theta_pp[1] = F;
-    F = Theta_pp[1];
-    F += J1[3] * A;
-    Theta_pp[1] = F;
+    theta_p[1] = F;
+    F = theta_p[1];
+    F += J1[3] * x2;
+    theta_p[1] = F;
 
     /* '<S63>:1:39' */
     /* '<S63>:1:40' */
-    StateFlowGUI_B.theta1_pp = Theta_pp[0];
-    StateFlowGUI_B.theta2_pp = Theta_pp[1];
+    StateFlowGUI_B.theta1_pp = theta_p[0];
+    StateFlowGUI_B.theta2_pp = theta_p[1];
 
     /* End of MATLAB Function: '<S12>/Cinematica Inversa Acc' */
 
@@ -4636,9 +4583,9 @@ static void StateFlowGUI_output(void)
       &StateFlowGUI_B.sf_VelAsseAconv_a);
 
     /* Sum: '<S12>/Sum7' */
-    StateFlowGUI_B.qdot[0] = StateFlowGUI_B.sf_CinematicaInversavel.theta1_p -
+    StateFlowGUI_B.qdot[0] = StateFlowGUI_B.theta1_p -
       StateFlowGUI_B.sf_VelAsseBconv_d.vel_B_conv;
-    StateFlowGUI_B.qdot[1] = StateFlowGUI_B.sf_CinematicaInversavel.theta2_p -
+    StateFlowGUI_B.qdot[1] = StateFlowGUI_B.theta2_p -
       StateFlowGUI_B.sf_VelAsseAconv_a.vel_A_conv;
 
     /* Sum: '<S12>/Sum4' */
@@ -4673,17 +4620,17 @@ static void StateFlowGUI_output(void)
     /* '<S69>:1:96' */
     /* '<S69>:1:3' */
     /* '<S69>:1:15' */
-    x2 = (cos(StateFlowGUI_B.Sum7) - cos(StateFlowGUI_B.Sum4)) + 0.72;
+    A = (cos(StateFlowGUI_B.Sum7) - cos(StateFlowGUI_B.Sum4)) + 0.72;
     J_p_idx_1 = (cos(StateFlowGUI_B.Sum7) - cos(StateFlowGUI_B.Sum4)) + 0.72;
     J_p_idx_3 = sin(StateFlowGUI_B.Sum4) - sin(StateFlowGUI_B.Sum7);
     x4 = J_p_idx_1 * J_p_idx_1 / 2.0 + J_p_idx_3 * J_p_idx_3 / 2.0;
     x5 = sin(StateFlowGUI_B.Sum4) - sin(StateFlowGUI_B.Sum7);
     D2p = (cos(StateFlowGUI_B.Sum7) - cos(StateFlowGUI_B.Sum4)) + 0.72;
     g_a = sin(StateFlowGUI_B.Sum4) - sin(StateFlowGUI_B.Sum7);
-    A = atan((sqrt((x2 * x2 - x4 * x4) + x5 * x5) + (sin(StateFlowGUI_B.Sum7) -
-               sin(StateFlowGUI_B.Sum4))) / (((D2p * D2p / 2.0 + (cos
+    x2 = atan((sqrt((A * A - x4 * x4) + x5 * x5) + (sin(StateFlowGUI_B.Sum7) -
+                sin(StateFlowGUI_B.Sum4))) / (((D2p * D2p / 2.0 + (cos
       (StateFlowGUI_B.Sum7) - cos(StateFlowGUI_B.Sum4))) + g_a * g_a / 2.0) +
-              0.72)) * 2.0;
+               0.72)) * 2.0;
 
     /* '<S69>:1:19' */
     T5 = (cos(StateFlowGUI_B.Sum7) - cos(StateFlowGUI_B.Sum4)) + 0.72;
@@ -4692,10 +4639,10 @@ static void StateFlowGUI_output(void)
     N21 = i_a * i_a / 2.0 + j_a * j_a / 2.0;
     N22 = sin(StateFlowGUI_B.Sum4) - sin(StateFlowGUI_B.Sum7);
     m_a = (cos(StateFlowGUI_B.Sum7) - cos(StateFlowGUI_B.Sum4)) + 0.72;
-    x2 = sin(StateFlowGUI_B.Sum4) - sin(StateFlowGUI_B.Sum7);
+    A = sin(StateFlowGUI_B.Sum4) - sin(StateFlowGUI_B.Sum7);
     B = atan((sqrt((T5 * T5 - N21 * N21) + N22 * N22) + (sin(StateFlowGUI_B.Sum7)
                - sin(StateFlowGUI_B.Sum4))) / (((m_a * m_a / 2.0 + (cos
-      (StateFlowGUI_B.Sum4) - cos(StateFlowGUI_B.Sum7))) + x2 * x2 / 2.0) - 0.72))
+      (StateFlowGUI_B.Sum4) - cos(StateFlowGUI_B.Sum7))) + A * A / 2.0) - 0.72))
       * -2.0;
 
     /* '<S69>:1:23' */
@@ -4705,36 +4652,36 @@ static void StateFlowGUI_output(void)
     x5 = cos(StateFlowGUI_B.Sum7) - cos(B) / sin(B) * sin(StateFlowGUI_B.Sum7);
 
     /* '<S69>:1:25' */
-    T5 = cos(A) - cos(B) / sin(B) * sin(A);
+    T5 = cos(x2) - cos(B) / sin(B) * sin(x2);
 
     /* '<S69>:1:27' */
     F = (StateFlowGUI_B.vel_B_conv * x4 + StateFlowGUI_B.vel_A_conv * x5) / T5;
 
     /* '<S69>:1:29' */
-    N21 = ((cos(A) / sin(A) - cos(B) / sin(B)) * sin(StateFlowGUI_B.Sum4) + cos
-           (B) / sin(B) * sin(StateFlowGUI_B.Sum4)) - cos(StateFlowGUI_B.Sum4);
+    N21 = ((cos(x2) / sin(x2) - cos(B) / sin(B)) * sin(StateFlowGUI_B.Sum4) +
+           cos(B) / sin(B) * sin(StateFlowGUI_B.Sum4)) - cos(StateFlowGUI_B.Sum4);
 
     /* '<S69>:1:31' */
-    N22 = ((cos(A) / sin(A) - cos(B) / sin(B)) * -sin(StateFlowGUI_B.Sum7) - cos
-           (B) / sin(B) * sin(StateFlowGUI_B.Sum7)) + cos(StateFlowGUI_B.Sum7);
+    N22 = ((cos(x2) / sin(x2) - cos(B) / sin(B)) * -sin(StateFlowGUI_B.Sum7) -
+           cos(B) / sin(B) * sin(StateFlowGUI_B.Sum7)) + cos(StateFlowGUI_B.Sum7);
 
     /* '<S69>:1:33' */
-    x2 = (cos(A) / sin(A) - cos(B) / sin(B)) * sin(B);
+    A = (cos(x2) / sin(x2) - cos(B) / sin(B)) * sin(B);
 
     /* '<S69>:1:35' */
-    x3 = N21 / x2 * StateFlowGUI_B.vel_B_conv + N22 / x2 *
+    x3 = N21 / A * StateFlowGUI_B.vel_B_conv + N22 / A *
       StateFlowGUI_B.vel_A_conv;
 
     /* '<S69>:1:37' */
     J[0] = x4 / T5;
     J[2] = x5 / T5;
-    J[1] = N21 / x2;
-    J[3] = N22 / x2;
+    J[1] = N21 / A;
+    J[3] = N22 / A;
 
     /* '<S69>:1:44' */
     /* '<S69>:1:45' */
     /* '<S69>:1:46' */
-    x5 = cos(A) - cos(B) / sin(B) * sin(A);
+    x5 = cos(x2) - cos(B) / sin(B) * sin(x2);
 
     /* '<S69>:1:48' */
     /* '<S69>:1:50' */
@@ -4747,24 +4694,24 @@ static void StateFlowGUI_output(void)
 
     /* '<S69>:1:58' */
     N21 = sin(B);
-    N21 = (-sin(A) * F - -1.0 / (N21 * N21) * x3 * sin(A)) - cos(B) / sin(B) *
-      cos(A) * F;
+    N21 = (-sin(x2) * F - -1.0 / (N21 * N21) * x3 * sin(x2)) - cos(B) / sin(B) *
+      cos(x2) * F;
 
     /* '<S69>:1:60' */
-    N22 = sin(A);
+    N22 = sin(x2);
     m_a = sin(B);
     J_p_idx_1 = sin(B);
 
     /* '<S69>:1:63' */
-    J_p_idx_3 = sin(A);
+    J_p_idx_3 = sin(x2);
     i_a = sin(B);
     j_a = sin(B);
 
     /* '<S69>:1:66' */
-    D2p = sin(A);
+    D2p = sin(x2);
     g_a = sin(B);
-    D2p = (-1.0 / (D2p * D2p) * F + 1.0 / (g_a * g_a) * x3) * sin(B) + (cos(A) /
-      sin(A) - cos(B) / sin(B)) * (cos(B) * x3);
+    D2p = (-1.0 / (D2p * D2p) * F + 1.0 / (g_a * g_a) * x3) * sin(B) + (cos(x2) /
+      sin(x2) - cos(B) / sin(B)) * (cos(B) * x3);
 
     /* '<S69>:1:68' */
     J_p_idx_0 = (((-1.0 / (x4 * x4) * x3 * sin(StateFlowGUI_B.Sum4) + cos(B) /
@@ -4778,24 +4725,25 @@ static void StateFlowGUI_output(void)
            (StateFlowGUI_B.Sum7) - cos(B) / sin(B) * sin(StateFlowGUI_B.Sum7)) *
           N21) / (x5 * x5);
     J_p_idx_1 = ((((((-1.0 / (N22 * N22) * F + 1.0 / (m_a * m_a) * x3) * sin
-                     (StateFlowGUI_B.Sum4) + (cos(A) / sin(A) - cos(B) / sin(B))
+                     (StateFlowGUI_B.Sum4) + (cos(x2) / sin(x2) - cos(B) / sin(B))
                      * (cos(StateFlowGUI_B.Sum4) * StateFlowGUI_B.vel_B_conv)) +
                     -1.0 / (J_p_idx_1 * J_p_idx_1) * x3 * sin
                     (StateFlowGUI_B.Sum4)) + cos(B) / sin(B) * cos
                    (StateFlowGUI_B.Sum4) * StateFlowGUI_B.vel_B_conv) + sin
-                  (StateFlowGUI_B.Sum4) * StateFlowGUI_B.vel_B_conv) * x2 -
-                 (((cos(A) / sin(A) - cos(B) / sin(B)) * sin(StateFlowGUI_B.Sum4)
-                   + cos(B) / sin(B) * sin(StateFlowGUI_B.Sum4)) - cos
-                  (StateFlowGUI_B.Sum4)) * D2p) / (x2 * x2);
-    J_p_idx_3 = ((((((cos(A) / sin(A) - cos(B) / sin(B)) * (-cos
+                  (StateFlowGUI_B.Sum4) * StateFlowGUI_B.vel_B_conv) * A -
+                 (((cos(x2) / sin(x2) - cos(B) / sin(B)) * sin
+                   (StateFlowGUI_B.Sum4) + cos(B) / sin(B) * sin
+                   (StateFlowGUI_B.Sum4)) - cos(StateFlowGUI_B.Sum4)) * D2p) /
+      (A * A);
+    J_p_idx_3 = ((((((cos(x2) / sin(x2) - cos(B) / sin(B)) * (-cos
       (StateFlowGUI_B.Sum7) * StateFlowGUI_B.vel_A_conv) - (-1.0 / (J_p_idx_3 *
       J_p_idx_3) * F + 1.0 / (i_a * i_a) * x3) * sin(StateFlowGUI_B.Sum7)) -
                     -1.0 / (j_a * j_a) * x3 * sin(StateFlowGUI_B.Sum7)) - cos(B)
                    / sin(B) * cos(StateFlowGUI_B.Sum7) *
                    StateFlowGUI_B.vel_A_conv) - sin(StateFlowGUI_B.Sum7) *
-                  StateFlowGUI_B.vel_A_conv) * x2 - (((cos(A) / sin(A) - cos(B) /
-      sin(B)) * -sin(StateFlowGUI_B.Sum7) - cos(B) / sin(B) * sin
-      (StateFlowGUI_B.Sum7)) + cos(StateFlowGUI_B.Sum7)) * D2p) / (x2 * x2);
+                  StateFlowGUI_B.vel_A_conv) * A - (((cos(x2) / sin(x2) - cos(B)
+      / sin(B)) * -sin(StateFlowGUI_B.Sum7) - cos(B) / sin(B) * sin
+      (StateFlowGUI_B.Sum7)) + cos(StateFlowGUI_B.Sum7)) * D2p) / (A * A);
 
     /* '<S69>:1:70' */
     J1[0] = -0.125 * sin(StateFlowGUI_B.Sum4);
@@ -4812,10 +4760,10 @@ static void StateFlowGUI_output(void)
 
     /* '<S69>:1:77' */
     /* '<S69>:1:80' */
-    J3[0] = (0.5 * sin(A) * J[0] + sin(StateFlowGUI_B.Sum4)) * -0.25;
-    J3[2] = 0.5 * sin(A) * J[2] * -0.25;
-    J3[1] = (0.5 * cos(A) * J[0] + cos(StateFlowGUI_B.Sum4)) * 0.25;
-    J3[3] = 0.5 * cos(A) * J[2] * 0.25;
+    J3[0] = (0.5 * sin(x2) * J[0] + sin(StateFlowGUI_B.Sum4)) * -0.25;
+    J3[2] = 0.5 * sin(x2) * J[2] * -0.25;
+    J3[1] = (0.5 * cos(x2) * J[0] + cos(StateFlowGUI_B.Sum4)) * 0.25;
+    J3[3] = 0.5 * cos(x2) * J[2] * 0.25;
 
     /* '<S69>:1:82' */
     /* '<S69>:1:85' */
@@ -4826,17 +4774,17 @@ static void StateFlowGUI_output(void)
 
     /* '<S69>:1:87' */
     /* '<S69>:1:90' */
-    JE[0] = (sin(A) * J[0] + sin(StateFlowGUI_B.Sum4)) * -0.25;
-    JE[2] = sin(A) * J[2] * -0.25;
-    JE[1] = (cos(A) * J[0] + cos(StateFlowGUI_B.Sum4)) * 0.25;
-    JE[3] = cos(A) * J[2] * 0.25;
+    JE[0] = (sin(x2) * J[0] + sin(StateFlowGUI_B.Sum4)) * -0.25;
+    JE[2] = sin(x2) * J[2] * -0.25;
+    JE[1] = (cos(x2) * J[0] + cos(StateFlowGUI_B.Sum4)) * 0.25;
+    JE[3] = cos(x2) * J[2] * 0.25;
 
     /* '<S69>:1:92' */
     /* '<S69>:1:96' */
     for (bitIdx = 0; bitIdx < 2; bitIdx++) {
       j_a = J1[bitIdx << 1] * 2.9 * J1[0];
       j_a += J1[(bitIdx << 1) + 1] * 2.9 * J1[1];
-      x2 = y[bitIdx] + j_a;
+      A = y[bitIdx] + j_a;
       tmp[bitIdx] = 0.0;
       j_a = tmp[bitIdx];
       j_a += J2[bitIdx << 1] * 2.9 * 0.0;
@@ -4846,7 +4794,7 @@ static void StateFlowGUI_output(void)
       j_a += J2[(bitIdx << 1) + 1] * 2.9 * 0.0;
       N21 += J[(bitIdx << 1) + 1] * 0.0522 * J[1];
       tmp[bitIdx] = j_a;
-      x2 = (x2 + tmp[bitIdx]) + N21;
+      A = (A + tmp[bitIdx]) + N21;
       tmp_0[bitIdx] = 0.0;
       j_a = tmp_0[bitIdx];
       j_a += J3[bitIdx << 1] * 2.9 * J3[0];
@@ -4856,7 +4804,7 @@ static void StateFlowGUI_output(void)
       j_a += J3[(bitIdx << 1) + 1] * 2.9 * J3[1];
       N21 += J4[(bitIdx << 1) + 1] * 2.9 * J4[1];
       tmp_0[bitIdx] = j_a;
-      y_0[bitIdx] = (x2 + tmp_0[bitIdx]) + N21;
+      y_0[bitIdx] = (A + tmp_0[bitIdx]) + N21;
       tmp_1[bitIdx] = 0.0;
       j_a = tmp_1[bitIdx];
       j_a += JE[bitIdx << 1] * 0.36 * JE[0];
@@ -4866,7 +4814,7 @@ static void StateFlowGUI_output(void)
       tmp_1[bitIdx] = j_a;
       j_a = J1[bitIdx << 1] * 2.9 * 0.0;
       j_a += J1[(bitIdx << 1) + 1] * 2.9 * 0.0;
-      x2 = y[bitIdx + 2] + j_a;
+      A = y[bitIdx + 2] + j_a;
       tmp[bitIdx + 2] = 0.0;
       j_a = tmp[bitIdx + 2];
       j_a += J2[bitIdx << 1] * 2.9 * J2[2];
@@ -4876,7 +4824,7 @@ static void StateFlowGUI_output(void)
       j_a += J2[(bitIdx << 1) + 1] * 2.9 * J2[3];
       N21 += J[(bitIdx << 1) + 1] * 0.0522 * J[3];
       tmp[bitIdx + 2] = j_a;
-      x2 = (tmp[bitIdx + 2] + x2) + N21;
+      A = (tmp[bitIdx + 2] + A) + N21;
       tmp_0[bitIdx + 2] = 0.0;
       j_a = tmp_0[bitIdx + 2];
       j_a += J3[bitIdx << 1] * 2.9 * J3[2];
@@ -4886,7 +4834,7 @@ static void StateFlowGUI_output(void)
       j_a += J3[(bitIdx << 1) + 1] * 2.9 * J3[3];
       N21 += J4[(bitIdx << 1) + 1] * 2.9 * J4[3];
       tmp_0[bitIdx + 2] = j_a;
-      y_0[bitIdx + 2] = (tmp_0[bitIdx + 2] + x2) + N21;
+      y_0[bitIdx + 2] = (tmp_0[bitIdx + 2] + A) + N21;
       tmp_1[bitIdx + 2] = 0.0;
       j_a = tmp_1[bitIdx + 2];
       j_a += JE[bitIdx << 1] * 0.36 * JE[2];
@@ -4897,35 +4845,35 @@ static void StateFlowGUI_output(void)
     }
 
     /* '<S69>:1:97' */
-    x2 = -0.125 * cos(StateFlowGUI_B.Sum4) * StateFlowGUI_B.vel_B_conv;
+    A = -0.125 * cos(StateFlowGUI_B.Sum4) * StateFlowGUI_B.vel_B_conv;
     x4 = -0.125 * sin(StateFlowGUI_B.Sum4) * StateFlowGUI_B.vel_B_conv;
     N22 = -0.125 * cos(StateFlowGUI_B.Sum7) * StateFlowGUI_B.vel_A_conv;
     m_a = -0.125 * sin(StateFlowGUI_B.Sum7) * StateFlowGUI_B.vel_A_conv;
-    D2p = ((0.5 * cos(A) * F * J[0] + cos(StateFlowGUI_B.Sum4) *
-            StateFlowGUI_B.vel_B_conv) + 0.5 * sin(A) * J_p_idx_0) * -0.25;
-    T5 = (0.5 * cos(A) * F * J[2] + 0.5 * sin(A) * x5) * -0.25;
-    i_a = ((-sin(StateFlowGUI_B.Sum4) * StateFlowGUI_B.vel_B_conv - 0.5 * sin(A)
-            * F * J[0]) + 0.5 * cos(A) * J_p_idx_0) * 0.25;
-    g_a = (-0.5 * sin(A) * F * J[2] + 0.5 * cos(A) * x5) * 0.25;
+    D2p = ((0.5 * cos(x2) * F * J[0] + cos(StateFlowGUI_B.Sum4) *
+            StateFlowGUI_B.vel_B_conv) + 0.5 * sin(x2) * J_p_idx_0) * -0.25;
+    T5 = (0.5 * cos(x2) * F * J[2] + 0.5 * sin(x2) * x5) * -0.25;
+    i_a = ((-sin(StateFlowGUI_B.Sum4) * StateFlowGUI_B.vel_B_conv - 0.5 * sin(x2)
+            * F * J[0]) + 0.5 * cos(x2) * J_p_idx_0) * 0.25;
+    g_a = (-0.5 * sin(x2) * F * J[2] + 0.5 * cos(x2) * x5) * 0.25;
     tmp_5 = (0.5 * cos(B) * x3 * J[1] + 0.5 * sin(B) * J_p_idx_1) * -0.25;
     tmp_6 = ((0.5 * cos(B) * x3 * J[3] + cos(StateFlowGUI_B.Sum7) *
               StateFlowGUI_B.vel_A_conv) + 0.5 * sin(B) * J_p_idx_3) * -0.25;
     tmp_7 = (-0.5 * sin(B) * x3 * J[1] + 0.5 * cos(B) * J_p_idx_1) * 0.25;
     B = ((-sin(StateFlowGUI_B.Sum7) * StateFlowGUI_B.vel_A_conv - 0.5 * sin(B) *
           x3 * J[3]) + 0.5 * cos(B) * J_p_idx_3) * 0.25;
-    x3 = ((cos(A) * F * J[0] + cos(StateFlowGUI_B.Sum4) *
-           StateFlowGUI_B.vel_B_conv) + sin(A) * J_p_idx_0) * -0.25;
-    tmp_8 = (cos(A) * F * J[2] + sin(A) * x5) * -0.25;
-    tmp_9 = ((-sin(StateFlowGUI_B.Sum4) * StateFlowGUI_B.vel_B_conv - sin(A) * F
-              * J[0]) + cos(A) * J_p_idx_0) * 0.25;
-    A = (-sin(A) * F * J[2] + cos(A) * x5) * 0.25;
+    x3 = ((cos(x2) * F * J[0] + cos(StateFlowGUI_B.Sum4) *
+           StateFlowGUI_B.vel_B_conv) + sin(x2) * J_p_idx_0) * -0.25;
+    tmp_8 = (cos(x2) * F * J[2] + sin(x2) * x5) * -0.25;
+    tmp_9 = ((-sin(StateFlowGUI_B.Sum4) * StateFlowGUI_B.vel_B_conv - sin(x2) *
+              F * J[0]) + cos(x2) * J_p_idx_0) * 0.25;
+    x2 = (-sin(x2) * F * J[2] + cos(x2) * x5) * 0.25;
     for (bitIdx = 0; bitIdx < 2; bitIdx++) {
       M[bitIdx << 1] = y_0[bitIdx << 1] + tmp_1[bitIdx << 1];
       tmp[bitIdx] = 0.0;
       tmp_0[bitIdx] = 0.0;
       j_a = tmp_0[bitIdx];
       N21 = tmp[bitIdx];
-      N21 += J1[bitIdx << 1] * 2.9 * x2;
+      N21 += J1[bitIdx << 1] * 2.9 * A;
       j_a += J2[bitIdx << 1] * 2.9 * 0.0;
       F = J[bitIdx << 1] * 0.0522 * J_p_idx_0;
       tmp[bitIdx] = N21;
@@ -4988,29 +4936,29 @@ static void StateFlowGUI_output(void)
       j_a += JE[bitIdx << 1] * 0.36 * tmp_8;
       tmp_4[bitIdx + 2] = j_a;
       j_a = tmp_4[bitIdx + 2];
-      j_a += JE[(bitIdx << 1) + 1] * 0.36 * A;
+      j_a += JE[(bitIdx << 1) + 1] * 0.36 * x2;
       tmp_4[bitIdx + 2] = j_a;
     }
 
     /* '<S69>:1:99' */
-    x2 = StateFlowGUI_B.Y[0];
+    A = StateFlowGUI_B.Y[0];
     x4 = StateFlowGUI_B.Y[1];
     D2p = StateFlowGUI_B.vel_B_conv;
     i_a = StateFlowGUI_B.vel_A_conv;
     K[0] = tmp_3[0] + tmp_4[0];
-    A = M[0] * x2;
-    M_0[0] = A;
-    A = M_0[0];
+    x2 = M[0] * A;
+    M_0[0] = x2;
+    x2 = M_0[0];
     K[1] = tmp_3[1] + tmp_4[1];
-    A += M[2] * x4;
-    M_0[0] = A;
+    x2 += M[2] * x4;
+    M_0[0] = x2;
     K[2] = tmp_3[2] + tmp_4[2];
-    A = M[1] * x2;
-    M_0[1] = A;
-    A = M_0[1];
+    x2 = M[1] * A;
+    M_0[1] = x2;
+    x2 = M_0[1];
     K[3] = tmp_3[3] + tmp_4[3];
-    A += M[3] * x4;
-    M_0[1] = A;
+    x2 += M[3] * x4;
+    M_0[1] = x2;
 
     /* '<S69>:1:101' */
     /* '<S69>:1:104' */
@@ -5020,92 +4968,92 @@ static void StateFlowGUI_output(void)
     /* '<S69>:1:112' */
     /* '<S69>:1:113' */
     /* '<S69>:1:114' */
-    x2 = StateFlowGUI_B.vel_B_conv;
+    A = StateFlowGUI_B.vel_B_conv;
     x4 = StateFlowGUI_B.vel_A_conv;
     for (bitIdx = 0; bitIdx < 2; bitIdx++) {
       F = K[bitIdx] * D2p;
-      J[bitIdx] = 0.0;
-      A = J[bitIdx];
-      A += o_a[bitIdx] * M[0];
-      J[bitIdx] = A;
-      A = J[bitIdx];
-      A += o_a[bitIdx + 2] * M[1];
-      J[bitIdx] = A;
-      F += K[bitIdx + 2] * i_a;
-      J[bitIdx + 2] = 0.0;
-      A = J[bitIdx + 2];
-      A += o_a[bitIdx] * M[2];
-      J[bitIdx + 2] = A;
-      A = J[bitIdx + 2];
-      A += o_a[bitIdx + 2] * M[3];
-      J[bitIdx + 2] = A;
-      Theta_pp[bitIdx] = M_0[bitIdx] + F;
-      j_a = J[bitIdx] * 0.015625;
-      j_a += J[bitIdx + 2] * 0.0;
-      StateFlowGUI_B.Mm[bitIdx] = j_a + Jm[bitIdx];
       J1[bitIdx] = 0.0;
-      A = J1[bitIdx];
-      A += o_a[bitIdx] * K[0];
-      J1[bitIdx] = A;
-      A = J1[bitIdx];
-      A += o_a[bitIdx + 2] * K[1];
-      J1[bitIdx] = A;
-      j_a = J[bitIdx] * 0.0;
-      j_a += J[bitIdx + 2] * 0.015625;
-      StateFlowGUI_B.Mm[bitIdx + 2] = Jm[bitIdx + 2] + j_a;
+      x2 = J1[bitIdx];
+      x2 += o_a[bitIdx] * M[0];
+      J1[bitIdx] = x2;
+      x2 = J1[bitIdx];
+      x2 += o_a[bitIdx + 2] * M[1];
+      J1[bitIdx] = x2;
+      F += K[bitIdx + 2] * i_a;
       J1[bitIdx + 2] = 0.0;
-      A = J1[bitIdx + 2];
-      A += o_a[bitIdx] * K[2];
-      J1[bitIdx + 2] = A;
-      A = J1[bitIdx + 2];
-      A += o_a[bitIdx + 2] * K[3];
-      J1[bitIdx + 2] = A;
+      x2 = J1[bitIdx + 2];
+      x2 += o_a[bitIdx] * M[2];
+      J1[bitIdx + 2] = x2;
+      x2 = J1[bitIdx + 2];
+      x2 += o_a[bitIdx + 2] * M[3];
+      J1[bitIdx + 2] = x2;
+      theta_p[bitIdx] = M_0[bitIdx] + F;
+      j_a = J1[bitIdx] * 0.015625;
+      j_a += J1[bitIdx + 2] * 0.0;
+      StateFlowGUI_B.Mm[bitIdx] = j_a + Jm[bitIdx];
       J2[bitIdx] = 0.0;
-      A = J2[bitIdx];
-      A += J1[bitIdx] * 0.015625;
-      J2[bitIdx] = A;
-      A = J2[bitIdx];
-      A += J1[bitIdx + 2] * 0.0;
-      J2[bitIdx] = A;
-      F = (real_T)p_a[bitIdx] * x2;
+      x2 = J2[bitIdx];
+      x2 += o_a[bitIdx] * K[0];
+      J2[bitIdx] = x2;
+      x2 = J2[bitIdx];
+      x2 += o_a[bitIdx + 2] * K[1];
+      J2[bitIdx] = x2;
+      j_a = J1[bitIdx] * 0.0;
+      j_a += J1[bitIdx + 2] * 0.015625;
+      StateFlowGUI_B.Mm[bitIdx + 2] = Jm[bitIdx + 2] + j_a;
       J2[bitIdx + 2] = 0.0;
-      A = J2[bitIdx + 2];
-      A += J1[bitIdx] * 0.0;
-      J2[bitIdx + 2] = A;
-      A = J2[bitIdx + 2];
-      A += J1[bitIdx + 2] * 0.015625;
-      J2[bitIdx + 2] = A;
+      x2 = J2[bitIdx + 2];
+      x2 += o_a[bitIdx] * K[2];
+      J2[bitIdx + 2] = x2;
+      x2 = J2[bitIdx + 2];
+      x2 += o_a[bitIdx + 2] * K[3];
+      J2[bitIdx + 2] = x2;
+      J3[bitIdx] = 0.0;
+      x2 = J3[bitIdx];
+      x2 += J2[bitIdx] * 0.015625;
+      J3[bitIdx] = x2;
+      x2 = J3[bitIdx];
+      x2 += J2[bitIdx + 2] * 0.0;
+      J3[bitIdx] = x2;
+      F = (real_T)p_a[bitIdx] * A;
+      J3[bitIdx + 2] = 0.0;
+      x2 = J3[bitIdx + 2];
+      x2 += J2[bitIdx] * 0.0;
+      J3[bitIdx + 2] = x2;
+      x2 = J3[bitIdx + 2];
+      x2 += J2[bitIdx + 2] * 0.015625;
+      J3[bitIdx + 2] = x2;
       F += (real_T)p_a[bitIdx + 2] * x4;
       p_a_0[bitIdx] = F;
     }
 
-    B = 2.2250738585072014E-308;
-    j_a = J2[0] * p_a_0[0];
-    j_a += J2[2] * p_a_0[1];
+    A = 2.2250738585072014E-308;
+    j_a = J3[0] * p_a_0[0];
+    j_a += J3[2] * p_a_0[1];
     F = 0.0002485 - j_a;
-    F = fabs(F);
-    if (F > 2.2250738585072014E-308) {
-      A = 1.0;
-      B = F;
+    B = fabs(F);
+    if (B > 2.2250738585072014E-308) {
+      x2 = 1.0;
+      A = B;
     } else {
-      x2 = F / 2.2250738585072014E-308;
-      A = x2 * x2;
+      x4 = B / 2.2250738585072014E-308;
+      x2 = x4 * x4;
     }
 
-    j_a = J2[1] * p_a_0[0];
-    j_a += J2[3] * p_a_0[1];
+    j_a = J3[1] * p_a_0[0];
+    j_a += J3[3] * p_a_0[1];
     F = -0.0002483 - j_a;
-    F = fabs(F);
-    if (F > B) {
-      x2 = B / F;
-      A = A * x2 * x2 + 1.0;
-      B = F;
+    B = fabs(F);
+    if (B > A) {
+      x4 = A / B;
+      x2 = x2 * x4 * x4 + 1.0;
+      A = B;
     } else {
-      x2 = F / B;
-      A += x2 * x2;
+      x4 = B / A;
+      x2 += x4 * x4;
     }
 
-    A = B * sqrt(A);
+    x2 = A * sqrt(x2);
 
     /*   */
     /*  Mm_ = Jm; */
@@ -5115,11 +5063,11 @@ static void StateFlowGUI_output(void)
     /*  Bt = [zeros(2,2); Mm_^-1]; */
     /*  Acl = Aol - Bt*[Kp Kd]; */
     /* '<S69>:1:125' */
-    StateFlowGUI_B.C1 = Theta_pp[0];
+    StateFlowGUI_B.C1 = theta_p[0];
 
     /* '<S69>:1:126' */
-    StateFlowGUI_B.C2 = Theta_pp[1];
-    StateFlowGUI_B.ntilde = A;
+    StateFlowGUI_B.C2 = theta_p[1];
+    StateFlowGUI_B.ntilde = x2;
 
     /* End of MATLAB Function: '<S12>/Dinamica Inversa1' */
 
@@ -5158,15 +5106,15 @@ static void StateFlowGUI_output(void)
     /* End of Switch: '<S36>/Switch1' */
 
     /* Saturate: '<S5>/Coppia A braccia saturata' */
-    A = StateFlowGUI_B.Switch1;
+    x2 = StateFlowGUI_B.Switch1;
     F = StateFlowGUI_P.CoppiaAbracciasaturata_LowerSat;
     J_p_idx_0 = StateFlowGUI_P.CoppiaAbracciasaturata_UpperSat;
-    if (A > J_p_idx_0) {
+    if (x2 > J_p_idx_0) {
       StateFlowGUI_B.CoppiaAbracciasaturata = J_p_idx_0;
-    } else if (A < F) {
+    } else if (x2 < F) {
       StateFlowGUI_B.CoppiaAbracciasaturata = F;
     } else {
-      StateFlowGUI_B.CoppiaAbracciasaturata = A;
+      StateFlowGUI_B.CoppiaAbracciasaturata = x2;
     }
 
     /* End of Saturate: '<S5>/Coppia A braccia saturata' */
@@ -5234,15 +5182,15 @@ static void StateFlowGUI_output(void)
     /* End of Switch: '<S40>/Switch1' */
 
     /* Saturate: '<S6>/Coppia B braccia saturata' */
-    A = StateFlowGUI_B.Switch1_l;
+    x2 = StateFlowGUI_B.Switch1_l;
     F = StateFlowGUI_P.CoppiaBbracciasaturata_LowerSat;
     J_p_idx_0 = StateFlowGUI_P.CoppiaBbracciasaturata_UpperSat;
-    if (A > J_p_idx_0) {
+    if (x2 > J_p_idx_0) {
       StateFlowGUI_B.CoppiaBbracciasaturata = J_p_idx_0;
-    } else if (A < F) {
+    } else if (x2 < F) {
       StateFlowGUI_B.CoppiaBbracciasaturata = F;
     } else {
-      StateFlowGUI_B.CoppiaBbracciasaturata = A;
+      StateFlowGUI_B.CoppiaBbracciasaturata = x2;
     }
 
     /* End of Saturate: '<S6>/Coppia B braccia saturata' */
@@ -5287,7 +5235,7 @@ static void StateFlowGUI_output(void)
     StateFlowGUI_B.Memory_n = StateFlowGUI_DW.Memory_PreviousInput_g;
 
     /* Sum: '<S48>/Sum' */
-    StateFlowGUI_B.Sum_p = StateFlowGUI_B.OffT - StateFlowGUI_B.OffA_vite;
+    StateFlowGUI_B.Sum_p = StateFlowGUI_B.convert - StateFlowGUI_B.OffA_vite;
 
     /* MATLAB Function: '<S57>/Asse A conv' */
     /* MATLAB Function 'Sistema Vite/Actual A/Posizione attuale Vite A/Asse A conv': '<S58>:1' */
@@ -5309,19 +5257,61 @@ static void StateFlowGUI_output(void)
       StateFlowGUI_B.pos_B_conv_v;
 
     /* Sum: '<S51>/Sum2' */
-    StateFlowGUI_B.Sum2_m = StateFlowGUI_B.Clock - StateFlowGUI_B.convert;
+    StateFlowGUI_B.Sum2_m = StateFlowGUI_B.Clock - StateFlowGUI_B.OffT;
 
     /* MATLAB Function: '<S11>/Rifermento Asse A Vite' incorporates:
      *  Constant: '<Root>/Alzata A'
      *  Constant: '<Root>/Periodo A'
      */
-    StateFlowGUI_AsseB(StateFlowGUI_B.Sum2_m, StateFlowGUI_P.AlzataA_Value,
-                       StateFlowGUI_P.PeriodoA_Value,
-                       &StateFlowGUI_B.sf_RifermentoAsseAVite);
+    /* MATLAB Function 'Sistema Vite/Rifermento Asse A Vite': '<S54>:1' */
+    /* '<S54>:1:3' */
+    /* '<S54>:1:4' */
+    x4 = StateFlowGUI_B.Sum2_m / StateFlowGUI_P.PeriodoA_Value;
+
+    /* '<S54>:1:5' */
+    /* '<S54>:1:6' */
+    if ((x4 >= 0.0) && (x4 < 0.3)) {
+      /* '<S54>:1:8' */
+      /* '<S54>:1:10' */
+      F = 4.7619047619047619 * x4;
+
+      /* '<S54>:1:11' */
+      x2 = x4 * x4 * 4.7619047619047619 / 2.0;
+    } else if ((x4 >= 0.3) && (x4 < 0.7)) {
+      /* '<S54>:1:12' */
+      /* '<S54>:1:14' */
+      F = 1.4285714285714286;
+
+      /* '<S54>:1:15' */
+      x2 = (x4 - 0.3) * 1.4285714285714286 + 0.21428571428571427;
+    } else if ((x4 >= 0.7) && (x4 <= 1.0)) {
+      /* '<S54>:1:16' */
+      /* '<S54>:1:18' */
+      /* '<S54>:1:19' */
+      F = 1.4285714285714286 - (x4 - 0.7) * 4.7619047619047619;
+
+      /* '<S54>:1:20' */
+      x2 = ((x4 - 0.7) * 1.4285714285714286 + 0.78571428571428581) - (x4 - 0.7) *
+        (x4 - 0.7) * 4.7619047619047619 / 2.0;
+    } else {
+      /* '<S54>:1:23' */
+      F = 0.0;
+
+      /* '<S54>:1:24' */
+      x2 = 1.0000000000000002;
+    }
+
+    /* '<S54>:1:27' */
+    StateFlowGUI_B.ldm_pos = x2 * StateFlowGUI_P.AlzataA_Value;
+
+    /* '<S54>:1:28' */
+    StateFlowGUI_B.ldm_vel = F * StateFlowGUI_P.AlzataA_Value /
+      StateFlowGUI_P.PeriodoA_Value;
+
+    /* End of MATLAB Function: '<S11>/Rifermento Asse A Vite' */
 
     /* Sum: '<S11>/Sum1' */
-    StateFlowGUI_B.Sum1 = StateFlowGUI_B.sf_RifermentoAsseAVite.ldm_pos -
-      StateFlowGUI_B.Sum5;
+    StateFlowGUI_B.Sum1 = StateFlowGUI_B.ldm_pos - StateFlowGUI_B.Sum5;
 
     /* Gain: '<S52>/Gain' */
     StateFlowGUI_B.Gain_a = StateFlowGUI_P.Gain_Gain_b * StateFlowGUI_B.Sum1;
@@ -5356,8 +5346,7 @@ static void StateFlowGUI_output(void)
       3.1415926535897931 / 20480.0 / 40.0;
 
     /* Sum: '<S11>/Sum8' */
-    StateFlowGUI_B.Sum8 = StateFlowGUI_B.sf_RifermentoAsseAVite.ldm_vel -
-      StateFlowGUI_B.vel_A_conv_d;
+    StateFlowGUI_B.Sum8 = StateFlowGUI_B.ldm_vel - StateFlowGUI_B.vel_A_conv_d;
 
     /* Gain: '<S52>/Gain6' */
     StateFlowGUI_B.Gain6 = StateFlowGUI_P.Gain6_Gain * StateFlowGUI_B.Sum8;
@@ -5390,22 +5379,8 @@ static void StateFlowGUI_output(void)
 
     /* End of Switch: '<S44>/Switch1' */
 
-    /* Saturate: '<S7>/Coppia A vite saturata' */
-    A = StateFlowGUI_B.Switch1_f;
-    F = StateFlowGUI_P.CoppiaAvitesaturata_LowerSat;
-    J_p_idx_0 = StateFlowGUI_P.CoppiaAvitesaturata_UpperSat;
-    if (A > J_p_idx_0) {
-      StateFlowGUI_B.CoppiaAvitesaturata = J_p_idx_0;
-    } else if (A < F) {
-      StateFlowGUI_B.CoppiaAvitesaturata = F;
-    } else {
-      StateFlowGUI_B.CoppiaAvitesaturata = A;
-    }
-
-    /* End of Saturate: '<S7>/Coppia A vite saturata' */
-
     /* DataTypeConversion: '<S7>/Convert A' */
-    j_a = floor(StateFlowGUI_B.CoppiaAvitesaturata);
+    j_a = floor(StateFlowGUI_B.Switch1_f);
     if (rtIsNaN(j_a) || rtIsInf(j_a)) {
       j_a = 0.0;
     } else {
@@ -5442,7 +5417,7 @@ static void StateFlowGUI_output(void)
       StateFlowGUI_B.DataTypeConversion14_k, &StateFlowGUI_B.sf_MATLABFunction_f);
 
     /* Memory: '<S46>/Memory' */
-    StateFlowGUI_B.Memory_a = StateFlowGUI_DW.Memory_PreviousInput_h;
+    StateFlowGUI_B.Memory_d = StateFlowGUI_DW.Memory_PreviousInput_a;
 
     /* MATLAB Function: '<S11>/Asse B conv' */
     /* MATLAB Function 'Sistema Vite/Asse B conv': '<S50>:1' */
@@ -5454,12 +5429,55 @@ static void StateFlowGUI_output(void)
      *  Constant: '<Root>/Alzata B '
      *  Constant: '<Root>/Periodo B'
      */
-    StateFlowGUI_AsseB(StateFlowGUI_B.Sum2_m, StateFlowGUI_P.AlzataB_Value,
-                       StateFlowGUI_P.PeriodoB_Value, &StateFlowGUI_B.sf_AsseB);
+    /* MATLAB Function 'Sistema Vite/Asse B': '<S49>:1' */
+    /* '<S49>:1:3' */
+    /* '<S49>:1:4' */
+    x4 = StateFlowGUI_B.Sum2_m / StateFlowGUI_P.PeriodoB_Value;
+
+    /* '<S49>:1:5' */
+    /* '<S49>:1:6' */
+    if ((x4 >= 0.0) && (x4 < 0.3)) {
+      /* '<S49>:1:8' */
+      /* '<S49>:1:10' */
+      F = 4.7619047619047619 * x4;
+
+      /* '<S49>:1:11' */
+      x2 = x4 * x4 * 4.7619047619047619 / 2.0;
+    } else if ((x4 >= 0.3) && (x4 < 0.7)) {
+      /* '<S49>:1:12' */
+      /* '<S49>:1:14' */
+      F = 1.4285714285714286;
+
+      /* '<S49>:1:15' */
+      x2 = (x4 - 0.3) * 1.4285714285714286 + 0.21428571428571427;
+    } else if ((x4 >= 0.7) && (x4 <= 1.0)) {
+      /* '<S49>:1:16' */
+      /* '<S49>:1:18' */
+      /* '<S49>:1:19' */
+      F = 1.4285714285714286 - (x4 - 0.7) * 4.7619047619047619;
+
+      /* '<S49>:1:20' */
+      x2 = ((x4 - 0.7) * 1.4285714285714286 + 0.78571428571428581) - (x4 - 0.7) *
+        (x4 - 0.7) * 4.7619047619047619 / 2.0;
+    } else {
+      /* '<S49>:1:23' */
+      F = 0.0;
+
+      /* '<S49>:1:24' */
+      x2 = 1.0000000000000002;
+    }
+
+    /* '<S49>:1:27' */
+    StateFlowGUI_B.ldm_pos_n = x2 * StateFlowGUI_P.AlzataB_Value;
+
+    /* '<S49>:1:28' */
+    StateFlowGUI_B.ldm_vel_c = F * StateFlowGUI_P.AlzataB_Value /
+      StateFlowGUI_P.PeriodoB_Value;
+
+    /* End of MATLAB Function: '<S11>/Asse B' */
 
     /* Sum: '<S11>/Sum4' */
-    StateFlowGUI_B.Sum4_l = StateFlowGUI_B.sf_AsseB.ldm_pos -
-      StateFlowGUI_B.pos_B_conv;
+    StateFlowGUI_B.Sum4_l = StateFlowGUI_B.ldm_pos_n - StateFlowGUI_B.pos_B_conv;
 
     /* Gain: '<S11>/Gain2' */
     StateFlowGUI_B.Gain2 = StateFlowGUI_P.Gain2_Gain * StateFlowGUI_B.Sum4_l;
@@ -5471,8 +5489,7 @@ static void StateFlowGUI_output(void)
       3.1415926535897931 / 20480.0 / 40.0;
 
     /* Sum: '<S11>/Sum6' */
-    StateFlowGUI_B.Sum6 = StateFlowGUI_B.sf_AsseB.ldm_vel -
-      StateFlowGUI_B.vel_B_conv_d;
+    StateFlowGUI_B.Sum6 = StateFlowGUI_B.ldm_vel_c - StateFlowGUI_B.vel_B_conv_d;
 
     /* Gain: '<S11>/Gain4' */
     StateFlowGUI_B.Gain4 = StateFlowGUI_P.Gain4_Gain * StateFlowGUI_B.Sum6;
@@ -5484,8 +5501,8 @@ static void StateFlowGUI_output(void)
      *  Constant: '<S46>/Constant'
      *  Switch: '<S8>/Switch2'
      */
-    if (StateFlowGUI_B.Memory_a != 0.0) {
-      StateFlowGUI_B.Switch1_k = StateFlowGUI_P.Constant_Value_o;
+    if (StateFlowGUI_B.Memory_d != 0.0) {
+      StateFlowGUI_B.Switch1_h = StateFlowGUI_P.Constant_Value_p;
     } else {
       if (StateFlowGUI_B.Bool > StateFlowGUI_P.Switch2_Threshold) {
         /* Switch: '<S8>/Switch2' */
@@ -5497,13 +5514,27 @@ static void StateFlowGUI_output(void)
         StateFlowGUI_B.Switch2 = StateFlowGUI_P.Constant1_Value_e;
       }
 
-      StateFlowGUI_B.Switch1_k = StateFlowGUI_B.Switch2;
+      StateFlowGUI_B.Switch1_h = StateFlowGUI_B.Switch2;
     }
 
     /* End of Switch: '<S46>/Switch1' */
 
+    /* Saturate: '<S8>/Coppia A vite saturata' */
+    x2 = StateFlowGUI_B.Switch1_h;
+    F = StateFlowGUI_P.CoppiaAvitesaturata_LowerSat;
+    J_p_idx_0 = StateFlowGUI_P.CoppiaAvitesaturata_UpperSat;
+    if (x2 > J_p_idx_0) {
+      StateFlowGUI_B.CoppiaAvitesaturata = J_p_idx_0;
+    } else if (x2 < F) {
+      StateFlowGUI_B.CoppiaAvitesaturata = F;
+    } else {
+      StateFlowGUI_B.CoppiaAvitesaturata = x2;
+    }
+
+    /* End of Saturate: '<S8>/Coppia A vite saturata' */
+
     /* DataTypeConversion: '<S8>/Convert B' */
-    j_a = floor(StateFlowGUI_B.Switch1_k);
+    j_a = floor(StateFlowGUI_B.CoppiaAvitesaturata);
     if (rtIsNaN(j_a) || rtIsInf(j_a)) {
       j_a = 0.0;
     } else {
@@ -5532,11 +5563,12 @@ static void StateFlowGUI_output(void)
     }
 
     /* DataTypeConversion: '<S46>/Data Type Conversion14' */
-    StateFlowGUI_B.DataTypeConversion14_e = StateFlowGUI_B.EtherCATPDOReceive9_d;
+    StateFlowGUI_B.DataTypeConversion14_h = StateFlowGUI_B.EtherCATPDOReceive9_m;
 
     /* MATLAB Function: '<S46>/MATLAB Function' */
-    StateFlowGUI_MATLABFunction(StateFlowGUI_B.Memory_a,
-      StateFlowGUI_B.DataTypeConversion14_e, &StateFlowGUI_B.sf_MATLABFunction_i);
+    StateFlowGUI_MATLABFunction(StateFlowGUI_B.Memory_d,
+      StateFlowGUI_B.DataTypeConversion14_h,
+      &StateFlowGUI_B.sf_MATLABFunction_fb);
 
     /* Sum: '<S23>/Sum2' */
     StateFlowGUI_B.Sum2_b = StateFlowGUI_B.Clock - StateFlowGUI_B.OffT;
@@ -7074,10 +7106,10 @@ static void StateFlowGUI_output(void)
       /*  44 */
       /* '<S32>:1:350' */
       StateFlowGUI_ldm7t_f((StateFlowGUI_B.Sum2_b - 63.0 * A / 2.0) / (A / 2.0),
-                           &B, &F);
+                           &x2, &F);
 
       /* '<S32>:1:351' */
-      StateFlowGUI_B.x_o = StateFlowGUI_P.AlzataC1_Value_b - B *
+      StateFlowGUI_B.x_o = StateFlowGUI_P.AlzataC1_Value_b - x2 *
         StateFlowGUI_P.AlzataC1_Value_b;
 
       /* '<S32>:1:352' */
@@ -7336,10 +7368,10 @@ static void StateFlowGUI_output(void)
                            StateFlowGUI_P.Periodo_Value_l, &x2, &F);
 
       /* '<S33>:1:13' */
-      x4 = x2 * StateFlowGUI_P.Rmax_Value_b + StateFlowGUI_P.Rmin_Value_c;
+      A = x2 * StateFlowGUI_P.Rmax_Value_b + StateFlowGUI_P.Rmin_Value_c;
 
       /* '<S33>:1:14' */
-      A = F * StateFlowGUI_P.Rmax_Value_b / StateFlowGUI_P.Periodo_Value_l;
+      B = F * StateFlowGUI_P.Rmax_Value_b / StateFlowGUI_P.Periodo_Value_l;
 
       /* '<S33>:1:15' */
       x2 = x2 * StateFlowGUI_P.Ngiri_Value_a * 2.0 * 3.1415926535897931;
@@ -7349,16 +7381,16 @@ static void StateFlowGUI_output(void)
         StateFlowGUI_P.Periodo_Value_l;
 
       /* '<S33>:1:17' */
-      StateFlowGUI_B.xs_pl = x4 * cos(x2);
+      StateFlowGUI_B.xs_pl = A * cos(x2);
 
       /* '<S33>:1:18' */
-      StateFlowGUI_B.ys_j = x4 * sin(x2);
+      StateFlowGUI_B.ys_j = A * sin(x2);
 
       /* '<S33>:1:19' */
-      StateFlowGUI_B.xs_p_e = -x4 * sin(x2) * F + A * cos(x2);
+      StateFlowGUI_B.xs_p_e = -A * sin(x2) * F + B * cos(x2);
 
       /* '<S33>:1:20' */
-      StateFlowGUI_B.ys_p_e = x4 * cos(x2) * F + A * sin(x2);
+      StateFlowGUI_B.ys_p_e = A * cos(x2) * F + B * sin(x2);
     } else {
       /* '<S33>:1:22' */
       StateFlowGUI_B.xs_pl = cos(StateFlowGUI_P.Ngiri_Value_a * 2.0 *
@@ -7444,16 +7476,14 @@ static void StateFlowGUI_output(void)
     StateFlowGUI_B.Sum4_n = StateFlowGUI_B.convert_g - StateFlowGUI_B.OffA;
 
     /* MATLAB Function: '<S4>/Asse A conv brac' */
-    /* MATLAB Function 'Movimento Braccia/Asse A conv brac': '<S18>:1' */
-    /* '<S18>:1:2' */
-    StateFlowGUI_B.pos_A_conv_e = StateFlowGUI_B.Sum4_n * 6.2831853071795862 /
-      16384.0 / 64.0;
+    StateFlowGUI_AsseAconvbrac(StateFlowGUI_B.Sum4_n,
+      &StateFlowGUI_B.sf_AsseAconvbrac);
 
     /* Sum: '<S4>/Sum3' incorporates:
      *  Constant: '<S4>/Constant1'
      */
     StateFlowGUI_B.theta2Reale = StateFlowGUI_P.Constant1_Value_f +
-      StateFlowGUI_B.pos_A_conv_e;
+      StateFlowGUI_B.sf_AsseAconvbrac.pos_A_conv;
 
     /* MATLAB Function: '<S4>/Cinematica Inversa1' */
     /* MATLAB Function 'Movimento Braccia/Cinematica Inversa1': '<S22>:1' */
@@ -7462,10 +7492,10 @@ static void StateFlowGUI_output(void)
       /* '<S22>:1:5' */
       /* '<S22>:1:6' */
       /* '<S22>:1:8' */
-      x2 = sin(StateFlowGUI_B.theta2Reale) - sin(StateFlowGUI_B.Theta1Reale);
+      A = sin(StateFlowGUI_B.theta2Reale) - sin(StateFlowGUI_B.Theta1Reale);
       J_p_idx_1 = -0.18 - (cos(StateFlowGUI_B.theta2Reale) - cos
                            (StateFlowGUI_B.Theta1Reale)) * 0.25;
-      A = x2 * x2 * 0.0625 + J_p_idx_1 * J_p_idx_1;
+      A = A * A * 0.0625 + J_p_idx_1 * J_p_idx_1;
 
       /* '<S22>:1:9' */
       J_p_idx_3 = -0.18 - (cos(StateFlowGUI_B.theta2Reale) - cos
@@ -7533,11 +7563,96 @@ static void StateFlowGUI_output(void)
       StateFlowGUI_B.theta2Reale;
 
     /* MATLAB Function: '<S4>/Cinematica Inversa vel' */
-    StateFlowG_CinematicaInversavel(StateFlowGUI_B.sf_CinematicaInversa_a.theta1,
-      StateFlowGUI_B.sf_CinematicaInversa_a.theta2, StateFlowGUI_B.Sum_e,
-      StateFlowGUI_B.Sum1_g, StateFlowGUI_B.MultiportSwitch_o[2],
-      StateFlowGUI_B.MultiportSwitch_o[3],
-      &StateFlowGUI_B.sf_CinematicaInversavel_l);
+    x2 = StateFlowGUI_B.MultiportSwitch_o[2];
+    B = StateFlowGUI_B.MultiportSwitch_o[3];
+
+    /* MATLAB Function 'Movimento Braccia/Cinematica Inversa vel': '<S21>:1' */
+    /* '<S21>:1:3' */
+    /* '<S21>:1:4' */
+    /* '<S21>:1:6' */
+    /* '<S21>:1:8' */
+    /* '<S21>:1:10' */
+    A = (StateFlowGUI_B.Sum1_g - 0.25 * sin
+         (StateFlowGUI_B.sf_CinematicaInversa_a.theta1)) -
+      (StateFlowGUI_B.Sum1_g - 0.25 * sin
+       (StateFlowGUI_B.sf_CinematicaInversa_a.theta2)) * ((StateFlowGUI_B.Sum_e
+      + 0.09) - 0.25 * cos(StateFlowGUI_B.sf_CinematicaInversa_a.theta1)) /
+      ((StateFlowGUI_B.Sum_e - 0.09) - 0.25 * cos
+       (StateFlowGUI_B.sf_CinematicaInversa_a.theta2));
+
+    /* '<S21>:1:12' */
+    x4 = (((StateFlowGUI_B.Sum_e + 0.09) - 0.25 * cos
+           (StateFlowGUI_B.sf_CinematicaInversa_a.theta1)) * (-0.25 * sin
+           (StateFlowGUI_B.sf_CinematicaInversa_a.theta1)) +
+          (StateFlowGUI_B.Sum1_g - 0.25 * sin
+           (StateFlowGUI_B.sf_CinematicaInversa_a.theta1)) * (0.25 * cos
+           (StateFlowGUI_B.sf_CinematicaInversa_a.theta1))) / A;
+
+    /* '<S21>:1:14' */
+    A = ((StateFlowGUI_B.Sum1_g - 0.25 * sin
+          (StateFlowGUI_B.sf_CinematicaInversa_a.theta2)) * (-0.25 * cos
+          (StateFlowGUI_B.sf_CinematicaInversa_a.theta2)) *
+         ((StateFlowGUI_B.Sum_e + 0.09) - 0.25 * cos
+          (StateFlowGUI_B.sf_CinematicaInversa_a.theta1)) /
+         ((StateFlowGUI_B.Sum_e - 0.09) - 0.25 * cos
+          (StateFlowGUI_B.sf_CinematicaInversa_a.theta2)) +
+         ((StateFlowGUI_B.Sum_e + 0.09) - 0.25 * cos
+          (StateFlowGUI_B.sf_CinematicaInversa_a.theta1)) * (0.25 * sin
+          (StateFlowGUI_B.sf_CinematicaInversa_a.theta2))) / A;
+
+    /* '<S21>:1:16' */
+    /* '<S21>:1:18' */
+    /* '<S21>:1:20' */
+    J[0] = -(StateFlowGUI_B.Sum1_g - 0.25 * sin
+             (StateFlowGUI_B.sf_CinematicaInversa_a.theta2)) /
+      ((StateFlowGUI_B.Sum_e - 0.09) - 0.25 * cos
+       (StateFlowGUI_B.sf_CinematicaInversa_a.theta2)) * x4;
+    J[2] = (-(StateFlowGUI_B.Sum1_g - 0.25 * sin
+              (StateFlowGUI_B.sf_CinematicaInversa_a.theta2)) /
+            ((StateFlowGUI_B.Sum_e - 0.09) - 0.25 * cos
+             (StateFlowGUI_B.sf_CinematicaInversa_a.theta2)) * A - 0.25 * sin
+            (StateFlowGUI_B.sf_CinematicaInversa_a.theta2)) +
+      (StateFlowGUI_B.Sum1_g - 0.25 * sin
+       (StateFlowGUI_B.sf_CinematicaInversa_a.theta2)) / ((StateFlowGUI_B.Sum_e
+      - 0.09) - 0.25 * cos(StateFlowGUI_B.sf_CinematicaInversa_a.theta2)) *
+      (0.25 * cos(StateFlowGUI_B.sf_CinematicaInversa_a.theta2));
+    J[1] = x4;
+    J[3] = A;
+
+    /* '<S21>:1:22' */
+    if (fabs(J[1]) > fabs(J[0])) {
+      A = J[0] / J[1];
+      x4 = 1.0 / (A * J[3] - J[2]);
+      J_p_idx_0 = J[3] / J[1] * x4;
+      J_p_idx_1 = -x4;
+      x5 = -J[2] / J[1] * x4;
+      J_p_idx_3 = A * x4;
+    } else {
+      A = J[1] / J[0];
+      x4 = 1.0 / (J[3] - A * J[2]);
+      J_p_idx_0 = J[3] / J[0] * x4;
+      J_p_idx_1 = -A * x4;
+      x5 = -J[2] / J[0] * x4;
+      J_p_idx_3 = x4;
+    }
+
+    F = J_p_idx_0 * x2;
+    theta_p[0] = F;
+    F = theta_p[0];
+    F += x5 * B;
+    theta_p[0] = F;
+    F = J_p_idx_1 * x2;
+    theta_p[1] = F;
+    F = theta_p[1];
+    F += J_p_idx_3 * B;
+    theta_p[1] = F;
+
+    /* '<S21>:1:23' */
+    /* '<S21>:1:24' */
+    StateFlowGUI_B.theta1_p_i = theta_p[0];
+    StateFlowGUI_B.theta2_p_p = theta_p[1];
+
+    /* End of MATLAB Function: '<S4>/Cinematica Inversa vel' */
 
     /* S-Function (xpcethercatpdorx): '<S28>/EtherCAT PDO Receive15' */
 
@@ -7556,7 +7671,7 @@ static void StateFlowGUI_output(void)
 
     /* Sum: '<S4>/Sum6' */
     StateFlowGUI_B.Sum6_n = StateFlowGUI_B.sf_VelAsseBconv_o.vel_B_conv -
-      StateFlowGUI_B.sf_CinematicaInversavel_l.theta1_p;
+      StateFlowGUI_B.theta1_p_i;
 
     /* Gain: '<S4>/Coppia theta 1 vel' */
     StateFlowGUI_B.Coppiatheta1vel = StateFlowGUI_P.Coppiatheta1vel_Gain *
@@ -7579,7 +7694,7 @@ static void StateFlowGUI_output(void)
 
     /* Sum: '<S4>/Sum17' */
     StateFlowGUI_B.Sum17 = StateFlowGUI_B.sf_VelAsseAconv_o.vel_A_conv -
-      StateFlowGUI_B.sf_CinematicaInversavel_l.theta2_p;
+      StateFlowGUI_B.theta2_p_p;
 
     /* Gain: '<S4>/Coppia theta 2 vel' */
     StateFlowGUI_B.Coppiatheta2vel = StateFlowGUI_P.Coppiatheta2vel_Gain *
@@ -7683,10 +7798,10 @@ static void StateFlowGUI_output(void)
     /* '<S65>:1:2' */
     /* '<S65>:1:3' */
     /* '<S65>:1:6' */
-    x2 = sin(StateFlowGUI_B.Sum7) - sin(StateFlowGUI_B.Sum4);
+    A = sin(StateFlowGUI_B.Sum7) - sin(StateFlowGUI_B.Sum4);
     J_p_idx_1 = -0.18 - (cos(StateFlowGUI_B.Sum7) - cos(StateFlowGUI_B.Sum4)) *
       0.25;
-    A = x2 * x2 * 0.0625 + J_p_idx_1 * J_p_idx_1;
+    A = A * A * 0.0625 + J_p_idx_1 * J_p_idx_1;
 
     /* '<S65>:1:7' */
     J_p_idx_3 = -0.18 - (cos(StateFlowGUI_B.Sum7) - cos(StateFlowGUI_B.Sum4)) *
@@ -7704,83 +7819,77 @@ static void StateFlowGUI_output(void)
 
     /*  Posizione Y end-effector */
     /* '<S65>:1:14' */
-    A = (sqrt(B * B - ((x4 * x4 * 0.00050625 - (-0.18 - (cos(StateFlowGUI_B.Sum7)
-              - cos(StateFlowGUI_B.Sum4)) * 0.25) * ((cos(StateFlowGUI_B.Sum7) +
-              cos(StateFlowGUI_B.Sum4)) * 0.0225) * (-0.18 - 0.5 * cos
-             (StateFlowGUI_B.Sum7))) + (0.045 * cos(StateFlowGUI_B.Sum7) +
-            0.0081) * (x5 * x5)) * (4.0 * A)) + -B) / (2.0 * A);
+    x2 = (sqrt(B * B - ((x4 * x4 * 0.00050625 - (-0.18 - (cos
+               (StateFlowGUI_B.Sum7) - cos(StateFlowGUI_B.Sum4)) * 0.25) * ((cos
+               (StateFlowGUI_B.Sum7) + cos(StateFlowGUI_B.Sum4)) * 0.0225) *
+                         (-0.18 - 0.5 * cos(StateFlowGUI_B.Sum7))) + (0.045 *
+             cos(StateFlowGUI_B.Sum7) + 0.0081) * (x5 * x5)) * (4.0 * A)) + -B) /
+      (2.0 * A);
 
     /*  Posizione X end-effector */
     /* '<S65>:1:16' */
-    StateFlowGUI_B.x_n = (A * 0.25 * (sin(StateFlowGUI_B.Sum7) - sin
+    StateFlowGUI_B.x_n = (x2 * 0.25 * (sin(StateFlowGUI_B.Sum7) - sin
       (StateFlowGUI_B.Sum4)) - (cos(StateFlowGUI_B.Sum7) + cos
       (StateFlowGUI_B.Sum4)) * 0.0225) / (-0.18 - (cos(StateFlowGUI_B.Sum7) -
       cos(StateFlowGUI_B.Sum4)) * 0.25);
-    StateFlowGUI_B.y_k = A;
+    StateFlowGUI_B.y_k = x2;
 
     /* MATLAB Function: '<S12>/Cinematica diretta Acc' */
     /* MATLAB Function 'Sistema_braccia/Cinematica diretta Acc': '<S66>:1' */
     /* '<S66>:1:3' */
     /* '<S66>:1:4' */
     /* '<S66>:1:6' */
-    x2 = 0.25 * sin(StateFlowGUI_B.sf_CinematicaInversa.theta2) *
-      StateFlowGUI_B.sf_CinematicaInversavel.theta2_p;
+    A = 0.25 * sin(StateFlowGUI_B.sf_CinematicaInversa.theta2) *
+      StateFlowGUI_B.theta2_p;
     J_p_idx_1 = 0.25 * cos(StateFlowGUI_B.sf_CinematicaInversa.theta2) *
-      StateFlowGUI_B.sf_CinematicaInversavel.theta2_p;
+      StateFlowGUI_B.theta2_p;
 
     /* '<S66>:1:9' */
     J_p_idx_3 = 0.25 * sin(StateFlowGUI_B.sf_CinematicaInversa.theta1) *
-      StateFlowGUI_B.sf_CinematicaInversavel.theta1_p;
+      StateFlowGUI_B.theta1_p;
     x4 = 0.25 * cos(StateFlowGUI_B.sf_CinematicaInversa.theta1) *
-      StateFlowGUI_B.sf_CinematicaInversavel.theta1_p;
+      StateFlowGUI_B.theta1_p;
     B = ((((((0.5 * sin(StateFlowGUI_B.sf_CinematicaInversa.theta1) *
-              StateFlowGUI_B.MultiportSwitch[2] *
-              StateFlowGUI_B.sf_CinematicaInversavel.theta1_p +
+              StateFlowGUI_B.MultiportSwitch[2] * StateFlowGUI_B.theta1_p +
               StateFlowGUI_B.MultiportSwitch[2] *
               StateFlowGUI_B.MultiportSwitch[2]) + J_p_idx_3 * J_p_idx_3) +
             (0.25 * cos(StateFlowGUI_B.sf_CinematicaInversa.theta1) *
-             (StateFlowGUI_B.sf_CinematicaInversavel.theta1_p *
-              StateFlowGUI_B.sf_CinematicaInversavel.theta1_p) + 0.25 * sin
+             (StateFlowGUI_B.theta1_p * StateFlowGUI_B.theta1_p) + 0.25 * sin
              (StateFlowGUI_B.sf_CinematicaInversa.theta1) *
              StateFlowGUI_B.theta1_pp) * ((StateFlowGUI_B.Sum + 0.09) - 0.25 *
              cos(StateFlowGUI_B.sf_CinematicaInversa.theta1))) +
            StateFlowGUI_B.MultiportSwitch[3] * StateFlowGUI_B.MultiportSwitch[3])
           - 0.5 * cos(StateFlowGUI_B.sf_CinematicaInversa.theta1) *
-          StateFlowGUI_B.MultiportSwitch[3] *
-          StateFlowGUI_B.sf_CinematicaInversavel.theta1_p) + x4 * x4) + (0.25 *
-      sin(StateFlowGUI_B.sf_CinematicaInversa.theta1) *
-      (StateFlowGUI_B.sf_CinematicaInversavel.theta1_p *
-       StateFlowGUI_B.sf_CinematicaInversavel.theta1_p) - 0.25 * cos
-      (StateFlowGUI_B.sf_CinematicaInversa.theta1) * StateFlowGUI_B.theta1_pp) *
-      (StateFlowGUI_B.Ymov - 0.25 * sin
-       (StateFlowGUI_B.sf_CinematicaInversa.theta1));
+          StateFlowGUI_B.MultiportSwitch[3] * StateFlowGUI_B.theta1_p) + x4 * x4)
+      + (0.25 * sin(StateFlowGUI_B.sf_CinematicaInversa.theta1) *
+         (StateFlowGUI_B.theta1_p * StateFlowGUI_B.theta1_p) - 0.25 * cos
+         (StateFlowGUI_B.sf_CinematicaInversa.theta1) * StateFlowGUI_B.theta1_pp)
+      * (StateFlowGUI_B.Ymov - 0.25 * sin
+         (StateFlowGUI_B.sf_CinematicaInversa.theta1));
 
     /* '<S66>:1:12' */
-    A = (((StateFlowGUI_B.Sum - 0.09) - 0.25 * cos
-          (StateFlowGUI_B.sf_CinematicaInversa.theta2)) * B /
-         ((StateFlowGUI_B.Sum + 0.09) - 0.25 * cos
-          (StateFlowGUI_B.sf_CinematicaInversa.theta1)) - (((((((0.5 * sin
-                (StateFlowGUI_B.sf_CinematicaInversa.theta2) *
-                StateFlowGUI_B.MultiportSwitch[2] *
-                StateFlowGUI_B.sf_CinematicaInversavel.theta2_p +
-                StateFlowGUI_B.MultiportSwitch[2] *
-                StateFlowGUI_B.MultiportSwitch[2]) + x2 * x2) + (0.25 * cos
-               (StateFlowGUI_B.sf_CinematicaInversa.theta2) *
-               (StateFlowGUI_B.sf_CinematicaInversavel.theta2_p *
-                StateFlowGUI_B.sf_CinematicaInversavel.theta2_p) + 0.25 * sin
-               (StateFlowGUI_B.sf_CinematicaInversa.theta2) *
-               StateFlowGUI_B.theta2_pp) * ((StateFlowGUI_B.Sum - 0.09) - 0.25 *
-               cos(StateFlowGUI_B.sf_CinematicaInversa.theta2))) +
-             StateFlowGUI_B.MultiportSwitch[3] * StateFlowGUI_B.MultiportSwitch
-             [3]) - 0.5 * cos(StateFlowGUI_B.sf_CinematicaInversa.theta2) *
-            StateFlowGUI_B.MultiportSwitch[3] *
-            StateFlowGUI_B.sf_CinematicaInversavel.theta2_p) + J_p_idx_1 *
-           J_p_idx_1) + (0.25 * sin(StateFlowGUI_B.sf_CinematicaInversa.theta2) *
-                         (StateFlowGUI_B.sf_CinematicaInversavel.theta2_p *
-                          StateFlowGUI_B.sf_CinematicaInversavel.theta2_p) -
-                         0.25 * cos(StateFlowGUI_B.sf_CinematicaInversa.theta2) *
-                         StateFlowGUI_B.theta2_pp) * (StateFlowGUI_B.Ymov - 0.25
-           * sin(StateFlowGUI_B.sf_CinematicaInversa.theta2)))) /
+    x2 = (((StateFlowGUI_B.Sum - 0.09) - 0.25 * cos
+           (StateFlowGUI_B.sf_CinematicaInversa.theta2)) * B /
+          ((StateFlowGUI_B.Sum + 0.09) - 0.25 * cos
+           (StateFlowGUI_B.sf_CinematicaInversa.theta1)) - (((((((0.5 * sin
+      (StateFlowGUI_B.sf_CinematicaInversa.theta2) *
+      StateFlowGUI_B.MultiportSwitch[2] * StateFlowGUI_B.theta2_p +
+      StateFlowGUI_B.MultiportSwitch[2] * StateFlowGUI_B.MultiportSwitch[2]) + A
+                * A) + (0.25 * cos(StateFlowGUI_B.sf_CinematicaInversa.theta2) *
+                        (StateFlowGUI_B.theta2_p * StateFlowGUI_B.theta2_p) +
+                        0.25 * sin(StateFlowGUI_B.sf_CinematicaInversa.theta2) *
+                        StateFlowGUI_B.theta2_pp) * ((StateFlowGUI_B.Sum - 0.09)
+                - 0.25 * cos(StateFlowGUI_B.sf_CinematicaInversa.theta2))) +
+              StateFlowGUI_B.MultiportSwitch[3] *
+              StateFlowGUI_B.MultiportSwitch[3]) - 0.5 * cos
+             (StateFlowGUI_B.sf_CinematicaInversa.theta2) *
+             StateFlowGUI_B.MultiportSwitch[3] * StateFlowGUI_B.theta2_p) +
+            J_p_idx_1 * J_p_idx_1) + (0.25 * sin
+            (StateFlowGUI_B.sf_CinematicaInversa.theta2) *
+            (StateFlowGUI_B.theta2_p * StateFlowGUI_B.theta2_p) - 0.25 * cos
+            (StateFlowGUI_B.sf_CinematicaInversa.theta2) *
+            StateFlowGUI_B.theta2_pp) * (StateFlowGUI_B.Ymov - 0.25 * sin
+            (StateFlowGUI_B.sf_CinematicaInversa.theta2)))) /
       ((StateFlowGUI_B.Ymov - 0.25 * sin
         (StateFlowGUI_B.sf_CinematicaInversa.theta2)) - ((StateFlowGUI_B.Sum -
          0.09) - 0.25 * cos(StateFlowGUI_B.sf_CinematicaInversa.theta2)) /
@@ -7790,10 +7899,10 @@ static void StateFlowGUI_output(void)
 
     /* '<S66>:1:14' */
     StateFlowGUI_B.x_pp_f = ((StateFlowGUI_B.Ymov - 0.25 * sin
-      (StateFlowGUI_B.sf_CinematicaInversa.theta1)) * -A - B) /
+      (StateFlowGUI_B.sf_CinematicaInversa.theta1)) * -x2 - B) /
       ((StateFlowGUI_B.Sum + 0.09) - 0.25 * cos
        (StateFlowGUI_B.sf_CinematicaInversa.theta1));
-    StateFlowGUI_B.y_pp_l = A;
+    StateFlowGUI_B.y_pp_l = x2;
 
     /* Sum: '<S12>/Sum2' */
     StateFlowGUI_B.Sum2_d = StateFlowGUI_B.x_pp_f -
@@ -7848,50 +7957,50 @@ static void StateFlowGUI_output(void)
     StateFlowGUI_B.csiH[3] = StateFlowGUI_B.qdot[1];
 
     /* '<S74>:1:6' */
-    B = 2.2250738585072014E-308;
-    F = fabs(StateFlowGUI_B.csiH[0]);
-    if (F > 2.2250738585072014E-308) {
-      A = 1.0;
-      B = F;
+    A = 2.2250738585072014E-308;
+    B = fabs(StateFlowGUI_B.csiH[0]);
+    if (B > 2.2250738585072014E-308) {
+      x2 = 1.0;
+      A = B;
     } else {
-      x2 = F / 2.2250738585072014E-308;
-      A = x2 * x2;
+      x4 = B / 2.2250738585072014E-308;
+      x2 = x4 * x4;
     }
 
-    F = fabs(StateFlowGUI_B.csiH[1]);
-    if (F > B) {
-      x2 = B / F;
-      A = A * x2 * x2 + 1.0;
-      B = F;
+    B = fabs(StateFlowGUI_B.csiH[1]);
+    if (B > A) {
+      x4 = A / B;
+      x2 = x2 * x4 * x4 + 1.0;
+      A = B;
     } else {
-      x2 = F / B;
-      A += x2 * x2;
+      x4 = B / A;
+      x2 += x4 * x4;
     }
 
-    F = fabs(StateFlowGUI_B.csiH[2]);
-    if (F > B) {
-      x2 = B / F;
-      A = A * x2 * x2 + 1.0;
-      B = F;
+    B = fabs(StateFlowGUI_B.csiH[2]);
+    if (B > A) {
+      x4 = A / B;
+      x2 = x2 * x4 * x4 + 1.0;
+      A = B;
     } else {
-      x2 = F / B;
-      A += x2 * x2;
+      x4 = B / A;
+      x2 += x4 * x4;
     }
 
-    F = fabs(StateFlowGUI_B.csiH[3]);
-    if (F > B) {
-      x2 = B / F;
-      A = A * x2 * x2 + 1.0;
-      B = F;
+    B = fabs(StateFlowGUI_B.csiH[3]);
+    if (B > A) {
+      x4 = A / B;
+      x2 = x2 * x4 * x4 + 1.0;
+      A = B;
     } else {
-      x2 = F / B;
-      A += x2 * x2;
+      x4 = B / A;
+      x2 += x4 * x4;
     }
 
-    A = B * sqrt(A);
+    x2 = A * sqrt(x2);
 
     /* '<S74>:1:7' */
-    StateFlowGUI_B.phi = (0.002 * A + 0.0005) + A * A * -1.5E-6;
+    StateFlowGUI_B.phi = (0.002 * x2 + 0.0005) + x2 * x2 * -1.5E-6;
 
     /* MATLAB Function: '<S12>/MATLAB Function4' */
     /* MATLAB Function 'Sistema_braccia/MATLAB Function4': '<S75>:1' */
@@ -7900,26 +8009,26 @@ static void StateFlowGUI_output(void)
     /* '<S75>:1:27' */
     /*  Il risultato &#xE8; una 2x1 [2x4][4x4][4x1] */
     /* '<S75>:1:28' */
-    A = 0.0;
-    B = 2.2250738585072014E-308;
+    x2 = 0.0;
+    A = 2.2250738585072014E-308;
     for (bitIdx = 0; bitIdx < 2; bitIdx++) {
       StateFlowGUI_B.z[bitIdx] = 0.0;
       StateFlowGUI_B.z[bitIdx] += b_a[bitIdx] * StateFlowGUI_B.csiH[0];
       StateFlowGUI_B.z[bitIdx] += b_a[bitIdx + 2] * StateFlowGUI_B.csiH[1];
       StateFlowGUI_B.z[bitIdx] += b_a[bitIdx + 4] * StateFlowGUI_B.csiH[2];
       StateFlowGUI_B.z[bitIdx] += b_a[bitIdx + 6] * StateFlowGUI_B.csiH[3];
-      F = fabs(StateFlowGUI_B.z[bitIdx]);
-      if (F > B) {
-        x2 = B / F;
-        A = A * x2 * x2 + 1.0;
-        B = F;
+      B = fabs(StateFlowGUI_B.z[bitIdx]);
+      if (B > A) {
+        x4 = A / B;
+        x2 = x2 * x4 * x4 + 1.0;
+        A = B;
       } else {
-        x2 = F / B;
-        A += x2 * x2;
+        x4 = B / A;
+        x2 += x4 * x4;
       }
     }
 
-    A = B * sqrt(A);
+    x2 = A * sqrt(x2);
 
     /* y = theta_pp + K*csiH+omega; */
     /* eta = (eye(2)-M^-1*Mhat)*y-M^-1*ntilde; */
@@ -7927,14 +8036,14 @@ static void StateFlowGUI_output(void)
     /* '<S75>:1:37' */
     /* '<S75>:1:38' */
     /* '<S75>:1:39' */
-    x2 = StateFlowGUI_norm_n(StateFlowGUI_B.csiH);
-    x2 = (39.619574132744681 * StateFlowGUI_norm_n(StateFlowGUI_B.csiH) +
-          9.6405136097991448) + x2 * x2 * -0.27679543903127646;
+    A = StateFlowGUI_norm_n(StateFlowGUI_B.csiH);
+    A = (39.619574132744681 * StateFlowGUI_norm_n(StateFlowGUI_B.csiH) +
+         9.6405136097991448) + A * A * -0.27679543903127646;
 
     /* '<S75>:1:41' */
-    StateFlowGUI_B.rho = x2;
-    StateFlowGUI_B.omega[0] = StateFlowGUI_B.z[0] / A * x2;
-    StateFlowGUI_B.omega[1] = StateFlowGUI_B.z[1] / A * x2;
+    StateFlowGUI_B.rho = A;
+    StateFlowGUI_B.omega[0] = StateFlowGUI_B.z[0] / x2 * A;
+    StateFlowGUI_B.omega[1] = StateFlowGUI_B.z[1] / x2 * A;
 
     /* End of MATLAB Function: '<S12>/MATLAB Function4' */
 
@@ -7945,8 +8054,8 @@ static void StateFlowGUI_output(void)
     /* '<S76>:1:6' */
     /* '<S76>:1:8' */
     /* '<S76>:1:10' */
-    x2 = (StateFlowGUI_B.Ymov - 0.25 * sin
-          (StateFlowGUI_B.sf_CinematicaInversa.theta1)) - (StateFlowGUI_B.Ymov -
+    A = (StateFlowGUI_B.Ymov - 0.25 * sin
+         (StateFlowGUI_B.sf_CinematicaInversa.theta1)) - (StateFlowGUI_B.Ymov -
       0.25 * sin(StateFlowGUI_B.sf_CinematicaInversa.theta2)) *
       ((StateFlowGUI_B.Sum + 0.09) - 0.25 * cos
        (StateFlowGUI_B.sf_CinematicaInversa.theta1)) / ((StateFlowGUI_B.Sum -
@@ -7957,38 +8066,37 @@ static void StateFlowGUI_output(void)
            (StateFlowGUI_B.sf_CinematicaInversa.theta1)) * (-0.25 * sin
            (StateFlowGUI_B.sf_CinematicaInversa.theta1)) + (StateFlowGUI_B.Ymov
            - 0.25 * sin(StateFlowGUI_B.sf_CinematicaInversa.theta1)) * (0.25 *
-           cos(StateFlowGUI_B.sf_CinematicaInversa.theta1))) / x2;
+           cos(StateFlowGUI_B.sf_CinematicaInversa.theta1))) / A;
 
     /* '<S76>:1:14' */
-    x2 = ((StateFlowGUI_B.Ymov - 0.25 * sin
-           (StateFlowGUI_B.sf_CinematicaInversa.theta2)) * (-0.25 * cos
-           (StateFlowGUI_B.sf_CinematicaInversa.theta2)) * ((StateFlowGUI_B.Sum
-            + 0.09) - 0.25 * cos(StateFlowGUI_B.sf_CinematicaInversa.theta1)) /
-          ((StateFlowGUI_B.Sum - 0.09) - 0.25 * cos
-           (StateFlowGUI_B.sf_CinematicaInversa.theta2)) + ((StateFlowGUI_B.Sum
-            + 0.09) - 0.25 * cos(StateFlowGUI_B.sf_CinematicaInversa.theta1)) *
-          (0.25 * sin(StateFlowGUI_B.sf_CinematicaInversa.theta2))) / x2;
+    A = ((StateFlowGUI_B.Ymov - 0.25 * sin
+          (StateFlowGUI_B.sf_CinematicaInversa.theta2)) * (-0.25 * cos
+          (StateFlowGUI_B.sf_CinematicaInversa.theta2)) * ((StateFlowGUI_B.Sum +
+           0.09) - 0.25 * cos(StateFlowGUI_B.sf_CinematicaInversa.theta1)) /
+         ((StateFlowGUI_B.Sum - 0.09) - 0.25 * cos
+          (StateFlowGUI_B.sf_CinematicaInversa.theta2)) + ((StateFlowGUI_B.Sum +
+           0.09) - 0.25 * cos(StateFlowGUI_B.sf_CinematicaInversa.theta1)) *
+         (0.25 * sin(StateFlowGUI_B.sf_CinematicaInversa.theta2))) / A;
 
     /* '<S76>:1:16' */
     /* '<S76>:1:18' */
     /* '<S76>:1:20' */
     StateFlowGUI_B.x_p = ((-(StateFlowGUI_B.Ymov - 0.25 * sin
       (StateFlowGUI_B.sf_CinematicaInversa.theta2)) / ((StateFlowGUI_B.Sum -
-      0.09) - 0.25 * cos(StateFlowGUI_B.sf_CinematicaInversa.theta2)) * x2 -
-      0.25 * sin(StateFlowGUI_B.sf_CinematicaInversa.theta2)) +
-                          (StateFlowGUI_B.Ymov - 0.25 * sin
-      (StateFlowGUI_B.sf_CinematicaInversa.theta2)) / ((StateFlowGUI_B.Sum -
-      0.09) - 0.25 * cos(StateFlowGUI_B.sf_CinematicaInversa.theta2)) * (0.25 *
-      cos(StateFlowGUI_B.sf_CinematicaInversa.theta2))) *
-      StateFlowGUI_B.sf_CinematicaInversavel.theta2_p + -(StateFlowGUI_B.Ymov -
-      0.25 * sin(StateFlowGUI_B.sf_CinematicaInversa.theta2)) /
-      ((StateFlowGUI_B.Sum - 0.09) - 0.25 * cos
-       (StateFlowGUI_B.sf_CinematicaInversa.theta2)) * x4 *
-      StateFlowGUI_B.sf_CinematicaInversavel.theta1_p;
+      0.09) - 0.25 * cos(StateFlowGUI_B.sf_CinematicaInversa.theta2)) * A - 0.25
+      * sin(StateFlowGUI_B.sf_CinematicaInversa.theta2)) + (StateFlowGUI_B.Ymov
+      - 0.25 * sin(StateFlowGUI_B.sf_CinematicaInversa.theta2)) /
+                          ((StateFlowGUI_B.Sum - 0.09) - 0.25 * cos
+      (StateFlowGUI_B.sf_CinematicaInversa.theta2)) * (0.25 * cos
+      (StateFlowGUI_B.sf_CinematicaInversa.theta2))) * StateFlowGUI_B.theta2_p +
+      -(StateFlowGUI_B.Ymov - 0.25 * sin
+        (StateFlowGUI_B.sf_CinematicaInversa.theta2)) / ((StateFlowGUI_B.Sum -
+      0.09) - 0.25 * cos(StateFlowGUI_B.sf_CinematicaInversa.theta2)) * x4 *
+      StateFlowGUI_B.theta1_p;
 
     /* '<S76>:1:21' */
-    StateFlowGUI_B.y_p = x4 * StateFlowGUI_B.sf_CinematicaInversavel.theta1_p +
-      x2 * StateFlowGUI_B.sf_CinematicaInversavel.theta2_p;
+    StateFlowGUI_B.y_p = x4 * StateFlowGUI_B.theta1_p + A *
+      StateFlowGUI_B.theta2_p;
 
     /* SampleTimeMath: '<S96>/TSamp'
      *
@@ -8269,7 +8377,7 @@ static void StateFlowGUI_update(void)
   StateFlowGUI_DW.Memory_PreviousInput_g = StateFlowGUI_B.sf_MATLABFunction_f.y;
 
   /* Update for Memory: '<S46>/Memory' */
-  StateFlowGUI_DW.Memory_PreviousInput_h = StateFlowGUI_B.sf_MATLABFunction_i.y;
+  StateFlowGUI_DW.Memory_PreviousInput_a = StateFlowGUI_B.sf_MATLABFunction_fb.y;
 
   /* Update for Memory: '<S4>/Memory' */
   StateFlowGUI_DW.Memory_PreviousInput_e = StateFlowGUI_B.x0_o;
@@ -8850,7 +8958,7 @@ static void StateFlowGUI_initialize(void)
   StateFlowGUI_DW.Memory_PreviousInput_g = StateFlowGUI_P.Memory_X0_o;
 
   /* InitializeConditions for Memory: '<S46>/Memory' */
-  StateFlowGUI_DW.Memory_PreviousInput_h = StateFlowGUI_P.Memory_X0_e;
+  StateFlowGUI_DW.Memory_PreviousInput_a = StateFlowGUI_P.Memory_X0_a;
 
   /* InitializeConditions for Memory: '<S4>/Memory' */
   StateFlowGUI_DW.Memory_PreviousInput_e = StateFlowGUI_P.Memory_X0_d;
@@ -12821,7 +12929,7 @@ RT_MODEL_StateFlowGUI_T *StateFlowGUI(void)
           _ssSetOutputPortNumDimensions(rts, 0, 1);
           ssSetOutputPortWidth(rts, 0, 1);
           ssSetOutputPortSignal(rts, 0, ((boolean_T *)
-            &StateFlowGUI_B.EtherCATPDOReceive9_d));
+            &StateFlowGUI_B.EtherCATPDOReceive9_m));
         }
       }
 
@@ -12840,23 +12948,23 @@ RT_MODEL_StateFlowGUI_T *StateFlowGUI(void)
         ssSetSFcnParamsCount(rts, 7);
         ssSetSFcnParamsPtr(rts, &sfcnParams[0]);
         ssSetSFcnParam(rts, 0, (mxArray*)
-                       StateFlowGUI_P.EtherCATPDOReceive9_P1_Size_o);
+                       StateFlowGUI_P.EtherCATPDOReceive9_P1_Size_p);
         ssSetSFcnParam(rts, 1, (mxArray*)
-                       StateFlowGUI_P.EtherCATPDOReceive9_P2_Size_h);
+                       StateFlowGUI_P.EtherCATPDOReceive9_P2_Size_c);
         ssSetSFcnParam(rts, 2, (mxArray*)
                        StateFlowGUI_P.EtherCATPDOReceive9_P3_Size_i);
         ssSetSFcnParam(rts, 3, (mxArray*)
-                       StateFlowGUI_P.EtherCATPDOReceive9_P4_Size_l);
+                       StateFlowGUI_P.EtherCATPDOReceive9_P4_Size_en);
         ssSetSFcnParam(rts, 4, (mxArray*)
-                       StateFlowGUI_P.EtherCATPDOReceive9_P5_Size_aa);
+                       StateFlowGUI_P.EtherCATPDOReceive9_P5_Size_nv);
         ssSetSFcnParam(rts, 5, (mxArray*)
-                       StateFlowGUI_P.EtherCATPDOReceive9_P6_Size_m);
+                       StateFlowGUI_P.EtherCATPDOReceive9_P6_Size_p);
         ssSetSFcnParam(rts, 6, (mxArray*)
-                       StateFlowGUI_P.EtherCATPDOReceive9_P7_Size_pq);
+                       StateFlowGUI_P.EtherCATPDOReceive9_P7_Size_ai);
       }
 
       /* work vectors */
-      ssSetIWork(rts, (int_T *) &StateFlowGUI_DW.EtherCATPDOReceive9_IWORK_l[0]);
+      ssSetIWork(rts, (int_T *) &StateFlowGUI_DW.EtherCATPDOReceive9_IWORK_gl[0]);
 
       {
         struct _ssDWorkRecord *dWorkRecord = (struct _ssDWorkRecord *)
@@ -12871,7 +12979,7 @@ RT_MODEL_StateFlowGUI_T *StateFlowGUI(void)
         ssSetDWorkWidth(rts, 0, 7);
         ssSetDWorkDataType(rts, 0,SS_INTEGER);
         ssSetDWorkComplexSignal(rts, 0, 0);
-        ssSetDWork(rts, 0, &StateFlowGUI_DW.EtherCATPDOReceive9_IWORK_l[0]);
+        ssSetDWork(rts, 0, &StateFlowGUI_DW.EtherCATPDOReceive9_IWORK_gl[0]);
       }
 
       /* registration */
@@ -13161,9 +13269,9 @@ RT_MODEL_StateFlowGUI_T *StateFlowGUI(void)
   StateFlowGUI_M->Sizes.numU = (0);    /* Number of model inputs */
   StateFlowGUI_M->Sizes.sysDirFeedThru = (0);/* The model is not direct feedthrough */
   StateFlowGUI_M->Sizes.numSampTimes = (2);/* Number of sample times */
-  StateFlowGUI_M->Sizes.numBlocks = (448);/* Number of blocks */
+  StateFlowGUI_M->Sizes.numBlocks = (460);/* Number of blocks */
   StateFlowGUI_M->Sizes.numBlockIO = (355);/* Number of block outputs */
-  StateFlowGUI_M->Sizes.numBlockPrms = (1920);/* Sum of parameter "widths" */
+  StateFlowGUI_M->Sizes.numBlockPrms = (1926);/* Sum of parameter "widths" */
   return StateFlowGUI_M;
 }
 

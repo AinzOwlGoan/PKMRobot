@@ -235,7 +235,7 @@ static void initialize_c15_StateFlowGUI(SFc15_StateFlowGUIInstanceStruct
   *chartInstance->c15_is_active_c15_StateFlowGUI = 0U;
   *chartInstance->c15_is_c15_StateFlowGUI = c15_IN_NO_ACTIVE_CHILD;
   chartInstance->c15_SampleTime = 0.0;
-  _SFD_DATA_RANGE_CHECK(chartInstance->c15_SampleTime, 36U, 1U, 11U,
+  _SFD_DATA_RANGE_CHECK(chartInstance->c15_SampleTime, 36U, 1U, 12U,
                         *chartInstance->c15_sfEvent, false);
 }
 
@@ -267,7 +267,7 @@ static void c15_update_debugger_state_c15_StateFlowGUI
   _SFD_SET_ANIMATION(0U);
   _SFD_SET_HONOR_BREAKPOINTS(0U);
   if (*chartInstance->c15_is_active_c15_StateFlowGUI == 1U) {
-    _SFD_CC_CALL(CHART_ACTIVE_TAG, 11U, *chartInstance->c15_sfEvent);
+    _SFD_CC_CALL(CHART_ACTIVE_TAG, 12U, *chartInstance->c15_sfEvent);
   }
 
   if (*chartInstance->c15_is_c15_StateFlowGUI == c15_IN_Step1) {
@@ -667,7 +667,7 @@ static void sf_gateway_c15_StateFlowGUI(SFc15_StateFlowGUIInstanceStruct
     (*chartInstance->c15_temporalCounter_i1)++;
   }
 
-  _SFD_CC_CALL(CHART_ENTER_SFUNCTION_TAG, 11U, *chartInstance->c15_sfEvent);
+  _SFD_CC_CALL(CHART_ENTER_SFUNCTION_TAG, 12U, *chartInstance->c15_sfEvent);
   _SFD_DATA_RANGE_CHECK(*chartInstance->c15_StopPressed, 20U, 1U, 0U,
                         *chartInstance->c15_sfEvent, false);
   _SFD_DATA_RANGE_CHECK(*chartInstance->c15_ResetButton, 19U, 1U, 0U,
@@ -747,12 +747,12 @@ static void c15_chartstep_c15_StateFlowGUI(SFc15_StateFlowGUIInstanceStruct
   real_T c15_k_nargout = 0.0;
   real_T c15_l_nargin = 0.0;
   real_T c15_l_nargout = 0.0;
-  _SFD_CC_CALL(CHART_ENTER_DURING_FUNCTION_TAG, 11U, *chartInstance->c15_sfEvent);
+  _SFD_CC_CALL(CHART_ENTER_DURING_FUNCTION_TAG, 12U, *chartInstance->c15_sfEvent);
   if (*chartInstance->c15_is_active_c15_StateFlowGUI == 0U) {
-    _SFD_CC_CALL(CHART_ENTER_ENTRY_FUNCTION_TAG, 11U,
+    _SFD_CC_CALL(CHART_ENTER_ENTRY_FUNCTION_TAG, 12U,
                  *chartInstance->c15_sfEvent);
     *chartInstance->c15_is_active_c15_StateFlowGUI = 1U;
-    _SFD_CC_CALL(EXIT_OUT_OF_FUNCTION_TAG, 11U, *chartInstance->c15_sfEvent);
+    _SFD_CC_CALL(EXIT_OUT_OF_FUNCTION_TAG, 12U, *chartInstance->c15_sfEvent);
     _SFD_CT_CALL(TRANSITION_ACTIVE_TAG, 1U, *chartInstance->c15_sfEvent);
     *chartInstance->c15_is_c15_StateFlowGUI = c15_IN_Step1;
     _SFD_CS_CALL(STATE_ACTIVE_TAG, 10U, *chartInstance->c15_sfEvent);
@@ -770,52 +770,52 @@ static void c15_chartstep_c15_StateFlowGUI(SFc15_StateFlowGUIInstanceStruct
   } else {
     switch (*chartInstance->c15_is_c15_StateFlowGUI) {
      case c15_IN_Controllo:
-      CV_CHART_EVAL(11, 0, 1);
+      CV_CHART_EVAL(12, 0, 1);
       c15_Controllo(chartInstance);
       break;
 
      case c15_IN_Coppie:
-      CV_CHART_EVAL(11, 0, 2);
+      CV_CHART_EVAL(12, 0, 2);
       c15_Coppie(chartInstance);
       break;
 
      case c15_IN_Discesa_Vite:
-      CV_CHART_EVAL(11, 0, 3);
+      CV_CHART_EVAL(12, 0, 3);
       c15_Discesa_Vite(chartInstance);
       break;
 
      case c15_IN_Home:
-      CV_CHART_EVAL(11, 0, 4);
+      CV_CHART_EVAL(12, 0, 4);
       c15_Home(chartInstance);
       break;
 
      case c15_IN_OffSet:
-      CV_CHART_EVAL(11, 0, 5);
+      CV_CHART_EVAL(12, 0, 5);
       c15_OffSet(chartInstance);
       break;
 
      case c15_IN_SetA:
-      CV_CHART_EVAL(11, 0, 6);
+      CV_CHART_EVAL(12, 0, 6);
       c15_SetA(chartInstance);
       break;
 
      case c15_IN_SetA1:
-      CV_CHART_EVAL(11, 0, 7);
+      CV_CHART_EVAL(12, 0, 7);
       c15_SetA1(chartInstance);
       break;
 
      case c15_IN_SetB:
-      CV_CHART_EVAL(11, 0, 8);
+      CV_CHART_EVAL(12, 0, 8);
       c15_SetB(chartInstance);
       break;
 
      case c15_IN_SetB1:
-      CV_CHART_EVAL(11, 0, 9);
+      CV_CHART_EVAL(12, 0, 9);
       c15_SetB1(chartInstance);
       break;
 
      case c15_IN_Step1:
-      CV_CHART_EVAL(11, 0, 10);
+      CV_CHART_EVAL(12, 0, 10);
       *chartInstance->c15_Bool = -1.0;
       chartInstance->c15_dataWrittenToVector[0U] = true;
       _SFD_CT_CALL(TRANSITION_BEFORE_PROCESSING_TAG, 0U,
@@ -872,7 +872,7 @@ static void c15_chartstep_c15_StateFlowGUI(SFc15_StateFlowGUIInstanceStruct
       break;
 
      case c15_IN_Step2:
-      CV_CHART_EVAL(11, 0, 11);
+      CV_CHART_EVAL(12, 0, 11);
       _SFD_CT_CALL(TRANSITION_BEFORE_PROCESSING_TAG, 5U,
                    *chartInstance->c15_sfEvent);
       _SFD_SYMBOL_SCOPE_PUSH_EML(0U, 3U, 3U, c15_s_debug_family_names,
@@ -913,7 +913,7 @@ static void c15_chartstep_c15_StateFlowGUI(SFc15_StateFlowGUIInstanceStruct
       break;
 
      case c15_IN_Step3:
-      CV_CHART_EVAL(11, 0, 12);
+      CV_CHART_EVAL(12, 0, 12);
       _SFD_CT_CALL(TRANSITION_BEFORE_PROCESSING_TAG, 13U,
                    *chartInstance->c15_sfEvent);
       _SFD_SYMBOL_SCOPE_PUSH_EML(0U, 3U, 3U, c15_gb_debug_family_names,
@@ -942,7 +942,7 @@ static void c15_chartstep_c15_StateFlowGUI(SFc15_StateFlowGUIInstanceStruct
       break;
 
      case c15_IN_Step4:
-      CV_CHART_EVAL(11, 0, 13);
+      CV_CHART_EVAL(12, 0, 13);
       *chartInstance->c15_Enable = 1.0;
       chartInstance->c15_dataWrittenToVector[19U] = true;
       *chartInstance->c15_Bool = 0.0;
@@ -976,7 +976,7 @@ static void c15_chartstep_c15_StateFlowGUI(SFc15_StateFlowGUIInstanceStruct
       break;
 
      case c15_IN_StopPhase:
-      CV_CHART_EVAL(11, 0, 14);
+      CV_CHART_EVAL(12, 0, 14);
       *chartInstance->c15_Bool = 3.0;
       chartInstance->c15_dataWrittenToVector[0U] = true;
       _SFD_CT_CALL(TRANSITION_BEFORE_PROCESSING_TAG, 17U,
@@ -1022,7 +1022,7 @@ static void c15_chartstep_c15_StateFlowGUI(SFc15_StateFlowGUIInstanceStruct
       break;
 
      case c15_IN_Traiettoria:
-      CV_CHART_EVAL(11, 0, 15);
+      CV_CHART_EVAL(12, 0, 15);
       *chartInstance->c15_Luci = 4.0;
       chartInstance->c15_dataWrittenToVector[10U] = true;
       *chartInstance->c15_Bool = 4.0;
@@ -1126,7 +1126,7 @@ static void c15_chartstep_c15_StateFlowGUI(SFc15_StateFlowGUIInstanceStruct
       break;
 
      default:
-      CV_CHART_EVAL(11, 0, 0);
+      CV_CHART_EVAL(12, 0, 0);
 
       /* Unreachable state, for coverage only */
       *chartInstance->c15_is_c15_StateFlowGUI = c15_IN_NO_ACTIVE_CHILD;
@@ -1135,7 +1135,7 @@ static void c15_chartstep_c15_StateFlowGUI(SFc15_StateFlowGUIInstanceStruct
     }
   }
 
-  _SFD_CC_CALL(EXIT_OUT_OF_FUNCTION_TAG, 11U, *chartInstance->c15_sfEvent);
+  _SFD_CC_CALL(EXIT_OUT_OF_FUNCTION_TAG, 12U, *chartInstance->c15_sfEvent);
 }
 
 static void initSimStructsc15_StateFlowGUI(SFc15_StateFlowGUIInstanceStruct
@@ -1274,7 +1274,7 @@ static void c15_SetB1(SFc15_StateFlowGUIInstanceStruct *chartInstance)
     chartInstance->c15_dataWrittenToVector[3U] = true;
     _SFD_DATA_RANGE_CHECK(*chartInstance->c15_OffA_vite, 24U, 4U, 2U,
                           *chartInstance->c15_sfEvent, false);
-    *chartInstance->c15_CoppiaH = 700.0;
+    *chartInstance->c15_CoppiaH = 0.0;
     chartInstance->c15_dataWrittenToVector[2U] = true;
     _SFD_DATA_RANGE_CHECK(*chartInstance->c15_CoppiaH, 23U, 4U, 2U,
                           *chartInstance->c15_sfEvent, false);
@@ -1348,6 +1348,14 @@ static void c15_Discesa_Vite(SFc15_StateFlowGUIInstanceStruct *chartInstance)
   chartInstance->c15_dataWrittenToVector[17U] = true;
   _SFD_DATA_RANGE_CHECK(*chartInstance->c15_Hv, 32U, 4U, 5U,
                         *chartInstance->c15_sfEvent, false);
+  *chartInstance->c15_OffA_vite = *chartInstance->c15_posA_vite;
+  chartInstance->c15_dataWrittenToVector[3U] = true;
+  _SFD_DATA_RANGE_CHECK(*chartInstance->c15_OffA_vite, 24U, 4U, 5U,
+                        *chartInstance->c15_sfEvent, false);
+  *chartInstance->c15_OffB_vite = *chartInstance->c15_posB_vite;
+  chartInstance->c15_dataWrittenToVector[4U] = true;
+  _SFD_DATA_RANGE_CHECK(*chartInstance->c15_OffB_vite, 25U, 4U, 5U,
+                        *chartInstance->c15_sfEvent, false);
   _SFD_SYMBOL_SCOPE_POP();
   _SFD_CS_CALL(EXIT_OUT_OF_FUNCTION_TAG, 2U, *chartInstance->c15_sfEvent);
 }
@@ -1361,12 +1369,12 @@ static void c15_OffSet(SFc15_StateFlowGUIInstanceStruct *chartInstance)
   uint32_T c15_b_debug_family_var_map[2];
   real_T c15_b_nargin = 0.0;
   real_T c15_b_nargout = 0.0;
-  *chartInstance->c15_Hv = 1.0;
-  chartInstance->c15_dataWrittenToVector[17U] = true;
   *chartInstance->c15_Luci = 3.0;
   chartInstance->c15_dataWrittenToVector[10U] = true;
   *chartInstance->c15_Bool = 2.0;
   chartInstance->c15_dataWrittenToVector[0U] = true;
+  *chartInstance->c15_Hv = 1.0;
+  chartInstance->c15_dataWrittenToVector[17U] = true;
   _SFD_CT_CALL(TRANSITION_BEFORE_PROCESSING_TAG, 3U, *chartInstance->c15_sfEvent);
   _SFD_SYMBOL_SCOPE_PUSH_EML(0U, 3U, 3U, c15_y_debug_family_names,
     c15_debug_family_var_map);
@@ -1396,14 +1404,6 @@ static void c15_OffSet(SFc15_StateFlowGUIInstanceStruct *chartInstance)
     chartInstance->c15_dataWrittenToVector[1U] = true;
     _SFD_DATA_RANGE_CHECK(*chartInstance->c15_OffT, 22U, 4U, 15U,
                           *chartInstance->c15_sfEvent, false);
-    *chartInstance->c15_OffA_vite = *chartInstance->c15_posA_vite;
-    chartInstance->c15_dataWrittenToVector[3U] = true;
-    _SFD_DATA_RANGE_CHECK(*chartInstance->c15_OffA_vite, 24U, 4U, 15U,
-                          *chartInstance->c15_sfEvent, false);
-    *chartInstance->c15_OffB_vite = *chartInstance->c15_posB_vite;
-    chartInstance->c15_dataWrittenToVector[4U] = true;
-    _SFD_DATA_RANGE_CHECK(*chartInstance->c15_OffB_vite, 25U, 4U, 15U,
-                          *chartInstance->c15_sfEvent, false);
     *chartInstance->c15_Luci = 4.0;
     chartInstance->c15_dataWrittenToVector[10U] = true;
     _SFD_DATA_RANGE_CHECK(*chartInstance->c15_Luci, 30U, 4U, 15U,
@@ -1427,16 +1427,16 @@ static void c15_Controllo(SFc15_StateFlowGUIInstanceStruct *chartInstance)
   real_T c15_nargin = 0.0;
   real_T c15_nargout = 1.0;
   boolean_T c15_out;
-  *chartInstance->c15_Hv = 0.0;
-  chartInstance->c15_dataWrittenToVector[17U] = true;
-  *chartInstance->c15_Hb = 0.0;
-  chartInstance->c15_dataWrittenToVector[18U] = true;
   *chartInstance->c15_Luci = 5.0;
   chartInstance->c15_dataWrittenToVector[10U] = true;
+  *chartInstance->c15_Hb = 0.0;
+  chartInstance->c15_dataWrittenToVector[18U] = true;
   *chartInstance->c15_FineLavorazione = 1.0;
   chartInstance->c15_dataWrittenToVector[20U] = true;
   *chartInstance->c15_Bool = 5.0;
   chartInstance->c15_dataWrittenToVector[0U] = true;
+  *chartInstance->c15_Hv = 0.0;
+  chartInstance->c15_dataWrittenToVector[17U] = true;
   _SFD_CT_CALL(TRANSITION_BEFORE_PROCESSING_TAG, 15U,
                *chartInstance->c15_sfEvent);
   _SFD_SYMBOL_SCOPE_PUSH_EML(0U, 3U, 3U, c15_fb_debug_family_names,
@@ -1815,7 +1815,7 @@ static void c15_SetA1(SFc15_StateFlowGUIInstanceStruct *chartInstance)
     chartInstance->c15_dataWrittenToVector[3U] = true;
     _SFD_DATA_RANGE_CHECK(*chartInstance->c15_OffA_vite, 24U, 4U, 2U,
                           *chartInstance->c15_sfEvent, false);
-    *chartInstance->c15_CoppiaH = 700.0;
+    *chartInstance->c15_CoppiaH = 0.0;
     chartInstance->c15_dataWrittenToVector[2U] = true;
     _SFD_DATA_RANGE_CHECK(*chartInstance->c15_CoppiaH, 23U, 4U, 2U,
                           *chartInstance->c15_sfEvent, false);
@@ -1986,16 +1986,16 @@ static void c15_Home(SFc15_StateFlowGUIInstanceStruct *chartInstance)
   real_T c15_c_nargout = 0.0;
   real_T c15_d_nargin = 0.0;
   real_T c15_d_nargout = 0.0;
-  *chartInstance->c15_Hv = 0.0;
-  chartInstance->c15_dataWrittenToVector[17U] = true;
-  *chartInstance->c15_Hb = 0.0;
-  chartInstance->c15_dataWrittenToVector[18U] = true;
   *chartInstance->c15_Luci = 1.0;
   chartInstance->c15_dataWrittenToVector[10U] = true;
+  *chartInstance->c15_Hb = 0.0;
+  chartInstance->c15_dataWrittenToVector[18U] = true;
   *chartInstance->c15_FineLavorazione = 0.0;
   chartInstance->c15_dataWrittenToVector[20U] = true;
   *chartInstance->c15_Bool = 1.0;
   chartInstance->c15_dataWrittenToVector[0U] = true;
+  *chartInstance->c15_Hv = 0.0;
+  chartInstance->c15_dataWrittenToVector[17U] = true;
   _SFD_CT_CALL(TRANSITION_BEFORE_PROCESSING_TAG, 2U, *chartInstance->c15_sfEvent);
   _SFD_SYMBOL_SCOPE_PUSH_EML(0U, 3U, 3U, c15_hb_debug_family_names,
     c15_debug_family_var_map);
@@ -2508,10 +2508,10 @@ extern void utFree(void*);
 static uint32_T* sf_get_sfun_dwork_checksum(void);
 void sf_c15_StateFlowGUI_get_check_sum(mxArray *plhs[])
 {
-  ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(2130517005U);
-  ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(4182124367U);
-  ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(2503005588U);
-  ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(2120968445U);
+  ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(2377404366U);
+  ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(1853006412U);
+  ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(3516914910U);
+  ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(3287010738U);
 }
 
 mxArray* sf_c15_StateFlowGUI_get_post_codegen_info(void);
@@ -2525,7 +2525,7 @@ mxArray *sf_c15_StateFlowGUI_get_autoinheritance_info(void)
     autoinheritanceFields);
 
   {
-    mxArray *mxChecksum = mxCreateString("gSLl7Uvi9LQSujcQMTdtQB");
+    mxArray *mxChecksum = mxCreateString("FL1ygfxhcZsM0BGcJdU4d");
     mxSetField(mxAutoinheritanceInfo,0,"checksum",mxChecksum);
   }
 
@@ -3535,9 +3535,9 @@ static void chart_debug_initialization(SimStruct *S, unsigned int
         _SFD_CV_INIT_TRANS(5,0,NULL,NULL,0,NULL);
         _SFD_CV_INIT_TRANS(8,0,NULL,NULL,0,NULL);
         _SFD_CV_INIT_TRANS(10,0,NULL,NULL,0,NULL);
-        _SFD_CV_INIT_TRANS(18,0,NULL,NULL,0,NULL);
         _SFD_CV_INIT_TRANS(12,0,NULL,NULL,0,NULL);
         _SFD_CV_INIT_TRANS(17,0,NULL,NULL,0,NULL);
+        _SFD_CV_INIT_TRANS(18,0,NULL,NULL,0,NULL);
         _SFD_CV_INIT_TRANS(3,0,NULL,NULL,0,NULL);
         _SFD_CV_INIT_TRANS(14,0,NULL,NULL,0,NULL);
         _SFD_CV_INIT_TRANS(9,0,NULL,NULL,0,NULL);
@@ -3821,7 +3821,7 @@ static void chart_debug_initialize_data_addresses(SimStruct *S)
 
 static const char* sf_get_instance_specialization(void)
 {
-  return "s4OvS7UfGIprGmlyCz6rjO";
+  return "sp558Dp9s4uRGR1Z10OcF9";
 }
 
 static void sf_check_dwork_consistency(SimStruct *S)
@@ -4031,10 +4031,10 @@ static void mdlSetWorkWidths_c15_StateFlowGUI(SimStruct *S)
   }
 
   ssSetOptions(S,ssGetOptions(S)|SS_OPTION_WORKS_WITH_CODE_REUSE);
-  ssSetChecksum0(S,(1064823261U));
-  ssSetChecksum1(S,(749836226U));
-  ssSetChecksum2(S,(3038545958U));
-  ssSetChecksum3(S,(4283394116U));
+  ssSetChecksum0(S,(3346826089U));
+  ssSetChecksum1(S,(775292590U));
+  ssSetChecksum2(S,(1383047474U));
+  ssSetChecksum3(S,(3389697754U));
   ssSetmdlDerivatives(S, NULL);
   ssSetExplicitFCSSCtrl(S,1);
   ssSetStateSemanticsClassicAndSynchronous(S, true);

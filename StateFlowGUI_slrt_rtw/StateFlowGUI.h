@@ -7,9 +7,9 @@
  *
  * Code generation for model "StateFlowGUI".
  *
- * Model version              : 1.845
+ * Model version              : 1.882
  * Simulink Coder version : 8.12 (R2017a) 16-Feb-2017
- * C source code generated on : Thu Nov 18 17:23:28 2021
+ * C source code generated on : Tue Nov 23 10:48:39 2021
  *
  * Target selection: slrt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -827,6 +827,11 @@
 /* user code (top of export header file) */
 #include "xpcdatatypes.h"
 
+/* Block signals for system '<S4>/Asse A conv brac' */
+typedef struct {
+  real_T pos_A_conv;                   /* '<S4>/Asse A conv brac' */
+} B_AsseAconvbrac_StateFlowGUI_T;
+
 /* Block signals for system '<S4>/Asse B conv brac1' */
 typedef struct {
   real_T pos_B_conv;                   /* '<S4>/Asse B conv brac1' */
@@ -837,12 +842,6 @@ typedef struct {
   real_T theta1;                       /* '<S4>/Cinematica Inversa' */
   real_T theta2;                       /* '<S4>/Cinematica Inversa' */
 } B_CinematicaInversa_StateFlow_T;
-
-/* Block signals for system '<S4>/Cinematica Inversa vel' */
-typedef struct {
-  real_T theta1_p;                     /* '<S4>/Cinematica Inversa vel' */
-  real_T theta2_p;                     /* '<S4>/Cinematica Inversa vel' */
-} B_CinematicaInversavel_StateF_T;
 
 /* Block signals for system '<S28>/Vel Asse A conv' */
 typedef struct {
@@ -858,12 +857,6 @@ typedef struct {
 typedef struct {
   real_T y;                            /* '<S36>/MATLAB Function' */
 } B_MATLABFunction_StateFlowGUI_T;
-
-/* Block signals for system '<S11>/Asse B' */
-typedef struct {
-  real_T ldm_pos;                      /* '<S11>/Asse B' */
-  real_T ldm_vel;                      /* '<S11>/Asse B' */
-} B_AsseB_StateFlowGUI_T;
 
 /* Block signals (auto storage) */
 typedef struct {
@@ -923,16 +916,16 @@ typedef struct {
   real_T Gain6;                        /* '<S52>/Gain6' */
   real_T Sum9_p;                       /* '<S52>/Sum9' */
   real_T Switch1_f;                    /* '<S44>/Switch1' */
-  real_T CoppiaAvitesaturata;          /* '<S7>/Coppia A vite saturata' */
   real_T DataTypeConversion14_k;       /* '<S44>/Data Type Conversion14' */
-  real_T Memory_a;                     /* '<S46>/Memory' */
+  real_T Memory_d;                     /* '<S46>/Memory' */
   real_T Sum4_l;                       /* '<S11>/Sum4' */
   real_T Gain2;                        /* '<S11>/Gain2' */
   real_T Sum6;                         /* '<S11>/Sum6' */
   real_T Gain4;                        /* '<S11>/Gain4' */
   real_T Sum7_n;                       /* '<S11>/Sum7' */
-  real_T Switch1_k;                    /* '<S46>/Switch1' */
-  real_T DataTypeConversion14_e;       /* '<S46>/Data Type Conversion14' */
+  real_T Switch1_h;                    /* '<S46>/Switch1' */
+  real_T CoppiaAvitesaturata;          /* '<S8>/Coppia A vite saturata' */
+  real_T DataTypeConversion14_h;       /* '<S46>/Data Type Conversion14' */
   real_T Sum2_b;                       /* '<S23>/Sum2' */
   real_T MultiportSwitch_o[4];         /* '<S27>/Multiport Switch' */
   real_T Memory_h;                     /* '<S4>/Memory' */
@@ -1130,11 +1123,17 @@ typedef struct {
   real_T y_pp_l;                       /* '<S12>/Cinematica diretta Acc' */
   real_T x_n;                          /* '<S12>/Cinematica diretta' */
   real_T y_k;                          /* '<S12>/Cinematica diretta' */
+  real_T theta1_p;                     /* '<S12>/Cinematica Inversa vel' */
+  real_T theta2_p;                     /* '<S12>/Cinematica Inversa vel' */
   real_T theta1_pp;                    /* '<S12>/Cinematica Inversa Acc' */
   real_T theta2_pp;                    /* '<S12>/Cinematica Inversa Acc' */
   real_T vel_B_conv_d;                 /* '<S55>/Vel Asse B conv' */
   real_T vel_A_conv_d;                 /* '<S55>/Vel Asse A conv' */
+  real_T ldm_pos;                      /* '<S11>/Rifermento Asse A Vite' */
+  real_T ldm_vel;                      /* '<S11>/Rifermento Asse A Vite' */
   real_T pos_B_conv;                   /* '<S11>/Asse B conv' */
+  real_T ldm_pos_n;                    /* '<S11>/Asse B' */
+  real_T ldm_vel_c;                    /* '<S11>/Asse B' */
   real_T pos_B_conv_v;                 /* '<S57>/Asse B conv v' */
   real_T pos_A_conv;                   /* '<S57>/Asse A conv' */
   real_T Switch2;                      /* '<S8>/Switch2' */
@@ -1164,7 +1163,8 @@ typedef struct {
   real_T yct_p_i;                      /* '<S27>/Cerchi Tangenti' */
   real_T x0_o;                         /* '<S4>/Cinematica Inversa1' */
   real_T y0_e;                         /* '<S4>/Cinematica Inversa1' */
-  real_T pos_A_conv_e;                 /* '<S4>/Asse A conv brac' */
+  real_T theta1_p_i;                   /* '<S4>/Cinematica Inversa vel' */
+  real_T theta2_p_p;                   /* '<S4>/Cinematica Inversa vel' */
   real_T y_f;                          /* '<S3>/MATLAB Function2' */
   real_T y_b;                          /* '<S3>/MATLAB Function1' */
   real_T y_i;                          /* '<S3>/MATLAB Function' */
@@ -1198,24 +1198,21 @@ typedef struct {
   boolean_T EtherCATPDOReceive9;       /* '<S36>/EtherCAT PDO Receive9' */
   boolean_T EtherCATPDOReceive9_h;     /* '<S40>/EtherCAT PDO Receive9' */
   boolean_T EtherCATPDOReceive9_hd;    /* '<S44>/EtherCAT PDO Receive9' */
-  boolean_T EtherCATPDOReceive9_d;     /* '<S46>/EtherCAT PDO Receive9' */
+  boolean_T EtherCATPDOReceive9_m;     /* '<S46>/EtherCAT PDO Receive9' */
   B_VelAsseBconv_StateFlowGUI_T sf_VelAsseBconv_d;/* '<S81>/Vel Asse B conv' */
   B_VelAsseAconv_StateFlowGUI_T sf_VelAsseAconv_a;/* '<S81>/Vel Asse A conv' */
   B_AsseBconvbrac1_StateFlowGUI_T sf_AsseBconvbrac1;/* '<S78>/Asse B conv brac1' */
-  B_AsseBconvbrac1_StateFlowGUI_T sf_AsseAconvbracc;/* '<S78>/Asse A conv bracc' */
-  B_CinematicaInversavel_StateF_T sf_CinematicaInversavel;/* '<S12>/Cinematica Inversa vel' */
+  B_AsseAconvbrac_StateFlowGUI_T sf_AsseAconvbracc;/* '<S78>/Asse A conv bracc' */
   B_CinematicaInversa_StateFlow_T sf_CinematicaInversa;/* '<S12>/Cinematica Inversa' */
-  B_AsseB_StateFlowGUI_T sf_RifermentoAsseAVite;/* '<S11>/Rifermento Asse A Vite' */
-  B_AsseB_StateFlowGUI_T sf_AsseB;     /* '<S11>/Asse B' */
-  B_MATLABFunction_StateFlowGUI_T sf_MATLABFunction_i;/* '<S46>/MATLAB Function' */
+  B_MATLABFunction_StateFlowGUI_T sf_MATLABFunction_fb;/* '<S46>/MATLAB Function' */
   B_MATLABFunction_StateFlowGUI_T sf_MATLABFunction_f;/* '<S44>/MATLAB Function' */
   B_MATLABFunction_StateFlowGUI_T sf_MATLABFunction_a;/* '<S40>/MATLAB Function' */
   B_MATLABFunction_StateFlowGUI_T sf_MATLABFunction_e;/* '<S36>/MATLAB Function' */
   B_VelAsseBconv_StateFlowGUI_T sf_VelAsseBconv_o;/* '<S28>/Vel Asse B conv' */
   B_VelAsseAconv_StateFlowGUI_T sf_VelAsseAconv_o;/* '<S28>/Vel Asse A conv' */
-  B_CinematicaInversavel_StateF_T sf_CinematicaInversavel_l;/* '<S4>/Cinematica Inversa vel' */
   B_CinematicaInversa_StateFlow_T sf_CinematicaInversa_a;/* '<S4>/Cinematica Inversa' */
   B_AsseBconvbrac1_StateFlowGUI_T sf_AsseBconvbrac1_f;/* '<S4>/Asse B conv brac1' */
+  B_AsseAconvbrac_StateFlowGUI_T sf_AsseAconvbrac;/* '<S4>/Asse A conv brac' */
 } B_StateFlowGUI_T;
 
 /* Block states (auto storage) for system '<Root>' */
@@ -1241,7 +1238,7 @@ typedef struct {
   real_T Memory_PreviousInput;         /* '<S36>/Memory' */
   real_T Memory_PreviousInput_o;       /* '<S40>/Memory' */
   real_T Memory_PreviousInput_g;       /* '<S44>/Memory' */
-  real_T Memory_PreviousInput_h;       /* '<S46>/Memory' */
+  real_T Memory_PreviousInput_a;       /* '<S46>/Memory' */
   real_T Memory_PreviousInput_e;       /* '<S4>/Memory' */
   real_T Memory1_PreviousInput;        /* '<S4>/Memory1' */
   real_T conv;                         /* '<Root>/State flow robot' */
@@ -1332,6 +1329,11 @@ typedef struct {
   struct {
     void *AQHandles;
     void *SlioLTF;
+  } HiddenToAsyncQueue_InsertedF_g4;   /* synthesized block */
+
+  struct {
+    void *AQHandles;
+    void *SlioLTF;
   } HiddenToAsyncQueue_InsertedFo_e;   /* synthesized block */
 
   struct {
@@ -1343,6 +1345,11 @@ typedef struct {
     void *AQHandles;
     void *SlioLTF;
   } HiddenToAsyncQueue_InsertedF_ou;   /* synthesized block */
+
+  struct {
+    void *AQHandles;
+    void *SlioLTF;
+  } HiddenToAsyncQueue_InsertedF_dn;   /* synthesized block */
 
   struct {
     void *AQHandles;
@@ -1363,6 +1370,16 @@ typedef struct {
     void *AQHandles;
     void *SlioLTF;
   } HiddenToAsyncQueue_InsertedF_in;   /* synthesized block */
+
+  struct {
+    void *AQHandles;
+    void *SlioLTF;
+  } HiddenToAsyncQueue_InsertedF_c2;   /* synthesized block */
+
+  struct {
+    void *AQHandles;
+    void *SlioLTF;
+  } HiddenToAsyncQueue_InsertedFo_n;   /* synthesized block */
 
   struct {
     void *AQHandles;
@@ -1512,7 +1529,7 @@ typedef struct {
   int_T Torquesend_IWORK[7];           /* '<S7>/Torque send' */
   int_T EtherCATPDOReceive9_IWORK_g[7];/* '<S44>/EtherCAT PDO Receive9' */
   int_T EtherCATPDOTransmit2_IWORK[7]; /* '<S8>/EtherCAT PDO Transmit 2' */
-  int_T EtherCATPDOReceive9_IWORK_l[7];/* '<S46>/EtherCAT PDO Receive9' */
+  int_T EtherCATPDOReceive9_IWORK_gl[7];/* '<S46>/EtherCAT PDO Receive9' */
   int_T EtherCATPDOReceive15_IWORK_m[7];/* '<S28>/EtherCAT PDO Receive15' */
   int_T EtherCATPDOReceive14_IWORK_j[7];/* '<S28>/EtherCAT PDO Receive14' */
   uint16_T temporalCounter_i1;         /* '<Root>/State flow robot' */
@@ -2332,7 +2349,7 @@ struct P_StateFlowGUI_T_ {
   real_T AlzataQ_Value;                /* Expression: 0.10
                                         * Referenced by: '<S70>/Alzata Q'
                                         */
-  real_T PeriodoC_Value;               /* Expression: 5
+  real_T PeriodoC_Value;               /* Expression: 1
                                         * Referenced by: '<S70>/Periodo C'
                                         */
   real_T AlzataC_Value;                /* Expression: 0.05
@@ -2347,20 +2364,38 @@ struct P_StateFlowGUI_T_ {
   real_T Constant3_Value;              /* Expression: 0.125
                                         * Referenced by: '<S70>/Constant3'
                                         */
-  real_T Periodo_Value;                /* Expression: 20
+  real_T Periodo_Value;                /* Expression: 10
                                         * Referenced by: '<S70>/Periodo'
                                         */
-  real_T Rmax_Value;                   /* Expression: 0
+  real_T Rmax_Value;                   /* Expression: 0.04
                                         * Referenced by: '<S70>/Rmax'
                                         */
-  real_T Ngiri_Value;                  /* Expression: 0
+  real_T Ngiri_Value;                  /* Expression: 3
                                         * Referenced by: '<S70>/N giri'
                                         */
-  real_T Rmin_Value;                   /* Expression: 0
+  real_T Rmin_Value;                   /* Expression: 0.02
                                         * Referenced by: '<S70>/Rmin'
                                         */
   real_T Tempospostiniziale_Value;     /* Expression: 0.5
                                         * Referenced by: '<S70>/Tempo spost. iniziale'
+                                        */
+  real_T Rmax1_Value;                  /* Expression: 0
+                                        * Referenced by: '<S70>/Rmax1'
+                                        */
+  real_T Ngiri1_Value;                 /* Expression: 0
+                                        * Referenced by: '<S70>/N giri1'
+                                        */
+  real_T Rmin1_Value;                  /* Expression: 0
+                                        * Referenced by: '<S70>/Rmin1'
+                                        */
+  real_T Ngiri2_Value;                 /* Expression: 0
+                                        * Referenced by: '<S70>/N giri2'
+                                        */
+  real_T Rmin2_Value;                  /* Expression: 0
+                                        * Referenced by: '<S70>/Rmin2'
+                                        */
+  real_T Rmin3_Value;                  /* Expression: 0
+                                        * Referenced by: '<S70>/Rmin3'
                                         */
   real_T EtherCATPDOReceive15_P1_Size_j[2];/* Computed Parameter: EtherCATPDOReceive15_P1_Size_j
                                             * Referenced by: '<S81>/EtherCAT PDO Receive15'
@@ -2647,10 +2682,10 @@ struct P_StateFlowGUI_T_ {
   real_T Memory_X0_o;                  /* Expression: 0
                                         * Referenced by: '<S44>/Memory'
                                         */
-  real_T AlzataA_Value;                /* Expression: -.1
+  real_T AlzataA_Value;                /* Expression: 0
                                         * Referenced by: '<Root>/Alzata A'
                                         */
-  real_T PeriodoA_Value;               /* Expression: 10
+  real_T PeriodoA_Value;               /* Expression: 2
                                         * Referenced by: '<Root>/Periodo A'
                                         */
   real_T Gain_Gain_b;                  /* Expression: 300*1000/0.36
@@ -2740,14 +2775,8 @@ struct P_StateFlowGUI_T_ {
   real_T EtherCATPDOReceive15_P7_o;    /* Expression: sample_time
                                         * Referenced by: '<S55>/EtherCAT PDO Receive15'
                                         */
-  real_T Gain6_Gain;                   /* Expression: 7.5*1000/0.36
+  real_T Gain6_Gain;                   /* Expression: 5*1000/0.36
                                         * Referenced by: '<S52>/Gain6'
-                                        */
-  real_T CoppiaAvitesaturata_UpperSat; /* Expression: 600
-                                        * Referenced by: '<S7>/Coppia A vite saturata'
-                                        */
-  real_T CoppiaAvitesaturata_LowerSat; /* Expression: -600
-                                        * Referenced by: '<S7>/Coppia A vite saturata'
                                         */
   real_T Torquesend_P1_Size[2];        /* Computed Parameter: Torquesend_P1_Size
                                         * Referenced by: '<S7>/Torque send'
@@ -2833,26 +2862,32 @@ struct P_StateFlowGUI_T_ {
   real_T EtherCATPDOReceive9_P7_b;     /* Expression: sample_time
                                         * Referenced by: '<S44>/EtherCAT PDO Receive9'
                                         */
-  real_T Constant_Value_o;             /* Expression: 0
+  real_T Constant_Value_p;             /* Expression: 0
                                         * Referenced by: '<S46>/Constant'
                                         */
-  real_T Memory_X0_e;                  /* Expression: 0
+  real_T Memory_X0_a;                  /* Expression: 0
                                         * Referenced by: '<S46>/Memory'
                                         */
-  real_T AlzataB_Value;                /* Expression: -deg2rad(2*360)
+  real_T AlzataB_Value;                /* Expression: 0
                                         * Referenced by: '<Root>/Alzata B '
                                         */
-  real_T PeriodoB_Value;               /* Expression: 10
+  real_T PeriodoB_Value;               /* Expression: 6
                                         * Referenced by: '<Root>/Periodo B'
                                         */
-  real_T Gain2_Gain;                   /* Expression: 0.02*1000/0.36
+  real_T Gain2_Gain;                   /* Expression: 2*1000/0.36
                                         * Referenced by: '<S11>/Gain2'
                                         */
-  real_T Gain4_Gain;                   /* Expression: 0
+  real_T Gain4_Gain;                   /* Expression: 0.001*1000/0.36
                                         * Referenced by: '<S11>/Gain4'
                                         */
   real_T Constant1_Value_e;            /* Expression: 0
                                         * Referenced by: '<S8>/Constant1'
+                                        */
+  real_T CoppiaAvitesaturata_UpperSat; /* Expression: 600
+                                        * Referenced by: '<S8>/Coppia A vite saturata'
+                                        */
+  real_T CoppiaAvitesaturata_LowerSat; /* Expression: -600
+                                        * Referenced by: '<S8>/Coppia A vite saturata'
                                         */
   real_T EtherCATPDOTransmit2_P1_Size[2];/* Computed Parameter: EtherCATPDOTransmit2_P1_Size
                                           * Referenced by: '<S8>/EtherCAT PDO Transmit 2'
@@ -2896,13 +2931,13 @@ struct P_StateFlowGUI_T_ {
   real_T EtherCATPDOTransmit2_P7;      /* Expression: sample_time
                                         * Referenced by: '<S8>/EtherCAT PDO Transmit 2'
                                         */
-  real_T EtherCATPDOReceive9_P1_Size_o[2];/* Computed Parameter: EtherCATPDOReceive9_P1_Size_o
+  real_T EtherCATPDOReceive9_P1_Size_p[2];/* Computed Parameter: EtherCATPDOReceive9_P1_Size_p
                                            * Referenced by: '<S46>/EtherCAT PDO Receive9'
                                            */
-  real_T EtherCATPDOReceive9_P1_n[23]; /* Computed Parameter: EtherCATPDOReceive9_P1_n
+  real_T EtherCATPDOReceive9_P1_a[23]; /* Computed Parameter: EtherCATPDOReceive9_P1_a
                                         * Referenced by: '<S46>/EtherCAT PDO Receive9'
                                         */
-  real_T EtherCATPDOReceive9_P2_Size_h[2];/* Computed Parameter: EtherCATPDOReceive9_P2_Size_h
+  real_T EtherCATPDOReceive9_P2_Size_c[2];/* Computed Parameter: EtherCATPDOReceive9_P2_Size_c
                                            * Referenced by: '<S46>/EtherCAT PDO Receive9'
                                            */
   real_T EtherCATPDOReceive9_P2_d;     /* Expression: sig_offset
@@ -2911,31 +2946,31 @@ struct P_StateFlowGUI_T_ {
   real_T EtherCATPDOReceive9_P3_Size_i[2];/* Computed Parameter: EtherCATPDOReceive9_P3_Size_i
                                            * Referenced by: '<S46>/EtherCAT PDO Receive9'
                                            */
-  real_T EtherCATPDOReceive9_P3_fe;    /* Expression: sig_type
+  real_T EtherCATPDOReceive9_P3_k;     /* Expression: sig_type
                                         * Referenced by: '<S46>/EtherCAT PDO Receive9'
                                         */
-  real_T EtherCATPDOReceive9_P4_Size_l[2];/* Computed Parameter: EtherCATPDOReceive9_P4_Size_l
-                                           * Referenced by: '<S46>/EtherCAT PDO Receive9'
-                                           */
-  real_T EtherCATPDOReceive9_P4_ag;    /* Expression: type_size
-                                        * Referenced by: '<S46>/EtherCAT PDO Receive9'
-                                        */
-  real_T EtherCATPDOReceive9_P5_Size_aa[2];/* Computed Parameter: EtherCATPDOReceive9_P5_Size_aa
+  real_T EtherCATPDOReceive9_P4_Size_en[2];/* Computed Parameter: EtherCATPDOReceive9_P4_Size_en
                                             * Referenced by: '<S46>/EtherCAT PDO Receive9'
                                             */
-  real_T EtherCATPDOReceive9_P5_h;     /* Expression: sig_dim
+  real_T EtherCATPDOReceive9_P4_f;     /* Expression: type_size
                                         * Referenced by: '<S46>/EtherCAT PDO Receive9'
                                         */
-  real_T EtherCATPDOReceive9_P6_Size_m[2];/* Computed Parameter: EtherCATPDOReceive9_P6_Size_m
-                                           * Referenced by: '<S46>/EtherCAT PDO Receive9'
-                                           */
-  real_T EtherCATPDOReceive9_P6_h;     /* Expression: device_id
-                                        * Referenced by: '<S46>/EtherCAT PDO Receive9'
-                                        */
-  real_T EtherCATPDOReceive9_P7_Size_pq[2];/* Computed Parameter: EtherCATPDOReceive9_P7_Size_pq
+  real_T EtherCATPDOReceive9_P5_Size_nv[2];/* Computed Parameter: EtherCATPDOReceive9_P5_Size_nv
                                             * Referenced by: '<S46>/EtherCAT PDO Receive9'
                                             */
-  real_T EtherCATPDOReceive9_P7_l;     /* Expression: sample_time
+  real_T EtherCATPDOReceive9_P5_k;     /* Expression: sig_dim
+                                        * Referenced by: '<S46>/EtherCAT PDO Receive9'
+                                        */
+  real_T EtherCATPDOReceive9_P6_Size_p[2];/* Computed Parameter: EtherCATPDOReceive9_P6_Size_p
+                                           * Referenced by: '<S46>/EtherCAT PDO Receive9'
+                                           */
+  real_T EtherCATPDOReceive9_P6_l4;    /* Expression: device_id
+                                        * Referenced by: '<S46>/EtherCAT PDO Receive9'
+                                        */
+  real_T EtherCATPDOReceive9_P7_Size_ai[2];/* Computed Parameter: EtherCATPDOReceive9_P7_Size_ai
+                                            * Referenced by: '<S46>/EtherCAT PDO Receive9'
+                                            */
+  real_T EtherCATPDOReceive9_P7_j;     /* Expression: sample_time
                                         * Referenced by: '<S46>/EtherCAT PDO Receive9'
                                         */
   real_T selettore_Value_d;            /* Expression: 2
