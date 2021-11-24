@@ -30,7 +30,7 @@ K = (m*(J1')*J1p + m*(J2')*J2p + I*(J34')*J34_p + m*(J3')*J3p + m*(J4')*J4p + me
 
 Theta_pp = M^-1*(-K*Theta_p+Tau);
 
-dt = 0.002;
+dt = 0.001;
 Theta_pSucc = Theta_p+Theta_pp*dt;
 Theta_Succ = Theta+Theta_p*dt;
 end

@@ -1,7 +1,7 @@
 %% Filtro di Kalman esteso
-syms theta1 theta2 theta1p theta2p theta1pp theta2pp 
-vk = 1; % varianza
-wk = 1; %varianza
+syms theta1 theta2 theta1p theta2p theta1pp theta2pp vk wk
+%vk = 1; % varianza
+%wk = 1; %varianza
 % Prendere le matrici calcolate mediante la dinamica inversa
 % x_p = [theta1_pp thetha2_pp theta1_p theta2_p]';
 dt = 0.001;
@@ -22,8 +22,8 @@ Vg = [vk 0 ; 0 vk;csip];
 zk1 = f+Vg;
 % zk1 = f(zk,tauk) + [vk; csip]
 % f(zk,tau) = zk + zp(zk,tauk)*dt
-%Q = mean(Vg*Vg');
-Q = cov(Vg*Vg');
+Q = mean(Vg*Vg');
+%Q = cov(Vg*Vg');
 C = [zeros(1,1), eye(1), zeros(1,2)];
 y = C*z + wk;
 R = cov(wk*wk');
