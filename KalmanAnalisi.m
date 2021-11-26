@@ -6,21 +6,21 @@
 % La lunghezza di tutti i campioni ? 1001
 time = linspace(0,1,1001);
 % Posizioni
-PosA = Theta2R.Data(16300:17300);
-SetpointA = Theta2Setpoint.Data(16300:17300);
-errPA = SetpointA-PosA;
+PosA = theta2R.Data(21850:22850);
+SpA = theta2Sp.Data(21850:22850);
+errPA = SpA-PosA;
 
-PosB = Theta1R.Data(16300:17300);
-SetpointB = Theta1SetPoint.Data(16300:17300);
-errPB = SetpointB-PosB;
+PosB = theta1R.Data(21850:22850);
+SpB = theta1Sp.Data(21850:22850);
+errPB = SpB-PosB;
 % Velocit?
-VelA = VelAAttuale.Data(16300:17300);
-SetvA = VelASetpoint.Data(16300:17300);
-errVA = SetvA-VelA;
+VelA = theta2pR.Data(21850:22850);
+SpvA = theta2pSet.Data(21850:22850);
+errVA = SpvA-VelA;
 
-VelB = VelBAttuale.Data(16300:17300);
-SetvB = VelBSetpoint.Data(16300:17300);
-errVB = SetvB-VelB;
+VelB = theta1pR.Data(21850:22850);
+SpvB = theta1pSet.Data(21850:22850);
+errVB = SpvB-VelB;
 %% Struttura filtro di Kalman
 
 % [kalmf,L,P] = kalman(sys,Q,R,N)

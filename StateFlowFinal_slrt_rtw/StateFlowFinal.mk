@@ -123,6 +123,7 @@ MATLAB_INCLUDES = $(MATLAB_INCLUDES);$(MATLAB_ROOT)\rtw\c\src\ext_mode\common
 MATLAB_INCLUDES = $(MATLAB_INCLUDES);$(START_DIR)
 MATLAB_INCLUDES = $(MATLAB_INCLUDES);$(MATLAB_ROOT)\simulink\include\sf_runtime
 MATLAB_INCLUDES = $(MATLAB_INCLUDES);$(START_DIR)\StateFlowFinal_slrt_rtw
+MATLAB_INCLUDES = $(MATLAB_INCLUDES);$(START_DIR)\Stateflow
 MATLAB_INCLUDES = $(MATLAB_INCLUDES);$(MATLAB_ROOT)\simulink\include\messages
 MATLAB_INCLUDES = $(MATLAB_INCLUDES);$(MATLAB_ROOT)\toolbox\dsp\extern\src\export\include
 MATLAB_INCLUDES = $(MATLAB_INCLUDES);$(MATLAB_ROOT)\toolbox\dsp\extern\src\export\include\src

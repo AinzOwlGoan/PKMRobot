@@ -7,9 +7,9 @@
  *
  * Code generation for model "StateFlowFinal".
  *
- * Model version              : 1.949
+ * Model version              : 1.991
  * Simulink Coder version : 8.12 (R2017a) 16-Feb-2017
- * C source code generated on : Tue Nov 23 16:10:22 2021
+ * C source code generated on : Fri Nov 26 12:14:27 2021
  *
  * Target selection: slrt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -51,9 +51,6 @@ RT_MODEL_StateFlowFinal_T *const StateFlowFinal_M = &StateFlowFinal_M_;
 
 /* Forward declaration for local functions */
 static void StateFlowFina_enter_atomic_Home(void);
-static void StateFlowFinal_Home1(real_T FC, real_T fCA, real_T fCB, real_T
-  posRifA, real_T posRifB, real_T PosA, real_T PosB, real_T Kpp, real_T *CA,
-  real_T *CB, real_T *CH);
 static real_T StateFlowFinal_mpower(real_T a);
 static void StateFlowFinal_ldm7t_k(real_T x, real_T *G, real_T *F, real_T *f);
 static void StateFlowFinal_ldm7t(real_T x, real_T *G, real_T *F, real_T *f);
@@ -102,42 +99,6 @@ static void StateFlowFina_enter_atomic_Home(void)
 
   /*  posB in gradi */
   StateFlowFinal_B.CoppiaH = -600.0;
-}
-
-/* Function for Chart: '<Root>/State flow robot' */
-static void StateFlowFinal_Home1(real_T FC, real_T fCA, real_T fCB, real_T
-  posRifA, real_T posRifB, real_T PosA, real_T PosB, real_T Kpp, real_T *CA,
-  real_T *CB, real_T *CH)
-{
-  /* MATLAB Function 'Home1': '<S13>:292' */
-  if (FC < 1.0) {
-    /* '<S13>:292:4' */
-    /* '<S13>:292:5' */
-    *CH = 0.0;
-  } else {
-    /* '<S13>:292:7' */
-    *CH = -600.0;
-  }
-
-  if (fCA == 1.0) {
-    /* '<S13>:292:9' */
-    /* '<S13>:292:10' */
-    *CA = 0.0;
-  } else {
-    /* '<S13>:292:12' */
-    *CA = (posRifA - StateFlowFinal_DW.conv * 180.0 / 3.1415926535897931 * PosA)
-      * Kpp;
-  }
-
-  if (fCB == 1.0) {
-    /* '<S13>:292:14' */
-    /* '<S13>:292:15' */
-    *CB = 0.0;
-  } else {
-    /* '<S13>:292:17' */
-    *CB = (posRifB - StateFlowFinal_DW.conv * 180.0 / 3.1415926535897931 * PosB)
-      * Kpp;
-  }
 }
 
 real_T rt_powd_snf(real_T u0, real_T u1)
@@ -453,7 +414,6 @@ static void StateFlowFinal_output(void)
 {
   int32_T bitIdx;
   int32_T i;
-  uint32_T u;
   boolean_T sf_internal_predicateOutput;
   real_T A;
   real_T B;
@@ -499,6 +459,9 @@ static void StateFlowFinal_output(void)
   real_T tmp_4[4];
   real_T M_0[2];
   real_T p_a_0[2];
+  uint32_T prevT_idx_0;
+  uint32_T elapseTime_idx_0;
+  uint32_T prevT_idx_1;
   real_T J_p_idx_0;
   real_T J_p_idx_1;
   real_T J_p_idx_3;
@@ -524,6 +487,9 @@ static void StateFlowFinal_output(void)
 
       // Clear all momentary triggered values
     }
+
+    /* Reset subsysRan breadcrumbs */
+    srClearBC(StateFlowFinal_DW.Setting_SubsysRanBC);
 
     /* DataTypeConversion: '<Root>/Data Type Conversion7' incorporates:
      *  Constant: '<Root>/Asse A braccia'
@@ -691,10 +657,11 @@ static void StateFlowFinal_output(void)
     bitIdx = 0;
     i = 0;
     while (i < 1) {
-      u = (uint32_T)StateFlowFinal_B.DataTypeConversion8;
+      prevT_idx_1 = (uint32_T)StateFlowFinal_B.DataTypeConversion8;
       for (i = 0; i < 16; i++) {
-        StateFlowFinal_B.IntegertoBitConverter[bitIdx] = (int32_T)u & 1;
-        u >>= 1;
+        StateFlowFinal_B.IntegertoBitConverter[bitIdx] = (int32_T)prevT_idx_1 &
+          1;
+        prevT_idx_1 >>= 1;
         bitIdx++;
       }
 
@@ -720,10 +687,11 @@ static void StateFlowFinal_output(void)
     bitIdx = 0;
     i = 0;
     while (i < 1) {
-      u = (uint32_T)StateFlowFinal_B.DataTypeConversion8_f;
+      prevT_idx_1 = (uint32_T)StateFlowFinal_B.DataTypeConversion8_f;
       for (i = 0; i < 16; i++) {
-        StateFlowFinal_B.IntegertoBitConverter_d[bitIdx] = (int32_T)u & 1;
-        u >>= 1;
+        StateFlowFinal_B.IntegertoBitConverter_d[bitIdx] = (int32_T)prevT_idx_1
+          & 1;
+        prevT_idx_1 >>= 1;
         bitIdx++;
       }
 
@@ -750,6 +718,9 @@ static void StateFlowFinal_output(void)
     /* Constant: '<Root>/Stop' */
     StateFlowFinal_B.Stop = StateFlowFinal_P.Stop_Value;
 
+    /* Constant: '<Root>/StartZero' */
+    StateFlowFinal_B.StartZero = StateFlowFinal_P.StartZero_Value;
+
     /* Chart: '<Root>/State flow robot' */
     if (StateFlowFinal_DW.temporalCounter_i1 < 65535U) {
       StateFlowFinal_DW.temporalCounter_i1++;
@@ -772,11 +743,11 @@ static void StateFlowFinal_output(void)
     } else {
       switch (StateFlowFinal_DW.is_c15_StateFlowFinal) {
        case StateFlowFinal_IN_Attivazione:
-        StateFlowFinal_B.Bool = 0.0;
         StateFlowFinal_B.Enable = 1.0;
+        StateFlowFinal_B.Bool = 0.0;
 
         /* During 'Attivazione': '<S13>:231' */
-        if (StateFlowFinal_B.StartHome == 1.0) {
+        if (StateFlowFinal_B.StartZero == 1.0) {
           /* Transition: '<S13>:232' */
           StateFlowFinal_DW.is_c15_StateFlowFinal = StateFlowFinal_IN_Home;
           StateFlowFina_enter_atomic_Home();
@@ -861,11 +832,11 @@ static void StateFlowFinal_output(void)
         break;
 
        case StateFlowFin_IN_FineLavorazione:
-        StateFlowFinal_B.Hb = 0.0;
         StateFlowFinal_B.FineLavorazione = 1.0;
+        StateFlowFinal_B.Hv = 0.0;
+        StateFlowFinal_B.Hb = 0.0;
         StateFlowFinal_B.Luci = 5.0;
         StateFlowFinal_B.Bool = 5.0;
-        StateFlowFinal_B.Hv = 0.0;
 
         /* During 'FineLavorazione': '<S13>:69' */
         sf_internal_predicateOutput = (((StateFlowFinal_DW.temporalCounter_i1 >=
@@ -879,16 +850,17 @@ static void StateFlowFinal_output(void)
         break;
 
        case StateFlowFinal_IN_Home:
-        StateFlowFinal_B.Hb = 0.0;
         StateFlowFinal_B.FineLavorazione = 0.0;
+        StateFlowFinal_B.Hv = 0.0;
+        StateFlowFinal_B.Hb = 0.0;
         StateFlowFinal_B.Luci = 1.0;
         StateFlowFinal_B.Bool = 1.0;
-        StateFlowFinal_B.Hv = 0.0;
 
         /* During 'Home': '<S13>:29' */
         sf_internal_predicateOutput = ((StateFlowFinal_B.IntegertoBitConverter
           [14] == 0.0) && (StateFlowFinal_B.IntegertoBitConverter_d[7] == 1.0) &&
-          (StateFlowFinal_B.IntegertoBitConverter_d[14] == 1.0));
+          (StateFlowFinal_B.IntegertoBitConverter_d[14] == 1.0) &&
+          (StateFlowFinal_B.StartHome == 1.0));
         if (sf_internal_predicateOutput) {
           /* Transition: '<S13>:277' */
           StateFlowFinal_DW.is_c15_StateFlowFinal = StateFlowFinal_IN_Coppie;
@@ -901,27 +873,148 @@ static void StateFlowFinal_output(void)
           StateFlowFinal_B.CoppiaH = 0.0;
           StateFlowFinal_B.Luci = 2.0;
         } else {
-          StateFlowFinal_B.PosRifA -= 0.01;
-          StateFlowFinal_B.PosRifB -= 0.01;
+          StateFlowFinal_B.PosRifA -= 0.015;
+          StateFlowFinal_B.PosRifB -= 0.015;
           StateFlowFinal_B.Stato = 0.0;
-          StateFlowFinal_Home1(StateFlowFinal_B.IntegertoBitConverter[14],
-                               StateFlowFinal_B.IntegertoBitConverter_d[7],
-                               StateFlowFinal_B.IntegertoBitConverter_d[14],
-                               StateFlowFinal_B.PosRifA,
-                               StateFlowFinal_B.PosRifB,
-                               StateFlowFinal_B.convert,
-                               StateFlowFinal_B.convert10, StateFlowFinal_B.Kp_l,
-                               &A, &f, &B);
-          StateFlowFinal_B.CoppiaA = A;
-          StateFlowFinal_B.CoppiaB = f;
-          StateFlowFinal_B.CoppiaH = B;
+
+          /* Simulink Function 'Setting': '<S13>:305' */
+          StateFlowFinal_B.Fc = StateFlowFinal_B.IntegertoBitConverter[14];
+          StateFlowFinal_B.Fca = StateFlowFinal_B.IntegertoBitConverter_d[7];
+          StateFlowFinal_B.Fcb = StateFlowFinal_B.IntegertoBitConverter_d[14];
+          StateFlowFinal_B.posrifA = StateFlowFinal_B.PosRifA;
+          StateFlowFinal_B.posrifB = StateFlowFinal_B.PosRifB;
+          StateFlowFinal_B.posA = StateFlowFinal_B.convert;
+          StateFlowFinal_B.posB = StateFlowFinal_B.convert10;
+          StateFlowFinal_B.Kp_p = StateFlowFinal_B.Kp_l;
+
+          /* Outputs for Function Call SubSystem: '<S13>/Setting' */
+          if (StateFlowFinal_DW.Setting_RESET_ELAPS_T) {
+            StateFlowFinal_DW.Setting_ELAPS_T[0] = 0U;
+            StateFlowFinal_DW.Setting_ELAPS_T[1] = 0U;
+          } else {
+            prevT_idx_0 = StateFlowFinal_DW.Setting_PREV_T[0];
+            prevT_idx_1 = StateFlowFinal_DW.Setting_PREV_T[1];
+            elapseTime_idx_0 = StateFlowFinal_M->Timing.clockTick1 - prevT_idx_0;
+            prevT_idx_1 = StateFlowFinal_M->Timing.clockTickH1 - prevT_idx_1;
+            if (prevT_idx_0 > StateFlowFinal_M->Timing.clockTick1) {
+              prevT_idx_1--;
+            }
+
+            StateFlowFinal_DW.Setting_ELAPS_T[0] = elapseTime_idx_0;
+            StateFlowFinal_DW.Setting_ELAPS_T[1] = prevT_idx_1;
+          }
+
+          prevT_idx_0 = StateFlowFinal_M->Timing.clockTick1;
+          prevT_idx_1 = StateFlowFinal_M->Timing.clockTickH1;
+          StateFlowFinal_DW.Setting_PREV_T[0] = prevT_idx_0;
+          StateFlowFinal_DW.Setting_PREV_T[1] = prevT_idx_1;
+          StateFlowFinal_DW.Setting_RESET_ELAPS_T = false;
+
+          /* DiscreteIntegrator: '<S106>/Discrete-Time Integrator1' */
+          if (StateFlowFinal_DW.DiscreteTimeIntegrator1_SYSTEM_ != 0) {
+            StateFlowFinal_B.DiscreteTimeIntegrator1 =
+              StateFlowFinal_DW.DiscreteTimeIntegrator1_DSTATE;
+          } else {
+            StateFlowFinal_B.DiscreteTimeIntegrator1 =
+              StateFlowFinal_P.DiscreteTimeIntegrator1_gainval * (real_T)
+              StateFlowFinal_DW.Setting_ELAPS_T[0] *
+              StateFlowFinal_DW.DiscreteTimeIntegrator1_PREV_U +
+              StateFlowFinal_DW.DiscreteTimeIntegrator1_DSTATE;
+          }
+
+          /* End of DiscreteIntegrator: '<S106>/Discrete-Time Integrator1' */
+          /* DiscreteIntegrator: '<S106>/Discrete-Time Integrator' */
+          if (StateFlowFinal_DW.DiscreteTimeIntegrator_SYSTEM_E != 0) {
+            StateFlowFinal_B.DiscreteTimeIntegrator =
+              StateFlowFinal_DW.DiscreteTimeIntegrator_DSTATE;
+          } else {
+            StateFlowFinal_B.DiscreteTimeIntegrator =
+              StateFlowFinal_P.DiscreteTimeIntegrator_gainval * (real_T)
+              StateFlowFinal_DW.Setting_ELAPS_T[0] *
+              StateFlowFinal_DW.DiscreteTimeIntegrator_PREV_U +
+              StateFlowFinal_DW.DiscreteTimeIntegrator_DSTATE;
+          }
+
+          /* End of DiscreteIntegrator: '<S106>/Discrete-Time Integrator' */
+          /* Gain: '<S106>/Gain' */
+          StateFlowFinal_B.Gain_i = StateFlowFinal_P.Gain_Gain_d *
+            StateFlowFinal_B.posA;
+
+          /* Gain: '<S106>/Gain1' */
+          StateFlowFinal_B.Gain1_f = StateFlowFinal_P.Gain1_Gain *
+            StateFlowFinal_B.posB;
+
+          /* Sum: '<S106>/Sum1' */
+          StateFlowFinal_B.Sum1_i = StateFlowFinal_B.posrifA -
+            StateFlowFinal_B.Gain_i;
+
+          /* Sum: '<S106>/Sum2' */
+          StateFlowFinal_B.Sum2_b = StateFlowFinal_B.posrifB -
+            StateFlowFinal_B.Gain1_f;
+
+          /* MATLAB Function: '<S106>/MATLAB Function' incorporates:
+           *  Constant: '<S106>/Ki'
+           */
+          /* MATLAB Function 'State flow robot/Setting/MATLAB Function': '<S107>:1' */
+          if (StateFlowFinal_B.Fc < 1.0) {
+            /* '<S107>:1:6' */
+            /* '<S107>:1:7' */
+            StateFlowFinal_B.CH = 0.0;
+          } else {
+            /* '<S107>:1:9' */
+            StateFlowFinal_B.CH = -600.0;
+          }
+
+          if (StateFlowFinal_B.Fca == 1.0) {
+            /* '<S107>:1:11' */
+            /* '<S107>:1:12' */
+            StateFlowFinal_B.CA = 0.0;
+          } else {
+            /* '<S107>:1:14' */
+            StateFlowFinal_B.CA = StateFlowFinal_B.Kp_p *
+              StateFlowFinal_B.Sum1_i + StateFlowFinal_P.Ki_Value *
+              StateFlowFinal_B.DiscreteTimeIntegrator;
+          }
+
+          if (StateFlowFinal_B.Fcb == 1.0) {
+            /* '<S107>:1:16' */
+            /* '<S107>:1:17' */
+            StateFlowFinal_B.CB = 0.0;
+          } else {
+            /* '<S107>:1:19' */
+            StateFlowFinal_B.CB = StateFlowFinal_B.Kp_p *
+              StateFlowFinal_B.Sum2_b + StateFlowFinal_P.Ki_Value *
+              StateFlowFinal_B.DiscreteTimeIntegrator1;
+          }
+
+          /* End of MATLAB Function: '<S106>/MATLAB Function' */
+
+          /* Update for DiscreteIntegrator: '<S106>/Discrete-Time Integrator1' */
+          StateFlowFinal_DW.DiscreteTimeIntegrator1_SYSTEM_ = 0U;
+          StateFlowFinal_DW.DiscreteTimeIntegrator1_DSTATE =
+            StateFlowFinal_B.DiscreteTimeIntegrator1;
+          StateFlowFinal_DW.DiscreteTimeIntegrator1_PREV_U =
+            StateFlowFinal_B.Sum2_b;
+
+          /* Update for DiscreteIntegrator: '<S106>/Discrete-Time Integrator' */
+          StateFlowFinal_DW.DiscreteTimeIntegrator_SYSTEM_E = 0U;
+          StateFlowFinal_DW.DiscreteTimeIntegrator_DSTATE =
+            StateFlowFinal_B.DiscreteTimeIntegrator;
+          StateFlowFinal_DW.DiscreteTimeIntegrator_PREV_U =
+            StateFlowFinal_B.Sum1_i;
+          StateFlowFinal_DW.Setting_SubsysRanBC = 4;
+
+          /* End of Outputs for SubSystem: '<S13>/Setting' */
+          StateFlowFinal_B.CoppiaA = StateFlowFinal_B.CA;
+          StateFlowFinal_B.CoppiaB = StateFlowFinal_B.CB;
+          StateFlowFinal_B.CoppiaH = StateFlowFinal_B.CH;
         }
         break;
 
        case StateFlowFinal_IN_OffSet:
+        StateFlowFinal_B.Hv = 1.0;
         StateFlowFinal_B.Luci = 3.0;
         StateFlowFinal_B.Bool = 2.0;
-        StateFlowFinal_B.Hv = 1.0;
 
         /* During 'OffSet': '<S13>:87' */
         if (StateFlowFinal_B.StartWork == 1.0) {
@@ -4705,7 +4798,8 @@ static void StateFlowFinal_output(void)
       StateFlowFinal_B.C2) / 64.0;
 
     /* Gain: '<S12>/Gain1' */
-    StateFlowFinal_B.Gain1 = StateFlowFinal_P.Gain1_Gain * StateFlowFinal_B.Cm2;
+    StateFlowFinal_B.Gain1 = StateFlowFinal_P.Gain1_Gain_i *
+      StateFlowFinal_B.Cm2;
 
     /* Switch: '<S23>/Switch1' incorporates:
      *  Constant: '<S23>/Constant'
@@ -5783,7 +5877,7 @@ static void StateFlowFinal_output(void)
       StateFlowFinal_B.theta1;
 
     /* Gain: '<S67>/Gain' */
-    StateFlowFinal_B.Gain_n = StateFlowFinal_P.Gain_Gain_d *
+    StateFlowFinal_B.Gain_n = StateFlowFinal_P.Gain_Gain_d4 *
       StateFlowFinal_B.theta2;
 
     /* Sum: '<S12>/Sum5' */
@@ -6202,6 +6296,9 @@ static void StateFlowFinal_initialize(void)
     /* Start for Constant: '<Root>/Stop' */
     StateFlowFinal_B.Stop = StateFlowFinal_P.Stop_Value;
 
+    /* Start for Constant: '<Root>/StartZero' */
+    StateFlowFinal_B.StartZero = StateFlowFinal_P.StartZero_Value;
+
     /* Start for S-Function (xpcethercatpdotx): '<S3>/Luce Bianca' */
     /* Level2 S-Function Block: '<S3>/Luce Bianca' (xpcethercatpdotx) */
     {
@@ -6420,12 +6517,47 @@ static void StateFlowFinal_initialize(void)
   /* InitializeConditions for UnitDelay: '<S86>/UD' */
   StateFlowFinal_DW.UD_DSTATE_k =
     StateFlowFinal_P.DiscreteDerivativeB5_ICPrevScal;
-
-  /* SystemInitialize for Chart: '<Root>/State flow robot' */
   StateFlowFinal_DW.sfEvent = -1;
   StateFlowFinal_DW.temporalCounter_i1 = 0U;
   StateFlowFinal_DW.is_active_c15_StateFlowFinal = 0U;
   StateFlowFinal_DW.is_c15_StateFlowFinal = StateFlowFin_IN_NO_ACTIVE_CHILD;
+
+  /* SystemInitialize for Chart: '<Root>/State flow robot' incorporates:
+   *  SystemInitialize for SubSystem: '<S13>/Setting'
+   */
+  /* InitializeConditions for DiscreteIntegrator: '<S106>/Discrete-Time Integrator1' incorporates:
+   *  SystemInitialize for DiscreteIntegrator: '<S106>/Discrete-Time Integrator1'
+   */
+  StateFlowFinal_DW.DiscreteTimeIntegrator1_DSTATE =
+    StateFlowFinal_P.DiscreteTimeIntegrator1_IC;
+  StateFlowFinal_DW.DiscreteTimeIntegrator1_PREV_U = 0.0;
+
+  /* InitializeConditions for DiscreteIntegrator: '<S106>/Discrete-Time Integrator' incorporates:
+   *  SystemInitialize for DiscreteIntegrator: '<S106>/Discrete-Time Integrator'
+   */
+  StateFlowFinal_DW.DiscreteTimeIntegrator_DSTATE =
+    StateFlowFinal_P.DiscreteTimeIntegrator_IC;
+  StateFlowFinal_DW.DiscreteTimeIntegrator_PREV_U = 0.0;
+
+  /* SystemInitialize for Outport: '<S106>/CA' */
+  StateFlowFinal_B.CA = StateFlowFinal_P.CA_Y0;
+
+  /* SystemInitialize for Outport: '<S106>/CB' */
+  StateFlowFinal_B.CB = StateFlowFinal_P.CB_Y0;
+
+  /* SystemInitialize for Outport: '<S106>/CH' */
+  StateFlowFinal_B.CH = StateFlowFinal_P.CH_Y0;
+
+  /* Enable for Chart: '<Root>/State flow robot' incorporates:
+   *  Enable for SubSystem: '<S13>/Setting'
+   */
+  StateFlowFinal_DW.Setting_RESET_ELAPS_T = true;
+
+  /* Enable for DiscreteIntegrator: '<S106>/Discrete-Time Integrator1' */
+  StateFlowFinal_DW.DiscreteTimeIntegrator1_SYSTEM_ = 1U;
+
+  /* Enable for DiscreteIntegrator: '<S106>/Discrete-Time Integrator' */
+  StateFlowFinal_DW.DiscreteTimeIntegrator_SYSTEM_E = 1U;
 }
 
 /* Model terminate function */
@@ -10399,9 +10531,9 @@ RT_MODEL_StateFlowFinal_T *StateFlowFinal(void)
   StateFlowFinal_M->Sizes.numU = (0);  /* Number of model inputs */
   StateFlowFinal_M->Sizes.sysDirFeedThru = (0);/* The model is not direct feedthrough */
   StateFlowFinal_M->Sizes.numSampTimes = (2);/* Number of sample times */
-  StateFlowFinal_M->Sizes.numBlocks = (382);/* Number of blocks */
-  StateFlowFinal_M->Sizes.numBlockIO = (284);/* Number of block outputs */
-  StateFlowFinal_M->Sizes.numBlockPrms = (1754);/* Sum of parameter "widths" */
+  StateFlowFinal_M->Sizes.numBlocks = (396);/* Number of blocks */
+  StateFlowFinal_M->Sizes.numBlockIO = (302);/* Number of block outputs */
+  StateFlowFinal_M->Sizes.numBlockPrms = (1765);/* Sum of parameter "widths" */
   return StateFlowFinal_M;
 }
 

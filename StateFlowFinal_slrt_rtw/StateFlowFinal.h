@@ -7,9 +7,9 @@
  *
  * Code generation for model "StateFlowFinal".
  *
- * Model version              : 1.949
+ * Model version              : 1.991
  * Simulink Coder version : 8.12 (R2017a) 16-Feb-2017
- * C source code generated on : Tue Nov 23 16:10:22 2021
+ * C source code generated on : Fri Nov 26 12:14:27 2021
  *
  * Target selection: slrt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -850,6 +850,7 @@ typedef struct {
   real_T StartWork;                    /* '<Root>/StartWork' */
   real_T Reset;                        /* '<Root>/Reset' */
   real_T Stop;                         /* '<Root>/Stop' */
+  real_T StartZero;                    /* '<Root>/StartZero' */
   real_T Memory;                       /* '<S23>/Memory' */
   real_T Sum12;                        /* '<S65>/Sum12' */
   real_T Sum4;                         /* '<S65>/Sum4' */
@@ -1002,6 +1003,23 @@ typedef struct {
   real_T PosRifA;                      /* '<Root>/State flow robot' */
   real_T PosRifB;                      /* '<Root>/State flow robot' */
   real_T Stato;                        /* '<Root>/State flow robot' */
+  real_T Fc;                           /* '<Root>/State flow robot' */
+  real_T Fca;                          /* '<Root>/State flow robot' */
+  real_T Fcb;                          /* '<Root>/State flow robot' */
+  real_T posrifA;                      /* '<Root>/State flow robot' */
+  real_T posrifB;                      /* '<Root>/State flow robot' */
+  real_T posA;                         /* '<Root>/State flow robot' */
+  real_T posB;                         /* '<Root>/State flow robot' */
+  real_T Kp_p;                         /* '<Root>/State flow robot' */
+  real_T DiscreteTimeIntegrator1;      /* '<S106>/Discrete-Time Integrator1' */
+  real_T DiscreteTimeIntegrator;       /* '<S106>/Discrete-Time Integrator' */
+  real_T Gain_i;                       /* '<S106>/Gain' */
+  real_T Gain1_f;                      /* '<S106>/Gain1' */
+  real_T Sum1_i;                       /* '<S106>/Sum1' */
+  real_T Sum2_b;                       /* '<S106>/Sum2' */
+  real_T CA;                           /* '<S106>/MATLAB Function' */
+  real_T CB;                           /* '<S106>/MATLAB Function' */
+  real_T CH;                           /* '<S106>/MATLAB Function' */
   real_T DataTypeConversion;           /* '<S71>/Data Type Conversion' */
   real_T DataTypeConversion1;          /* '<S71>/Data Type Conversion1' */
   real_T TmpSignalConversionAtsfunxyInpo[2];
@@ -1136,6 +1154,8 @@ typedef struct {
   real_T Delay_x2_DSTATE_k;            /* '<S98>/Delay_x2' */
   real_T UD_DSTATE_g0;                 /* '<S85>/UD' */
   real_T UD_DSTATE_k;                  /* '<S86>/UD' */
+  real_T DiscreteTimeIntegrator1_DSTATE;/* '<S106>/Discrete-Time Integrator1' */
+  real_T DiscreteTimeIntegrator_DSTATE;/* '<S106>/Discrete-Time Integrator' */
   real_T Memory_PreviousInput;         /* '<S23>/Memory' */
   real_T Memory_PreviousInput_o;       /* '<S27>/Memory' */
   real_T Memory_PreviousInput_g;       /* '<S31>/Memory' */
@@ -1144,6 +1164,8 @@ typedef struct {
   real_T OffA_0;                       /* '<Root>/State flow robot' */
   real_T OffB_0;                       /* '<Root>/State flow robot' */
   real_T conv_vite;                    /* '<Root>/State flow robot' */
+  real_T DiscreteTimeIntegrator1_PREV_U;/* '<S106>/Discrete-Time Integrator1' */
+  real_T DiscreteTimeIntegrator_PREV_U;/* '<S106>/Discrete-Time Integrator' */
   struct {
     real_T EXECRATIO;
   } EtherCATInit_RWORK;                /* '<Root>/EtherCAT Init ' */
@@ -1171,7 +1193,12 @@ typedef struct {
   struct {
     void *AQHandles;
     void *SlioLTF;
-  } HiddenToAsyncQueue_InsertedFo_c;   /* synthesized block */
+  } HiddenToAsyncQueue_InsertedF_l1;   /* synthesized block */
+
+  struct {
+    void *AQHandles;
+    void *SlioLTF;
+  } HiddenToAsyncQueue_InsertedFo_g;   /* synthesized block */
 
   struct {
     void *AQHandles;
@@ -1211,7 +1238,7 @@ typedef struct {
   struct {
     void *AQHandles;
     void *SlioLTF;
-  } HiddenToAsyncQueue_InsertedFo_g;   /* synthesized block */
+  } HiddenToAsyncQueue_InsertedF_g4;   /* synthesized block */
 
   struct {
     void *AQHandles;
@@ -1256,7 +1283,7 @@ typedef struct {
   struct {
     void *AQHandles;
     void *SlioLTF;
-  } HiddenToAsyncQueue_InsertedF_c2;   /* synthesized block */
+  } HiddenToAsyncQueue_InsertedFo_c;   /* synthesized block */
 
   struct {
     void *AQHandles;
@@ -1383,7 +1410,19 @@ typedef struct {
     void *SlioLTF;
   } HiddenToAsyncQueue_InsertedF_er;   /* synthesized block */
 
+  struct {
+    void *AQHandles;
+    void *SlioLTF;
+  } HiddenToAsyncQueue_InsertedFo_k;   /* synthesized block */
+
+  struct {
+    void *AQHandles;
+    void *SlioLTF;
+  } HiddenToAsyncQueue_InsertedF_fj;   /* synthesized block */
+
   int32_T sfEvent;                     /* '<Root>/State flow robot' */
+  uint32_T Setting_ELAPS_T[2];         /* '<S13>/Setting' */
+  uint32_T Setting_PREV_T[2];          /* '<S13>/Setting' */
   int_T EtherCATPDOTransmit5_IWORK[7]; /* '<Root>/EtherCAT PDO Transmit 5' */
   int_T EtherCATPDOTransmit6_IWORK[7]; /* '<Root>/EtherCAT PDO Transmit 6' */
   int_T EtherCATPDOTransmit3_IWORK[7]; /* '<Root>/EtherCAT PDO Transmit 3' */
@@ -1413,8 +1452,12 @@ typedef struct {
   int_T EtherCATPDOTransmit2_IWORK[7]; /* '<S8>/EtherCAT PDO Transmit 2' */
   int_T EtherCATPDOReceive9_IWORK_gl[7];/* '<S33>/EtherCAT PDO Receive9' */
   uint16_T temporalCounter_i1;         /* '<Root>/State flow robot' */
+  int8_T Setting_SubsysRanBC;          /* '<S13>/Setting' */
   uint8_T is_active_c15_StateFlowFinal;/* '<Root>/State flow robot' */
   uint8_T is_c15_StateFlowFinal;       /* '<Root>/State flow robot' */
+  uint8_T DiscreteTimeIntegrator1_SYSTEM_;/* '<S106>/Discrete-Time Integrator1' */
+  uint8_T DiscreteTimeIntegrator_SYSTEM_E;/* '<S106>/Discrete-Time Integrator' */
+  boolean_T Setting_RESET_ELAPS_T;     /* '<S13>/Setting' */
 } DW_StateFlowFinal_T;
 
 /* Backward compatible GRT Identifiers */
@@ -1465,6 +1508,36 @@ struct P_StateFlowFinal_T_ {
                                         */
   real_T Switch2_Threshold;            /* Expression: 3
                                         * Referenced by: '<S8>/Switch2'
+                                        */
+  real_T CA_Y0;                        /* Computed Parameter: CA_Y0
+                                        * Referenced by: '<S106>/CA'
+                                        */
+  real_T CB_Y0;                        /* Computed Parameter: CB_Y0
+                                        * Referenced by: '<S106>/CB'
+                                        */
+  real_T CH_Y0;                        /* Computed Parameter: CH_Y0
+                                        * Referenced by: '<S106>/CH'
+                                        */
+  real_T DiscreteTimeIntegrator1_gainval;/* Computed Parameter: DiscreteTimeIntegrator1_gainval
+                                          * Referenced by: '<S106>/Discrete-Time Integrator1'
+                                          */
+  real_T DiscreteTimeIntegrator1_IC;   /* Expression: 0
+                                        * Referenced by: '<S106>/Discrete-Time Integrator1'
+                                        */
+  real_T DiscreteTimeIntegrator_gainval;/* Computed Parameter: DiscreteTimeIntegrator_gainval
+                                         * Referenced by: '<S106>/Discrete-Time Integrator'
+                                         */
+  real_T DiscreteTimeIntegrator_IC;    /* Expression: 0
+                                        * Referenced by: '<S106>/Discrete-Time Integrator'
+                                        */
+  real_T Gain_Gain_d;                  /* Expression: ( (2*pi)/16384/64*180/pi)
+                                        * Referenced by: '<S106>/Gain'
+                                        */
+  real_T Gain1_Gain;                   /* Expression: ( (2*pi)/16384/64*180/pi)
+                                        * Referenced by: '<S106>/Gain1'
+                                        */
+  real_T Ki_Value;                     /* Expression: 200
+                                        * Referenced by: '<S106>/Ki'
                                         */
   real_T AsseAbraccia_Value;           /* Expression: 4
                                         * Referenced by: '<Root>/Asse A braccia'
@@ -1940,7 +2013,7 @@ struct P_StateFlowFinal_T_ {
   real_T EtherCATPDOReceive16_P7_h;    /* Expression: sample_time
                                         * Referenced by: '<S2>/EtherCAT PDO Receive16'
                                         */
-  real_T Kp_Value;                     /* Expression: 800
+  real_T Kp_Value;                     /* Expression: 450
                                         * Referenced by: '<Root>/Kp'
                                         */
   real_T StartHome_Value;              /* Expression: 0
@@ -1957,6 +2030,9 @@ struct P_StateFlowFinal_T_ {
                                         */
   real_T Stop_Value;                   /* Expression: 0
                                         * Referenced by: '<Root>/Stop'
+                                        */
+  real_T StartZero_Value;              /* Expression: 0
+                                        * Referenced by: '<Root>/StartZero'
                                         */
   real_T LuceBianca_P1_Size[2];        /* Computed Parameter: LuceBianca_P1_Size
                                         * Referenced by: '<S3>/Luce Bianca'
@@ -2330,7 +2406,7 @@ struct P_StateFlowFinal_T_ {
   real_T Kd_Gain;                      /* Expression: 5
                                         * Referenced by: '<S12>/Kd'
                                         */
-  real_T Gain1_Gain;                   /* Expression: 1000/0.3
+  real_T Gain1_Gain_i;                 /* Expression: 1000/0.3
                                         * Referenced by: '<S12>/Gain1'
                                         */
   real_T CoppiaAbracciasaturata_UpperSat;/* Expression: 500
@@ -2951,7 +3027,7 @@ struct P_StateFlowFinal_T_ {
   real_T Gain_Gain_c;                  /* Expression: 180/pi
                                         * Referenced by: '<S66>/Gain'
                                         */
-  real_T Gain_Gain_d;                  /* Expression: 180/pi
+  real_T Gain_Gain_d4;                 /* Expression: 180/pi
                                         * Referenced by: '<S67>/Gain'
                                         */
 };
@@ -3540,5 +3616,7 @@ extern RT_MODEL_StateFlowFinal_T *const StateFlowFinal_M;
  * '<S103>' : 'StateFlowFinal/Sistema_braccia/Velocita /Vel Asse B conv'
  * '<S104>' : 'StateFlowFinal/Sistema_braccia/Velocita braccia 1/Vel Asse A conv'
  * '<S105>' : 'StateFlowFinal/Sistema_braccia/Velocita braccia 1/Vel Asse B conv'
+ * '<S106>' : 'StateFlowFinal/State flow robot/Setting'
+ * '<S107>' : 'StateFlowFinal/State flow robot/Setting/MATLAB Function'
  */
 #endif                                 /* RTW_HEADER_StateFlowFinal_h_ */

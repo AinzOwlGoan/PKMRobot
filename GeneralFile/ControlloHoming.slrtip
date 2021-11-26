@@ -1,6 +1,15 @@
 
   <Object type="Desktop.Xpc.Designer.InstrumentPanel, Desktop.Xpc.Designer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ControlloHoming" children="Controls">
     <Object type="MW.Instruments.Panel, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Panel1" children="Controls">
+      <Object type="MW.Instruments.SwitchLED, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="SwitchLED2147483644" children="Controls">
+        <Property name="BindingSrcPath">StartZero/Value</Property>
+        <Property name="TargetName">TargetPC1</Property>
+        <Property name="BindingSrcType">Parameter</Property>
+        <Property name="Text">Zero</Property>
+        <Property name="Size">120, 40</Property>
+        <Property name="Location">249, 107</Property>
+        <Property name="Name">SwitchLED2147483644</Property>
+      </Object>
       <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="Label2147483623" children="Controls">
         <Property name="Text">Tempo esecuzione</Property>
         <Property name="UseCompatibleTextRendering">True</Property>
@@ -198,7 +207,7 @@
         <Property name="BindingSrcType">Parameter</Property>
         <Property name="Text">Reset</Property>
         <Property name="Size">50, 40</Property>
-        <Property name="Location">365, 266</Property>
+        <Property name="Location">365, 320</Property>
         <Property name="Name">SwitchLED2147483645</Property>
       </Object>
       <Object type="MW.Instruments.SwitchLED, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Stop" children="Controls">
@@ -207,7 +216,7 @@
         <Property name="BindingSrcType">Parameter</Property>
         <Property name="Text">Stop</Property>
         <Property name="Size">120, 40</Property>
-        <Property name="Location">249, 266</Property>
+        <Property name="Location">249, 320</Property>
         <Property name="Name">Stop</Property>
       </Object>
       <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="Label2147483632" children="Controls">
@@ -282,7 +291,7 @@
       <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="Label2147483636" children="Controls">
         <Property name="Text">A fine lavorazione spegnere Homing e Work</Property>
         <Property name="UseCompatibleTextRendering">True</Property>
-        <Property name="Location">222, 372</Property>
+        <Property name="Location">219, 450</Property>
         <Property name="Name">Label2147483636</Property>
         <Property name="Size">226, 46</Property>
       </Object>
@@ -346,8 +355,8 @@
           <Property name="Min">-1</Property>
           <Property name="Span">6</Property>
         </Property>
-        <Property name="InnerRadius">65</Property>
-        <Property name="Size">109, 109</Property>
+        <Property name="InnerRadius">70</Property>
+        <Property name="Size">114, 114</Property>
         <Property name="ForeColor">Black</Property>
         <Property name="Location">46, 363</Property>
         <Property name="Name">GaugeAngular1</Property>
@@ -369,7 +378,7 @@
         <Property name="BindingSrcType">Parameter</Property>
         <Property name="Text">Work</Property>
         <Property name="Size">120, 40</Property>
-        <Property name="Location">249, 198</Property>
+        <Property name="Location">249, 252</Property>
         <Property name="Name">SwitchLavoro</Property>
       </Object>
       <Object type="MW.Instruments.SwitchLED, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="SwitchStart" children="Controls">
@@ -537,11 +546,11 @@
         <Property name="BindingSrcType">Parameter</Property>
         <Property name="Text">Homing</Property>
         <Property name="Size">120, 40</Property>
-        <Property name="Location">249, 115</Property>
+        <Property name="Location">249, 178</Property>
         <Property name="Name">Homing</Property>
       </Object>
       <Property name="Size">1056, 515</Property>
-      <Property name="Location">91, 190</Property>
+      <Property name="Location">91, 193</Property>
       <Property name="Name">Panel1</Property>
     </Object>
     <Property name="ClientSize">1536, 864</Property>

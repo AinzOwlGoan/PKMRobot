@@ -61,6 +61,18 @@ typedef struct {
   real_T *c15_PosRifA;
   real_T *c15_PosRifB;
   real_T *c15_Stato;
+  real_T *c15_ZeroSignal;
+  real_T *c15_Fc;
+  real_T *c15_Fca;
+  real_T *c15_Fcb;
+  real_T *c15_posrifA;
+  real_T *c15_posrifB;
+  real_T *c15_b_posA;
+  real_T *c15_b_posB;
+  real_T *c15_b_Kp;
+  real_T *c15_CA;
+  real_T *c15_CB;
+  real_T *c15_CH;
   uint16_T *c15_temporalCounter_i1;
 } SFc15_StateFlowFinalInstanceStruct;
 

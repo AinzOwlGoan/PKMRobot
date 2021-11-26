@@ -7,9 +7,9 @@
  *
  * Code generation for model "StateFlowFinal".
  *
- * Model version              : 1.949
+ * Model version              : 1.991
  * Simulink Coder version : 8.12 (R2017a) 16-Feb-2017
- * C source code generated on : Tue Nov 23 16:10:22 2021
+ * C source code generated on : Fri Nov 26 12:14:27 2021
  *
  * Target selection: slrt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -36,6 +36,16 @@ P_StateFlowFinal_T StateFlowFinal_P = {
   1.0,
   3.0,
   3.0,
+  0.0,
+  0.0,
+  0.0,
+  0.001,
+  0.0,
+  0.001,
+  0.0,
+  0.00034332275390625,
+  0.00034332275390625,
+  200.0,
   4.0,
 
   { 1.0, 43.0 },
@@ -315,7 +325,8 @@ P_StateFlowFinal_T StateFlowFinal_P = {
 
   { 1.0, 1.0 },
   0.001,
-  800.0,
+  450.0,
+  0.0,
   0.0,
   0.0,
   0.0,
