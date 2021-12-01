@@ -7,9 +7,9 @@
  *
  * Code generation for model "StateFlowFinal".
  *
- * Model version              : 1.949
+ * Model version              : 1.1054
  * Simulink Coder version : 8.12 (R2017a) 16-Feb-2017
- * C source code generated on : Tue Nov 23 16:10:22 2021
+ * C source code generated on : Tue Nov 30 15:09:37 2021
  *
  * Target selection: slrt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -24,6 +24,12 @@
 #include "builtin_typeid_types.h"
 #include "multiword_types.h"
 #include "zero_crossing_types.h"
+
+/* Parameters for system: '<S93>/MeasurementUpdate' */
+typedef struct P_MeasurementUpdate_StateFlow_T_ P_MeasurementUpdate_StateFlow_T;
+
+/* Parameters for system: '<S56>/UseCurrentEstimator' */
+typedef struct P_UseCurrentEstimator_StateFl_T_ P_UseCurrentEstimator_StateFl_T;
 
 /* Parameters (auto storage) */
 typedef struct P_StateFlowFinal_T_ P_StateFlowFinal_T;

@@ -7,9 +7,9 @@
  *
  * Code generation for model "StateFlowFinal".
  *
- * Model version              : 1.991
+ * Model version              : 1.1062
  * Simulink Coder version : 8.12 (R2017a) 16-Feb-2017
- * C source code generated on : Fri Nov 26 12:14:27 2021
+ * C source code generated on : Tue Nov 30 15:32:28 2021
  *
  * Target selection: slrt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -41,5 +41,26 @@ extern void xpcethercatpdotx(SimStruct *rts);
 extern void xpcethercatpdorx(SimStruct *rts);
 extern void StateFlowFinal_MATLABFunction(real_T rtu_now, real_T rtu_old,
   B_MATLABFunction_StateFlowFin_T *localB);
+extern void StateFlo_MeasurementUpdate_Init(B_MeasurementUpdate_StateFlow_T
+  *localB, P_MeasurementUpdate_StateFlow_T *localP);
+extern void StateFl_MeasurementUpdate_Start(DW_MeasurementUpdate_StateFlo_T
+  *localDW);
+extern void State_MeasurementUpdate_Disable(B_MeasurementUpdate_StateFlow_T
+  *localB, DW_MeasurementUpdate_StateFlo_T *localDW,
+  P_MeasurementUpdate_StateFlow_T *localP);
+extern void StateFlowFina_MeasurementUpdate(boolean_T rtu_Enable, const real_T
+  rtu_Lk[2], real_T rtu_yk, const real_T rtu_Ck[2], const real_T rtu_xhatkk1[2],
+  real_T rtu_Dk, real_T rtu_uk, B_MeasurementUpdate_StateFlow_T *localB,
+  DW_MeasurementUpdate_StateFlo_T *localDW, P_MeasurementUpdate_StateFlow_T
+  *localP);
+extern void StateF_UseCurrentEstimator_Init(B_UseCurrentEstimator_StateFl_T
+  *localB, P_UseCurrentEstimator_StateFl_T *localP);
+extern void State_UseCurrentEstimator_Start(DW_UseCurrentEstimator_StateF_T
+  *localDW);
+extern void StateFlowFi_UseCurrentEstimator(boolean_T rtu_Enablek, const real_T
+  rtu_Mk[2], real_T rtu_uk, real_T rtu_yk, const real_T rtu_Ck[2], real_T rtu_Dk,
+  const real_T rtu_xhatkk1[2], B_UseCurrentEstimator_StateFl_T *localB,
+  DW_UseCurrentEstimator_StateF_T *localDW, P_UseCurrentEstimator_StateFl_T
+  *localP);
 
 #endif                                 /* RTW_HEADER_StateFlowFinal_private_h_ */

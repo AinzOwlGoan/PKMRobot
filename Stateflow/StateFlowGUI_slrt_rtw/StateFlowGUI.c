@@ -7,9 +7,9 @@
  *
  * Code generation for model "StateFlowGUI".
  *
- * Model version              : 1.882
+ * Model version              : 1.883
  * Simulink Coder version : 8.12 (R2017a) 16-Feb-2017
- * C source code generated on : Tue Nov 23 10:48:39 2021
+ * C source code generated on : Tue Nov 30 14:18:33 2021
  *
  * Target selection: slrt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -1029,11 +1029,11 @@ static void StateFlowGUI_output(void)
     } else {
       switch (StateFlowGUI_DW.is_c15_StateFlowGUI) {
        case StateFlowGUI_IN_Controllo:
-        StateFlowGUI_B.FineLavorazione = 1.0;
         StateFlowGUI_B.Hb = 0.0;
         StateFlowGUI_B.Luci = 5.0;
         StateFlowGUI_B.Bool = 5.0;
         StateFlowGUI_B.Hv = 0.0;
+        StateFlowGUI_B.FineLavorazione = 1.0;
 
         /* During 'Controllo': '<S13>:69' */
         sf_internal_predicateOutput = (((StateFlowGUI_DW.temporalCounter_i1 >=
@@ -1094,11 +1094,11 @@ static void StateFlowGUI_output(void)
         break;
 
        case StateFlowGUI_IN_Home:
-        StateFlowGUI_B.FineLavorazione = 0.0;
         StateFlowGUI_B.Hb = 0.0;
         StateFlowGUI_B.Luci = 1.0;
         StateFlowGUI_B.Bool = 1.0;
         StateFlowGUI_B.Hv = 0.0;
+        StateFlowGUI_B.FineLavorazione = 0.0;
 
         /* During 'Home': '<S13>:29' */
         sf_internal_predicateOutput = ((StateFlowGUI_B.IntegertoBitConverter_d[7]
@@ -1242,8 +1242,8 @@ static void StateFlowGUI_output(void)
         break;
 
        case StateFlowGUI_IN_Step4:
-        StateFlowGUI_B.Enable = 1.0;
         StateFlowGUI_B.Bool = 0.0;
+        StateFlowGUI_B.Enable = 1.0;
 
         /* During 'Step4': '<S13>:231' */
         if (StateFlowGUI_B.StartHome == 1.0) {

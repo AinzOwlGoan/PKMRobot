@@ -1,0 +1,26 @@
+CC     = "C:\Program Files\MATLAB\R2017a\sys\lcc64\lcc64\bin\lcc64.exe"
+LD     = "C:\Program Files\MATLAB\R2017a\sys\lcc64\lcc64\bin\lcclnk64.exe"
+LIBCMD = "C:\Program Files\MATLAB\R2017a\sys\lcc64\lcc64\bin\lcclib64.exe"
+CFLAGS = -dll -noregistrylookup  -c -Zp8 -DLCC_WIN64 -DMATLAB_MEX_FILE -DMX_COMPAT_32 -nodeclspec 
+LDFLAGS = -s -dll -L"C:\Program Files\MATLAB\R2017a\sys\lcc64\lcc64\lib64" -entry LibMain -map sfun.map 
+LIBFLAGS = 
+
+OBJECTS = \
+	"StateFlowFinal_sfun.obj"\
+	"c15_StateFlowFinal.obj"\
+	"StateFlowFinal_sfun_registry.obj"\
+	"lccstub.obj"\
+
+INCLUDE_PATH= -I"C:\Program Files\MATLAB\R2017a\sys\lcc64\lcc64\include64"  -I"C:\Program Files\MATLAB\R2017a\extern\include"  -I"C:\Program Files\MATLAB\R2017a\simulink\include"  -I"C:\Program Files\MATLAB\R2017a\simulink\include\sf_runtime"  -I"C:\Program Files\MATLAB\R2017a\stateflow\c\mex\include"  -I"C:\Program Files\MATLAB\R2017a\rtw\c\src"  -I"C:\Users\Danie\Documenti\MATLAB\PKMRobot\Stateflow\slprj\_sfprj\StateFlowFinal\_self\sfun\src" 
+ 
+
+StateFlowFinal_sfun.mexw64 : $(MAKEFILE) $(OBJECTS)
+	$(LD) $(LDFLAGS) -o StateFlowFinal_sfun.mexw64 @StateFlowFinal_sfun.lmko
+StateFlowFinal_sfun.obj :	"StateFlowFinal_sfun.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "StateFlowFinal_sfun.c"
+c15_StateFlowFinal.obj :	"c15_StateFlowFinal.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c15_StateFlowFinal.c"
+StateFlowFinal_sfun_registry.obj :	"StateFlowFinal_sfun_registry.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "StateFlowFinal_sfun_registry.c"
+lccstub.obj :	"C:\Program Files\MATLAB\R2017a\sys\lcc64\lcc64\mex\lccstub.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "C:\Program Files\MATLAB\R2017a\sys\lcc64\lcc64\mex\lccstub.c"

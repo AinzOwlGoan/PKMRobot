@@ -314,6 +314,7 @@ Converter</sigName>
               <sigWidth>1</sigWidth>
               <sigDim>[1, 1]</sigDim>
 			  <SubSystemName>StateFlowFinal/LED Status</SubSystemName>
+                <sigLabel>rosso</sigLabel>
 			  <sigTestPoint>false</sigTestPoint>
             </signal>
 			  
@@ -324,6 +325,7 @@ Converter</sigName>
               <sigWidth>1</sigWidth>
               <sigDim>[1, 1]</sigDim>
 			  <SubSystemName>StateFlowFinal/LED Status</SubSystemName>
+                <sigLabel>bianco</sigLabel>
 			  <sigTestPoint>false</sigTestPoint>
             </signal>
 			  
@@ -334,6 +336,7 @@ Converter</sigName>
               <sigWidth>1</sigWidth>
               <sigDim>[1, 1]</sigDim>
 			  <SubSystemName>StateFlowFinal/LED Status</SubSystemName>
+                <sigLabel>verde</sigLabel>
 			  <sigTestPoint>false</sigTestPoint>
             </signal>
 			  
@@ -2213,6 +2216,2182 @@ Converter</sigName>
 
 		</SubSystem>
 		<SubSystem>
+		<Name>Kalman Filter1</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter1</xPCName>
+				<SubSystem>
+		<Name>CalculatePL</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter1/CalculatePL</xPCName>
+				<SubSystem>
+		<Name>DataTypeConversionL</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter1/CalculatePL/DataTypeConversionL</xPCName>
+		
+		
+			  
+			  
+              <signal>
+              <sigName>Conversion</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter1/CalculatePL/DataTypeConversionL/Conversion</xpcsigName>
+              <sigWidth>2</sigWidth>
+              <sigDim>[2, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1/CalculatePL/DataTypeConversionL</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>DataTypeConversionM</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter1/CalculatePL/DataTypeConversionM</xPCName>
+		
+		
+			  
+			  
+              <signal>
+              <sigName>Conversion</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter1/CalculatePL/DataTypeConversionM/Conversion</xpcsigName>
+              <sigWidth>2</sigWidth>
+              <sigDim>[2, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1/CalculatePL/DataTypeConversionM</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>DataTypeConversionP</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter1/CalculatePL/DataTypeConversionP</xPCName>
+		
+		
+			  
+			  
+              <signal>
+              <sigName>Conversion</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter1/CalculatePL/DataTypeConversionP/Conversion</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1/CalculatePL/DataTypeConversionP</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>DataTypeConversionZ</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter1/CalculatePL/DataTypeConversionZ</xPCName>
+		
+		
+			  
+			  
+              <signal>
+              <sigName>Conversion</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter1/CalculatePL/DataTypeConversionZ/Conversion</xpcsigName>
+              <sigWidth>4</sigWidth>
+              <sigDim>[2, 2]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1/CalculatePL/DataTypeConversionZ</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+
+		
+            <block>
+            <blkName>ConstantP</blkName>
+            <xpcblkName>Sistema_braccia/Kalman Filter1/CalculatePL/ConstantP</xpcblkName>
+            <SLblockPath>StateFlowFinal/Sistema_braccia/Kalman Filter1/CalculatePL/ConstantP</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1/CalculatePL</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>CovarianceZ</blkName>
+            <xpcblkName>Sistema_braccia/Kalman Filter1/CalculatePL/CovarianceZ</xpcblkName>
+            <SLblockPath>StateFlowFinal/Sistema_braccia/Kalman Filter1/CalculatePL/CovarianceZ</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[2, 2]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1/CalculatePL</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>KalmanGainL</blkName>
+            <xpcblkName>Sistema_braccia/Kalman Filter1/CalculatePL/KalmanGainL</xpcblkName>
+            <SLblockPath>StateFlowFinal/Sistema_braccia/Kalman Filter1/CalculatePL/KalmanGainL</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[2, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1/CalculatePL</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>KalmanGainM</blkName>
+            <xpcblkName>Sistema_braccia/Kalman Filter1/CalculatePL/KalmanGainM</xpcblkName>
+            <SLblockPath>StateFlowFinal/Sistema_braccia/Kalman Filter1/CalculatePL/KalmanGainM</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[2, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1/CalculatePL</SubSystemName>
+          </parameter>
+          </block>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>CalculateYhat</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter1/CalculateYhat</xPCName>
+		
+		
+			  
+			  
+              <signal>
+              <sigName>Product</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter1/CalculateYhat/Product</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1/CalculateYhat</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Product1</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter1/CalculateYhat/Product1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1/CalculateYhat</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Add1</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter1/CalculateYhat/Add1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1/CalculateYhat</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>DataTypeConversionA</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter1/DataTypeConversionA</xPCName>
+		
+		
+			  
+			  
+              <signal>
+              <sigName>Conversion</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter1/DataTypeConversionA/Conversion</xpcsigName>
+              <sigWidth>4</sigWidth>
+              <sigDim>[2, 2]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1/DataTypeConversionA</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>DataTypeConversionB</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter1/DataTypeConversionB</xPCName>
+		
+		
+			  
+			  
+              <signal>
+              <sigName>Conversion</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter1/DataTypeConversionB/Conversion</xpcsigName>
+              <sigWidth>2</sigWidth>
+              <sigDim>[2, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1/DataTypeConversionB</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>DataTypeConversionC</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter1/DataTypeConversionC</xPCName>
+		
+		
+			  
+			  
+              <signal>
+              <sigName>Conversion</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter1/DataTypeConversionC/Conversion</xpcsigName>
+              <sigWidth>2</sigWidth>
+              <sigDim>[1, 2]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1/DataTypeConversionC</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>DataTypeConversionD</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter1/DataTypeConversionD</xPCName>
+		
+		
+			  
+			  
+              <signal>
+              <sigName>Conversion</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter1/DataTypeConversionD/Conversion</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1/DataTypeConversionD</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>DataTypeConversionG</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter1/DataTypeConversionG</xPCName>
+		
+		
+			  
+			  
+              <signal>
+              <sigName>Conversion</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter1/DataTypeConversionG/Conversion</xpcsigName>
+              <sigWidth>4</sigWidth>
+              <sigDim>[2, 2]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1/DataTypeConversionG</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>DataTypeConversionH</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter1/DataTypeConversionH</xPCName>
+		
+		
+			  
+			  
+              <signal>
+              <sigName>Conversion</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter1/DataTypeConversionH/Conversion</xpcsigName>
+              <sigWidth>2</sigWidth>
+              <sigDim>[1, 2]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1/DataTypeConversionH</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>DataTypeConversionN</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter1/DataTypeConversionN</xPCName>
+		
+		
+			  
+			  
+              <signal>
+              <sigName>Conversion</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter1/DataTypeConversionN/Conversion</xpcsigName>
+              <sigWidth>2</sigWidth>
+              <sigDim>[2, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1/DataTypeConversionN</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>DataTypeConversionP</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter1/DataTypeConversionP</xPCName>
+		
+		
+			  
+			  
+              <signal>
+              <sigName>Conversion</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter1/DataTypeConversionP/Conversion</xpcsigName>
+              <sigWidth>4</sigWidth>
+              <sigDim>[2, 2]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1/DataTypeConversionP</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>DataTypeConversionP0</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter1/DataTypeConversionP0</xPCName>
+		
+		
+			  
+			  
+              <signal>
+              <sigName>Conversion</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter1/DataTypeConversionP0/Conversion</xpcsigName>
+              <sigWidth>4</sigWidth>
+              <sigDim>[2, 2]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1/DataTypeConversionP0</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>DataTypeConversionQ</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter1/DataTypeConversionQ</xPCName>
+		
+		
+			  
+			  
+              <signal>
+              <sigName>Conversion</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter1/DataTypeConversionQ/Conversion</xpcsigName>
+              <sigWidth>4</sigWidth>
+              <sigDim>[2, 2]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1/DataTypeConversionQ</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>DataTypeConversionR</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter1/DataTypeConversionR</xPCName>
+		
+		
+			  
+			  
+              <signal>
+              <sigName>Conversion</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter1/DataTypeConversionR/Conversion</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1/DataTypeConversionR</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>DataTypeConversionReset</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter1/DataTypeConversionReset</xPCName>
+		
+		
+			  
+			  
+              <signal>
+              <sigName>Conversion</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter1/DataTypeConversionReset/Conversion</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1/DataTypeConversionReset</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>DataTypeConversionX</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter1/DataTypeConversionX</xPCName>
+		
+		
+			  
+			  
+              <signal>
+              <sigName>Conversion</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter1/DataTypeConversionX/Conversion</xpcsigName>
+              <sigWidth>2</sigWidth>
+              <sigDim>[2, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1/DataTypeConversionX</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>DataTypeConversionX0</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter1/DataTypeConversionX0</xPCName>
+		
+		
+			  
+			  
+              <signal>
+              <sigName>Conversion</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter1/DataTypeConversionX0/Conversion</xpcsigName>
+              <sigWidth>2</sigWidth>
+              <sigDim>[2, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1/DataTypeConversionX0</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>DataTypeConversionu</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter1/DataTypeConversionu</xPCName>
+		
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>MemoryP</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter1/MemoryP</xPCName>
+		
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Observer</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter1/Observer</xPCName>
+				<SubSystem>
+		<Name>MeasurementUpdate</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter1/Observer/MeasurementUpdate</xPCName>
+		
+		
+            <block>
+            <blkName>L*(y[k]-yhat[k|k-1])</blkName>
+            <xpcblkName>Sistema_braccia/Kalman Filter1/Observer/MeasurementUpdate/L*(y[k]-yhat[k|k-1])</xpcblkName>
+            <SLblockPath>StateFlowFinal/Sistema_braccia/Kalman Filter1/Observer/MeasurementUpdate/L*(y[k]-yhat[k|k-1])</SLblockPath>
+            <isSrc>[0 1 0]</isSrc>
+          <parameter>
+          <paramName>InitialOutput</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1/Observer/MeasurementUpdate</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>C[k]*xhat[k|k-1]</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter1/Observer/MeasurementUpdate/C[k]*xhat[k|k-1]</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1/Observer/MeasurementUpdate</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>D[k]*u[k]</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter1/Observer/MeasurementUpdate/D[k]*u[k]</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1/Observer/MeasurementUpdate</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Product3</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter1/Observer/MeasurementUpdate/Product3</xpcsigName>
+              <sigWidth>2</sigWidth>
+              <sigDim>[2, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1/Observer/MeasurementUpdate</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Add1</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter1/Observer/MeasurementUpdate/Add1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1/Observer/MeasurementUpdate</SubSystemName>
+                
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Sum</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter1/Observer/MeasurementUpdate/Sum</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1/Observer/MeasurementUpdate</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+
+		
+			  
+			  
+              <signal>
+              <sigName>A[k]*xhat[k|k-1]</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter1/Observer/A[k]*xhat[k|k-1]</xpcsigName>
+              <sigWidth>2</sigWidth>
+              <sigDim>[2, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1/Observer</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>B[k]*u[k]</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter1/Observer/B[k]*u[k]</xpcsigName>
+              <sigWidth>2</sigWidth>
+              <sigDim>[2, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1/Observer</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Reshape</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter1/Observer/Reshape</xpcsigName>
+              <sigWidth>2</sigWidth>
+              <sigDim>[2, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1/Observer</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Add</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter1/Observer/Add</xpcsigName>
+              <sigWidth>2</sigWidth>
+              <sigDim>[2, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1/Observer</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>ReducedQRN</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter1/ReducedQRN</xPCName>
+		
+		
+            <block>
+            <blkName>Constant</blkName>
+            <xpcblkName>Sistema_braccia/Kalman Filter1/ReducedQRN/Constant</xpcblkName>
+            <SLblockPath>StateFlowFinal/Sistema_braccia/Kalman Filter1/ReducedQRN/Constant</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1/ReducedQRN</SubSystemName>
+          </parameter>
+          </block>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>ScalarExpansionP0</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter1/ScalarExpansionP0</xPCName>
+		
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>ScalarExpansionQ</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter1/ScalarExpansionQ</xPCName>
+		
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>ScalarExpansionR</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter1/ScalarExpansionR</xPCName>
+		
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>UseCurrentEstimator</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter1/UseCurrentEstimator</xPCName>
+				<SubSystem>
+		<Name>Enabled
+Subsystem</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter1/UseCurrentEstimator/Enabled Subsystem</xPCName>
+		
+		
+            <block>
+            <blkName>deltax</blkName>
+            <xpcblkName>Sistema_braccia/Kalman Filter1/UseCurrentEstimator/Enabled Subsystem/deltax</xpcblkName>
+            <SLblockPath>StateFlowFinal/Sistema_braccia/Kalman Filter1/UseCurrentEstimator/Enabled Subsystem/deltax</SLblockPath>
+            <isSrc>[0 1 0]</isSrc>
+          <parameter>
+          <paramName>InitialOutput</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1/UseCurrentEstimator/Enabled Subsystem</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>Product</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter1/UseCurrentEstimator/Enabled Subsystem/Product</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1/UseCurrentEstimator/Enabled Subsystem</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Product1</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter1/UseCurrentEstimator/Enabled Subsystem/Product1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1/UseCurrentEstimator/Enabled Subsystem</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Product2</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter1/UseCurrentEstimator/Enabled Subsystem/Product2</xpcsigName>
+              <sigWidth>2</sigWidth>
+              <sigDim>[2, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1/UseCurrentEstimator/Enabled Subsystem</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Add1</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter1/UseCurrentEstimator/Enabled Subsystem/Add1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1/UseCurrentEstimator/Enabled Subsystem</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+
+		
+			  
+			  
+              <signal>
+              <sigName>Add</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter1/UseCurrentEstimator/Add</xpcsigName>
+              <sigWidth>2</sigWidth>
+              <sigDim>[2, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1/UseCurrentEstimator</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>checkA</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter1/checkA</xPCName>
+		
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>checkB</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter1/checkB</xPCName>
+		
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>checkC</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter1/checkC</xPCName>
+		
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>checkD</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter1/checkD</xPCName>
+		
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>checkEnable</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter1/checkEnable</xPCName>
+		
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>checkG</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter1/checkG</xPCName>
+		
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>checkH</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter1/checkH</xPCName>
+		
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>checkN</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter1/checkN</xPCName>
+		
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>checkP0</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter1/checkP0</xPCName>
+		
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>checkQ</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter1/checkQ</xPCName>
+		
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>checkR</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter1/checkR</xPCName>
+		
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>checkReset</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter1/checkReset</xPCName>
+		
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>checkX0</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter1/checkX0</xPCName>
+		
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>checku</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter1/checku</xPCName>
+		
+		
+            <block>
+            <blkName>CheckSignalProperties</blkName>
+            <xpcblkName>Sistema_braccia/Kalman Filter1/checku/CheckSignalProperties</xpcblkName>
+            <SLblockPath>StateFlowFinal/Sistema_braccia/Kalman Filter1/checku/CheckSignalProperties</SLblockPath>
+            <isSrc>[0 2 0]</isSrc>
+          <parameter>
+          <paramName>P1</paramName>
+          <dim>[1, 45]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1/checku</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P2</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1/checku</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P3</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1/checku</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P4</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1/checku</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P5</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1/checku</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P6</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1/checku</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P7</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1/checku</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P8</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1/checku</SubSystemName>
+          </parameter>
+          </block>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>checky</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter1/checky</xPCName>
+		
+		
+            <block>
+            <blkName>CheckSignalProperties</blkName>
+            <xpcblkName>Sistema_braccia/Kalman Filter1/checky/CheckSignalProperties</xpcblkName>
+            <SLblockPath>StateFlowFinal/Sistema_braccia/Kalman Filter1/checky/CheckSignalProperties</SLblockPath>
+            <isSrc>[0 2 0]</isSrc>
+          <parameter>
+          <paramName>P1</paramName>
+          <dim>[1, 45]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1/checky</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P2</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1/checky</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P3</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1/checky</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P4</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1/checky</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P5</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1/checky</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P6</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1/checky</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P7</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1/checky</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P8</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1/checky</SubSystemName>
+          </parameter>
+          </block>
+
+		</SubSystem>
+
+		
+            <block>
+            <blkName>A</blkName>
+            <xpcblkName>Sistema_braccia/Kalman Filter1/A</xpcblkName>
+            <SLblockPath>StateFlowFinal/Sistema_braccia/Kalman Filter1/A</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[2, 2]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>B</blkName>
+            <xpcblkName>Sistema_braccia/Kalman Filter1/B</xpcblkName>
+            <SLblockPath>StateFlowFinal/Sistema_braccia/Kalman Filter1/B</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[2, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>C</blkName>
+            <xpcblkName>Sistema_braccia/Kalman Filter1/C</xpcblkName>
+            <SLblockPath>StateFlowFinal/Sistema_braccia/Kalman Filter1/C</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 2]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>D</blkName>
+            <xpcblkName>Sistema_braccia/Kalman Filter1/D</xpcblkName>
+            <SLblockPath>StateFlowFinal/Sistema_braccia/Kalman Filter1/D</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Enable</blkName>
+            <xpcblkName>Sistema_braccia/Kalman Filter1/Enable</xpcblkName>
+            <SLblockPath>StateFlowFinal/Sistema_braccia/Kalman Filter1/Enable</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>G</blkName>
+            <xpcblkName>Sistema_braccia/Kalman Filter1/G</xpcblkName>
+            <SLblockPath>StateFlowFinal/Sistema_braccia/Kalman Filter1/G</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[2, 2]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>H</blkName>
+            <xpcblkName>Sistema_braccia/Kalman Filter1/H</xpcblkName>
+            <SLblockPath>StateFlowFinal/Sistema_braccia/Kalman Filter1/H</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 2]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>N</blkName>
+            <xpcblkName>Sistema_braccia/Kalman Filter1/N</xpcblkName>
+            <SLblockPath>StateFlowFinal/Sistema_braccia/Kalman Filter1/N</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[2, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>P0</blkName>
+            <xpcblkName>Sistema_braccia/Kalman Filter1/P0</xpcblkName>
+            <SLblockPath>StateFlowFinal/Sistema_braccia/Kalman Filter1/P0</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[2, 2]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Q</blkName>
+            <xpcblkName>Sistema_braccia/Kalman Filter1/Q</xpcblkName>
+            <SLblockPath>StateFlowFinal/Sistema_braccia/Kalman Filter1/Q</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[2, 2]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>R</blkName>
+            <xpcblkName>Sistema_braccia/Kalman Filter1/R</xpcblkName>
+            <SLblockPath>StateFlowFinal/Sistema_braccia/Kalman Filter1/R</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Reset</blkName>
+            <xpcblkName>Sistema_braccia/Kalman Filter1/Reset</xpcblkName>
+            <SLblockPath>StateFlowFinal/Sistema_braccia/Kalman Filter1/Reset</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>X0</blkName>
+            <xpcblkName>Sistema_braccia/Kalman Filter1/X0</xpcblkName>
+            <SLblockPath>StateFlowFinal/Sistema_braccia/Kalman Filter1/X0</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[2, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>ManualSwitchPZ</blkName>
+            <xpcblkName>Sistema_braccia/Kalman Filter1/ManualSwitchPZ</xpcblkName>
+            <SLblockPath>StateFlowFinal/Sistema_braccia/Kalman Filter1/ManualSwitchPZ</SLblockPath>
+            <isSrc>[0 2 1]</isSrc>
+          <parameter>
+          <paramName>CurrentSetting</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>MemoryX</blkName>
+            <xpcblkName>Sistema_braccia/Kalman Filter1/MemoryX</xpcblkName>
+            <SLblockPath>StateFlowFinal/Sistema_braccia/Kalman Filter1/MemoryX</SLblockPath>
+            <isSrc>[0 2 1]</isSrc>
+          <parameter>
+          <paramName>DelayLength</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>DataTypeConversionEnable</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter1/DataTypeConversionEnable</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>ReshapeX0</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter1/ReshapeX0</xpcsigName>
+              <sigWidth>2</sigWidth>
+              <sigDim>[2, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Reshapeu</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter1/Reshapeu</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Reshapexhat</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter1/Reshapexhat</xpcsigName>
+              <sigWidth>2</sigWidth>
+              <sigDim>[2, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Reshapey</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter1/Reshapey</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Reshapeyhat</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter1/Reshapeyhat</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>ManualSwitchPZ</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter1/ManualSwitchPZ</xpcsigName>
+              <sigWidth>4</sigWidth>
+              <sigDim>[2, 2]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>MemoryX</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter1/MemoryX</xpcsigName>
+              <sigWidth>2</sigWidth>
+              <sigDim>[2, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter1</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Kalman Filter2</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter2</xPCName>
+				<SubSystem>
+		<Name>CalculatePL</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter2/CalculatePL</xPCName>
+				<SubSystem>
+		<Name>DataTypeConversionL</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter2/CalculatePL/DataTypeConversionL</xPCName>
+		
+		
+			  
+			  
+              <signal>
+              <sigName>Conversion</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter2/CalculatePL/DataTypeConversionL/Conversion</xpcsigName>
+              <sigWidth>2</sigWidth>
+              <sigDim>[2, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2/CalculatePL/DataTypeConversionL</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>DataTypeConversionM</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter2/CalculatePL/DataTypeConversionM</xPCName>
+		
+		
+			  
+			  
+              <signal>
+              <sigName>Conversion</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter2/CalculatePL/DataTypeConversionM/Conversion</xpcsigName>
+              <sigWidth>2</sigWidth>
+              <sigDim>[2, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2/CalculatePL/DataTypeConversionM</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>DataTypeConversionP</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter2/CalculatePL/DataTypeConversionP</xPCName>
+		
+		
+			  
+			  
+              <signal>
+              <sigName>Conversion</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter2/CalculatePL/DataTypeConversionP/Conversion</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2/CalculatePL/DataTypeConversionP</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>DataTypeConversionZ</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter2/CalculatePL/DataTypeConversionZ</xPCName>
+		
+		
+			  
+			  
+              <signal>
+              <sigName>Conversion</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter2/CalculatePL/DataTypeConversionZ/Conversion</xpcsigName>
+              <sigWidth>4</sigWidth>
+              <sigDim>[2, 2]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2/CalculatePL/DataTypeConversionZ</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+
+		
+            <block>
+            <blkName>ConstantP</blkName>
+            <xpcblkName>Sistema_braccia/Kalman Filter2/CalculatePL/ConstantP</xpcblkName>
+            <SLblockPath>StateFlowFinal/Sistema_braccia/Kalman Filter2/CalculatePL/ConstantP</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2/CalculatePL</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>CovarianceZ</blkName>
+            <xpcblkName>Sistema_braccia/Kalman Filter2/CalculatePL/CovarianceZ</xpcblkName>
+            <SLblockPath>StateFlowFinal/Sistema_braccia/Kalman Filter2/CalculatePL/CovarianceZ</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[2, 2]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2/CalculatePL</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>KalmanGainL</blkName>
+            <xpcblkName>Sistema_braccia/Kalman Filter2/CalculatePL/KalmanGainL</xpcblkName>
+            <SLblockPath>StateFlowFinal/Sistema_braccia/Kalman Filter2/CalculatePL/KalmanGainL</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[2, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2/CalculatePL</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>KalmanGainM</blkName>
+            <xpcblkName>Sistema_braccia/Kalman Filter2/CalculatePL/KalmanGainM</xpcblkName>
+            <SLblockPath>StateFlowFinal/Sistema_braccia/Kalman Filter2/CalculatePL/KalmanGainM</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[2, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2/CalculatePL</SubSystemName>
+          </parameter>
+          </block>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>CalculateYhat</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter2/CalculateYhat</xPCName>
+		
+		
+			  
+			  
+              <signal>
+              <sigName>Product</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter2/CalculateYhat/Product</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2/CalculateYhat</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Product1</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter2/CalculateYhat/Product1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2/CalculateYhat</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Add1</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter2/CalculateYhat/Add1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2/CalculateYhat</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>DataTypeConversionA</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter2/DataTypeConversionA</xPCName>
+		
+		
+			  
+			  
+              <signal>
+              <sigName>Conversion</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter2/DataTypeConversionA/Conversion</xpcsigName>
+              <sigWidth>4</sigWidth>
+              <sigDim>[2, 2]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2/DataTypeConversionA</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>DataTypeConversionB</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter2/DataTypeConversionB</xPCName>
+		
+		
+			  
+			  
+              <signal>
+              <sigName>Conversion</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter2/DataTypeConversionB/Conversion</xpcsigName>
+              <sigWidth>2</sigWidth>
+              <sigDim>[2, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2/DataTypeConversionB</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>DataTypeConversionC</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter2/DataTypeConversionC</xPCName>
+		
+		
+			  
+			  
+              <signal>
+              <sigName>Conversion</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter2/DataTypeConversionC/Conversion</xpcsigName>
+              <sigWidth>2</sigWidth>
+              <sigDim>[1, 2]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2/DataTypeConversionC</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>DataTypeConversionD</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter2/DataTypeConversionD</xPCName>
+		
+		
+			  
+			  
+              <signal>
+              <sigName>Conversion</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter2/DataTypeConversionD/Conversion</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2/DataTypeConversionD</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>DataTypeConversionG</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter2/DataTypeConversionG</xPCName>
+		
+		
+			  
+			  
+              <signal>
+              <sigName>Conversion</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter2/DataTypeConversionG/Conversion</xpcsigName>
+              <sigWidth>4</sigWidth>
+              <sigDim>[2, 2]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2/DataTypeConversionG</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>DataTypeConversionH</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter2/DataTypeConversionH</xPCName>
+		
+		
+			  
+			  
+              <signal>
+              <sigName>Conversion</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter2/DataTypeConversionH/Conversion</xpcsigName>
+              <sigWidth>2</sigWidth>
+              <sigDim>[1, 2]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2/DataTypeConversionH</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>DataTypeConversionN</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter2/DataTypeConversionN</xPCName>
+		
+		
+			  
+			  
+              <signal>
+              <sigName>Conversion</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter2/DataTypeConversionN/Conversion</xpcsigName>
+              <sigWidth>2</sigWidth>
+              <sigDim>[2, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2/DataTypeConversionN</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>DataTypeConversionP</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter2/DataTypeConversionP</xPCName>
+		
+		
+			  
+			  
+              <signal>
+              <sigName>Conversion</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter2/DataTypeConversionP/Conversion</xpcsigName>
+              <sigWidth>4</sigWidth>
+              <sigDim>[2, 2]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2/DataTypeConversionP</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>DataTypeConversionP0</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter2/DataTypeConversionP0</xPCName>
+		
+		
+			  
+			  
+              <signal>
+              <sigName>Conversion</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter2/DataTypeConversionP0/Conversion</xpcsigName>
+              <sigWidth>4</sigWidth>
+              <sigDim>[2, 2]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2/DataTypeConversionP0</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>DataTypeConversionQ</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter2/DataTypeConversionQ</xPCName>
+		
+		
+			  
+			  
+              <signal>
+              <sigName>Conversion</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter2/DataTypeConversionQ/Conversion</xpcsigName>
+              <sigWidth>4</sigWidth>
+              <sigDim>[2, 2]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2/DataTypeConversionQ</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>DataTypeConversionR</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter2/DataTypeConversionR</xPCName>
+		
+		
+			  
+			  
+              <signal>
+              <sigName>Conversion</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter2/DataTypeConversionR/Conversion</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2/DataTypeConversionR</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>DataTypeConversionReset</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter2/DataTypeConversionReset</xPCName>
+		
+		
+			  
+			  
+              <signal>
+              <sigName>Conversion</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter2/DataTypeConversionReset/Conversion</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2/DataTypeConversionReset</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>DataTypeConversionX</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter2/DataTypeConversionX</xPCName>
+		
+		
+			  
+			  
+              <signal>
+              <sigName>Conversion</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter2/DataTypeConversionX/Conversion</xpcsigName>
+              <sigWidth>2</sigWidth>
+              <sigDim>[2, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2/DataTypeConversionX</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>DataTypeConversionX0</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter2/DataTypeConversionX0</xPCName>
+		
+		
+			  
+			  
+              <signal>
+              <sigName>Conversion</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter2/DataTypeConversionX0/Conversion</xpcsigName>
+              <sigWidth>2</sigWidth>
+              <sigDim>[2, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2/DataTypeConversionX0</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>DataTypeConversionu</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter2/DataTypeConversionu</xPCName>
+		
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>MemoryP</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter2/MemoryP</xPCName>
+		
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Observer</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter2/Observer</xPCName>
+				<SubSystem>
+		<Name>MeasurementUpdate</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter2/Observer/MeasurementUpdate</xPCName>
+		
+		
+            <block>
+            <blkName>L*(y[k]-yhat[k|k-1])</blkName>
+            <xpcblkName>Sistema_braccia/Kalman Filter2/Observer/MeasurementUpdate/L*(y[k]-yhat[k|k-1])</xpcblkName>
+            <SLblockPath>StateFlowFinal/Sistema_braccia/Kalman Filter2/Observer/MeasurementUpdate/L*(y[k]-yhat[k|k-1])</SLblockPath>
+            <isSrc>[0 1 0]</isSrc>
+          <parameter>
+          <paramName>InitialOutput</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2/Observer/MeasurementUpdate</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>C[k]*xhat[k|k-1]</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter2/Observer/MeasurementUpdate/C[k]*xhat[k|k-1]</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2/Observer/MeasurementUpdate</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>D[k]*u[k]</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter2/Observer/MeasurementUpdate/D[k]*u[k]</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2/Observer/MeasurementUpdate</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Product3</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter2/Observer/MeasurementUpdate/Product3</xpcsigName>
+              <sigWidth>2</sigWidth>
+              <sigDim>[2, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2/Observer/MeasurementUpdate</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Add1</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter2/Observer/MeasurementUpdate/Add1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2/Observer/MeasurementUpdate</SubSystemName>
+                
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Sum</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter2/Observer/MeasurementUpdate/Sum</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2/Observer/MeasurementUpdate</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+
+		
+			  
+			  
+              <signal>
+              <sigName>A[k]*xhat[k|k-1]</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter2/Observer/A[k]*xhat[k|k-1]</xpcsigName>
+              <sigWidth>2</sigWidth>
+              <sigDim>[2, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2/Observer</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>B[k]*u[k]</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter2/Observer/B[k]*u[k]</xpcsigName>
+              <sigWidth>2</sigWidth>
+              <sigDim>[2, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2/Observer</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Reshape</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter2/Observer/Reshape</xpcsigName>
+              <sigWidth>2</sigWidth>
+              <sigDim>[2, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2/Observer</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Add</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter2/Observer/Add</xpcsigName>
+              <sigWidth>2</sigWidth>
+              <sigDim>[2, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2/Observer</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>ReducedQRN</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter2/ReducedQRN</xPCName>
+		
+		
+            <block>
+            <blkName>Constant</blkName>
+            <xpcblkName>Sistema_braccia/Kalman Filter2/ReducedQRN/Constant</xpcblkName>
+            <SLblockPath>StateFlowFinal/Sistema_braccia/Kalman Filter2/ReducedQRN/Constant</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2/ReducedQRN</SubSystemName>
+          </parameter>
+          </block>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>ScalarExpansionP0</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter2/ScalarExpansionP0</xPCName>
+		
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>ScalarExpansionQ</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter2/ScalarExpansionQ</xPCName>
+		
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>ScalarExpansionR</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter2/ScalarExpansionR</xPCName>
+		
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>UseCurrentEstimator</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter2/UseCurrentEstimator</xPCName>
+				<SubSystem>
+		<Name>Enabled
+Subsystem</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter2/UseCurrentEstimator/Enabled Subsystem</xPCName>
+		
+		
+            <block>
+            <blkName>deltax</blkName>
+            <xpcblkName>Sistema_braccia/Kalman Filter2/UseCurrentEstimator/Enabled Subsystem/deltax</xpcblkName>
+            <SLblockPath>StateFlowFinal/Sistema_braccia/Kalman Filter2/UseCurrentEstimator/Enabled Subsystem/deltax</SLblockPath>
+            <isSrc>[0 1 0]</isSrc>
+          <parameter>
+          <paramName>InitialOutput</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2/UseCurrentEstimator/Enabled Subsystem</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>Product</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter2/UseCurrentEstimator/Enabled Subsystem/Product</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2/UseCurrentEstimator/Enabled Subsystem</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Product1</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter2/UseCurrentEstimator/Enabled Subsystem/Product1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2/UseCurrentEstimator/Enabled Subsystem</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Product2</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter2/UseCurrentEstimator/Enabled Subsystem/Product2</xpcsigName>
+              <sigWidth>2</sigWidth>
+              <sigDim>[2, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2/UseCurrentEstimator/Enabled Subsystem</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Add1</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter2/UseCurrentEstimator/Enabled Subsystem/Add1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2/UseCurrentEstimator/Enabled Subsystem</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+
+		
+			  
+			  
+              <signal>
+              <sigName>Add</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter2/UseCurrentEstimator/Add</xpcsigName>
+              <sigWidth>2</sigWidth>
+              <sigDim>[2, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2/UseCurrentEstimator</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>checkA</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter2/checkA</xPCName>
+		
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>checkB</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter2/checkB</xPCName>
+		
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>checkC</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter2/checkC</xPCName>
+		
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>checkD</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter2/checkD</xPCName>
+		
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>checkEnable</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter2/checkEnable</xPCName>
+		
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>checkG</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter2/checkG</xPCName>
+		
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>checkH</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter2/checkH</xPCName>
+		
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>checkN</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter2/checkN</xPCName>
+		
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>checkP0</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter2/checkP0</xPCName>
+		
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>checkQ</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter2/checkQ</xPCName>
+		
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>checkR</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter2/checkR</xPCName>
+		
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>checkReset</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter2/checkReset</xPCName>
+		
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>checkX0</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter2/checkX0</xPCName>
+		
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>checku</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter2/checku</xPCName>
+		
+		
+            <block>
+            <blkName>CheckSignalProperties</blkName>
+            <xpcblkName>Sistema_braccia/Kalman Filter2/checku/CheckSignalProperties</xpcblkName>
+            <SLblockPath>StateFlowFinal/Sistema_braccia/Kalman Filter2/checku/CheckSignalProperties</SLblockPath>
+            <isSrc>[0 2 0]</isSrc>
+          <parameter>
+          <paramName>P1</paramName>
+          <dim>[1, 45]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2/checku</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P2</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2/checku</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P3</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2/checku</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P4</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2/checku</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P5</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2/checku</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P6</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2/checku</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P7</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2/checku</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P8</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2/checku</SubSystemName>
+          </parameter>
+          </block>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>checky</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/Kalman Filter2/checky</xPCName>
+		
+		
+            <block>
+            <blkName>CheckSignalProperties</blkName>
+            <xpcblkName>Sistema_braccia/Kalman Filter2/checky/CheckSignalProperties</xpcblkName>
+            <SLblockPath>StateFlowFinal/Sistema_braccia/Kalman Filter2/checky/CheckSignalProperties</SLblockPath>
+            <isSrc>[0 2 0]</isSrc>
+          <parameter>
+          <paramName>P1</paramName>
+          <dim>[1, 45]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2/checky</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P2</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2/checky</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P3</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2/checky</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P4</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2/checky</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P5</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2/checky</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P6</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2/checky</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P7</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2/checky</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P8</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2/checky</SubSystemName>
+          </parameter>
+          </block>
+
+		</SubSystem>
+
+		
+            <block>
+            <blkName>A</blkName>
+            <xpcblkName>Sistema_braccia/Kalman Filter2/A</xpcblkName>
+            <SLblockPath>StateFlowFinal/Sistema_braccia/Kalman Filter2/A</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[2, 2]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>B</blkName>
+            <xpcblkName>Sistema_braccia/Kalman Filter2/B</xpcblkName>
+            <SLblockPath>StateFlowFinal/Sistema_braccia/Kalman Filter2/B</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[2, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>C</blkName>
+            <xpcblkName>Sistema_braccia/Kalman Filter2/C</xpcblkName>
+            <SLblockPath>StateFlowFinal/Sistema_braccia/Kalman Filter2/C</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 2]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>D</blkName>
+            <xpcblkName>Sistema_braccia/Kalman Filter2/D</xpcblkName>
+            <SLblockPath>StateFlowFinal/Sistema_braccia/Kalman Filter2/D</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Enable</blkName>
+            <xpcblkName>Sistema_braccia/Kalman Filter2/Enable</xpcblkName>
+            <SLblockPath>StateFlowFinal/Sistema_braccia/Kalman Filter2/Enable</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>G</blkName>
+            <xpcblkName>Sistema_braccia/Kalman Filter2/G</xpcblkName>
+            <SLblockPath>StateFlowFinal/Sistema_braccia/Kalman Filter2/G</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[2, 2]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>H</blkName>
+            <xpcblkName>Sistema_braccia/Kalman Filter2/H</xpcblkName>
+            <SLblockPath>StateFlowFinal/Sistema_braccia/Kalman Filter2/H</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 2]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>N</blkName>
+            <xpcblkName>Sistema_braccia/Kalman Filter2/N</xpcblkName>
+            <SLblockPath>StateFlowFinal/Sistema_braccia/Kalman Filter2/N</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[2, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>P0</blkName>
+            <xpcblkName>Sistema_braccia/Kalman Filter2/P0</xpcblkName>
+            <SLblockPath>StateFlowFinal/Sistema_braccia/Kalman Filter2/P0</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[2, 2]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Q</blkName>
+            <xpcblkName>Sistema_braccia/Kalman Filter2/Q</xpcblkName>
+            <SLblockPath>StateFlowFinal/Sistema_braccia/Kalman Filter2/Q</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[2, 2]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>R</blkName>
+            <xpcblkName>Sistema_braccia/Kalman Filter2/R</xpcblkName>
+            <SLblockPath>StateFlowFinal/Sistema_braccia/Kalman Filter2/R</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Reset</blkName>
+            <xpcblkName>Sistema_braccia/Kalman Filter2/Reset</xpcblkName>
+            <SLblockPath>StateFlowFinal/Sistema_braccia/Kalman Filter2/Reset</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>X0</blkName>
+            <xpcblkName>Sistema_braccia/Kalman Filter2/X0</xpcblkName>
+            <SLblockPath>StateFlowFinal/Sistema_braccia/Kalman Filter2/X0</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[2, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>ManualSwitchPZ</blkName>
+            <xpcblkName>Sistema_braccia/Kalman Filter2/ManualSwitchPZ</xpcblkName>
+            <SLblockPath>StateFlowFinal/Sistema_braccia/Kalman Filter2/ManualSwitchPZ</SLblockPath>
+            <isSrc>[0 2 1]</isSrc>
+          <parameter>
+          <paramName>CurrentSetting</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>MemoryX</blkName>
+            <xpcblkName>Sistema_braccia/Kalman Filter2/MemoryX</xpcblkName>
+            <SLblockPath>StateFlowFinal/Sistema_braccia/Kalman Filter2/MemoryX</SLblockPath>
+            <isSrc>[0 2 1]</isSrc>
+          <parameter>
+          <paramName>DelayLength</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>DataTypeConversionEnable</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter2/DataTypeConversionEnable</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>ReshapeX0</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter2/ReshapeX0</xpcsigName>
+              <sigWidth>2</sigWidth>
+              <sigDim>[2, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Reshapeu</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter2/Reshapeu</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Reshapexhat</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter2/Reshapexhat</xpcsigName>
+              <sigWidth>2</sigWidth>
+              <sigDim>[2, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Reshapey</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter2/Reshapey</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Reshapeyhat</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter2/Reshapeyhat</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>ManualSwitchPZ</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter2/ManualSwitchPZ</xpcsigName>
+              <sigWidth>4</sigWidth>
+              <sigDim>[2, 2]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>MemoryX</sigName>
+              <xpcsigName>Sistema_braccia/Kalman Filter2/MemoryX</xpcsigName>
+              <sigWidth>2</sigWidth>
+              <sigDim>[2, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/Kalman Filter2</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
 		<Name>Leggi di moto</Name>
 		<xPCName>StateFlowFinal/Sistema_braccia/Leggi di moto</xPCName>
 				<SubSystem>
@@ -2759,6 +4938,91 @@ Switch</sigName>
               <sigWidth>6</sigWidth>
               <sigDim>[6, 1]</sigDim>
 			  <SubSystemName>StateFlowFinal/Sistema_braccia/Leggi di moto</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>PID Controller</Name>
+		<xPCName>StateFlowFinal/Sistema_braccia/PID Controller</xPCName>
+		
+		
+            <block>
+            <blkName>Integrator</blkName>
+            <xpcblkName>Sistema_braccia/PID Controller/Integrator</xpcblkName>
+            <SLblockPath>StateFlowFinal/Sistema_braccia/PID Controller/Integrator</SLblockPath>
+            <isSrc>[0 2 1]</isSrc>
+          <parameter>
+          <paramName>gainval</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/PID Controller</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>InitialCondition</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/PID Controller</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Integral Gain</blkName>
+            <xpcblkName>Sistema_braccia/PID Controller/Integral Gain</xpcblkName>
+            <SLblockPath>StateFlowFinal/Sistema_braccia/PID Controller/Integral Gain</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>I</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/PID Controller</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Proportional Gain</blkName>
+            <xpcblkName>Sistema_braccia/PID Controller/Proportional Gain</xpcblkName>
+            <SLblockPath>StateFlowFinal/Sistema_braccia/PID Controller/Proportional Gain</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>P</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia/PID Controller</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>Integrator</sigName>
+              <xpcsigName>Sistema_braccia/PID Controller/Integrator</xpcsigName>
+              <sigWidth>2</sigWidth>
+              <sigDim>[2, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/PID Controller</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Integral Gain</sigName>
+              <xpcsigName>Sistema_braccia/PID Controller/Integral Gain</xpcsigName>
+              <sigWidth>2</sigWidth>
+              <sigDim>[2, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/PID Controller</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Proportional Gain</sigName>
+              <xpcsigName>Sistema_braccia/PID Controller/Proportional Gain</xpcsigName>
+              <sigWidth>2</sigWidth>
+              <sigDim>[2, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/PID Controller</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Sum</sigName>
+              <xpcsigName>Sistema_braccia/PID Controller/Sum</xpcsigName>
+              <sigWidth>2</sigWidth>
+              <sigDim>[2, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia/PID Controller</SubSystemName>
 			  <sigTestPoint>false</sigTestPoint>
             </signal>
 
@@ -4827,6 +7091,22 @@ to Degrees1</Name>
 
 		
             <block>
+            <blkName>PID Controller</blkName>
+            <xpcblkName>Sistema_braccia/PID Controller</xpcblkName>
+            <SLblockPath>StateFlowFinal/Sistema_braccia/PID Controller</SLblockPath>
+            <isSrc>[0 2 1]</isSrc>
+          <parameter>
+          <paramName>P</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>I</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/Sistema_braccia</SubSystemName>
+          </parameter>
+          </block>
+            <block>
             <blkName>selettore</blkName>
             <xpcblkName>Sistema_braccia/selettore</xpcblkName>
             <SLblockPath>StateFlowFinal/Sistema_braccia/selettore</SLblockPath>
@@ -5202,10 +7482,20 @@ to Degrees1</Name>
 			  
 			  
               <signal>
-              <sigName>Product</sigName>
-              <xpcsigName>Sistema_braccia/Product</xpcsigName>
-              <sigWidth>2</sigWidth>
-              <sigDim>[2, 1]</sigDim>
+              <sigName>Rate Transition</sigName>
+              <xpcsigName>Sistema_braccia/Rate Transition</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/Sistema_braccia</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Rate Transition1</sigName>
+              <xpcsigName>Sistema_braccia/Rate Transition1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
 			  <SubSystemName>StateFlowFinal/Sistema_braccia</SubSystemName>
 			  <sigTestPoint>false</sigTestPoint>
             </signal>
@@ -5378,12 +7668,595 @@ to Degrees1</Name>
 		<SubSystem>
 		<Name>State flow robot</Name>
 		<xPCName>StateFlowFinal/State flow robot</xPCName>
+				<SubSystem>
+		<Name>Posizionamento</Name>
+		<xPCName>StateFlowFinal/State flow robot/Posizionamento</xPCName>
+				<SubSystem>
+		<Name>MATLAB Function</Name>
+		<xPCName>StateFlowFinal/State flow robot/Posizionamento/MATLAB Function</xPCName>
+		
+		
+
+		</SubSystem>
+		<SubSystem>
+		<Name>MATLAB Function1</Name>
+		<xPCName>StateFlowFinal/State flow robot/Posizionamento/MATLAB Function1</xPCName>
 		
 		
 
 		</SubSystem>
 
+		
+            <block>
+            <blkName>CoppiaA</blkName>
+            <xpcblkName>State flow robot/Posizionamento/CoppiaA</xpcblkName>
+            <SLblockPath>StateFlowFinal/State flow robot/Posizionamento/CoppiaA</SLblockPath>
+            <isSrc>[0 1 0]</isSrc>
+          <parameter>
+          <paramName>InitialOutput</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/State flow robot/Posizionamento</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>CoppiaB</blkName>
+            <xpcblkName>State flow robot/Posizionamento/CoppiaB</xpcblkName>
+            <SLblockPath>StateFlowFinal/State flow robot/Posizionamento/CoppiaB</SLblockPath>
+            <isSrc>[0 1 0]</isSrc>
+          <parameter>
+          <paramName>InitialOutput</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/State flow robot/Posizionamento</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Discrete-Time
+Integrator</blkName>
+            <xpcblkName>State flow robot/Posizionamento/Discrete-Time Integrator</xpcblkName>
+            <SLblockPath>StateFlowFinal/State flow robot/Posizionamento/Discrete-Time Integrator</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>gainval</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/State flow robot/Posizionamento</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>InitialCondition</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/State flow robot/Posizionamento</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Discrete-Time
+Integrator1</blkName>
+            <xpcblkName>State flow robot/Posizionamento/Discrete-Time Integrator1</xpcblkName>
+            <SLblockPath>StateFlowFinal/State flow robot/Posizionamento/Discrete-Time Integrator1</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>gainval</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/State flow robot/Posizionamento</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>InitialCondition</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/State flow robot/Posizionamento</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Conversione</blkName>
+            <xpcblkName>State flow robot/Posizionamento/Conversione</xpcblkName>
+            <SLblockPath>StateFlowFinal/State flow robot/Posizionamento/Conversione</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>Gain</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/State flow robot/Posizionamento</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Gain1</blkName>
+            <xpcblkName>State flow robot/Posizionamento/Gain1</xpcblkName>
+            <SLblockPath>StateFlowFinal/State flow robot/Posizionamento/Gain1</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>Gain</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/State flow robot/Posizionamento</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Ki1</blkName>
+            <xpcblkName>State flow robot/Posizionamento/Ki1</xpcblkName>
+            <SLblockPath>StateFlowFinal/State flow robot/Posizionamento/Ki1</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>Gain</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/State flow robot/Posizionamento</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Ki2</blkName>
+            <xpcblkName>State flow robot/Posizionamento/Ki2</xpcblkName>
+            <SLblockPath>StateFlowFinal/State flow robot/Posizionamento/Ki2</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>Gain</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/State flow robot/Posizionamento</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Kp1</blkName>
+            <xpcblkName>State flow robot/Posizionamento/Kp1</xpcblkName>
+            <SLblockPath>StateFlowFinal/State flow robot/Posizionamento/Kp1</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>Gain</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/State flow robot/Posizionamento</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Kp2</blkName>
+            <xpcblkName>State flow robot/Posizionamento/Kp2</xpcblkName>
+            <SLblockPath>StateFlowFinal/State flow robot/Posizionamento/Kp2</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>Gain</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/State flow robot/Posizionamento</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>MATLAB Function/p1</sigName>
+              <xpcsigName>State flow robot/Posizionamento/MATLAB Function/p1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/State flow robot/Posizionamento</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>MATLAB Function/p2</sigName>
+              <xpcsigName>State flow robot/Posizionamento/MATLAB Function/p2</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/State flow robot/Posizionamento</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>MATLAB Function/p3</sigName>
+              <xpcsigName>State flow robot/Posizionamento/MATLAB Function/p3</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/State flow robot/Posizionamento</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>MATLAB Function/p4</sigName>
+              <xpcsigName>State flow robot/Posizionamento/MATLAB Function/p4</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/State flow robot/Posizionamento</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>MATLAB Function1/p1</sigName>
+              <xpcsigName>State flow robot/Posizionamento/MATLAB Function1/p1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/State flow robot/Posizionamento</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>MATLAB Function1/p2</sigName>
+              <xpcsigName>State flow robot/Posizionamento/MATLAB Function1/p2</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/State flow robot/Posizionamento</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Discrete-Time
+Integrator</sigName>
+              <xpcsigName>State flow robot/Posizionamento/Discrete-Time Integrator</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/State flow robot/Posizionamento</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Discrete-Time
+Integrator1</sigName>
+              <xpcsigName>State flow robot/Posizionamento/Discrete-Time Integrator1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/State flow robot/Posizionamento</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Conversione</sigName>
+              <xpcsigName>State flow robot/Posizionamento/Conversione</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/State flow robot/Posizionamento</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Gain1</sigName>
+              <xpcsigName>State flow robot/Posizionamento/Gain1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/State flow robot/Posizionamento</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Ki1</sigName>
+              <xpcsigName>State flow robot/Posizionamento/Ki1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/State flow robot/Posizionamento</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Ki2</sigName>
+              <xpcsigName>State flow robot/Posizionamento/Ki2</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/State flow robot/Posizionamento</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Kp1</sigName>
+              <xpcsigName>State flow robot/Posizionamento/Kp1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/State flow robot/Posizionamento</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Kp2</sigName>
+              <xpcsigName>State flow robot/Posizionamento/Kp2</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/State flow robot/Posizionamento</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Sum</sigName>
+              <xpcsigName>State flow robot/Posizionamento/Sum</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/State flow robot/Posizionamento</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Sum1</sigName>
+              <xpcsigName>State flow robot/Posizionamento/Sum1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/State flow robot/Posizionamento</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Sum2</sigName>
+              <xpcsigName>State flow robot/Posizionamento/Sum2</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/State flow robot/Posizionamento</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Sum3</sigName>
+              <xpcsigName>State flow robot/Posizionamento/Sum3</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/State flow robot/Posizionamento</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Sum4</sigName>
+              <xpcsigName>State flow robot/Posizionamento/Sum4</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/State flow robot/Posizionamento</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Sum5</sigName>
+              <xpcsigName>State flow robot/Posizionamento/Sum5</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/State flow robot/Posizionamento</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Sum6</sigName>
+              <xpcsigName>State flow robot/Posizionamento/Sum6</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/State flow robot/Posizionamento</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+		<SubSystem>
+		<Name>Setting</Name>
+		<xPCName>StateFlowFinal/State flow robot/Setting</xPCName>
+				<SubSystem>
+		<Name>MATLAB Function</Name>
+		<xPCName>StateFlowFinal/State flow robot/Setting/MATLAB Function</xPCName>
+		
+		
+
+		</SubSystem>
+
+		
+            <block>
+            <blkName>CA</blkName>
+            <xpcblkName>State flow robot/Setting/CA</xpcblkName>
+            <SLblockPath>StateFlowFinal/State flow robot/Setting/CA</SLblockPath>
+            <isSrc>[0 1 0]</isSrc>
+          <parameter>
+          <paramName>InitialOutput</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/State flow robot/Setting</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>CB</blkName>
+            <xpcblkName>State flow robot/Setting/CB</xpcblkName>
+            <SLblockPath>StateFlowFinal/State flow robot/Setting/CB</SLblockPath>
+            <isSrc>[0 1 0]</isSrc>
+          <parameter>
+          <paramName>InitialOutput</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/State flow robot/Setting</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>CH</blkName>
+            <xpcblkName>State flow robot/Setting/CH</xpcblkName>
+            <SLblockPath>StateFlowFinal/State flow robot/Setting/CH</SLblockPath>
+            <isSrc>[0 1 0]</isSrc>
+          <parameter>
+          <paramName>InitialOutput</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/State flow robot/Setting</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Ki</blkName>
+            <xpcblkName>State flow robot/Setting/Ki</xpcblkName>
+            <SLblockPath>StateFlowFinal/State flow robot/Setting/Ki</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/State flow robot/Setting</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Kp</blkName>
+            <xpcblkName>State flow robot/Setting/Kp</xpcblkName>
+            <SLblockPath>StateFlowFinal/State flow robot/Setting/Kp</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/State flow robot/Setting</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Discrete-Time
+Integrator</blkName>
+            <xpcblkName>State flow robot/Setting/Discrete-Time Integrator</xpcblkName>
+            <SLblockPath>StateFlowFinal/State flow robot/Setting/Discrete-Time Integrator</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>gainval</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/State flow robot/Setting</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>InitialCondition</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/State flow robot/Setting</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Discrete-Time
+Integrator1</blkName>
+            <xpcblkName>State flow robot/Setting/Discrete-Time Integrator1</xpcblkName>
+            <SLblockPath>StateFlowFinal/State flow robot/Setting/Discrete-Time Integrator1</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>gainval</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/State flow robot/Setting</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>InitialCondition</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/State flow robot/Setting</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Gain</blkName>
+            <xpcblkName>State flow robot/Setting/Gain</xpcblkName>
+            <SLblockPath>StateFlowFinal/State flow robot/Setting/Gain</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>Gain</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/State flow robot/Setting</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Gain1</blkName>
+            <xpcblkName>State flow robot/Setting/Gain1</xpcblkName>
+            <SLblockPath>StateFlowFinal/State flow robot/Setting/Gain1</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>Gain</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal/State flow robot/Setting</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>MATLAB Function/p1</sigName>
+              <xpcsigName>State flow robot/Setting/MATLAB Function/p1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/State flow robot/Setting</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>MATLAB Function/p2</sigName>
+              <xpcsigName>State flow robot/Setting/MATLAB Function/p2</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/State flow robot/Setting</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>MATLAB Function/p3</sigName>
+              <xpcsigName>State flow robot/Setting/MATLAB Function/p3</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/State flow robot/Setting</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Discrete-Time
+Integrator</sigName>
+              <xpcsigName>State flow robot/Setting/Discrete-Time Integrator</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/State flow robot/Setting</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Discrete-Time
+Integrator1</sigName>
+              <xpcsigName>State flow robot/Setting/Discrete-Time Integrator1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/State flow robot/Setting</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Gain</sigName>
+              <xpcsigName>State flow robot/Setting/Gain</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/State flow robot/Setting</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Gain1</sigName>
+              <xpcsigName>State flow robot/Setting/Gain1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/State flow robot/Setting</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Sum1</sigName>
+              <xpcsigName>State flow robot/Setting/Sum1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/State flow robot/Setting</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Sum2</sigName>
+              <xpcsigName>State flow robot/Setting/Sum2</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal/State flow robot/Setting</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+
+		
+
+		</SubSystem>
+
       
+            <block>
+            <blkName>Abbassa</blkName>
+            <xpcblkName>Abbassa</xpcblkName>
+            <SLblockPath>StateFlowFinal/Abbassa</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal</SubSystemName>
+          </parameter>
+          </block>
             <block>
             <blkName>Alzata A</blkName>
             <xpcblkName>Alzata A</xpcblkName>
@@ -5451,9 +8324,9 @@ to Degrees1</Name>
           </parameter>
           </block>
             <block>
-            <blkName>Kp</blkName>
-            <xpcblkName>Kp</xpcblkName>
-            <SLblockPath>StateFlowFinal/Kp</SLblockPath>
+            <blkName>Discesa</blkName>
+            <xpcblkName>Discesa</xpcblkName>
+            <SLblockPath>StateFlowFinal/Discesa</SLblockPath>
             <isSrc>[1 0 1]</isSrc>
           <parameter>
           <paramName>Value</paramName>
@@ -5520,6 +8393,17 @@ to Degrees1</Name>
             <blkName>StartWork</blkName>
             <xpcblkName>StartWork</xpcblkName>
             <SLblockPath>StateFlowFinal/StartWork</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>StateFlowFinal</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>StartZero</blkName>
+            <xpcblkName>StartZero</xpcblkName>
+            <SLblockPath>StateFlowFinal/StartZero</SLblockPath>
             <isSrc>[1 0 1]</isSrc>
           <parameter>
           <paramName>Value</paramName>
@@ -5710,6 +8594,7 @@ to Degrees1</Name>
               <sigWidth>1</sigWidth>
               <sigDim>[1, 1]</sigDim>
 			  <SubSystemName>StateFlowFinal</SubSystemName>
+                <sigLabel>bool</sigLabel>
 			  <sigTestPoint>false</sigTestPoint>
             </signal>
 			  
@@ -5720,6 +8605,7 @@ to Degrees1</Name>
               <sigWidth>1</sigWidth>
               <sigDim>[1, 1]</sigDim>
 			  <SubSystemName>StateFlowFinal</SubSystemName>
+                <sigLabel>offC</sigLabel>
 			  <sigTestPoint>false</sigTestPoint>
             </signal>
 			  
@@ -5730,6 +8616,7 @@ to Degrees1</Name>
               <sigWidth>1</sigWidth>
               <sigDim>[1, 1]</sigDim>
 			  <SubSystemName>StateFlowFinal</SubSystemName>
+                <sigLabel>homeH</sigLabel>
 			  <sigTestPoint>false</sigTestPoint>
             </signal>
 			  
@@ -5740,6 +8627,7 @@ to Degrees1</Name>
               <sigWidth>1</sigWidth>
               <sigDim>[1, 1]</sigDim>
 			  <SubSystemName>StateFlowFinal</SubSystemName>
+                <sigLabel>offAv</sigLabel>
 			  <sigTestPoint>false</sigTestPoint>
             </signal>
 			  
@@ -5750,6 +8638,7 @@ to Degrees1</Name>
               <sigWidth>1</sigWidth>
               <sigDim>[1, 1]</sigDim>
 			  <SubSystemName>StateFlowFinal</SubSystemName>
+                <sigLabel>offBv</sigLabel>
 			  <sigTestPoint>false</sigTestPoint>
             </signal>
 			  
@@ -5760,6 +8649,7 @@ to Degrees1</Name>
               <sigWidth>1</sigWidth>
               <sigDim>[1, 1]</sigDim>
 			  <SubSystemName>StateFlowFinal</SubSystemName>
+                <sigLabel>offAb</sigLabel>
 			  <sigTestPoint>false</sigTestPoint>
             </signal>
 			  
@@ -5770,6 +8660,7 @@ to Degrees1</Name>
               <sigWidth>1</sigWidth>
               <sigDim>[1, 1]</sigDim>
 			  <SubSystemName>StateFlowFinal</SubSystemName>
+                <sigLabel>offBb</sigLabel>
 			  <sigTestPoint>false</sigTestPoint>
             </signal>
 			  
@@ -5780,6 +8671,7 @@ to Degrees1</Name>
               <sigWidth>1</sigWidth>
               <sigDim>[1, 1]</sigDim>
 			  <SubSystemName>StateFlowFinal</SubSystemName>
+                <sigLabel>homeA</sigLabel>
 			  <sigTestPoint>false</sigTestPoint>
             </signal>
 			  
@@ -5790,6 +8682,7 @@ to Degrees1</Name>
               <sigWidth>1</sigWidth>
               <sigDim>[1, 1]</sigDim>
 			  <SubSystemName>StateFlowFinal</SubSystemName>
+                <sigLabel>homeB</sigLabel>
 			  <sigTestPoint>false</sigTestPoint>
             </signal>
 			  
@@ -5800,6 +8693,7 @@ to Degrees1</Name>
               <sigWidth>1</sigWidth>
               <sigDim>[1, 1]</sigDim>
 			  <SubSystemName>StateFlowFinal</SubSystemName>
+                <sigLabel>luci</sigLabel>
 			  <sigTestPoint>false</sigTestPoint>
             </signal>
 			  
@@ -5810,6 +8704,7 @@ to Degrees1</Name>
               <sigWidth>1</sigWidth>
               <sigDim>[1, 1]</sigDim>
 			  <SubSystemName>StateFlowFinal</SubSystemName>
+                <sigLabel>Hv</sigLabel>
 			  <sigTestPoint>false</sigTestPoint>
             </signal>
 			  
@@ -5820,6 +8715,7 @@ to Degrees1</Name>
               <sigWidth>1</sigWidth>
               <sigDim>[1, 1]</sigDim>
 			  <SubSystemName>StateFlowFinal</SubSystemName>
+                <sigLabel>Hb</sigLabel>
 			  <sigTestPoint>false</sigTestPoint>
             </signal>
 			  
@@ -5830,6 +8726,7 @@ to Degrees1</Name>
               <sigWidth>1</sigWidth>
               <sigDim>[1, 1]</sigDim>
 			  <SubSystemName>StateFlowFinal</SubSystemName>
+                <sigLabel>Enable</sigLabel>
 			  <sigTestPoint>false</sigTestPoint>
             </signal>
 			  
@@ -5840,6 +8737,7 @@ to Degrees1</Name>
               <sigWidth>1</sigWidth>
               <sigDim>[1, 1]</sigDim>
 			  <SubSystemName>StateFlowFinal</SubSystemName>
+                <sigLabel>FineLav</sigLabel>
 			  <sigTestPoint>false</sigTestPoint>
             </signal>
 			  
@@ -5875,16 +8773,6 @@ to Degrees1</Name>
 			  
 			  
               <signal>
-              <sigName>State flow robot/p18</sigName>
-              <xpcsigName>State flow robot/p18</xpcsigName>
-              <sigWidth>1</sigWidth>
-              <sigDim>[1, 1]</sigDim>
-			  <SubSystemName>StateFlowFinal</SubSystemName>
-			  <sigTestPoint>false</sigTestPoint>
-            </signal>
-			  
-			  
-              <signal>
               <sigName>Clock</sigName>
               <xpcsigName>Clock</xpcsigName>
               <sigWidth>1</sigWidth>
@@ -5895,8 +8783,18 @@ to Degrees1</Name>
 			  
 			  
               <signal>
-              <sigName>Kp</sigName>
-              <xpcsigName>Kp</xpcsigName>
+              <sigName>Abbassa</sigName>
+              <xpcsigName>Abbassa</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Discesa</sigName>
+              <xpcsigName>Discesa</xpcsigName>
               <sigWidth>1</sigWidth>
               <sigDim>[1, 1]</sigDim>
 			  <SubSystemName>StateFlowFinal</SubSystemName>
@@ -5937,6 +8835,16 @@ to Degrees1</Name>
               <signal>
               <sigName>StartWork</sigName>
               <xpcsigName>StartWork</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>StateFlowFinal</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>StartZero</sigName>
+              <xpcsigName>StartZero</xpcsigName>
               <sigWidth>1</sigWidth>
               <sigDim>[1, 1]</sigDim>
 			  <SubSystemName>StateFlowFinal</SubSystemName>

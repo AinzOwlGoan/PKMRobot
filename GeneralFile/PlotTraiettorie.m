@@ -1,10 +1,10 @@
 figure1 = figure;
 
-x = Xval.Data(37374:69374);
-y = Yval.Data(37374:69374);
+x = Xset.Data(15400:18400);
+y = Yset.Data(15400:18400);
 
-Xr = Xreal.Data(37374:69374);
-Yr = Yreal.Data(37374:69374);
+Xreal = Xr.Data(15400:18400);
+Yreal = Yr.Data(15400:18400);
 % Create axes
 axes1 = axes('Parent',figure1);
 hold(axes1,'on');
@@ -13,7 +13,7 @@ hold(axes1,'on');
 plot(x,y,'DisplayName','Setpoint','LineWidth',1.5,'Color',[1 0 0]);
 
 % Create plot
-plot(Xr,Yr,'DisplayName','Reale','LineWidth',1.5,'Color',[0 0 1]);
+plot(Xreal,Yreal,'DisplayName','Reale','LineWidth',1.5,'Color',[0 0 1]);
 
 % Create xlabel
 xlabel({'X [m]'});
