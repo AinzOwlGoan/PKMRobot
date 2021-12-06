@@ -1,0 +1,81 @@
+%implements "chartSource" "C"
+%function ChartConfig(block, system) void
+  %createrecord chartConfiguration { ...
+          executeAtInitialization  0 ...
+  }
+  %return chartConfiguration
+%endfunction
+%function ChartDataMap(block, system) void
+  %createrecord ChartDataElements {\
+    NumChartData   9 \
+    ChartDataDefaults {\
+      RecordType   "ChartData"\
+      Dimensions   []\
+      IsTestPoint  0\
+    }\
+    ChartData {\
+      Name         "sfEvent"\
+      Description  "ActiveChartEvent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_active_c15_StateflowKalman"\
+      Description  "StateIsActive"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_c15_StateflowKalman"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "conv"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "conv"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "OffA_0"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "OffA_0"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "OffB_0"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "OffB_0"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "conv_vite"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "conv_vite"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "dv"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "dv"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "temporalCounter_i1"\
+      Description  "TemporalCounter"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+  }
+  %return ChartDataElements
+%endfunction

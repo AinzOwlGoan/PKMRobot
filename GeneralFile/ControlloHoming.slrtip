@@ -1,6 +1,14 @@
 
   <Object type="Desktop.Xpc.Designer.InstrumentPanel, Desktop.Xpc.Designer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ControlloHoming" children="Controls">
     <Object type="MW.Instruments.Panel, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Panel1" children="Controls">
+      <Object type="MW.Instruments.NumericEntry, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="NumericEntry1" children="Controls">
+        <Property name="BindingSrcPath">Discesa/Value</Property>
+        <Property name="TargetName">TargetPC1</Property>
+        <Property name="BindingSrcType">Parameter</Property>
+        <Property name="Size">100, 27</Property>
+        <Property name="Location">641, 394</Property>
+        <Property name="Name">NumericEntry1</Property>
+      </Object>
       <Object type="MW.Instruments.SwitchLED, mwio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="SwitchLED2147483643" children="Controls">
         <Property name="BindingSrcPath">Abbassa/Value</Property>
         <Property name="TargetName">TargetPC1</Property>
@@ -403,8 +411,8 @@
           <Property name="Min">-1</Property>
           <Property name="Span">6</Property>
         </Property>
-        <Property name="InnerRadius">56</Property>
-        <Property name="Size">100, 100</Property>
+        <Property name="InnerRadius">58</Property>
+        <Property name="Size">102, 102</Property>
         <Property name="ForeColor">Black</Property>
         <Property name="Location">46, 445</Property>
         <Property name="Name">GaugeAngular1</Property>
