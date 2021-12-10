@@ -7,9 +7,9 @@
  *
  * Code generation for model "StateFlowFinal".
  *
- * Model version              : 1.1062
+ * Model version              : 1.1086
  * Simulink Coder version : 8.12 (R2017a) 16-Feb-2017
- * C source code generated on : Tue Nov 30 15:32:28 2021
+ * C source code generated on : Fri Dec 10 12:23:54 2021
  *
  * Target selection: slrt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -1122,27 +1122,25 @@ typedef struct {
   real_T CA;                           /* '<S199>/MATLAB Function' */
   real_T CB;                           /* '<S199>/MATLAB Function' */
   real_T CH;                           /* '<S199>/MATLAB Function' */
-  real_T DiscreteTimeIntegrator_i;     /* '<S198>/Discrete-Time Integrator' */
-  real_T Ki1;                          /* '<S198>/Ki1' */
   real_T Sum1_e;                       /* '<S198>/Sum1' */
-  real_T Conversione;                  /* '<S198>/Conversione' */
+  real_T Conversioneingradi;           /* '<S198>/Conversione in gradi ' */
+  real_T DiscreteTimeIntegrator_i;     /* '<S198>/Discrete-Time Integrator' */
+  real_T DiscreteTimeIntegrator1_b;    /* '<S198>/Discrete-Time Integrator1' */
+  real_T Sum2_g;                       /* '<S198>/Sum2' */
+  real_T Gain1_e;                      /* '<S198>/Gain1' */
+  real_T Ki1;                          /* '<S198>/Ki1' */
+  real_T Ki2;                          /* '<S198>/Ki2' */
   real_T Sum_h;                        /* '<S198>/Sum' */
   real_T Sum3_a;                       /* '<S198>/Sum3' */
   real_T Kp1_g;                        /* '<S198>/Kp1' */
-  real_T Sum5_p;                       /* '<S198>/Sum5' */
-  real_T Sum2_g;                       /* '<S198>/Sum2' */
-  real_T Gain1_e;                      /* '<S198>/Gain1' */
   real_T Sum4_f;                       /* '<S198>/Sum4' */
   real_T Kp2;                          /* '<S198>/Kp2' */
-  real_T DiscreteTimeIntegrator1_b;    /* '<S198>/Discrete-Time Integrator1' */
-  real_T Ki2;                          /* '<S198>/Ki2' */
+  real_T Sum5_p;                       /* '<S198>/Sum5' */
   real_T Sum6_n;                       /* '<S198>/Sum6' */
   real_T CA_o;                         /* '<S198>/MATLAB Function1' */
   real_T CB_b;                         /* '<S198>/MATLAB Function1' */
   real_T theta1;                       /* '<S198>/MATLAB Function' */
-  real_T theta1_p;                     /* '<S198>/MATLAB Function' */
   real_T theta2;                       /* '<S198>/MATLAB Function' */
-  real_T theta2_p;                     /* '<S198>/MATLAB Function' */
   real_T DataTypeConversion;           /* '<S73>/Data Type Conversion' */
   real_T DataTypeConversion1;          /* '<S73>/Data Type Conversion1' */
   real_T TmpSignalConversionAtsfunxyInpo[2];
@@ -1203,8 +1201,8 @@ typedef struct {
   real_T y_pp_l;                       /* '<S12>/Cinematica diretta Acc' */
   real_T x_n;                          /* '<S12>/Cinematica diretta' */
   real_T y_k;                          /* '<S12>/Cinematica diretta' */
-  real_T theta1_p_j;                   /* '<S12>/Cinematica Inversa vel' */
-  real_T theta2_p_p;                   /* '<S12>/Cinematica Inversa vel' */
+  real_T theta1_p;                     /* '<S12>/Cinematica Inversa vel' */
+  real_T theta2_p;                     /* '<S12>/Cinematica Inversa vel' */
   real_T theta1_pp;                    /* '<S12>/Cinematica Inversa Acc' */
   real_T theta2_pp;                    /* '<S12>/Cinematica Inversa Acc' */
   real_T theta1_l;                     /* '<S12>/Cinematica Inversa' */
@@ -1337,6 +1335,11 @@ typedef struct {
   struct {
     void *AQHandles;
     void *SlioLTF;
+  } HiddenToAsyncQueue_InsertedFo_n;   /* synthesized block */
+
+  struct {
+    void *AQHandles;
+    void *SlioLTF;
   } HiddenToAsyncQueue_InsertedFo_d;   /* synthesized block */
 
   struct {
@@ -1412,7 +1415,7 @@ typedef struct {
   struct {
     void *AQHandles;
     void *SlioLTF;
-  } HiddenToAsyncQueue_InsertedFo_n;   /* synthesized block */
+  } HiddenToAsyncQueue_InsertedF_ny;   /* synthesized block */
 
   struct {
     void *AQHandles;
@@ -1549,16 +1552,6 @@ typedef struct {
     void *SlioLTF;
   } HiddenToAsyncQueue_InsertedF_fj;   /* synthesized block */
 
-  struct {
-    void *AQHandles;
-    void *SlioLTF;
-  } HiddenToAsyncQueue_InsertedF_mb;   /* synthesized block */
-
-  struct {
-    void *AQHandles;
-    void *SlioLTF;
-  } HiddenToAsyncQueue_InsertedF_np;   /* synthesized block */
-
   int32_T sfEvent;                     /* '<Root>/State flow robot' */
   uint32_T Posizionamento_ELAPS_T[2];  /* '<S13>/Posizionamento' */
   uint32_T Posizionamento_PREV_T[2];   /* '<S13>/Posizionamento' */
@@ -1687,26 +1680,14 @@ struct P_StateFlowFinal_T_ {
   real_T CoppiaB_Y0;                   /* Computed Parameter: CoppiaB_Y0
                                         * Referenced by: '<S198>/CoppiaB'
                                         */
+  real_T Conversioneingradi_Gain;      /* Expression: ( (2*pi)/16384/64*180/pi)
+                                        * Referenced by: '<S198>/Conversione in gradi '
+                                        */
   real_T DiscreteTimeIntegrator_gainval;/* Computed Parameter: DiscreteTimeIntegrator_gainval
                                          * Referenced by: '<S198>/Discrete-Time Integrator'
                                          */
   real_T DiscreteTimeIntegrator_IC;    /* Expression: 0
                                         * Referenced by: '<S198>/Discrete-Time Integrator'
-                                        */
-  real_T Ki1_Gain;                     /* Expression: 200
-                                        * Referenced by: '<S198>/Ki1'
-                                        */
-  real_T Conversione_Gain;             /* Expression: ( (2*pi)/16384/64*180/pi)
-                                        * Referenced by: '<S198>/Conversione'
-                                        */
-  real_T Kp1_Gain;                     /* Expression: 400
-                                        * Referenced by: '<S198>/Kp1'
-                                        */
-  real_T Gain1_Gain;                   /* Expression: ( (2*pi)/16384/64*180/pi)
-                                        * Referenced by: '<S198>/Gain1'
-                                        */
-  real_T Kp2_Gain;                     /* Expression: 400
-                                        * Referenced by: '<S198>/Kp2'
                                         */
   real_T DiscreteTimeIntegrator1_gainval;/* Computed Parameter: DiscreteTimeIntegrator1_gainval
                                           * Referenced by: '<S198>/Discrete-Time Integrator1'
@@ -1714,8 +1695,20 @@ struct P_StateFlowFinal_T_ {
   real_T DiscreteTimeIntegrator1_IC;   /* Expression: 0
                                         * Referenced by: '<S198>/Discrete-Time Integrator1'
                                         */
+  real_T Gain1_Gain;                   /* Expression: ( (2*pi)/16384/64*180/pi)
+                                        * Referenced by: '<S198>/Gain1'
+                                        */
+  real_T Ki1_Gain;                     /* Expression: 200
+                                        * Referenced by: '<S198>/Ki1'
+                                        */
   real_T Ki2_Gain;                     /* Expression: 200
                                         * Referenced by: '<S198>/Ki2'
+                                        */
+  real_T Kp1_Gain;                     /* Expression: 400
+                                        * Referenced by: '<S198>/Kp1'
+                                        */
+  real_T Kp2_Gain;                     /* Expression: 400
+                                        * Referenced by: '<S198>/Kp2'
                                         */
   real_T CA_Y0;                        /* Computed Parameter: CA_Y0
                                         * Referenced by: '<S199>/CA'
@@ -2485,7 +2478,7 @@ struct P_StateFlowFinal_T_ {
   real_T AlzataQ_Value;                /* Expression: 0.10
                                         * Referenced by: '<S58>/Alzata Q'
                                         */
-  real_T PeriodoC_Value;               /* Expression: 3
+  real_T PeriodoC_Value;               /* Expression: 1
                                         * Referenced by: '<S58>/Periodo C'
                                         */
   real_T AlzataC_Value;                /* Expression: 0.05
@@ -2494,7 +2487,7 @@ struct P_StateFlowFinal_T_ {
   real_T AlzataC1_Value;               /* Expression: 0.015
                                         * Referenced by: '<S58>/Alzata C1'
                                         */
-  real_T PeriodoC1_Value;              /* Expression: 32
+  real_T PeriodoC1_Value;              /* Expression: 16
                                         * Referenced by: '<S58>/Periodo C1'
                                         */
   real_T Constant3_Value;              /* Expression: 0.125
@@ -2617,7 +2610,7 @@ struct P_StateFlowFinal_T_ {
   real_T EtherCATPDOReceive14_P7_m;    /* Expression: sample_time
                                         * Referenced by: '<S70>/EtherCAT PDO Receive14'
                                         */
-  real_T Kd_Gain;                      /* Expression: 0
+  real_T Kd_Gain;                      /* Expression: 20
                                         * Referenced by: '<S12>/Kd'
                                         */
   real_T Integrator_gainval;           /* Computed Parameter: Integrator_gainval
@@ -2917,7 +2910,7 @@ struct P_StateFlowFinal_T_ {
   real_T EtherCATPDOReceive15_P7_o;    /* Expression: sample_time
                                         * Referenced by: '<S41>/EtherCAT PDO Receive15'
                                         */
-  real_T Gain6_Gain;                   /* Expression: 5*1000/0.36
+  real_T Gain6_Gain;                   /* Expression: 0
                                         * Referenced by: '<S38>/Gain6'
                                         */
   real_T Torquesend_P1_Size[2];        /* Computed Parameter: Torquesend_P1_Size
@@ -3013,13 +3006,13 @@ struct P_StateFlowFinal_T_ {
   real_T AlzataB_Value;                /* Expression: 0
                                         * Referenced by: '<Root>/Alzata B '
                                         */
-  real_T PeriodoB_Value;               /* Expression: 6
+  real_T PeriodoB_Value;               /* Expression: 2
                                         * Referenced by: '<Root>/Periodo B'
                                         */
   real_T Gain2_Gain;                   /* Expression: 2*1000/0.36
                                         * Referenced by: '<S11>/Gain2'
                                         */
-  real_T Gain4_Gain;                   /* Expression: 0.001*1000/0.36
+  real_T Gain4_Gain;                   /* Expression: 0
                                         * Referenced by: '<S11>/Gain4'
                                         */
   real_T Constant1_Value_e;            /* Expression: 0

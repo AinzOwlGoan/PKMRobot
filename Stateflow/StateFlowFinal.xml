@@ -7242,6 +7242,7 @@ to Degrees1</Name>
               <sigWidth>1</sigWidth>
               <sigDim>[1, 1]</sigDim>
 			  <SubSystemName>StateFlowFinal/Sistema_braccia</SubSystemName>
+                <sigLabel>xr</sigLabel>
 			  <sigTestPoint>false</sigTestPoint>
             </signal>
 			  
@@ -7252,6 +7253,7 @@ to Degrees1</Name>
               <sigWidth>1</sigWidth>
               <sigDim>[1, 1]</sigDim>
 			  <SubSystemName>StateFlowFinal/Sistema_braccia</SubSystemName>
+                <sigLabel>yr</sigLabel>
 			  <sigTestPoint>false</sigTestPoint>
             </signal>
 			  
@@ -7507,6 +7509,7 @@ to Degrees1</Name>
               <sigWidth>1</sigWidth>
               <sigDim>[1, 1]</sigDim>
 			  <SubSystemName>StateFlowFinal/Sistema_braccia</SubSystemName>
+                <sigLabel>Xmov</sigLabel>
 			  <sigTestPoint>false</sigTestPoint>
             </signal>
 			  
@@ -7744,9 +7747,9 @@ Integrator1</blkName>
           </parameter>
           </block>
             <block>
-            <blkName>Conversione</blkName>
-            <xpcblkName>State flow robot/Posizionamento/Conversione</xpcblkName>
-            <SLblockPath>StateFlowFinal/State flow robot/Posizionamento/Conversione</SLblockPath>
+            <blkName>Conversione in gradi </blkName>
+            <xpcblkName>State flow robot/Posizionamento/Conversione in gradi </xpcblkName>
+            <SLblockPath>StateFlowFinal/State flow robot/Posizionamento/Conversione in gradi </SLblockPath>
             <isSrc>[0 1 1]</isSrc>
           <parameter>
           <paramName>Gain</paramName>
@@ -7832,26 +7835,6 @@ Integrator1</blkName>
 			  
 			  
               <signal>
-              <sigName>MATLAB Function/p3</sigName>
-              <xpcsigName>State flow robot/Posizionamento/MATLAB Function/p3</xpcsigName>
-              <sigWidth>1</sigWidth>
-              <sigDim>[1, 1]</sigDim>
-			  <SubSystemName>StateFlowFinal/State flow robot/Posizionamento</SubSystemName>
-			  <sigTestPoint>false</sigTestPoint>
-            </signal>
-			  
-			  
-              <signal>
-              <sigName>MATLAB Function/p4</sigName>
-              <xpcsigName>State flow robot/Posizionamento/MATLAB Function/p4</xpcsigName>
-              <sigWidth>1</sigWidth>
-              <sigDim>[1, 1]</sigDim>
-			  <SubSystemName>StateFlowFinal/State flow robot/Posizionamento</SubSystemName>
-			  <sigTestPoint>false</sigTestPoint>
-            </signal>
-			  
-			  
-              <signal>
               <sigName>MATLAB Function1/p1</sigName>
               <xpcsigName>State flow robot/Posizionamento/MATLAB Function1/p1</xpcsigName>
               <sigWidth>1</sigWidth>
@@ -7894,8 +7877,8 @@ Integrator1</sigName>
 			  
 			  
               <signal>
-              <sigName>Conversione</sigName>
-              <xpcsigName>State flow robot/Posizionamento/Conversione</xpcsigName>
+              <sigName>Conversione in gradi </sigName>
+              <xpcsigName>State flow robot/Posizionamento/Conversione in gradi </xpcsigName>
               <sigWidth>1</sigWidth>
               <sigDim>[1, 1]</sigDim>
 			  <SubSystemName>StateFlowFinal/State flow robot/Posizionamento</SubSystemName>

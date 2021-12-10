@@ -5043,7 +5043,7 @@ pt(315).dtname     = 'real_T';
 
 
   
-pt(316).blockname = 'State flow robot/Posizionamento/Conversione';
+pt(316).blockname = 'State flow robot/Posizionamento/Conversione in gradi ';
 pt(316).paramname = 'Gain';
 pt(316).class     = 'scalar';
 pt(316).nrows     = 1;
@@ -5052,8 +5052,8 @@ pt(316).subsource = 'SS_DOUBLE';
 pt(316).ndims     = '2';
 pt(316).size      = '[]';
 pt(316).isStruct  = false;
-pt(316).symbol     = 'StateFlowFinal_P.Conversione_Gain';
-pt(316).baseaddr   = '&StateFlowFinal_P.Conversione_Gain';
+pt(316).symbol     = 'StateFlowFinal_P.Conversioneingradi_Gain';
+pt(316).baseaddr   = '&StateFlowFinal_P.Conversioneingradi_Gain';
 pt(316).dtname     = 'real_T';
 
 

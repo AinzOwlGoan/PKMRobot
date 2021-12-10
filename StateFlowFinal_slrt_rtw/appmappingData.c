@@ -12,8 +12,8 @@ const AppMapInfo appInfo[] =
 			StateFlowFinal_SIDMAP,
 			StateFlowFinal_SBIO,
 			StateFlowFinal_SLBL,
-			{0,539},
-			403,
+			{0,537},
+			401,
 		},
 		{ /* ParamMapInfo */
 			StateFlowFinal_PTIDSMAP,

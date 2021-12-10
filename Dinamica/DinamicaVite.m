@@ -5,6 +5,6 @@ PKM = Define_Robot();
 Iv = PKM.vite.Jv;
 me = PKM.vite.me;
 
-Cvite = [me,0;0,Iv]*Jvite*[phi1ldm_pp;phi2ldm_pp];
+Cvite = Jvite'*[me,0;0,Iv]*Jvite*[phi1ldm_pp;phi2ldm_pp];
 end
 

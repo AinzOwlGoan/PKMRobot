@@ -27,7 +27,7 @@ y4 = sqrt(-(x4+d)^2);
 
 %% Quinto caso
 
-theta1s = linspace(deg2rad(0),deg2rad(360),100);
+theta1s = linspace(deg2rad(130),deg2rad(240),360);
 y5p = zeros(length(theta1s),1);
 y5n = zeros(length(theta1s),1);
 x5p = zeros(length(theta1s),1);
@@ -42,25 +42,42 @@ y5mn = zeros(length(theta1s),1);
 for i=1:length(theta1s)
    
  theta1 = theta1s(i);
- 
-a = l^2*(sin(theta1))^2+4*d^2-4*d*l*cos(theta1)+l^2*(cos(theta1))^2;
+aold = 1;
+bold = -2*l*sin(theta1);
+cold = 1-(cos(theta1))^2;
+a = l^2+4*d^2-4*d*l*cos(theta1);
+boldold = 2*l^3*sin(theta1)-2*d*l*sin(theta1)*(2*d-2*l*cos(theta1));
 b = 2*l^3*sin(theta1)+2*d*l^2*sin(theta1)*cos(theta1)-2*d*l*sin(theta1)*(2*d-2*l*cos(theta1));
-c = l^2*(l^2+d^2*(cos(theta1))^2+2*l*d*cos(theta1))-2*d*l*(l+d*cos(theta1))*(2*d-l*cos(theta1))+d^2-l^2*(2*d-l*cos(theta1))^2;
+
+c = l^2*(l^2+d^2*(cos(theta1))^2+2*l*d*cos(theta1))-2*d*l*(l+d*cos(theta1))*(2*d-l*cos(theta1))+(d^2-l^2)*(2*d-l*cos(theta1))^2;
 delta = b^2-4*a*c;
 y5 = roots([a b c]);
+
 if delta >=0  
     y5p(i,1) = y5(1);
     y5n(i,1) = y5(2);
     x5p(i,1) = (l^2+y5p(i,1)*l*sin(theta1)+l*d*cos(theta1))/(2*d-l*cos(theta1));
     x5n(i,1) = (l^2+y5n(i,1)*l*sin(theta1)+l*d*cos(theta1))/(2*d-l*cos(theta1));
-    sx = -b+l*cos(theta1);
+    sx = -d+l*cos(theta1);
     sy = l*sin(theta1);
-    x5m(i,1) = (abs(x5p(i,1))+sx)/2;
-    y5m(i,1) = (abs(y5p(i,1))+sy)/2;
+    x5m(i,1) = ((x5p(i,1))+sx)/2;
+    y5m(i,1) = ((y5p(i,1))+sy)/2;
     x5mn(i,1) = (x5n(i,1)+sx)/2;
     y5mn(i,1) = (y5n(i,1)+sy)/2;
+    
+    yD = (-b+sqrt(b^2-4*a*c))/(2*a);
+    yDm = (-b-sqrt(b^2-4*a*c))/(2*a);
+    
+xD = (l^2+yD*l*sin(theta1)+l*d*cos(theta1))/(2*d-l*cos(theta1));
+xDm = (l^2+yDm*l*sin(theta1)+l*d*cos(theta1))/(2*d-l*cos(theta1));
+x(i) = (xD +(-d+l*cos(theta1)))/2;
+y(i) = (yD + l*sin(theta1))/2;
+xm(i) = (xDm +(-d+l*cos(theta1)))/2;
+ym(i) = (yDm + l*sin(theta1))/2;
 end 
 end
+figure
+plot(x,y)
 %% Sesto caso
 x6 = 0;
 y6p = sqrt(l^2-d^2)+l;
@@ -95,13 +112,13 @@ plot(x1,y1,'linewidth',2,'color',[0, 0.4470, 0.7410])
 hold on
 plot(x2,y2,'linewidth',2,'color',[0.8500, 0.3250, 0.0980])
 hold on
-
 %plot(x5p,y5p,'-o','linewidth',2,'color','green')
-scatter(x5m,y5m,[],[0.4660 0.6740 0.1880])
+%scatter(x5m,y5m,[],[0.4660 0.6740 0.1880])
+plot(x,y,'color',[0.4660 0.6740 0.1880],'linewidth',2)
 hold on
 plot(x3,y3,'-o','linewidth',2)
 hold on
-plot(x4,y4,'-o','linewidth',2)
+plot(x4,y4,'-o','linewidth',2,'Color',[0.9290 0.6940 0.1250])
 hold on
 rectangle('Position', [-0.1,0.3, 0.2,0.15],'linewidth',2)
     %plot(x6,y6p,'-o','linewidth',2,'color',[0.3010, 0.7450, 0.9330])
@@ -110,14 +127,16 @@ grid on
 hold on
 %plot(Traiettoria(1,:),Traiettoria(2,:),'linewidth', 2)
 %hold on
-plot(x1,-y1,'linewidth',2,'color',[0, 0.4470, 0.7410])
-hold on
-plot(x2,-y2,'linewidth',2,'color',[0.8500, 0.3250, 0.0980])
-hold on
-scatter(-x5m,y5m,[],[0.4660 0.6740 0.1880])
-
-hold on
-
+% plot(x1,-y1,'linewidth',2,'color',[0, 0.4470, 0.7410])
+% hold on
+% plot(x2,-y2,'linewidth',2,'color',[0.8500, 0.3250, 0.0980])
+% hold on
+ plot(-x,y,'color',[0.4660 0.6740 0.1880],'linewidth',2)
+% 
+% plot(-xm,ym,'color',[0.4660 0.6740 0.1880],'linewidth',2)
+% hold on
+% plot(xm,ym,'color',[0.4660 0.6740 0.1880],'linewidth',2)
+% hold on
 % hold on
 % plot(xy1(1,:),xy1(2,:))
 % hold on
@@ -125,6 +144,7 @@ hold on
 % hold on
 % plot(xy3(1,:),xy3(2,:))
 legend('Caso 1','Caso 2', 'Caso 3','Caso 4','Caso 5','Spazio di lavoro');
-
+xlabel('X [m]')
+ylabel('Y [m]')
 end
 

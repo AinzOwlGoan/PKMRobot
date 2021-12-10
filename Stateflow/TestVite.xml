@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?><Root>
+      		<SubSystem>
+		<Name>Ramp</Name>
+		<xPCName>TestVite/Ramp</xPCName>
+		
+		
+            <block>
+            <blkName>Constant</blkName>
+            <xpcblkName>Ramp/Constant</xpcblkName>
+            <SLblockPath>TestVite/Ramp/Constant</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>start</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>TestVite/Ramp</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Constant1</blkName>
+            <xpcblkName>Ramp/Constant1</xpcblkName>
+            <SLblockPath>TestVite/Ramp/Constant1</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>X0</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>TestVite/Ramp</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Step</blkName>
+            <xpcblkName>Ramp/Step</xpcblkName>
+            <SLblockPath>TestVite/Ramp/Step</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>start</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>TestVite/Ramp</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>Before</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>TestVite/Ramp</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>slope</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>TestVite/Ramp</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>Clock</sigName>
+              <xpcsigName>Ramp/Clock</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>TestVite/Ramp</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Product</sigName>
+              <xpcsigName>Ramp/Product</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>TestVite/Ramp</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Step</sigName>
+              <xpcsigName>Ramp/Step</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>TestVite/Ramp</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Output</sigName>
+              <xpcsigName>Ramp/Output</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>TestVite/Ramp</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Sum</sigName>
+              <xpcsigName>Ramp/Sum</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>TestVite/Ramp</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+		</SubSystem>
+
+      
+            <block>
+            <blkName>Ramp</blkName>
+            <xpcblkName>Ramp</xpcblkName>
+            <SLblockPath>TestVite/Ramp</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>slope</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>TestVite</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>start</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>TestVite</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>X0</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>TestVite</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Asse A vite</blkName>
+            <xpcblkName>Asse A vite</xpcblkName>
+            <SLblockPath>TestVite/Asse A vite</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>TestVite</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>Asse B vite</blkName>
+            <xpcblkName>Asse B vite</xpcblkName>
+            <SLblockPath>TestVite/Asse B vite</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>TestVite</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>EtherCAT PDO Transmit 2</blkName>
+            <xpcblkName>EtherCAT PDO Transmit 2</xpcblkName>
+            <SLblockPath>TestVite/EtherCAT PDO Transmit 2</SLblockPath>
+            <isSrc>[0 1 0]</isSrc>
+          <parameter>
+          <paramName>P1</paramName>
+          <dim>[1, 38]</dim>  
+		  <SubSystemName>TestVite</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P2</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>TestVite</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P3</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>TestVite</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P4</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>TestVite</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P5</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>TestVite</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P6</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>TestVite</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P7</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>TestVite</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>EtherCAT PDO Transmit 4</blkName>
+            <xpcblkName>EtherCAT PDO Transmit 4</xpcblkName>
+            <SLblockPath>TestVite/EtherCAT PDO Transmit 4</SLblockPath>
+            <isSrc>[0 1 0]</isSrc>
+          <parameter>
+          <paramName>P1</paramName>
+          <dim>[1, 43]</dim>  
+		  <SubSystemName>TestVite</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P2</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>TestVite</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P3</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>TestVite</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P4</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>TestVite</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P5</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>TestVite</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P6</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>TestVite</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P7</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>TestVite</SubSystemName>
+          </parameter>
+          </block>
+            <block>
+            <blkName>EtherCAT PDO Transmit 6</blkName>
+            <xpcblkName>EtherCAT PDO Transmit 6</xpcblkName>
+            <SLblockPath>TestVite/EtherCAT PDO Transmit 6</SLblockPath>
+            <isSrc>[0 1 0]</isSrc>
+          <parameter>
+          <paramName>P1</paramName>
+          <dim>[1, 43]</dim>  
+		  <SubSystemName>TestVite</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P2</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>TestVite</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P3</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>TestVite</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P4</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>TestVite</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P5</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>TestVite</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P6</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>TestVite</SubSystemName>
+          </parameter>
+          <parameter>
+          <paramName>P7</paramName>
+          <dim>[1, 1]</dim>  
+		  <SubSystemName>TestVite</SubSystemName>
+          </parameter>
+          </block>
+			  
+			  
+              <signal>
+              <sigName>Convert B</sigName>
+              <xpcsigName>Convert B</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>TestVite</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Data Type Conversion1</sigName>
+              <xpcsigName>Data Type Conversion1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>TestVite</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>Data Type Conversion2</sigName>
+              <xpcsigName>Data Type Conversion2</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+			  <SubSystemName>TestVite</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+			  
+			  
+              <signal>
+              <sigName>EtherCAT Init </sigName>
+              <xpcsigName>EtherCAT Init </xpcsigName>
+              <sigWidth>6</sigWidth>
+              <sigDim>[6, 1]</sigDim>
+			  <SubSystemName>TestVite</SubSystemName>
+			  <sigTestPoint>false</sigTestPoint>
+            </signal>
+
+</Root>

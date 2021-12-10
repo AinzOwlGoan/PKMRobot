@@ -1,10 +1,10 @@
 figure1 = figure;
+% 144600
+x = Xset.Data(15000:31000);
+y = Yset.Data(15000:31000);
 
-x = Xset.Data(15400:18400);
-y = Yset.Data(15400:18400);
-
-Xreal = Xr.Data(15400:18400);
-Yreal = Yr.Data(15400:18400);
+Xreal = xR.Data(15000:31000);
+Yreal = yR.Data(15000:31000);
 % Create axes
 axes1 = axes('Parent',figure1);
 hold(axes1,'on');
