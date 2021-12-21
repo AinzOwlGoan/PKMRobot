@@ -7,9 +7,9 @@
  *
  * Code generation for model "StateFlowFinal".
  *
- * Model version              : 1.1086
+ * Model version              : 1.1099
  * Simulink Coder version : 8.12 (R2017a) 16-Feb-2017
- * C source code generated on : Fri Dec 10 12:13:26 2021
+ * C source code generated on : Mon Dec 20 14:27:44 2021
  *
  * Target selection: slrt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -50,7 +50,19 @@ static real_T StateFlowFinal_mpower(real_T a);
 static void StateFlowFinal_ldm7t_k(real_T x, real_T *G, real_T *F, real_T *f);
 static void StateFlowFinal_ldm7t(real_T x, real_T *G, real_T *F, real_T *f);
 static void StateFlowFinal_ldm7t_m(real_T x, real_T *G, real_T *F, real_T *f);
-static real_T StateFlowFinal_norm_n(const real_T x[4]);
+static real_T StateFlowFinal_norm_fn(const real_T x[2]);
+static real_T StateFlowFinal_xnrm2(int32_T n, const real_T x[8], int32_T ix0);
+static real_T StateFlowFinal_xnrm2_a(int32_T n, const real_T x[4], int32_T ix0);
+static void StateFlowFinal_xaxpy_fa(int32_T n, real_T a, const real_T x[2],
+  int32_T ix0, real_T y[8], int32_T iy0);
+static void StateFlowFinal_xaxpy_f(int32_T n, real_T a, const real_T x[8],
+  int32_T ix0, real_T y[2], int32_T iy0);
+static void StateFlowFinal_xrotg(real_T *a, real_T *b, real_T *c, real_T *s);
+static real_T StateFlowFinal_xdotc(int32_T n, const real_T x[8], int32_T ix0,
+  const real_T y[8], int32_T iy0);
+static void StateFlowFinal_xaxpy(int32_T n, real_T a, int32_T ix0, real_T y[8],
+  int32_T iy0);
+static void StateFlowFinal_svd(const real_T A[8], real_T U[2]);
 
 /*
  * Output and update for atomic system:
@@ -71,181 +83,6 @@ void StateFlowFinal_MATLABFunction(real_T rtu_now, real_T rtu_old,
     /* '<S25>:1:5' */
     localB->y = rtu_old;
   }
-}
-
-/*
- * System initialize for enable system:
- *    '<S93>/MeasurementUpdate'
- *    '<S138>/MeasurementUpdate'
- */
-void StateFlo_MeasurementUpdate_Init(B_MeasurementUpdate_StateFlow_T *localB,
-  P_MeasurementUpdate_StateFlow_T *localP)
-{
-  /* SystemInitialize for Outport: '<S118>/L*(y[k]-yhat[k|k-1])' */
-  localB->Product3[0] = localP->Lykyhatkk1_Y0;
-  localB->Product3[1] = localP->Lykyhatkk1_Y0;
-}
-
-/*
- * Disable for enable system:
- *    '<S93>/MeasurementUpdate'
- *    '<S138>/MeasurementUpdate'
- */
-void State_MeasurementUpdate_Disable(B_MeasurementUpdate_StateFlow_T *localB,
-  DW_MeasurementUpdate_StateFlo_T *localDW, P_MeasurementUpdate_StateFlow_T
-  *localP)
-{
-  /* Disable for Outport: '<S118>/L*(y[k]-yhat[k|k-1])' */
-  localB->Product3[0] = localP->Lykyhatkk1_Y0;
-  localB->Product3[1] = localP->Lykyhatkk1_Y0;
-  localDW->MeasurementUpdate_MODE = false;
-}
-
-/*
- * Start for enable system:
- *    '<S93>/MeasurementUpdate'
- *    '<S138>/MeasurementUpdate'
- */
-void StateFl_MeasurementUpdate_Start(DW_MeasurementUpdate_StateFlo_T *localDW)
-{
-  localDW->MeasurementUpdate_MODE = false;
-}
-
-/*
- * Output and update for enable system:
- *    '<S93>/MeasurementUpdate'
- *    '<S138>/MeasurementUpdate'
- */
-void StateFlowFina_MeasurementUpdate(boolean_T rtu_Enable, const real_T rtu_Lk[2],
-  real_T rtu_yk, const real_T rtu_Ck[2], const real_T rtu_xhatkk1[2], real_T
-  rtu_Dk, real_T rtu_uk, B_MeasurementUpdate_StateFlow_T *localB,
-  DW_MeasurementUpdate_StateFlo_T *localDW, P_MeasurementUpdate_StateFlow_T
-  *localP)
-{
-  real_T tmp;
-  real_T tmp_0;
-
-  /* Outputs for Enabled SubSystem: '<S93>/MeasurementUpdate' incorporates:
-   *  EnablePort: '<S118>/Enable'
-   */
-  if (rtu_Enable) {
-    if (!localDW->MeasurementUpdate_MODE) {
-      localDW->MeasurementUpdate_MODE = true;
-    }
-
-    /* Product: '<S118>/C[k]*xhat[k|k-1]' */
-    tmp_0 = rtu_Ck[0];
-    tmp = tmp_0 * rtu_xhatkk1[0];
-    tmp_0 = rtu_Ck[1];
-    tmp += tmp_0 * rtu_xhatkk1[1];
-    localB->Ckxhatkk1 = tmp;
-
-    /* Product: '<S118>/D[k]*u[k]' */
-    localB->Dkuk = rtu_Dk * rtu_uk;
-
-    /* Sum: '<S118>/Add1' */
-    localB->yhatkk1 = localB->Ckxhatkk1 + localB->Dkuk;
-
-    /* Sum: '<S118>/Sum' */
-    localB->Sum = rtu_yk - localB->yhatkk1;
-
-    /* Product: '<S118>/Product3' */
-    tmp_0 = localB->Sum;
-    localB->Product3[0] = rtu_Lk[0] * tmp_0;
-    localB->Product3[1] = rtu_Lk[1] * tmp_0;
-    srUpdateBC(localDW->MeasurementUpdate_SubsysRanBC);
-  } else {
-    if (localDW->MeasurementUpdate_MODE) {
-      State_MeasurementUpdate_Disable(localB, localDW, localP);
-    }
-  }
-
-  /* End of Outputs for SubSystem: '<S93>/MeasurementUpdate' */
-}
-
-/*
- * System initialize for atomic system:
- *    '<S56>/UseCurrentEstimator'
- *    '<S57>/UseCurrentEstimator'
- */
-void StateF_UseCurrentEstimator_Init(B_UseCurrentEstimator_StateFl_T *localB,
-  P_UseCurrentEstimator_StateFl_T *localP)
-{
-  /* SystemInitialize for Enabled SubSystem: '<S98>/Enabled Subsystem' */
-  /* SystemInitialize for Outport: '<S119>/deltax' */
-  localB->Product2[0] = localP->deltax_Y0;
-  localB->Product2[1] = localP->deltax_Y0;
-
-  /* End of SystemInitialize for SubSystem: '<S98>/Enabled Subsystem' */
-}
-
-/*
- * Start for atomic system:
- *    '<S56>/UseCurrentEstimator'
- *    '<S57>/UseCurrentEstimator'
- */
-void State_UseCurrentEstimator_Start(DW_UseCurrentEstimator_StateF_T *localDW)
-{
-  /* Start for Enabled SubSystem: '<S98>/Enabled Subsystem' */
-  localDW->EnabledSubsystem_MODE = false;
-
-  /* End of Start for SubSystem: '<S98>/Enabled Subsystem' */
-}
-
-/*
- * Output and update for atomic system:
- *    '<S56>/UseCurrentEstimator'
- *    '<S57>/UseCurrentEstimator'
- */
-void StateFlowFi_UseCurrentEstimator(boolean_T rtu_Enablek, const real_T rtu_Mk
-  [2], real_T rtu_uk, real_T rtu_yk, const real_T rtu_Ck[2], real_T rtu_Dk,
-  const real_T rtu_xhatkk1[2], B_UseCurrentEstimator_StateFl_T *localB,
-  DW_UseCurrentEstimator_StateF_T *localDW, P_UseCurrentEstimator_StateFl_T
-  *localP)
-{
-  real_T tmp;
-  real_T tmp_0;
-
-  /* Outputs for Enabled SubSystem: '<S98>/Enabled Subsystem' incorporates:
-   *  EnablePort: '<S119>/Enable'
-   */
-  if (rtu_Enablek) {
-    if (!localDW->EnabledSubsystem_MODE) {
-      localDW->EnabledSubsystem_MODE = true;
-    }
-
-    /* Product: '<S119>/Product' */
-    tmp_0 = rtu_Ck[0];
-    tmp = tmp_0 * rtu_xhatkk1[0];
-    tmp_0 = rtu_Ck[1];
-    tmp += tmp_0 * rtu_xhatkk1[1];
-    localB->Product = tmp;
-
-    /* Product: '<S119>/Product1' */
-    localB->Product1 = rtu_Dk * rtu_uk;
-
-    /* Sum: '<S119>/Add1' */
-    localB->Add1 = (rtu_yk - localB->Product) - localB->Product1;
-
-    /* Product: '<S119>/Product2' */
-    tmp_0 = localB->Add1;
-    localB->Product2[0] = rtu_Mk[0] * tmp_0;
-    localB->Product2[1] = rtu_Mk[1] * tmp_0;
-    srUpdateBC(localDW->EnabledSubsystem_SubsysRanBC);
-  } else {
-    if (localDW->EnabledSubsystem_MODE) {
-      /* Disable for Outport: '<S119>/deltax' */
-      localB->Product2[0] = localP->deltax_Y0;
-      localB->Product2[1] = localP->deltax_Y0;
-      localDW->EnabledSubsystem_MODE = false;
-    }
-  }
-
-  /* End of Outputs for SubSystem: '<S98>/Enabled Subsystem' */
-
-  /* Sum: '<S98>/Add' */
-  localB->Add[0] = localB->Product2[0] + rtu_xhatkk1[0];
-  localB->Add[1] = localB->Product2[1] + rtu_xhatkk1[1];
 }
 
 real_T rt_powd_snf(real_T u0, real_T u1)
@@ -294,7 +131,7 @@ real_T rt_powd_snf(real_T u0, real_T u1)
   return y;
 }
 
-/* Function for MATLAB Function: '<S58>/Quadrato' */
+/* Function for MATLAB Function: '<S56>/Quadrato' */
 static real_T StateFlowFinal_mpower(real_T a)
 {
   real_T c;
@@ -302,7 +139,7 @@ static real_T StateFlowFinal_mpower(real_T a)
   return c;
 }
 
-/* Function for MATLAB Function: '<S58>/g' */
+/* Function for MATLAB Function: '<S56>/g' */
 static void StateFlowFinal_ldm7t_k(real_T x, real_T *G, real_T *F, real_T *f)
 {
   if ((x >= 0.0) && (x < 0.1)) {
@@ -358,7 +195,7 @@ static void StateFlowFinal_ldm7t_k(real_T x, real_T *G, real_T *F, real_T *f)
   }
 }
 
-/* Function for MATLAB Function: '<S58>/Cerchi Tangenti' */
+/* Function for MATLAB Function: '<S56>/Cerchi Tangenti' */
 static void StateFlowFinal_ldm7t(real_T x, real_T *G, real_T *F, real_T *f)
 {
   if ((x >= 0.0) && (x < 0.1)) {
@@ -414,7 +251,7 @@ static void StateFlowFinal_ldm7t(real_T x, real_T *G, real_T *F, real_T *f)
   }
 }
 
-/* Function for MATLAB Function: '<S58>/spirale' */
+/* Function for MATLAB Function: '<S56>/spirale' */
 static void StateFlowFinal_ldm7t_m(real_T x, real_T *G, real_T *F, real_T *f)
 {
   if ((x >= 0.0) && (x < 0.1)) {
@@ -507,7 +344,7 @@ real_T rt_atan2d_snf(real_T u0, real_T u1)
 }
 
 /* Function for MATLAB Function: '<S12>/MATLAB Function4' */
-static real_T StateFlowFinal_norm_n(const real_T x[4])
+static real_T StateFlowFinal_norm_fn(const real_T x[2])
 {
   real_T y;
   real_T scale;
@@ -533,27 +370,576 @@ static real_T StateFlowFinal_norm_n(const real_T x[4])
     y += t * t;
   }
 
-  absxk = fabs(x[2]);
-  if (absxk > scale) {
-    t = scale / absxk;
-    y = y * t * t + 1.0;
-    scale = absxk;
-  } else {
-    t = absxk / scale;
-    y += t * t;
-  }
-
-  absxk = fabs(x[3]);
-  if (absxk > scale) {
-    t = scale / absxk;
-    y = y * t * t + 1.0;
-    scale = absxk;
-  } else {
-    t = absxk / scale;
-    y += t * t;
-  }
-
   return scale * sqrt(y);
+}
+
+/* Function for MATLAB Function: '<S12>/MATLAB Function4' */
+static real_T StateFlowFinal_xnrm2(int32_T n, const real_T x[8], int32_T ix0)
+{
+  real_T y;
+  real_T scale;
+  int32_T kend;
+  real_T absxk;
+  real_T t;
+  int32_T k;
+  y = 0.0;
+  if (!(n < 1)) {
+    if (n == 1) {
+      y = fabs(x[ix0 - 1]);
+    } else {
+      scale = 2.2250738585072014E-308;
+      kend = (ix0 + n) - 1;
+      for (k = ix0; k <= kend; k++) {
+        absxk = fabs(x[k - 1]);
+        if (absxk > scale) {
+          t = scale / absxk;
+          y = y * t * t + 1.0;
+          scale = absxk;
+        } else {
+          t = absxk / scale;
+          y += t * t;
+        }
+      }
+
+      y = scale * sqrt(y);
+    }
+  }
+
+  return y;
+}
+
+/* Function for MATLAB Function: '<S12>/MATLAB Function4' */
+static real_T StateFlowFinal_xnrm2_a(int32_T n, const real_T x[4], int32_T ix0)
+{
+  real_T y;
+  real_T scale;
+  int32_T kend;
+  real_T absxk;
+  real_T t;
+  int32_T k;
+  y = 0.0;
+  if (!(n < 1)) {
+    if (n == 1) {
+      y = fabs(x[ix0 - 1]);
+    } else {
+      scale = 2.2250738585072014E-308;
+      kend = (ix0 + n) - 1;
+      for (k = ix0; k <= kend; k++) {
+        absxk = fabs(x[k - 1]);
+        if (absxk > scale) {
+          t = scale / absxk;
+          y = y * t * t + 1.0;
+          scale = absxk;
+        } else {
+          t = absxk / scale;
+          y += t * t;
+        }
+      }
+
+      y = scale * sqrt(y);
+    }
+  }
+
+  return y;
+}
+
+/* Function for MATLAB Function: '<S12>/MATLAB Function4' */
+static void StateFlowFinal_xaxpy_fa(int32_T n, real_T a, const real_T x[2],
+  int32_T ix0, real_T y[8], int32_T iy0)
+{
+  int32_T ix;
+  int32_T iy;
+  int32_T k;
+  if (!((n < 1) || (a == 0.0))) {
+    ix = ix0 - 1;
+    iy = iy0 - 1;
+    for (k = 0; k < n; k++) {
+      y[iy] += a * x[ix];
+      ix++;
+      iy++;
+    }
+  }
+}
+
+/* Function for MATLAB Function: '<S12>/MATLAB Function4' */
+static void StateFlowFinal_xaxpy_f(int32_T n, real_T a, const real_T x[8],
+  int32_T ix0, real_T y[2], int32_T iy0)
+{
+  int32_T ix;
+  int32_T iy;
+  int32_T k;
+  if (!((n < 1) || (a == 0.0))) {
+    ix = ix0 - 1;
+    iy = iy0 - 1;
+    for (k = 0; k < n; k++) {
+      y[iy] += a * x[ix];
+      ix++;
+      iy++;
+    }
+  }
+}
+
+/* Function for MATLAB Function: '<S12>/MATLAB Function4' */
+static void StateFlowFinal_xrotg(real_T *a, real_T *b, real_T *c, real_T *s)
+{
+  real_T roe;
+  real_T absa;
+  real_T absb;
+  real_T scale;
+  real_T ads;
+  real_T bds;
+  roe = *b;
+  absa = fabs(*a);
+  absb = fabs(*b);
+  if (absa > absb) {
+    roe = *a;
+  }
+
+  scale = absa + absb;
+  if (scale == 0.0) {
+    *s = 0.0;
+    *c = 1.0;
+    scale = 0.0;
+    absa = 0.0;
+  } else {
+    ads = absa / scale;
+    bds = absb / scale;
+    scale *= sqrt(ads * ads + bds * bds);
+    if (roe < 0.0) {
+      scale = -scale;
+    }
+
+    *c = *a / scale;
+    *s = *b / scale;
+    if (absa > absb) {
+      absa = *s;
+    } else if (*c != 0.0) {
+      absa = 1.0 / *c;
+    } else {
+      absa = 1.0;
+    }
+  }
+
+  *a = scale;
+  *b = absa;
+}
+
+/* Function for MATLAB Function: '<S12>/MATLAB Function4' */
+static real_T StateFlowFinal_xdotc(int32_T n, const real_T x[8], int32_T ix0,
+  const real_T y[8], int32_T iy0)
+{
+  real_T d;
+  int32_T ix;
+  int32_T iy;
+  int32_T k;
+  d = 0.0;
+  if (!(n < 1)) {
+    ix = ix0;
+    iy = iy0;
+    for (k = 1; k <= n; k++) {
+      d += x[ix - 1] * y[iy - 1];
+      ix++;
+      iy++;
+    }
+  }
+
+  return d;
+}
+
+/* Function for MATLAB Function: '<S12>/MATLAB Function4' */
+static void StateFlowFinal_xaxpy(int32_T n, real_T a, int32_T ix0, real_T y[8],
+  int32_T iy0)
+{
+  int32_T ix;
+  int32_T iy;
+  int32_T k;
+  if (!((n < 1) || (a == 0.0))) {
+    ix = ix0 - 1;
+    iy = iy0 - 1;
+    for (k = 0; k < n; k++) {
+      y[iy] += a * y[ix];
+      ix++;
+      iy++;
+    }
+  }
+}
+
+/* Function for MATLAB Function: '<S12>/MATLAB Function4' */
+static void StateFlowFinal_svd(const real_T A[8], real_T U[2])
+{
+  real_T b_A[8];
+  real_T s[3];
+  real_T e[4];
+  real_T work[2];
+  int32_T q;
+  boolean_T apply_transform;
+  int32_T m;
+  int32_T iter;
+  real_T snorm;
+  real_T ztest0;
+  int32_T kase;
+  int32_T qs;
+  real_T ztest;
+  real_T smm1;
+  real_T emm1;
+  real_T sqds;
+  real_T shift;
+  int32_T d_ii;
+  real_T varargin_1[5];
+  int32_T exitg1;
+  boolean_T exitg2;
+  memcpy(&b_A[0], &A[0], sizeof(real_T) << 3U);
+  e[0] = 0.0;
+  e[1] = 0.0;
+  e[2] = 0.0;
+  e[3] = 0.0;
+  work[0] = 0.0;
+  work[1] = 0.0;
+  apply_transform = false;
+  snorm = StateFlowFinal_xnrm2(2, b_A, 1);
+  if (snorm > 0.0) {
+    apply_transform = true;
+    if (b_A[0] < 0.0) {
+      snorm = -snorm;
+    }
+
+    if (fabs(snorm) >= 1.0020841800044864E-292) {
+      ztest0 = 1.0 / snorm;
+      for (q = 0; q + 1 < 3; q++) {
+        b_A[q] *= ztest0;
+      }
+    } else {
+      for (q = 0; q + 1 < 3; q++) {
+        b_A[q] /= snorm;
+      }
+    }
+
+    b_A[0]++;
+    s[0] = -snorm;
+  } else {
+    s[0] = 0.0;
+  }
+
+  for (q = 1; q + 1 < 5; q++) {
+    qs = q << 1;
+    if (apply_transform) {
+      snorm = StateFlowFinal_xdotc(2, b_A, 1, b_A, qs + 1);
+      StateFlowFinal_xaxpy(2, -(snorm / b_A[0]), 1, b_A, qs + 1);
+    }
+
+    e[q] = b_A[qs];
+  }
+
+  snorm = StateFlowFinal_xnrm2_a(3, e, 2);
+  if (snorm == 0.0) {
+    e[0] = 0.0;
+  } else {
+    if (e[1] < 0.0) {
+      snorm = -snorm;
+    }
+
+    e[0] = snorm;
+    snorm = e[0];
+    if (fabs(e[0]) >= 1.0020841800044864E-292) {
+      snorm = 1.0 / e[0];
+      for (iter = 1; iter + 1 < 5; iter++) {
+        e[iter] *= snorm;
+      }
+    } else {
+      for (iter = 1; iter + 1 < 5; iter++) {
+        e[iter] /= snorm;
+      }
+    }
+
+    e[1]++;
+    e[0] = -e[0];
+    iter = 2;
+    while (iter < 3) {
+      work[1] = 0.0;
+      iter = 3;
+    }
+
+    for (iter = 1; iter + 1 < 5; iter++) {
+      StateFlowFinal_xaxpy_f(1, e[iter], b_A, (iter << 1) + 2, work, 2);
+    }
+
+    for (iter = 1; iter + 1 < 5; iter++) {
+      StateFlowFinal_xaxpy_fa(1, -e[iter] / e[1], work, 2, b_A, (iter << 1) + 2);
+    }
+  }
+
+  for (q = 2; q + 1 < 5; q++) {
+    qs = (q << 1) + 1;
+    e[q] = b_A[qs];
+  }
+
+  snorm = StateFlowFinal_xnrm2_a(2, e, 3);
+  if (snorm == 0.0) {
+    e[1] = 0.0;
+  } else {
+    if (e[2] < 0.0) {
+      snorm = -snorm;
+    }
+
+    e[1] = snorm;
+    snorm = e[1];
+    if (fabs(e[1]) >= 1.0020841800044864E-292) {
+      snorm = 1.0 / e[1];
+      for (iter = 2; iter + 1 < 5; iter++) {
+        e[iter] *= snorm;
+      }
+    } else {
+      for (iter = 2; iter + 1 < 5; iter++) {
+        e[iter] /= snorm;
+      }
+    }
+
+    e[1] = -e[1];
+  }
+
+  m = 1;
+  s[1] = b_A[3];
+  s[2] = 0.0;
+  ztest = e[0];
+  if (s[0] != 0.0) {
+    ztest0 = fabs(s[0]);
+    snorm = s[0] / ztest0;
+    s[0] = ztest0;
+    ztest /= snorm;
+  }
+
+  if (ztest != 0.0) {
+    ztest0 = fabs(ztest);
+    snorm = ztest;
+    ztest = ztest0;
+    s[1] *= ztest0 / snorm;
+  }
+
+  e[0] = ztest;
+  ztest = e[1];
+  if (s[1] != 0.0) {
+    ztest0 = fabs(s[1]);
+    snorm = s[1] / ztest0;
+    s[1] = ztest0;
+    ztest /= snorm;
+  }
+
+  if (ztest != 0.0) {
+    ztest0 = fabs(ztest);
+    snorm = ztest;
+    ztest = ztest0;
+    s[2] = ztest0 / snorm * 0.0;
+  }
+
+  e[1] = ztest;
+  if (s[2] != 0.0) {
+    ztest0 = s[2];
+    s[2] = ztest0;
+  }
+
+  e[2] = 0.0;
+  iter = 0;
+  ztest0 = s[0];
+  snorm = e[0];
+  if ((ztest0 > snorm) || rtIsNaN(snorm)) {
+    snorm = ztest0;
+  }
+
+  ztest0 = s[1];
+  ztest = e[1];
+  if ((ztest0 > ztest) || rtIsNaN(ztest)) {
+    ztest = ztest0;
+  }
+
+  if (!((snorm > ztest) || rtIsNaN(ztest))) {
+    snorm = ztest;
+  }
+
+  while ((m + 2 > 0) && (!(iter >= 75))) {
+    kase = m + 1;
+    do {
+      exitg1 = 0;
+      q = kase;
+      if (kase == 0) {
+        exitg1 = 1;
+      } else {
+        ztest0 = fabs(e[kase - 1]);
+        if ((ztest0 <= (fabs(s[kase - 1]) + fabs(s[kase])) *
+             2.2204460492503131E-16) || ((ztest0 <= 1.0020841800044864E-292) ||
+             ((iter > 20) && (ztest0 <= 2.2204460492503131E-16 * snorm)))) {
+          e[kase - 1] = 0.0;
+          exitg1 = 1;
+        } else {
+          kase--;
+        }
+      }
+    } while (exitg1 == 0);
+
+    if (m + 1 == kase) {
+      kase = 4;
+    } else {
+      qs = m + 2;
+      d_ii = m + 2;
+      exitg2 = false;
+      while ((!exitg2) && (d_ii >= kase)) {
+        qs = d_ii;
+        if (d_ii == kase) {
+          exitg2 = true;
+        } else {
+          ztest0 = 0.0;
+          if (d_ii < m + 2) {
+            ztest0 = fabs(e[d_ii - 1]);
+          }
+
+          if (d_ii > kase + 1) {
+            ztest0 += fabs(e[d_ii - 2]);
+          }
+
+          ztest = fabs(s[d_ii - 1]);
+          if ((ztest <= 2.2204460492503131E-16 * ztest0) || (ztest <=
+               1.0020841800044864E-292)) {
+            s[d_ii - 1] = 0.0;
+            exitg2 = true;
+          } else {
+            d_ii--;
+          }
+        }
+      }
+
+      if (qs == kase) {
+        kase = 3;
+      } else if (m + 2 == qs) {
+        kase = 1;
+      } else {
+        kase = 2;
+        q = qs;
+      }
+    }
+
+    switch (kase) {
+     case 1:
+      ztest0 = e[m];
+      e[m] = 0.0;
+      for (qs = m; qs + 1 >= q + 1; qs--) {
+        ztest = s[qs];
+        StateFlowFinal_xrotg(&ztest, &ztest0, &sqds, &smm1);
+        s[qs] = ztest;
+        if (qs + 1 > q + 1) {
+          ztest0 = -smm1 * e[0];
+          e[0] *= sqds;
+        }
+      }
+      break;
+
+     case 2:
+      ztest0 = e[q - 1];
+      e[q - 1] = 0.0;
+      while (q + 1 <= m + 2) {
+        ztest = s[q];
+        StateFlowFinal_xrotg(&ztest, &ztest0, &sqds, &smm1);
+        s[q] = ztest;
+        ztest0 = -smm1 * e[q];
+        e[q] *= sqds;
+        q++;
+      }
+      break;
+
+     case 3:
+      varargin_1[0] = fabs(s[m + 1]);
+      varargin_1[1] = fabs(s[m]);
+      varargin_1[2] = fabs(e[m]);
+      varargin_1[3] = fabs(s[q]);
+      varargin_1[4] = fabs(e[q]);
+      qs = 1;
+      ztest = varargin_1[0];
+      if (rtIsNaN(varargin_1[0])) {
+        kase = 2;
+        exitg2 = false;
+        while ((!exitg2) && (kase < 6)) {
+          qs = kase;
+          if (!rtIsNaN(varargin_1[kase - 1])) {
+            ztest = varargin_1[kase - 1];
+            exitg2 = true;
+          } else {
+            kase++;
+          }
+        }
+      }
+
+      if (qs < 5) {
+        while (qs + 1 < 6) {
+          if (varargin_1[qs] > ztest) {
+            ztest = varargin_1[qs];
+          }
+
+          qs++;
+        }
+      }
+
+      ztest0 = s[m + 1] / ztest;
+      smm1 = s[m] / ztest;
+      emm1 = e[m] / ztest;
+      sqds = s[q] / ztest;
+      smm1 = ((smm1 + ztest0) * (smm1 - ztest0) + emm1 * emm1) / 2.0;
+      emm1 *= ztest0;
+      emm1 *= emm1;
+      if ((smm1 != 0.0) || (emm1 != 0.0)) {
+        shift = sqrt(smm1 * smm1 + emm1);
+        if (smm1 < 0.0) {
+          shift = -shift;
+        }
+
+        shift = emm1 / (smm1 + shift);
+      } else {
+        shift = 0.0;
+      }
+
+      ztest0 = (sqds + ztest0) * (sqds - ztest0) + shift;
+      ztest = e[q] / ztest * sqds;
+      for (qs = q + 1; qs <= m + 1; qs++) {
+        StateFlowFinal_xrotg(&ztest0, &ztest, &sqds, &smm1);
+        if (qs > q + 1) {
+          e[0] = ztest0;
+        }
+
+        ztest0 = s[qs - 1] * sqds + e[qs - 1] * smm1;
+        e[qs - 1] = e[qs - 1] * sqds - s[qs - 1] * smm1;
+        ztest = smm1 * s[qs];
+        s[qs] *= sqds;
+        StateFlowFinal_xrotg(&ztest0, &ztest, &sqds, &smm1);
+        s[qs - 1] = ztest0;
+        ztest0 = e[qs - 1] * sqds + smm1 * s[qs];
+        s[qs] = e[qs - 1] * -smm1 + sqds * s[qs];
+        ztest = smm1 * e[qs];
+        e[qs] *= sqds;
+      }
+
+      e[m] = ztest0;
+      iter++;
+      break;
+
+     default:
+      if (s[q] < 0.0) {
+        s[q] = -s[q];
+      }
+
+      iter = q + 1;
+      while ((q + 1 < 3) && (s[q] < s[iter])) {
+        ztest0 = s[q];
+        s[q] = s[iter];
+        s[iter] = ztest0;
+        q = iter;
+        iter++;
+      }
+
+      iter = 0;
+      m--;
+      break;
+    }
+  }
+
+  U[0] = s[0];
+  U[1] = s[1];
 }
 
 /* Model output function */
@@ -573,6 +959,9 @@ static void StateFlowFinal_output(void)
   real_T i_a;
   real_T j_a;
   real_T m_a;
+  real_T K[8];
+  static const int8_T a[8] = { 0, 0, 0, 0, 1, 0, 0, 1 };
+
   real_T N21;
   real_T N22;
   real_T D2p;
@@ -582,7 +971,7 @@ static void StateFlowFinal_output(void)
   real_T J4[4];
   real_T JE[4];
   real_T M[4];
-  real_T K[4];
+  real_T K_0[4];
   static const real_T y[4] = { 0.0522, 0.0, 0.0, 0.0522 };
 
   static const real_T Jm[4] = { 1.7E-5, 0.0, 0.0, 1.7E-5 };
@@ -591,12 +980,11 @@ static void StateFlowFinal_output(void)
 
   static const int8_T p_a[4] = { 64, 0, 0, 64 };
 
-  static const real_T b_a[8] = { 0.055555555555555552, 0.0, 0.0,
-    0.055555555555555552, 0.1111111111111111, 0.0, 0.0, 0.1111111111111111 };
-
   real_T x1;
   real_T x2;
   real_T G1;
+  real_T G1_0[16];
+  real_T a_0[8];
   real_T tmp[4];
   real_T tmp_0[4];
   real_T y_0[4];
@@ -617,6 +1005,8 @@ static void StateFlowFinal_output(void)
   real_T tmp_7;
   real_T tmp_8;
   real_T tmp_9;
+  real_T unusedExpr[2];
+  boolean_T exitg1;
 
   {
     /* user code (Output function Header) */
@@ -634,13 +1024,6 @@ static void StateFlowFinal_output(void)
 
       // Clear all momentary triggered values
     }
-
-    /* Reset subsysRan breadcrumbs */
-    srClearBC(StateFlowFinal_DW.MeasurementUpdate.MeasurementUpdate_SubsysRanBC);
-
-    /* Reset subsysRan breadcrumbs */
-    srClearBC
-      (StateFlowFinal_DW.UseCurrentEstimator_e.EnabledSubsystem_SubsysRanBC);
 
     /* Reset subsysRan breadcrumbs */
     srClearBC(StateFlowFinal_DW.Posizionamento_SubsysRanBC);
@@ -929,10 +1312,10 @@ static void StateFlowFinal_output(void)
         break;
 
        case StateFlowFinal_IN_Controllo:
+        StateFlowFinal_B.Hv = 0.0;
         StateFlowFinal_B.Hb = 0.0;
         StateFlowFinal_B.Bool = 4.0;
         StateFlowFinal_B.Luci = 4.0;
-        StateFlowFinal_B.Hv = 0.0;
 
         /* During 'Controllo': '<S13>:147' */
         if (StateFlowFinal_DW.temporalCounter_i1 >= 40000U) {
@@ -985,11 +1368,11 @@ static void StateFlowFinal_output(void)
         break;
 
        case StateFlowFin_IN_FineLavorazione:
+        StateFlowFinal_B.Hv = 0.0;
         StateFlowFinal_B.Hb = 0.0;
         StateFlowFinal_B.FineLavorazione = 1.0;
         StateFlowFinal_B.Bool = 5.0;
         StateFlowFinal_B.Luci = 5.0;
-        StateFlowFinal_B.Hv = 0.0;
 
         /* During 'FineLavorazione': '<S13>:69' */
         sf_internal_predicateOutput = (((StateFlowFinal_DW.temporalCounter_i1 >=
@@ -1072,7 +1455,7 @@ static void StateFlowFinal_output(void)
           StateFlowFinal_DW.Setting_PREV_T[1] = prevT_idx_1;
           StateFlowFinal_DW.Setting_RESET_ELAPS_T = false;
 
-          /* DiscreteIntegrator: '<S199>/Discrete-Time Integrator1' */
+          /* DiscreteIntegrator: '<S107>/Discrete-Time Integrator1' */
           if (StateFlowFinal_DW.DiscreteTimeIntegrator1_SYSTEM_ != 0) {
             StateFlowFinal_B.DiscreteTimeIntegrator1 =
               StateFlowFinal_DW.DiscreteTimeIntegrator1_DSTATE;
@@ -1084,8 +1467,8 @@ static void StateFlowFinal_output(void)
               StateFlowFinal_DW.DiscreteTimeIntegrator1_DSTATE;
           }
 
-          /* End of DiscreteIntegrator: '<S199>/Discrete-Time Integrator1' */
-          /* DiscreteIntegrator: '<S199>/Discrete-Time Integrator' */
+          /* End of DiscreteIntegrator: '<S107>/Discrete-Time Integrator1' */
+          /* DiscreteIntegrator: '<S107>/Discrete-Time Integrator' */
           if (StateFlowFinal_DW.DiscreteTimeIntegrator_SYSTEM_E != 0) {
             StateFlowFinal_B.DiscreteTimeIntegrator =
               StateFlowFinal_DW.DiscreteTimeIntegrator_DSTATE;
@@ -1097,69 +1480,69 @@ static void StateFlowFinal_output(void)
               StateFlowFinal_DW.DiscreteTimeIntegrator_DSTATE;
           }
 
-          /* End of DiscreteIntegrator: '<S199>/Discrete-Time Integrator' */
-          /* Gain: '<S199>/Gain' */
+          /* End of DiscreteIntegrator: '<S107>/Discrete-Time Integrator' */
+          /* Gain: '<S107>/Gain' */
           StateFlowFinal_B.Gain_i = StateFlowFinal_P.Gain_Gain_d *
             StateFlowFinal_B.posA_k;
 
-          /* Gain: '<S199>/Gain1' */
+          /* Gain: '<S107>/Gain1' */
           StateFlowFinal_B.Gain1_f = StateFlowFinal_P.Gain1_Gain_e *
             StateFlowFinal_B.posB_c;
 
-          /* Sum: '<S199>/Sum1' */
+          /* Sum: '<S107>/Sum1' */
           StateFlowFinal_B.Sum1_i = StateFlowFinal_B.posrifA -
             StateFlowFinal_B.Gain_i;
 
-          /* Sum: '<S199>/Sum2' */
+          /* Sum: '<S107>/Sum2' */
           StateFlowFinal_B.Sum2_b = StateFlowFinal_B.posrifB -
             StateFlowFinal_B.Gain1_f;
 
-          /* MATLAB Function: '<S199>/MATLAB Function' incorporates:
-           *  Constant: '<S199>/Ki'
-           *  Constant: '<S199>/Kp'
+          /* MATLAB Function: '<S107>/MATLAB Function' incorporates:
+           *  Constant: '<S107>/Ki'
+           *  Constant: '<S107>/Kp'
            */
-          /* MATLAB Function 'State flow robot/Setting/MATLAB Function': '<S202>:1' */
+          /* MATLAB Function 'State flow robot/Setting/MATLAB Function': '<S110>:1' */
           if (StateFlowFinal_B.Fc < 1.0) {
-            /* '<S202>:1:6' */
-            /* '<S202>:1:7' */
+            /* '<S110>:1:6' */
+            /* '<S110>:1:7' */
             StateFlowFinal_B.CH = 0.0;
           } else {
-            /* '<S202>:1:9' */
+            /* '<S110>:1:9' */
             StateFlowFinal_B.CH = -600.0;
           }
 
           if (StateFlowFinal_B.Fca == 1.0) {
-            /* '<S202>:1:11' */
-            /* '<S202>:1:12' */
+            /* '<S110>:1:11' */
+            /* '<S110>:1:12' */
             StateFlowFinal_B.CA = 0.0;
           } else {
-            /* '<S202>:1:14' */
+            /* '<S110>:1:14' */
             StateFlowFinal_B.CA = StateFlowFinal_P.Kp_Value *
               StateFlowFinal_B.Sum1_i + StateFlowFinal_P.Ki_Value *
               StateFlowFinal_B.DiscreteTimeIntegrator;
           }
 
           if (StateFlowFinal_B.Fcb == 1.0) {
-            /* '<S202>:1:16' */
-            /* '<S202>:1:17' */
+            /* '<S110>:1:16' */
+            /* '<S110>:1:17' */
             StateFlowFinal_B.CB = 0.0;
           } else {
-            /* '<S202>:1:19' */
+            /* '<S110>:1:19' */
             StateFlowFinal_B.CB = StateFlowFinal_P.Kp_Value *
               StateFlowFinal_B.Sum2_b + StateFlowFinal_P.Ki_Value *
               StateFlowFinal_B.DiscreteTimeIntegrator1;
           }
 
-          /* End of MATLAB Function: '<S199>/MATLAB Function' */
+          /* End of MATLAB Function: '<S107>/MATLAB Function' */
 
-          /* Update for DiscreteIntegrator: '<S199>/Discrete-Time Integrator1' */
+          /* Update for DiscreteIntegrator: '<S107>/Discrete-Time Integrator1' */
           StateFlowFinal_DW.DiscreteTimeIntegrator1_SYSTEM_ = 0U;
           StateFlowFinal_DW.DiscreteTimeIntegrator1_DSTATE =
             StateFlowFinal_B.DiscreteTimeIntegrator1;
           StateFlowFinal_DW.DiscreteTimeIntegrator1_PREV_U =
             StateFlowFinal_B.Sum2_b;
 
-          /* Update for DiscreteIntegrator: '<S199>/Discrete-Time Integrator' */
+          /* Update for DiscreteIntegrator: '<S107>/Discrete-Time Integrator' */
           StateFlowFinal_DW.DiscreteTimeIntegrator_SYSTEM_E = 0U;
           StateFlowFinal_DW.DiscreteTimeIntegrator_DSTATE =
             StateFlowFinal_B.DiscreteTimeIntegrator;
@@ -1221,15 +1604,15 @@ static void StateFlowFinal_output(void)
           StateFlowFinal_DW.Posizionamento_PREV_T[1] = prevT_idx_1;
           StateFlowFinal_DW.Posizionamento_RESET_ELAPS_T = false;
 
-          /* Sum: '<S198>/Sum1' */
+          /* Sum: '<S106>/Sum1' */
           StateFlowFinal_B.Sum1_e = StateFlowFinal_B.posB -
             StateFlowFinal_B.OffB_0;
 
-          /* Gain: '<S198>/Conversione in gradi ' */
+          /* Gain: '<S106>/Conversione in gradi ' */
           StateFlowFinal_B.Conversioneingradi =
             StateFlowFinal_P.Conversioneingradi_Gain * StateFlowFinal_B.Sum1_e;
 
-          /* DiscreteIntegrator: '<S198>/Discrete-Time Integrator' */
+          /* DiscreteIntegrator: '<S106>/Discrete-Time Integrator' */
           if (StateFlowFinal_DW.DiscreteTimeIntegrator_SYSTEM_j != 0) {
             StateFlowFinal_B.DiscreteTimeIntegrator_i =
               StateFlowFinal_DW.DiscreteTimeIntegrator_DSTATE_c;
@@ -1241,9 +1624,9 @@ static void StateFlowFinal_output(void)
               StateFlowFinal_DW.DiscreteTimeIntegrator_DSTATE_c;
           }
 
-          /* End of DiscreteIntegrator: '<S198>/Discrete-Time Integrator' */
+          /* End of DiscreteIntegrator: '<S106>/Discrete-Time Integrator' */
 
-          /* DiscreteIntegrator: '<S198>/Discrete-Time Integrator1' */
+          /* DiscreteIntegrator: '<S106>/Discrete-Time Integrator1' */
           if (StateFlowFinal_DW.DiscreteTimeIntegrator1_SYSTE_c != 0) {
             StateFlowFinal_B.DiscreteTimeIntegrator1_b =
               StateFlowFinal_DW.DiscreteTimeIntegrator1_DSTAT_j;
@@ -1255,123 +1638,122 @@ static void StateFlowFinal_output(void)
               StateFlowFinal_DW.DiscreteTimeIntegrator1_DSTAT_j;
           }
 
-          /* End of DiscreteIntegrator: '<S198>/Discrete-Time Integrator1' */
+          /* End of DiscreteIntegrator: '<S106>/Discrete-Time Integrator1' */
 
-          /* Sum: '<S198>/Sum2' */
+          /* Sum: '<S106>/Sum2' */
           StateFlowFinal_B.Sum2_g = StateFlowFinal_B.posA -
             StateFlowFinal_B.OffA_0;
 
-          /* Gain: '<S198>/Gain1' */
+          /* Gain: '<S106>/Gain1' */
           StateFlowFinal_B.Gain1_e = StateFlowFinal_P.Gain1_Gain *
             StateFlowFinal_B.Sum2_g;
 
-          /* Gain: '<S198>/Ki1' */
+          /* Gain: '<S106>/Ki1' */
           StateFlowFinal_B.Ki1 = StateFlowFinal_P.Ki1_Gain *
             StateFlowFinal_B.DiscreteTimeIntegrator_i;
 
-          /* Gain: '<S198>/Ki2' */
+          /* Gain: '<S106>/Ki2' */
           StateFlowFinal_B.Ki2 = StateFlowFinal_P.Ki2_Gain *
             StateFlowFinal_B.DiscreteTimeIntegrator1_b;
 
-          /* Sum: '<S198>/Sum' */
+          /* Sum: '<S106>/Sum' */
           StateFlowFinal_B.Sum_h = StateFlowFinal_B.Clock_a -
             StateFlowFinal_B.OffT_a;
 
-          /* MATLAB Function: '<S198>/MATLAB Function' */
-          /* MATLAB Function 'State flow robot/Posizionamento/MATLAB Function': '<S200>:1' */
-          /* '<S200>:1:3' */
-          /* '<S200>:1:4' */
+          /* MATLAB Function: '<S106>/MATLAB Function' */
+          /* MATLAB Function 'State flow robot/Posizionamento/MATLAB Function': '<S108>:1' */
+          /* '<S108>:1:3' */
+          /* '<S108>:1:4' */
           /*  */
-          /* '<S200>:1:8' */
+          /* '<S108>:1:8' */
           x1 = (StateFlowFinal_B.Sum_h - 1.0) / 1.5;
 
-          /* '<S200>:1:9' */
+          /* '<S108>:1:9' */
           x2 = StateFlowFinal_B.Sum_h / 2.5;
 
           /*  theta1 */
           if ((x1 >= 0.0) && (x1 <= 1.0)) {
-            /* '<S200>:1:11' */
-            /* '<S200>:1:15' */
+            /* '<S108>:1:11' */
+            /* '<S108>:1:15' */
             G1 = (10.0 * rt_powd_snf(x1, 3.0) - 15.0 * rt_powd_snf(x1, 4.0)) +
               6.0 * rt_powd_snf(x1, 5.0);
           } else if (x1 < 0.0) {
-            /* '<S200>:1:16' */
-            /* '<S200>:1:20' */
+            /* '<S108>:1:16' */
+            /* '<S108>:1:20' */
             G1 = 0.0;
           } else {
-            /* '<S200>:1:25' */
+            /* '<S108>:1:25' */
             G1 = 1.0;
           }
 
           /*  theta2 */
           if ((x2 >= 0.0) && (x2 <= 1.0)) {
-            /* '<S200>:1:28' */
-            /* '<S200>:1:32' */
+            /* '<S108>:1:28' */
+            /* '<S108>:1:32' */
             x2 = (10.0 * rt_powd_snf(x2, 3.0) - 15.0 * rt_powd_snf(x2, 4.0)) +
               6.0 * rt_powd_snf(x2, 5.0);
           } else {
-            /* '<S200>:1:37' */
+            /* '<S108>:1:37' */
             x2 = 1.0;
           }
 
-          /* '<S200>:1:40' */
+          /* '<S108>:1:40' */
           StateFlowFinal_B.theta1 = 46.7149 * G1;
 
-          /* '<S200>:1:42' */
+          /* '<S108>:1:42' */
           StateFlowFinal_B.theta2 = 101.1994 * x2;
 
-          /* End of MATLAB Function: '<S198>/MATLAB Function' */
+          /* End of MATLAB Function: '<S106>/MATLAB Function' */
 
-          /* Sum: '<S198>/Sum3' */
+          /* Sum: '<S106>/Sum3' */
           StateFlowFinal_B.Sum3_a = StateFlowFinal_B.theta1 -
             StateFlowFinal_B.Conversioneingradi;
 
-          /* Gain: '<S198>/Kp1' */
-          StateFlowFinal_B.Kp1_g = StateFlowFinal_P.Kp1_Gain *
+          /* Gain: '<S106>/Kp1' */
+          StateFlowFinal_B.Kp1 = StateFlowFinal_P.Kp1_Gain *
             StateFlowFinal_B.Sum3_a;
 
-          /* Sum: '<S198>/Sum4' */
+          /* Sum: '<S106>/Sum4' */
           StateFlowFinal_B.Sum4_f = StateFlowFinal_B.theta2 -
             StateFlowFinal_B.Gain1_e;
 
-          /* Gain: '<S198>/Kp2' */
+          /* Gain: '<S106>/Kp2' */
           StateFlowFinal_B.Kp2 = StateFlowFinal_P.Kp2_Gain *
             StateFlowFinal_B.Sum4_f;
 
-          /* Sum: '<S198>/Sum5' */
-          StateFlowFinal_B.Sum5_p = StateFlowFinal_B.Ki1 +
-            StateFlowFinal_B.Kp1_g;
+          /* Sum: '<S106>/Sum5' */
+          StateFlowFinal_B.Sum5_p = StateFlowFinal_B.Ki1 + StateFlowFinal_B.Kp1;
 
-          /* Sum: '<S198>/Sum6' */
+          /* Sum: '<S106>/Sum6' */
           StateFlowFinal_B.Sum6_n = StateFlowFinal_B.Kp2 + StateFlowFinal_B.Ki2;
 
-          /* MATLAB Function: '<S198>/MATLAB Function1' */
-          /* MATLAB Function 'State flow robot/Posizionamento/MATLAB Function1': '<S201>:1' */
+          /* MATLAB Function: '<S106>/MATLAB Function1' */
+          /* MATLAB Function 'State flow robot/Posizionamento/MATLAB Function1': '<S109>:1' */
           if (StateFlowFinal_B.Sum_h > 4.0) {
-            /* '<S201>:1:3' */
-            /* '<S201>:1:4' */
+            /* '<S109>:1:3' */
+            /* '<S109>:1:4' */
             StateFlowFinal_B.CA_o = 0.0;
 
-            /* '<S201>:1:5' */
+            /* '<S109>:1:5' */
             StateFlowFinal_B.CB_b = 0.0;
           } else {
-            /* '<S201>:1:7' */
+            /* '<S109>:1:7' */
             StateFlowFinal_B.CA_o = StateFlowFinal_B.Sum6_n;
 
-            /* '<S201>:1:8' */
+            /* '<S109>:1:8' */
             StateFlowFinal_B.CB_b = StateFlowFinal_B.Sum5_p;
           }
 
-          /* End of MATLAB Function: '<S198>/MATLAB Function1' */
+          /* End of MATLAB Function: '<S106>/MATLAB Function1' */
 
-          /* Update for DiscreteIntegrator: '<S198>/Discrete-Time Integrator' */
+          /* Update for DiscreteIntegrator: '<S106>/Discrete-Time Integrator' */
           StateFlowFinal_DW.DiscreteTimeIntegrator_SYSTEM_j = 0U;
           StateFlowFinal_DW.DiscreteTimeIntegrator_DSTATE_c =
             StateFlowFinal_B.DiscreteTimeIntegrator_i;
           StateFlowFinal_DW.DiscreteTimeIntegrator_PREV_U_j =
             StateFlowFinal_B.Sum3_a;
 
-          /* Update for DiscreteIntegrator: '<S198>/Discrete-Time Integrator1' */
+          /* Update for DiscreteIntegrator: '<S106>/Discrete-Time Integrator1' */
           StateFlowFinal_DW.DiscreteTimeIntegrator1_SYSTE_c = 0U;
           StateFlowFinal_DW.DiscreteTimeIntegrator1_DSTAT_j =
             StateFlowFinal_B.DiscreteTimeIntegrator1_b;
@@ -1386,9 +1768,9 @@ static void StateFlowFinal_output(void)
         break;
 
        case StateFlowFinal_IN_OffSet:
+        StateFlowFinal_B.Hv = 1.0;
         StateFlowFinal_B.Bool = 2.0;
         StateFlowFinal_B.Luci = 3.0;
-        StateFlowFinal_B.Hv = 1.0;
 
         /* During 'OffSet': '<S13>:87' */
         if (StateFlowFinal_B.StartWork == 1.0) {
@@ -1516,85 +1898,85 @@ static void StateFlowFinal_output(void)
     /* Memory: '<S23>/Memory' */
     StateFlowFinal_B.Memory = StateFlowFinal_DW.Memory_PreviousInput;
 
-    /* Sum: '<S67>/Sum12' */
+    /* Sum: '<S65>/Sum12' */
     StateFlowFinal_B.Sum12 = StateFlowFinal_B.convert10 - StateFlowFinal_B.OffB;
 
-    /* MATLAB Function: '<S67>/Asse B conv brac1' */
-    /* MATLAB Function 'Sistema_braccia/Posizioni/Asse B conv brac1': '<S172>:1' */
-    /* '<S172>:1:2' */
+    /* MATLAB Function: '<S65>/Asse B conv brac1' */
+    /* MATLAB Function 'Sistema_braccia/Posizioni/Asse B conv brac1': '<S80>:1' */
+    /* '<S80>:1:2' */
     StateFlowFinal_B.pos_B_conv = StateFlowFinal_B.Sum12 * 6.2831853071795862 /
       16384.0 / 64.0;
 
-    /* Sum: '<S67>/Sum4' incorporates:
-     *  Constant: '<S67>/Constant4'
+    /* Sum: '<S65>/Sum4' incorporates:
+     *  Constant: '<S65>/Constant4'
      */
     StateFlowFinal_B.Sum4 = StateFlowFinal_B.pos_B_conv +
       StateFlowFinal_P.Constant4_Value;
 
-    /* Sum: '<S67>/Sum9' */
+    /* Sum: '<S65>/Sum9' */
     StateFlowFinal_B.Sum9 = StateFlowFinal_B.convert - StateFlowFinal_B.OffA;
 
-    /* MATLAB Function: '<S67>/Asse A conv bracc' */
-    /* MATLAB Function 'Sistema_braccia/Posizioni/Asse A conv bracc': '<S171>:1' */
-    /* '<S171>:1:2' */
+    /* MATLAB Function: '<S65>/Asse A conv bracc' */
+    /* MATLAB Function 'Sistema_braccia/Posizioni/Asse A conv bracc': '<S79>:1' */
+    /* '<S79>:1:2' */
     StateFlowFinal_B.pos_A_conv = StateFlowFinal_B.Sum9 * 6.2831853071795862 /
       16384.0 / 64.0;
 
-    /* Sum: '<S67>/Sum7' incorporates:
-     *  Constant: '<S67>/Constant5'
+    /* Sum: '<S65>/Sum7' incorporates:
+     *  Constant: '<S65>/Constant5'
      */
     StateFlowFinal_B.Sum7 = StateFlowFinal_B.pos_A_conv +
       StateFlowFinal_P.Constant5_Value;
 
-    /* S-Function (xpcethercatpdorx): '<S71>/EtherCAT PDO Receive15' */
+    /* S-Function (xpcethercatpdorx): '<S69>/EtherCAT PDO Receive15' */
 
-    /* Level2 S-Function Block: '<S71>/EtherCAT PDO Receive15' (xpcethercatpdorx) */
+    /* Level2 S-Function Block: '<S69>/EtherCAT PDO Receive15' (xpcethercatpdorx) */
     {
       SimStruct *rts = StateFlowFinal_M->childSfunctions[14];
       sfcnOutputs(rts,1);
     }
 
-    /* DataTypeConversion: '<S71>/Velocity B' */
+    /* DataTypeConversion: '<S69>/Velocity B' */
     StateFlowFinal_B.VelocityB = StateFlowFinal_B.EtherCATPDOReceive15;
 
-    /* MATLAB Function: '<S71>/Vel Asse B conv' */
-    /* MATLAB Function 'Sistema_braccia/Velocita braccia 1/Vel Asse B conv': '<S197>:1' */
-    /* '<S197>:1:2' */
+    /* MATLAB Function: '<S69>/Vel Asse B conv' */
+    /* MATLAB Function 'Sistema_braccia/Velocita braccia 1/Vel Asse B conv': '<S105>:1' */
+    /* '<S105>:1:2' */
     StateFlowFinal_B.vel_B_conv = StateFlowFinal_B.VelocityB *
       6.2831853071795862 / 163840.0 / 64.0;
 
-    /* S-Function (xpcethercatpdorx): '<S71>/EtherCAT PDO Receive14' */
+    /* S-Function (xpcethercatpdorx): '<S69>/EtherCAT PDO Receive14' */
 
-    /* Level2 S-Function Block: '<S71>/EtherCAT PDO Receive14' (xpcethercatpdorx) */
+    /* Level2 S-Function Block: '<S69>/EtherCAT PDO Receive14' (xpcethercatpdorx) */
     {
       SimStruct *rts = StateFlowFinal_M->childSfunctions[15];
       sfcnOutputs(rts,1);
     }
 
-    /* DataTypeConversion: '<S71>/Velocity A' */
+    /* DataTypeConversion: '<S69>/Velocity A' */
     StateFlowFinal_B.VelocityA = StateFlowFinal_B.EtherCATPDOReceive14;
 
-    /* MATLAB Function: '<S71>/Vel Asse A conv' */
-    /* MATLAB Function 'Sistema_braccia/Velocita braccia 1/Vel Asse A conv': '<S196>:1' */
-    /* '<S196>:1:2' */
+    /* MATLAB Function: '<S69>/Vel Asse A conv' */
+    /* MATLAB Function 'Sistema_braccia/Velocita braccia 1/Vel Asse A conv': '<S104>:1' */
+    /* '<S104>:1:2' */
     StateFlowFinal_B.vel_A_conv = StateFlowFinal_B.VelocityA *
       6.2831853071795862 / 163840.0 / 64.0;
 
-    /* MATLAB Function: '<S66>/Cinematica Inversa2' incorporates:
-     *  Constant: '<S66>/Constant'
-     *  Constant: '<S66>/Constant1'
+    /* MATLAB Function: '<S64>/Cinematica Inversa2' incorporates:
+     *  Constant: '<S64>/Constant'
+     *  Constant: '<S64>/Constant1'
      */
-    /* MATLAB Function 'Sistema_braccia/Pos iniziali/Cinematica Inversa2': '<S170>:1' */
-    /* '<S170>:1:3' */
-    /* '<S170>:1:4' */
-    /* '<S170>:1:6' */
+    /* MATLAB Function 'Sistema_braccia/Pos iniziali/Cinematica Inversa2': '<S78>:1' */
+    /* '<S78>:1:3' */
+    /* '<S78>:1:4' */
+    /* '<S78>:1:6' */
     x2 = sin(StateFlowFinal_P.Constant1_Value) - sin
       (StateFlowFinal_P.Constant_Value_b);
     J_p_idx_1 = -0.18 - (cos(StateFlowFinal_P.Constant1_Value) - cos
                          (StateFlowFinal_P.Constant_Value_b)) * 0.25;
     x2 = x2 * x2 * 0.0625 + J_p_idx_1 * J_p_idx_1;
 
-    /* '<S170>:1:7' */
+    /* '<S78>:1:7' */
     J_p_idx_3 = -0.18 - (cos(StateFlowFinal_P.Constant1_Value) - cos
                          (StateFlowFinal_P.Constant_Value_b)) * 0.25;
     x1 = ((-0.18 - (cos(StateFlowFinal_P.Constant1_Value) - cos
@@ -1608,14 +1990,14 @@ static void StateFlowFinal_output(void)
            (StateFlowFinal_P.Constant_Value_b))) - 0.5 * sin
       (StateFlowFinal_P.Constant1_Value) * (J_p_idx_3 * J_p_idx_3);
 
-    /* '<S170>:1:10' */
+    /* '<S78>:1:10' */
     x4 = cos(StateFlowFinal_P.Constant1_Value) + cos
       (StateFlowFinal_P.Constant_Value_b);
     x5 = -0.18 - (cos(StateFlowFinal_P.Constant1_Value) - cos
                   (StateFlowFinal_P.Constant_Value_b)) * 0.25;
 
     /*  Posizione Y end-effector */
-    /* '<S170>:1:14' */
+    /* '<S78>:1:14' */
     x2 = (sqrt(x1 * x1 - ((x4 * x4 * 0.00050625 - (-0.18 - (cos
                (StateFlowFinal_P.Constant1_Value) - cos
                (StateFlowFinal_P.Constant_Value_b)) * 0.25) * ((cos
@@ -1626,7 +2008,7 @@ static void StateFlowFinal_output(void)
             x2)) + -x1) / (2.0 * x2);
 
     /*  Posizione X end-effector */
-    /* '<S170>:1:16' */
+    /* '<S78>:1:16' */
     StateFlowFinal_B.x0 = (x2 * 0.25 * (sin(StateFlowFinal_P.Constant1_Value) -
       sin(StateFlowFinal_P.Constant_Value_b)) - (cos
       (StateFlowFinal_P.Constant1_Value) + cos(StateFlowFinal_P.Constant_Value_b))
@@ -1637,721 +2019,721 @@ static void StateFlowFinal_output(void)
     /* Sum: '<S53>/Sum2' */
     StateFlowFinal_B.Sum2 = StateFlowFinal_B.Clock - StateFlowFinal_B.OffT;
 
-    /* MATLAB Function: '<S58>/Quadrato' incorporates:
-     *  Constant: '<S58>/Alzata Q'
-     *  Constant: '<S58>/Periodo Q'
+    /* MATLAB Function: '<S56>/Quadrato' incorporates:
+     *  Constant: '<S56>/Alzata Q'
+     *  Constant: '<S56>/Periodo Q'
      */
-    /* MATLAB Function 'Sistema_braccia/Leggi di moto/Quadrato': '<S167>:1' */
-    /* '<S167>:1:2' */
-    /* '<S167>:1:3' */
-    /* '<S167>:1:4' */
+    /* MATLAB Function 'Sistema_braccia/Leggi di moto/Quadrato': '<S75>:1' */
+    /* '<S75>:1:2' */
+    /* '<S75>:1:3' */
+    /* '<S75>:1:4' */
     x1 = StateFlowFinal_B.Sum2 / (0.5 * StateFlowFinal_P.PeriodoQ_Value / 4.0);
 
-    /* '<S167>:1:5' */
+    /* '<S75>:1:5' */
     x2 = (StateFlowFinal_B.Sum2 - 0.5 * StateFlowFinal_P.PeriodoQ_Value / 4.0) /
       (StateFlowFinal_P.PeriodoQ_Value / 4.0);
 
-    /* '<S167>:1:6' */
+    /* '<S75>:1:6' */
     x3 = (StateFlowFinal_B.Sum2 - 1.5 * StateFlowFinal_P.PeriodoQ_Value / 4.0) /
       (StateFlowFinal_P.PeriodoQ_Value / 4.0);
 
-    /* '<S167>:1:7' */
+    /* '<S75>:1:7' */
     x4 = (StateFlowFinal_B.Sum2 - 2.5 * StateFlowFinal_P.PeriodoQ_Value / 4.0) /
       (StateFlowFinal_P.PeriodoQ_Value / 4.0);
 
-    /* '<S167>:1:8' */
+    /* '<S75>:1:8' */
     x5 = (StateFlowFinal_B.Sum2 - 3.5 * StateFlowFinal_P.PeriodoQ_Value / 4.0) /
       (0.5 * StateFlowFinal_P.PeriodoQ_Value / 4.0);
 
-    /* '<S167>:1:9' */
+    /* '<S75>:1:9' */
     /*  Ca = 1/(xv*(1-xv)); */
     /*  Cv = 1/(1-xv); */
     if ((StateFlowFinal_B.Sum2 > 0.0) && (StateFlowFinal_B.Sum2 <= 0.5 *
          StateFlowFinal_P.PeriodoQ_Value / 4.0)) {
-      /* '<S167>:1:14' */
+      /* '<S75>:1:14' */
       if ((x1 >= 0.0) && (x1 < 0.1)) {
-        /* '<S167>:1:16' */
+        /* '<S75>:1:16' */
         /* acc crescente positiva */
-        /* '<S167>:1:17' */
+        /* '<S75>:1:17' */
         G1 = 55.555555555555543 * x1;
 
-        /* '<S167>:1:18' */
+        /* '<S75>:1:18' */
         F = x1 * x1 * 27.777777777777771;
 
-        /* '<S167>:1:19' */
+        /* '<S75>:1:19' */
         x1 = 9.259259259259256 * StateFlowFinal_mpower(x1);
       } else if ((x1 >= 0.1) && (x1 < 0.30000000000000004)) {
-        /* '<S167>:1:22' */
+        /* '<S75>:1:22' */
         /* acc costante positiva */
-        /* '<S167>:1:23' */
+        /* '<S75>:1:23' */
         G1 = 5.5555555555555545;
 
-        /* '<S167>:1:24' */
+        /* '<S75>:1:24' */
         F = 5.5555555555555545 * x1 - 0.27777777777777773;
 
-        /* '<S167>:1:25' */
+        /* '<S75>:1:25' */
         x1 = (x1 * x1 * 2.7777777777777772 - 0.27777777777777773 * x1) +
           0.0092592592592592587;
       } else if ((x1 >= 0.30000000000000004) && (x1 < 0.4)) {
-        /* '<S167>:1:28' */
+        /* '<S75>:1:28' */
         /* acc decrescente positiva */
-        /* '<S167>:1:29' */
+        /* '<S75>:1:29' */
         G1 = -55.555555555555543 * x1 + 22.222222222222218;
 
-        /* '<S167>:1:30' */
+        /* '<S75>:1:30' */
         F = (x1 * x1 * -27.777777777777771 + 22.222222222222218 * x1) -
           2.7777777777777777;
 
-        /* '<S167>:1:31' */
+        /* '<S75>:1:31' */
         x1 = ((((x1 * x1 * 11.111111111111109 + -9.259259259259256 *
                  StateFlowFinal_mpower(x1)) - 2.7777777777777777 * x1) -
                0.44444444444444442) + 9.259259259259256 * StateFlowFinal_mpower
               (0.4)) + 0.1111111111111111;
       } else if ((x1 >= 0.4) && (x1 < 0.6)) {
-        /* '<S167>:1:35' */
+        /* '<S75>:1:35' */
         /* acc costante nulla */
-        /* '<S167>:1:36' */
+        /* '<S75>:1:36' */
         G1 = 0.0;
 
-        /* '<S167>:1:37' */
+        /* '<S75>:1:37' */
         F = 1.6666666666666665;
 
-        /* '<S167>:1:38' */
+        /* '<S75>:1:38' */
         x1 = (1.6666666666666665 * x1 - 0.44444444444444442) +
           0.1111111111111111;
       } else if ((x1 >= 0.6) && (x1 < 0.7)) {
-        /* '<S167>:1:41' */
+        /* '<S75>:1:41' */
         /* acc decrescente negativa */
-        /* '<S167>:1:42' */
+        /* '<S75>:1:42' */
         G1 = -55.555555555555543 * x1 + 33.333333333333321;
 
-        /* '<S167>:1:43' */
+        /* '<S75>:1:43' */
         F = ((x1 * x1 * -27.777777777777771 + 33.333333333333321 * x1) +
              1.6666666666666665) - 9.9999999999999982;
 
-        /* '<S167>:1:44' */
+        /* '<S75>:1:44' */
         x1 = (((((x1 * x1 * 16.666666666666661 + -9.259259259259256 *
                   StateFlowFinal_mpower(x1)) + 1.6666666666666665 * x1) -
                 9.9999999999999982 * x1) - 0.44444444444444442) +
               0.1111111111111111) + 9.259259259259256 * StateFlowFinal_mpower
           (0.6);
       } else if ((x1 >= 0.7) && (x1 < 0.9)) {
-        /* '<S167>:1:48' */
+        /* '<S75>:1:48' */
         /* acc costante negativa */
-        /* '<S167>:1:49' */
+        /* '<S75>:1:49' */
         G1 = -5.5555555555555545;
 
-        /* '<S167>:1:50' */
+        /* '<S75>:1:50' */
         F = (-5.5555555555555545 * x1 + 5.5555555555555545) -
           0.27777777777777773;
 
-        /* '<S167>:1:51' */
+        /* '<S75>:1:51' */
         x1 = (((x1 * x1 * -2.7777777777777772 + 5.5555555555555545 * x1) -
                0.27777777777777773 * x1) + 1.0) - 2.5092592592592586;
       } else if ((x1 >= 0.9) && (x1 <= 1.0)) {
-        /* '<S167>:1:54' */
+        /* '<S75>:1:54' */
         /* acc crescente negativa */
-        /* '<S167>:1:55' */
+        /* '<S75>:1:55' */
         G1 = (x1 - 1.0) * 55.555555555555543;
 
-        /* '<S167>:1:56' */
+        /* '<S75>:1:56' */
         F = (x1 * x1 * 27.777777777777771 - 55.555555555555543 * x1) +
           27.777777777777771;
 
-        /* '<S167>:1:57' */
+        /* '<S75>:1:57' */
         x1 = (((9.259259259259256 * StateFlowFinal_mpower(x1) - x1 * x1 *
                 27.777777777777771) + 27.777777777777771 * x1) + 1.0) -
           9.259259259259256;
       } else {
         /* acc costante nulla */
-        /* '<S167>:1:61' */
+        /* '<S75>:1:61' */
         G1 = 0.0;
 
-        /* '<S167>:1:62' */
+        /* '<S75>:1:62' */
         F = 0.0;
 
-        /* '<S167>:1:63' */
+        /* '<S75>:1:63' */
         x1 = 1.0;
       }
 
-      /* '<S167>:1:66' */
+      /* '<S75>:1:66' */
       StateFlowFinal_B.xq = x1 * StateFlowFinal_P.AlzataQ_Value / 2.0;
 
-      /* '<S167>:1:67' */
+      /* '<S75>:1:67' */
       StateFlowFinal_B.xq_p = StateFlowFinal_P.AlzataQ_Value / 2.0 * F /
         (StateFlowFinal_P.PeriodoQ_Value / 4.0);
 
-      /* '<S167>:1:68' */
+      /* '<S75>:1:68' */
       StateFlowFinal_B.yq = 0.0;
 
-      /* '<S167>:1:69' */
+      /* '<S75>:1:69' */
       StateFlowFinal_B.yq_p = 0.0;
 
-      /* '<S167>:1:70' */
+      /* '<S75>:1:70' */
       x2 = StateFlowFinal_P.PeriodoQ_Value / 4.0;
       StateFlowFinal_B.xq_pp = StateFlowFinal_P.AlzataQ_Value / 2.0 * G1 / (x2 *
         x2);
 
-      /* '<S167>:1:71' */
+      /* '<S75>:1:71' */
       StateFlowFinal_B.yq_pp = 0.0;
     } else if ((StateFlowFinal_B.Sum2 > 0.5 * StateFlowFinal_P.PeriodoQ_Value /
                 4.0) && (StateFlowFinal_B.Sum2 <= 1.5 *
                          StateFlowFinal_P.PeriodoQ_Value / 4.0)) {
-      /* '<S167>:1:73' */
-      /* '<S167>:1:74' */
+      /* '<S75>:1:73' */
+      /* '<S75>:1:74' */
       /*  Cj = Ca/xj; */
       if ((x2 >= 0.0) && (x2 < 0.1)) {
-        /* '<S167>:1:77' */
+        /* '<S75>:1:77' */
         /* acc crescente positiva */
-        /* '<S167>:1:78' */
+        /* '<S75>:1:78' */
         G1 = 55.555555555555543 * x2;
 
-        /* '<S167>:1:79' */
+        /* '<S75>:1:79' */
         F = x2 * x2 * 27.777777777777771;
 
-        /* '<S167>:1:80' */
+        /* '<S75>:1:80' */
         x1 = 9.259259259259256 * StateFlowFinal_mpower(x2);
       } else if ((x2 >= 0.1) && (x2 < 0.30000000000000004)) {
-        /* '<S167>:1:83' */
+        /* '<S75>:1:83' */
         /* acc costante positiva */
-        /* '<S167>:1:84' */
+        /* '<S75>:1:84' */
         G1 = 5.5555555555555545;
 
-        /* '<S167>:1:85' */
+        /* '<S75>:1:85' */
         F = 5.5555555555555545 * x2 - 0.27777777777777773;
 
-        /* '<S167>:1:86' */
+        /* '<S75>:1:86' */
         x1 = (x2 * x2 * 2.7777777777777772 - 0.27777777777777773 * x2) +
           0.0092592592592592587;
       } else if ((x2 >= 0.30000000000000004) && (x2 < 0.4)) {
-        /* '<S167>:1:89' */
+        /* '<S75>:1:89' */
         /* acc decrescente positiva */
-        /* '<S167>:1:90' */
+        /* '<S75>:1:90' */
         G1 = -55.555555555555543 * x2 + 22.222222222222218;
 
-        /* '<S167>:1:91' */
+        /* '<S75>:1:91' */
         F = (x2 * x2 * -27.777777777777771 + 22.222222222222218 * x2) -
           2.7777777777777777;
 
-        /* '<S167>:1:92' */
+        /* '<S75>:1:92' */
         x1 = ((((x2 * x2 * 11.111111111111109 + -9.259259259259256 *
                  StateFlowFinal_mpower(x2)) - 2.7777777777777777 * x2) -
                0.44444444444444442) + 9.259259259259256 * StateFlowFinal_mpower
               (0.4)) + 0.1111111111111111;
       } else if ((x2 >= 0.4) && (x2 < 0.6)) {
-        /* '<S167>:1:96' */
+        /* '<S75>:1:96' */
         /* acc costante nulla */
-        /* '<S167>:1:97' */
+        /* '<S75>:1:97' */
         G1 = 0.0;
 
-        /* '<S167>:1:98' */
+        /* '<S75>:1:98' */
         F = 1.6666666666666665;
 
-        /* '<S167>:1:99' */
+        /* '<S75>:1:99' */
         x1 = (1.6666666666666665 * x2 - 0.44444444444444442) +
           0.1111111111111111;
       } else if ((x2 >= 0.6) && (x2 < 0.7)) {
-        /* '<S167>:1:102' */
+        /* '<S75>:1:102' */
         /* acc decrescente negativa */
-        /* '<S167>:1:103' */
+        /* '<S75>:1:103' */
         G1 = -55.555555555555543 * x2 + 33.333333333333321;
 
-        /* '<S167>:1:104' */
+        /* '<S75>:1:104' */
         F = ((x2 * x2 * -27.777777777777771 + 33.333333333333321 * x2) +
              1.6666666666666665) - 9.9999999999999982;
 
-        /* '<S167>:1:105' */
+        /* '<S75>:1:105' */
         x1 = (((((x2 * x2 * 16.666666666666661 + -9.259259259259256 *
                   StateFlowFinal_mpower(x2)) + 1.6666666666666665 * x2) -
                 9.9999999999999982 * x2) - 0.44444444444444442) +
               0.1111111111111111) + 9.259259259259256 * StateFlowFinal_mpower
           (0.6);
       } else if ((x2 >= 0.7) && (x2 < 0.9)) {
-        /* '<S167>:1:109' */
+        /* '<S75>:1:109' */
         /* acc costante negativa */
-        /* '<S167>:1:110' */
+        /* '<S75>:1:110' */
         G1 = -5.5555555555555545;
 
-        /* '<S167>:1:111' */
+        /* '<S75>:1:111' */
         F = (-5.5555555555555545 * x2 + 5.5555555555555545) -
           0.27777777777777773;
 
-        /* '<S167>:1:112' */
+        /* '<S75>:1:112' */
         x1 = (((x2 * x2 * -2.7777777777777772 + 5.5555555555555545 * x2) -
                0.27777777777777773 * x2) + 1.0) - 2.5092592592592586;
       } else if ((x2 >= 0.9) && (x2 <= 1.0)) {
-        /* '<S167>:1:115' */
+        /* '<S75>:1:115' */
         /* acc crescente negativa */
-        /* '<S167>:1:116' */
+        /* '<S75>:1:116' */
         G1 = (x2 - 1.0) * 55.555555555555543;
 
-        /* '<S167>:1:117' */
+        /* '<S75>:1:117' */
         F = (x2 * x2 * 27.777777777777771 - 55.555555555555543 * x2) +
           27.777777777777771;
 
-        /* '<S167>:1:118' */
+        /* '<S75>:1:118' */
         x1 = (((9.259259259259256 * StateFlowFinal_mpower(x2) - x2 * x2 *
                 27.777777777777771) + 27.777777777777771 * x2) + 1.0) -
           9.259259259259256;
       } else {
         /* acc costante nulla */
-        /* '<S167>:1:122' */
+        /* '<S75>:1:122' */
         G1 = 0.0;
 
-        /* '<S167>:1:123' */
+        /* '<S75>:1:123' */
         F = 0.0;
 
-        /* '<S167>:1:124' */
+        /* '<S75>:1:124' */
         x1 = 1.0;
       }
 
-      /* '<S167>:1:127' */
+      /* '<S75>:1:127' */
       StateFlowFinal_B.xq = StateFlowFinal_P.AlzataQ_Value / 2.0;
 
-      /* '<S167>:1:128' */
+      /* '<S75>:1:128' */
       StateFlowFinal_B.xq_p = 0.0;
 
-      /* '<S167>:1:129' */
+      /* '<S75>:1:129' */
       StateFlowFinal_B.yq = -x1 * StateFlowFinal_P.AlzataQ_Value;
 
-      /* '<S167>:1:130' */
+      /* '<S75>:1:130' */
       StateFlowFinal_B.yq_p = -F * StateFlowFinal_P.AlzataQ_Value /
         (StateFlowFinal_P.PeriodoQ_Value / 4.0);
 
-      /* '<S167>:1:131' */
+      /* '<S75>:1:131' */
       StateFlowFinal_B.xq_pp = 0.0;
 
-      /* '<S167>:1:132' */
+      /* '<S75>:1:132' */
       x2 = StateFlowFinal_P.PeriodoQ_Value / 4.0;
       StateFlowFinal_B.yq_pp = StateFlowFinal_P.AlzataQ_Value / 2.0 * -G1 / (x2 *
         x2);
     } else if ((StateFlowFinal_B.Sum2 > 1.5 * StateFlowFinal_P.PeriodoQ_Value /
                 4.0) && (StateFlowFinal_B.Sum2 <= 2.5 *
                          StateFlowFinal_P.PeriodoQ_Value / 4.0)) {
-      /* '<S167>:1:134' */
-      /* '<S167>:1:135' */
+      /* '<S75>:1:134' */
+      /* '<S75>:1:135' */
       /*  Cj = Ca/xj; */
       if ((x3 >= 0.0) && (x3 < 0.1)) {
-        /* '<S167>:1:138' */
+        /* '<S75>:1:138' */
         /* acc crescente positiva */
-        /* '<S167>:1:139' */
+        /* '<S75>:1:139' */
         G1 = 55.555555555555543 * x3;
 
-        /* '<S167>:1:140' */
+        /* '<S75>:1:140' */
         F = x3 * x3 * 27.777777777777771;
 
-        /* '<S167>:1:141' */
+        /* '<S75>:1:141' */
         x1 = 9.259259259259256 * StateFlowFinal_mpower(x3);
       } else if ((x3 >= 0.1) && (x3 < 0.30000000000000004)) {
-        /* '<S167>:1:144' */
+        /* '<S75>:1:144' */
         /* acc costante positiva */
-        /* '<S167>:1:145' */
+        /* '<S75>:1:145' */
         G1 = 5.5555555555555545;
 
-        /* '<S167>:1:146' */
+        /* '<S75>:1:146' */
         F = 5.5555555555555545 * x3 - 0.27777777777777773;
 
-        /* '<S167>:1:147' */
+        /* '<S75>:1:147' */
         x1 = (x3 * x3 * 2.7777777777777772 - 0.27777777777777773 * x3) +
           0.0092592592592592587;
       } else if ((x3 >= 0.30000000000000004) && (x3 < 0.4)) {
-        /* '<S167>:1:150' */
+        /* '<S75>:1:150' */
         /* acc decrescente positiva */
-        /* '<S167>:1:151' */
+        /* '<S75>:1:151' */
         G1 = -55.555555555555543 * x3 + 22.222222222222218;
 
-        /* '<S167>:1:152' */
+        /* '<S75>:1:152' */
         F = (x3 * x3 * -27.777777777777771 + 22.222222222222218 * x3) -
           2.7777777777777777;
 
-        /* '<S167>:1:153' */
+        /* '<S75>:1:153' */
         x1 = ((((x3 * x3 * 11.111111111111109 + -9.259259259259256 *
                  StateFlowFinal_mpower(x3)) - 2.7777777777777777 * x3) -
                0.44444444444444442) + 9.259259259259256 * StateFlowFinal_mpower
               (0.4)) + 0.1111111111111111;
       } else if ((x3 >= 0.4) && (x3 < 0.6)) {
-        /* '<S167>:1:157' */
+        /* '<S75>:1:157' */
         /* acc costante nulla */
-        /* '<S167>:1:158' */
+        /* '<S75>:1:158' */
         G1 = 0.0;
 
-        /* '<S167>:1:159' */
+        /* '<S75>:1:159' */
         F = 1.6666666666666665;
 
-        /* '<S167>:1:160' */
+        /* '<S75>:1:160' */
         x1 = (1.6666666666666665 * x3 - 0.44444444444444442) +
           0.1111111111111111;
       } else if ((x3 >= 0.6) && (x3 < 0.7)) {
-        /* '<S167>:1:163' */
+        /* '<S75>:1:163' */
         /* acc decrescente negativa */
-        /* '<S167>:1:164' */
+        /* '<S75>:1:164' */
         G1 = -55.555555555555543 * x3 + 33.333333333333321;
 
-        /* '<S167>:1:165' */
+        /* '<S75>:1:165' */
         F = ((x3 * x3 * -27.777777777777771 + 33.333333333333321 * x3) +
              1.6666666666666665) - 9.9999999999999982;
 
-        /* '<S167>:1:166' */
+        /* '<S75>:1:166' */
         x1 = (((((x3 * x3 * 16.666666666666661 + -9.259259259259256 *
                   StateFlowFinal_mpower(x3)) + 1.6666666666666665 * x3) -
                 9.9999999999999982 * x3) - 0.44444444444444442) +
               0.1111111111111111) + 9.259259259259256 * StateFlowFinal_mpower
           (0.6);
       } else if ((x3 >= 0.7) && (x3 < 0.9)) {
-        /* '<S167>:1:170' */
+        /* '<S75>:1:170' */
         /* acc costante negativa */
-        /* '<S167>:1:171' */
+        /* '<S75>:1:171' */
         G1 = -5.5555555555555545;
 
-        /* '<S167>:1:172' */
+        /* '<S75>:1:172' */
         F = (-5.5555555555555545 * x3 + 5.5555555555555545) -
           0.27777777777777773;
 
-        /* '<S167>:1:173' */
+        /* '<S75>:1:173' */
         x1 = (((x3 * x3 * -2.7777777777777772 + 5.5555555555555545 * x3) -
                0.27777777777777773 * x3) + 1.0) - 2.5092592592592586;
       } else if ((x3 >= 0.9) && (x3 <= 1.0)) {
-        /* '<S167>:1:176' */
+        /* '<S75>:1:176' */
         /* acc crescente negativa */
-        /* '<S167>:1:177' */
+        /* '<S75>:1:177' */
         G1 = (x3 - 1.0) * 55.555555555555543;
 
-        /* '<S167>:1:178' */
+        /* '<S75>:1:178' */
         F = (x3 * x3 * 27.777777777777771 - 55.555555555555543 * x3) +
           27.777777777777771;
 
-        /* '<S167>:1:179' */
+        /* '<S75>:1:179' */
         x1 = (((9.259259259259256 * StateFlowFinal_mpower(x3) - x3 * x3 *
                 27.777777777777771) + 27.777777777777771 * x3) + 1.0) -
           9.259259259259256;
       } else {
         /* acc costante nulla */
-        /* '<S167>:1:183' */
+        /* '<S75>:1:183' */
         G1 = 0.0;
 
-        /* '<S167>:1:184' */
+        /* '<S75>:1:184' */
         F = 0.0;
 
-        /* '<S167>:1:185' */
+        /* '<S75>:1:185' */
         x1 = 1.0;
       }
 
-      /* '<S167>:1:188' */
+      /* '<S75>:1:188' */
       StateFlowFinal_B.xq = StateFlowFinal_P.AlzataQ_Value / 2.0 - x1 *
         StateFlowFinal_P.AlzataQ_Value;
 
-      /* '<S167>:1:189' */
+      /* '<S75>:1:189' */
       StateFlowFinal_B.xq_p = -F * StateFlowFinal_P.AlzataQ_Value /
         (StateFlowFinal_P.PeriodoQ_Value / 4.0);
 
-      /* '<S167>:1:190' */
+      /* '<S75>:1:190' */
       StateFlowFinal_B.yq = -StateFlowFinal_P.AlzataQ_Value;
 
-      /* '<S167>:1:191' */
+      /* '<S75>:1:191' */
       StateFlowFinal_B.yq_p = 0.0;
 
-      /* '<S167>:1:192' */
+      /* '<S75>:1:192' */
       x2 = StateFlowFinal_P.PeriodoQ_Value / 4.0;
       StateFlowFinal_B.xq_pp = StateFlowFinal_P.AlzataQ_Value / 2.0 * -G1 / (x2 *
         x2);
 
-      /* '<S167>:1:193' */
+      /* '<S75>:1:193' */
       StateFlowFinal_B.yq_pp = 0.0;
     } else if ((StateFlowFinal_B.Sum2 > 2.5 * StateFlowFinal_P.PeriodoQ_Value /
                 4.0) && (StateFlowFinal_B.Sum2 <= 3.5 *
                          StateFlowFinal_P.PeriodoQ_Value / 4.0)) {
-      /* '<S167>:1:195' */
-      /* '<S167>:1:196' */
+      /* '<S75>:1:195' */
+      /* '<S75>:1:196' */
       /*  Cj = Ca/xj; */
       if ((x4 >= 0.0) && (x4 < 0.1)) {
-        /* '<S167>:1:199' */
+        /* '<S75>:1:199' */
         /* acc crescente positiva */
-        /* '<S167>:1:200' */
+        /* '<S75>:1:200' */
         G1 = 55.555555555555543 * x4;
 
-        /* '<S167>:1:201' */
+        /* '<S75>:1:201' */
         F = x4 * x4 * 27.777777777777771;
 
-        /* '<S167>:1:202' */
+        /* '<S75>:1:202' */
         x1 = 9.259259259259256 * StateFlowFinal_mpower(x4);
       } else if ((x4 >= 0.1) && (x4 < 0.30000000000000004)) {
-        /* '<S167>:1:205' */
+        /* '<S75>:1:205' */
         /* acc costante positiva */
-        /* '<S167>:1:206' */
+        /* '<S75>:1:206' */
         G1 = 5.5555555555555545;
 
-        /* '<S167>:1:207' */
+        /* '<S75>:1:207' */
         F = 5.5555555555555545 * x4 - 0.27777777777777773;
 
-        /* '<S167>:1:208' */
+        /* '<S75>:1:208' */
         x1 = (x4 * x4 * 2.7777777777777772 - 0.27777777777777773 * x4) +
           0.0092592592592592587;
       } else if ((x4 >= 0.30000000000000004) && (x4 < 0.4)) {
-        /* '<S167>:1:211' */
+        /* '<S75>:1:211' */
         /* acc decrescente positiva */
-        /* '<S167>:1:212' */
+        /* '<S75>:1:212' */
         G1 = -55.555555555555543 * x4 + 22.222222222222218;
 
-        /* '<S167>:1:213' */
+        /* '<S75>:1:213' */
         F = (x4 * x4 * -27.777777777777771 + 22.222222222222218 * x4) -
           2.7777777777777777;
 
-        /* '<S167>:1:214' */
+        /* '<S75>:1:214' */
         x1 = ((((x4 * x4 * 11.111111111111109 + -9.259259259259256 *
                  StateFlowFinal_mpower(x4)) - 2.7777777777777777 * x4) -
                0.44444444444444442) + 9.259259259259256 * StateFlowFinal_mpower
               (0.4)) + 0.1111111111111111;
       } else if ((x4 >= 0.4) && (x4 < 0.6)) {
-        /* '<S167>:1:218' */
+        /* '<S75>:1:218' */
         /* acc costante nulla */
-        /* '<S167>:1:219' */
+        /* '<S75>:1:219' */
         G1 = 0.0;
 
-        /* '<S167>:1:220' */
+        /* '<S75>:1:220' */
         F = 1.6666666666666665;
 
-        /* '<S167>:1:221' */
+        /* '<S75>:1:221' */
         x1 = (1.6666666666666665 * x4 - 0.44444444444444442) +
           0.1111111111111111;
       } else if ((x4 >= 0.6) && (x4 < 0.7)) {
-        /* '<S167>:1:224' */
+        /* '<S75>:1:224' */
         /* acc decrescente negativa */
-        /* '<S167>:1:225' */
+        /* '<S75>:1:225' */
         G1 = -55.555555555555543 * x4 + 33.333333333333321;
 
-        /* '<S167>:1:226' */
+        /* '<S75>:1:226' */
         F = ((x4 * x4 * -27.777777777777771 + 33.333333333333321 * x4) +
              1.6666666666666665) - 9.9999999999999982;
 
-        /* '<S167>:1:227' */
+        /* '<S75>:1:227' */
         x1 = (((((x4 * x4 * 16.666666666666661 + -9.259259259259256 *
                   StateFlowFinal_mpower(x4)) + 1.6666666666666665 * x4) -
                 9.9999999999999982 * x4) - 0.44444444444444442) +
               0.1111111111111111) + 9.259259259259256 * StateFlowFinal_mpower
           (0.6);
       } else if ((x4 >= 0.7) && (x4 < 0.9)) {
-        /* '<S167>:1:231' */
+        /* '<S75>:1:231' */
         /* acc costante negativa */
-        /* '<S167>:1:232' */
+        /* '<S75>:1:232' */
         G1 = -5.5555555555555545;
 
-        /* '<S167>:1:233' */
+        /* '<S75>:1:233' */
         F = (-5.5555555555555545 * x4 + 5.5555555555555545) -
           0.27777777777777773;
 
-        /* '<S167>:1:234' */
+        /* '<S75>:1:234' */
         x1 = (((x4 * x4 * -2.7777777777777772 + 5.5555555555555545 * x4) -
                0.27777777777777773 * x4) + 1.0) - 2.5092592592592586;
       } else if ((x4 >= 0.9) && (x4 <= 1.0)) {
-        /* '<S167>:1:237' */
+        /* '<S75>:1:237' */
         /* acc crescente negativa */
-        /* '<S167>:1:238' */
+        /* '<S75>:1:238' */
         G1 = (x4 - 1.0) * 55.555555555555543;
 
-        /* '<S167>:1:239' */
+        /* '<S75>:1:239' */
         F = (x4 * x4 * 27.777777777777771 - 55.555555555555543 * x4) +
           27.777777777777771;
 
-        /* '<S167>:1:240' */
+        /* '<S75>:1:240' */
         x1 = (((9.259259259259256 * StateFlowFinal_mpower(x4) - x4 * x4 *
                 27.777777777777771) + 27.777777777777771 * x4) + 1.0) -
           9.259259259259256;
       } else {
         /* acc costante nulla */
-        /* '<S167>:1:244' */
+        /* '<S75>:1:244' */
         G1 = 0.0;
 
-        /* '<S167>:1:245' */
+        /* '<S75>:1:245' */
         F = 0.0;
 
-        /* '<S167>:1:246' */
+        /* '<S75>:1:246' */
         x1 = 1.0;
       }
 
-      /* '<S167>:1:249' */
+      /* '<S75>:1:249' */
       StateFlowFinal_B.xq = -StateFlowFinal_P.AlzataQ_Value / 2.0;
 
-      /* '<S167>:1:250' */
+      /* '<S75>:1:250' */
       StateFlowFinal_B.xq_p = 0.0;
 
-      /* '<S167>:1:251' */
+      /* '<S75>:1:251' */
       StateFlowFinal_B.yq = x1 * StateFlowFinal_P.AlzataQ_Value +
         -StateFlowFinal_P.AlzataQ_Value;
 
-      /* '<S167>:1:252' */
+      /* '<S75>:1:252' */
       StateFlowFinal_B.yq_p = F * StateFlowFinal_P.AlzataQ_Value /
         (StateFlowFinal_P.PeriodoQ_Value / 4.0);
 
-      /* '<S167>:1:253' */
+      /* '<S75>:1:253' */
       StateFlowFinal_B.xq_pp = 0.0;
 
-      /* '<S167>:1:254' */
+      /* '<S75>:1:254' */
       x2 = StateFlowFinal_P.PeriodoQ_Value / 4.0;
       StateFlowFinal_B.yq_pp = StateFlowFinal_P.AlzataQ_Value / 2.0 * G1 / (x2 *
         x2);
     } else if ((StateFlowFinal_B.Sum2 > 3.5 * StateFlowFinal_P.PeriodoQ_Value /
                 4.0) && (StateFlowFinal_B.Sum2 <= 4.0 *
                          StateFlowFinal_P.PeriodoQ_Value / 4.0)) {
-      /* '<S167>:1:256' */
-      /* '<S167>:1:257' */
+      /* '<S75>:1:256' */
+      /* '<S75>:1:257' */
       /*  Cj = Ca/xj; */
       if ((x5 >= 0.0) && (x5 < 0.1)) {
-        /* '<S167>:1:260' */
+        /* '<S75>:1:260' */
         /* acc crescente positiva */
-        /* '<S167>:1:261' */
+        /* '<S75>:1:261' */
         G1 = 55.555555555555543 * x5;
 
-        /* '<S167>:1:262' */
+        /* '<S75>:1:262' */
         F = x5 * x5 * 27.777777777777771;
 
-        /* '<S167>:1:263' */
+        /* '<S75>:1:263' */
         x1 = 9.259259259259256 * StateFlowFinal_mpower(x5);
       } else if ((x5 >= 0.1) && (x5 < 0.30000000000000004)) {
-        /* '<S167>:1:266' */
+        /* '<S75>:1:266' */
         /* acc costante positiva */
-        /* '<S167>:1:267' */
+        /* '<S75>:1:267' */
         G1 = 5.5555555555555545;
 
-        /* '<S167>:1:268' */
+        /* '<S75>:1:268' */
         F = 5.5555555555555545 * x5 - 0.27777777777777773;
 
-        /* '<S167>:1:269' */
+        /* '<S75>:1:269' */
         x1 = (x5 * x5 * 2.7777777777777772 - 0.27777777777777773 * x5) +
           0.0092592592592592587;
       } else if ((x5 >= 0.30000000000000004) && (x5 < 0.4)) {
-        /* '<S167>:1:272' */
+        /* '<S75>:1:272' */
         /* acc decrescente positiva */
-        /* '<S167>:1:273' */
+        /* '<S75>:1:273' */
         G1 = -55.555555555555543 * x5 + 22.222222222222218;
 
-        /* '<S167>:1:274' */
+        /* '<S75>:1:274' */
         F = (x5 * x5 * -27.777777777777771 + 22.222222222222218 * x5) -
           2.7777777777777777;
 
-        /* '<S167>:1:275' */
+        /* '<S75>:1:275' */
         x1 = ((((x5 * x5 * 11.111111111111109 + -9.259259259259256 *
                  StateFlowFinal_mpower(x5)) - 2.7777777777777777 * x5) -
                0.44444444444444442) + 9.259259259259256 * StateFlowFinal_mpower
               (0.4)) + 0.1111111111111111;
       } else if ((x5 >= 0.4) && (x5 < 0.6)) {
-        /* '<S167>:1:279' */
+        /* '<S75>:1:279' */
         /* acc costante nulla */
-        /* '<S167>:1:280' */
+        /* '<S75>:1:280' */
         G1 = 0.0;
 
-        /* '<S167>:1:281' */
+        /* '<S75>:1:281' */
         F = 1.6666666666666665;
 
-        /* '<S167>:1:282' */
+        /* '<S75>:1:282' */
         x1 = (1.6666666666666665 * x5 - 0.44444444444444442) +
           0.1111111111111111;
       } else if ((x5 >= 0.6) && (x5 < 0.7)) {
-        /* '<S167>:1:285' */
+        /* '<S75>:1:285' */
         /* acc decrescente negativa */
-        /* '<S167>:1:286' */
+        /* '<S75>:1:286' */
         G1 = -55.555555555555543 * x5 + 33.333333333333321;
 
-        /* '<S167>:1:287' */
+        /* '<S75>:1:287' */
         F = ((x5 * x5 * -27.777777777777771 + 33.333333333333321 * x5) +
              1.6666666666666665) - 9.9999999999999982;
 
-        /* '<S167>:1:288' */
+        /* '<S75>:1:288' */
         x1 = (((((x5 * x5 * 16.666666666666661 + -9.259259259259256 *
                   StateFlowFinal_mpower(x5)) + 1.6666666666666665 * x5) -
                 9.9999999999999982 * x5) - 0.44444444444444442) +
               0.1111111111111111) + 9.259259259259256 * StateFlowFinal_mpower
           (0.6);
       } else if ((x5 >= 0.7) && (x5 < 0.9)) {
-        /* '<S167>:1:292' */
+        /* '<S75>:1:292' */
         /* acc costante negativa */
-        /* '<S167>:1:293' */
+        /* '<S75>:1:293' */
         G1 = -5.5555555555555545;
 
-        /* '<S167>:1:294' */
+        /* '<S75>:1:294' */
         F = (-5.5555555555555545 * x5 + 5.5555555555555545) -
           0.27777777777777773;
 
-        /* '<S167>:1:295' */
+        /* '<S75>:1:295' */
         x1 = (((x5 * x5 * -2.7777777777777772 + 5.5555555555555545 * x5) -
                0.27777777777777773 * x5) + 1.0) - 2.5092592592592586;
       } else if ((x5 >= 0.9) && (x5 <= 1.0)) {
-        /* '<S167>:1:298' */
+        /* '<S75>:1:298' */
         /* acc crescente negativa */
-        /* '<S167>:1:299' */
+        /* '<S75>:1:299' */
         G1 = (x5 - 1.0) * 55.555555555555543;
 
-        /* '<S167>:1:300' */
+        /* '<S75>:1:300' */
         F = (x5 * x5 * 27.777777777777771 - 55.555555555555543 * x5) +
           27.777777777777771;
 
-        /* '<S167>:1:301' */
+        /* '<S75>:1:301' */
         x1 = (((9.259259259259256 * StateFlowFinal_mpower(x5) - x5 * x5 *
                 27.777777777777771) + 27.777777777777771 * x5) + 1.0) -
           9.259259259259256;
       } else {
         /* acc costante nulla */
-        /* '<S167>:1:305' */
+        /* '<S75>:1:305' */
         G1 = 0.0;
 
-        /* '<S167>:1:306' */
+        /* '<S75>:1:306' */
         F = 0.0;
 
-        /* '<S167>:1:307' */
+        /* '<S75>:1:307' */
         x1 = 1.0;
       }
 
-      /* '<S167>:1:310' */
+      /* '<S75>:1:310' */
       StateFlowFinal_B.xq = x1 * StateFlowFinal_P.AlzataQ_Value / 2.0 +
         -StateFlowFinal_P.AlzataQ_Value / 2.0;
 
-      /* '<S167>:1:311' */
+      /* '<S75>:1:311' */
       StateFlowFinal_B.xq_p = F * StateFlowFinal_P.AlzataQ_Value / 2.0 /
         (StateFlowFinal_P.PeriodoQ_Value / 4.0);
 
-      /* '<S167>:1:312' */
+      /* '<S75>:1:312' */
       StateFlowFinal_B.yq = 0.0;
 
-      /* '<S167>:1:313' */
+      /* '<S75>:1:313' */
       StateFlowFinal_B.yq_p = 0.0;
 
-      /* '<S167>:1:314' */
-      x1 = StateFlowFinal_P.PeriodoQ_Value / 4.0;
-      StateFlowFinal_B.xq_pp = StateFlowFinal_P.AlzataQ_Value / 2.0 * G1 / (x1 *
-        x1);
+      /* '<S75>:1:314' */
+      x2 = StateFlowFinal_P.PeriodoQ_Value / 4.0;
+      StateFlowFinal_B.xq_pp = StateFlowFinal_P.AlzataQ_Value / 2.0 * G1 / (x2 *
+        x2);
 
-      /* '<S167>:1:315' */
+      /* '<S75>:1:315' */
       StateFlowFinal_B.yq_pp = 0.0;
     } else {
-      /* '<S167>:1:317' */
+      /* '<S75>:1:317' */
       StateFlowFinal_B.xq = 0.0;
 
-      /* '<S167>:1:318' */
+      /* '<S75>:1:318' */
       StateFlowFinal_B.yq = 0.0;
 
-      /* '<S167>:1:319' */
+      /* '<S75>:1:319' */
       StateFlowFinal_B.xq_p = 0.0;
 
-      /* '<S167>:1:320' */
+      /* '<S75>:1:320' */
       StateFlowFinal_B.yq_p = 0.0;
 
-      /* '<S167>:1:321' */
+      /* '<S75>:1:321' */
       StateFlowFinal_B.xq_pp = 0.0;
 
-      /* '<S167>:1:322' */
+      /* '<S75>:1:322' */
       StateFlowFinal_B.yq_pp = 0.0;
     }
 
-    /* End of MATLAB Function: '<S58>/Quadrato' */
+    /* End of MATLAB Function: '<S56>/Quadrato' */
 
-    /* MATLAB Function: '<S58>/Cerchio' incorporates:
-     *  Constant: '<S58>/Alzata C'
-     *  Constant: '<S58>/Periodo C'
+    /* MATLAB Function: '<S56>/Cerchio' incorporates:
+     *  Constant: '<S56>/Alzata C'
+     *  Constant: '<S56>/Periodo C'
      */
-    /* MATLAB Function 'Sistema_braccia/Leggi di moto/Cerchio': '<S166>:1' */
-    /* '<S166>:1:3' */
+    /* MATLAB Function 'Sistema_braccia/Leggi di moto/Cerchio': '<S74>:1' */
+    /* '<S74>:1:3' */
     x4 = StateFlowFinal_B.Sum2 / StateFlowFinal_P.PeriodoC_Value;
 
-    /* '<S166>:1:4' */
+    /* '<S74>:1:4' */
     if ((x4 >= 0.0) && (x4 < 0.1)) {
       /* acc crescente positiva */
       F = x4 * x4 * 27.777777777777771;
@@ -2405,1671 +2787,1671 @@ static void StateFlowFinal_output(void)
       G1 = 0.0;
     }
 
-    /* '<S166>:1:6' */
+    /* '<S74>:1:6' */
     x1 = x1 * 2.0 * 3.1415926535897931;
 
-    /* '<S166>:1:7' */
+    /* '<S74>:1:7' */
     F = F * 2.0 * 3.1415926535897931 / StateFlowFinal_P.PeriodoC_Value;
 
-    /* '<S166>:1:8' */
+    /* '<S74>:1:8' */
     x3 = G1 * 2.0 * 3.1415926535897931 / (StateFlowFinal_P.PeriodoC_Value *
       StateFlowFinal_P.PeriodoC_Value);
 
-    /* '<S166>:1:9' */
+    /* '<S74>:1:9' */
     StateFlowFinal_B.xc = cos(1.5707963267948966 - x1) *
       StateFlowFinal_P.AlzataC_Value;
 
-    /* '<S166>:1:10' */
+    /* '<S74>:1:10' */
     StateFlowFinal_B.yc = sin(1.5707963267948966 - x1) *
       StateFlowFinal_P.AlzataC_Value - StateFlowFinal_P.AlzataC_Value;
 
-    /* '<S166>:1:11' */
+    /* '<S74>:1:11' */
     StateFlowFinal_B.xc_p = sin(1.5707963267948966 - x1) *
       StateFlowFinal_P.AlzataC_Value * F;
 
-    /* '<S166>:1:12' */
+    /* '<S74>:1:12' */
     StateFlowFinal_B.yc_p = cos(1.5707963267948966 - x1) *
       -StateFlowFinal_P.AlzataC_Value * F;
 
-    /* '<S166>:1:13' */
+    /* '<S74>:1:13' */
     StateFlowFinal_B.xc_pp = cos(1.5707963267948966 - x1) *
       -StateFlowFinal_P.AlzataC_Value * (F * F) + sin(1.5707963267948966 - x1) *
       StateFlowFinal_P.AlzataC_Value * x3;
 
-    /* '<S166>:1:14' */
+    /* '<S74>:1:14' */
     StateFlowFinal_B.yc_pp = sin(1.5707963267948966 - x1) *
       -StateFlowFinal_P.AlzataC_Value * (F * F) - cos(1.5707963267948966 - x1) *
       StateFlowFinal_P.AlzataC_Value * x3;
 
-    /* End of MATLAB Function: '<S58>/Cerchio' */
+    /* End of MATLAB Function: '<S56>/Cerchio' */
 
-    /* MATLAB Function: '<S58>/g' incorporates:
-     *  Constant: '<S58>/Alzata C1'
-     *  Constant: '<S58>/Periodo C1'
+    /* MATLAB Function: '<S56>/g' incorporates:
+     *  Constant: '<S56>/Alzata C1'
+     *  Constant: '<S56>/Periodo C1'
      */
-    /* MATLAB Function 'Sistema_braccia/Leggi di moto/g': '<S168>:1' */
-    /* '<S168>:1:2' */
+    /* MATLAB Function 'Sistema_braccia/Leggi di moto/g': '<S76>:1' */
+    /* '<S76>:1:2' */
     x2 = StateFlowFinal_P.PeriodoC1_Value / 32.0;
 
-    /* '<S168>:1:3' */
-    /* '<S168>:1:4' */
-    /* '<S168>:1:5' */
-    /* '<S168>:1:6' */
-    /* '<S168>:1:7' */
-    /* '<S168>:1:8' */
-    /* '<S168>:1:9' */
-    /* '<S168>:1:10' */
-    /* '<S168>:1:11' */
-    /* '<S168>:1:12' */
-    /* '<S168>:1:13' */
-    /* '<S168>:1:14' */
-    /* '<S168>:1:15' */
-    /* '<S168>:1:16' */
-    /* '<S168>:1:17' */
-    /* '<S168>:1:18' */
-    /* '<S168>:1:19' */
-    /* '<S168>:1:20' */
-    /* '<S168>:1:21' */
-    /* '<S168>:1:22' */
-    /* '<S168>:1:23' */
-    /* '<S168>:1:24' */
-    /* '<S168>:1:25' */
-    /* '<S168>:1:26' */
-    /* '<S168>:1:27' */
-    /* '<S168>:1:28' */
-    /* '<S168>:1:29' */
-    /* '<S168>:1:30' */
-    /* '<S168>:1:31' */
-    /* '<S168>:1:32' */
-    /* '<S168>:1:33' */
-    /* '<S168>:1:34' */
-    /* '<S168>:1:35' */
-    /* '<S168>:1:36' */
-    /* '<S168>:1:37' */
-    /* '<S168>:1:38' */
-    /* '<S168>:1:39' */
-    /* '<S168>:1:40' */
-    /* '<S168>:1:41' */
-    /* '<S168>:1:42' */
-    /* '<S168>:1:43' */
-    /* '<S168>:1:44' */
-    /* '<S168>:1:45' */
-    /* '<S168>:1:46' */
+    /* '<S76>:1:3' */
+    /* '<S76>:1:4' */
+    /* '<S76>:1:5' */
+    /* '<S76>:1:6' */
+    /* '<S76>:1:7' */
+    /* '<S76>:1:8' */
+    /* '<S76>:1:9' */
+    /* '<S76>:1:10' */
+    /* '<S76>:1:11' */
+    /* '<S76>:1:12' */
+    /* '<S76>:1:13' */
+    /* '<S76>:1:14' */
+    /* '<S76>:1:15' */
+    /* '<S76>:1:16' */
+    /* '<S76>:1:17' */
+    /* '<S76>:1:18' */
+    /* '<S76>:1:19' */
+    /* '<S76>:1:20' */
+    /* '<S76>:1:21' */
+    /* '<S76>:1:22' */
+    /* '<S76>:1:23' */
+    /* '<S76>:1:24' */
+    /* '<S76>:1:25' */
+    /* '<S76>:1:26' */
+    /* '<S76>:1:27' */
+    /* '<S76>:1:28' */
+    /* '<S76>:1:29' */
+    /* '<S76>:1:30' */
+    /* '<S76>:1:31' */
+    /* '<S76>:1:32' */
+    /* '<S76>:1:33' */
+    /* '<S76>:1:34' */
+    /* '<S76>:1:35' */
+    /* '<S76>:1:36' */
+    /* '<S76>:1:37' */
+    /* '<S76>:1:38' */
+    /* '<S76>:1:39' */
+    /* '<S76>:1:40' */
+    /* '<S76>:1:41' */
+    /* '<S76>:1:42' */
+    /* '<S76>:1:43' */
+    /* '<S76>:1:44' */
+    /* '<S76>:1:45' */
+    /* '<S76>:1:46' */
     if ((StateFlowFinal_B.Sum2 > 0.0) && (StateFlowFinal_B.Sum2 <= x2 / 2.0)) {
-      /* '<S168>:1:48' */
+      /* '<S76>:1:48' */
       /*  1 */
-      /* '<S168>:1:49' */
+      /* '<S76>:1:49' */
       StateFlowFinal_ldm7t_k((StateFlowFinal_B.Sum2 - 0.0 * x2 / 2.0) / (x2 /
         2.0), &x1, &F, &G1);
 
-      /* '<S168>:1:50' */
+      /* '<S76>:1:50' */
       StateFlowFinal_B.x = 0.0;
 
-      /* '<S168>:1:51' */
+      /* '<S76>:1:51' */
       StateFlowFinal_B.x_p_l = 0.0;
 
-      /* '<S168>:1:52' */
-      StateFlowFinal_B.y = -x1 * StateFlowFinal_P.AlzataC1_Value;
+      /* '<S76>:1:52' */
+      StateFlowFinal_B.y_c = -x1 * StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:53' */
+      /* '<S76>:1:53' */
       StateFlowFinal_B.y_p_o = -F * StateFlowFinal_P.AlzataC1_Value / (x2 / 2.0);
 
-      /* '<S168>:1:54' */
+      /* '<S76>:1:54' */
       StateFlowFinal_B.x_pp = 0.0;
 
-      /* '<S168>:1:55' */
+      /* '<S76>:1:55' */
       x2 /= 2.0;
       StateFlowFinal_B.y_pp = -G1 * StateFlowFinal_P.AlzataC1_Value / (x2 * x2);
     } else if ((StateFlowFinal_B.Sum2 > x2 / 2.0) && (StateFlowFinal_B.Sum2 <=
                 3.0 * x2 / 2.0)) {
-      /* '<S168>:1:57' */
+      /* '<S76>:1:57' */
       /*  2 */
-      /* '<S168>:1:58' */
+      /* '<S76>:1:58' */
       StateFlowFinal_ldm7t_k((StateFlowFinal_B.Sum2 - x2 / 2.0) / x2, &x1, &F,
         &x3);
 
-      /* '<S168>:1:59' */
+      /* '<S76>:1:59' */
       StateFlowFinal_B.x = x1 * 3.0 * StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:60' */
+      /* '<S76>:1:60' */
       StateFlowFinal_B.x_p_l = F * 3.0 * StateFlowFinal_P.AlzataC1_Value / x2;
 
-      /* '<S168>:1:61' */
-      StateFlowFinal_B.y = -StateFlowFinal_P.AlzataC1_Value;
+      /* '<S76>:1:61' */
+      StateFlowFinal_B.y_c = -StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:62' */
+      /* '<S76>:1:62' */
       StateFlowFinal_B.y_p_o = 0.0;
 
-      /* '<S168>:1:63' */
+      /* '<S76>:1:63' */
       StateFlowFinal_B.x_pp = x3 * StateFlowFinal_P.AlzataC1_Value / (x2 * x2);
 
-      /* '<S168>:1:64' */
+      /* '<S76>:1:64' */
       StateFlowFinal_B.y_pp = 0.0;
     } else if ((StateFlowFinal_B.Sum2 > 3.0 * x2 / 2.0) &&
                (StateFlowFinal_B.Sum2 <= 4.0 * x2 / 2.0)) {
-      /* '<S168>:1:66' */
+      /* '<S76>:1:66' */
       /*  3 */
-      /* '<S168>:1:67' */
+      /* '<S76>:1:67' */
       StateFlowFinal_ldm7t_k((StateFlowFinal_B.Sum2 - 3.0 * x2 / 2.0) / (x2 /
         2.0), &x1, &F, &x4);
 
-      /* '<S168>:1:68' */
+      /* '<S76>:1:68' */
       StateFlowFinal_B.x = 3.0 * StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:69' */
+      /* '<S76>:1:69' */
       StateFlowFinal_B.x_p_l = 0.0;
 
-      /* '<S168>:1:70' */
-      StateFlowFinal_B.y = x1 * StateFlowFinal_P.AlzataC1_Value +
+      /* '<S76>:1:70' */
+      StateFlowFinal_B.y_c = x1 * StateFlowFinal_P.AlzataC1_Value +
         -StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:71' */
+      /* '<S76>:1:71' */
       StateFlowFinal_B.y_p_o = F * StateFlowFinal_P.AlzataC1_Value / (x2 / 2.0);
 
-      /* '<S168>:1:72' */
+      /* '<S76>:1:72' */
       StateFlowFinal_B.x_pp = 0.0;
 
-      /* '<S168>:1:73' */
+      /* '<S76>:1:73' */
       x2 /= 2.0;
       StateFlowFinal_B.y_pp = x4 * StateFlowFinal_P.AlzataC1_Value / (x2 * x2);
     } else if ((StateFlowFinal_B.Sum2 > 4.0 * x2 / 2.0) &&
                (StateFlowFinal_B.Sum2 <= 5.0 * x2 / 2.0)) {
-      /* '<S168>:1:75' */
+      /* '<S76>:1:75' */
       /*  4 */
-      /* '<S168>:1:76' */
+      /* '<S76>:1:76' */
       StateFlowFinal_ldm7t_k((StateFlowFinal_B.Sum2 - 4.0 * x2 / 2.0) / (x2 /
         2.0), &x1, &F, &x5);
 
-      /* '<S168>:1:77' */
+      /* '<S76>:1:77' */
       StateFlowFinal_B.x = 3.0 * StateFlowFinal_P.AlzataC1_Value - x1 *
         StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:78' */
+      /* '<S76>:1:78' */
       StateFlowFinal_B.x_p_l = -F * StateFlowFinal_P.AlzataC1_Value / (x2 / 2.0);
 
-      /* '<S168>:1:79' */
-      StateFlowFinal_B.y = 0.0;
+      /* '<S76>:1:79' */
+      StateFlowFinal_B.y_c = 0.0;
 
-      /* '<S168>:1:80' */
+      /* '<S76>:1:80' */
       StateFlowFinal_B.y_p_o = 0.0;
 
-      /* '<S168>:1:81' */
+      /* '<S76>:1:81' */
       x2 /= 2.0;
       StateFlowFinal_B.x_pp = -x5 * StateFlowFinal_P.AlzataC1_Value / (x2 * x2);
 
-      /* '<S168>:1:82' */
+      /* '<S76>:1:82' */
       StateFlowFinal_B.y_pp = 0.0;
     } else if ((StateFlowFinal_B.Sum2 > 5.0 * x2 / 2.0) &&
                (StateFlowFinal_B.Sum2 <= 7.0 * x2 / 2.0)) {
-      /* '<S168>:1:84' */
+      /* '<S76>:1:84' */
       /*  5 */
-      /* '<S168>:1:85' */
+      /* '<S76>:1:85' */
       StateFlowFinal_ldm7t_k((StateFlowFinal_B.Sum2 - 5.0 * x2 / 2.0) / x2, &x1,
         &F, &x5);
 
-      /* '<S168>:1:86' */
+      /* '<S76>:1:86' */
       StateFlowFinal_B.x = 2.0 * StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:87' */
+      /* '<S76>:1:87' */
       StateFlowFinal_B.x_p_l = 0.0;
 
-      /* '<S168>:1:88' */
-      StateFlowFinal_B.y = -x1 * 3.0 * StateFlowFinal_P.AlzataC1_Value;
+      /* '<S76>:1:88' */
+      StateFlowFinal_B.y_c = -x1 * 3.0 * StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:89' */
+      /* '<S76>:1:89' */
       StateFlowFinal_B.y_p_o = -F * 3.0 * StateFlowFinal_P.AlzataC1_Value / x2;
 
-      /* '<S168>:1:90' */
+      /* '<S76>:1:90' */
       StateFlowFinal_B.x_pp = 0.0;
 
-      /* '<S168>:1:91' */
+      /* '<S76>:1:91' */
       StateFlowFinal_B.y_pp = -x5 * StateFlowFinal_P.AlzataC1_Value / (x2 * x2);
     } else if ((StateFlowFinal_B.Sum2 > 7.0 * x2 / 2.0) &&
                (StateFlowFinal_B.Sum2 <= 9.0 * x2 / 2.0)) {
-      /* '<S168>:1:93' */
+      /* '<S76>:1:93' */
       /*  6 */
-      /* '<S168>:1:94' */
+      /* '<S76>:1:94' */
       StateFlowFinal_ldm7t_k((StateFlowFinal_B.Sum2 - 7.0 * x2 / 2.0) / x2, &G1,
         &x1, &F);
 
-      /* '<S168>:1:95' */
+      /* '<S76>:1:95' */
       StateFlowFinal_B.x = G1 * 3.0 * StateFlowFinal_P.AlzataC1_Value + 2.0 *
         StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:96' */
+      /* '<S76>:1:96' */
       StateFlowFinal_B.x_p_l = x1 * 3.0 * StateFlowFinal_P.AlzataC1_Value / x2;
 
-      /* '<S168>:1:97' */
-      StateFlowFinal_B.y = -3.0 * StateFlowFinal_P.AlzataC1_Value;
+      /* '<S76>:1:97' */
+      StateFlowFinal_B.y_c = -3.0 * StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:98' */
+      /* '<S76>:1:98' */
       StateFlowFinal_B.y_p_o = 0.0;
 
-      /* '<S168>:1:99' */
+      /* '<S76>:1:99' */
       StateFlowFinal_B.x_pp = F * StateFlowFinal_P.AlzataC1_Value / (x2 * x2);
 
-      /* '<S168>:1:100' */
+      /* '<S76>:1:100' */
       StateFlowFinal_B.y_pp = 0.0;
     } else if ((StateFlowFinal_B.Sum2 > 9.0 * x2 / 2.0) &&
                (StateFlowFinal_B.Sum2 <= 11.0 * x2 / 2.0)) {
-      /* '<S168>:1:102' */
+      /* '<S76>:1:102' */
       /*  7 */
-      /* '<S168>:1:103' */
+      /* '<S76>:1:103' */
       StateFlowFinal_ldm7t_k((StateFlowFinal_B.Sum2 - 9.0 * x2 / 2.0) / x2, &G1,
         &x1, &F);
 
-      /* '<S168>:1:104' */
+      /* '<S76>:1:104' */
       StateFlowFinal_B.x = 5.0 * StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:105' */
+      /* '<S76>:1:105' */
       StateFlowFinal_B.x_p_l = 0.0;
 
-      /* '<S168>:1:106' */
-      StateFlowFinal_B.y = G1 * 3.0 * StateFlowFinal_P.AlzataC1_Value + -3.0 *
+      /* '<S76>:1:106' */
+      StateFlowFinal_B.y_c = G1 * 3.0 * StateFlowFinal_P.AlzataC1_Value + -3.0 *
         StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:107' */
+      /* '<S76>:1:107' */
       StateFlowFinal_B.y_p_o = -x1 * 3.0 * StateFlowFinal_P.AlzataC1_Value / x2;
 
-      /* '<S168>:1:108' */
+      /* '<S76>:1:108' */
       StateFlowFinal_B.x_pp = 0.0;
 
-      /* '<S168>:1:109' */
+      /* '<S76>:1:109' */
       StateFlowFinal_B.y_pp = F * StateFlowFinal_P.AlzataC1_Value / (x2 * x2);
     } else if ((StateFlowFinal_B.Sum2 > 11.0 * x2 / 2.0) &&
                (StateFlowFinal_B.Sum2 <= 12.0 * x2 / 2.0)) {
-      /* '<S168>:1:111' */
+      /* '<S76>:1:111' */
       /*  8 */
-      /* '<S168>:1:112' */
+      /* '<S76>:1:112' */
       StateFlowFinal_ldm7t_k((StateFlowFinal_B.Sum2 - 11.0 * x2 / 2.0) / (x2 /
         2.0), &x1, &F, &G1);
 
-      /* '<S168>:1:113' */
+      /* '<S76>:1:113' */
       StateFlowFinal_B.x = 5.0 * StateFlowFinal_P.AlzataC1_Value - x1 *
         StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:114' */
+      /* '<S76>:1:114' */
       StateFlowFinal_B.x_p_l = -F * StateFlowFinal_P.AlzataC1_Value / (x2 / 2.0);
 
-      /* '<S168>:1:115' */
-      StateFlowFinal_B.y = 0.0;
+      /* '<S76>:1:115' */
+      StateFlowFinal_B.y_c = 0.0;
 
-      /* '<S168>:1:116' */
+      /* '<S76>:1:116' */
       StateFlowFinal_B.y_p_o = 0.0;
 
-      /* '<S168>:1:117' */
+      /* '<S76>:1:117' */
       x2 /= 2.0;
       StateFlowFinal_B.x_pp = -G1 * StateFlowFinal_P.AlzataC1_Value / (x2 * x2);
 
-      /* '<S168>:1:118' */
+      /* '<S76>:1:118' */
       StateFlowFinal_B.y_pp = 0.0;
     } else if ((StateFlowFinal_B.Sum2 > 12.0 * x2 / 2.0) &&
                (StateFlowFinal_B.Sum2 <= 13.0 * x2 / 2.0)) {
-      /* '<S168>:1:120' */
+      /* '<S76>:1:120' */
       /*  9 */
-      /* '<S168>:1:121' */
+      /* '<S76>:1:121' */
       StateFlowFinal_ldm7t_k((StateFlowFinal_B.Sum2 - 12.0 * x2 / 2.0) / (x2 /
         2.0), &x1, &F, &G1);
 
-      /* '<S168>:1:122' */
+      /* '<S76>:1:122' */
       StateFlowFinal_B.x = 4.0 * StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:123' */
+      /* '<S76>:1:123' */
       StateFlowFinal_B.x_p_l = 0.0;
 
-      /* '<S168>:1:124' */
-      StateFlowFinal_B.y = -x1 * StateFlowFinal_P.AlzataC1_Value;
+      /* '<S76>:1:124' */
+      StateFlowFinal_B.y_c = -x1 * StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:125' */
+      /* '<S76>:1:125' */
       StateFlowFinal_B.y_p_o = -F * StateFlowFinal_P.AlzataC1_Value / (x2 / 2.0);
 
-      /* '<S168>:1:126' */
+      /* '<S76>:1:126' */
       StateFlowFinal_B.x_pp = 0.0;
 
-      /* '<S168>:1:127' */
+      /* '<S76>:1:127' */
       x2 /= 2.0;
       StateFlowFinal_B.y_pp = -G1 * StateFlowFinal_P.AlzataC1_Value / (x2 * x2);
     } else if ((StateFlowFinal_B.Sum2 > 13.0 * x2 / 2.0) &&
                (StateFlowFinal_B.Sum2 <= 15.0 * x2 / 2.0)) {
-      /* '<S168>:1:129' */
+      /* '<S76>:1:129' */
       /*  10 */
-      /* '<S168>:1:130' */
+      /* '<S76>:1:130' */
       StateFlowFinal_ldm7t_k((StateFlowFinal_B.Sum2 - 13.0 * x2 / 2.0) / x2, &G1,
         &x1, &F);
 
-      /* '<S168>:1:131' */
+      /* '<S76>:1:131' */
       StateFlowFinal_B.x = G1 * 3.0 * StateFlowFinal_P.AlzataC1_Value + 4.0 *
         StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:132' */
+      /* '<S76>:1:132' */
       StateFlowFinal_B.x_p_l = x1 * 3.0 * StateFlowFinal_P.AlzataC1_Value / x2;
 
-      /* '<S168>:1:133' */
-      StateFlowFinal_B.y = -StateFlowFinal_P.AlzataC1_Value;
+      /* '<S76>:1:133' */
+      StateFlowFinal_B.y_c = -StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:134' */
+      /* '<S76>:1:134' */
       StateFlowFinal_B.y_p_o = 0.0;
 
-      /* '<S168>:1:135' */
+      /* '<S76>:1:135' */
       StateFlowFinal_B.x_pp = F * StateFlowFinal_P.AlzataC1_Value / (x2 * x2);
 
-      /* '<S168>:1:136' */
+      /* '<S76>:1:136' */
       StateFlowFinal_B.y_pp = 0.0;
     } else if ((StateFlowFinal_B.Sum2 > 15.0 * x2 / 2.0) &&
                (StateFlowFinal_B.Sum2 <= 16.0 * x2 / 2.0)) {
-      /* '<S168>:1:138' */
+      /* '<S76>:1:138' */
       /*  11 */
-      /* '<S168>:1:139' */
+      /* '<S76>:1:139' */
       StateFlowFinal_ldm7t_k((StateFlowFinal_B.Sum2 - 15.0 * x2 / 2.0) / (x2 /
         2.0), &x1, &F, &G1);
 
-      /* '<S168>:1:140' */
+      /* '<S76>:1:140' */
       StateFlowFinal_B.x = 7.0 * StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:141' */
+      /* '<S76>:1:141' */
       StateFlowFinal_B.x_p_l = 0.0;
 
-      /* '<S168>:1:142' */
-      StateFlowFinal_B.y = x1 * StateFlowFinal_P.AlzataC1_Value +
+      /* '<S76>:1:142' */
+      StateFlowFinal_B.y_c = x1 * StateFlowFinal_P.AlzataC1_Value +
         -StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:143' */
+      /* '<S76>:1:143' */
       StateFlowFinal_B.y_p_o = F * StateFlowFinal_P.AlzataC1_Value / (x2 / 2.0);
 
-      /* '<S168>:1:144' */
+      /* '<S76>:1:144' */
       StateFlowFinal_B.x_pp = 0.0;
 
-      /* '<S168>:1:145' */
+      /* '<S76>:1:145' */
       x2 /= 2.0;
       StateFlowFinal_B.y_pp = G1 * StateFlowFinal_P.AlzataC1_Value / (x2 * x2);
     } else if ((StateFlowFinal_B.Sum2 > 16.0 * x2 / 2.0) &&
                (StateFlowFinal_B.Sum2 <= 17.0 * x2 / 2.0)) {
-      /* '<S168>:1:147' */
+      /* '<S76>:1:147' */
       /*  12 */
-      /* '<S168>:1:148' */
+      /* '<S76>:1:148' */
       StateFlowFinal_ldm7t_k((StateFlowFinal_B.Sum2 - 16.0 * x2 / 2.0) / (x2 /
         2.0), &x1, &F, &G1);
 
-      /* '<S168>:1:149' */
+      /* '<S76>:1:149' */
       StateFlowFinal_B.x = 7.0 * StateFlowFinal_P.AlzataC1_Value - x1 *
         StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:150' */
+      /* '<S76>:1:150' */
       StateFlowFinal_B.x_p_l = -F * StateFlowFinal_P.AlzataC1_Value / (x2 / 2.0);
 
-      /* '<S168>:1:151' */
-      StateFlowFinal_B.y = 0.0;
+      /* '<S76>:1:151' */
+      StateFlowFinal_B.y_c = 0.0;
 
-      /* '<S168>:1:152' */
+      /* '<S76>:1:152' */
       StateFlowFinal_B.y_p_o = 0.0;
 
-      /* '<S168>:1:153' */
+      /* '<S76>:1:153' */
       x2 /= 2.0;
       StateFlowFinal_B.x_pp = -G1 * StateFlowFinal_P.AlzataC1_Value / (x2 * x2);
 
-      /* '<S168>:1:154' */
+      /* '<S76>:1:154' */
       StateFlowFinal_B.y_pp = 0.0;
     } else if ((StateFlowFinal_B.Sum2 > 17.0 * x2 / 2.0) &&
                (StateFlowFinal_B.Sum2 <= 19.0 * x2 / 2.0)) {
-      /* '<S168>:1:156' */
+      /* '<S76>:1:156' */
       /*  13 */
-      /* '<S168>:1:157' */
+      /* '<S76>:1:157' */
       StateFlowFinal_ldm7t_k((StateFlowFinal_B.Sum2 - 17.0 * x2 / 2.0) / x2, &G1,
         &x1, &F);
 
-      /* '<S168>:1:158' */
+      /* '<S76>:1:158' */
       StateFlowFinal_B.x = 6.0 * StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:159' */
+      /* '<S76>:1:159' */
       StateFlowFinal_B.x_p_l = 0.0;
 
-      /* '<S168>:1:160' */
-      StateFlowFinal_B.y = -G1 * 3.0 * StateFlowFinal_P.AlzataC1_Value;
+      /* '<S76>:1:160' */
+      StateFlowFinal_B.y_c = -G1 * 3.0 * StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:161' */
+      /* '<S76>:1:161' */
       StateFlowFinal_B.y_p_o = -x1 * 3.0 * StateFlowFinal_P.AlzataC1_Value / x2;
 
-      /* '<S168>:1:162' */
+      /* '<S76>:1:162' */
       StateFlowFinal_B.x_pp = 0.0;
 
-      /* '<S168>:1:163' */
+      /* '<S76>:1:163' */
       StateFlowFinal_B.y_pp = -F * StateFlowFinal_P.AlzataC1_Value / (x2 * x2);
     } else if ((StateFlowFinal_B.Sum2 > 19.0 * x2 / 2.0) &&
                (StateFlowFinal_B.Sum2 <= 20.0 * x2 / 2.0)) {
-      /* '<S168>:1:165' */
+      /* '<S76>:1:165' */
       /*  14 */
-      /* '<S168>:1:166' */
+      /* '<S76>:1:166' */
       StateFlowFinal_ldm7t_k((StateFlowFinal_B.Sum2 - 19.0 * x2 / 2.0) / (x2 /
         2.0), &x1, &F, &G1);
 
-      /* '<S168>:1:167' */
+      /* '<S76>:1:167' */
       StateFlowFinal_B.x = 6.0 * StateFlowFinal_P.AlzataC1_Value + x1 *
         StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:168' */
+      /* '<S76>:1:168' */
       StateFlowFinal_B.x_p_l = F * StateFlowFinal_P.AlzataC1_Value / (x2 / 2.0);
 
-      /* '<S168>:1:169' */
-      StateFlowFinal_B.y = -3.0 * StateFlowFinal_P.AlzataC1_Value;
+      /* '<S76>:1:169' */
+      StateFlowFinal_B.y_c = -3.0 * StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:170' */
+      /* '<S76>:1:170' */
       StateFlowFinal_B.y_p_o = 0.0;
 
-      /* '<S168>:1:171' */
+      /* '<S76>:1:171' */
       x2 /= 2.0;
       StateFlowFinal_B.x_pp = G1 * StateFlowFinal_P.AlzataC1_Value / (x2 * x2);
 
-      /* '<S168>:1:172' */
+      /* '<S76>:1:172' */
       StateFlowFinal_B.y_pp = 0.0;
     } else if ((StateFlowFinal_B.Sum2 > 20.0 * x2 / 2.0) &&
                (StateFlowFinal_B.Sum2 <= 21.0 * x2 / 2.0)) {
-      /* '<S168>:1:174' */
+      /* '<S76>:1:174' */
       /*  15 */
-      /* '<S168>:1:175' */
+      /* '<S76>:1:175' */
       StateFlowFinal_ldm7t_k((StateFlowFinal_B.Sum2 - 20.0 * x2 / 2.0) / (x2 /
         2.0), &x1, &F, &G1);
 
-      /* '<S168>:1:176' */
+      /* '<S76>:1:176' */
       StateFlowFinal_B.x = 7.0 * StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:177' */
+      /* '<S76>:1:177' */
       StateFlowFinal_B.x_p_l = 0.0;
 
-      /* '<S168>:1:178' */
-      StateFlowFinal_B.y = -3.0 * StateFlowFinal_P.AlzataC1_Value + x1 *
+      /* '<S76>:1:178' */
+      StateFlowFinal_B.y_c = -3.0 * StateFlowFinal_P.AlzataC1_Value + x1 *
         StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:179' */
+      /* '<S76>:1:179' */
       StateFlowFinal_B.y_p_o = F * StateFlowFinal_P.AlzataC1_Value / (x2 / 2.0);
 
-      /* '<S168>:1:180' */
+      /* '<S76>:1:180' */
       StateFlowFinal_B.x_pp = 0.0;
 
-      /* '<S168>:1:181' */
+      /* '<S76>:1:181' */
       x2 /= 2.0;
       StateFlowFinal_B.y_pp = G1 * StateFlowFinal_P.AlzataC1_Value / (x2 * x2);
     } else if ((StateFlowFinal_B.Sum2 > 21.0 * x2 / 2.0) &&
                (StateFlowFinal_B.Sum2 <= 23.0 * x2 / 2.0)) {
-      /* '<S168>:1:183' */
+      /* '<S76>:1:183' */
       /*  16 */
-      /* '<S168>:1:184' */
+      /* '<S76>:1:184' */
       StateFlowFinal_ldm7t_k((StateFlowFinal_B.Sum2 - 21.0 * x2 / 2.0) / x2, &G1,
         &x1, &F);
 
-      /* '<S168>:1:185' */
+      /* '<S76>:1:185' */
       StateFlowFinal_B.x = 7.0 * StateFlowFinal_P.AlzataC1_Value - G1 * 3.0 *
         StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:186' */
+      /* '<S76>:1:186' */
       StateFlowFinal_B.x_p_l = -x1 * 3.0 * StateFlowFinal_P.AlzataC1_Value / x2;
 
-      /* '<S168>:1:187' */
-      StateFlowFinal_B.y = -2.0 * StateFlowFinal_P.AlzataC1_Value;
+      /* '<S76>:1:187' */
+      StateFlowFinal_B.y_c = -2.0 * StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:188' */
+      /* '<S76>:1:188' */
       StateFlowFinal_B.y_p_o = 0.0;
 
-      /* '<S168>:1:189' */
+      /* '<S76>:1:189' */
       StateFlowFinal_B.x_pp = -F * StateFlowFinal_P.AlzataC1_Value / (x2 * x2);
 
-      /* '<S168>:1:190' */
+      /* '<S76>:1:190' */
       StateFlowFinal_B.y_pp = 0.0;
     } else if ((StateFlowFinal_B.Sum2 > 23.0 * x2 / 2.0) &&
                (StateFlowFinal_B.Sum2 <= 25.0 * x2 / 2.0)) {
-      /* '<S168>:1:192' */
+      /* '<S76>:1:192' */
       /*  17 */
-      /* '<S168>:1:193' */
+      /* '<S76>:1:193' */
       StateFlowFinal_ldm7t_k((StateFlowFinal_B.Sum2 - 23.0 * x2 / 2.0) / x2, &G1,
         &x1, &F);
 
-      /* '<S168>:1:194' */
+      /* '<S76>:1:194' */
       StateFlowFinal_B.x = 4.0 * StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:195' */
+      /* '<S76>:1:195' */
       StateFlowFinal_B.x_p_l = 0.0;
 
-      /* '<S168>:1:196' */
-      StateFlowFinal_B.y = -2.0 * StateFlowFinal_P.AlzataC1_Value - 3.0 * G1 *
+      /* '<S76>:1:196' */
+      StateFlowFinal_B.y_c = -2.0 * StateFlowFinal_P.AlzataC1_Value - 3.0 * G1 *
         StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:197' */
+      /* '<S76>:1:197' */
       StateFlowFinal_B.y_p_o = -x1 * 3.0 * StateFlowFinal_P.AlzataC1_Value / x2;
 
-      /* '<S168>:1:198' */
+      /* '<S76>:1:198' */
       StateFlowFinal_B.x_pp = 0.0;
 
-      /* '<S168>:1:199' */
+      /* '<S76>:1:199' */
       StateFlowFinal_B.y_pp = -F * StateFlowFinal_P.AlzataC1_Value / (x2 * x2);
     } else if ((StateFlowFinal_B.Sum2 > 25.0 * x2 / 2.0) &&
                (StateFlowFinal_B.Sum2 <= 27.0 * x2 / 2.0)) {
-      /* '<S168>:1:201' */
+      /* '<S76>:1:201' */
       /*  18 */
-      /* '<S168>:1:202' */
+      /* '<S76>:1:202' */
       StateFlowFinal_ldm7t_k((StateFlowFinal_B.Sum2 - 25.0 * x2 / 2.0) / x2, &G1,
         &x1, &F);
 
-      /* '<S168>:1:203' */
+      /* '<S76>:1:203' */
       StateFlowFinal_B.x = 3.0 * G1 * StateFlowFinal_P.AlzataC1_Value + 4.0 *
         StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:204' */
+      /* '<S76>:1:204' */
       StateFlowFinal_B.x_p_l = x1 * 3.0 * StateFlowFinal_P.AlzataC1_Value / x2;
 
-      /* '<S168>:1:205' */
-      StateFlowFinal_B.y = -5.0 * StateFlowFinal_P.AlzataC1_Value;
+      /* '<S76>:1:205' */
+      StateFlowFinal_B.y_c = -5.0 * StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:206' */
+      /* '<S76>:1:206' */
       StateFlowFinal_B.y_p_o = 0.0;
 
-      /* '<S168>:1:207' */
+      /* '<S76>:1:207' */
       StateFlowFinal_B.x_pp = F * StateFlowFinal_P.AlzataC1_Value / (x2 * x2);
 
-      /* '<S168>:1:208' */
+      /* '<S76>:1:208' */
       StateFlowFinal_B.y_pp = 0.0;
     } else if ((StateFlowFinal_B.Sum2 > 27.0 * x2 / 2.0) &&
                (StateFlowFinal_B.Sum2 <= 28.0 * x2 / 2.0)) {
-      /* '<S168>:1:210' */
+      /* '<S76>:1:210' */
       /*  19 */
-      /* '<S168>:1:211' */
+      /* '<S76>:1:211' */
       StateFlowFinal_ldm7t_k((StateFlowFinal_B.Sum2 - 27.0 * x2 / 2.0) / (x2 /
         2.0), &x1, &F, &G1);
 
-      /* '<S168>:1:212' */
+      /* '<S76>:1:212' */
       StateFlowFinal_B.x = 7.0 * StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:213' */
+      /* '<S76>:1:213' */
       StateFlowFinal_B.x_p_l = 0.0;
 
-      /* '<S168>:1:214' */
-      StateFlowFinal_B.y = -5.0 * StateFlowFinal_P.AlzataC1_Value + x1 *
+      /* '<S76>:1:214' */
+      StateFlowFinal_B.y_c = -5.0 * StateFlowFinal_P.AlzataC1_Value + x1 *
         StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:215' */
+      /* '<S76>:1:215' */
       StateFlowFinal_B.y_p_o = F * StateFlowFinal_P.AlzataC1_Value / (x2 / 2.0);
 
-      /* '<S168>:1:216' */
+      /* '<S76>:1:216' */
       StateFlowFinal_B.x_pp = 0.0;
 
-      /* '<S168>:1:217' */
+      /* '<S76>:1:217' */
       x2 /= 2.0;
       StateFlowFinal_B.y_pp = G1 * StateFlowFinal_P.AlzataC1_Value / (x2 * x2);
     } else if ((StateFlowFinal_B.Sum2 > 28.0 * x2 / 2.0) &&
                (StateFlowFinal_B.Sum2 <= 29.0 * x2 / 2.0)) {
-      /* '<S168>:1:219' */
+      /* '<S76>:1:219' */
       /*  20 */
-      /* '<S168>:1:220' */
+      /* '<S76>:1:220' */
       StateFlowFinal_ldm7t_k((StateFlowFinal_B.Sum2 - 28.0 * x2 / 2.0) / (x2 /
         2.0), &x1, &F, &G1);
 
-      /* '<S168>:1:221' */
+      /* '<S76>:1:221' */
       StateFlowFinal_B.x = 7.0 * StateFlowFinal_P.AlzataC1_Value - x1 *
         StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:222' */
+      /* '<S76>:1:222' */
       StateFlowFinal_B.x_p_l = -F * StateFlowFinal_P.AlzataC1_Value / (x2 / 2.0);
 
-      /* '<S168>:1:223' */
-      StateFlowFinal_B.y = -4.0 * StateFlowFinal_P.AlzataC1_Value;
+      /* '<S76>:1:223' */
+      StateFlowFinal_B.y_c = -4.0 * StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:224' */
+      /* '<S76>:1:224' */
       StateFlowFinal_B.y_p_o = 0.0;
 
-      /* '<S168>:1:225' */
+      /* '<S76>:1:225' */
       x2 /= 2.0;
       StateFlowFinal_B.x_pp = -G1 * StateFlowFinal_P.AlzataC1_Value / (x2 * x2);
 
-      /* '<S168>:1:226' */
+      /* '<S76>:1:226' */
       StateFlowFinal_B.y_pp = 0.0;
     } else if ((StateFlowFinal_B.Sum2 > 29.0 * x2 / 2.0) &&
                (StateFlowFinal_B.Sum2 <= 31.0 * x2 / 2.0)) {
-      /* '<S168>:1:228' */
+      /* '<S76>:1:228' */
       /*  21 */
-      /* '<S168>:1:229' */
+      /* '<S76>:1:229' */
       StateFlowFinal_ldm7t_k((StateFlowFinal_B.Sum2 - 29.0 * x2 / 2.0) / x2, &G1,
         &x1, &F);
 
-      /* '<S168>:1:230' */
+      /* '<S76>:1:230' */
       StateFlowFinal_B.x = 6.0 * StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:231' */
+      /* '<S76>:1:231' */
       StateFlowFinal_B.x_p_l = 0.0;
 
-      /* '<S168>:1:232' */
-      StateFlowFinal_B.y = -4.0 * StateFlowFinal_P.AlzataC1_Value - 3.0 * G1 *
+      /* '<S76>:1:232' */
+      StateFlowFinal_B.y_c = -4.0 * StateFlowFinal_P.AlzataC1_Value - 3.0 * G1 *
         StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:233' */
+      /* '<S76>:1:233' */
       StateFlowFinal_B.y_p_o = -x1 * 3.0 * StateFlowFinal_P.AlzataC1_Value / x2;
 
-      /* '<S168>:1:234' */
+      /* '<S76>:1:234' */
       StateFlowFinal_B.x_pp = 0.0;
 
-      /* '<S168>:1:235' */
+      /* '<S76>:1:235' */
       StateFlowFinal_B.y_pp = -F * StateFlowFinal_P.AlzataC1_Value / (x2 * x2);
     } else if ((StateFlowFinal_B.Sum2 > 31.0 * x2 / 2.0) &&
                (StateFlowFinal_B.Sum2 <= 32.0 * x2 / 2.0)) {
-      /* '<S168>:1:237' */
+      /* '<S76>:1:237' */
       /*  22 */
-      /* '<S168>:1:238' */
+      /* '<S76>:1:238' */
       StateFlowFinal_ldm7t_k((StateFlowFinal_B.Sum2 - 31.0 * x2 / 2.0) / (x2 /
         2.0), &x1, &F, &G1);
 
-      /* '<S168>:1:239' */
+      /* '<S76>:1:239' */
       StateFlowFinal_B.x = 6.0 * StateFlowFinal_P.AlzataC1_Value + x1 *
         StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:240' */
+      /* '<S76>:1:240' */
       StateFlowFinal_B.x_p_l = F * StateFlowFinal_P.AlzataC1_Value / (x2 / 2.0);
 
-      /* '<S168>:1:241' */
-      StateFlowFinal_B.y = -7.0 * StateFlowFinal_P.AlzataC1_Value;
+      /* '<S76>:1:241' */
+      StateFlowFinal_B.y_c = -7.0 * StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:242' */
+      /* '<S76>:1:242' */
       StateFlowFinal_B.y_p_o = 0.0;
 
-      /* '<S168>:1:243' */
+      /* '<S76>:1:243' */
       x2 /= 2.0;
       StateFlowFinal_B.x_pp = G1 * StateFlowFinal_P.AlzataC1_Value / (x2 * x2);
 
-      /* '<S168>:1:244' */
+      /* '<S76>:1:244' */
       StateFlowFinal_B.y_pp = 0.0;
     } else if ((StateFlowFinal_B.Sum2 > 32.0 * x2 / 2.0) &&
                (StateFlowFinal_B.Sum2 <= 33.0 * x2 / 2.0)) {
-      /* '<S168>:1:246' */
+      /* '<S76>:1:246' */
       /*  23 */
-      /* '<S168>:1:247' */
+      /* '<S76>:1:247' */
       StateFlowFinal_ldm7t_k((StateFlowFinal_B.Sum2 - 32.0 * x2 / 2.0) / (x2 /
         2.0), &x1, &F, &G1);
 
-      /* '<S168>:1:248' */
+      /* '<S76>:1:248' */
       StateFlowFinal_B.x = 7.0 * StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:249' */
+      /* '<S76>:1:249' */
       StateFlowFinal_B.x_p_l = 0.0;
 
-      /* '<S168>:1:250' */
-      StateFlowFinal_B.y = -7.0 * StateFlowFinal_P.AlzataC1_Value + x1 *
+      /* '<S76>:1:250' */
+      StateFlowFinal_B.y_c = -7.0 * StateFlowFinal_P.AlzataC1_Value + x1 *
         StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:251' */
+      /* '<S76>:1:251' */
       StateFlowFinal_B.y_p_o = F * StateFlowFinal_P.AlzataC1_Value / (x2 / 2.0);
 
-      /* '<S168>:1:252' */
+      /* '<S76>:1:252' */
       StateFlowFinal_B.x_pp = 0.0;
 
-      /* '<S168>:1:253' */
+      /* '<S76>:1:253' */
       x2 /= 2.0;
       StateFlowFinal_B.y_pp = G1 * StateFlowFinal_P.AlzataC1_Value / (x2 * x2);
     } else if ((StateFlowFinal_B.Sum2 > 33.0 * x2 / 2.0) &&
                (StateFlowFinal_B.Sum2 <= 35.0 * x2 / 2.0)) {
-      /* '<S168>:1:255' */
+      /* '<S76>:1:255' */
       /*  24 */
-      /* '<S168>:1:256' */
+      /* '<S76>:1:256' */
       StateFlowFinal_ldm7t_k((StateFlowFinal_B.Sum2 - 33.0 * x2 / 2.0) / x2, &G1,
         &x1, &F);
 
-      /* '<S168>:1:257' */
+      /* '<S76>:1:257' */
       StateFlowFinal_B.x = 7.0 * StateFlowFinal_P.AlzataC1_Value - 3.0 * G1 *
         StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:258' */
+      /* '<S76>:1:258' */
       StateFlowFinal_B.x_p_l = -x1 * 3.0 * StateFlowFinal_P.AlzataC1_Value / x2;
 
-      /* '<S168>:1:259' */
-      StateFlowFinal_B.y = -6.0 * StateFlowFinal_P.AlzataC1_Value;
+      /* '<S76>:1:259' */
+      StateFlowFinal_B.y_c = -6.0 * StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:260' */
+      /* '<S76>:1:260' */
       StateFlowFinal_B.y_p_o = 0.0;
 
-      /* '<S168>:1:261' */
+      /* '<S76>:1:261' */
       StateFlowFinal_B.x_pp = -F * StateFlowFinal_P.AlzataC1_Value / (x2 * x2);
 
-      /* '<S168>:1:262' */
+      /* '<S76>:1:262' */
       StateFlowFinal_B.y_pp = 0.0;
     } else if ((StateFlowFinal_B.Sum2 > 35.0 * x2 / 2.0) &&
                (StateFlowFinal_B.Sum2 <= 36.0 * x2 / 2.0)) {
-      /* '<S168>:1:264' */
+      /* '<S76>:1:264' */
       /*  25 */
-      /* '<S168>:1:265' */
+      /* '<S76>:1:265' */
       StateFlowFinal_ldm7t_k((StateFlowFinal_B.Sum2 - 35.0 * x2 / 2.0) / (x2 /
         2.0), &x1, &F, &G1);
 
-      /* '<S168>:1:266' */
+      /* '<S76>:1:266' */
       StateFlowFinal_B.x = 4.0 * StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:267' */
+      /* '<S76>:1:267' */
       StateFlowFinal_B.x_p_l = 0.0;
 
-      /* '<S168>:1:268' */
-      StateFlowFinal_B.y = -6.0 * StateFlowFinal_P.AlzataC1_Value - x1 *
+      /* '<S76>:1:268' */
+      StateFlowFinal_B.y_c = -6.0 * StateFlowFinal_P.AlzataC1_Value - x1 *
         StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:269' */
+      /* '<S76>:1:269' */
       StateFlowFinal_B.y_p_o = -F * StateFlowFinal_P.AlzataC1_Value / (x2 / 2.0);
 
-      /* '<S168>:1:270' */
+      /* '<S76>:1:270' */
       StateFlowFinal_B.x_pp = 0.0;
 
-      /* '<S168>:1:271' */
+      /* '<S76>:1:271' */
       x2 /= 2.0;
       StateFlowFinal_B.y_pp = -G1 * StateFlowFinal_P.AlzataC1_Value / (x2 * x2);
     } else if ((StateFlowFinal_B.Sum2 > 36.0 * x2 / 2.0) &&
                (StateFlowFinal_B.Sum2 <= 37.0 * x2 / 2.0)) {
-      /* '<S168>:1:273' */
+      /* '<S76>:1:273' */
       /*  26 */
-      /* '<S168>:1:274' */
+      /* '<S76>:1:274' */
       StateFlowFinal_ldm7t_k((StateFlowFinal_B.Sum2 - 36.0 * x2 / 2.0) / (x2 /
         2.0), &x1, &F, &G1);
 
-      /* '<S168>:1:275' */
+      /* '<S76>:1:275' */
       StateFlowFinal_B.x = 4.0 * StateFlowFinal_P.AlzataC1_Value + x1 *
         StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:276' */
+      /* '<S76>:1:276' */
       StateFlowFinal_B.x_p_l = F * StateFlowFinal_P.AlzataC1_Value / (x2 / 2.0);
 
-      /* '<S168>:1:277' */
-      StateFlowFinal_B.y = -7.0 * StateFlowFinal_P.AlzataC1_Value;
+      /* '<S76>:1:277' */
+      StateFlowFinal_B.y_c = -7.0 * StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:278' */
+      /* '<S76>:1:278' */
       StateFlowFinal_B.y_p_o = 0.0;
 
-      /* '<S168>:1:279' */
+      /* '<S76>:1:279' */
       x2 /= 2.0;
       StateFlowFinal_B.x_pp = G1 * StateFlowFinal_P.AlzataC1_Value / (x2 * x2);
 
-      /* '<S168>:1:280' */
+      /* '<S76>:1:280' */
       StateFlowFinal_B.y_pp = 0.0;
     } else if ((StateFlowFinal_B.Sum2 > 37.0 * x2 / 2.0) &&
                (StateFlowFinal_B.Sum2 <= 39.0 * x2 / 2.0)) {
-      /* '<S168>:1:282' */
+      /* '<S76>:1:282' */
       /*  27 */
-      /* '<S168>:1:283' */
+      /* '<S76>:1:283' */
       StateFlowFinal_ldm7t_k((StateFlowFinal_B.Sum2 - 37.0 * x2 / 2.0) / x2, &G1,
         &x1, &F);
 
-      /* '<S168>:1:284' */
+      /* '<S76>:1:284' */
       StateFlowFinal_B.x = 5.0 * StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:285' */
+      /* '<S76>:1:285' */
       StateFlowFinal_B.x_p_l = 0.0;
 
-      /* '<S168>:1:286' */
-      StateFlowFinal_B.y = 3.0 * G1 * StateFlowFinal_P.AlzataC1_Value + -7.0 *
+      /* '<S76>:1:286' */
+      StateFlowFinal_B.y_c = 3.0 * G1 * StateFlowFinal_P.AlzataC1_Value + -7.0 *
         StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:287' */
+      /* '<S76>:1:287' */
       StateFlowFinal_B.y_p_o = x1 * 3.0 * StateFlowFinal_P.AlzataC1_Value / x2;
 
-      /* '<S168>:1:288' */
+      /* '<S76>:1:288' */
       StateFlowFinal_B.x_pp = 0.0;
 
-      /* '<S168>:1:289' */
+      /* '<S76>:1:289' */
       StateFlowFinal_B.y_pp = F * StateFlowFinal_P.AlzataC1_Value / (x2 * x2);
     } else if ((StateFlowFinal_B.Sum2 > 39.0 * x2 / 2.0) &&
                (StateFlowFinal_B.Sum2 <= 41.0 * x2 / 2.0)) {
-      /* '<S168>:1:291' */
+      /* '<S76>:1:291' */
       /*  28 */
-      /* '<S168>:1:292' */
+      /* '<S76>:1:292' */
       StateFlowFinal_ldm7t_k((StateFlowFinal_B.Sum2 - 39.0 * x2 / 2.0) / x2, &G1,
         &x1, &F);
 
-      /* '<S168>:1:293' */
+      /* '<S76>:1:293' */
       StateFlowFinal_B.x = 5.0 * StateFlowFinal_P.AlzataC1_Value - 3.0 * G1 *
         StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:294' */
+      /* '<S76>:1:294' */
       StateFlowFinal_B.x_p_l = -x1 * 3.0 * StateFlowFinal_P.AlzataC1_Value / x2;
 
-      /* '<S168>:1:295' */
-      StateFlowFinal_B.y = -4.0 * StateFlowFinal_P.AlzataC1_Value;
+      /* '<S76>:1:295' */
+      StateFlowFinal_B.y_c = -4.0 * StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:296' */
+      /* '<S76>:1:296' */
       StateFlowFinal_B.y_p_o = 0.0;
 
-      /* '<S168>:1:297' */
+      /* '<S76>:1:297' */
       StateFlowFinal_B.x_pp = F * StateFlowFinal_P.AlzataC1_Value / (x2 * x2);
 
-      /* '<S168>:1:298' */
+      /* '<S76>:1:298' */
       StateFlowFinal_B.y_pp = 0.0;
     } else if ((StateFlowFinal_B.Sum2 > 41.0 * x2 / 2.0) &&
                (StateFlowFinal_B.Sum2 <= 43.0 * x2 / 2.0)) {
-      /* '<S168>:1:300' */
+      /* '<S76>:1:300' */
       /*  29 */
-      /* '<S168>:1:301' */
+      /* '<S76>:1:301' */
       StateFlowFinal_ldm7t_k((StateFlowFinal_B.Sum2 - 41.0 * x2 / 2.0) / x2, &G1,
         &x1, &F);
 
-      /* '<S168>:1:302' */
+      /* '<S76>:1:302' */
       StateFlowFinal_B.x = 2.0 * StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:303' */
+      /* '<S76>:1:303' */
       StateFlowFinal_B.x_p_l = 0.0;
 
-      /* '<S168>:1:304' */
-      StateFlowFinal_B.y = -4.0 * StateFlowFinal_P.AlzataC1_Value - G1 * 3.0 *
+      /* '<S76>:1:304' */
+      StateFlowFinal_B.y_c = -4.0 * StateFlowFinal_P.AlzataC1_Value - G1 * 3.0 *
         StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:305' */
+      /* '<S76>:1:305' */
       StateFlowFinal_B.y_p_o = -x1 * 3.0 * StateFlowFinal_P.AlzataC1_Value / x2;
 
-      /* '<S168>:1:306' */
+      /* '<S76>:1:306' */
       StateFlowFinal_B.x_pp = 0.0;
 
-      /* '<S168>:1:307' */
+      /* '<S76>:1:307' */
       StateFlowFinal_B.y_pp = -F * StateFlowFinal_P.AlzataC1_Value / (x2 * x2);
     } else if ((StateFlowFinal_B.Sum2 > 43.0 * x2 / 2.0) &&
                (StateFlowFinal_B.Sum2 <= 44.0 * x2 / 2.0)) {
-      /* '<S168>:1:309' */
+      /* '<S76>:1:309' */
       /*  30 */
-      /* '<S168>:1:310' */
+      /* '<S76>:1:310' */
       StateFlowFinal_ldm7t_k((StateFlowFinal_B.Sum2 - 43.0 * x2 / 2.0) / (x2 /
         2.0), &x1, &F, &G1);
 
-      /* '<S168>:1:311' */
+      /* '<S76>:1:311' */
       StateFlowFinal_B.x = 2.0 * StateFlowFinal_P.AlzataC1_Value + x1 *
         StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:312' */
+      /* '<S76>:1:312' */
       StateFlowFinal_B.x_p_l = F * StateFlowFinal_P.AlzataC1_Value / (x2 / 2.0);
 
-      /* '<S168>:1:313' */
-      StateFlowFinal_B.y = -7.0 * StateFlowFinal_P.AlzataC1_Value;
+      /* '<S76>:1:313' */
+      StateFlowFinal_B.y_c = -7.0 * StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:314' */
+      /* '<S76>:1:314' */
       StateFlowFinal_B.y_p_o = 0.0;
 
-      /* '<S168>:1:315' */
+      /* '<S76>:1:315' */
       x2 /= 2.0;
       StateFlowFinal_B.x_pp = G1 * StateFlowFinal_P.AlzataC1_Value / (x2 * x2);
 
-      /* '<S168>:1:316' */
+      /* '<S76>:1:316' */
       StateFlowFinal_B.y_pp = 0.0;
     } else if ((StateFlowFinal_B.Sum2 > 44.0 * x2 / 2.0) &&
                (StateFlowFinal_B.Sum2 <= 45.0 * x2 / 2.0)) {
-      /* '<S168>:1:318' */
+      /* '<S76>:1:318' */
       /*  31 */
-      /* '<S168>:1:319' */
+      /* '<S76>:1:319' */
       StateFlowFinal_ldm7t_k((StateFlowFinal_B.Sum2 - 44.0 * x2 / 2.0) / (x2 /
         2.0), &x1, &F, &G1);
 
-      /* '<S168>:1:320' */
+      /* '<S76>:1:320' */
       StateFlowFinal_B.x = 3.0 * StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:321' */
+      /* '<S76>:1:321' */
       StateFlowFinal_B.x_p_l = 0.0;
 
-      /* '<S168>:1:322' */
-      StateFlowFinal_B.y = -7.0 * StateFlowFinal_P.AlzataC1_Value + x1 *
+      /* '<S76>:1:322' */
+      StateFlowFinal_B.y_c = -7.0 * StateFlowFinal_P.AlzataC1_Value + x1 *
         StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:323' */
+      /* '<S76>:1:323' */
       StateFlowFinal_B.y_p_o = F * StateFlowFinal_P.AlzataC1_Value / (x2 / 2.0);
 
-      /* '<S168>:1:324' */
+      /* '<S76>:1:324' */
       StateFlowFinal_B.x_pp = 0.0;
 
-      /* '<S168>:1:325' */
+      /* '<S76>:1:325' */
       x2 /= 2.0;
       StateFlowFinal_B.y_pp = G1 * StateFlowFinal_P.AlzataC1_Value / (x2 * x2);
     } else if ((StateFlowFinal_B.Sum2 > 45.0 * x2 / 2.0) &&
                (StateFlowFinal_B.Sum2 <= 47.0 * x2 / 2.0)) {
-      /* '<S168>:1:327' */
+      /* '<S76>:1:327' */
       /*  32 */
-      /* '<S168>:1:328' */
+      /* '<S76>:1:328' */
       StateFlowFinal_ldm7t_k((StateFlowFinal_B.Sum2 - 45.0 * x2 / 2.0) / x2, &G1,
         &x1, &F);
 
-      /* '<S168>:1:329' */
+      /* '<S76>:1:329' */
       StateFlowFinal_B.x = 3.0 * StateFlowFinal_P.AlzataC1_Value - 3.0 * G1 *
         StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:330' */
+      /* '<S76>:1:330' */
       StateFlowFinal_B.x_p_l = -x1 * 3.0 * StateFlowFinal_P.AlzataC1_Value / x2;
 
-      /* '<S168>:1:331' */
-      StateFlowFinal_B.y = -6.0 * StateFlowFinal_P.AlzataC1_Value;
+      /* '<S76>:1:331' */
+      StateFlowFinal_B.y_c = -6.0 * StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:332' */
+      /* '<S76>:1:332' */
       StateFlowFinal_B.y_p_o = 0.0;
 
-      /* '<S168>:1:333' */
+      /* '<S76>:1:333' */
       StateFlowFinal_B.x_pp = -F * StateFlowFinal_P.AlzataC1_Value / (x2 * x2);
 
-      /* '<S168>:1:334' */
+      /* '<S76>:1:334' */
       StateFlowFinal_B.y_pp = 0.0;
     } else if ((StateFlowFinal_B.Sum2 > 47.0 * x2 / 2.0) &&
                (StateFlowFinal_B.Sum2 <= 48.0 * x2 / 2.0)) {
-      /* '<S168>:1:336' */
+      /* '<S76>:1:336' */
       /*  33 */
-      /* '<S168>:1:337' */
+      /* '<S76>:1:337' */
       StateFlowFinal_ldm7t_k((StateFlowFinal_B.Sum2 - 47.0 * x2 / 2.0) / (x2 /
         2.0), &x1, &F, &G1);
 
-      /* '<S168>:1:338' */
+      /* '<S76>:1:338' */
       StateFlowFinal_B.x = 0.0;
 
-      /* '<S168>:1:339' */
+      /* '<S76>:1:339' */
       StateFlowFinal_B.x_p_l = 0.0;
 
-      /* '<S168>:1:340' */
-      StateFlowFinal_B.y = -6.0 * StateFlowFinal_P.AlzataC1_Value - x1 *
+      /* '<S76>:1:340' */
+      StateFlowFinal_B.y_c = -6.0 * StateFlowFinal_P.AlzataC1_Value - x1 *
         StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:341' */
+      /* '<S76>:1:341' */
       StateFlowFinal_B.y_p_o = -F * StateFlowFinal_P.AlzataC1_Value / (x2 / 2.0);
 
-      /* '<S168>:1:342' */
+      /* '<S76>:1:342' */
       StateFlowFinal_B.x_pp = 0.0;
 
-      /* '<S168>:1:343' */
+      /* '<S76>:1:343' */
       x2 /= 2.0;
       StateFlowFinal_B.y_pp = -G1 * StateFlowFinal_P.AlzataC1_Value / (x2 * x2);
     } else if ((StateFlowFinal_B.Sum2 > 48.0 * x2 / 2.0) &&
                (StateFlowFinal_B.Sum2 <= 49.0 * x2 / 2.0)) {
-      /* '<S168>:1:345' */
+      /* '<S76>:1:345' */
       /*  34 */
-      /* '<S168>:1:346' */
+      /* '<S76>:1:346' */
       StateFlowFinal_ldm7t_k((StateFlowFinal_B.Sum2 - 48.0 * x2 / 2.0) / (x2 /
         2.0), &x1, &F, &G1);
 
-      /* '<S168>:1:347' */
+      /* '<S76>:1:347' */
       StateFlowFinal_B.x = x1 * StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:348' */
+      /* '<S76>:1:348' */
       StateFlowFinal_B.x_p_l = F * StateFlowFinal_P.AlzataC1_Value / (x2 / 2.0);
 
-      /* '<S168>:1:349' */
-      StateFlowFinal_B.y = -7.0 * StateFlowFinal_P.AlzataC1_Value;
+      /* '<S76>:1:349' */
+      StateFlowFinal_B.y_c = -7.0 * StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:350' */
+      /* '<S76>:1:350' */
       StateFlowFinal_B.y_p_o = 0.0;
 
-      /* '<S168>:1:351' */
+      /* '<S76>:1:351' */
       x2 /= 2.0;
       StateFlowFinal_B.x_pp = G1 * StateFlowFinal_P.AlzataC1_Value / (x2 * x2);
 
-      /* '<S168>:1:352' */
+      /* '<S76>:1:352' */
       StateFlowFinal_B.y_pp = 0.0;
     } else if ((StateFlowFinal_B.Sum2 > 49.0 * x2 / 2.0) &&
                (StateFlowFinal_B.Sum2 <= 51.0 * x2 / 2.0)) {
-      /* '<S168>:1:354' */
+      /* '<S76>:1:354' */
       /*  35 */
-      /* '<S168>:1:355' */
+      /* '<S76>:1:355' */
       StateFlowFinal_ldm7t_k((StateFlowFinal_B.Sum2 - 49.0 * x2 / 2.0) / x2, &G1,
         &x1, &F);
 
-      /* '<S168>:1:356' */
+      /* '<S76>:1:356' */
       StateFlowFinal_B.x = StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:357' */
+      /* '<S76>:1:357' */
       StateFlowFinal_B.x_p_l = 0.0;
 
-      /* '<S168>:1:358' */
-      StateFlowFinal_B.y = 3.0 * G1 * StateFlowFinal_P.AlzataC1_Value + -7.0 *
+      /* '<S76>:1:358' */
+      StateFlowFinal_B.y_c = 3.0 * G1 * StateFlowFinal_P.AlzataC1_Value + -7.0 *
         StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:359' */
+      /* '<S76>:1:359' */
       StateFlowFinal_B.y_p_o = x1 * 3.0 * StateFlowFinal_P.AlzataC1_Value / x2;
 
-      /* '<S168>:1:360' */
+      /* '<S76>:1:360' */
       StateFlowFinal_B.x_pp = 0.0;
 
-      /* '<S168>:1:361' */
+      /* '<S76>:1:361' */
       StateFlowFinal_B.y_pp = F * StateFlowFinal_P.AlzataC1_Value / (x2 * x2);
     } else if ((StateFlowFinal_B.Sum2 > 51.0 * x2 / 2.0) &&
                (StateFlowFinal_B.Sum2 <= 52.0 * x2 / 2.0)) {
-      /* '<S168>:1:363' */
+      /* '<S76>:1:363' */
       /*  36 */
-      /* '<S168>:1:364' */
+      /* '<S76>:1:364' */
       StateFlowFinal_ldm7t_k((StateFlowFinal_B.Sum2 - 51.0 * x2 / 2.0) / (x2 /
         2.0), &x1, &F, &G1);
 
-      /* '<S168>:1:365' */
+      /* '<S76>:1:365' */
       StateFlowFinal_B.x = StateFlowFinal_P.AlzataC1_Value - x1 *
         StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:366' */
+      /* '<S76>:1:366' */
       StateFlowFinal_B.x_p_l = -F * StateFlowFinal_P.AlzataC1_Value / (x2 / 2.0);
 
-      /* '<S168>:1:367' */
-      StateFlowFinal_B.y = -4.0 * StateFlowFinal_P.AlzataC1_Value;
+      /* '<S76>:1:367' */
+      StateFlowFinal_B.y_c = -4.0 * StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:368' */
+      /* '<S76>:1:368' */
       StateFlowFinal_B.y_p_o = 0.0;
 
-      /* '<S168>:1:369' */
+      /* '<S76>:1:369' */
       x2 /= 2.0;
       StateFlowFinal_B.x_pp = -G1 * StateFlowFinal_P.AlzataC1_Value / (x2 * x2);
 
-      /* '<S168>:1:370' */
+      /* '<S76>:1:370' */
       StateFlowFinal_B.y_pp = 0.0;
     } else if ((StateFlowFinal_B.Sum2 > 52.0 * x2 / 2.0) &&
                (StateFlowFinal_B.Sum2 <= 53.0 * x2 / 2.0)) {
-      /* '<S168>:1:372' */
+      /* '<S76>:1:372' */
       /*  37 */
-      /* '<S168>:1:373' */
+      /* '<S76>:1:373' */
       StateFlowFinal_ldm7t_k((StateFlowFinal_B.Sum2 - 52.0 * x2 / 2.0) / (x2 /
         2.0), &x1, &F, &G1);
 
-      /* '<S168>:1:374' */
+      /* '<S76>:1:374' */
       StateFlowFinal_B.x = 0.0;
 
-      /* '<S168>:1:375' */
+      /* '<S76>:1:375' */
       StateFlowFinal_B.x_p_l = 0.0;
 
-      /* '<S168>:1:376' */
-      StateFlowFinal_B.y = -4.0 * StateFlowFinal_P.AlzataC1_Value - x1 *
+      /* '<S76>:1:376' */
+      StateFlowFinal_B.y_c = -4.0 * StateFlowFinal_P.AlzataC1_Value - x1 *
         StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:377' */
+      /* '<S76>:1:377' */
       StateFlowFinal_B.y_p_o = -F * StateFlowFinal_P.AlzataC1_Value / (x2 / 2.0);
 
-      /* '<S168>:1:378' */
+      /* '<S76>:1:378' */
       StateFlowFinal_B.x_pp = 0.0;
 
-      /* '<S168>:1:379' */
+      /* '<S76>:1:379' */
       x2 /= 2.0;
       StateFlowFinal_B.y_pp = -G1 * StateFlowFinal_P.AlzataC1_Value / (x2 * x2);
     } else if ((StateFlowFinal_B.Sum2 > 53.0 * x2 / 2.0) &&
                (StateFlowFinal_B.Sum2 <= 55.0 * x2 / 2.0)) {
-      /* '<S168>:1:381' */
+      /* '<S76>:1:381' */
       /*  38 */
-      /* '<S168>:1:382' */
+      /* '<S76>:1:382' */
       StateFlowFinal_ldm7t_k((StateFlowFinal_B.Sum2 - 53.0 * x2 / 2.0) / x2, &G1,
         &x1, &F);
 
-      /* '<S168>:1:383' */
+      /* '<S76>:1:383' */
       StateFlowFinal_B.x = 3.0 * G1 * StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:384' */
+      /* '<S76>:1:384' */
       StateFlowFinal_B.x_p_l = x1 * 3.0 * StateFlowFinal_P.AlzataC1_Value / x2;
 
-      /* '<S168>:1:385' */
-      StateFlowFinal_B.y = -5.0 * StateFlowFinal_P.AlzataC1_Value;
+      /* '<S76>:1:385' */
+      StateFlowFinal_B.y_c = -5.0 * StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:386' */
+      /* '<S76>:1:386' */
       StateFlowFinal_B.y_p_o = 0.0;
 
-      /* '<S168>:1:387' */
+      /* '<S76>:1:387' */
       StateFlowFinal_B.x_pp = F * StateFlowFinal_P.AlzataC1_Value / (x2 * x2);
 
-      /* '<S168>:1:388' */
+      /* '<S76>:1:388' */
       StateFlowFinal_B.y_pp = 0.0;
     } else if ((StateFlowFinal_B.Sum2 > 55.0 * x2 / 2.0) &&
                (StateFlowFinal_B.Sum2 <= 57.0 * x2 / 2.0)) {
-      /* '<S168>:1:390' */
+      /* '<S76>:1:390' */
       /*  39 */
-      /* '<S168>:1:391' */
+      /* '<S76>:1:391' */
       StateFlowFinal_ldm7t_k((StateFlowFinal_B.Sum2 - 55.0 * x2 / 2.0) / x2, &G1,
         &x1, &F);
 
-      /* '<S168>:1:392' */
+      /* '<S76>:1:392' */
       StateFlowFinal_B.x = 3.0 * StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:393' */
+      /* '<S76>:1:393' */
       StateFlowFinal_B.x_p_l = 0.0;
 
-      /* '<S168>:1:394' */
-      StateFlowFinal_B.y = G1 * 3.0 * StateFlowFinal_P.AlzataC1_Value + -5.0 *
+      /* '<S76>:1:394' */
+      StateFlowFinal_B.y_c = G1 * 3.0 * StateFlowFinal_P.AlzataC1_Value + -5.0 *
         StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:395' */
+      /* '<S76>:1:395' */
       StateFlowFinal_B.y_p_o = x1 * 3.0 * StateFlowFinal_P.AlzataC1_Value / x2;
 
-      /* '<S168>:1:396' */
+      /* '<S76>:1:396' */
       StateFlowFinal_B.x_pp = 0.0;
 
-      /* '<S168>:1:397' */
+      /* '<S76>:1:397' */
       StateFlowFinal_B.y_pp = F * StateFlowFinal_P.AlzataC1_Value / (x2 * x2);
     } else if ((StateFlowFinal_B.Sum2 > 57.0 * x2 / 2.0) &&
                (StateFlowFinal_B.Sum2 <= 59.0 * x2 / 2.0)) {
-      /* '<S168>:1:399' */
+      /* '<S76>:1:399' */
       /*  40 */
-      /* '<S168>:1:400' */
+      /* '<S76>:1:400' */
       StateFlowFinal_ldm7t_k((StateFlowFinal_B.Sum2 - 57.0 * x2 / 2.0) / x2, &G1,
         &x1, &F);
 
-      /* '<S168>:1:401' */
+      /* '<S76>:1:401' */
       StateFlowFinal_B.x = 3.0 * StateFlowFinal_P.AlzataC1_Value - G1 * 3.0 *
         StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:402' */
+      /* '<S76>:1:402' */
       StateFlowFinal_B.x_p_l = -x1 * 3.0 * StateFlowFinal_P.AlzataC1_Value / x2;
 
-      /* '<S168>:1:403' */
-      StateFlowFinal_B.y = -2.0 * StateFlowFinal_P.AlzataC1_Value;
+      /* '<S76>:1:403' */
+      StateFlowFinal_B.y_c = -2.0 * StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:404' */
+      /* '<S76>:1:404' */
       StateFlowFinal_B.y_p_o = 0.0;
 
-      /* '<S168>:1:405' */
+      /* '<S76>:1:405' */
       StateFlowFinal_B.x_pp = -F * StateFlowFinal_P.AlzataC1_Value / (x2 * x2);
 
-      /* '<S168>:1:406' */
+      /* '<S76>:1:406' */
       StateFlowFinal_B.y_pp = 0.0;
     } else if ((StateFlowFinal_B.Sum2 > 59.0 * x2 / 2.0) &&
                (StateFlowFinal_B.Sum2 <= 60.0 * x2 / 2.0)) {
-      /* '<S168>:1:408' */
+      /* '<S76>:1:408' */
       /*  41 */
-      /* '<S168>:1:409' */
+      /* '<S76>:1:409' */
       StateFlowFinal_ldm7t_k((StateFlowFinal_B.Sum2 - 59.0 * x2 / 2.0) / (x2 /
         2.0), &x1, &F, &G1);
 
-      /* '<S168>:1:410' */
+      /* '<S76>:1:410' */
       StateFlowFinal_B.x = 0.0;
 
-      /* '<S168>:1:411' */
+      /* '<S76>:1:411' */
       StateFlowFinal_B.x_p_l = 0.0;
 
-      /* '<S168>:1:412' */
-      StateFlowFinal_B.y = -2.0 * StateFlowFinal_P.AlzataC1_Value - x1 *
+      /* '<S76>:1:412' */
+      StateFlowFinal_B.y_c = -2.0 * StateFlowFinal_P.AlzataC1_Value - x1 *
         StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:413' */
+      /* '<S76>:1:413' */
       StateFlowFinal_B.y_p_o = -F * StateFlowFinal_P.AlzataC1_Value / (x2 / 2.0);
 
-      /* '<S168>:1:414' */
+      /* '<S76>:1:414' */
       StateFlowFinal_B.x_pp = 0.0;
 
-      /* '<S168>:1:415' */
+      /* '<S76>:1:415' */
       x2 /= 2.0;
       StateFlowFinal_B.y_pp = -G1 * StateFlowFinal_P.AlzataC1_Value / (x2 * x2);
     } else if ((StateFlowFinal_B.Sum2 > 60.0 * x2 / 2.0) &&
                (StateFlowFinal_B.Sum2 <= 61.0 * x2 / 2.0)) {
-      /* '<S168>:1:417' */
+      /* '<S76>:1:417' */
       /*  42 */
-      /* '<S168>:1:418' */
+      /* '<S76>:1:418' */
       StateFlowFinal_ldm7t_k((StateFlowFinal_B.Sum2 - 60.0 * x2 / 2.0) / (x2 /
         2.0), &x1, &F, &G1);
 
-      /* '<S168>:1:419' */
+      /* '<S76>:1:419' */
       StateFlowFinal_B.x = x1 * StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:420' */
+      /* '<S76>:1:420' */
       StateFlowFinal_B.x_p_l = F * StateFlowFinal_P.AlzataC1_Value / (x2 / 2.0);
 
-      /* '<S168>:1:421' */
-      StateFlowFinal_B.y = -3.0 * StateFlowFinal_P.AlzataC1_Value;
+      /* '<S76>:1:421' */
+      StateFlowFinal_B.y_c = -3.0 * StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:422' */
+      /* '<S76>:1:422' */
       StateFlowFinal_B.y_p_o = 0.0;
 
-      /* '<S168>:1:423' */
+      /* '<S76>:1:423' */
       x2 /= 2.0;
       StateFlowFinal_B.x_pp = G1 * StateFlowFinal_P.AlzataC1_Value / (x2 * x2);
 
-      /* '<S168>:1:424' */
+      /* '<S76>:1:424' */
       StateFlowFinal_B.y_pp = 0.0;
     } else if ((StateFlowFinal_B.Sum2 > 61.0 * x2 / 2.0) &&
                (StateFlowFinal_B.Sum2 <= 63.0 * x2 / 2.0)) {
-      /* '<S168>:1:426' */
+      /* '<S76>:1:426' */
       /*  43 */
-      /* '<S168>:1:427' */
+      /* '<S76>:1:427' */
       StateFlowFinal_ldm7t_k((StateFlowFinal_B.Sum2 - 61.0 * x2 / 2.0) / x2, &G1,
         &x1, &F);
 
-      /* '<S168>:1:428' */
+      /* '<S76>:1:428' */
       StateFlowFinal_B.x = StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:429' */
+      /* '<S76>:1:429' */
       StateFlowFinal_B.x_p_l = 0.0;
 
-      /* '<S168>:1:430' */
-      StateFlowFinal_B.y = 3.0 * G1 * StateFlowFinal_P.AlzataC1_Value + -3.0 *
+      /* '<S76>:1:430' */
+      StateFlowFinal_B.y_c = 3.0 * G1 * StateFlowFinal_P.AlzataC1_Value + -3.0 *
         StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:431' */
+      /* '<S76>:1:431' */
       StateFlowFinal_B.y_p_o = x1 * 3.0 * StateFlowFinal_P.AlzataC1_Value / x2;
 
-      /* '<S168>:1:432' */
+      /* '<S76>:1:432' */
       StateFlowFinal_B.x_pp = 0.0;
 
-      /* '<S168>:1:433' */
+      /* '<S76>:1:433' */
       StateFlowFinal_B.y_pp = F * StateFlowFinal_P.AlzataC1_Value / (x2 * x2);
     } else if ((StateFlowFinal_B.Sum2 > 63.0 * x2 / 2.0) &&
                (StateFlowFinal_B.Sum2 <= 64.0 * x2 / 2.0)) {
-      /* '<S168>:1:435' */
+      /* '<S76>:1:435' */
       /*  44 */
-      /* '<S168>:1:436' */
+      /* '<S76>:1:436' */
       StateFlowFinal_ldm7t_k((StateFlowFinal_B.Sum2 - 63.0 * x2 / 2.0) / (x2 /
         2.0), &x1, &F, &G1);
 
-      /* '<S168>:1:437' */
+      /* '<S76>:1:437' */
       StateFlowFinal_B.x = StateFlowFinal_P.AlzataC1_Value - x1 *
         StateFlowFinal_P.AlzataC1_Value;
 
-      /* '<S168>:1:438' */
+      /* '<S76>:1:438' */
       StateFlowFinal_B.x_p_l = -F * StateFlowFinal_P.AlzataC1_Value / (x2 / 2.0);
 
-      /* '<S168>:1:439' */
-      StateFlowFinal_B.y = 0.0;
+      /* '<S76>:1:439' */
+      StateFlowFinal_B.y_c = 0.0;
 
-      /* '<S168>:1:440' */
+      /* '<S76>:1:440' */
       StateFlowFinal_B.y_p_o = 0.0;
 
-      /* '<S168>:1:441' */
-      x1 = x2 / 2.0;
-      StateFlowFinal_B.x_pp = -G1 * StateFlowFinal_P.AlzataC1_Value / (x1 * x1);
+      /* '<S76>:1:441' */
+      x2 /= 2.0;
+      StateFlowFinal_B.x_pp = -G1 * StateFlowFinal_P.AlzataC1_Value / (x2 * x2);
 
-      /* '<S168>:1:442' */
+      /* '<S76>:1:442' */
       StateFlowFinal_B.y_pp = 0.0;
     } else {
-      /* '<S168>:1:445' */
+      /* '<S76>:1:445' */
       StateFlowFinal_B.x = 0.0;
 
-      /* '<S168>:1:446' */
+      /* '<S76>:1:446' */
       StateFlowFinal_B.x_p_l = 0.0;
 
-      /* '<S168>:1:447' */
-      StateFlowFinal_B.y = 0.0;
+      /* '<S76>:1:447' */
+      StateFlowFinal_B.y_c = 0.0;
 
-      /* '<S168>:1:448' */
+      /* '<S76>:1:448' */
       StateFlowFinal_B.y_p_o = 0.0;
 
-      /* '<S168>:1:449' */
+      /* '<S76>:1:449' */
       StateFlowFinal_B.x_pp = 0.0;
 
-      /* '<S168>:1:450' */
+      /* '<S76>:1:450' */
       StateFlowFinal_B.y_pp = 0.0;
     }
 
-    /* End of MATLAB Function: '<S58>/g' */
+    /* End of MATLAB Function: '<S56>/g' */
 
-    /* MATLAB Function: '<S58>/Cerchi Tangenti' incorporates:
-     *  Constant: '<S58>/Constant3'
+    /* MATLAB Function: '<S56>/Cerchi Tangenti' incorporates:
+     *  Constant: '<S56>/Constant3'
      */
-    /* MATLAB Function 'Sistema_braccia/Leggi di moto/Cerchi Tangenti': '<S165>:1' */
-    /* '<S165>:1:4' */
+    /* MATLAB Function 'Sistema_braccia/Leggi di moto/Cerchi Tangenti': '<S73>:1' */
+    /* '<S73>:1:4' */
     x2 = 100.0 * StateFlowFinal_P.Constant3_Value / 2.0;
 
-    /* '<S165>:1:5' */
-    /* '<S165>:1:6' */
+    /* '<S73>:1:5' */
+    /* '<S73>:1:6' */
     G1 = (StateFlowFinal_P.Constant3_Value - 0.025) * 100.0 / 2.0;
 
-    /* '<S165>:1:7' */
-    /* '<S165>:1:8' */
+    /* '<S73>:1:7' */
+    /* '<S73>:1:8' */
     x3 = ((StateFlowFinal_P.Constant3_Value - 0.025) - 0.025) * 100.0 / 2.0;
 
-    /* '<S165>:1:9' */
-    /* '<S165>:1:10' */
+    /* '<S73>:1:9' */
+    /* '<S73>:1:10' */
     x4 = (((StateFlowFinal_P.Constant3_Value - 0.025) - 0.025) - 0.025) * 100.0 /
       2.0;
 
-    /* '<S165>:1:11' */
-    /* '<S165>:1:12' */
+    /* '<S73>:1:11' */
+    /* '<S73>:1:12' */
     T5 = ((((StateFlowFinal_P.Constant3_Value - 0.025) - 0.025) - 0.025) - 0.025)
       * 100.0 / 2.0;
 
-    /* '<S165>:1:14' */
-    /* '<S165>:1:15' */
-    /* '<S165>:1:16' */
-    /* '<S165>:1:17' */
-    /* '<S165>:1:18' */
+    /* '<S73>:1:14' */
+    /* '<S73>:1:15' */
+    /* '<S73>:1:16' */
+    /* '<S73>:1:17' */
+    /* '<S73>:1:18' */
     if ((StateFlowFinal_B.Sum2 > 0.0) && (StateFlowFinal_B.Sum2 <= x2)) {
-      /* '<S165>:1:20' */
+      /* '<S73>:1:20' */
       /*  1 */
-      /* '<S165>:1:21' */
+      /* '<S73>:1:21' */
       StateFlowFinal_ldm7t(StateFlowFinal_B.Sum2 / x2, &x1, &F, &G1);
 
-      /* '<S165>:1:22' */
+      /* '<S73>:1:22' */
       x1 = x1 * 2.0 * 3.1415926535897931;
 
-      /* '<S165>:1:23' */
+      /* '<S73>:1:23' */
       F = F * 2.0 * 3.1415926535897931 / x2;
 
-      /* '<S165>:1:24' */
+      /* '<S73>:1:24' */
       x3 = G1 * 2.0 * 3.1415926535897931 / (x2 * x2);
 
-      /* '<S165>:1:25' */
+      /* '<S73>:1:25' */
       StateFlowFinal_B.xct = StateFlowFinal_P.Constant3_Value / 2.0 * cos
         (1.5707963267948966 - x1);
 
-      /* '<S165>:1:26' */
+      /* '<S73>:1:26' */
       StateFlowFinal_B.yct = StateFlowFinal_P.Constant3_Value / 2.0 * sin
         (1.5707963267948966 - x1) - StateFlowFinal_P.Constant3_Value / 2.0;
 
-      /* '<S165>:1:27' */
+      /* '<S73>:1:27' */
       StateFlowFinal_B.xct_p = StateFlowFinal_P.Constant3_Value / 2.0 * sin
         (1.5707963267948966 - x1) * F;
 
-      /* '<S165>:1:28' */
+      /* '<S73>:1:28' */
       StateFlowFinal_B.yct_p = -StateFlowFinal_P.Constant3_Value / 2.0 * cos
         (1.5707963267948966 - x1) * F;
 
-      /* '<S165>:1:29' */
+      /* '<S73>:1:29' */
       StateFlowFinal_B.xct_pp = -StateFlowFinal_P.Constant3_Value / 2.0 * cos
         (1.5707963267948966 - x1) * (F * F) + StateFlowFinal_P.Constant3_Value /
         2.0 * sin(1.5707963267948966 - x1) * x3;
 
-      /* '<S165>:1:30' */
+      /* '<S73>:1:30' */
       StateFlowFinal_B.yct_pp = -StateFlowFinal_P.Constant3_Value / 2.0 * sin
         (1.5707963267948966 - x1) * (F * F) - StateFlowFinal_P.Constant3_Value /
         2.0 * cos(1.5707963267948966 - x1) * x3;
     } else if ((StateFlowFinal_B.Sum2 > x2) && (StateFlowFinal_B.Sum2 <= x2 + G1))
     {
-      /* '<S165>:1:32' */
+      /* '<S73>:1:32' */
       /*  2 */
-      /* '<S165>:1:33' */
+      /* '<S73>:1:33' */
       StateFlowFinal_ldm7t((StateFlowFinal_B.Sum2 - x2) / G1, &x1, &F, &x3);
 
-      /* '<S165>:1:34' */
+      /* '<S73>:1:34' */
       x1 = x1 * 2.0 * 3.1415926535897931;
 
-      /* '<S165>:1:35' */
+      /* '<S73>:1:35' */
       F = F * 2.0 * 3.1415926535897931 / G1;
 
-      /* '<S165>:1:36' */
+      /* '<S73>:1:36' */
       x3 = x3 * 2.0 * 3.1415926535897931 / (G1 * G1);
 
-      /* '<S165>:1:37' */
+      /* '<S73>:1:37' */
       StateFlowFinal_B.xct = (StateFlowFinal_P.Constant3_Value - 0.025) / 2.0 *
         cos(1.5707963267948966 - x1);
 
-      /* '<S165>:1:38' */
+      /* '<S73>:1:38' */
       StateFlowFinal_B.yct = (StateFlowFinal_P.Constant3_Value - 0.025) / 2.0 *
         sin(1.5707963267948966 - x1) - (StateFlowFinal_P.Constant3_Value - 0.025)
         / 2.0;
 
-      /* '<S165>:1:39' */
+      /* '<S73>:1:39' */
       StateFlowFinal_B.xct_p = (StateFlowFinal_P.Constant3_Value - 0.025) / 2.0 *
         sin(1.5707963267948966 - x1) * F;
 
-      /* '<S165>:1:40' */
+      /* '<S73>:1:40' */
       StateFlowFinal_B.yct_p = -(StateFlowFinal_P.Constant3_Value - 0.025) / 2.0
         * cos(1.5707963267948966 - x1) * F;
 
-      /* '<S165>:1:41' */
+      /* '<S73>:1:41' */
       StateFlowFinal_B.xct_pp = -(StateFlowFinal_P.Constant3_Value - 0.025) /
         2.0 * cos(1.5707963267948966 - x1) * (F * F) +
         (StateFlowFinal_P.Constant3_Value - 0.025) / 2.0 * sin
         (1.5707963267948966 - x1) * x3;
 
-      /* '<S165>:1:42' */
+      /* '<S73>:1:42' */
       StateFlowFinal_B.yct_pp = -(StateFlowFinal_P.Constant3_Value - 0.025) /
         2.0 * sin(1.5707963267948966 - x1) * (F * F) -
         (StateFlowFinal_P.Constant3_Value - 0.025) / 2.0 * cos
         (1.5707963267948966 - x1) * x3;
     } else if ((StateFlowFinal_B.Sum2 > x2 + G1) && (StateFlowFinal_B.Sum2 <=
                 (x2 + G1) + x3)) {
-      /* '<S165>:1:44' */
+      /* '<S73>:1:44' */
       /*  3 */
-      /* '<S165>:1:45' */
+      /* '<S73>:1:45' */
       StateFlowFinal_ldm7t(((StateFlowFinal_B.Sum2 - x2) - G1) / x3, &x1, &F,
                            &x4);
 
-      /* '<S165>:1:46' */
+      /* '<S73>:1:46' */
       x1 = x1 * 2.0 * 3.1415926535897931;
 
-      /* '<S165>:1:47' */
+      /* '<S73>:1:47' */
       F = F * 2.0 * 3.1415926535897931 / x3;
 
-      /* '<S165>:1:48' */
+      /* '<S73>:1:48' */
       x3 = x4 * 2.0 * 3.1415926535897931 / (x3 * x3);
 
-      /* '<S165>:1:49' */
+      /* '<S73>:1:49' */
       StateFlowFinal_B.xct = ((StateFlowFinal_P.Constant3_Value - 0.025) - 0.025)
         / 2.0 * cos(1.5707963267948966 - x1);
 
-      /* '<S165>:1:50' */
+      /* '<S73>:1:50' */
       StateFlowFinal_B.yct = ((StateFlowFinal_P.Constant3_Value - 0.025) - 0.025)
         / 2.0 * sin(1.5707963267948966 - x1) -
         ((StateFlowFinal_P.Constant3_Value - 0.025) - 0.025) / 2.0;
 
-      /* '<S165>:1:51' */
+      /* '<S73>:1:51' */
       StateFlowFinal_B.xct_p = ((StateFlowFinal_P.Constant3_Value - 0.025) -
         0.025) / 2.0 * sin(1.5707963267948966 - x1) * F;
 
-      /* '<S165>:1:52' */
+      /* '<S73>:1:52' */
       StateFlowFinal_B.yct_p = -((StateFlowFinal_P.Constant3_Value - 0.025) -
         0.025) / 2.0 * cos(1.5707963267948966 - x1) * F;
 
-      /* '<S165>:1:53' */
+      /* '<S73>:1:53' */
       StateFlowFinal_B.xct_pp = -((StateFlowFinal_P.Constant3_Value - 0.025) -
         0.025) / 2.0 * cos(1.5707963267948966 - x1) * (F * F) +
         ((StateFlowFinal_P.Constant3_Value - 0.025) - 0.025) / 2.0 * sin
         (1.5707963267948966 - x1) * x3;
 
-      /* '<S165>:1:54' */
+      /* '<S73>:1:54' */
       StateFlowFinal_B.yct_pp = -((StateFlowFinal_P.Constant3_Value - 0.025) -
         0.025) / 2.0 * sin(1.5707963267948966 - x1) * (F * F) -
         ((StateFlowFinal_P.Constant3_Value - 0.025) - 0.025) / 2.0 * cos
         (1.5707963267948966 - x1) * x3;
     } else if ((StateFlowFinal_B.Sum2 > (x2 + G1) + x3) &&
                (StateFlowFinal_B.Sum2 <= ((x2 + G1) + x3) + x4)) {
-      /* '<S165>:1:56' */
+      /* '<S73>:1:56' */
       /*  4 */
-      /* '<S165>:1:57' */
+      /* '<S73>:1:57' */
       StateFlowFinal_ldm7t((((StateFlowFinal_B.Sum2 - x2) - G1) - x3) / x4, &x1,
                            &F, &x5);
 
-      /* '<S165>:1:58' */
+      /* '<S73>:1:58' */
       x1 = x1 * 2.0 * 3.1415926535897931;
 
-      /* '<S165>:1:59' */
+      /* '<S73>:1:59' */
       F = F * 2.0 * 3.1415926535897931 / x4;
 
-      /* '<S165>:1:60' */
+      /* '<S73>:1:60' */
       x3 = x5 * 2.0 * 3.1415926535897931 / (x4 * x4);
 
-      /* '<S165>:1:61' */
+      /* '<S73>:1:61' */
       StateFlowFinal_B.xct = (((StateFlowFinal_P.Constant3_Value - 0.025) -
         0.025) - 0.025) / 2.0 * cos(1.5707963267948966 - x1);
 
-      /* '<S165>:1:62' */
+      /* '<S73>:1:62' */
       StateFlowFinal_B.yct = (((StateFlowFinal_P.Constant3_Value - 0.025) -
         0.025) - 0.025) / 2.0 * sin(1.5707963267948966 - x1) -
         (((StateFlowFinal_P.Constant3_Value - 0.025) - 0.025) - 0.025) / 2.0;
 
-      /* '<S165>:1:63' */
+      /* '<S73>:1:63' */
       StateFlowFinal_B.xct_p = (((StateFlowFinal_P.Constant3_Value - 0.025) -
         0.025) - 0.025) / 2.0 * sin(1.5707963267948966 - x1) * F;
 
-      /* '<S165>:1:64' */
+      /* '<S73>:1:64' */
       StateFlowFinal_B.yct_p = -(((StateFlowFinal_P.Constant3_Value - 0.025) -
         0.025) - 0.025) / 2.0 * cos(1.5707963267948966 - x1) * F;
 
-      /* '<S165>:1:65' */
+      /* '<S73>:1:65' */
       StateFlowFinal_B.xct_pp = -(((StateFlowFinal_P.Constant3_Value - 0.025) -
         0.025) - 0.025) / 2.0 * cos(1.5707963267948966 - x1) * (F * F) +
         (((StateFlowFinal_P.Constant3_Value - 0.025) - 0.025) - 0.025) / 2.0 *
         sin(1.5707963267948966 - x1) * x3;
 
-      /* '<S165>:1:66' */
+      /* '<S73>:1:66' */
       StateFlowFinal_B.yct_pp = -(((StateFlowFinal_P.Constant3_Value - 0.025) -
         0.025) - 0.025) / 2.0 * sin(1.5707963267948966 - x1) * (F * F) -
         (((StateFlowFinal_P.Constant3_Value - 0.025) - 0.025) - 0.025) / 2.0 *
         cos(1.5707963267948966 - x1) * x3;
     } else if ((StateFlowFinal_B.Sum2 > ((x2 + G1) + x3) + x4) &&
                (StateFlowFinal_B.Sum2 <= (((x2 + G1) + x3) + x4) + T5)) {
-      /* '<S165>:1:68' */
+      /* '<S73>:1:68' */
       /*  5 */
-      /* '<S165>:1:69' */
+      /* '<S73>:1:69' */
       StateFlowFinal_ldm7t(((((StateFlowFinal_B.Sum2 - x2) - G1) - x3) - x4) /
                            T5, &x1, &F, &x5);
 
-      /* '<S165>:1:70' */
+      /* '<S73>:1:70' */
       x1 = x1 * 2.0 * 3.1415926535897931;
 
-      /* '<S165>:1:71' */
+      /* '<S73>:1:71' */
       F = F * 2.0 * 3.1415926535897931 / T5;
 
-      /* '<S165>:1:72' */
+      /* '<S73>:1:72' */
       x3 = x5 * 2.0 * 3.1415926535897931 / (T5 * T5);
 
-      /* '<S165>:1:73' */
+      /* '<S73>:1:73' */
       StateFlowFinal_B.xct = ((((StateFlowFinal_P.Constant3_Value - 0.025) -
         0.025) - 0.025) - 0.025) / 2.0 * cos(1.5707963267948966 - x1);
 
-      /* '<S165>:1:74' */
+      /* '<S73>:1:74' */
       StateFlowFinal_B.yct = ((((StateFlowFinal_P.Constant3_Value - 0.025) -
         0.025) - 0.025) - 0.025) / 2.0 * sin(1.5707963267948966 - x1) -
         ((((StateFlowFinal_P.Constant3_Value - 0.025) - 0.025) - 0.025) - 0.025)
         / 2.0;
 
-      /* '<S165>:1:75' */
+      /* '<S73>:1:75' */
       StateFlowFinal_B.xct_p = ((((StateFlowFinal_P.Constant3_Value - 0.025) -
         0.025) - 0.025) - 0.025) / 2.0 * sin(1.5707963267948966 - x1) * F;
 
-      /* '<S165>:1:76' */
+      /* '<S73>:1:76' */
       StateFlowFinal_B.yct_p = -((((StateFlowFinal_P.Constant3_Value - 0.025) -
         0.025) - 0.025) - 0.025) / 2.0 * cos(1.5707963267948966 - x1) * F;
 
-      /* '<S165>:1:77' */
+      /* '<S73>:1:77' */
       StateFlowFinal_B.xct_pp = -((((StateFlowFinal_P.Constant3_Value - 0.025) -
         0.025) - 0.025) - 0.025) / 2.0 * cos(1.5707963267948966 - x1) * (F * F)
         + ((((StateFlowFinal_P.Constant3_Value - 0.025) - 0.025) - 0.025) -
            0.025) / 2.0 * sin(1.5707963267948966 - x1) * x3;
 
-      /* '<S165>:1:78' */
+      /* '<S73>:1:78' */
       StateFlowFinal_B.yct_pp = -((((StateFlowFinal_P.Constant3_Value - 0.025) -
         0.025) - 0.025) - 0.025) / 2.0 * sin(1.5707963267948966 - x1) * (F * F)
         - ((((StateFlowFinal_P.Constant3_Value - 0.025) - 0.025) - 0.025) -
            0.025) / 2.0 * cos(1.5707963267948966 - x1) * x3;
     } else {
-      /* '<S165>:1:80' */
+      /* '<S73>:1:80' */
       StateFlowFinal_B.xct = 0.0;
 
-      /* '<S165>:1:81' */
+      /* '<S73>:1:81' */
       StateFlowFinal_B.xct_p = 0.0;
 
-      /* '<S165>:1:82' */
+      /* '<S73>:1:82' */
       StateFlowFinal_B.yct = 0.0;
 
-      /* '<S165>:1:83' */
+      /* '<S73>:1:83' */
       StateFlowFinal_B.yct_p = 0.0;
 
-      /* '<S165>:1:84' */
+      /* '<S73>:1:84' */
       StateFlowFinal_B.xct_pp = 0.0;
 
-      /* '<S165>:1:85' */
+      /* '<S73>:1:85' */
       StateFlowFinal_B.yct_pp = 0.0;
     }
 
-    /* End of MATLAB Function: '<S58>/Cerchi Tangenti' */
+    /* End of MATLAB Function: '<S56>/Cerchi Tangenti' */
 
-    /* MATLAB Function: '<S58>/spirale' incorporates:
-     *  Constant: '<S58>/N giri'
-     *  Constant: '<S58>/Periodo'
-     *  Constant: '<S58>/Rmax'
-     *  Constant: '<S58>/Rmin'
-     *  Constant: '<S58>/Tempo spost. iniziale'
+    /* MATLAB Function: '<S56>/spirale' incorporates:
+     *  Constant: '<S56>/N giri'
+     *  Constant: '<S56>/Periodo'
+     *  Constant: '<S56>/Rmax'
+     *  Constant: '<S56>/Rmin'
+     *  Constant: '<S56>/Tempo spost. iniziale'
      */
-    /* MATLAB Function 'Sistema_braccia/Leggi di moto/spirale': '<S169>:1' */
-    /* '<S169>:1:3' */
-    /* '<S169>:1:4' */
+    /* MATLAB Function 'Sistema_braccia/Leggi di moto/spirale': '<S77>:1' */
+    /* '<S77>:1:3' */
+    /* '<S77>:1:4' */
     if ((StateFlowFinal_B.Sum2 >= 0.0) && (StateFlowFinal_B.Sum2 <=
          StateFlowFinal_P.Tempospostiniziale_Value)) {
-      /* '<S169>:1:5' */
-      /* '<S169>:1:6' */
+      /* '<S77>:1:5' */
+      /* '<S77>:1:6' */
       StateFlowFinal_ldm7t_m(StateFlowFinal_B.Sum2 /
         StateFlowFinal_P.Tempospostiniziale_Value, &x1, &F, &G1);
 
-      /* '<S169>:1:7' */
+      /* '<S77>:1:7' */
       StateFlowFinal_B.xs = x1 * StateFlowFinal_P.Rmin_Value;
 
-      /* '<S169>:1:8' */
+      /* '<S77>:1:8' */
       StateFlowFinal_B.xs_p = F * StateFlowFinal_P.Rmin_Value /
         StateFlowFinal_P.Tempospostiniziale_Value;
 
-      /* '<S169>:1:9' */
+      /* '<S77>:1:9' */
       StateFlowFinal_B.xs_pp = G1 * StateFlowFinal_P.Rmin_Value /
         (StateFlowFinal_P.Tempospostiniziale_Value *
          StateFlowFinal_P.Tempospostiniziale_Value);
 
-      /* '<S169>:1:10' */
+      /* '<S77>:1:10' */
       StateFlowFinal_B.ys = 0.0;
 
-      /* '<S169>:1:11' */
+      /* '<S77>:1:11' */
       StateFlowFinal_B.ys_p = 0.0;
 
-      /* '<S169>:1:12' */
+      /* '<S77>:1:12' */
       StateFlowFinal_B.ys_pp = 0.0;
     } else if ((StateFlowFinal_B.Sum2 >
                 StateFlowFinal_P.Tempospostiniziale_Value) &&
                (StateFlowFinal_B.Sum2 <=
                 StateFlowFinal_P.Tempospostiniziale_Value +
                 StateFlowFinal_P.Periodo_Value)) {
-      /* '<S169>:1:13' */
-      /* '<S169>:1:14' */
+      /* '<S77>:1:13' */
+      /* '<S77>:1:14' */
       StateFlowFinal_ldm7t_m((StateFlowFinal_B.Sum2 -
         StateFlowFinal_P.Tempospostiniziale_Value) /
         StateFlowFinal_P.Periodo_Value, &x1, &F, &x3);
 
-      /* '<S169>:1:15' */
+      /* '<S77>:1:15' */
       x2 = x1 * StateFlowFinal_P.Rmax_Value + StateFlowFinal_P.Rmin_Value;
 
-      /* '<S169>:1:16' */
+      /* '<S77>:1:16' */
       G1 = F * StateFlowFinal_P.Rmax_Value / StateFlowFinal_P.Periodo_Value;
 
-      /* '<S169>:1:17' */
+      /* '<S77>:1:17' */
       x4 = x3 * StateFlowFinal_P.Rmax_Value / (StateFlowFinal_P.Periodo_Value *
         StateFlowFinal_P.Periodo_Value);
 
-      /* '<S169>:1:18' */
+      /* '<S77>:1:18' */
       x1 = x1 * StateFlowFinal_P.Ngiri_Value * 2.0 * 3.1415926535897931;
 
-      /* '<S169>:1:19' */
+      /* '<S77>:1:19' */
       F = F * StateFlowFinal_P.Ngiri_Value * 2.0 * 3.1415926535897931 /
         StateFlowFinal_P.Periodo_Value;
 
-      /* '<S169>:1:20' */
+      /* '<S77>:1:20' */
       x3 = x3 * StateFlowFinal_P.Ngiri_Value * 2.0 * 3.1415926535897931 /
         (StateFlowFinal_P.Periodo_Value * StateFlowFinal_P.Periodo_Value);
 
-      /* '<S169>:1:21' */
+      /* '<S77>:1:21' */
       StateFlowFinal_B.xs = x2 * cos(x1);
 
-      /* '<S169>:1:22' */
+      /* '<S77>:1:22' */
       StateFlowFinal_B.ys = x2 * sin(x1);
 
-      /* '<S169>:1:23' */
+      /* '<S77>:1:23' */
       StateFlowFinal_B.xs_p = -x2 * sin(x1) * F + G1 * cos(x1);
 
-      /* '<S169>:1:24' */
+      /* '<S77>:1:24' */
       StateFlowFinal_B.ys_p = x2 * cos(x1) * F + G1 * sin(x1);
 
-      /* '<S169>:1:25' */
+      /* '<S77>:1:25' */
       StateFlowFinal_B.xs_pp = ((-G1 * sin(x1) * F - (F * F * cos(x1) + sin(x1) *
         x3) * x2) + x4 * cos(x1)) - G1 * sin(x1) * F;
 
-      /* '<S169>:1:26' */
+      /* '<S77>:1:26' */
       StateFlowFinal_B.ys_pp = (((F * F * -sin(x1) + cos(x1) * x3) * x2 + G1 *
         cos(x1) * F) + x4 * sin(x1)) + G1 * cos(x1) * F;
     } else {
-      /* '<S169>:1:28' */
+      /* '<S77>:1:28' */
       StateFlowFinal_B.xs = cos(StateFlowFinal_P.Ngiri_Value * 2.0 *
         3.1415926535897931) * (StateFlowFinal_P.Rmin_Value +
         StateFlowFinal_P.Rmax_Value);
 
-      /* '<S169>:1:29' */
+      /* '<S77>:1:29' */
       StateFlowFinal_B.xs_p = 0.0;
 
-      /* '<S169>:1:30' */
+      /* '<S77>:1:30' */
       StateFlowFinal_B.ys = sin(StateFlowFinal_P.Ngiri_Value * 2.0 *
         3.1415926535897931) * (StateFlowFinal_P.Rmin_Value +
         StateFlowFinal_P.Rmax_Value);
 
-      /* '<S169>:1:31' */
+      /* '<S77>:1:31' */
       StateFlowFinal_B.ys_p = 0.0;
 
-      /* '<S169>:1:32' */
+      /* '<S77>:1:32' */
       StateFlowFinal_B.xs_pp = 0.0;
 
-      /* '<S169>:1:33' */
+      /* '<S77>:1:33' */
       StateFlowFinal_B.ys_pp = 0.0;
     }
 
-    /* End of MATLAB Function: '<S58>/spirale' */
+    /* End of MATLAB Function: '<S56>/spirale' */
 
-    /* MultiPortSwitch: '<S58>/Multiport Switch' incorporates:
+    /* MultiPortSwitch: '<S56>/Multiport Switch' incorporates:
      *  Constant: '<S12>/selettore'
-     *  Constant: '<S58>/N giri1'
-     *  Constant: '<S58>/N giri2'
-     *  Constant: '<S58>/Rmax1'
-     *  Constant: '<S58>/Rmin1'
-     *  Constant: '<S58>/Rmin2'
-     *  Constant: '<S58>/Rmin3'
+     *  Constant: '<S56>/N giri1'
+     *  Constant: '<S56>/N giri2'
+     *  Constant: '<S56>/Rmax1'
+     *  Constant: '<S56>/Rmin1'
+     *  Constant: '<S56>/Rmin2'
+     *  Constant: '<S56>/Rmin3'
      */
     switch ((int32_T)StateFlowFinal_P.selettore_Value) {
      case 1:
@@ -4092,7 +4474,7 @@ static void StateFlowFinal_output(void)
 
      case 3:
       StateFlowFinal_B.MultiportSwitch[0] = StateFlowFinal_B.x;
-      StateFlowFinal_B.MultiportSwitch[1] = StateFlowFinal_B.y;
+      StateFlowFinal_B.MultiportSwitch[1] = StateFlowFinal_B.y_c;
       StateFlowFinal_B.MultiportSwitch[2] = StateFlowFinal_B.x_p_l;
       StateFlowFinal_B.MultiportSwitch[3] = StateFlowFinal_B.y_p_o;
       StateFlowFinal_B.MultiportSwitch[4] = StateFlowFinal_B.x_pp;
@@ -4127,7 +4509,7 @@ static void StateFlowFinal_output(void)
       break;
     }
 
-    /* End of MultiPortSwitch: '<S58>/Multiport Switch' */
+    /* End of MultiPortSwitch: '<S56>/Multiport Switch' */
 
     /* Sum: '<S12>/Sum' */
     StateFlowFinal_B.Xmov = StateFlowFinal_B.x0 +
@@ -4617,37 +4999,37 @@ static void StateFlowFinal_output(void)
 
     /* End of MATLAB Function: '<S12>/Cinematica Inversa Acc' */
 
-    /* S-Function (xpcethercatpdorx): '<S70>/EtherCAT PDO Receive15' */
+    /* S-Function (xpcethercatpdorx): '<S68>/EtherCAT PDO Receive15' */
 
-    /* Level2 S-Function Block: '<S70>/EtherCAT PDO Receive15' (xpcethercatpdorx) */
+    /* Level2 S-Function Block: '<S68>/EtherCAT PDO Receive15' (xpcethercatpdorx) */
     {
       SimStruct *rts = StateFlowFinal_M->childSfunctions[16];
       sfcnOutputs(rts,1);
     }
 
-    /* DataTypeConversion: '<S70>/Velocity B' */
+    /* DataTypeConversion: '<S68>/Velocity B' */
     StateFlowFinal_B.VelocityB_f = StateFlowFinal_B.EtherCATPDOReceive15_d;
 
-    /* MATLAB Function: '<S70>/Vel Asse B conv' */
-    /* MATLAB Function 'Sistema_braccia/Velocita /Vel Asse B conv': '<S195>:1' */
-    /* '<S195>:1:2' */
+    /* MATLAB Function: '<S68>/Vel Asse B conv' */
+    /* MATLAB Function 'Sistema_braccia/Velocita /Vel Asse B conv': '<S103>:1' */
+    /* '<S103>:1:2' */
     StateFlowFinal_B.vel_B_conv_b = StateFlowFinal_B.VelocityB_f *
       6.2831853071795862 / 163840.0 / 64.0;
 
-    /* S-Function (xpcethercatpdorx): '<S70>/EtherCAT PDO Receive14' */
+    /* S-Function (xpcethercatpdorx): '<S68>/EtherCAT PDO Receive14' */
 
-    /* Level2 S-Function Block: '<S70>/EtherCAT PDO Receive14' (xpcethercatpdorx) */
+    /* Level2 S-Function Block: '<S68>/EtherCAT PDO Receive14' (xpcethercatpdorx) */
     {
       SimStruct *rts = StateFlowFinal_M->childSfunctions[17];
       sfcnOutputs(rts,1);
     }
 
-    /* DataTypeConversion: '<S70>/Velocity A' */
+    /* DataTypeConversion: '<S68>/Velocity A' */
     StateFlowFinal_B.VelocityA_o = StateFlowFinal_B.EtherCATPDOReceive14_b;
 
-    /* MATLAB Function: '<S70>/Vel Asse A conv' */
-    /* MATLAB Function 'Sistema_braccia/Velocita /Vel Asse A conv': '<S194>:1' */
-    /* '<S194>:1:2' */
+    /* MATLAB Function: '<S68>/Vel Asse A conv' */
+    /* MATLAB Function 'Sistema_braccia/Velocita /Vel Asse A conv': '<S102>:1' */
+    /* '<S102>:1:2' */
     StateFlowFinal_B.vel_A_conv_b = StateFlowFinal_B.VelocityA_o *
       6.2831853071795862 / 163840.0 / 64.0;
 
@@ -4664,42 +5046,168 @@ static void StateFlowFinal_output(void)
     /* Gain: '<S12>/Kd' */
     StateFlowFinal_B.Kd[0] = StateFlowFinal_P.Kd_Gain * StateFlowFinal_B.qdot[0];
 
-    /* Gain: '<S65>/Proportional Gain' */
+    /* Gain: '<S63>/Proportional Gain' */
     StateFlowFinal_B.ProportionalGain[0] = StateFlowFinal_P.PIDController_P *
       StateFlowFinal_B.q[0];
 
     /* Gain: '<S12>/Kd' */
     StateFlowFinal_B.Kd[1] = StateFlowFinal_P.Kd_Gain * StateFlowFinal_B.qdot[1];
 
-    /* Gain: '<S65>/Proportional Gain' */
+    /* Gain: '<S63>/Proportional Gain' */
     StateFlowFinal_B.ProportionalGain[1] = StateFlowFinal_P.PIDController_P *
       StateFlowFinal_B.q[1];
 
-    /* DiscreteIntegrator: '<S65>/Integrator' */
+    /* DiscreteIntegrator: '<S63>/Integrator' */
     if ((StateFlowFinal_B.StartWork > 0.0) &&
         (StateFlowFinal_DW.Integrator_PrevResetState <= 0)) {
       StateFlowFinal_DW.Integrator_DSTATE[0] = StateFlowFinal_P.Integrator_IC;
       StateFlowFinal_DW.Integrator_DSTATE[1] = StateFlowFinal_P.Integrator_IC;
     }
 
-    StateFlowFinal_B.Integrator[0] = StateFlowFinal_DW.Integrator_DSTATE[0];
+    /* MATLAB Function: '<S12>/MATLAB Function4' incorporates:
+     *  Constant: '<S12>/Constant'
+     *  Constant: '<S12>/Constant1'
+     */
+    x2 = StateFlowFinal_P.Constant_Value_a;
+    G1 = StateFlowFinal_P.Constant1_Value_e;
 
-    /* Sum: '<S65>/Sum' */
-    StateFlowFinal_B.Sum[0] = StateFlowFinal_B.ProportionalGain[0] +
-      StateFlowFinal_B.Integrator[0];
+    /* MATLAB Function 'Sistema_braccia/MATLAB Function4': '<S61>:1' */
+    /* '<S61>:1:33' */
+    /*  Mm e Nm si riescono a ricavare dallo script TestMatriciTheta */
+    /* 3.3415; %1.4604e+04; */
+    /* 0.0012; %9.5631e+03; */
+    /*  Calcolo Phi(||Csi||) */
+    /* '<S61>:1:15' */
+    /*  Calcolo H,P,Q */
+    /*  P ? definita positiva */
+    /* '<S61>:1:19' */
+    /* '<S61>:1:27' */
+    /*  Calcolo D e z, zV */
+    /* '<S61>:1:33' */
+    G1_0[0] = ((G1 * G1 + x2 * x2) + x2) / (2.0 * G1 * x2);
+    G1_0[4] = 0.0;
+    G1_0[8] = 1.0 / (2.0 * x2);
+    G1_0[12] = 0.0;
+    G1_0[1] = 0.0;
+    G1_0[5] = ((G1 * G1 + x2 * x2) + x2) / (2.0 * G1 * x2);
+    G1_0[9] = 0.0;
+    G1_0[13] = 1.0 / (2.0 * x2);
+    G1_0[2] = 1.0 / (2.0 * x2);
+    G1_0[6] = 0.0;
+    G1_0[10] = (x2 + 1.0) / (2.0 * G1 * x2);
+    G1_0[14] = 0.0;
+    G1_0[3] = 0.0;
+    G1_0[7] = 1.0 / (2.0 * x2);
+    G1_0[11] = 0.0;
+    G1_0[15] = (x2 + 1.0) / (2.0 * G1 * x2);
+    for (i = 0; i < 2; i++) {
+      /* DiscreteIntegrator: '<S63>/Integrator' */
+      StateFlowFinal_B.Integrator[i] = StateFlowFinal_DW.Integrator_DSTATE[i];
 
-    /* DiscreteIntegrator: '<S65>/Integrator' */
-    StateFlowFinal_B.Integrator[1] = StateFlowFinal_DW.Integrator_DSTATE[1];
+      /* Sum: '<S63>/Sum' */
+      StateFlowFinal_B.Sum[i] = StateFlowFinal_B.ProportionalGain[i] +
+        StateFlowFinal_B.Integrator[i];
 
-    /* Sum: '<S65>/Sum' */
-    StateFlowFinal_B.Sum[1] = StateFlowFinal_B.ProportionalGain[1] +
-      StateFlowFinal_B.Integrator[1];
+      /* SignalConversion: '<S61>/TmpSignal ConversionAt SFunction Inport1' incorporates:
+       *  MATLAB Function: '<S12>/MATLAB Function4'
+       */
+      StateFlowFinal_B.TmpSignalConversionAtSFunctionI[i] = StateFlowFinal_B.q[i];
+      StateFlowFinal_B.TmpSignalConversionAtSFunctionI[i + 2] =
+        StateFlowFinal_B.qdot[i];
+
+      /* MATLAB Function: '<S12>/MATLAB Function4' */
+      for (bitIdx = 0; bitIdx < 4; bitIdx++) {
+        a_0[i + (bitIdx << 1)] = 0.0;
+        F = a_0[(bitIdx << 1) + i];
+        F += G1_0[bitIdx << 2] * 0.0;
+        a_0[i + (bitIdx << 1)] = F;
+        F = a_0[(bitIdx << 1) + i];
+        F += G1_0[(bitIdx << 2) + 1] * 0.0;
+        a_0[i + (bitIdx << 1)] = F;
+        F = a_0[(bitIdx << 1) + i];
+        F += G1_0[(bitIdx << 2) + 2] * (real_T)a[i + 4];
+        a_0[i + (bitIdx << 1)] = F;
+        F = a_0[(bitIdx << 1) + i];
+        F += G1_0[(bitIdx << 2) + 3] * (real_T)a[i + 6];
+        a_0[i + (bitIdx << 1)] = F;
+      }
+    }
+
+    /* MATLAB Function: '<S12>/MATLAB Function4' */
+    for (bitIdx = 0; bitIdx < 2; bitIdx++) {
+      F = a_0[bitIdx] * StateFlowFinal_B.TmpSignalConversionAtSFunctionI[0];
+      F += a_0[bitIdx + 2] * StateFlowFinal_B.TmpSignalConversionAtSFunctionI[1];
+      F += a_0[bitIdx + 4] * StateFlowFinal_B.TmpSignalConversionAtSFunctionI[2];
+      F += a_0[bitIdx + 6] * StateFlowFinal_B.TmpSignalConversionAtSFunctionI[3];
+      theta_p[bitIdx] = F;
+    }
+
+    /*  Il risultato ? una 2x1 [2x4][4x4][4x1] */
+    /* '<S61>:1:34' */
+    if (StateFlowFinal_norm_fn(theta_p) < 0.005) {
+      /* '<S61>:1:35' */
+      /* '<S61>:1:36' */
+      StateFlowFinal_B.omega[0] = theta_p[0] / 0.005;
+      StateFlowFinal_B.omega[1] = theta_p[1] / 0.005;
+    } else {
+      /* '<S61>:1:38' */
+      x1 = StateFlowFinal_norm_fn(theta_p);
+      StateFlowFinal_B.omega[0] = theta_p[0] / x1;
+      StateFlowFinal_B.omega[1] = theta_p[1] / x1;
+    }
+
+    /*  norma di omega = rho */
+    /* '<S61>:1:42' */
+    K[0] = x2;
+    K[2] = 0.0;
+    K[4] = G1;
+    K[6] = 0.0;
+    K[1] = 0.0;
+    K[3] = x2;
+    K[5] = 0.0;
+    K[7] = G1;
+
+    /* y = theta_pp + K*csiH+omega; */
+    /* eta = (eye(2)-M^-1*Mhat)*y-M^-1*ntilde; */
+    /* [1]+[1][2,2] ERR */
+    /* '<S61>:1:48' */
+    x2 = 0.0;
+    bitIdx = 0;
+    exitg1 = false;
+    while ((!exitg1) && (bitIdx < 8)) {
+      G1 = fabs(K[bitIdx]);
+      if (rtIsNaN(G1)) {
+        x2 = (rtNaN);
+        exitg1 = true;
+      } else {
+        if (G1 > x2) {
+          x2 = G1;
+        }
+
+        bitIdx++;
+      }
+    }
+
+    if ((!rtIsInf(x2)) && (!rtIsNaN(x2))) {
+      StateFlowFinal_svd(K, unusedExpr);
+    }
+
+    /* [1]+[2,4][2,2] ERR */
+    /* [1]+[1][2,2] ERR */
+    /* rho = (1/(1-alpha))*(alpha*Qm+alpha*norm(K)*norm(CsiH)+Mm*phi); */
+    /*  rho = b0+b1*norm(csiH)+b2*norm(csiH)^2; */
+    /* '<S61>:1:53' */
+    /* '<S61>:1:54' */
+    StateFlowFinal_B.omega[0] *= 0.28;
+    StateFlowFinal_B.omega[1] *= 0.28;
 
     /* Sum: '<S12>/Sum9' */
-    StateFlowFinal_B.Y[0] = (StateFlowFinal_B.theta1_pp + StateFlowFinal_B.Kd[0])
-      + StateFlowFinal_B.Sum[0];
-    StateFlowFinal_B.Y[1] = (StateFlowFinal_B.theta2_pp + StateFlowFinal_B.Kd[1])
-      + StateFlowFinal_B.Sum[1];
+    /* '<S61>:1:55' */
+    /* '<S61>:1:56' */
+    StateFlowFinal_B.Y[0] = ((StateFlowFinal_B.theta1_pp + StateFlowFinal_B.Kd[0])
+      + StateFlowFinal_B.Sum[0]) + StateFlowFinal_B.omega[0];
+    StateFlowFinal_B.Y[1] = ((StateFlowFinal_B.theta2_pp + StateFlowFinal_B.Kd[1])
+      + StateFlowFinal_B.Sum[1]) + StateFlowFinal_B.omega[1];
 
     /* MATLAB Function: '<S12>/Dinamica Inversa1' */
     /* MATLAB Function 'Sistema_braccia/Dinamica Inversa1': '<S55>:1' */
@@ -4880,7 +5388,7 @@ static void StateFlowFinal_output(void)
     for (bitIdx = 0; bitIdx < 2; bitIdx++) {
       j_a = J1[bitIdx << 1] * 2.9 * J1[0];
       j_a += J1[(bitIdx << 1) + 1] * 2.9 * J1[1];
-      x4 = y[bitIdx] + j_a;
+      x2 = y[bitIdx] + j_a;
       tmp[bitIdx] = 0.0;
       j_a = tmp[bitIdx];
       j_a += J2[bitIdx << 1] * 2.9 * 0.0;
@@ -4890,7 +5398,7 @@ static void StateFlowFinal_output(void)
       j_a += J2[(bitIdx << 1) + 1] * 2.9 * 0.0;
       N21 += J[(bitIdx << 1) + 1] * 0.0522 * J[1];
       tmp[bitIdx] = j_a;
-      x4 = (x4 + tmp[bitIdx]) + N21;
+      x2 = (x2 + tmp[bitIdx]) + N21;
       tmp_0[bitIdx] = 0.0;
       j_a = tmp_0[bitIdx];
       j_a += J3[bitIdx << 1] * 2.9 * J3[0];
@@ -4900,7 +5408,7 @@ static void StateFlowFinal_output(void)
       j_a += J3[(bitIdx << 1) + 1] * 2.9 * J3[1];
       N21 += J4[(bitIdx << 1) + 1] * 2.9 * J4[1];
       tmp_0[bitIdx] = j_a;
-      y_0[bitIdx] = (x4 + tmp_0[bitIdx]) + N21;
+      y_0[bitIdx] = (x2 + tmp_0[bitIdx]) + N21;
       tmp_1[bitIdx] = 0.0;
       j_a = tmp_1[bitIdx];
       j_a += JE[bitIdx << 1] * 0.36 * JE[0];
@@ -4910,7 +5418,7 @@ static void StateFlowFinal_output(void)
       tmp_1[bitIdx] = j_a;
       j_a = J1[bitIdx << 1] * 2.9 * 0.0;
       j_a += J1[(bitIdx << 1) + 1] * 2.9 * 0.0;
-      x4 = y[bitIdx + 2] + j_a;
+      x2 = y[bitIdx + 2] + j_a;
       tmp[bitIdx + 2] = 0.0;
       j_a = tmp[bitIdx + 2];
       j_a += J2[bitIdx << 1] * 2.9 * J2[2];
@@ -4920,7 +5428,7 @@ static void StateFlowFinal_output(void)
       j_a += J2[(bitIdx << 1) + 1] * 2.9 * J2[3];
       N21 += J[(bitIdx << 1) + 1] * 0.0522 * J[3];
       tmp[bitIdx + 2] = j_a;
-      x4 = (tmp[bitIdx + 2] + x4) + N21;
+      x2 = (tmp[bitIdx + 2] + x2) + N21;
       tmp_0[bitIdx + 2] = 0.0;
       j_a = tmp_0[bitIdx + 2];
       j_a += J3[bitIdx << 1] * 2.9 * J3[2];
@@ -4930,7 +5438,7 @@ static void StateFlowFinal_output(void)
       j_a += J3[(bitIdx << 1) + 1] * 2.9 * J3[3];
       N21 += J4[(bitIdx << 1) + 1] * 2.9 * J4[3];
       tmp_0[bitIdx + 2] = j_a;
-      y_0[bitIdx + 2] = (tmp_0[bitIdx + 2] + x4) + N21;
+      y_0[bitIdx + 2] = (tmp_0[bitIdx + 2] + x2) + N21;
       tmp_1[bitIdx + 2] = 0.0;
       j_a = tmp_1[bitIdx + 2];
       j_a += JE[bitIdx << 1] * 0.36 * JE[2];
@@ -4941,12 +5449,12 @@ static void StateFlowFinal_output(void)
     }
 
     /* '<S55>:1:97' */
-    x4 = -0.125 * cos(StateFlowFinal_B.Sum4) * StateFlowFinal_B.vel_B_conv;
-    D2p = -0.125 * sin(StateFlowFinal_B.Sum4) * StateFlowFinal_B.vel_B_conv;
+    x2 = -0.125 * cos(StateFlowFinal_B.Sum4) * StateFlowFinal_B.vel_B_conv;
+    x4 = -0.125 * sin(StateFlowFinal_B.Sum4) * StateFlowFinal_B.vel_B_conv;
     N22 = -0.125 * cos(StateFlowFinal_B.Sum7) * StateFlowFinal_B.vel_A_conv;
     m_a = -0.125 * sin(StateFlowFinal_B.Sum7) * StateFlowFinal_B.vel_A_conv;
-    x2 = ((0.5 * cos(G1) * F * J[0] + cos(StateFlowFinal_B.Sum4) *
-           StateFlowFinal_B.vel_B_conv) + 0.5 * sin(G1) * J_p_idx_0) * -0.25;
+    D2p = ((0.5 * cos(G1) * F * J[0] + cos(StateFlowFinal_B.Sum4) *
+            StateFlowFinal_B.vel_B_conv) + 0.5 * sin(G1) * J_p_idx_0) * -0.25;
     T5 = (0.5 * cos(G1) * F * J[2] + 0.5 * sin(G1) * x5) * -0.25;
     i_a = ((-sin(StateFlowFinal_B.Sum4) * StateFlowFinal_B.vel_B_conv - 0.5 *
             sin(G1) * F * J[0]) + 0.5 * cos(G1) * J_p_idx_0) * 0.25;
@@ -4969,14 +5477,14 @@ static void StateFlowFinal_output(void)
       tmp_0[bitIdx] = 0.0;
       j_a = tmp_0[bitIdx];
       N21 = tmp[bitIdx];
-      N21 += J1[bitIdx << 1] * 2.9 * x4;
+      N21 += J1[bitIdx << 1] * 2.9 * x2;
       j_a += J2[bitIdx << 1] * 2.9 * 0.0;
       F = J[bitIdx << 1] * 0.0522 * J_p_idx_0;
       tmp[bitIdx] = N21;
       tmp_0[bitIdx] = j_a;
       j_a = tmp_0[bitIdx];
       N21 = tmp[bitIdx];
-      N21 += J1[(bitIdx << 1) + 1] * 2.9 * D2p;
+      N21 += J1[(bitIdx << 1) + 1] * 2.9 * x4;
       j_a += J2[(bitIdx << 1) + 1] * 2.9 * 0.0;
       F += J[(bitIdx << 1) + 1] * 0.0522 * J_p_idx_1;
       tmp[bitIdx] = N21;
@@ -4984,7 +5492,7 @@ static void StateFlowFinal_output(void)
       j_a = (tmp[bitIdx] + tmp_0[bitIdx]) + F;
       tmp_2[bitIdx] = 0.0;
       N21 = tmp_2[bitIdx];
-      N21 += J3[bitIdx << 1] * 2.9 * x2;
+      N21 += J3[bitIdx << 1] * 2.9 * D2p;
       F = J4[bitIdx << 1] * 2.9 * tmp_5;
       tmp_2[bitIdx] = N21;
       N21 = tmp_2[bitIdx];
@@ -5037,23 +5545,23 @@ static void StateFlowFinal_output(void)
     }
 
     /* '<S55>:1:99' */
-    x4 = StateFlowFinal_B.Y[0];
-    D2p = StateFlowFinal_B.Y[1];
-    x2 = StateFlowFinal_B.vel_B_conv;
+    x2 = StateFlowFinal_B.Y[0];
+    x4 = StateFlowFinal_B.Y[1];
+    D2p = StateFlowFinal_B.vel_B_conv;
     i_a = StateFlowFinal_B.vel_A_conv;
-    K[0] = tmp_3[0] + tmp_4[0];
-    G1 = M[0] * x4;
+    K_0[0] = tmp_3[0] + tmp_4[0];
+    G1 = M[0] * x2;
     M_0[0] = G1;
     G1 = M_0[0];
-    K[1] = tmp_3[1] + tmp_4[1];
-    G1 += M[2] * D2p;
+    K_0[1] = tmp_3[1] + tmp_4[1];
+    G1 += M[2] * x4;
     M_0[0] = G1;
-    K[2] = tmp_3[2] + tmp_4[2];
-    G1 = M[1] * x4;
+    K_0[2] = tmp_3[2] + tmp_4[2];
+    G1 = M[1] * x2;
     M_0[1] = G1;
     G1 = M_0[1];
-    K[3] = tmp_3[3] + tmp_4[3];
-    G1 += M[3] * D2p;
+    K_0[3] = tmp_3[3] + tmp_4[3];
+    G1 += M[3] * x4;
     M_0[1] = G1;
 
     /* '<S55>:1:101' */
@@ -5064,92 +5572,92 @@ static void StateFlowFinal_output(void)
     /* '<S55>:1:112' */
     /* '<S55>:1:113' */
     /* '<S55>:1:114' */
-    x4 = StateFlowFinal_B.vel_B_conv;
-    D2p = StateFlowFinal_B.vel_A_conv;
+    x2 = StateFlowFinal_B.vel_B_conv;
+    x4 = StateFlowFinal_B.vel_A_conv;
     for (bitIdx = 0; bitIdx < 2; bitIdx++) {
-      F = K[bitIdx] * x2;
+      F = K_0[bitIdx] * D2p;
+      J[bitIdx] = 0.0;
+      G1 = J[bitIdx];
+      G1 += o_a[bitIdx] * M[0];
+      J[bitIdx] = G1;
+      G1 = J[bitIdx];
+      G1 += o_a[bitIdx + 2] * M[1];
+      J[bitIdx] = G1;
+      F += K_0[bitIdx + 2] * i_a;
+      J[bitIdx + 2] = 0.0;
+      G1 = J[bitIdx + 2];
+      G1 += o_a[bitIdx] * M[2];
+      J[bitIdx + 2] = G1;
+      G1 = J[bitIdx + 2];
+      G1 += o_a[bitIdx + 2] * M[3];
+      J[bitIdx + 2] = G1;
+      theta_p[bitIdx] = M_0[bitIdx] + F;
+      j_a = J[bitIdx] * 0.015625;
+      j_a += J[bitIdx + 2] * 0.0;
+      StateFlowFinal_B.Mm[bitIdx] = j_a + Jm[bitIdx];
       J1[bitIdx] = 0.0;
       G1 = J1[bitIdx];
-      G1 += o_a[bitIdx] * M[0];
+      G1 += o_a[bitIdx] * K_0[0];
       J1[bitIdx] = G1;
       G1 = J1[bitIdx];
-      G1 += o_a[bitIdx + 2] * M[1];
+      G1 += o_a[bitIdx + 2] * K_0[1];
       J1[bitIdx] = G1;
-      F += K[bitIdx + 2] * i_a;
+      j_a = J[bitIdx] * 0.0;
+      j_a += J[bitIdx + 2] * 0.015625;
+      StateFlowFinal_B.Mm[bitIdx + 2] = Jm[bitIdx + 2] + j_a;
       J1[bitIdx + 2] = 0.0;
       G1 = J1[bitIdx + 2];
-      G1 += o_a[bitIdx] * M[2];
+      G1 += o_a[bitIdx] * K_0[2];
       J1[bitIdx + 2] = G1;
       G1 = J1[bitIdx + 2];
-      G1 += o_a[bitIdx + 2] * M[3];
+      G1 += o_a[bitIdx + 2] * K_0[3];
       J1[bitIdx + 2] = G1;
-      theta_p[bitIdx] = M_0[bitIdx] + F;
-      j_a = J1[bitIdx] * 0.015625;
-      j_a += J1[bitIdx + 2] * 0.0;
-      StateFlowFinal_B.Mm[bitIdx] = j_a + Jm[bitIdx];
       J2[bitIdx] = 0.0;
       G1 = J2[bitIdx];
-      G1 += o_a[bitIdx] * K[0];
+      G1 += J1[bitIdx] * 0.015625;
       J2[bitIdx] = G1;
       G1 = J2[bitIdx];
-      G1 += o_a[bitIdx + 2] * K[1];
+      G1 += J1[bitIdx + 2] * 0.0;
       J2[bitIdx] = G1;
-      j_a = J1[bitIdx] * 0.0;
-      j_a += J1[bitIdx + 2] * 0.015625;
-      StateFlowFinal_B.Mm[bitIdx + 2] = Jm[bitIdx + 2] + j_a;
+      F = (real_T)p_a[bitIdx] * x2;
       J2[bitIdx + 2] = 0.0;
       G1 = J2[bitIdx + 2];
-      G1 += o_a[bitIdx] * K[2];
+      G1 += J1[bitIdx] * 0.0;
       J2[bitIdx + 2] = G1;
       G1 = J2[bitIdx + 2];
-      G1 += o_a[bitIdx + 2] * K[3];
+      G1 += J1[bitIdx + 2] * 0.015625;
       J2[bitIdx + 2] = G1;
-      J3[bitIdx] = 0.0;
-      G1 = J3[bitIdx];
-      G1 += J2[bitIdx] * 0.015625;
-      J3[bitIdx] = G1;
-      G1 = J3[bitIdx];
-      G1 += J2[bitIdx + 2] * 0.0;
-      J3[bitIdx] = G1;
-      F = (real_T)p_a[bitIdx] * x4;
-      J3[bitIdx + 2] = 0.0;
-      G1 = J3[bitIdx + 2];
-      G1 += J2[bitIdx] * 0.0;
-      J3[bitIdx + 2] = G1;
-      G1 = J3[bitIdx + 2];
-      G1 += J2[bitIdx + 2] * 0.015625;
-      J3[bitIdx + 2] = G1;
-      F += (real_T)p_a[bitIdx + 2] * D2p;
+      F += (real_T)p_a[bitIdx + 2] * x4;
       p_a_0[bitIdx] = F;
     }
 
-    x2 = 2.2250738585072014E-308;
-    j_a = J3[0] * p_a_0[0];
-    j_a += J3[2] * p_a_0[1];
-    G1 = 0.0002485 - j_a;
-    G1 = fabs(G1);
-    if (G1 > 2.2250738585072014E-308) {
-      x1 = 1.0;
-      x2 = G1;
+    G1 = 2.2250738585072014E-308;
+    j_a = J2[0] * p_a_0[0];
+    j_a += J2[2] * p_a_0[1];
+    F = 0.0002485 - j_a;
+    x1 = fabs(F);
+    if (x1 > 2.2250738585072014E-308) {
+      x2 = 1.0;
+      G1 = x1;
     } else {
-      x4 = G1 / 2.2250738585072014E-308;
-      x1 = x4 * x4;
+      x4 = x1 / 2.2250738585072014E-308;
+      x2 = x4 * x4;
     }
 
-    j_a = J3[1] * p_a_0[0];
-    j_a += J3[3] * p_a_0[1];
-    G1 = -0.0002483 - j_a;
-    G1 = fabs(G1);
-    if (G1 > x2) {
-      x4 = x2 / G1;
-      x1 = x1 * x4 * x4 + 1.0;
-      x2 = G1;
+    j_a = J2[1] * p_a_0[0];
+    j_a += J2[3] * p_a_0[1];
+    F = -0.0002483 - j_a;
+    x1 = fabs(F);
+    if (x1 > G1) {
+      x4 = G1 / x1;
+      x2 = x2 * x4 * x4 + 1.0;
+      G1 = x1;
     } else {
-      x4 = G1 / x2;
-      x1 += x4 * x4;
+      x4 = x1 / G1;
+      x2 += x4 * x4;
     }
 
-    x1 = x2 * sqrt(x1);
+    x2 = G1 * sqrt(x2);
 
     /*   */
     /*  Mm_ = Jm; */
@@ -5163,7 +5671,7 @@ static void StateFlowFinal_output(void)
 
     /* '<S55>:1:126' */
     StateFlowFinal_B.C2 = theta_p[1];
-    StateFlowFinal_B.ntilde = x1;
+    StateFlowFinal_B.ntilde = x2;
 
     /* End of MATLAB Function: '<S12>/Dinamica Inversa1' */
 
@@ -5620,7 +6128,7 @@ static void StateFlowFinal_output(void)
         /* Switch: '<S8>/Switch2' incorporates:
          *  Constant: '<S8>/Constant1'
          */
-        StateFlowFinal_B.Switch2 = StateFlowFinal_P.Constant1_Value_e;
+        StateFlowFinal_B.Switch2 = StateFlowFinal_P.Constant1_Value_ek;
       }
 
       StateFlowFinal_B.Switch1_h = StateFlowFinal_B.Switch2;
@@ -5735,7 +6243,7 @@ static void StateFlowFinal_output(void)
 
     /*  Posizione Y end-effector */
     /* '<S51>:1:14' */
-    x1 = (sqrt(x1 * x1 - ((x4 * x4 * 0.00050625 - (-0.18 - (cos
+    x2 = (sqrt(x1 * x1 - ((x4 * x4 * 0.00050625 - (-0.18 - (cos
                (StateFlowFinal_B.Sum7) - cos(StateFlowFinal_B.Sum4)) * 0.25) *
              ((cos(StateFlowFinal_B.Sum7) + cos(StateFlowFinal_B.Sum4)) * 0.0225)
              * (-0.18 - 0.5 * cos(StateFlowFinal_B.Sum7))) + (0.045 * cos
@@ -5744,92 +6252,68 @@ static void StateFlowFinal_output(void)
 
     /*  Posizione X end-effector */
     /* '<S51>:1:16' */
-    StateFlowFinal_B.x_n = (x1 * 0.25 * (sin(StateFlowFinal_B.Sum7) - sin
+    StateFlowFinal_B.x_n = (x2 * 0.25 * (sin(StateFlowFinal_B.Sum7) - sin
       (StateFlowFinal_B.Sum4)) - (cos(StateFlowFinal_B.Sum7) + cos
       (StateFlowFinal_B.Sum4)) * 0.0225) / (-0.18 - (cos(StateFlowFinal_B.Sum7)
       - cos(StateFlowFinal_B.Sum4)) * 0.25);
-    StateFlowFinal_B.y_k = x1;
+    StateFlowFinal_B.y_k = x2;
 
-    /* DataTypeConversion: '<S57>/DataTypeConversionEnable' incorporates:
-     *  Constant: '<S57>/Enable'
+    /* SignalConversion: '<S60>/TmpSignal ConversionAt SFunction Inport1' incorporates:
+     *  MATLAB Function: '<S12>/MATLAB Function3'
      */
-    StateFlowFinal_B.DataTypeConversionEnable = StateFlowFinal_P.Enable_Value;
+    StateFlowFinal_B.TmpSignalConversionAtSFunctio_k[0] = StateFlowFinal_B.q[0];
+    StateFlowFinal_B.TmpSignalConversionAtSFunctio_k[2] = StateFlowFinal_B.qdot
+      [0];
+    StateFlowFinal_B.TmpSignalConversionAtSFunctio_k[1] = StateFlowFinal_B.q[1];
+    StateFlowFinal_B.TmpSignalConversionAtSFunctio_k[3] = StateFlowFinal_B.qdot
+      [1];
 
-    /* Reshape: '<S57>/Reshapeu' */
-    StateFlowFinal_B.Reshapeu = StateFlowFinal_B.vel_B_conv_b;
-
-    /* RateTransition: '<S12>/Rate Transition' */
-    StateFlowFinal_B.RateTransition = StateFlowFinal_B.Sum4;
-
-    /* Reshape: '<S57>/Reshapey' */
-    StateFlowFinal_B.Reshapey = StateFlowFinal_B.RateTransition;
-
-    /* DataTypeConversion: '<S125>/Conversion' incorporates:
-     *  Constant: '<S57>/D'
-     */
-    StateFlowFinal_B.Conversion_a = StateFlowFinal_P.D_Value;
-
-    /* DataTypeConversion: '<S160>/Conversion' incorporates:
-     *  Constant: '<S120>/KalmanGainM'
-     */
-    StateFlowFinal_B.Conversion[0] = StateFlowFinal_P.KalmanGainM_Value[0];
-
-    /* DataTypeConversion: '<S124>/Conversion' incorporates:
-     *  Constant: '<S57>/C'
-     */
-    StateFlowFinal_B.Conversion_f[0] = StateFlowFinal_P.C_Value[0];
-
-    /* DataTypeConversion: '<S135>/Conversion' incorporates:
-     *  Constant: '<S57>/X0'
-     */
-    StateFlowFinal_B.Conversion_p[0] = StateFlowFinal_P.X0_Value[0];
-
-    /* Reshape: '<S57>/ReshapeX0' */
-    StateFlowFinal_B.ReshapeX0[0] = StateFlowFinal_B.Conversion_p[0];
-
-    /* DataTypeConversion: '<S160>/Conversion' incorporates:
-     *  Constant: '<S120>/KalmanGainM'
-     */
-    StateFlowFinal_B.Conversion[1] = StateFlowFinal_P.KalmanGainM_Value[1];
-
-    /* DataTypeConversion: '<S124>/Conversion' incorporates:
-     *  Constant: '<S57>/C'
-     */
-    StateFlowFinal_B.Conversion_f[1] = StateFlowFinal_P.C_Value[1];
-
-    /* DataTypeConversion: '<S135>/Conversion' incorporates:
-     *  Constant: '<S57>/X0'
-     */
-    StateFlowFinal_B.Conversion_p[1] = StateFlowFinal_P.X0_Value[1];
-
-    /* Reshape: '<S57>/ReshapeX0' */
-    StateFlowFinal_B.ReshapeX0[1] = StateFlowFinal_B.Conversion_p[1];
-
-    /* Delay: '<S57>/MemoryX' */
-    if (StateFlowFinal_DW.icLoad != 0) {
-      StateFlowFinal_DW.MemoryX_DSTATE[0] = StateFlowFinal_B.ReshapeX0[0];
-      StateFlowFinal_DW.MemoryX_DSTATE[1] = StateFlowFinal_B.ReshapeX0[1];
+    /* MATLAB Function: '<S12>/MATLAB Function3' */
+    /* MATLAB Function 'Sistema_braccia/MATLAB Function3': '<S60>:1' */
+    /* '<S60>:1:3' */
+    StateFlowFinal_B.y = 0.0;
+    G1 = 2.2250738585072014E-308;
+    x1 = fabs(StateFlowFinal_B.TmpSignalConversionAtSFunctio_k[0]);
+    if (x1 > 2.2250738585072014E-308) {
+      x4 = 2.2250738585072014E-308 / x1;
+      StateFlowFinal_B.y = StateFlowFinal_B.y * x4 * x4 + 1.0;
+      G1 = x1;
+    } else {
+      x4 = x1 / 2.2250738585072014E-308;
+      StateFlowFinal_B.y += x4 * x4;
     }
 
-    StateFlowFinal_B.MemoryX[0] = StateFlowFinal_DW.MemoryX_DSTATE[0];
-    StateFlowFinal_B.MemoryX[1] = StateFlowFinal_DW.MemoryX_DSTATE[1];
+    x1 = fabs(StateFlowFinal_B.TmpSignalConversionAtSFunctio_k[1]);
+    if (x1 > G1) {
+      x4 = G1 / x1;
+      StateFlowFinal_B.y = StateFlowFinal_B.y * x4 * x4 + 1.0;
+      G1 = x1;
+    } else {
+      x4 = x1 / G1;
+      StateFlowFinal_B.y += x4 * x4;
+    }
 
-    /* End of Delay: '<S57>/MemoryX' */
+    x1 = fabs(StateFlowFinal_B.TmpSignalConversionAtSFunctio_k[2]);
+    if (x1 > G1) {
+      x4 = G1 / x1;
+      StateFlowFinal_B.y = StateFlowFinal_B.y * x4 * x4 + 1.0;
+      G1 = x1;
+    } else {
+      x4 = x1 / G1;
+      StateFlowFinal_B.y += x4 * x4;
+    }
 
-    /* Outputs for Atomic SubSystem: '<S57>/UseCurrentEstimator' */
-    StateFlowFi_UseCurrentEstimator(StateFlowFinal_B.DataTypeConversionEnable,
-      StateFlowFinal_B.Conversion, StateFlowFinal_B.Reshapeu,
-      StateFlowFinal_B.Reshapey, StateFlowFinal_B.Conversion_f,
-      StateFlowFinal_B.Conversion_a, StateFlowFinal_B.MemoryX,
-      &StateFlowFinal_B.UseCurrentEstimator,
-      &StateFlowFinal_DW.UseCurrentEstimator, (P_UseCurrentEstimator_StateFl_T *)
-      &StateFlowFinal_P.UseCurrentEstimator);
+    x1 = fabs(StateFlowFinal_B.TmpSignalConversionAtSFunctio_k[3]);
+    if (x1 > G1) {
+      x4 = G1 / x1;
+      StateFlowFinal_B.y = StateFlowFinal_B.y * x4 * x4 + 1.0;
+      G1 = x1;
+    } else {
+      x4 = x1 / G1;
+      StateFlowFinal_B.y += x4 * x4;
+    }
 
-    /* End of Outputs for SubSystem: '<S57>/UseCurrentEstimator' */
-
-    /* Reshape: '<S57>/Reshapexhat' */
-    StateFlowFinal_B.Reshapexhat[0] = StateFlowFinal_B.UseCurrentEstimator.Add[0];
-    StateFlowFinal_B.Reshapexhat[1] = StateFlowFinal_B.UseCurrentEstimator.Add[1];
+    StateFlowFinal_B.y = G1 * sqrt(StateFlowFinal_B.y);
 
     /* MATLAB Function: '<S12>/Cinematica diretta Acc' */
     /* MATLAB Function 'Sistema_braccia/Cinematica diretta Acc': '<S52>:1' */
@@ -5900,714 +6384,43 @@ static void StateFlowFinal_output(void)
       StateFlowFinal_B.MultiportSwitch[5];
 
     /* MATLAB Function: '<S12>/MATLAB Function2' */
-    /* MATLAB Function 'Sistema_braccia/MATLAB Function2': '<S61>:1' */
+    /* MATLAB Function 'Sistema_braccia/MATLAB Function2': '<S59>:1' */
     if (StateFlowFinal_B.Bool == 4.0) {
-      /* '<S61>:1:2' */
-      /* '<S61>:1:3' */
+      /* '<S59>:1:2' */
+      /* '<S59>:1:3' */
       StateFlowFinal_B.xp = StateFlowFinal_B.x_n;
 
-      /* '<S61>:1:4' */
+      /* '<S59>:1:4' */
       StateFlowFinal_B.yp = StateFlowFinal_B.y_k;
     } else {
-      /* '<S61>:1:6' */
+      /* '<S59>:1:6' */
       StateFlowFinal_B.xp = 0.0;
 
-      /* '<S61>:1:7' */
+      /* '<S59>:1:7' */
       StateFlowFinal_B.yp = 0.0;
     }
 
     /* End of MATLAB Function: '<S12>/MATLAB Function2' */
 
-    /* DataTypeConversion: '<S114>/Conversion' incorporates:
-     *  Constant: '<S75>/KalmanGainL'
-     */
-    StateFlowFinal_B.Conversion_c[0] = StateFlowFinal_P.KalmanGainL_Value[0];
-
-    /* DataTypeConversion: '<S115>/Conversion' incorporates:
-     *  Constant: '<S75>/KalmanGainM'
-     */
-    StateFlowFinal_B.Conversion_j[0] = StateFlowFinal_P.KalmanGainM_Value_n[0];
-
-    /* DataTypeConversion: '<S114>/Conversion' incorporates:
-     *  Constant: '<S75>/KalmanGainL'
-     */
-    StateFlowFinal_B.Conversion_c[1] = StateFlowFinal_P.KalmanGainL_Value[1];
-
-    /* DataTypeConversion: '<S115>/Conversion' incorporates:
-     *  Constant: '<S75>/KalmanGainM'
-     */
-    StateFlowFinal_B.Conversion_j[1] = StateFlowFinal_P.KalmanGainM_Value_n[1];
-
-    /* DataTypeConversion: '<S116>/Conversion' incorporates:
-     *  Constant: '<S75>/ConstantP'
-     */
-    StateFlowFinal_B.Conversion_j0 = StateFlowFinal_P.ConstantP_Value;
-
-    /* DataTypeConversion: '<S117>/Conversion' incorporates:
-     *  Constant: '<S75>/CovarianceZ'
-     */
-    StateFlowFinal_B.Conversion_k[0] = StateFlowFinal_P.CovarianceZ_Value[0];
-    StateFlowFinal_B.Conversion_k[1] = StateFlowFinal_P.CovarianceZ_Value[1];
-    StateFlowFinal_B.Conversion_k[2] = StateFlowFinal_P.CovarianceZ_Value[2];
-    StateFlowFinal_B.Conversion_k[3] = StateFlowFinal_P.CovarianceZ_Value[3];
-
-    /* DataTypeConversion: '<S56>/DataTypeConversionEnable' incorporates:
-     *  Constant: '<S56>/Enable'
-     */
-    StateFlowFinal_B.DataTypeConversionEnable_i =
-      StateFlowFinal_P.Enable_Value_d;
-
-    /* Reshape: '<S56>/Reshapeu' */
-    StateFlowFinal_B.Reshapeu_m = StateFlowFinal_B.vel_A_conv_b;
-
-    /* RateTransition: '<S12>/Rate Transition1' */
-    StateFlowFinal_B.RateTransition1 = StateFlowFinal_B.Sum7;
-
-    /* Reshape: '<S56>/Reshapey' */
-    StateFlowFinal_B.Reshapey_e = StateFlowFinal_B.RateTransition1;
-
-    /* DataTypeConversion: '<S80>/Conversion' incorporates:
-     *  Constant: '<S56>/D'
-     */
-    StateFlowFinal_B.Conversion_n = StateFlowFinal_P.D_Value_e;
-
-    /* DataTypeConversion: '<S79>/Conversion' incorporates:
-     *  Constant: '<S56>/C'
-     */
-    StateFlowFinal_B.Conversion_g[0] = StateFlowFinal_P.C_Value_j[0];
-
-    /* DataTypeConversion: '<S90>/Conversion' incorporates:
-     *  Constant: '<S56>/X0'
-     */
-    StateFlowFinal_B.Conversion_m[0] = StateFlowFinal_P.X0_Value_o[0];
-
-    /* Reshape: '<S56>/ReshapeX0' */
-    StateFlowFinal_B.ReshapeX0_i[0] = StateFlowFinal_B.Conversion_m[0];
-
-    /* DataTypeConversion: '<S79>/Conversion' incorporates:
-     *  Constant: '<S56>/C'
-     */
-    StateFlowFinal_B.Conversion_g[1] = StateFlowFinal_P.C_Value_j[1];
-
-    /* DataTypeConversion: '<S90>/Conversion' incorporates:
-     *  Constant: '<S56>/X0'
-     */
-    StateFlowFinal_B.Conversion_m[1] = StateFlowFinal_P.X0_Value_o[1];
-
-    /* Reshape: '<S56>/ReshapeX0' */
-    StateFlowFinal_B.ReshapeX0_i[1] = StateFlowFinal_B.Conversion_m[1];
-
-    /* Delay: '<S56>/MemoryX' */
-    if (StateFlowFinal_DW.icLoad_d != 0) {
-      StateFlowFinal_DW.MemoryX_DSTATE_h[0] = StateFlowFinal_B.ReshapeX0_i[0];
-      StateFlowFinal_DW.MemoryX_DSTATE_h[1] = StateFlowFinal_B.ReshapeX0_i[1];
-    }
-
-    StateFlowFinal_B.MemoryX_m[0] = StateFlowFinal_DW.MemoryX_DSTATE_h[0];
-    StateFlowFinal_B.MemoryX_m[1] = StateFlowFinal_DW.MemoryX_DSTATE_h[1];
-
-    /* End of Delay: '<S56>/MemoryX' */
-
-    /* Outputs for Atomic SubSystem: '<S56>/UseCurrentEstimator' */
-    StateFlowFi_UseCurrentEstimator(StateFlowFinal_B.DataTypeConversionEnable_i,
-      StateFlowFinal_B.Conversion_j, StateFlowFinal_B.Reshapeu_m,
-      StateFlowFinal_B.Reshapey_e, StateFlowFinal_B.Conversion_g,
-      StateFlowFinal_B.Conversion_n, StateFlowFinal_B.MemoryX_m,
-      &StateFlowFinal_B.UseCurrentEstimator_e,
-      &StateFlowFinal_DW.UseCurrentEstimator_e, (P_UseCurrentEstimator_StateFl_T
-      *)&StateFlowFinal_P.UseCurrentEstimator_e);
-
-    /* End of Outputs for SubSystem: '<S56>/UseCurrentEstimator' */
-
-    /* Product: '<S76>/Product' */
-    j_a = StateFlowFinal_B.Conversion_g[0];
-    N21 = StateFlowFinal_B.UseCurrentEstimator_e.Add[0];
-    F = j_a * N21;
-    j_a = StateFlowFinal_B.Conversion_g[1];
-    N21 = StateFlowFinal_B.UseCurrentEstimator_e.Add[1];
-    F += j_a * N21;
-    StateFlowFinal_B.Product = F;
-
-    /* Product: '<S76>/Product1' */
-    x2 = StateFlowFinal_B.Conversion_n;
-    G1 = StateFlowFinal_B.Reshapeu_m;
-    StateFlowFinal_B.Product1 = x2 * G1;
-
-    /* Sum: '<S76>/Add1' */
-    StateFlowFinal_B.Add1 = StateFlowFinal_B.Product + StateFlowFinal_B.Product1;
-
-    /* DataTypeConversion: '<S77>/Conversion' incorporates:
-     *  Constant: '<S56>/A'
-     */
-    StateFlowFinal_B.Conversion_d[0] = StateFlowFinal_P.A_Value[0];
-    StateFlowFinal_B.Conversion_d[1] = StateFlowFinal_P.A_Value[1];
-    StateFlowFinal_B.Conversion_d[2] = StateFlowFinal_P.A_Value[2];
-    StateFlowFinal_B.Conversion_d[3] = StateFlowFinal_P.A_Value[3];
-
-    /* DataTypeConversion: '<S78>/Conversion' incorporates:
-     *  Constant: '<S56>/B'
-     */
-    StateFlowFinal_B.Conversion_me[0] = StateFlowFinal_P.B_Value[0];
-    StateFlowFinal_B.Conversion_me[1] = StateFlowFinal_P.B_Value[1];
-
-    /* DataTypeConversion: '<S81>/Conversion' incorporates:
-     *  Constant: '<S56>/G'
-     */
-    StateFlowFinal_B.Conversion_l[0] = StateFlowFinal_P.G_Value[0];
-    StateFlowFinal_B.Conversion_l[1] = StateFlowFinal_P.G_Value[1];
-    StateFlowFinal_B.Conversion_l[2] = StateFlowFinal_P.G_Value[2];
-    StateFlowFinal_B.Conversion_l[3] = StateFlowFinal_P.G_Value[3];
-
-    /* DataTypeConversion: '<S82>/Conversion' incorporates:
-     *  Constant: '<S56>/H'
-     */
-    StateFlowFinal_B.Conversion_pk[0] = StateFlowFinal_P.H_Value[0];
-
-    /* DataTypeConversion: '<S83>/Conversion' incorporates:
-     *  Constant: '<S56>/N'
-     */
-    StateFlowFinal_B.Conversion_cs[0] = StateFlowFinal_P.N_Value[0];
-
-    /* DataTypeConversion: '<S82>/Conversion' incorporates:
-     *  Constant: '<S56>/H'
-     */
-    StateFlowFinal_B.Conversion_pk[1] = StateFlowFinal_P.H_Value[1];
-
-    /* DataTypeConversion: '<S83>/Conversion' incorporates:
-     *  Constant: '<S56>/N'
-     */
-    StateFlowFinal_B.Conversion_cs[1] = StateFlowFinal_P.N_Value[1];
-
-    /* DataTypeConversion: '<S85>/Conversion' incorporates:
-     *  Constant: '<S56>/P0'
-     */
-    StateFlowFinal_B.Conversion_kg[0] = StateFlowFinal_P.P0_Value[0];
-
-    /* DataTypeConversion: '<S84>/Conversion' */
-    StateFlowFinal_B.Conversion_ks[0] = (real32_T)
-      StateFlowFinal_B.Conversion_kg[0];
-
-    /* DataTypeConversion: '<S86>/Conversion' incorporates:
-     *  Constant: '<S56>/Q'
-     */
-    StateFlowFinal_B.Conversion_px[0] = StateFlowFinal_P.Q_Value[0];
-
-    /* DataTypeConversion: '<S85>/Conversion' incorporates:
-     *  Constant: '<S56>/P0'
-     */
-    StateFlowFinal_B.Conversion_kg[1] = StateFlowFinal_P.P0_Value[1];
-
-    /* DataTypeConversion: '<S84>/Conversion' */
-    StateFlowFinal_B.Conversion_ks[1] = (real32_T)
-      StateFlowFinal_B.Conversion_kg[1];
-
-    /* DataTypeConversion: '<S86>/Conversion' incorporates:
-     *  Constant: '<S56>/Q'
-     */
-    StateFlowFinal_B.Conversion_px[1] = StateFlowFinal_P.Q_Value[1];
-
-    /* DataTypeConversion: '<S85>/Conversion' incorporates:
-     *  Constant: '<S56>/P0'
-     */
-    StateFlowFinal_B.Conversion_kg[2] = StateFlowFinal_P.P0_Value[2];
-
-    /* DataTypeConversion: '<S84>/Conversion' */
-    StateFlowFinal_B.Conversion_ks[2] = (real32_T)
-      StateFlowFinal_B.Conversion_kg[2];
-
-    /* DataTypeConversion: '<S86>/Conversion' incorporates:
-     *  Constant: '<S56>/Q'
-     */
-    StateFlowFinal_B.Conversion_px[2] = StateFlowFinal_P.Q_Value[2];
-
-    /* DataTypeConversion: '<S85>/Conversion' incorporates:
-     *  Constant: '<S56>/P0'
-     */
-    StateFlowFinal_B.Conversion_kg[3] = StateFlowFinal_P.P0_Value[3];
-
-    /* DataTypeConversion: '<S84>/Conversion' */
-    StateFlowFinal_B.Conversion_ks[3] = (real32_T)
-      StateFlowFinal_B.Conversion_kg[3];
-
-    /* DataTypeConversion: '<S86>/Conversion' incorporates:
-     *  Constant: '<S56>/Q'
-     */
-    StateFlowFinal_B.Conversion_px[3] = StateFlowFinal_P.Q_Value[3];
-
-    /* DataTypeConversion: '<S87>/Conversion' incorporates:
-     *  Constant: '<S56>/R'
-     */
-    StateFlowFinal_B.Conversion_h = StateFlowFinal_P.R_Value;
-
-    /* DataTypeConversion: '<S88>/Conversion' incorporates:
-     *  Constant: '<S56>/Reset'
-     */
-    StateFlowFinal_B.Conversion_n2 = StateFlowFinal_P.Reset_Value_f;
-
-    /* DataTypeConversion: '<S89>/Conversion' */
-    StateFlowFinal_B.Conversion_i[0] = StateFlowFinal_B.MemoryX_m[0];
-    StateFlowFinal_B.Conversion_i[1] = StateFlowFinal_B.MemoryX_m[1];
-
-    /* ManualSwitch: '<S56>/ManualSwitchPZ' */
-    if (StateFlowFinal_P.ManualSwitchPZ_CurrentSetting == 1) {
-      StateFlowFinal_B.ManualSwitchPZ[0] = StateFlowFinal_B.Conversion_k[0];
-      StateFlowFinal_B.ManualSwitchPZ[1] = StateFlowFinal_B.Conversion_k[1];
-    } else {
-      StateFlowFinal_B.ManualSwitchPZ[0] = StateFlowFinal_B.Conversion_kg[0];
-      StateFlowFinal_B.ManualSwitchPZ[1] = StateFlowFinal_B.Conversion_kg[1];
-    }
-
-    /* Product: '<S93>/A[k]*xhat[k|k-1]' */
-    J[0] = StateFlowFinal_B.Conversion_d[0];
-    J[1] = StateFlowFinal_B.Conversion_d[1];
-
-    /* ManualSwitch: '<S56>/ManualSwitchPZ' */
-    if (StateFlowFinal_P.ManualSwitchPZ_CurrentSetting == 1) {
-      StateFlowFinal_B.ManualSwitchPZ[2] = StateFlowFinal_B.Conversion_k[2];
-      StateFlowFinal_B.ManualSwitchPZ[3] = StateFlowFinal_B.Conversion_k[3];
-    } else {
-      StateFlowFinal_B.ManualSwitchPZ[2] = StateFlowFinal_B.Conversion_kg[2];
-      StateFlowFinal_B.ManualSwitchPZ[3] = StateFlowFinal_B.Conversion_kg[3];
-    }
-
-    /* Product: '<S93>/A[k]*xhat[k|k-1]' */
-    J[2] = StateFlowFinal_B.Conversion_d[2];
-    J[3] = StateFlowFinal_B.Conversion_d[3];
-    theta_p[0] = StateFlowFinal_B.Conversion_i[0];
-    theta_p[1] = StateFlowFinal_B.Conversion_i[1];
-
-    /* Product: '<S93>/B[k]*u[k]' */
-    x2 = StateFlowFinal_B.Reshapeu_m;
-
-    /* Product: '<S93>/A[k]*xhat[k|k-1]' */
-    x4 = J[0] * theta_p[0];
-    x4 += J[2] * theta_p[1];
-    StateFlowFinal_B.Akxhatkk1[0] = x4;
-
-    /* Product: '<S93>/B[k]*u[k]' */
-    x4 = StateFlowFinal_B.Conversion_me[0];
-    StateFlowFinal_B.Bkuk[0] = x4 * x2;
-
-    /* Product: '<S93>/A[k]*xhat[k|k-1]' */
-    D2p = J[1] * theta_p[0];
-    D2p += J[3] * theta_p[1];
-    StateFlowFinal_B.Akxhatkk1[1] = D2p;
-
-    /* Product: '<S93>/B[k]*u[k]' */
-    D2p = StateFlowFinal_B.Conversion_me[1];
-    StateFlowFinal_B.Bkuk[1] = D2p * x2;
-
-    /* Outputs for Enabled SubSystem: '<S93>/MeasurementUpdate' */
-    StateFlowFina_MeasurementUpdate(StateFlowFinal_B.DataTypeConversionEnable_i,
-      StateFlowFinal_B.Conversion_c, StateFlowFinal_B.Reshapey_e,
-      StateFlowFinal_B.Conversion_g, StateFlowFinal_B.Conversion_i,
-      StateFlowFinal_B.Conversion_n, StateFlowFinal_B.Reshapeu_m,
-      &StateFlowFinal_B.MeasurementUpdate, &StateFlowFinal_DW.MeasurementUpdate,
-      (P_MeasurementUpdate_StateFlow_T *)&StateFlowFinal_P.MeasurementUpdate);
-
-    /* End of Outputs for SubSystem: '<S93>/MeasurementUpdate' */
-
-    /* Sum: '<S93>/Add' */
-    StateFlowFinal_B.Add[0] = (StateFlowFinal_B.Bkuk[0] +
-      StateFlowFinal_B.Akxhatkk1[0]) +
-      StateFlowFinal_B.MeasurementUpdate.Product3[0];
-
-    /* Reshape: '<S93>/Reshape' */
-    StateFlowFinal_B.Reshape[0] = StateFlowFinal_B.Add[0];
-
-    /* Reshape: '<S56>/Reshapexhat' */
-    StateFlowFinal_B.Reshapexhat_m[0] =
-      StateFlowFinal_B.UseCurrentEstimator_e.Add[0];
-
-    /* Sum: '<S93>/Add' */
-    StateFlowFinal_B.Add[1] = (StateFlowFinal_B.Bkuk[1] +
-      StateFlowFinal_B.Akxhatkk1[1]) +
-      StateFlowFinal_B.MeasurementUpdate.Product3[1];
-
-    /* Reshape: '<S93>/Reshape' */
-    StateFlowFinal_B.Reshape[1] = StateFlowFinal_B.Add[1];
-
-    /* Reshape: '<S56>/Reshapexhat' */
-    StateFlowFinal_B.Reshapexhat_m[1] =
-      StateFlowFinal_B.UseCurrentEstimator_e.Add[1];
-
-    /* Reshape: '<S56>/Reshapeyhat' */
-    StateFlowFinal_B.Reshapeyhat = StateFlowFinal_B.Add1;
-
-    /* DataTypeConversion: '<S159>/Conversion' incorporates:
-     *  Constant: '<S120>/KalmanGainL'
-     */
-    StateFlowFinal_B.Conversion_ky[0] = StateFlowFinal_P.KalmanGainL_Value_m[0];
-    StateFlowFinal_B.Conversion_ky[1] = StateFlowFinal_P.KalmanGainL_Value_m[1];
-
-    /* DataTypeConversion: '<S161>/Conversion' incorporates:
-     *  Constant: '<S120>/ConstantP'
-     */
-    StateFlowFinal_B.Conversion_pq = StateFlowFinal_P.ConstantP_Value_c;
-
-    /* DataTypeConversion: '<S162>/Conversion' incorporates:
-     *  Constant: '<S120>/CovarianceZ'
-     */
-    StateFlowFinal_B.Conversion_f1[0] = StateFlowFinal_P.CovarianceZ_Value_m[0];
-    StateFlowFinal_B.Conversion_f1[1] = StateFlowFinal_P.CovarianceZ_Value_m[1];
-    StateFlowFinal_B.Conversion_f1[2] = StateFlowFinal_P.CovarianceZ_Value_m[2];
-    StateFlowFinal_B.Conversion_f1[3] = StateFlowFinal_P.CovarianceZ_Value_m[3];
-
-    /* Product: '<S121>/Product' */
-    j_a = StateFlowFinal_B.Conversion_f[0];
-    N21 = StateFlowFinal_B.UseCurrentEstimator.Add[0];
-    F = j_a * N21;
-    j_a = StateFlowFinal_B.Conversion_f[1];
-    N21 = StateFlowFinal_B.UseCurrentEstimator.Add[1];
-    F += j_a * N21;
-    StateFlowFinal_B.Product_m = F;
-
-    /* Product: '<S121>/Product1' */
-    x2 = StateFlowFinal_B.Conversion_a;
-    G1 = StateFlowFinal_B.Reshapeu;
-    StateFlowFinal_B.Product1_l = x2 * G1;
-
-    /* Sum: '<S121>/Add1' */
-    StateFlowFinal_B.Add1_a = StateFlowFinal_B.Product_m +
-      StateFlowFinal_B.Product1_l;
-
-    /* DataTypeConversion: '<S122>/Conversion' incorporates:
-     *  Constant: '<S57>/A'
-     */
-    StateFlowFinal_B.Conversion_b[0] = StateFlowFinal_P.A_Value_j[0];
-    StateFlowFinal_B.Conversion_b[1] = StateFlowFinal_P.A_Value_j[1];
-    StateFlowFinal_B.Conversion_b[2] = StateFlowFinal_P.A_Value_j[2];
-    StateFlowFinal_B.Conversion_b[3] = StateFlowFinal_P.A_Value_j[3];
-
-    /* DataTypeConversion: '<S123>/Conversion' incorporates:
-     *  Constant: '<S57>/B'
-     */
-    StateFlowFinal_B.Conversion_pt[0] = StateFlowFinal_P.B_Value_i[0];
-    StateFlowFinal_B.Conversion_pt[1] = StateFlowFinal_P.B_Value_i[1];
-
-    /* DataTypeConversion: '<S126>/Conversion' incorporates:
-     *  Constant: '<S57>/G'
-     */
-    StateFlowFinal_B.Conversion_i1[0] = StateFlowFinal_P.G_Value_m[0];
-    StateFlowFinal_B.Conversion_i1[1] = StateFlowFinal_P.G_Value_m[1];
-    StateFlowFinal_B.Conversion_i1[2] = StateFlowFinal_P.G_Value_m[2];
-    StateFlowFinal_B.Conversion_i1[3] = StateFlowFinal_P.G_Value_m[3];
-
-    /* DataTypeConversion: '<S127>/Conversion' incorporates:
-     *  Constant: '<S57>/H'
-     */
-    StateFlowFinal_B.Conversion_g3[0] = StateFlowFinal_P.H_Value_h[0];
-
-    /* DataTypeConversion: '<S128>/Conversion' incorporates:
-     *  Constant: '<S57>/N'
-     */
-    StateFlowFinal_B.Conversion_jd[0] = StateFlowFinal_P.N_Value_m[0];
-
-    /* DataTypeConversion: '<S127>/Conversion' incorporates:
-     *  Constant: '<S57>/H'
-     */
-    StateFlowFinal_B.Conversion_g3[1] = StateFlowFinal_P.H_Value_h[1];
-
-    /* DataTypeConversion: '<S128>/Conversion' incorporates:
-     *  Constant: '<S57>/N'
-     */
-    StateFlowFinal_B.Conversion_jd[1] = StateFlowFinal_P.N_Value_m[1];
-
-    /* DataTypeConversion: '<S130>/Conversion' incorporates:
-     *  Constant: '<S57>/P0'
-     */
-    StateFlowFinal_B.Conversion_pv[0] = StateFlowFinal_P.P0_Value_m[0];
-
-    /* DataTypeConversion: '<S129>/Conversion' */
-    StateFlowFinal_B.Conversion_gp[0] = (real32_T)
-      StateFlowFinal_B.Conversion_pv[0];
-
-    /* DataTypeConversion: '<S131>/Conversion' incorporates:
-     *  Constant: '<S57>/Q'
-     */
-    StateFlowFinal_B.Conversion_d0[0] = StateFlowFinal_P.Q_Value_n[0];
-
-    /* DataTypeConversion: '<S130>/Conversion' incorporates:
-     *  Constant: '<S57>/P0'
-     */
-    StateFlowFinal_B.Conversion_pv[1] = StateFlowFinal_P.P0_Value_m[1];
-
-    /* DataTypeConversion: '<S129>/Conversion' */
-    StateFlowFinal_B.Conversion_gp[1] = (real32_T)
-      StateFlowFinal_B.Conversion_pv[1];
-
-    /* DataTypeConversion: '<S131>/Conversion' incorporates:
-     *  Constant: '<S57>/Q'
-     */
-    StateFlowFinal_B.Conversion_d0[1] = StateFlowFinal_P.Q_Value_n[1];
-
-    /* DataTypeConversion: '<S130>/Conversion' incorporates:
-     *  Constant: '<S57>/P0'
-     */
-    StateFlowFinal_B.Conversion_pv[2] = StateFlowFinal_P.P0_Value_m[2];
-
-    /* DataTypeConversion: '<S129>/Conversion' */
-    StateFlowFinal_B.Conversion_gp[2] = (real32_T)
-      StateFlowFinal_B.Conversion_pv[2];
-
-    /* DataTypeConversion: '<S131>/Conversion' incorporates:
-     *  Constant: '<S57>/Q'
-     */
-    StateFlowFinal_B.Conversion_d0[2] = StateFlowFinal_P.Q_Value_n[2];
-
-    /* DataTypeConversion: '<S130>/Conversion' incorporates:
-     *  Constant: '<S57>/P0'
-     */
-    StateFlowFinal_B.Conversion_pv[3] = StateFlowFinal_P.P0_Value_m[3];
-
-    /* DataTypeConversion: '<S129>/Conversion' */
-    StateFlowFinal_B.Conversion_gp[3] = (real32_T)
-      StateFlowFinal_B.Conversion_pv[3];
-
-    /* DataTypeConversion: '<S131>/Conversion' incorporates:
-     *  Constant: '<S57>/Q'
-     */
-    StateFlowFinal_B.Conversion_d0[3] = StateFlowFinal_P.Q_Value_n[3];
-
-    /* DataTypeConversion: '<S132>/Conversion' incorporates:
-     *  Constant: '<S57>/R'
-     */
-    StateFlowFinal_B.Conversion_o = StateFlowFinal_P.R_Value_o;
-
-    /* DataTypeConversion: '<S133>/Conversion' incorporates:
-     *  Constant: '<S57>/Reset'
-     */
-    StateFlowFinal_B.Conversion_dw = StateFlowFinal_P.Reset_Value_o;
-
-    /* DataTypeConversion: '<S134>/Conversion' */
-    StateFlowFinal_B.Conversion_pc[0] = StateFlowFinal_B.MemoryX[0];
-    StateFlowFinal_B.Conversion_pc[1] = StateFlowFinal_B.MemoryX[1];
-
-    /* ManualSwitch: '<S57>/ManualSwitchPZ' */
-    if (StateFlowFinal_P.ManualSwitchPZ_CurrentSetting_p == 1) {
-      StateFlowFinal_B.ManualSwitchPZ_l[0] = StateFlowFinal_B.Conversion_f1[0];
-      StateFlowFinal_B.ManualSwitchPZ_l[1] = StateFlowFinal_B.Conversion_f1[1];
-    } else {
-      StateFlowFinal_B.ManualSwitchPZ_l[0] = StateFlowFinal_B.Conversion_pv[0];
-      StateFlowFinal_B.ManualSwitchPZ_l[1] = StateFlowFinal_B.Conversion_pv[1];
-    }
-
-    /* Product: '<S138>/A[k]*xhat[k|k-1]' */
-    J[0] = StateFlowFinal_B.Conversion_b[0];
-    J[1] = StateFlowFinal_B.Conversion_b[1];
-
-    /* ManualSwitch: '<S57>/ManualSwitchPZ' */
-    if (StateFlowFinal_P.ManualSwitchPZ_CurrentSetting_p == 1) {
-      StateFlowFinal_B.ManualSwitchPZ_l[2] = StateFlowFinal_B.Conversion_f1[2];
-      StateFlowFinal_B.ManualSwitchPZ_l[3] = StateFlowFinal_B.Conversion_f1[3];
-    } else {
-      StateFlowFinal_B.ManualSwitchPZ_l[2] = StateFlowFinal_B.Conversion_pv[2];
-      StateFlowFinal_B.ManualSwitchPZ_l[3] = StateFlowFinal_B.Conversion_pv[3];
-    }
-
-    /* Product: '<S138>/A[k]*xhat[k|k-1]' */
-    J[2] = StateFlowFinal_B.Conversion_b[2];
-    J[3] = StateFlowFinal_B.Conversion_b[3];
-    theta_p[0] = StateFlowFinal_B.Conversion_pc[0];
-    theta_p[1] = StateFlowFinal_B.Conversion_pc[1];
-
-    /* Product: '<S138>/B[k]*u[k]' */
-    x2 = StateFlowFinal_B.Reshapeu;
-
-    /* Product: '<S138>/A[k]*xhat[k|k-1]' */
-    x4 = J[0] * theta_p[0];
-    x4 += J[2] * theta_p[1];
-    StateFlowFinal_B.Akxhatkk1_b[0] = x4;
-
-    /* Product: '<S138>/B[k]*u[k]' */
-    x4 = StateFlowFinal_B.Conversion_pt[0];
-    StateFlowFinal_B.Bkuk_b[0] = x4 * x2;
-
-    /* Product: '<S138>/A[k]*xhat[k|k-1]' */
-    D2p = J[1] * theta_p[0];
-    D2p += J[3] * theta_p[1];
-    StateFlowFinal_B.Akxhatkk1_b[1] = D2p;
-
-    /* Product: '<S138>/B[k]*u[k]' */
-    D2p = StateFlowFinal_B.Conversion_pt[1];
-    StateFlowFinal_B.Bkuk_b[1] = D2p * x2;
-
-    /* Outputs for Enabled SubSystem: '<S138>/MeasurementUpdate' */
-    StateFlowFina_MeasurementUpdate(StateFlowFinal_B.DataTypeConversionEnable,
-      StateFlowFinal_B.Conversion_ky, StateFlowFinal_B.Reshapey,
-      StateFlowFinal_B.Conversion_f, StateFlowFinal_B.Conversion_pc,
-      StateFlowFinal_B.Conversion_a, StateFlowFinal_B.Reshapeu,
-      &StateFlowFinal_B.MeasurementUpdate_a,
-      &StateFlowFinal_DW.MeasurementUpdate_a, (P_MeasurementUpdate_StateFlow_T *)
-      &StateFlowFinal_P.MeasurementUpdate_a);
-
-    /* End of Outputs for SubSystem: '<S138>/MeasurementUpdate' */
-
-    /* Sum: '<S138>/Add' */
-    StateFlowFinal_B.Add_f[0] = (StateFlowFinal_B.Bkuk_b[0] +
-      StateFlowFinal_B.Akxhatkk1_b[0]) +
-      StateFlowFinal_B.MeasurementUpdate_a.Product3[0];
-
-    /* Reshape: '<S138>/Reshape' */
-    StateFlowFinal_B.Reshape_c[0] = StateFlowFinal_B.Add_f[0];
-
-    /* Sum: '<S138>/Add' */
-    StateFlowFinal_B.Add_f[1] = (StateFlowFinal_B.Bkuk_b[1] +
-      StateFlowFinal_B.Akxhatkk1_b[1]) +
-      StateFlowFinal_B.MeasurementUpdate_a.Product3[1];
-
-    /* Reshape: '<S138>/Reshape' */
-    StateFlowFinal_B.Reshape_c[1] = StateFlowFinal_B.Add_f[1];
-
-    /* Reshape: '<S57>/Reshapeyhat' */
-    StateFlowFinal_B.Reshapeyhat_f = StateFlowFinal_B.Add1_a;
-
-    /* Gain: '<S12>/Kd1' */
-    /* MATLAB Function 'Sistema_braccia/MATLAB Function3': '<S62>:1' */
-    /* '<S62>:1:2' */
+    /* MATLAB Function: '<S12>/MATLAB Jin' */
+    /* MATLAB Function 'Sistema_braccia/MATLAB Jin': '<S62>:1' */
     /* '<S62>:1:3' */
     /* '<S62>:1:4' */
-    /* '<S62>:1:5' */
-    StateFlowFinal_B.Kd1[0] = StateFlowFinal_P.Kd1_Gain * StateFlowFinal_B.qdot
-      [0];
-
-    /* Gain: '<S12>/Kp1' */
-    StateFlowFinal_B.Kp1[0] = StateFlowFinal_P.Kp1_Gain_c * StateFlowFinal_B.q[0];
-
-    /* MATLAB Function: '<S12>/MATLAB Function3' */
-    StateFlowFinal_B.csiH[0] = StateFlowFinal_B.q[0];
-    StateFlowFinal_B.csiH[2] = StateFlowFinal_B.qdot[0];
-
-    /* Gain: '<S12>/Kd1' */
-    StateFlowFinal_B.Kd1[1] = StateFlowFinal_P.Kd1_Gain * StateFlowFinal_B.qdot
-      [1];
-
-    /* Gain: '<S12>/Kp1' */
-    StateFlowFinal_B.Kp1[1] = StateFlowFinal_P.Kp1_Gain_c * StateFlowFinal_B.q[1];
-
-    /* MATLAB Function: '<S12>/MATLAB Function3' */
-    StateFlowFinal_B.csiH[1] = StateFlowFinal_B.q[1];
-    StateFlowFinal_B.csiH[3] = StateFlowFinal_B.qdot[1];
-
     /* '<S62>:1:6' */
-    x2 = 2.2250738585072014E-308;
-    G1 = fabs(StateFlowFinal_B.csiH[0]);
-    if (G1 > 2.2250738585072014E-308) {
-      x1 = 1.0;
-      x2 = G1;
-    } else {
-      x4 = G1 / 2.2250738585072014E-308;
-      x1 = x4 * x4;
-    }
-
-    G1 = fabs(StateFlowFinal_B.csiH[1]);
-    if (G1 > x2) {
-      x4 = x2 / G1;
-      x1 = x1 * x4 * x4 + 1.0;
-      x2 = G1;
-    } else {
-      x4 = G1 / x2;
-      x1 += x4 * x4;
-    }
-
-    G1 = fabs(StateFlowFinal_B.csiH[2]);
-    if (G1 > x2) {
-      x4 = x2 / G1;
-      x1 = x1 * x4 * x4 + 1.0;
-      x2 = G1;
-    } else {
-      x4 = G1 / x2;
-      x1 += x4 * x4;
-    }
-
-    G1 = fabs(StateFlowFinal_B.csiH[3]);
-    if (G1 > x2) {
-      x4 = x2 / G1;
-      x1 = x1 * x4 * x4 + 1.0;
-      x2 = G1;
-    } else {
-      x4 = G1 / x2;
-      x1 += x4 * x4;
-    }
-
-    x1 = x2 * sqrt(x1);
-
-    /* '<S62>:1:7' */
-    StateFlowFinal_B.phi = (0.002 * x1 + 0.0005) + x1 * x1 * -1.5E-6;
-
-    /* MATLAB Function: '<S12>/MATLAB Function4' */
-    /* MATLAB Function 'Sistema_braccia/MATLAB Function4': '<S63>:1' */
-    /* '<S63>:1:27' */
-    /* '<S63>:1:13' */
-    /* '<S63>:1:27' */
-    /*  Il risultato &#xE8; una 2x1 [2x4][4x4][4x1] */
-    /* '<S63>:1:28' */
-    x1 = 0.0;
-    x2 = 2.2250738585072014E-308;
-    for (bitIdx = 0; bitIdx < 2; bitIdx++) {
-      StateFlowFinal_B.z[bitIdx] = 0.0;
-      StateFlowFinal_B.z[bitIdx] += b_a[bitIdx] * StateFlowFinal_B.csiH[0];
-      StateFlowFinal_B.z[bitIdx] += b_a[bitIdx + 2] * StateFlowFinal_B.csiH[1];
-      StateFlowFinal_B.z[bitIdx] += b_a[bitIdx + 4] * StateFlowFinal_B.csiH[2];
-      StateFlowFinal_B.z[bitIdx] += b_a[bitIdx + 6] * StateFlowFinal_B.csiH[3];
-      G1 = fabs(StateFlowFinal_B.z[bitIdx]);
-      if (G1 > x2) {
-        x4 = x2 / G1;
-        x1 = x1 * x4 * x4 + 1.0;
-        x2 = G1;
-      } else {
-        x4 = G1 / x2;
-        x1 += x4 * x4;
-      }
-    }
-
-    x1 = x2 * sqrt(x1);
-
-    /* y = theta_pp + K*csiH+omega; */
-    /* eta = (eye(2)-M^-1*Mhat)*y-M^-1*ntilde; */
-    /* '<S63>:1:36' */
-    /* '<S63>:1:37' */
-    /* '<S63>:1:38' */
-    /* '<S63>:1:39' */
-    x2 = StateFlowFinal_norm_n(StateFlowFinal_B.csiH);
-    x2 = (39.619574132744681 * StateFlowFinal_norm_n(StateFlowFinal_B.csiH) +
-          9.6405136097991448) + x2 * x2 * -0.27679543903127646;
-
-    /* '<S63>:1:41' */
-    StateFlowFinal_B.rho = x2;
-
-    /* MATLAB Function 'Sistema_braccia/MATLAB Jin': '<S64>:1' */
-    /* '<S64>:1:3' */
-    /* '<S64>:1:4' */
-    /* '<S64>:1:6' */
-    /* '<S64>:1:8' */
-    /* '<S64>:1:10' */
-    StateFlowFinal_B.omega[0] = StateFlowFinal_B.z[0] / x1 * x2;
-
-    /* Gain: '<S65>/Integral Gain' */
-    StateFlowFinal_B.IntegralGain[0] = StateFlowFinal_P.PIDController_I *
-      StateFlowFinal_B.q[0];
-
-    /* MATLAB Function: '<S12>/MATLAB Function4' */
-    StateFlowFinal_B.omega[1] = StateFlowFinal_B.z[1] / x1 * x2;
-
-    /* Gain: '<S65>/Integral Gain' */
-    StateFlowFinal_B.IntegralGain[1] = StateFlowFinal_P.PIDController_I *
-      StateFlowFinal_B.q[1];
-
-    /* MATLAB Function: '<S12>/MATLAB Jin' */
+    /* '<S62>:1:8' */
+    /* '<S62>:1:10' */
     x2 = (StateFlowFinal_B.Ymov - 0.25 * sin(StateFlowFinal_B.theta1_l)) -
       (StateFlowFinal_B.Ymov - 0.25 * sin(StateFlowFinal_B.theta2_j)) *
       ((StateFlowFinal_B.Xmov + 0.09) - 0.25 * cos(StateFlowFinal_B.theta1_l)) /
       ((StateFlowFinal_B.Xmov - 0.09) - 0.25 * cos(StateFlowFinal_B.theta2_j));
 
-    /* '<S64>:1:12' */
+    /* '<S62>:1:12' */
     x4 = (((StateFlowFinal_B.Xmov + 0.09) - 0.25 * cos(StateFlowFinal_B.theta1_l))
           * (-0.25 * sin(StateFlowFinal_B.theta1_l)) + (StateFlowFinal_B.Ymov -
            0.25 * sin(StateFlowFinal_B.theta1_l)) * (0.25 * cos
            (StateFlowFinal_B.theta1_l))) / x2;
 
-    /* '<S64>:1:14' */
+    /* '<S62>:1:14' */
     x2 = ((StateFlowFinal_B.Ymov - 0.25 * sin(StateFlowFinal_B.theta2_j)) *
           (-0.25 * cos(StateFlowFinal_B.theta2_j)) * ((StateFlowFinal_B.Xmov +
             0.09) - 0.25 * cos(StateFlowFinal_B.theta1_l)) /
@@ -6616,9 +6429,9 @@ static void StateFlowFinal_output(void)
              (StateFlowFinal_B.theta1_l)) * (0.25 * sin
            (StateFlowFinal_B.theta2_j))) / x2;
 
-    /* '<S64>:1:16' */
-    /* '<S64>:1:18' */
-    /* '<S64>:1:20' */
+    /* '<S62>:1:16' */
+    /* '<S62>:1:18' */
+    /* '<S62>:1:20' */
     StateFlowFinal_B.x_p = ((-(StateFlowFinal_B.Ymov - 0.25 * sin
       (StateFlowFinal_B.theta2_j)) / ((StateFlowFinal_B.Xmov - 0.09) - 0.25 *
       cos(StateFlowFinal_B.theta2_j)) * x2 - 0.25 * sin
@@ -6629,285 +6442,283 @@ static void StateFlowFinal_output(void)
       (StateFlowFinal_B.theta2_j)) / ((StateFlowFinal_B.Xmov - 0.09) - 0.25 *
       cos(StateFlowFinal_B.theta2_j)) * x4 * StateFlowFinal_B.theta1_p;
 
-    /* '<S64>:1:21' */
+    /* '<S62>:1:21' */
     StateFlowFinal_B.y_p = x4 * StateFlowFinal_B.theta1_p + x2 *
       StateFlowFinal_B.theta2_p;
 
-    /* SampleTimeMath: '<S175>/TSamp'
+    /* Gain: '<S63>/Integral Gain' */
+    StateFlowFinal_B.IntegralGain[0] = StateFlowFinal_P.PIDController_I *
+      StateFlowFinal_B.q[0];
+    StateFlowFinal_B.IntegralGain[1] = StateFlowFinal_P.PIDController_I *
+      StateFlowFinal_B.q[1];
+
+    /* SampleTimeMath: '<S83>/TSamp'
      *
-     * About '<S175>/TSamp':
+     * About '<S83>/TSamp':
      *  y = u * K where K = 1 / ( w * Ts )
      */
     StateFlowFinal_B.TSamp_e = StateFlowFinal_B.Sum7 *
       StateFlowFinal_P.TSamp_WtEt_m;
 
-    /* UnitDelay: '<S175>/UD' */
+    /* UnitDelay: '<S83>/UD' */
     StateFlowFinal_B.Uk1_l = StateFlowFinal_DW.UD_DSTATE_g;
 
-    /* Sum: '<S175>/Diff' */
+    /* Sum: '<S83>/Diff' */
     StateFlowFinal_B.Diff_f = StateFlowFinal_B.TSamp_e - StateFlowFinal_B.Uk1_l;
 
-    /* Gain: '<S186>/D*u(k)' */
+    /* Gain: '<S94>/D*u(k)' */
     StateFlowFinal_B.Duk = StateFlowFinal_P.Duk_Gain * StateFlowFinal_B.Sum7;
 
-    /* UnitDelay: '<S186>/Delay_x1' */
+    /* UnitDelay: '<S94>/Delay_x1' */
     StateFlowFinal_B.x1k = StateFlowFinal_DW.Delay_x1_DSTATE;
 
-    /* Gain: '<S189>/C11' */
+    /* Gain: '<S97>/C11' */
     StateFlowFinal_B.C11 = StateFlowFinal_P.C11_Gain * StateFlowFinal_B.x1k;
 
-    /* UnitDelay: '<S186>/Delay_x2' */
+    /* UnitDelay: '<S94>/Delay_x2' */
     StateFlowFinal_B.x2k = StateFlowFinal_DW.Delay_x2_DSTATE;
 
-    /* Gain: '<S189>/C12' */
+    /* Gain: '<S97>/C12' */
     StateFlowFinal_B.C12 = StateFlowFinal_P.C12_Gain * StateFlowFinal_B.x2k;
 
-    /* Sum: '<S189>/sum2' */
+    /* Sum: '<S97>/sum2' */
     StateFlowFinal_B.sum2 = StateFlowFinal_B.C11 + StateFlowFinal_B.C12;
 
-    /* Sum: '<S186>/C*X(k)+D*u(k)' */
+    /* Sum: '<S94>/C*X(k)+D*u(k)' */
     StateFlowFinal_B.yk = StateFlowFinal_B.Duk + StateFlowFinal_B.sum2;
 
-    /* SampleTimeMath: '<S173>/TSamp'
+    /* SampleTimeMath: '<S81>/TSamp'
      *
-     * About '<S173>/TSamp':
+     * About '<S81>/TSamp':
      *  y = u * K where K = 1 / ( w * Ts )
      */
     StateFlowFinal_B.TSamp_n = StateFlowFinal_B.yk *
       StateFlowFinal_P.TSamp_WtEt_e;
 
-    /* UnitDelay: '<S173>/UD' */
+    /* UnitDelay: '<S81>/UD' */
     StateFlowFinal_B.Uk1_d = StateFlowFinal_DW.UD_DSTATE_a3;
 
-    /* Sum: '<S173>/Diff' */
+    /* Sum: '<S81>/Diff' */
     StateFlowFinal_B.Diff_i = StateFlowFinal_B.TSamp_n - StateFlowFinal_B.Uk1_d;
 
-    /* Gain: '<S187>/A11' */
+    /* Gain: '<S95>/A11' */
     StateFlowFinal_B.A11 = StateFlowFinal_P.A11_Gain * StateFlowFinal_B.x1k;
 
-    /* Gain: '<S187>/A12' */
+    /* Gain: '<S95>/A12' */
     StateFlowFinal_B.A12 = StateFlowFinal_P.A12_Gain * StateFlowFinal_B.x2k;
 
-    /* Gain: '<S187>/A21' */
+    /* Gain: '<S95>/A21' */
     StateFlowFinal_B.A21 = StateFlowFinal_P.A21_Gain * StateFlowFinal_B.x1k;
 
-    /* Gain: '<S187>/A22' */
+    /* Gain: '<S95>/A22' */
     StateFlowFinal_B.A22 = StateFlowFinal_P.A22_Gain * StateFlowFinal_B.x2k;
 
-    /* Sum: '<S187>/sum2' */
+    /* Sum: '<S95>/sum2' */
     StateFlowFinal_B.sum2_n = StateFlowFinal_B.A11 + StateFlowFinal_B.A12;
 
-    /* Sum: '<S187>/sum3' */
+    /* Sum: '<S95>/sum3' */
     StateFlowFinal_B.sum3 = StateFlowFinal_B.A21 + StateFlowFinal_B.A22;
 
-    /* Gain: '<S188>/B11' */
+    /* Gain: '<S96>/B11' */
     StateFlowFinal_B.B11 = StateFlowFinal_P.B11_Gain * StateFlowFinal_B.Sum7;
 
-    /* Sum: '<S186>/A*x1(k) + B*u1(k) ' */
+    /* Sum: '<S94>/A*x1(k) + B*u1(k) ' */
     StateFlowFinal_B.x1k1 = StateFlowFinal_B.sum2_n + StateFlowFinal_B.B11;
 
-    /* Gain: '<S188>/B21' */
+    /* Gain: '<S96>/B21' */
     StateFlowFinal_B.B21 = StateFlowFinal_P.B21_Gain * StateFlowFinal_B.Sum7;
 
-    /* Sum: '<S186>/A*x2(k) + B*u2(k)' */
+    /* Sum: '<S94>/A*x2(k) + B*u2(k)' */
     StateFlowFinal_B.x2k1 = StateFlowFinal_B.sum3 + StateFlowFinal_B.B21;
 
-    /* Gain: '<S182>/D*u(k)' */
+    /* Gain: '<S90>/D*u(k)' */
     StateFlowFinal_B.Duk_h = StateFlowFinal_P.Duk_Gain_h * StateFlowFinal_B.Sum4;
 
-    /* UnitDelay: '<S182>/Delay_x1' */
+    /* UnitDelay: '<S90>/Delay_x1' */
     StateFlowFinal_B.x1k_a = StateFlowFinal_DW.Delay_x1_DSTATE_g;
 
-    /* Gain: '<S185>/C11' */
+    /* Gain: '<S93>/C11' */
     StateFlowFinal_B.C11_h = StateFlowFinal_P.C11_Gain_n *
       StateFlowFinal_B.x1k_a;
 
-    /* UnitDelay: '<S182>/Delay_x2' */
+    /* UnitDelay: '<S90>/Delay_x2' */
     StateFlowFinal_B.x2k_g = StateFlowFinal_DW.Delay_x2_DSTATE_m;
 
-    /* Gain: '<S185>/C12' */
+    /* Gain: '<S93>/C12' */
     StateFlowFinal_B.C12_e = StateFlowFinal_P.C12_Gain_d *
       StateFlowFinal_B.x2k_g;
 
-    /* Sum: '<S185>/sum2' */
+    /* Sum: '<S93>/sum2' */
     StateFlowFinal_B.sum2_k = StateFlowFinal_B.C11_h + StateFlowFinal_B.C12_e;
 
-    /* Sum: '<S182>/C*X(k)+D*u(k)' */
+    /* Sum: '<S90>/C*X(k)+D*u(k)' */
     StateFlowFinal_B.yk_i = StateFlowFinal_B.Duk_h + StateFlowFinal_B.sum2_k;
 
-    /* SampleTimeMath: '<S174>/TSamp'
+    /* SampleTimeMath: '<S82>/TSamp'
      *
-     * About '<S174>/TSamp':
+     * About '<S82>/TSamp':
      *  y = u * K where K = 1 / ( w * Ts )
      */
     StateFlowFinal_B.TSamp_h = StateFlowFinal_B.yk_i *
       StateFlowFinal_P.TSamp_WtEt_gz;
 
-    /* UnitDelay: '<S174>/UD' */
+    /* UnitDelay: '<S82>/UD' */
     StateFlowFinal_B.Uk1_b = StateFlowFinal_DW.UD_DSTATE_j;
 
-    /* Sum: '<S174>/Diff' */
+    /* Sum: '<S82>/Diff' */
     StateFlowFinal_B.Diff_d = StateFlowFinal_B.TSamp_h - StateFlowFinal_B.Uk1_b;
 
-    /* SampleTimeMath: '<S176>/TSamp'
+    /* SampleTimeMath: '<S84>/TSamp'
      *
-     * About '<S176>/TSamp':
+     * About '<S84>/TSamp':
      *  y = u * K where K = 1 / ( w * Ts )
      */
     StateFlowFinal_B.TSamp_nd = StateFlowFinal_B.Sum4 *
       StateFlowFinal_P.TSamp_WtEt_gh;
 
-    /* UnitDelay: '<S176>/UD' */
+    /* UnitDelay: '<S84>/UD' */
     StateFlowFinal_B.Uk1_ll = StateFlowFinal_DW.UD_DSTATE_f;
 
-    /* Sum: '<S176>/Diff' */
+    /* Sum: '<S84>/Diff' */
     StateFlowFinal_B.Diff_n = StateFlowFinal_B.TSamp_nd -
       StateFlowFinal_B.Uk1_ll;
 
-    /* Gain: '<S183>/A11' */
+    /* Gain: '<S91>/A11' */
     StateFlowFinal_B.A11_p = StateFlowFinal_P.A11_Gain_e *
       StateFlowFinal_B.x1k_a;
 
-    /* Gain: '<S183>/A12' */
+    /* Gain: '<S91>/A12' */
     StateFlowFinal_B.A12_c = StateFlowFinal_P.A12_Gain_a *
       StateFlowFinal_B.x2k_g;
 
-    /* Gain: '<S183>/A21' */
+    /* Gain: '<S91>/A21' */
     StateFlowFinal_B.A21_h = StateFlowFinal_P.A21_Gain_m *
       StateFlowFinal_B.x1k_a;
 
-    /* Gain: '<S183>/A22' */
+    /* Gain: '<S91>/A22' */
     StateFlowFinal_B.A22_d = StateFlowFinal_P.A22_Gain_g *
       StateFlowFinal_B.x2k_g;
 
-    /* Sum: '<S183>/sum2' */
+    /* Sum: '<S91>/sum2' */
     StateFlowFinal_B.sum2_nk = StateFlowFinal_B.A11_p + StateFlowFinal_B.A12_c;
 
-    /* Sum: '<S183>/sum3' */
+    /* Sum: '<S91>/sum3' */
     StateFlowFinal_B.sum3_e = StateFlowFinal_B.A21_h + StateFlowFinal_B.A22_d;
 
-    /* Gain: '<S184>/B11' */
+    /* Gain: '<S92>/B11' */
     StateFlowFinal_B.B11_k = StateFlowFinal_P.B11_Gain_f * StateFlowFinal_B.Sum4;
 
-    /* Sum: '<S182>/A*x1(k) + B*u1(k) ' */
+    /* Sum: '<S90>/A*x1(k) + B*u1(k) ' */
     StateFlowFinal_B.x1k1_g = StateFlowFinal_B.sum2_nk + StateFlowFinal_B.B11_k;
 
-    /* Gain: '<S184>/B21' */
+    /* Gain: '<S92>/B21' */
     StateFlowFinal_B.B21_l = StateFlowFinal_P.B21_Gain_p * StateFlowFinal_B.Sum4;
 
-    /* Sum: '<S182>/A*x2(k) + B*u2(k)' */
+    /* Sum: '<S90>/A*x2(k) + B*u2(k)' */
     StateFlowFinal_B.x2k1_n = StateFlowFinal_B.sum3_e + StateFlowFinal_B.B21_l;
 
-    /* DigitalClock: '<S67>/Digital Clock' */
+    /* DigitalClock: '<S65>/Digital Clock' */
     StateFlowFinal_B.DigitalClock = StateFlowFinal_M->Timing.t[1];
 
-    /* Gain: '<S190>/D*u(k)' */
+    /* Gain: '<S98>/D*u(k)' */
     StateFlowFinal_B.Duk_n = StateFlowFinal_P.Duk_Gain_g *
       StateFlowFinal_B.DigitalClock;
 
-    /* UnitDelay: '<S190>/Delay_x1' */
+    /* UnitDelay: '<S98>/Delay_x1' */
     StateFlowFinal_B.x1k_i = StateFlowFinal_DW.Delay_x1_DSTATE_k;
 
-    /* Gain: '<S193>/C11' */
+    /* Gain: '<S101>/C11' */
     StateFlowFinal_B.C11_e = StateFlowFinal_P.C11_Gain_g *
       StateFlowFinal_B.x1k_i;
 
-    /* UnitDelay: '<S190>/Delay_x2' */
+    /* UnitDelay: '<S98>/Delay_x2' */
     StateFlowFinal_B.x2k_d = StateFlowFinal_DW.Delay_x2_DSTATE_k;
 
-    /* Gain: '<S193>/C12' */
+    /* Gain: '<S101>/C12' */
     StateFlowFinal_B.C12_m = StateFlowFinal_P.C12_Gain_d1 *
       StateFlowFinal_B.x2k_d;
 
-    /* Sum: '<S193>/sum2' */
+    /* Sum: '<S101>/sum2' */
     StateFlowFinal_B.sum2_ka = StateFlowFinal_B.C11_e + StateFlowFinal_B.C12_m;
 
-    /* Sum: '<S190>/C*X(k)+D*u(k)' */
+    /* Sum: '<S98>/C*X(k)+D*u(k)' */
     StateFlowFinal_B.yk_m = StateFlowFinal_B.Duk_n + StateFlowFinal_B.sum2_ka;
 
-    /* SampleTimeMath: '<S177>/TSamp'
+    /* SampleTimeMath: '<S85>/TSamp'
      *
-     * About '<S177>/TSamp':
+     * About '<S85>/TSamp':
      *  y = u * K where K = 1 / ( w * Ts )
      */
     StateFlowFinal_B.TSamp_f = StateFlowFinal_B.yk_m *
       StateFlowFinal_P.TSamp_WtEt_d;
 
-    /* UnitDelay: '<S177>/UD' */
+    /* UnitDelay: '<S85>/UD' */
     StateFlowFinal_B.Uk1_j = StateFlowFinal_DW.UD_DSTATE_g0;
 
-    /* Sum: '<S177>/Diff' */
+    /* Sum: '<S85>/Diff' */
     StateFlowFinal_B.Diff_b = StateFlowFinal_B.TSamp_f - StateFlowFinal_B.Uk1_j;
 
-    /* SampleTimeMath: '<S178>/TSamp'
+    /* SampleTimeMath: '<S86>/TSamp'
      *
-     * About '<S178>/TSamp':
+     * About '<S86>/TSamp':
      *  y = u * K where K = 1 / ( w * Ts )
      */
     StateFlowFinal_B.TSamp_iq = StateFlowFinal_B.DigitalClock *
       StateFlowFinal_P.TSamp_WtEt_p;
 
-    /* UnitDelay: '<S178>/UD' */
+    /* UnitDelay: '<S86>/UD' */
     StateFlowFinal_B.Uk1_bl = StateFlowFinal_DW.UD_DSTATE_k;
 
-    /* Sum: '<S178>/Diff' */
+    /* Sum: '<S86>/Diff' */
     StateFlowFinal_B.Diff_bt = StateFlowFinal_B.TSamp_iq -
       StateFlowFinal_B.Uk1_bl;
 
-    /* Gain: '<S191>/A11' */
+    /* Gain: '<S99>/A11' */
     StateFlowFinal_B.A11_h = StateFlowFinal_P.A11_Gain_h *
       StateFlowFinal_B.x1k_i;
 
-    /* Gain: '<S191>/A12' */
+    /* Gain: '<S99>/A12' */
     StateFlowFinal_B.A12_g = StateFlowFinal_P.A12_Gain_a3 *
       StateFlowFinal_B.x2k_d;
 
-    /* Gain: '<S191>/A21' */
+    /* Gain: '<S99>/A21' */
     StateFlowFinal_B.A21_p = StateFlowFinal_P.A21_Gain_f *
       StateFlowFinal_B.x1k_i;
 
-    /* Gain: '<S191>/A22' */
+    /* Gain: '<S99>/A22' */
     StateFlowFinal_B.A22_j = StateFlowFinal_P.A22_Gain_d *
       StateFlowFinal_B.x2k_d;
 
-    /* Sum: '<S191>/sum2' */
+    /* Sum: '<S99>/sum2' */
     StateFlowFinal_B.sum2_e = StateFlowFinal_B.A11_h + StateFlowFinal_B.A12_g;
 
-    /* Sum: '<S191>/sum3' */
+    /* Sum: '<S99>/sum3' */
     StateFlowFinal_B.sum3_b = StateFlowFinal_B.A21_p + StateFlowFinal_B.A22_j;
 
-    /* Gain: '<S192>/B11' */
+    /* Gain: '<S100>/B11' */
     StateFlowFinal_B.B11_d = StateFlowFinal_P.B11_Gain_n *
       StateFlowFinal_B.DigitalClock;
 
-    /* Sum: '<S190>/A*x1(k) + B*u1(k) ' */
+    /* Sum: '<S98>/A*x1(k) + B*u1(k) ' */
     StateFlowFinal_B.x1k1_h = StateFlowFinal_B.sum2_e + StateFlowFinal_B.B11_d;
 
-    /* Gain: '<S192>/B21' */
+    /* Gain: '<S100>/B21' */
     StateFlowFinal_B.B21_h = StateFlowFinal_P.B21_Gain_l *
       StateFlowFinal_B.DigitalClock;
 
-    /* Sum: '<S190>/A*x2(k) + B*u2(k)' */
+    /* Sum: '<S98>/A*x2(k) + B*u2(k)' */
     StateFlowFinal_B.x2k1_h = StateFlowFinal_B.sum3_b + StateFlowFinal_B.B21_h;
 
-    /* Gain: '<S68>/Gain' */
+    /* Gain: '<S66>/Gain' */
     StateFlowFinal_B.Gain_p = StateFlowFinal_P.Gain_Gain_c *
       StateFlowFinal_B.theta1_l;
 
-    /* Gain: '<S69>/Gain' */
+    /* Gain: '<S67>/Gain' */
     StateFlowFinal_B.Gain_n = StateFlowFinal_P.Gain_Gain_d4 *
       StateFlowFinal_B.theta2_j;
 
-    /* Sum: '<S12>/Sum5' */
-    StateFlowFinal_B.nphi = StateFlowFinal_B.ntilde - StateFlowFinal_B.phi;
-
-    /* Sum: '<S12>/Sum8' */
-    StateFlowFinal_B.YRobusto[0] = ((StateFlowFinal_B.omega[0] +
-      StateFlowFinal_B.Kd1[0]) + StateFlowFinal_B.Kp1[0]) +
-      StateFlowFinal_B.theta1_pp;
-    StateFlowFinal_B.YRobusto[1] = ((StateFlowFinal_B.omega[1] +
-      StateFlowFinal_B.Kd1[1]) + StateFlowFinal_B.Kp1[1]) +
-      StateFlowFinal_B.theta2_pp;
+    /* RateTransition: '<S12>/Rate Transition' */
+    StateFlowFinal_B.RateTransition = StateFlowFinal_B.Sum4;
 
     /* user code (Output function Trailer) */
     {
@@ -6927,7 +6738,11 @@ static void StateFlowFinal_update(void)
   StateFlowFinal_DW.Memory_PreviousInput =
     StateFlowFinal_B.sf_MATLABFunction_e.y;
 
-  /* Update for DiscreteIntegrator: '<S65>/Integrator' */
+  /* Update for DiscreteIntegrator: '<S63>/Integrator' */
+  StateFlowFinal_DW.Integrator_DSTATE[0] += StateFlowFinal_P.Integrator_gainval *
+    StateFlowFinal_B.IntegralGain[0];
+  StateFlowFinal_DW.Integrator_DSTATE[1] += StateFlowFinal_P.Integrator_gainval *
+    StateFlowFinal_B.IntegralGain[1];
   if (StateFlowFinal_B.StartWork > 0.0) {
     StateFlowFinal_DW.Integrator_PrevResetState = 1;
   } else if (StateFlowFinal_B.StartWork < 0.0) {
@@ -6937,6 +6752,8 @@ static void StateFlowFinal_update(void)
   } else {
     StateFlowFinal_DW.Integrator_PrevResetState = 2;
   }
+
+  /* End of Update for DiscreteIntegrator: '<S63>/Integrator' */
 
   /* Update for Memory: '<S26>/Memory' */
   StateFlowFinal_DW.Memory_PreviousInput_o =
@@ -6956,66 +6773,40 @@ static void StateFlowFinal_update(void)
   /* Update for UnitDelay: '<S42>/UD' */
   StateFlowFinal_DW.UD_DSTATE_a = StateFlowFinal_B.TSamp_i;
 
-  /* Update for Delay: '<S57>/MemoryX' */
-  StateFlowFinal_DW.icLoad = 0U;
-
-  /* Update for Delay: '<S56>/MemoryX' */
-  StateFlowFinal_DW.icLoad_d = 0U;
-
-  /* Update for DiscreteIntegrator: '<S65>/Integrator' */
-  StateFlowFinal_DW.Integrator_DSTATE[0] += StateFlowFinal_P.Integrator_gainval *
-    StateFlowFinal_B.IntegralGain[0];
-
-  /* Update for Delay: '<S57>/MemoryX' */
-  StateFlowFinal_DW.MemoryX_DSTATE[0] = StateFlowFinal_B.Reshape_c[0];
-
-  /* Update for Delay: '<S56>/MemoryX' */
-  StateFlowFinal_DW.MemoryX_DSTATE_h[0] = StateFlowFinal_B.Reshape[0];
-
-  /* Update for DiscreteIntegrator: '<S65>/Integrator' */
-  StateFlowFinal_DW.Integrator_DSTATE[1] += StateFlowFinal_P.Integrator_gainval *
-    StateFlowFinal_B.IntegralGain[1];
-
-  /* Update for Delay: '<S57>/MemoryX' */
-  StateFlowFinal_DW.MemoryX_DSTATE[1] = StateFlowFinal_B.Reshape_c[1];
-
-  /* Update for Delay: '<S56>/MemoryX' */
-  StateFlowFinal_DW.MemoryX_DSTATE_h[1] = StateFlowFinal_B.Reshape[1];
-
-  /* Update for UnitDelay: '<S175>/UD' */
+  /* Update for UnitDelay: '<S83>/UD' */
   StateFlowFinal_DW.UD_DSTATE_g = StateFlowFinal_B.TSamp_e;
 
-  /* Update for UnitDelay: '<S186>/Delay_x1' */
+  /* Update for UnitDelay: '<S94>/Delay_x1' */
   StateFlowFinal_DW.Delay_x1_DSTATE = StateFlowFinal_B.x1k1;
 
-  /* Update for UnitDelay: '<S186>/Delay_x2' */
+  /* Update for UnitDelay: '<S94>/Delay_x2' */
   StateFlowFinal_DW.Delay_x2_DSTATE = StateFlowFinal_B.x2k1;
 
-  /* Update for UnitDelay: '<S173>/UD' */
+  /* Update for UnitDelay: '<S81>/UD' */
   StateFlowFinal_DW.UD_DSTATE_a3 = StateFlowFinal_B.TSamp_n;
 
-  /* Update for UnitDelay: '<S182>/Delay_x1' */
+  /* Update for UnitDelay: '<S90>/Delay_x1' */
   StateFlowFinal_DW.Delay_x1_DSTATE_g = StateFlowFinal_B.x1k1_g;
 
-  /* Update for UnitDelay: '<S182>/Delay_x2' */
+  /* Update for UnitDelay: '<S90>/Delay_x2' */
   StateFlowFinal_DW.Delay_x2_DSTATE_m = StateFlowFinal_B.x2k1_n;
 
-  /* Update for UnitDelay: '<S174>/UD' */
+  /* Update for UnitDelay: '<S82>/UD' */
   StateFlowFinal_DW.UD_DSTATE_j = StateFlowFinal_B.TSamp_h;
 
-  /* Update for UnitDelay: '<S176>/UD' */
+  /* Update for UnitDelay: '<S84>/UD' */
   StateFlowFinal_DW.UD_DSTATE_f = StateFlowFinal_B.TSamp_nd;
 
-  /* Update for UnitDelay: '<S190>/Delay_x1' */
+  /* Update for UnitDelay: '<S98>/Delay_x1' */
   StateFlowFinal_DW.Delay_x1_DSTATE_k = StateFlowFinal_B.x1k1_h;
 
-  /* Update for UnitDelay: '<S190>/Delay_x2' */
+  /* Update for UnitDelay: '<S98>/Delay_x2' */
   StateFlowFinal_DW.Delay_x2_DSTATE_k = StateFlowFinal_B.x2k1_h;
 
-  /* Update for UnitDelay: '<S177>/UD' */
+  /* Update for UnitDelay: '<S85>/UD' */
   StateFlowFinal_DW.UD_DSTATE_g0 = StateFlowFinal_B.TSamp_f;
 
-  /* Update for UnitDelay: '<S178>/UD' */
+  /* Update for UnitDelay: '<S86>/UD' */
   StateFlowFinal_DW.UD_DSTATE_k = StateFlowFinal_B.TSamp_iq;
 
   /* Update absolute time for base rate */
@@ -7384,8 +7175,8 @@ static void StateFlowFinal_initialize(void)
         return;
     }
 
-    /* Start for S-Function (xpcethercatpdorx): '<S71>/EtherCAT PDO Receive15' */
-    /* Level2 S-Function Block: '<S71>/EtherCAT PDO Receive15' (xpcethercatpdorx) */
+    /* Start for S-Function (xpcethercatpdorx): '<S69>/EtherCAT PDO Receive15' */
+    /* Level2 S-Function Block: '<S69>/EtherCAT PDO Receive15' (xpcethercatpdorx) */
     {
       SimStruct *rts = StateFlowFinal_M->childSfunctions[14];
       sfcnStart(rts);
@@ -7393,8 +7184,8 @@ static void StateFlowFinal_initialize(void)
         return;
     }
 
-    /* Start for S-Function (xpcethercatpdorx): '<S71>/EtherCAT PDO Receive14' */
-    /* Level2 S-Function Block: '<S71>/EtherCAT PDO Receive14' (xpcethercatpdorx) */
+    /* Start for S-Function (xpcethercatpdorx): '<S69>/EtherCAT PDO Receive14' */
+    /* Level2 S-Function Block: '<S69>/EtherCAT PDO Receive14' (xpcethercatpdorx) */
     {
       SimStruct *rts = StateFlowFinal_M->childSfunctions[15];
       sfcnStart(rts);
@@ -7402,8 +7193,8 @@ static void StateFlowFinal_initialize(void)
         return;
     }
 
-    /* Start for S-Function (xpcethercatpdorx): '<S70>/EtherCAT PDO Receive15' */
-    /* Level2 S-Function Block: '<S70>/EtherCAT PDO Receive15' (xpcethercatpdorx) */
+    /* Start for S-Function (xpcethercatpdorx): '<S68>/EtherCAT PDO Receive15' */
+    /* Level2 S-Function Block: '<S68>/EtherCAT PDO Receive15' (xpcethercatpdorx) */
     {
       SimStruct *rts = StateFlowFinal_M->childSfunctions[16];
       sfcnStart(rts);
@@ -7411,8 +7202,8 @@ static void StateFlowFinal_initialize(void)
         return;
     }
 
-    /* Start for S-Function (xpcethercatpdorx): '<S70>/EtherCAT PDO Receive14' */
-    /* Level2 S-Function Block: '<S70>/EtherCAT PDO Receive14' (xpcethercatpdorx) */
+    /* Start for S-Function (xpcethercatpdorx): '<S68>/EtherCAT PDO Receive14' */
+    /* Level2 S-Function Block: '<S68>/EtherCAT PDO Receive14' (xpcethercatpdorx) */
     {
       SimStruct *rts = StateFlowFinal_M->childSfunctions[17];
       sfcnStart(rts);
@@ -7509,32 +7300,12 @@ static void StateFlowFinal_initialize(void)
       if (ssGetErrorStatus(rts) != (NULL))
         return;
     }
-
-    /* Start for Atomic SubSystem: '<S57>/UseCurrentEstimator' */
-    State_UseCurrentEstimator_Start(&StateFlowFinal_DW.UseCurrentEstimator);
-
-    /* End of Start for SubSystem: '<S57>/UseCurrentEstimator' */
-
-    /* Start for Atomic SubSystem: '<S56>/UseCurrentEstimator' */
-    State_UseCurrentEstimator_Start(&StateFlowFinal_DW.UseCurrentEstimator_e);
-
-    /* End of Start for SubSystem: '<S56>/UseCurrentEstimator' */
-
-    /* Start for Enabled SubSystem: '<S93>/MeasurementUpdate' */
-    StateFl_MeasurementUpdate_Start(&StateFlowFinal_DW.MeasurementUpdate);
-
-    /* End of Start for SubSystem: '<S93>/MeasurementUpdate' */
-
-    /* Start for Enabled SubSystem: '<S138>/MeasurementUpdate' */
-    StateFl_MeasurementUpdate_Start(&StateFlowFinal_DW.MeasurementUpdate_a);
-
-    /* End of Start for SubSystem: '<S138>/MeasurementUpdate' */
   }
 
   /* InitializeConditions for Memory: '<S23>/Memory' */
   StateFlowFinal_DW.Memory_PreviousInput = StateFlowFinal_P.Memory_X0;
 
-  /* InitializeConditions for DiscreteIntegrator: '<S65>/Integrator' */
+  /* InitializeConditions for DiscreteIntegrator: '<S63>/Integrator' */
   StateFlowFinal_DW.Integrator_DSTATE[0] = StateFlowFinal_P.Integrator_IC;
   StateFlowFinal_DW.Integrator_DSTATE[1] = StateFlowFinal_P.Integrator_IC;
   StateFlowFinal_DW.Integrator_PrevResetState = 2;
@@ -7555,55 +7326,49 @@ static void StateFlowFinal_initialize(void)
   StateFlowFinal_DW.UD_DSTATE_a =
     StateFlowFinal_P.DiscreteDerivativeA_ICPrevScale;
 
-  /* InitializeConditions for Delay: '<S57>/MemoryX' */
-  StateFlowFinal_DW.icLoad = 1U;
-
-  /* InitializeConditions for Delay: '<S56>/MemoryX' */
-  StateFlowFinal_DW.icLoad_d = 1U;
-
-  /* InitializeConditions for UnitDelay: '<S175>/UD' */
+  /* InitializeConditions for UnitDelay: '<S83>/UD' */
   StateFlowFinal_DW.UD_DSTATE_g =
     StateFlowFinal_P.DiscreteDerivativeB2_ICPrevScal;
 
-  /* InitializeConditions for UnitDelay: '<S186>/Delay_x1' */
+  /* InitializeConditions for UnitDelay: '<S94>/Delay_x1' */
   StateFlowFinal_DW.Delay_x1_DSTATE = StateFlowFinal_P.Delay_x1_InitialCondition;
 
-  /* InitializeConditions for UnitDelay: '<S186>/Delay_x2' */
+  /* InitializeConditions for UnitDelay: '<S94>/Delay_x2' */
   StateFlowFinal_DW.Delay_x2_DSTATE = StateFlowFinal_P.Delay_x2_InitialCondition;
 
-  /* InitializeConditions for UnitDelay: '<S173>/UD' */
+  /* InitializeConditions for UnitDelay: '<S81>/UD' */
   StateFlowFinal_DW.UD_DSTATE_a3 =
     StateFlowFinal_P.DiscreteDerivativeB_ICPrevSca_m;
 
-  /* InitializeConditions for UnitDelay: '<S182>/Delay_x1' */
+  /* InitializeConditions for UnitDelay: '<S90>/Delay_x1' */
   StateFlowFinal_DW.Delay_x1_DSTATE_g =
     StateFlowFinal_P.Delay_x1_InitialCondition_l;
 
-  /* InitializeConditions for UnitDelay: '<S182>/Delay_x2' */
+  /* InitializeConditions for UnitDelay: '<S90>/Delay_x2' */
   StateFlowFinal_DW.Delay_x2_DSTATE_m =
     StateFlowFinal_P.Delay_x2_InitialCondition_l;
 
-  /* InitializeConditions for UnitDelay: '<S174>/UD' */
+  /* InitializeConditions for UnitDelay: '<S82>/UD' */
   StateFlowFinal_DW.UD_DSTATE_j =
     StateFlowFinal_P.DiscreteDerivativeB1_ICPrevScal;
 
-  /* InitializeConditions for UnitDelay: '<S176>/UD' */
+  /* InitializeConditions for UnitDelay: '<S84>/UD' */
   StateFlowFinal_DW.UD_DSTATE_f =
     StateFlowFinal_P.DiscreteDerivativeB3_ICPrevScal;
 
-  /* InitializeConditions for UnitDelay: '<S190>/Delay_x1' */
+  /* InitializeConditions for UnitDelay: '<S98>/Delay_x1' */
   StateFlowFinal_DW.Delay_x1_DSTATE_k =
     StateFlowFinal_P.Delay_x1_InitialCondition_n;
 
-  /* InitializeConditions for UnitDelay: '<S190>/Delay_x2' */
+  /* InitializeConditions for UnitDelay: '<S98>/Delay_x2' */
   StateFlowFinal_DW.Delay_x2_DSTATE_k =
     StateFlowFinal_P.Delay_x2_InitialCondition_e;
 
-  /* InitializeConditions for UnitDelay: '<S177>/UD' */
+  /* InitializeConditions for UnitDelay: '<S85>/UD' */
   StateFlowFinal_DW.UD_DSTATE_g0 =
     StateFlowFinal_P.DiscreteDerivativeB4_ICPrevScal;
 
-  /* InitializeConditions for UnitDelay: '<S178>/UD' */
+  /* InitializeConditions for UnitDelay: '<S86>/UD' */
   StateFlowFinal_DW.UD_DSTATE_k =
     StateFlowFinal_P.DiscreteDerivativeB5_ICPrevScal;
   StateFlowFinal_DW.sfEvent = -1;
@@ -7614,85 +7379,61 @@ static void StateFlowFinal_initialize(void)
   /* SystemInitialize for Chart: '<Root>/State flow robot' incorporates:
    *  SystemInitialize for SubSystem: '<S13>/Posizionamento'
    */
-  /* InitializeConditions for DiscreteIntegrator: '<S198>/Discrete-Time Integrator' incorporates:
-   *  SystemInitialize for DiscreteIntegrator: '<S198>/Discrete-Time Integrator'
+  /* InitializeConditions for DiscreteIntegrator: '<S106>/Discrete-Time Integrator' incorporates:
+   *  SystemInitialize for DiscreteIntegrator: '<S106>/Discrete-Time Integrator'
    */
   StateFlowFinal_DW.DiscreteTimeIntegrator_DSTATE_c =
     StateFlowFinal_P.DiscreteTimeIntegrator_IC;
   StateFlowFinal_DW.DiscreteTimeIntegrator_PREV_U_j = 0.0;
 
-  /* InitializeConditions for DiscreteIntegrator: '<S198>/Discrete-Time Integrator1' incorporates:
-   *  SystemInitialize for DiscreteIntegrator: '<S198>/Discrete-Time Integrator1'
+  /* InitializeConditions for DiscreteIntegrator: '<S106>/Discrete-Time Integrator1' incorporates:
+   *  SystemInitialize for DiscreteIntegrator: '<S106>/Discrete-Time Integrator1'
    */
   StateFlowFinal_DW.DiscreteTimeIntegrator1_DSTAT_j =
     StateFlowFinal_P.DiscreteTimeIntegrator1_IC;
   StateFlowFinal_DW.DiscreteTimeIntegrator1_PREV__o = 0.0;
 
-  /* SystemInitialize for Outport: '<S198>/CoppiaA' */
+  /* SystemInitialize for Outport: '<S106>/CoppiaA' */
   StateFlowFinal_B.CA_o = StateFlowFinal_P.CoppiaA_Y0;
 
-  /* SystemInitialize for Outport: '<S198>/CoppiaB' */
+  /* SystemInitialize for Outport: '<S106>/CoppiaB' */
   StateFlowFinal_B.CB_b = StateFlowFinal_P.CoppiaB_Y0;
 
   /* SystemInitialize for Chart: '<Root>/State flow robot' incorporates:
    *  SystemInitialize for SubSystem: '<S13>/Setting'
    */
-  /* InitializeConditions for DiscreteIntegrator: '<S199>/Discrete-Time Integrator1' incorporates:
-   *  SystemInitialize for DiscreteIntegrator: '<S199>/Discrete-Time Integrator1'
+  /* InitializeConditions for DiscreteIntegrator: '<S107>/Discrete-Time Integrator1' incorporates:
+   *  SystemInitialize for DiscreteIntegrator: '<S107>/Discrete-Time Integrator1'
    */
   StateFlowFinal_DW.DiscreteTimeIntegrator1_DSTATE =
     StateFlowFinal_P.DiscreteTimeIntegrator1_IC_j;
   StateFlowFinal_DW.DiscreteTimeIntegrator1_PREV_U = 0.0;
 
-  /* InitializeConditions for DiscreteIntegrator: '<S199>/Discrete-Time Integrator' incorporates:
-   *  SystemInitialize for DiscreteIntegrator: '<S199>/Discrete-Time Integrator'
+  /* InitializeConditions for DiscreteIntegrator: '<S107>/Discrete-Time Integrator' incorporates:
+   *  SystemInitialize for DiscreteIntegrator: '<S107>/Discrete-Time Integrator'
    */
   StateFlowFinal_DW.DiscreteTimeIntegrator_DSTATE =
     StateFlowFinal_P.DiscreteTimeIntegrator_IC_e;
   StateFlowFinal_DW.DiscreteTimeIntegrator_PREV_U = 0.0;
 
-  /* SystemInitialize for Outport: '<S199>/CA' */
+  /* SystemInitialize for Outport: '<S107>/CA' */
   StateFlowFinal_B.CA = StateFlowFinal_P.CA_Y0;
 
-  /* SystemInitialize for Outport: '<S199>/CB' */
+  /* SystemInitialize for Outport: '<S107>/CB' */
   StateFlowFinal_B.CB = StateFlowFinal_P.CB_Y0;
 
-  /* SystemInitialize for Outport: '<S199>/CH' */
+  /* SystemInitialize for Outport: '<S107>/CH' */
   StateFlowFinal_B.CH = StateFlowFinal_P.CH_Y0;
-
-  /* SystemInitialize for Atomic SubSystem: '<S57>/UseCurrentEstimator' */
-  StateF_UseCurrentEstimator_Init(&StateFlowFinal_B.UseCurrentEstimator,
-    (P_UseCurrentEstimator_StateFl_T *)&StateFlowFinal_P.UseCurrentEstimator);
-
-  /* End of SystemInitialize for SubSystem: '<S57>/UseCurrentEstimator' */
-
-  /* SystemInitialize for Atomic SubSystem: '<S56>/UseCurrentEstimator' */
-  StateF_UseCurrentEstimator_Init(&StateFlowFinal_B.UseCurrentEstimator_e,
-    (P_UseCurrentEstimator_StateFl_T *)&StateFlowFinal_P.UseCurrentEstimator_e);
-
-  /* End of SystemInitialize for SubSystem: '<S56>/UseCurrentEstimator' */
-
-  /* SystemInitialize for Enabled SubSystem: '<S93>/MeasurementUpdate' */
-  StateFlo_MeasurementUpdate_Init(&StateFlowFinal_B.MeasurementUpdate,
-    (P_MeasurementUpdate_StateFlow_T *)&StateFlowFinal_P.MeasurementUpdate);
-
-  /* End of SystemInitialize for SubSystem: '<S93>/MeasurementUpdate' */
-
-  /* SystemInitialize for Enabled SubSystem: '<S138>/MeasurementUpdate' */
-  StateFlo_MeasurementUpdate_Init(&StateFlowFinal_B.MeasurementUpdate_a,
-    (P_MeasurementUpdate_StateFlow_T *)&StateFlowFinal_P.MeasurementUpdate_a);
-
-  /* End of SystemInitialize for SubSystem: '<S138>/MeasurementUpdate' */
 
   /* Enable for Chart: '<Root>/State flow robot' incorporates:
    *  Enable for SubSystem: '<S13>/Posizionamento'
    */
   StateFlowFinal_DW.Posizionamento_RESET_ELAPS_T = true;
 
-  /* Enable for DiscreteIntegrator: '<S198>/Discrete-Time Integrator' */
+  /* Enable for DiscreteIntegrator: '<S106>/Discrete-Time Integrator' */
   StateFlowFinal_DW.DiscreteTimeIntegrator_SYSTEM_j = 1U;
 
-  /* Enable for DiscreteIntegrator: '<S198>/Discrete-Time Integrator1' */
+  /* Enable for DiscreteIntegrator: '<S106>/Discrete-Time Integrator1' */
   StateFlowFinal_DW.DiscreteTimeIntegrator1_SYSTE_c = 1U;
 
   /* Enable for Chart: '<Root>/State flow robot' incorporates:
@@ -7700,10 +7441,10 @@ static void StateFlowFinal_initialize(void)
    */
   StateFlowFinal_DW.Setting_RESET_ELAPS_T = true;
 
-  /* Enable for DiscreteIntegrator: '<S199>/Discrete-Time Integrator1' */
+  /* Enable for DiscreteIntegrator: '<S107>/Discrete-Time Integrator1' */
   StateFlowFinal_DW.DiscreteTimeIntegrator1_SYSTEM_ = 1U;
 
-  /* Enable for DiscreteIntegrator: '<S199>/Discrete-Time Integrator' */
+  /* Enable for DiscreteIntegrator: '<S107>/Discrete-Time Integrator' */
   StateFlowFinal_DW.DiscreteTimeIntegrator_SYSTEM_E = 1U;
 }
 
@@ -7808,29 +7549,29 @@ static void StateFlowFinal_terminate(void)
     sfcnTerminate(rts);
   }
 
-  /* Terminate for S-Function (xpcethercatpdorx): '<S71>/EtherCAT PDO Receive15' */
-  /* Level2 S-Function Block: '<S71>/EtherCAT PDO Receive15' (xpcethercatpdorx) */
+  /* Terminate for S-Function (xpcethercatpdorx): '<S69>/EtherCAT PDO Receive15' */
+  /* Level2 S-Function Block: '<S69>/EtherCAT PDO Receive15' (xpcethercatpdorx) */
   {
     SimStruct *rts = StateFlowFinal_M->childSfunctions[14];
     sfcnTerminate(rts);
   }
 
-  /* Terminate for S-Function (xpcethercatpdorx): '<S71>/EtherCAT PDO Receive14' */
-  /* Level2 S-Function Block: '<S71>/EtherCAT PDO Receive14' (xpcethercatpdorx) */
+  /* Terminate for S-Function (xpcethercatpdorx): '<S69>/EtherCAT PDO Receive14' */
+  /* Level2 S-Function Block: '<S69>/EtherCAT PDO Receive14' (xpcethercatpdorx) */
   {
     SimStruct *rts = StateFlowFinal_M->childSfunctions[15];
     sfcnTerminate(rts);
   }
 
-  /* Terminate for S-Function (xpcethercatpdorx): '<S70>/EtherCAT PDO Receive15' */
-  /* Level2 S-Function Block: '<S70>/EtherCAT PDO Receive15' (xpcethercatpdorx) */
+  /* Terminate for S-Function (xpcethercatpdorx): '<S68>/EtherCAT PDO Receive15' */
+  /* Level2 S-Function Block: '<S68>/EtherCAT PDO Receive15' (xpcethercatpdorx) */
   {
     SimStruct *rts = StateFlowFinal_M->childSfunctions[16];
     sfcnTerminate(rts);
   }
 
-  /* Terminate for S-Function (xpcethercatpdorx): '<S70>/EtherCAT PDO Receive14' */
-  /* Level2 S-Function Block: '<S70>/EtherCAT PDO Receive14' (xpcethercatpdorx) */
+  /* Terminate for S-Function (xpcethercatpdorx): '<S68>/EtherCAT PDO Receive14' */
+  /* Level2 S-Function Block: '<S68>/EtherCAT PDO Receive14' (xpcethercatpdorx) */
   {
     SimStruct *rts = StateFlowFinal_M->childSfunctions[17];
     sfcnTerminate(rts);
@@ -9857,7 +9598,7 @@ RT_MODEL_StateFlowFinal_T *StateFlowFinal(void)
       ssSetInputPortBufferDstPort(rts, 0, -1);
     }
 
-    /* Level2 S-Function Block: StateFlowFinal/<S71>/EtherCAT PDO Receive15 (xpcethercatpdorx) */
+    /* Level2 S-Function Block: StateFlowFinal/<S69>/EtherCAT PDO Receive15 (xpcethercatpdorx) */
     {
       SimStruct *rts = StateFlowFinal_M->childSfunctions[14];
 
@@ -9987,7 +9728,7 @@ RT_MODEL_StateFlowFinal_T *StateFlowFinal(void)
       /* Update the BufferDstPort flags for each input port */
     }
 
-    /* Level2 S-Function Block: StateFlowFinal/<S71>/EtherCAT PDO Receive14 (xpcethercatpdorx) */
+    /* Level2 S-Function Block: StateFlowFinal/<S69>/EtherCAT PDO Receive14 (xpcethercatpdorx) */
     {
       SimStruct *rts = StateFlowFinal_M->childSfunctions[15];
 
@@ -10117,7 +9858,7 @@ RT_MODEL_StateFlowFinal_T *StateFlowFinal(void)
       /* Update the BufferDstPort flags for each input port */
     }
 
-    /* Level2 S-Function Block: StateFlowFinal/<S70>/EtherCAT PDO Receive15 (xpcethercatpdorx) */
+    /* Level2 S-Function Block: StateFlowFinal/<S68>/EtherCAT PDO Receive15 (xpcethercatpdorx) */
     {
       SimStruct *rts = StateFlowFinal_M->childSfunctions[16];
 
@@ -10248,7 +9989,7 @@ RT_MODEL_StateFlowFinal_T *StateFlowFinal(void)
       /* Update the BufferDstPort flags for each input port */
     }
 
-    /* Level2 S-Function Block: StateFlowFinal/<S70>/EtherCAT PDO Receive14 (xpcethercatpdorx) */
+    /* Level2 S-Function Block: StateFlowFinal/<S68>/EtherCAT PDO Receive14 (xpcethercatpdorx) */
     {
       SimStruct *rts = StateFlowFinal_M->childSfunctions[17];
 
@@ -11678,9 +11419,9 @@ RT_MODEL_StateFlowFinal_T *StateFlowFinal(void)
   StateFlowFinal_M->Sizes.numU = (0);  /* Number of model inputs */
   StateFlowFinal_M->Sizes.sysDirFeedThru = (0);/* The model is not direct feedthrough */
   StateFlowFinal_M->Sizes.numSampTimes = (2);/* Number of sample times */
-  StateFlowFinal_M->Sizes.numBlocks = (579);/* Number of blocks */
-  StateFlowFinal_M->Sizes.numBlockIO = (417);/* Number of block outputs */
-  StateFlowFinal_M->Sizes.numBlockPrms = (2079);/* Sum of parameter "widths" */
+  StateFlowFinal_M->Sizes.numBlocks = (422);/* Number of blocks */
+  StateFlowFinal_M->Sizes.numBlockIO = (325);/* Number of block outputs */
+  StateFlowFinal_M->Sizes.numBlockPrms = (1783);/* Sum of parameter "widths" */
   return StateFlowFinal_M;
 }
 

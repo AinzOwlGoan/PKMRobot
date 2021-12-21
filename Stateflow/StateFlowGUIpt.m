@@ -1372,8 +1372,8 @@ pt(86).subsource = 'SS_DOUBLE';
 pt(86).ndims     = '2';
 pt(86).size      = '[]';
 pt(86).isStruct  = false;
-pt(86).symbol     = 'StateFlowGUI_P.Constant_Value_eg';
-pt(86).baseaddr   = '&StateFlowGUI_P.Constant_Value_eg';
+pt(86).symbol     = 'StateFlowGUI_P.Constant_Value_e';
+pt(86).baseaddr   = '&StateFlowGUI_P.Constant_Value_e';
 pt(86).dtname     = 'real_T';
 
 
@@ -1388,8 +1388,8 @@ pt(87).subsource = 'SS_DOUBLE';
 pt(87).ndims     = '2';
 pt(87).size      = '[]';
 pt(87).isStruct  = false;
-pt(87).symbol     = 'StateFlowGUI_P.Constant1_Value_f';
-pt(87).baseaddr   = '&StateFlowGUI_P.Constant1_Value_f';
+pt(87).symbol     = 'StateFlowGUI_P.Constant1_Value';
+pt(87).baseaddr   = '&StateFlowGUI_P.Constant1_Value';
 pt(87).dtname     = 'real_T';
 
 
@@ -1404,8 +1404,8 @@ pt(88).subsource = 'SS_DOUBLE';
 pt(88).ndims     = '2';
 pt(88).size      = '[]';
 pt(88).isStruct  = false;
-pt(88).symbol     = 'StateFlowGUI_P.selettore_Value_d';
-pt(88).baseaddr   = '&StateFlowGUI_P.selettore_Value_d';
+pt(88).symbol     = 'StateFlowGUI_P.selettore_Value';
+pt(88).baseaddr   = '&StateFlowGUI_P.selettore_Value';
 pt(88).dtname     = 'real_T';
 
 
@@ -2620,8 +2620,8 @@ pt(164).subsource = 'SS_DOUBLE';
 pt(164).ndims     = '2';
 pt(164).size      = '[]';
 pt(164).isStruct  = false;
-pt(164).symbol     = 'StateFlowGUI_P.selettore_Value';
-pt(164).baseaddr   = '&StateFlowGUI_P.selettore_Value';
+pt(164).symbol     = 'StateFlowGUI_P.selettore_Value_p';
+pt(164).baseaddr   = '&StateFlowGUI_P.selettore_Value_p';
 pt(164).dtname     = 'real_T';
 
 
@@ -2956,8 +2956,8 @@ pt(185).subsource = 'SS_DOUBLE';
 pt(185).ndims     = '2';
 pt(185).size      = '[]';
 pt(185).isStruct  = false;
-pt(185).symbol     = 'StateFlowGUI_P.AlzataC_Value_j';
-pt(185).baseaddr   = '&StateFlowGUI_P.AlzataC_Value_j';
+pt(185).symbol     = 'StateFlowGUI_P.AlzataC_Value';
+pt(185).baseaddr   = '&StateFlowGUI_P.AlzataC_Value';
 pt(185).dtname     = 'real_T';
 
 
@@ -2972,8 +2972,8 @@ pt(186).subsource = 'SS_DOUBLE';
 pt(186).ndims     = '2';
 pt(186).size      = '[]';
 pt(186).isStruct  = false;
-pt(186).symbol     = 'StateFlowGUI_P.AlzataC1_Value_b';
-pt(186).baseaddr   = '&StateFlowGUI_P.AlzataC1_Value_b';
+pt(186).symbol     = 'StateFlowGUI_P.AlzataC1_Value';
+pt(186).baseaddr   = '&StateFlowGUI_P.AlzataC1_Value';
 pt(186).dtname     = 'real_T';
 
 
@@ -2988,8 +2988,8 @@ pt(187).subsource = 'SS_DOUBLE';
 pt(187).ndims     = '2';
 pt(187).size      = '[]';
 pt(187).isStruct  = false;
-pt(187).symbol     = 'StateFlowGUI_P.AlzataQ_Value_o';
-pt(187).baseaddr   = '&StateFlowGUI_P.AlzataQ_Value_o';
+pt(187).symbol     = 'StateFlowGUI_P.AlzataQ_Value';
+pt(187).baseaddr   = '&StateFlowGUI_P.AlzataQ_Value';
 pt(187).dtname     = 'real_T';
 
 
@@ -3004,8 +3004,8 @@ pt(188).subsource = 'SS_DOUBLE';
 pt(188).ndims     = '2';
 pt(188).size      = '[]';
 pt(188).isStruct  = false;
-pt(188).symbol     = 'StateFlowGUI_P.Constant3_Value_j';
-pt(188).baseaddr   = '&StateFlowGUI_P.Constant3_Value_j';
+pt(188).symbol     = 'StateFlowGUI_P.Constant3_Value';
+pt(188).baseaddr   = '&StateFlowGUI_P.Constant3_Value';
 pt(188).dtname     = 'real_T';
 
 
@@ -3020,8 +3020,8 @@ pt(189).subsource = 'SS_DOUBLE';
 pt(189).ndims     = '2';
 pt(189).size      = '[]';
 pt(189).isStruct  = false;
-pt(189).symbol     = 'StateFlowGUI_P.Ngiri_Value_a';
-pt(189).baseaddr   = '&StateFlowGUI_P.Ngiri_Value_a';
+pt(189).symbol     = 'StateFlowGUI_P.Ngiri_Value';
+pt(189).baseaddr   = '&StateFlowGUI_P.Ngiri_Value';
 pt(189).dtname     = 'real_T';
 
 
@@ -3036,8 +3036,8 @@ pt(190).subsource = 'SS_DOUBLE';
 pt(190).ndims     = '2';
 pt(190).size      = '[]';
 pt(190).isStruct  = false;
-pt(190).symbol     = 'StateFlowGUI_P.Periodo_Value_l';
-pt(190).baseaddr   = '&StateFlowGUI_P.Periodo_Value_l';
+pt(190).symbol     = 'StateFlowGUI_P.Periodo_Value';
+pt(190).baseaddr   = '&StateFlowGUI_P.Periodo_Value';
 pt(190).dtname     = 'real_T';
 
 
@@ -3052,8 +3052,8 @@ pt(191).subsource = 'SS_DOUBLE';
 pt(191).ndims     = '2';
 pt(191).size      = '[]';
 pt(191).isStruct  = false;
-pt(191).symbol     = 'StateFlowGUI_P.PeriodoC_Value_f';
-pt(191).baseaddr   = '&StateFlowGUI_P.PeriodoC_Value_f';
+pt(191).symbol     = 'StateFlowGUI_P.PeriodoC_Value';
+pt(191).baseaddr   = '&StateFlowGUI_P.PeriodoC_Value';
 pt(191).dtname     = 'real_T';
 
 
@@ -3068,8 +3068,8 @@ pt(192).subsource = 'SS_DOUBLE';
 pt(192).ndims     = '2';
 pt(192).size      = '[]';
 pt(192).isStruct  = false;
-pt(192).symbol     = 'StateFlowGUI_P.PeriodoC1_Value_e';
-pt(192).baseaddr   = '&StateFlowGUI_P.PeriodoC1_Value_e';
+pt(192).symbol     = 'StateFlowGUI_P.PeriodoC1_Value';
+pt(192).baseaddr   = '&StateFlowGUI_P.PeriodoC1_Value';
 pt(192).dtname     = 'real_T';
 
 
@@ -3084,8 +3084,8 @@ pt(193).subsource = 'SS_DOUBLE';
 pt(193).ndims     = '2';
 pt(193).size      = '[]';
 pt(193).isStruct  = false;
-pt(193).symbol     = 'StateFlowGUI_P.PeriodoQ_Value_i';
-pt(193).baseaddr   = '&StateFlowGUI_P.PeriodoQ_Value_i';
+pt(193).symbol     = 'StateFlowGUI_P.PeriodoQ_Value';
+pt(193).baseaddr   = '&StateFlowGUI_P.PeriodoQ_Value';
 pt(193).dtname     = 'real_T';
 
 
@@ -3100,8 +3100,8 @@ pt(194).subsource = 'SS_DOUBLE';
 pt(194).ndims     = '2';
 pt(194).size      = '[]';
 pt(194).isStruct  = false;
-pt(194).symbol     = 'StateFlowGUI_P.Rmax_Value_b';
-pt(194).baseaddr   = '&StateFlowGUI_P.Rmax_Value_b';
+pt(194).symbol     = 'StateFlowGUI_P.Rmax_Value';
+pt(194).baseaddr   = '&StateFlowGUI_P.Rmax_Value';
 pt(194).dtname     = 'real_T';
 
 
@@ -3116,8 +3116,8 @@ pt(195).subsource = 'SS_DOUBLE';
 pt(195).ndims     = '2';
 pt(195).size      = '[]';
 pt(195).isStruct  = false;
-pt(195).symbol     = 'StateFlowGUI_P.Rmin_Value_c';
-pt(195).baseaddr   = '&StateFlowGUI_P.Rmin_Value_c';
+pt(195).symbol     = 'StateFlowGUI_P.Rmin_Value';
+pt(195).baseaddr   = '&StateFlowGUI_P.Rmin_Value';
 pt(195).dtname     = 'real_T';
 
 
@@ -3132,8 +3132,8 @@ pt(196).subsource = 'SS_DOUBLE';
 pt(196).ndims     = '2';
 pt(196).size      = '[]';
 pt(196).isStruct  = false;
-pt(196).symbol     = 'StateFlowGUI_P.Tempospostiniziale_Value_f';
-pt(196).baseaddr   = '&StateFlowGUI_P.Tempospostiniziale_Value_f';
+pt(196).symbol     = 'StateFlowGUI_P.Tempospostiniziale_Value';
+pt(196).baseaddr   = '&StateFlowGUI_P.Tempospostiniziale_Value';
 pt(196).dtname     = 'real_T';
 
 
@@ -3148,8 +3148,8 @@ pt(197).subsource = 'SS_DOUBLE';
 pt(197).ndims     = '2';
 pt(197).size      = '[]';
 pt(197).isStruct  = false;
-pt(197).symbol     = 'StateFlowGUI_P.EtherCATPDOReceive14_P1_kn';
-pt(197).baseaddr   = '&StateFlowGUI_P.EtherCATPDOReceive14_P1_kn[0]';
+pt(197).symbol     = 'StateFlowGUI_P.EtherCATPDOReceive14_P1';
+pt(197).baseaddr   = '&StateFlowGUI_P.EtherCATPDOReceive14_P1[0]';
 pt(197).dtname     = 'real_T';
 
 
@@ -3164,8 +3164,8 @@ pt(198).subsource = 'SS_DOUBLE';
 pt(198).ndims     = '2';
 pt(198).size      = '[]';
 pt(198).isStruct  = false;
-pt(198).symbol     = 'StateFlowGUI_P.EtherCATPDOReceive14_P2_k';
-pt(198).baseaddr   = '&StateFlowGUI_P.EtherCATPDOReceive14_P2_k';
+pt(198).symbol     = 'StateFlowGUI_P.EtherCATPDOReceive14_P2';
+pt(198).baseaddr   = '&StateFlowGUI_P.EtherCATPDOReceive14_P2';
 pt(198).dtname     = 'real_T';
 
 
@@ -3180,8 +3180,8 @@ pt(199).subsource = 'SS_DOUBLE';
 pt(199).ndims     = '2';
 pt(199).size      = '[]';
 pt(199).isStruct  = false;
-pt(199).symbol     = 'StateFlowGUI_P.EtherCATPDOReceive14_P3_m';
-pt(199).baseaddr   = '&StateFlowGUI_P.EtherCATPDOReceive14_P3_m';
+pt(199).symbol     = 'StateFlowGUI_P.EtherCATPDOReceive14_P3';
+pt(199).baseaddr   = '&StateFlowGUI_P.EtherCATPDOReceive14_P3';
 pt(199).dtname     = 'real_T';
 
 
@@ -3196,8 +3196,8 @@ pt(200).subsource = 'SS_DOUBLE';
 pt(200).ndims     = '2';
 pt(200).size      = '[]';
 pt(200).isStruct  = false;
-pt(200).symbol     = 'StateFlowGUI_P.EtherCATPDOReceive14_P4_p';
-pt(200).baseaddr   = '&StateFlowGUI_P.EtherCATPDOReceive14_P4_p';
+pt(200).symbol     = 'StateFlowGUI_P.EtherCATPDOReceive14_P4';
+pt(200).baseaddr   = '&StateFlowGUI_P.EtherCATPDOReceive14_P4';
 pt(200).dtname     = 'real_T';
 
 
@@ -3212,8 +3212,8 @@ pt(201).subsource = 'SS_DOUBLE';
 pt(201).ndims     = '2';
 pt(201).size      = '[]';
 pt(201).isStruct  = false;
-pt(201).symbol     = 'StateFlowGUI_P.EtherCATPDOReceive14_P5_i';
-pt(201).baseaddr   = '&StateFlowGUI_P.EtherCATPDOReceive14_P5_i';
+pt(201).symbol     = 'StateFlowGUI_P.EtherCATPDOReceive14_P5';
+pt(201).baseaddr   = '&StateFlowGUI_P.EtherCATPDOReceive14_P5';
 pt(201).dtname     = 'real_T';
 
 
@@ -3228,8 +3228,8 @@ pt(202).subsource = 'SS_DOUBLE';
 pt(202).ndims     = '2';
 pt(202).size      = '[]';
 pt(202).isStruct  = false;
-pt(202).symbol     = 'StateFlowGUI_P.EtherCATPDOReceive14_P6_d';
-pt(202).baseaddr   = '&StateFlowGUI_P.EtherCATPDOReceive14_P6_d';
+pt(202).symbol     = 'StateFlowGUI_P.EtherCATPDOReceive14_P6';
+pt(202).baseaddr   = '&StateFlowGUI_P.EtherCATPDOReceive14_P6';
 pt(202).dtname     = 'real_T';
 
 
@@ -3244,8 +3244,8 @@ pt(203).subsource = 'SS_DOUBLE';
 pt(203).ndims     = '2';
 pt(203).size      = '[]';
 pt(203).isStruct  = false;
-pt(203).symbol     = 'StateFlowGUI_P.EtherCATPDOReceive14_P7_gg';
-pt(203).baseaddr   = '&StateFlowGUI_P.EtherCATPDOReceive14_P7_gg';
+pt(203).symbol     = 'StateFlowGUI_P.EtherCATPDOReceive14_P7';
+pt(203).baseaddr   = '&StateFlowGUI_P.EtherCATPDOReceive14_P7';
 pt(203).dtname     = 'real_T';
 
 
@@ -3260,8 +3260,8 @@ pt(204).subsource = 'SS_DOUBLE';
 pt(204).ndims     = '2';
 pt(204).size      = '[]';
 pt(204).isStruct  = false;
-pt(204).symbol     = 'StateFlowGUI_P.EtherCATPDOReceive15_P1_f';
-pt(204).baseaddr   = '&StateFlowGUI_P.EtherCATPDOReceive15_P1_f[0]';
+pt(204).symbol     = 'StateFlowGUI_P.EtherCATPDOReceive15_P1';
+pt(204).baseaddr   = '&StateFlowGUI_P.EtherCATPDOReceive15_P1[0]';
 pt(204).dtname     = 'real_T';
 
 
@@ -3276,8 +3276,8 @@ pt(205).subsource = 'SS_DOUBLE';
 pt(205).ndims     = '2';
 pt(205).size      = '[]';
 pt(205).isStruct  = false;
-pt(205).symbol     = 'StateFlowGUI_P.EtherCATPDOReceive15_P2_c';
-pt(205).baseaddr   = '&StateFlowGUI_P.EtherCATPDOReceive15_P2_c';
+pt(205).symbol     = 'StateFlowGUI_P.EtherCATPDOReceive15_P2';
+pt(205).baseaddr   = '&StateFlowGUI_P.EtherCATPDOReceive15_P2';
 pt(205).dtname     = 'real_T';
 
 
@@ -3292,8 +3292,8 @@ pt(206).subsource = 'SS_DOUBLE';
 pt(206).ndims     = '2';
 pt(206).size      = '[]';
 pt(206).isStruct  = false;
-pt(206).symbol     = 'StateFlowGUI_P.EtherCATPDOReceive15_P3_p';
-pt(206).baseaddr   = '&StateFlowGUI_P.EtherCATPDOReceive15_P3_p';
+pt(206).symbol     = 'StateFlowGUI_P.EtherCATPDOReceive15_P3';
+pt(206).baseaddr   = '&StateFlowGUI_P.EtherCATPDOReceive15_P3';
 pt(206).dtname     = 'real_T';
 
 
@@ -3308,8 +3308,8 @@ pt(207).subsource = 'SS_DOUBLE';
 pt(207).ndims     = '2';
 pt(207).size      = '[]';
 pt(207).isStruct  = false;
-pt(207).symbol     = 'StateFlowGUI_P.EtherCATPDOReceive15_P4_ii';
-pt(207).baseaddr   = '&StateFlowGUI_P.EtherCATPDOReceive15_P4_ii';
+pt(207).symbol     = 'StateFlowGUI_P.EtherCATPDOReceive15_P4';
+pt(207).baseaddr   = '&StateFlowGUI_P.EtherCATPDOReceive15_P4';
 pt(207).dtname     = 'real_T';
 
 
@@ -3324,8 +3324,8 @@ pt(208).subsource = 'SS_DOUBLE';
 pt(208).ndims     = '2';
 pt(208).size      = '[]';
 pt(208).isStruct  = false;
-pt(208).symbol     = 'StateFlowGUI_P.EtherCATPDOReceive15_P5_h';
-pt(208).baseaddr   = '&StateFlowGUI_P.EtherCATPDOReceive15_P5_h';
+pt(208).symbol     = 'StateFlowGUI_P.EtherCATPDOReceive15_P5';
+pt(208).baseaddr   = '&StateFlowGUI_P.EtherCATPDOReceive15_P5';
 pt(208).dtname     = 'real_T';
 
 
@@ -3340,8 +3340,8 @@ pt(209).subsource = 'SS_DOUBLE';
 pt(209).ndims     = '2';
 pt(209).size      = '[]';
 pt(209).isStruct  = false;
-pt(209).symbol     = 'StateFlowGUI_P.EtherCATPDOReceive15_P6_h';
-pt(209).baseaddr   = '&StateFlowGUI_P.EtherCATPDOReceive15_P6_h';
+pt(209).symbol     = 'StateFlowGUI_P.EtherCATPDOReceive15_P6';
+pt(209).baseaddr   = '&StateFlowGUI_P.EtherCATPDOReceive15_P6';
 pt(209).dtname     = 'real_T';
 
 
@@ -3356,8 +3356,8 @@ pt(210).subsource = 'SS_DOUBLE';
 pt(210).ndims     = '2';
 pt(210).size      = '[]';
 pt(210).isStruct  = false;
-pt(210).symbol     = 'StateFlowGUI_P.EtherCATPDOReceive15_P7_l';
-pt(210).baseaddr   = '&StateFlowGUI_P.EtherCATPDOReceive15_P7_l';
+pt(210).symbol     = 'StateFlowGUI_P.EtherCATPDOReceive15_P7';
+pt(210).baseaddr   = '&StateFlowGUI_P.EtherCATPDOReceive15_P7';
 pt(210).dtname     = 'real_T';
 
 
@@ -3660,8 +3660,8 @@ pt(229).subsource = 'SS_DOUBLE';
 pt(229).ndims     = '2';
 pt(229).size      = '[]';
 pt(229).isStruct  = false;
-pt(229).symbol     = 'StateFlowGUI_P.Constant_Value_e';
-pt(229).baseaddr   = '&StateFlowGUI_P.Constant_Value_e';
+pt(229).symbol     = 'StateFlowGUI_P.Constant_Value_eg';
+pt(229).baseaddr   = '&StateFlowGUI_P.Constant_Value_eg';
 pt(229).dtname     = 'real_T';
 
 
@@ -4188,8 +4188,8 @@ pt(262).subsource = 'SS_DOUBLE';
 pt(262).ndims     = '2';
 pt(262).size      = '[]';
 pt(262).isStruct  = false;
-pt(262).symbol     = 'StateFlowGUI_P.EtherCATPDOReceive15_P5_cp';
-pt(262).baseaddr   = '&StateFlowGUI_P.EtherCATPDOReceive15_P5_cp';
+pt(262).symbol     = 'StateFlowGUI_P.EtherCATPDOReceive15_P5_c';
+pt(262).baseaddr   = '&StateFlowGUI_P.EtherCATPDOReceive15_P5_c';
 pt(262).dtname     = 'real_T';
 
 
@@ -4236,8 +4236,8 @@ pt(265).subsource = 'SS_DOUBLE';
 pt(265).ndims     = '2';
 pt(265).size      = '[]';
 pt(265).isStruct  = false;
-pt(265).symbol     = 'StateFlowGUI_P.AlzataC_Value';
-pt(265).baseaddr   = '&StateFlowGUI_P.AlzataC_Value';
+pt(265).symbol     = 'StateFlowGUI_P.AlzataC_Value_p';
+pt(265).baseaddr   = '&StateFlowGUI_P.AlzataC_Value_p';
 pt(265).dtname     = 'real_T';
 
 
@@ -4252,8 +4252,8 @@ pt(266).subsource = 'SS_DOUBLE';
 pt(266).ndims     = '2';
 pt(266).size      = '[]';
 pt(266).isStruct  = false;
-pt(266).symbol     = 'StateFlowGUI_P.AlzataC1_Value';
-pt(266).baseaddr   = '&StateFlowGUI_P.AlzataC1_Value';
+pt(266).symbol     = 'StateFlowGUI_P.AlzataC1_Value_b';
+pt(266).baseaddr   = '&StateFlowGUI_P.AlzataC1_Value_b';
 pt(266).dtname     = 'real_T';
 
 
@@ -4268,8 +4268,8 @@ pt(267).subsource = 'SS_DOUBLE';
 pt(267).ndims     = '2';
 pt(267).size      = '[]';
 pt(267).isStruct  = false;
-pt(267).symbol     = 'StateFlowGUI_P.AlzataQ_Value';
-pt(267).baseaddr   = '&StateFlowGUI_P.AlzataQ_Value';
+pt(267).symbol     = 'StateFlowGUI_P.AlzataQ_Value_p';
+pt(267).baseaddr   = '&StateFlowGUI_P.AlzataQ_Value_p';
 pt(267).dtname     = 'real_T';
 
 
@@ -4284,8 +4284,8 @@ pt(268).subsource = 'SS_DOUBLE';
 pt(268).ndims     = '2';
 pt(268).size      = '[]';
 pt(268).isStruct  = false;
-pt(268).symbol     = 'StateFlowGUI_P.Constant3_Value';
-pt(268).baseaddr   = '&StateFlowGUI_P.Constant3_Value';
+pt(268).symbol     = 'StateFlowGUI_P.Constant3_Value_o';
+pt(268).baseaddr   = '&StateFlowGUI_P.Constant3_Value_o';
 pt(268).dtname     = 'real_T';
 
 
@@ -4300,8 +4300,8 @@ pt(269).subsource = 'SS_DOUBLE';
 pt(269).ndims     = '2';
 pt(269).size      = '[]';
 pt(269).isStruct  = false;
-pt(269).symbol     = 'StateFlowGUI_P.Ngiri_Value';
-pt(269).baseaddr   = '&StateFlowGUI_P.Ngiri_Value';
+pt(269).symbol     = 'StateFlowGUI_P.Ngiri_Value_a';
+pt(269).baseaddr   = '&StateFlowGUI_P.Ngiri_Value_a';
 pt(269).dtname     = 'real_T';
 
 
@@ -4348,8 +4348,8 @@ pt(272).subsource = 'SS_DOUBLE';
 pt(272).ndims     = '2';
 pt(272).size      = '[]';
 pt(272).isStruct  = false;
-pt(272).symbol     = 'StateFlowGUI_P.Periodo_Value';
-pt(272).baseaddr   = '&StateFlowGUI_P.Periodo_Value';
+pt(272).symbol     = 'StateFlowGUI_P.Periodo_Value_e';
+pt(272).baseaddr   = '&StateFlowGUI_P.Periodo_Value_e';
 pt(272).dtname     = 'real_T';
 
 
@@ -4364,8 +4364,8 @@ pt(273).subsource = 'SS_DOUBLE';
 pt(273).ndims     = '2';
 pt(273).size      = '[]';
 pt(273).isStruct  = false;
-pt(273).symbol     = 'StateFlowGUI_P.PeriodoC_Value';
-pt(273).baseaddr   = '&StateFlowGUI_P.PeriodoC_Value';
+pt(273).symbol     = 'StateFlowGUI_P.PeriodoC_Value_p';
+pt(273).baseaddr   = '&StateFlowGUI_P.PeriodoC_Value_p';
 pt(273).dtname     = 'real_T';
 
 
@@ -4380,8 +4380,8 @@ pt(274).subsource = 'SS_DOUBLE';
 pt(274).ndims     = '2';
 pt(274).size      = '[]';
 pt(274).isStruct  = false;
-pt(274).symbol     = 'StateFlowGUI_P.PeriodoC1_Value';
-pt(274).baseaddr   = '&StateFlowGUI_P.PeriodoC1_Value';
+pt(274).symbol     = 'StateFlowGUI_P.PeriodoC1_Value_m';
+pt(274).baseaddr   = '&StateFlowGUI_P.PeriodoC1_Value_m';
 pt(274).dtname     = 'real_T';
 
 
@@ -4396,8 +4396,8 @@ pt(275).subsource = 'SS_DOUBLE';
 pt(275).ndims     = '2';
 pt(275).size      = '[]';
 pt(275).isStruct  = false;
-pt(275).symbol     = 'StateFlowGUI_P.PeriodoQ_Value';
-pt(275).baseaddr   = '&StateFlowGUI_P.PeriodoQ_Value';
+pt(275).symbol     = 'StateFlowGUI_P.PeriodoQ_Value_m';
+pt(275).baseaddr   = '&StateFlowGUI_P.PeriodoQ_Value_m';
 pt(275).dtname     = 'real_T';
 
 
@@ -4412,8 +4412,8 @@ pt(276).subsource = 'SS_DOUBLE';
 pt(276).ndims     = '2';
 pt(276).size      = '[]';
 pt(276).isStruct  = false;
-pt(276).symbol     = 'StateFlowGUI_P.Rmax_Value';
-pt(276).baseaddr   = '&StateFlowGUI_P.Rmax_Value';
+pt(276).symbol     = 'StateFlowGUI_P.Rmax_Value_n';
+pt(276).baseaddr   = '&StateFlowGUI_P.Rmax_Value_n';
 pt(276).dtname     = 'real_T';
 
 
@@ -4444,8 +4444,8 @@ pt(278).subsource = 'SS_DOUBLE';
 pt(278).ndims     = '2';
 pt(278).size      = '[]';
 pt(278).isStruct  = false;
-pt(278).symbol     = 'StateFlowGUI_P.Rmin_Value';
-pt(278).baseaddr   = '&StateFlowGUI_P.Rmin_Value';
+pt(278).symbol     = 'StateFlowGUI_P.Rmin_Value_g';
+pt(278).baseaddr   = '&StateFlowGUI_P.Rmin_Value_g';
 pt(278).dtname     = 'real_T';
 
 
@@ -4508,8 +4508,8 @@ pt(282).subsource = 'SS_DOUBLE';
 pt(282).ndims     = '2';
 pt(282).size      = '[]';
 pt(282).isStruct  = false;
-pt(282).symbol     = 'StateFlowGUI_P.Tempospostiniziale_Value';
-pt(282).baseaddr   = '&StateFlowGUI_P.Tempospostiniziale_Value';
+pt(282).symbol     = 'StateFlowGUI_P.Tempospostiniziale_Value_e';
+pt(282).baseaddr   = '&StateFlowGUI_P.Tempospostiniziale_Value_e';
 pt(282).dtname     = 'real_T';
 
 
@@ -4540,8 +4540,8 @@ pt(284).subsource = 'SS_DOUBLE';
 pt(284).ndims     = '2';
 pt(284).size      = '[]';
 pt(284).isStruct  = false;
-pt(284).symbol     = 'StateFlowGUI_P.Constant1_Value';
-pt(284).baseaddr   = '&StateFlowGUI_P.Constant1_Value';
+pt(284).symbol     = 'StateFlowGUI_P.Constant1_Value_k';
+pt(284).baseaddr   = '&StateFlowGUI_P.Constant1_Value_k';
 pt(284).dtname     = 'real_T';
 
 
@@ -4892,8 +4892,8 @@ pt(306).subsource = 'SS_DOUBLE';
 pt(306).ndims     = '2';
 pt(306).size      = '[]';
 pt(306).isStruct  = false;
-pt(306).symbol     = 'StateFlowGUI_P.EtherCATPDOReceive15_P5_c';
-pt(306).baseaddr   = '&StateFlowGUI_P.EtherCATPDOReceive15_P5_c';
+pt(306).symbol     = 'StateFlowGUI_P.EtherCATPDOReceive15_P5_c5';
+pt(306).baseaddr   = '&StateFlowGUI_P.EtherCATPDOReceive15_P5_c5';
 pt(306).dtname     = 'real_T';
 
 
@@ -4940,8 +4940,8 @@ pt(309).subsource = 'SS_DOUBLE';
 pt(309).ndims     = '2';
 pt(309).size      = '[]';
 pt(309).isStruct  = false;
-pt(309).symbol     = 'StateFlowGUI_P.EtherCATPDOReceive14_P1';
-pt(309).baseaddr   = '&StateFlowGUI_P.EtherCATPDOReceive14_P1[0]';
+pt(309).symbol     = 'StateFlowGUI_P.EtherCATPDOReceive14_P1_md';
+pt(309).baseaddr   = '&StateFlowGUI_P.EtherCATPDOReceive14_P1_md[0]';
 pt(309).dtname     = 'real_T';
 
 
@@ -4956,8 +4956,8 @@ pt(310).subsource = 'SS_DOUBLE';
 pt(310).ndims     = '2';
 pt(310).size      = '[]';
 pt(310).isStruct  = false;
-pt(310).symbol     = 'StateFlowGUI_P.EtherCATPDOReceive14_P2';
-pt(310).baseaddr   = '&StateFlowGUI_P.EtherCATPDOReceive14_P2';
+pt(310).symbol     = 'StateFlowGUI_P.EtherCATPDOReceive14_P2_g';
+pt(310).baseaddr   = '&StateFlowGUI_P.EtherCATPDOReceive14_P2_g';
 pt(310).dtname     = 'real_T';
 
 
@@ -4972,8 +4972,8 @@ pt(311).subsource = 'SS_DOUBLE';
 pt(311).ndims     = '2';
 pt(311).size      = '[]';
 pt(311).isStruct  = false;
-pt(311).symbol     = 'StateFlowGUI_P.EtherCATPDOReceive14_P3';
-pt(311).baseaddr   = '&StateFlowGUI_P.EtherCATPDOReceive14_P3';
+pt(311).symbol     = 'StateFlowGUI_P.EtherCATPDOReceive14_P3_d0';
+pt(311).baseaddr   = '&StateFlowGUI_P.EtherCATPDOReceive14_P3_d0';
 pt(311).dtname     = 'real_T';
 
 
@@ -4988,8 +4988,8 @@ pt(312).subsource = 'SS_DOUBLE';
 pt(312).ndims     = '2';
 pt(312).size      = '[]';
 pt(312).isStruct  = false;
-pt(312).symbol     = 'StateFlowGUI_P.EtherCATPDOReceive14_P4';
-pt(312).baseaddr   = '&StateFlowGUI_P.EtherCATPDOReceive14_P4';
+pt(312).symbol     = 'StateFlowGUI_P.EtherCATPDOReceive14_P4_a';
+pt(312).baseaddr   = '&StateFlowGUI_P.EtherCATPDOReceive14_P4_a';
 pt(312).dtname     = 'real_T';
 
 
@@ -5004,8 +5004,8 @@ pt(313).subsource = 'SS_DOUBLE';
 pt(313).ndims     = '2';
 pt(313).size      = '[]';
 pt(313).isStruct  = false;
-pt(313).symbol     = 'StateFlowGUI_P.EtherCATPDOReceive14_P5';
-pt(313).baseaddr   = '&StateFlowGUI_P.EtherCATPDOReceive14_P5';
+pt(313).symbol     = 'StateFlowGUI_P.EtherCATPDOReceive14_P5_g';
+pt(313).baseaddr   = '&StateFlowGUI_P.EtherCATPDOReceive14_P5_g';
 pt(313).dtname     = 'real_T';
 
 
@@ -5020,8 +5020,8 @@ pt(314).subsource = 'SS_DOUBLE';
 pt(314).ndims     = '2';
 pt(314).size      = '[]';
 pt(314).isStruct  = false;
-pt(314).symbol     = 'StateFlowGUI_P.EtherCATPDOReceive14_P6';
-pt(314).baseaddr   = '&StateFlowGUI_P.EtherCATPDOReceive14_P6';
+pt(314).symbol     = 'StateFlowGUI_P.EtherCATPDOReceive14_P6_a';
+pt(314).baseaddr   = '&StateFlowGUI_P.EtherCATPDOReceive14_P6_a';
 pt(314).dtname     = 'real_T';
 
 
@@ -5036,8 +5036,8 @@ pt(315).subsource = 'SS_DOUBLE';
 pt(315).ndims     = '2';
 pt(315).size      = '[]';
 pt(315).isStruct  = false;
-pt(315).symbol     = 'StateFlowGUI_P.EtherCATPDOReceive14_P7';
-pt(315).baseaddr   = '&StateFlowGUI_P.EtherCATPDOReceive14_P7';
+pt(315).symbol     = 'StateFlowGUI_P.EtherCATPDOReceive14_P7_i';
+pt(315).baseaddr   = '&StateFlowGUI_P.EtherCATPDOReceive14_P7_i';
 pt(315).dtname     = 'real_T';
 
 
@@ -5052,8 +5052,8 @@ pt(316).subsource = 'SS_DOUBLE';
 pt(316).ndims     = '2';
 pt(316).size      = '[]';
 pt(316).isStruct  = false;
-pt(316).symbol     = 'StateFlowGUI_P.EtherCATPDOReceive15_P1';
-pt(316).baseaddr   = '&StateFlowGUI_P.EtherCATPDOReceive15_P1[0]';
+pt(316).symbol     = 'StateFlowGUI_P.EtherCATPDOReceive15_P1_n';
+pt(316).baseaddr   = '&StateFlowGUI_P.EtherCATPDOReceive15_P1_n[0]';
 pt(316).dtname     = 'real_T';
 
 
@@ -5068,8 +5068,8 @@ pt(317).subsource = 'SS_DOUBLE';
 pt(317).ndims     = '2';
 pt(317).size      = '[]';
 pt(317).isStruct  = false;
-pt(317).symbol     = 'StateFlowGUI_P.EtherCATPDOReceive15_P2';
-pt(317).baseaddr   = '&StateFlowGUI_P.EtherCATPDOReceive15_P2';
+pt(317).symbol     = 'StateFlowGUI_P.EtherCATPDOReceive15_P2_p';
+pt(317).baseaddr   = '&StateFlowGUI_P.EtherCATPDOReceive15_P2_p';
 pt(317).dtname     = 'real_T';
 
 
@@ -5084,8 +5084,8 @@ pt(318).subsource = 'SS_DOUBLE';
 pt(318).ndims     = '2';
 pt(318).size      = '[]';
 pt(318).isStruct  = false;
-pt(318).symbol     = 'StateFlowGUI_P.EtherCATPDOReceive15_P3';
-pt(318).baseaddr   = '&StateFlowGUI_P.EtherCATPDOReceive15_P3';
+pt(318).symbol     = 'StateFlowGUI_P.EtherCATPDOReceive15_P3_m';
+pt(318).baseaddr   = '&StateFlowGUI_P.EtherCATPDOReceive15_P3_m';
 pt(318).dtname     = 'real_T';
 
 
@@ -5100,8 +5100,8 @@ pt(319).subsource = 'SS_DOUBLE';
 pt(319).ndims     = '2';
 pt(319).size      = '[]';
 pt(319).isStruct  = false;
-pt(319).symbol     = 'StateFlowGUI_P.EtherCATPDOReceive15_P4';
-pt(319).baseaddr   = '&StateFlowGUI_P.EtherCATPDOReceive15_P4';
+pt(319).symbol     = 'StateFlowGUI_P.EtherCATPDOReceive15_P4_o';
+pt(319).baseaddr   = '&StateFlowGUI_P.EtherCATPDOReceive15_P4_o';
 pt(319).dtname     = 'real_T';
 
 
@@ -5116,8 +5116,8 @@ pt(320).subsource = 'SS_DOUBLE';
 pt(320).ndims     = '2';
 pt(320).size      = '[]';
 pt(320).isStruct  = false;
-pt(320).symbol     = 'StateFlowGUI_P.EtherCATPDOReceive15_P5';
-pt(320).baseaddr   = '&StateFlowGUI_P.EtherCATPDOReceive15_P5';
+pt(320).symbol     = 'StateFlowGUI_P.EtherCATPDOReceive15_P5_k';
+pt(320).baseaddr   = '&StateFlowGUI_P.EtherCATPDOReceive15_P5_k';
 pt(320).dtname     = 'real_T';
 
 
@@ -5132,8 +5132,8 @@ pt(321).subsource = 'SS_DOUBLE';
 pt(321).ndims     = '2';
 pt(321).size      = '[]';
 pt(321).isStruct  = false;
-pt(321).symbol     = 'StateFlowGUI_P.EtherCATPDOReceive15_P6';
-pt(321).baseaddr   = '&StateFlowGUI_P.EtherCATPDOReceive15_P6';
+pt(321).symbol     = 'StateFlowGUI_P.EtherCATPDOReceive15_P6_i';
+pt(321).baseaddr   = '&StateFlowGUI_P.EtherCATPDOReceive15_P6_i';
 pt(321).dtname     = 'real_T';
 
 
@@ -5148,8 +5148,8 @@ pt(322).subsource = 'SS_DOUBLE';
 pt(322).ndims     = '2';
 pt(322).size      = '[]';
 pt(322).isStruct  = false;
-pt(322).symbol     = 'StateFlowGUI_P.EtherCATPDOReceive15_P7';
-pt(322).baseaddr   = '&StateFlowGUI_P.EtherCATPDOReceive15_P7';
+pt(322).symbol     = 'StateFlowGUI_P.EtherCATPDOReceive15_P7_e';
+pt(322).baseaddr   = '&StateFlowGUI_P.EtherCATPDOReceive15_P7_e';
 pt(322).dtname     = 'real_T';
 
 

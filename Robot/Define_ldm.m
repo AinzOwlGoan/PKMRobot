@@ -11,7 +11,7 @@ Ldm_theta.time.um= 's';
 Ldm_theta.vldm{1}.file = ldm;
 Ldm_theta.vldm{1}.name = 'rise';
 Ldm_theta.vldm{1}.h = h;              % Alzata
-Ldm_theta.vldm{1}.ta = 2;           % Tempo adimensionale
+Ldm_theta.vldm{1}.ta = 1;           % Tempo adimensionale
 
 %second ML
 Ldm_theta.vldm{2}.file = 'Stop';
@@ -22,7 +22,7 @@ Ldm_theta.vldm{2}.ta = 0;           % Tempo adimensionale
 %third ML
 Ldm_theta.vldm{3}.file = ldm;
 Ldm_theta.vldm{3}.name = 'return';
-Ldm_theta.vldm{3}.h = -h;             % Negativo perchè torna indietro
+Ldm_theta.vldm{3}.h = -h;             % Negativo perch?? torna indietro
 Ldm_theta.vldm{3}.ta = 0;           % Tempo adimensionale
 
 %fourth ML
@@ -44,7 +44,7 @@ title('Posizione')
 grid on
 subplot(312)
 plot(time,xd,'color','g','linewidth',2)
-title('Velocità')
+title('Velocit??')
 grid on
 subplot(313)
 plot(time,xdd,'color','b','linewidth',2)

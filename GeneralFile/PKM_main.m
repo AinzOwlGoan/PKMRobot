@@ -1,4 +1,4 @@
-[PKM] = Define_Robot();
+ [PKM] = Define_Robot();
 
 % Definizione parametri di test
 theta1 = deg2rad(120); % Condizione iniziale posizione Theta1
@@ -6,8 +6,8 @@ theta2 = deg2rad(60); %  Condizione iniziale posizione Theta2
 thetaV = deg2rad(0); % Angolo proprio della vite
 Zv = 0;              % Posizione iniziale vite a riposo
 
-theta1_p = 0; %  Condizione iniziale velocità theta1
-theta2_p = 0; %  Condizione iniziale velocità tehta2
+theta1_p = 0; %  Condizione iniziale velocit? theta1
+theta2_p = 0; %  Condizione iniziale velocit? tehta2
 thetaV_p = 0; % Velocita thetav di prova
 Zv_p = 0;
 
@@ -33,12 +33,13 @@ zvldm = Zv + Ldm_zv.moto.data{1,1}.v;
 [P, theta3, theta4, E1, E2] = Cinematica_Diretta_Posizione(PKM, theta1ldm, theta2ldm,time)
 
 Theta = [theta1ldm; theta2ldm]
+Theta = [theta1ldm; theta2ldm]
 theta1ldm_p = theta1_p + Ldm_theta1.moto.data{2,1}.v;
 theta2ldm_p = theta2_p + Ldm_theta2.moto.data{2,1}.v;
 thetavldm_p = thetaV_p + Ldm_thetav.moto.data{2,1}.v;
 zvldm_p = Zv_p + Ldm_zv.moto.data{2,1}.v;
 
-% Analisi velocità
+% Analisi velocit?
 [P_p, J, P_pM] = Cinematica_Diretta_Velocita2(PKM, theta1ldm, theta2ldm, theta1ldm_p,theta2ldm_p,P)
 Theta_p = [theta1ldm_p;theta2ldm_p]
 [theta3_p,theta4_p,J34] = Theta34p(PKM,theta1ldm,theta2ldm,theta3,theta4,theta1ldm_p,theta2ldm_p,time)
@@ -73,50 +74,68 @@ Condizioni = [theta1ldm(1,1),theta2ldm(1,1),theta1ldm_p(1,1),theta2ldm_p(1,1)]
 [ThetaInt,Theta_pInt,Theta_ppInt] =  DinamicaInversa([C1_PLV;C2_PLV],Condizioni);
 
 
+tempo = linspace(0,2,1000);
 figure
-plot(linspace(0,time(end),1000),C1_PLV,"Color","red")
+plot(tempo,C1_PLV,'Color','r')
 hold on 
 grid on
-plot(linspace(0,time(end),1000),C2_PLV,"Color","b")
+plot(tempo,C2_PLV,'Color','b')
 figure
-plot(linspace(0,time(end),1000),Theta_ppInt(1,:),"Color","red")
+plot(tempo,Theta_ppInt(1,:),'Color','red')
 hold on
 grid on
-plot(linspace(0,time(end),1000),theta1ldm_pp(1,:),"Color","b")
+plot(tempo,theta1ldm_pp(1,:),'Color','b')
 title('Confronto accelerazioni theta1')
+legend('Set point','Dinamica diretta')
+xlabel('Time [sec]')
+ylabel('[rad/s^2]')
 figure
-plot(linspace(0,time(end),1000),Theta_ppInt(2,:),"Color","red")
+plot(tempo,Theta_ppInt(2,:),'Color','red')
 hold on
 grid on
-plot(linspace(0,time(end),1000),theta2ldm_pp(1,:),"Color","b")
+plot(tempo,theta2ldm_pp(1,:),'Color','b')
 title('Confronto accelerazioni theta2')
+legend('Set point','Dinamica diretta')
+xlabel('Time [sec]')
+ylabel('[rad/s^2]')
 figure
-plot(linspace(0,time(end),1000),Theta_pInt(1,:),"Color","red")
+plot(tempo,Theta_pInt(1,:),'Color','red')
 hold on
 grid on
-plot(linspace(0,time(end),1000),theta1ldm_p(1,:),"Color","b")
-title('Confronto velocità theta1')
+plot(tempo,theta1ldm_p(1,:),'Color','b')
+title('Confronto velocit? theta1')
+legend('Set point','Dinamica diretta')
+xlabel('Time [sec]')
+ylabel('[rad/s]')
 figure
-plot(linspace(0,time(end),1000),Theta_pInt(2,:),"Color","red")
+plot(tempo,Theta_pInt(2,:),'Color','red')
 hold on
 grid on
-plot(linspace(0,time(end),1000),theta2ldm_p(1,:),"Color","b")
-title('Confronto velocità theta2')
-
+plot(tempo,theta2ldm_p(1,:),'Color','b')
+title('Confronto velocit? theta2')
+legend('Set point','Dinamica diretta')
+xlabel('Time [sec]')
+ylabel('[rad/s]')
 figure
-plot(linspace(0,time(end),1000),ThetaInt(1,:),"Color","red")
+plot(tempo,ThetaInt(1,:),'Color','red')
 hold on
 grid on
-plot(linspace(0,time(end),1000),theta1ldm(1,:),"Color","b")
+plot(tempo,theta1ldm(1,:),'Color','b')
 title('Confronto posizione theta1')
+legend('Set point','Dinamica diretta')
+xlabel('Time [sec]')
+ylabel('[rad]')
 figure
-plot(linspace(0,time(end),1000),ThetaInt(2,:),"Color","red")
+plot(tempo,ThetaInt(2,:),'Color','red')
 hold on
 grid on
-plot(linspace(0,time(end),1000),theta2ldm(1,:),"Color","b")
+plot(tempo,theta2ldm(1,:),'Color','b')
 title('Confronto posizione theta2')
+legend('Set point','Dinamica diretta')
+xlabel('Time [sec]')
+ylabel('[rad]')
 
-%% Singolarità e manipolabilità
+%% Singolarit?? e manipolabilit??
 Singolarita(P,time)
 [autoval,r] = Manipolabilita(J);
 figure

@@ -7,9 +7,9 @@
  *
  * Code generation for model "StateFlowFinal".
  *
- * Model version              : 1.1086
+ * Model version              : 1.1088
  * Simulink Coder version : 8.12 (R2017a) 16-Feb-2017
- * C source code generated on : Fri Dec 10 12:23:54 2021
+ * C source code generated on : Tue Dec 14 14:40:43 2021
  *
  * Target selection: slrt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -929,10 +929,10 @@ static void StateFlowFinal_output(void)
         break;
 
        case StateFlowFinal_IN_Controllo:
-        StateFlowFinal_B.Hb = 0.0;
-        StateFlowFinal_B.Bool = 4.0;
-        StateFlowFinal_B.Luci = 4.0;
         StateFlowFinal_B.Hv = 0.0;
+        StateFlowFinal_B.Luci = 4.0;
+        StateFlowFinal_B.Bool = 4.0;
+        StateFlowFinal_B.Hb = 0.0;
 
         /* During 'Controllo': '<S13>:147' */
         if (StateFlowFinal_DW.temporalCounter_i1 >= 40000U) {
@@ -985,11 +985,11 @@ static void StateFlowFinal_output(void)
         break;
 
        case StateFlowFin_IN_FineLavorazione:
-        StateFlowFinal_B.Hb = 0.0;
+        StateFlowFinal_B.Hv = 0.0;
+        StateFlowFinal_B.Luci = 5.0;
         StateFlowFinal_B.FineLavorazione = 1.0;
         StateFlowFinal_B.Bool = 5.0;
-        StateFlowFinal_B.Luci = 5.0;
-        StateFlowFinal_B.Hv = 0.0;
+        StateFlowFinal_B.Hb = 0.0;
 
         /* During 'FineLavorazione': '<S13>:69' */
         sf_internal_predicateOutput = (((StateFlowFinal_DW.temporalCounter_i1 >=
@@ -1017,9 +1017,9 @@ static void StateFlowFinal_output(void)
         break;
 
        case StateFlowFinal_IN_Home:
+        StateFlowFinal_B.Luci = 1.0;
         StateFlowFinal_B.FineLavorazione = 0.0;
         StateFlowFinal_B.Bool = 1.0;
-        StateFlowFinal_B.Luci = 1.0;
 
         /* During 'Home': '<S13>:29' */
         sf_internal_predicateOutput = ((StateFlowFinal_B.IntegertoBitConverter
@@ -1386,9 +1386,9 @@ static void StateFlowFinal_output(void)
         break;
 
        case StateFlowFinal_IN_OffSet:
-        StateFlowFinal_B.Bool = 2.0;
-        StateFlowFinal_B.Luci = 3.0;
         StateFlowFinal_B.Hv = 1.0;
+        StateFlowFinal_B.Luci = 3.0;
+        StateFlowFinal_B.Bool = 2.0;
 
         /* During 'OffSet': '<S13>:87' */
         if (StateFlowFinal_B.StartWork == 1.0) {

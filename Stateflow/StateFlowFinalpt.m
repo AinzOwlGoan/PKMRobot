@@ -1740,8 +1740,8 @@ pt(109).subsource = 'SS_DOUBLE';
 pt(109).ndims     = '2';
 pt(109).size      = '[]';
 pt(109).isStruct  = false;
-pt(109).symbol     = 'StateFlowFinal_P.Constant1_Value_e';
-pt(109).baseaddr   = '&StateFlowFinal_P.Constant1_Value_e';
+pt(109).symbol     = 'StateFlowFinal_P.Constant1_Value_ek';
+pt(109).baseaddr   = '&StateFlowFinal_P.Constant1_Value_ek';
 pt(109).dtname     = 'real_T';
 
 
@@ -2435,7 +2435,7 @@ pt(152).dtname     = 'real_T';
 
 
   
-pt(153).blockname = 'Sistema_braccia/selettore';
+pt(153).blockname = 'Sistema_braccia/Constant';
 pt(153).paramname = 'Value';
 pt(153).class     = 'scalar';
 pt(153).nrows     = 1;
@@ -2444,15 +2444,15 @@ pt(153).subsource = 'SS_DOUBLE';
 pt(153).ndims     = '2';
 pt(153).size      = '[]';
 pt(153).isStruct  = false;
-pt(153).symbol     = 'StateFlowFinal_P.selettore_Value';
-pt(153).baseaddr   = '&StateFlowFinal_P.selettore_Value';
+pt(153).symbol     = 'StateFlowFinal_P.Constant_Value_a';
+pt(153).baseaddr   = '&StateFlowFinal_P.Constant_Value_a';
 pt(153).dtname     = 'real_T';
 
 
 
   
-pt(154).blockname = 'Sistema_braccia/Gain';
-pt(154).paramname = 'Gain';
+pt(154).blockname = 'Sistema_braccia/Constant1';
+pt(154).paramname = 'Value';
 pt(154).class     = 'scalar';
 pt(154).nrows     = 1;
 pt(154).ncols     = 1;
@@ -2460,15 +2460,15 @@ pt(154).subsource = 'SS_DOUBLE';
 pt(154).ndims     = '2';
 pt(154).size      = '[]';
 pt(154).isStruct  = false;
-pt(154).symbol     = 'StateFlowFinal_P.Gain_Gain_j';
-pt(154).baseaddr   = '&StateFlowFinal_P.Gain_Gain_j';
+pt(154).symbol     = 'StateFlowFinal_P.Constant1_Value_e';
+pt(154).baseaddr   = '&StateFlowFinal_P.Constant1_Value_e';
 pt(154).dtname     = 'real_T';
 
 
 
   
-pt(155).blockname = 'Sistema_braccia/Gain1';
-pt(155).paramname = 'Gain';
+pt(155).blockname = 'Sistema_braccia/selettore';
+pt(155).paramname = 'Value';
 pt(155).class     = 'scalar';
 pt(155).nrows     = 1;
 pt(155).ncols     = 1;
@@ -2476,14 +2476,14 @@ pt(155).subsource = 'SS_DOUBLE';
 pt(155).ndims     = '2';
 pt(155).size      = '[]';
 pt(155).isStruct  = false;
-pt(155).symbol     = 'StateFlowFinal_P.Gain1_Gain_i';
-pt(155).baseaddr   = '&StateFlowFinal_P.Gain1_Gain_i';
+pt(155).symbol     = 'StateFlowFinal_P.selettore_Value';
+pt(155).baseaddr   = '&StateFlowFinal_P.selettore_Value';
 pt(155).dtname     = 'real_T';
 
 
 
   
-pt(156).blockname = 'Sistema_braccia/Kd';
+pt(156).blockname = 'Sistema_braccia/Gain';
 pt(156).paramname = 'Gain';
 pt(156).class     = 'scalar';
 pt(156).nrows     = 1;
@@ -2492,14 +2492,14 @@ pt(156).subsource = 'SS_DOUBLE';
 pt(156).ndims     = '2';
 pt(156).size      = '[]';
 pt(156).isStruct  = false;
-pt(156).symbol     = 'StateFlowFinal_P.Kd_Gain';
-pt(156).baseaddr   = '&StateFlowFinal_P.Kd_Gain';
+pt(156).symbol     = 'StateFlowFinal_P.Gain_Gain_j';
+pt(156).baseaddr   = '&StateFlowFinal_P.Gain_Gain_j';
 pt(156).dtname     = 'real_T';
 
 
 
   
-pt(157).blockname = 'Sistema_braccia/Kd1';
+pt(157).blockname = 'Sistema_braccia/Gain1';
 pt(157).paramname = 'Gain';
 pt(157).class     = 'scalar';
 pt(157).nrows     = 1;
@@ -2508,14 +2508,14 @@ pt(157).subsource = 'SS_DOUBLE';
 pt(157).ndims     = '2';
 pt(157).size      = '[]';
 pt(157).isStruct  = false;
-pt(157).symbol     = 'StateFlowFinal_P.Kd1_Gain';
-pt(157).baseaddr   = '&StateFlowFinal_P.Kd1_Gain';
+pt(157).symbol     = 'StateFlowFinal_P.Gain1_Gain_i';
+pt(157).baseaddr   = '&StateFlowFinal_P.Gain1_Gain_i';
 pt(157).dtname     = 'real_T';
 
 
 
   
-pt(158).blockname = 'Sistema_braccia/Kp1';
+pt(158).blockname = 'Sistema_braccia/Kd';
 pt(158).paramname = 'Gain';
 pt(158).class     = 'scalar';
 pt(158).nrows     = 1;
@@ -2524,8 +2524,8 @@ pt(158).subsource = 'SS_DOUBLE';
 pt(158).ndims     = '2';
 pt(158).size      = '[]';
 pt(158).isStruct  = false;
-pt(158).symbol     = 'StateFlowFinal_P.Kp1_Gain_c';
-pt(158).baseaddr   = '&StateFlowFinal_P.Kp1_Gain_c';
+pt(158).symbol     = 'StateFlowFinal_P.Kd_Gain';
+pt(158).baseaddr   = '&StateFlowFinal_P.Kd_Gain';
 pt(158).dtname     = 'real_T';
 
 
@@ -3507,55 +3507,55 @@ pt(219).dtname     = 'real_T';
 
 
   
-pt(220).blockname = 'Sistema_braccia/Kalman Filter1/A';
+pt(220).blockname = 'Sistema_braccia/Leggi di moto/Alzata C';
 pt(220).paramname = 'Value';
-pt(220).class     = 'col-mat';
-pt(220).nrows     = 2;
-pt(220).ncols     = 2;
+pt(220).class     = 'scalar';
+pt(220).nrows     = 1;
+pt(220).ncols     = 1;
 pt(220).subsource = 'SS_DOUBLE';
 pt(220).ndims     = '2';
 pt(220).size      = '[]';
 pt(220).isStruct  = false;
-pt(220).symbol     = 'StateFlowFinal_P.A_Value';
-pt(220).baseaddr   = '&StateFlowFinal_P.A_Value[0]';
+pt(220).symbol     = 'StateFlowFinal_P.AlzataC_Value';
+pt(220).baseaddr   = '&StateFlowFinal_P.AlzataC_Value';
 pt(220).dtname     = 'real_T';
 
 
 
   
-pt(221).blockname = 'Sistema_braccia/Kalman Filter1/B';
+pt(221).blockname = 'Sistema_braccia/Leggi di moto/Alzata C1';
 pt(221).paramname = 'Value';
-pt(221).class     = 'vector';
-pt(221).nrows     = 2;
+pt(221).class     = 'scalar';
+pt(221).nrows     = 1;
 pt(221).ncols     = 1;
 pt(221).subsource = 'SS_DOUBLE';
 pt(221).ndims     = '2';
 pt(221).size      = '[]';
 pt(221).isStruct  = false;
-pt(221).symbol     = 'StateFlowFinal_P.B_Value';
-pt(221).baseaddr   = '&StateFlowFinal_P.B_Value[0]';
+pt(221).symbol     = 'StateFlowFinal_P.AlzataC1_Value';
+pt(221).baseaddr   = '&StateFlowFinal_P.AlzataC1_Value';
 pt(221).dtname     = 'real_T';
 
 
 
   
-pt(222).blockname = 'Sistema_braccia/Kalman Filter1/C';
+pt(222).blockname = 'Sistema_braccia/Leggi di moto/Alzata Q';
 pt(222).paramname = 'Value';
-pt(222).class     = 'vector';
+pt(222).class     = 'scalar';
 pt(222).nrows     = 1;
-pt(222).ncols     = 2;
+pt(222).ncols     = 1;
 pt(222).subsource = 'SS_DOUBLE';
 pt(222).ndims     = '2';
 pt(222).size      = '[]';
 pt(222).isStruct  = false;
-pt(222).symbol     = 'StateFlowFinal_P.C_Value_j';
-pt(222).baseaddr   = '&StateFlowFinal_P.C_Value_j[0]';
+pt(222).symbol     = 'StateFlowFinal_P.AlzataQ_Value';
+pt(222).baseaddr   = '&StateFlowFinal_P.AlzataQ_Value';
 pt(222).dtname     = 'real_T';
 
 
 
   
-pt(223).blockname = 'Sistema_braccia/Kalman Filter1/D';
+pt(223).blockname = 'Sistema_braccia/Leggi di moto/Constant3';
 pt(223).paramname = 'Value';
 pt(223).class     = 'scalar';
 pt(223).nrows     = 1;
@@ -3564,110 +3564,110 @@ pt(223).subsource = 'SS_DOUBLE';
 pt(223).ndims     = '2';
 pt(223).size      = '[]';
 pt(223).isStruct  = false;
-pt(223).symbol     = 'StateFlowFinal_P.D_Value_e';
-pt(223).baseaddr   = '&StateFlowFinal_P.D_Value_e';
+pt(223).symbol     = 'StateFlowFinal_P.Constant3_Value';
+pt(223).baseaddr   = '&StateFlowFinal_P.Constant3_Value';
 pt(223).dtname     = 'real_T';
 
 
 
   
-pt(224).blockname = 'Sistema_braccia/Kalman Filter1/Enable';
+pt(224).blockname = 'Sistema_braccia/Leggi di moto/N giri';
 pt(224).paramname = 'Value';
 pt(224).class     = 'scalar';
 pt(224).nrows     = 1;
 pt(224).ncols     = 1;
-pt(224).subsource = 'SS_BOOLEAN';
+pt(224).subsource = 'SS_DOUBLE';
 pt(224).ndims     = '2';
 pt(224).size      = '[]';
 pt(224).isStruct  = false;
-pt(224).symbol     = 'StateFlowFinal_P.Enable_Value_d';
-pt(224).baseaddr   = '&StateFlowFinal_P.Enable_Value_d';
-pt(224).dtname     = 'boolean_T';
+pt(224).symbol     = 'StateFlowFinal_P.Ngiri_Value';
+pt(224).baseaddr   = '&StateFlowFinal_P.Ngiri_Value';
+pt(224).dtname     = 'real_T';
 
 
 
   
-pt(225).blockname = 'Sistema_braccia/Kalman Filter1/G';
+pt(225).blockname = 'Sistema_braccia/Leggi di moto/N giri1';
 pt(225).paramname = 'Value';
-pt(225).class     = 'col-mat';
-pt(225).nrows     = 2;
-pt(225).ncols     = 2;
+pt(225).class     = 'scalar';
+pt(225).nrows     = 1;
+pt(225).ncols     = 1;
 pt(225).subsource = 'SS_DOUBLE';
 pt(225).ndims     = '2';
 pt(225).size      = '[]';
 pt(225).isStruct  = false;
-pt(225).symbol     = 'StateFlowFinal_P.G_Value';
-pt(225).baseaddr   = '&StateFlowFinal_P.G_Value[0]';
+pt(225).symbol     = 'StateFlowFinal_P.Ngiri1_Value';
+pt(225).baseaddr   = '&StateFlowFinal_P.Ngiri1_Value';
 pt(225).dtname     = 'real_T';
 
 
 
   
-pt(226).blockname = 'Sistema_braccia/Kalman Filter1/H';
+pt(226).blockname = 'Sistema_braccia/Leggi di moto/N giri2';
 pt(226).paramname = 'Value';
-pt(226).class     = 'vector';
+pt(226).class     = 'scalar';
 pt(226).nrows     = 1;
-pt(226).ncols     = 2;
+pt(226).ncols     = 1;
 pt(226).subsource = 'SS_DOUBLE';
 pt(226).ndims     = '2';
 pt(226).size      = '[]';
 pt(226).isStruct  = false;
-pt(226).symbol     = 'StateFlowFinal_P.H_Value';
-pt(226).baseaddr   = '&StateFlowFinal_P.H_Value[0]';
+pt(226).symbol     = 'StateFlowFinal_P.Ngiri2_Value';
+pt(226).baseaddr   = '&StateFlowFinal_P.Ngiri2_Value';
 pt(226).dtname     = 'real_T';
 
 
 
   
-pt(227).blockname = 'Sistema_braccia/Kalman Filter1/N';
+pt(227).blockname = 'Sistema_braccia/Leggi di moto/Periodo';
 pt(227).paramname = 'Value';
-pt(227).class     = 'vector';
-pt(227).nrows     = 2;
+pt(227).class     = 'scalar';
+pt(227).nrows     = 1;
 pt(227).ncols     = 1;
 pt(227).subsource = 'SS_DOUBLE';
 pt(227).ndims     = '2';
 pt(227).size      = '[]';
 pt(227).isStruct  = false;
-pt(227).symbol     = 'StateFlowFinal_P.N_Value';
-pt(227).baseaddr   = '&StateFlowFinal_P.N_Value[0]';
+pt(227).symbol     = 'StateFlowFinal_P.Periodo_Value';
+pt(227).baseaddr   = '&StateFlowFinal_P.Periodo_Value';
 pt(227).dtname     = 'real_T';
 
 
 
   
-pt(228).blockname = 'Sistema_braccia/Kalman Filter1/P0';
+pt(228).blockname = 'Sistema_braccia/Leggi di moto/Periodo C';
 pt(228).paramname = 'Value';
-pt(228).class     = 'col-mat';
-pt(228).nrows     = 2;
-pt(228).ncols     = 2;
+pt(228).class     = 'scalar';
+pt(228).nrows     = 1;
+pt(228).ncols     = 1;
 pt(228).subsource = 'SS_DOUBLE';
 pt(228).ndims     = '2';
 pt(228).size      = '[]';
 pt(228).isStruct  = false;
-pt(228).symbol     = 'StateFlowFinal_P.P0_Value';
-pt(228).baseaddr   = '&StateFlowFinal_P.P0_Value[0]';
+pt(228).symbol     = 'StateFlowFinal_P.PeriodoC_Value';
+pt(228).baseaddr   = '&StateFlowFinal_P.PeriodoC_Value';
 pt(228).dtname     = 'real_T';
 
 
 
   
-pt(229).blockname = 'Sistema_braccia/Kalman Filter1/Q';
+pt(229).blockname = 'Sistema_braccia/Leggi di moto/Periodo C1';
 pt(229).paramname = 'Value';
-pt(229).class     = 'col-mat';
-pt(229).nrows     = 2;
-pt(229).ncols     = 2;
+pt(229).class     = 'scalar';
+pt(229).nrows     = 1;
+pt(229).ncols     = 1;
 pt(229).subsource = 'SS_DOUBLE';
 pt(229).ndims     = '2';
 pt(229).size      = '[]';
 pt(229).isStruct  = false;
-pt(229).symbol     = 'StateFlowFinal_P.Q_Value';
-pt(229).baseaddr   = '&StateFlowFinal_P.Q_Value[0]';
+pt(229).symbol     = 'StateFlowFinal_P.PeriodoC1_Value';
+pt(229).baseaddr   = '&StateFlowFinal_P.PeriodoC1_Value';
 pt(229).dtname     = 'real_T';
 
 
 
   
-pt(230).blockname = 'Sistema_braccia/Kalman Filter1/R';
+pt(230).blockname = 'Sistema_braccia/Leggi di moto/Periodo Q';
 pt(230).paramname = 'Value';
 pt(230).class     = 'scalar';
 pt(230).nrows     = 1;
@@ -3676,127 +3676,127 @@ pt(230).subsource = 'SS_DOUBLE';
 pt(230).ndims     = '2';
 pt(230).size      = '[]';
 pt(230).isStruct  = false;
-pt(230).symbol     = 'StateFlowFinal_P.R_Value';
-pt(230).baseaddr   = '&StateFlowFinal_P.R_Value';
+pt(230).symbol     = 'StateFlowFinal_P.PeriodoQ_Value';
+pt(230).baseaddr   = '&StateFlowFinal_P.PeriodoQ_Value';
 pt(230).dtname     = 'real_T';
 
 
 
   
-pt(231).blockname = 'Sistema_braccia/Kalman Filter1/Reset';
+pt(231).blockname = 'Sistema_braccia/Leggi di moto/Rmax';
 pt(231).paramname = 'Value';
 pt(231).class     = 'scalar';
 pt(231).nrows     = 1;
 pt(231).ncols     = 1;
-pt(231).subsource = 'SS_BOOLEAN';
+pt(231).subsource = 'SS_DOUBLE';
 pt(231).ndims     = '2';
 pt(231).size      = '[]';
 pt(231).isStruct  = false;
-pt(231).symbol     = 'StateFlowFinal_P.Reset_Value_f';
-pt(231).baseaddr   = '&StateFlowFinal_P.Reset_Value_f';
-pt(231).dtname     = 'boolean_T';
+pt(231).symbol     = 'StateFlowFinal_P.Rmax_Value';
+pt(231).baseaddr   = '&StateFlowFinal_P.Rmax_Value';
+pt(231).dtname     = 'real_T';
 
 
 
   
-pt(232).blockname = 'Sistema_braccia/Kalman Filter1/X0';
+pt(232).blockname = 'Sistema_braccia/Leggi di moto/Rmax1';
 pt(232).paramname = 'Value';
-pt(232).class     = 'vector';
-pt(232).nrows     = 2;
+pt(232).class     = 'scalar';
+pt(232).nrows     = 1;
 pt(232).ncols     = 1;
 pt(232).subsource = 'SS_DOUBLE';
 pt(232).ndims     = '2';
 pt(232).size      = '[]';
 pt(232).isStruct  = false;
-pt(232).symbol     = 'StateFlowFinal_P.X0_Value_o';
-pt(232).baseaddr   = '&StateFlowFinal_P.X0_Value_o[0]';
+pt(232).symbol     = 'StateFlowFinal_P.Rmax1_Value';
+pt(232).baseaddr   = '&StateFlowFinal_P.Rmax1_Value';
 pt(232).dtname     = 'real_T';
 
 
 
   
-pt(233).blockname = 'Sistema_braccia/Kalman Filter1/ManualSwitchPZ';
-pt(233).paramname = 'CurrentSetting';
+pt(233).blockname = 'Sistema_braccia/Leggi di moto/Rmin';
+pt(233).paramname = 'Value';
 pt(233).class     = 'scalar';
 pt(233).nrows     = 1;
 pt(233).ncols     = 1;
-pt(233).subsource = 'SS_UINT8';
+pt(233).subsource = 'SS_DOUBLE';
 pt(233).ndims     = '2';
 pt(233).size      = '[]';
 pt(233).isStruct  = false;
-pt(233).symbol     = 'StateFlowFinal_P.ManualSwitchPZ_CurrentSetting';
-pt(233).baseaddr   = '&StateFlowFinal_P.ManualSwitchPZ_CurrentSetting';
-pt(233).dtname     = 'uint8_T';
+pt(233).symbol     = 'StateFlowFinal_P.Rmin_Value';
+pt(233).baseaddr   = '&StateFlowFinal_P.Rmin_Value';
+pt(233).dtname     = 'real_T';
 
 
 
   
-pt(234).blockname = 'Sistema_braccia/Kalman Filter1/MemoryX';
-pt(234).paramname = 'DelayLength';
+pt(234).blockname = 'Sistema_braccia/Leggi di moto/Rmin1';
+pt(234).paramname = 'Value';
 pt(234).class     = 'scalar';
 pt(234).nrows     = 1;
 pt(234).ncols     = 1;
-pt(234).subsource = 'SS_UINT32';
+pt(234).subsource = 'SS_DOUBLE';
 pt(234).ndims     = '2';
 pt(234).size      = '[]';
 pt(234).isStruct  = false;
-pt(234).symbol     = 'StateFlowFinal_P.MemoryX_DelayLength_a';
-pt(234).baseaddr   = '&StateFlowFinal_P.MemoryX_DelayLength_a';
-pt(234).dtname     = 'uint32_T';
+pt(234).symbol     = 'StateFlowFinal_P.Rmin1_Value';
+pt(234).baseaddr   = '&StateFlowFinal_P.Rmin1_Value';
+pt(234).dtname     = 'real_T';
 
 
 
   
-pt(235).blockname = 'Sistema_braccia/Kalman Filter2/A';
+pt(235).blockname = 'Sistema_braccia/Leggi di moto/Rmin2';
 pt(235).paramname = 'Value';
-pt(235).class     = 'col-mat';
-pt(235).nrows     = 2;
-pt(235).ncols     = 2;
+pt(235).class     = 'scalar';
+pt(235).nrows     = 1;
+pt(235).ncols     = 1;
 pt(235).subsource = 'SS_DOUBLE';
 pt(235).ndims     = '2';
 pt(235).size      = '[]';
 pt(235).isStruct  = false;
-pt(235).symbol     = 'StateFlowFinal_P.A_Value_j';
-pt(235).baseaddr   = '&StateFlowFinal_P.A_Value_j[0]';
+pt(235).symbol     = 'StateFlowFinal_P.Rmin2_Value';
+pt(235).baseaddr   = '&StateFlowFinal_P.Rmin2_Value';
 pt(235).dtname     = 'real_T';
 
 
 
   
-pt(236).blockname = 'Sistema_braccia/Kalman Filter2/B';
+pt(236).blockname = 'Sistema_braccia/Leggi di moto/Rmin3';
 pt(236).paramname = 'Value';
-pt(236).class     = 'vector';
-pt(236).nrows     = 2;
+pt(236).class     = 'scalar';
+pt(236).nrows     = 1;
 pt(236).ncols     = 1;
 pt(236).subsource = 'SS_DOUBLE';
 pt(236).ndims     = '2';
 pt(236).size      = '[]';
 pt(236).isStruct  = false;
-pt(236).symbol     = 'StateFlowFinal_P.B_Value_i';
-pt(236).baseaddr   = '&StateFlowFinal_P.B_Value_i[0]';
+pt(236).symbol     = 'StateFlowFinal_P.Rmin3_Value';
+pt(236).baseaddr   = '&StateFlowFinal_P.Rmin3_Value';
 pt(236).dtname     = 'real_T';
 
 
 
   
-pt(237).blockname = 'Sistema_braccia/Kalman Filter2/C';
+pt(237).blockname = 'Sistema_braccia/Leggi di moto/Tempo spost. iniziale';
 pt(237).paramname = 'Value';
-pt(237).class     = 'vector';
+pt(237).class     = 'scalar';
 pt(237).nrows     = 1;
-pt(237).ncols     = 2;
+pt(237).ncols     = 1;
 pt(237).subsource = 'SS_DOUBLE';
 pt(237).ndims     = '2';
 pt(237).size      = '[]';
 pt(237).isStruct  = false;
-pt(237).symbol     = 'StateFlowFinal_P.C_Value';
-pt(237).baseaddr   = '&StateFlowFinal_P.C_Value[0]';
+pt(237).symbol     = 'StateFlowFinal_P.Tempospostiniziale_Value';
+pt(237).baseaddr   = '&StateFlowFinal_P.Tempospostiniziale_Value';
 pt(237).dtname     = 'real_T';
 
 
 
   
-pt(238).blockname = 'Sistema_braccia/Kalman Filter2/D';
-pt(238).paramname = 'Value';
+pt(238).blockname = 'Sistema_braccia/PID Controller/Integrator';
+pt(238).paramname = 'gainval';
 pt(238).class     = 'scalar';
 pt(238).nrows     = 1;
 pt(238).ncols     = 1;
@@ -3804,111 +3804,111 @@ pt(238).subsource = 'SS_DOUBLE';
 pt(238).ndims     = '2';
 pt(238).size      = '[]';
 pt(238).isStruct  = false;
-pt(238).symbol     = 'StateFlowFinal_P.D_Value';
-pt(238).baseaddr   = '&StateFlowFinal_P.D_Value';
+pt(238).symbol     = 'StateFlowFinal_P.Integrator_gainval';
+pt(238).baseaddr   = '&StateFlowFinal_P.Integrator_gainval';
 pt(238).dtname     = 'real_T';
 
 
 
   
-pt(239).blockname = 'Sistema_braccia/Kalman Filter2/Enable';
-pt(239).paramname = 'Value';
+pt(239).blockname = 'Sistema_braccia/PID Controller/Integrator';
+pt(239).paramname = 'InitialCondition';
 pt(239).class     = 'scalar';
 pt(239).nrows     = 1;
 pt(239).ncols     = 1;
-pt(239).subsource = 'SS_BOOLEAN';
+pt(239).subsource = 'SS_DOUBLE';
 pt(239).ndims     = '2';
 pt(239).size      = '[]';
 pt(239).isStruct  = false;
-pt(239).symbol     = 'StateFlowFinal_P.Enable_Value';
-pt(239).baseaddr   = '&StateFlowFinal_P.Enable_Value';
-pt(239).dtname     = 'boolean_T';
+pt(239).symbol     = 'StateFlowFinal_P.Integrator_IC';
+pt(239).baseaddr   = '&StateFlowFinal_P.Integrator_IC';
+pt(239).dtname     = 'real_T';
 
 
 
   
-pt(240).blockname = 'Sistema_braccia/Kalman Filter2/G';
+pt(240).blockname = 'Sistema_braccia/Pos iniziali/Constant';
 pt(240).paramname = 'Value';
-pt(240).class     = 'col-mat';
-pt(240).nrows     = 2;
-pt(240).ncols     = 2;
+pt(240).class     = 'scalar';
+pt(240).nrows     = 1;
+pt(240).ncols     = 1;
 pt(240).subsource = 'SS_DOUBLE';
 pt(240).ndims     = '2';
 pt(240).size      = '[]';
 pt(240).isStruct  = false;
-pt(240).symbol     = 'StateFlowFinal_P.G_Value_m';
-pt(240).baseaddr   = '&StateFlowFinal_P.G_Value_m[0]';
+pt(240).symbol     = 'StateFlowFinal_P.Constant_Value_b';
+pt(240).baseaddr   = '&StateFlowFinal_P.Constant_Value_b';
 pt(240).dtname     = 'real_T';
 
 
 
   
-pt(241).blockname = 'Sistema_braccia/Kalman Filter2/H';
+pt(241).blockname = 'Sistema_braccia/Pos iniziali/Constant1';
 pt(241).paramname = 'Value';
-pt(241).class     = 'vector';
+pt(241).class     = 'scalar';
 pt(241).nrows     = 1;
-pt(241).ncols     = 2;
+pt(241).ncols     = 1;
 pt(241).subsource = 'SS_DOUBLE';
 pt(241).ndims     = '2';
 pt(241).size      = '[]';
 pt(241).isStruct  = false;
-pt(241).symbol     = 'StateFlowFinal_P.H_Value_h';
-pt(241).baseaddr   = '&StateFlowFinal_P.H_Value_h[0]';
+pt(241).symbol     = 'StateFlowFinal_P.Constant1_Value';
+pt(241).baseaddr   = '&StateFlowFinal_P.Constant1_Value';
 pt(241).dtname     = 'real_T';
 
 
 
   
-pt(242).blockname = 'Sistema_braccia/Kalman Filter2/N';
-pt(242).paramname = 'Value';
-pt(242).class     = 'vector';
-pt(242).nrows     = 2;
+pt(242).blockname = 'Sistema_braccia/Posizioni/Discrete Derivative B';
+pt(242).paramname = 'ICPrevScaledInput';
+pt(242).class     = 'scalar';
+pt(242).nrows     = 1;
 pt(242).ncols     = 1;
 pt(242).subsource = 'SS_DOUBLE';
 pt(242).ndims     = '2';
 pt(242).size      = '[]';
 pt(242).isStruct  = false;
-pt(242).symbol     = 'StateFlowFinal_P.N_Value_m';
-pt(242).baseaddr   = '&StateFlowFinal_P.N_Value_m[0]';
+pt(242).symbol     = 'StateFlowFinal_P.DiscreteDerivativeB_ICPrevSca_m';
+pt(242).baseaddr   = '&StateFlowFinal_P.DiscreteDerivativeB_ICPrevSca_m';
 pt(242).dtname     = 'real_T';
 
 
 
   
-pt(243).blockname = 'Sistema_braccia/Kalman Filter2/P0';
-pt(243).paramname = 'Value';
-pt(243).class     = 'col-mat';
-pt(243).nrows     = 2;
-pt(243).ncols     = 2;
+pt(243).blockname = 'Sistema_braccia/Posizioni/Discrete Derivative B1';
+pt(243).paramname = 'ICPrevScaledInput';
+pt(243).class     = 'scalar';
+pt(243).nrows     = 1;
+pt(243).ncols     = 1;
 pt(243).subsource = 'SS_DOUBLE';
 pt(243).ndims     = '2';
 pt(243).size      = '[]';
 pt(243).isStruct  = false;
-pt(243).symbol     = 'StateFlowFinal_P.P0_Value_m';
-pt(243).baseaddr   = '&StateFlowFinal_P.P0_Value_m[0]';
+pt(243).symbol     = 'StateFlowFinal_P.DiscreteDerivativeB1_ICPrevScal';
+pt(243).baseaddr   = '&StateFlowFinal_P.DiscreteDerivativeB1_ICPrevScal';
 pt(243).dtname     = 'real_T';
 
 
 
   
-pt(244).blockname = 'Sistema_braccia/Kalman Filter2/Q';
-pt(244).paramname = 'Value';
-pt(244).class     = 'col-mat';
-pt(244).nrows     = 2;
-pt(244).ncols     = 2;
+pt(244).blockname = 'Sistema_braccia/Posizioni/Discrete Derivative B2';
+pt(244).paramname = 'ICPrevScaledInput';
+pt(244).class     = 'scalar';
+pt(244).nrows     = 1;
+pt(244).ncols     = 1;
 pt(244).subsource = 'SS_DOUBLE';
 pt(244).ndims     = '2';
 pt(244).size      = '[]';
 pt(244).isStruct  = false;
-pt(244).symbol     = 'StateFlowFinal_P.Q_Value_n';
-pt(244).baseaddr   = '&StateFlowFinal_P.Q_Value_n[0]';
+pt(244).symbol     = 'StateFlowFinal_P.DiscreteDerivativeB2_ICPrevScal';
+pt(244).baseaddr   = '&StateFlowFinal_P.DiscreteDerivativeB2_ICPrevScal';
 pt(244).dtname     = 'real_T';
 
 
 
   
-pt(245).blockname = 'Sistema_braccia/Kalman Filter2/R';
-pt(245).paramname = 'Value';
+pt(245).blockname = 'Sistema_braccia/Posizioni/Discrete Derivative B3';
+pt(245).paramname = 'ICPrevScaledInput';
 pt(245).class     = 'scalar';
 pt(245).nrows     = 1;
 pt(245).ncols     = 1;
@@ -3916,79 +3916,79 @@ pt(245).subsource = 'SS_DOUBLE';
 pt(245).ndims     = '2';
 pt(245).size      = '[]';
 pt(245).isStruct  = false;
-pt(245).symbol     = 'StateFlowFinal_P.R_Value_o';
-pt(245).baseaddr   = '&StateFlowFinal_P.R_Value_o';
+pt(245).symbol     = 'StateFlowFinal_P.DiscreteDerivativeB3_ICPrevScal';
+pt(245).baseaddr   = '&StateFlowFinal_P.DiscreteDerivativeB3_ICPrevScal';
 pt(245).dtname     = 'real_T';
 
 
 
   
-pt(246).blockname = 'Sistema_braccia/Kalman Filter2/Reset';
-pt(246).paramname = 'Value';
+pt(246).blockname = 'Sistema_braccia/Posizioni/Discrete Derivative B4';
+pt(246).paramname = 'ICPrevScaledInput';
 pt(246).class     = 'scalar';
 pt(246).nrows     = 1;
 pt(246).ncols     = 1;
-pt(246).subsource = 'SS_BOOLEAN';
+pt(246).subsource = 'SS_DOUBLE';
 pt(246).ndims     = '2';
 pt(246).size      = '[]';
 pt(246).isStruct  = false;
-pt(246).symbol     = 'StateFlowFinal_P.Reset_Value_o';
-pt(246).baseaddr   = '&StateFlowFinal_P.Reset_Value_o';
-pt(246).dtname     = 'boolean_T';
+pt(246).symbol     = 'StateFlowFinal_P.DiscreteDerivativeB4_ICPrevScal';
+pt(246).baseaddr   = '&StateFlowFinal_P.DiscreteDerivativeB4_ICPrevScal';
+pt(246).dtname     = 'real_T';
 
 
 
   
-pt(247).blockname = 'Sistema_braccia/Kalman Filter2/X0';
-pt(247).paramname = 'Value';
-pt(247).class     = 'vector';
-pt(247).nrows     = 2;
+pt(247).blockname = 'Sistema_braccia/Posizioni/Discrete Derivative B5';
+pt(247).paramname = 'ICPrevScaledInput';
+pt(247).class     = 'scalar';
+pt(247).nrows     = 1;
 pt(247).ncols     = 1;
 pt(247).subsource = 'SS_DOUBLE';
 pt(247).ndims     = '2';
 pt(247).size      = '[]';
 pt(247).isStruct  = false;
-pt(247).symbol     = 'StateFlowFinal_P.X0_Value';
-pt(247).baseaddr   = '&StateFlowFinal_P.X0_Value[0]';
+pt(247).symbol     = 'StateFlowFinal_P.DiscreteDerivativeB5_ICPrevScal';
+pt(247).baseaddr   = '&StateFlowFinal_P.DiscreteDerivativeB5_ICPrevScal';
 pt(247).dtname     = 'real_T';
 
 
 
   
-pt(248).blockname = 'Sistema_braccia/Kalman Filter2/ManualSwitchPZ';
-pt(248).paramname = 'CurrentSetting';
+pt(248).blockname = 'Sistema_braccia/Posizioni/Constant4';
+pt(248).paramname = 'Value';
 pt(248).class     = 'scalar';
 pt(248).nrows     = 1;
 pt(248).ncols     = 1;
-pt(248).subsource = 'SS_UINT8';
+pt(248).subsource = 'SS_DOUBLE';
 pt(248).ndims     = '2';
 pt(248).size      = '[]';
 pt(248).isStruct  = false;
-pt(248).symbol     = 'StateFlowFinal_P.ManualSwitchPZ_CurrentSetting_p';
-pt(248).baseaddr   = '&StateFlowFinal_P.ManualSwitchPZ_CurrentSetting_p';
-pt(248).dtname     = 'uint8_T';
+pt(248).symbol     = 'StateFlowFinal_P.Constant4_Value';
+pt(248).baseaddr   = '&StateFlowFinal_P.Constant4_Value';
+pt(248).dtname     = 'real_T';
 
 
 
   
-pt(249).blockname = 'Sistema_braccia/Kalman Filter2/MemoryX';
-pt(249).paramname = 'DelayLength';
+pt(249).blockname = 'Sistema_braccia/Posizioni/Constant5';
+pt(249).paramname = 'Value';
 pt(249).class     = 'scalar';
 pt(249).nrows     = 1;
 pt(249).ncols     = 1;
-pt(249).subsource = 'SS_UINT32';
+pt(249).subsource = 'SS_DOUBLE';
 pt(249).ndims     = '2';
 pt(249).size      = '[]';
 pt(249).isStruct  = false;
-pt(249).symbol     = 'StateFlowFinal_P.MemoryX_DelayLength';
-pt(249).baseaddr   = '&StateFlowFinal_P.MemoryX_DelayLength';
-pt(249).dtname     = 'uint32_T';
+pt(249).symbol     = 'StateFlowFinal_P.Constant5_Value';
+pt(249).baseaddr   = '&StateFlowFinal_P.Constant5_Value';
+pt(249).dtname     = 'real_T';
 
 
 
   
-pt(250).blockname = 'Sistema_braccia/Leggi di moto/Alzata C';
-pt(250).paramname = 'Value';
+pt(250).blockname = 'Sistema_braccia/Radians to Degrees/Gain';
+pt(250).paramname = 'Gain';
 pt(250).class     = 'scalar';
 pt(250).nrows     = 1;
 pt(250).ncols     = 1;
@@ -3996,15 +3996,15 @@ pt(250).subsource = 'SS_DOUBLE';
 pt(250).ndims     = '2';
 pt(250).size      = '[]';
 pt(250).isStruct  = false;
-pt(250).symbol     = 'StateFlowFinal_P.AlzataC_Value';
-pt(250).baseaddr   = '&StateFlowFinal_P.AlzataC_Value';
+pt(250).symbol     = 'StateFlowFinal_P.Gain_Gain_c';
+pt(250).baseaddr   = '&StateFlowFinal_P.Gain_Gain_c';
 pt(250).dtname     = 'real_T';
 
 
 
   
-pt(251).blockname = 'Sistema_braccia/Leggi di moto/Alzata C1';
-pt(251).paramname = 'Value';
+pt(251).blockname = 'Sistema_braccia/Radians to Degrees1/Gain';
+pt(251).paramname = 'Gain';
 pt(251).class     = 'scalar';
 pt(251).nrows     = 1;
 pt(251).ncols     = 1;
@@ -4012,31 +4012,31 @@ pt(251).subsource = 'SS_DOUBLE';
 pt(251).ndims     = '2';
 pt(251).size      = '[]';
 pt(251).isStruct  = false;
-pt(251).symbol     = 'StateFlowFinal_P.AlzataC1_Value';
-pt(251).baseaddr   = '&StateFlowFinal_P.AlzataC1_Value';
+pt(251).symbol     = 'StateFlowFinal_P.Gain_Gain_d4';
+pt(251).baseaddr   = '&StateFlowFinal_P.Gain_Gain_d4';
 pt(251).dtname     = 'real_T';
 
 
 
   
-pt(252).blockname = 'Sistema_braccia/Leggi di moto/Alzata Q';
-pt(252).paramname = 'Value';
-pt(252).class     = 'scalar';
+pt(252).blockname = 'Sistema_braccia/Velocita /EtherCAT PDO Receive14';
+pt(252).paramname = 'P1';
+pt(252).class     = 'vector';
 pt(252).nrows     = 1;
-pt(252).ncols     = 1;
+pt(252).ncols     = 47;
 pt(252).subsource = 'SS_DOUBLE';
 pt(252).ndims     = '2';
 pt(252).size      = '[]';
 pt(252).isStruct  = false;
-pt(252).symbol     = 'StateFlowFinal_P.AlzataQ_Value';
-pt(252).baseaddr   = '&StateFlowFinal_P.AlzataQ_Value';
+pt(252).symbol     = 'StateFlowFinal_P.EtherCATPDOReceive14_P1_k';
+pt(252).baseaddr   = '&StateFlowFinal_P.EtherCATPDOReceive14_P1_k[0]';
 pt(252).dtname     = 'real_T';
 
 
 
   
-pt(253).blockname = 'Sistema_braccia/Leggi di moto/Constant3';
-pt(253).paramname = 'Value';
+pt(253).blockname = 'Sistema_braccia/Velocita /EtherCAT PDO Receive14';
+pt(253).paramname = 'P2';
 pt(253).class     = 'scalar';
 pt(253).nrows     = 1;
 pt(253).ncols     = 1;
@@ -4044,15 +4044,15 @@ pt(253).subsource = 'SS_DOUBLE';
 pt(253).ndims     = '2';
 pt(253).size      = '[]';
 pt(253).isStruct  = false;
-pt(253).symbol     = 'StateFlowFinal_P.Constant3_Value';
-pt(253).baseaddr   = '&StateFlowFinal_P.Constant3_Value';
+pt(253).symbol     = 'StateFlowFinal_P.EtherCATPDOReceive14_P2_i';
+pt(253).baseaddr   = '&StateFlowFinal_P.EtherCATPDOReceive14_P2_i';
 pt(253).dtname     = 'real_T';
 
 
 
   
-pt(254).blockname = 'Sistema_braccia/Leggi di moto/N giri';
-pt(254).paramname = 'Value';
+pt(254).blockname = 'Sistema_braccia/Velocita /EtherCAT PDO Receive14';
+pt(254).paramname = 'P3';
 pt(254).class     = 'scalar';
 pt(254).nrows     = 1;
 pt(254).ncols     = 1;
@@ -4060,15 +4060,15 @@ pt(254).subsource = 'SS_DOUBLE';
 pt(254).ndims     = '2';
 pt(254).size      = '[]';
 pt(254).isStruct  = false;
-pt(254).symbol     = 'StateFlowFinal_P.Ngiri_Value';
-pt(254).baseaddr   = '&StateFlowFinal_P.Ngiri_Value';
+pt(254).symbol     = 'StateFlowFinal_P.EtherCATPDOReceive14_P3_a';
+pt(254).baseaddr   = '&StateFlowFinal_P.EtherCATPDOReceive14_P3_a';
 pt(254).dtname     = 'real_T';
 
 
 
   
-pt(255).blockname = 'Sistema_braccia/Leggi di moto/N giri1';
-pt(255).paramname = 'Value';
+pt(255).blockname = 'Sistema_braccia/Velocita /EtherCAT PDO Receive14';
+pt(255).paramname = 'P4';
 pt(255).class     = 'scalar';
 pt(255).nrows     = 1;
 pt(255).ncols     = 1;
@@ -4076,15 +4076,15 @@ pt(255).subsource = 'SS_DOUBLE';
 pt(255).ndims     = '2';
 pt(255).size      = '[]';
 pt(255).isStruct  = false;
-pt(255).symbol     = 'StateFlowFinal_P.Ngiri1_Value';
-pt(255).baseaddr   = '&StateFlowFinal_P.Ngiri1_Value';
+pt(255).symbol     = 'StateFlowFinal_P.EtherCATPDOReceive14_P4_e';
+pt(255).baseaddr   = '&StateFlowFinal_P.EtherCATPDOReceive14_P4_e';
 pt(255).dtname     = 'real_T';
 
 
 
   
-pt(256).blockname = 'Sistema_braccia/Leggi di moto/N giri2';
-pt(256).paramname = 'Value';
+pt(256).blockname = 'Sistema_braccia/Velocita /EtherCAT PDO Receive14';
+pt(256).paramname = 'P5';
 pt(256).class     = 'scalar';
 pt(256).nrows     = 1;
 pt(256).ncols     = 1;
@@ -4092,15 +4092,15 @@ pt(256).subsource = 'SS_DOUBLE';
 pt(256).ndims     = '2';
 pt(256).size      = '[]';
 pt(256).isStruct  = false;
-pt(256).symbol     = 'StateFlowFinal_P.Ngiri2_Value';
-pt(256).baseaddr   = '&StateFlowFinal_P.Ngiri2_Value';
+pt(256).symbol     = 'StateFlowFinal_P.EtherCATPDOReceive14_P5_j';
+pt(256).baseaddr   = '&StateFlowFinal_P.EtherCATPDOReceive14_P5_j';
 pt(256).dtname     = 'real_T';
 
 
 
   
-pt(257).blockname = 'Sistema_braccia/Leggi di moto/Periodo';
-pt(257).paramname = 'Value';
+pt(257).blockname = 'Sistema_braccia/Velocita /EtherCAT PDO Receive14';
+pt(257).paramname = 'P6';
 pt(257).class     = 'scalar';
 pt(257).nrows     = 1;
 pt(257).ncols     = 1;
@@ -4108,15 +4108,15 @@ pt(257).subsource = 'SS_DOUBLE';
 pt(257).ndims     = '2';
 pt(257).size      = '[]';
 pt(257).isStruct  = false;
-pt(257).symbol     = 'StateFlowFinal_P.Periodo_Value';
-pt(257).baseaddr   = '&StateFlowFinal_P.Periodo_Value';
+pt(257).symbol     = 'StateFlowFinal_P.EtherCATPDOReceive14_P6_m';
+pt(257).baseaddr   = '&StateFlowFinal_P.EtherCATPDOReceive14_P6_m';
 pt(257).dtname     = 'real_T';
 
 
 
   
-pt(258).blockname = 'Sistema_braccia/Leggi di moto/Periodo C';
-pt(258).paramname = 'Value';
+pt(258).blockname = 'Sistema_braccia/Velocita /EtherCAT PDO Receive14';
+pt(258).paramname = 'P7';
 pt(258).class     = 'scalar';
 pt(258).nrows     = 1;
 pt(258).ncols     = 1;
@@ -4124,31 +4124,31 @@ pt(258).subsource = 'SS_DOUBLE';
 pt(258).ndims     = '2';
 pt(258).size      = '[]';
 pt(258).isStruct  = false;
-pt(258).symbol     = 'StateFlowFinal_P.PeriodoC_Value';
-pt(258).baseaddr   = '&StateFlowFinal_P.PeriodoC_Value';
+pt(258).symbol     = 'StateFlowFinal_P.EtherCATPDOReceive14_P7_m';
+pt(258).baseaddr   = '&StateFlowFinal_P.EtherCATPDOReceive14_P7_m';
 pt(258).dtname     = 'real_T';
 
 
 
   
-pt(259).blockname = 'Sistema_braccia/Leggi di moto/Periodo C1';
-pt(259).paramname = 'Value';
-pt(259).class     = 'scalar';
+pt(259).blockname = 'Sistema_braccia/Velocita /EtherCAT PDO Receive15';
+pt(259).paramname = 'P1';
+pt(259).class     = 'vector';
 pt(259).nrows     = 1;
-pt(259).ncols     = 1;
+pt(259).ncols     = 47;
 pt(259).subsource = 'SS_DOUBLE';
 pt(259).ndims     = '2';
 pt(259).size      = '[]';
 pt(259).isStruct  = false;
-pt(259).symbol     = 'StateFlowFinal_P.PeriodoC1_Value';
-pt(259).baseaddr   = '&StateFlowFinal_P.PeriodoC1_Value';
+pt(259).symbol     = 'StateFlowFinal_P.EtherCATPDOReceive15_P1_a';
+pt(259).baseaddr   = '&StateFlowFinal_P.EtherCATPDOReceive15_P1_a[0]';
 pt(259).dtname     = 'real_T';
 
 
 
   
-pt(260).blockname = 'Sistema_braccia/Leggi di moto/Periodo Q';
-pt(260).paramname = 'Value';
+pt(260).blockname = 'Sistema_braccia/Velocita /EtherCAT PDO Receive15';
+pt(260).paramname = 'P2';
 pt(260).class     = 'scalar';
 pt(260).nrows     = 1;
 pt(260).ncols     = 1;
@@ -4156,15 +4156,15 @@ pt(260).subsource = 'SS_DOUBLE';
 pt(260).ndims     = '2';
 pt(260).size      = '[]';
 pt(260).isStruct  = false;
-pt(260).symbol     = 'StateFlowFinal_P.PeriodoQ_Value';
-pt(260).baseaddr   = '&StateFlowFinal_P.PeriodoQ_Value';
+pt(260).symbol     = 'StateFlowFinal_P.EtherCATPDOReceive15_P2_l';
+pt(260).baseaddr   = '&StateFlowFinal_P.EtherCATPDOReceive15_P2_l';
 pt(260).dtname     = 'real_T';
 
 
 
   
-pt(261).blockname = 'Sistema_braccia/Leggi di moto/Rmax';
-pt(261).paramname = 'Value';
+pt(261).blockname = 'Sistema_braccia/Velocita /EtherCAT PDO Receive15';
+pt(261).paramname = 'P3';
 pt(261).class     = 'scalar';
 pt(261).nrows     = 1;
 pt(261).ncols     = 1;
@@ -4172,15 +4172,15 @@ pt(261).subsource = 'SS_DOUBLE';
 pt(261).ndims     = '2';
 pt(261).size      = '[]';
 pt(261).isStruct  = false;
-pt(261).symbol     = 'StateFlowFinal_P.Rmax_Value';
-pt(261).baseaddr   = '&StateFlowFinal_P.Rmax_Value';
+pt(261).symbol     = 'StateFlowFinal_P.EtherCATPDOReceive15_P3_a';
+pt(261).baseaddr   = '&StateFlowFinal_P.EtherCATPDOReceive15_P3_a';
 pt(261).dtname     = 'real_T';
 
 
 
   
-pt(262).blockname = 'Sistema_braccia/Leggi di moto/Rmax1';
-pt(262).paramname = 'Value';
+pt(262).blockname = 'Sistema_braccia/Velocita /EtherCAT PDO Receive15';
+pt(262).paramname = 'P4';
 pt(262).class     = 'scalar';
 pt(262).nrows     = 1;
 pt(262).ncols     = 1;
@@ -4188,15 +4188,15 @@ pt(262).subsource = 'SS_DOUBLE';
 pt(262).ndims     = '2';
 pt(262).size      = '[]';
 pt(262).isStruct  = false;
-pt(262).symbol     = 'StateFlowFinal_P.Rmax1_Value';
-pt(262).baseaddr   = '&StateFlowFinal_P.Rmax1_Value';
+pt(262).symbol     = 'StateFlowFinal_P.EtherCATPDOReceive15_P4_f';
+pt(262).baseaddr   = '&StateFlowFinal_P.EtherCATPDOReceive15_P4_f';
 pt(262).dtname     = 'real_T';
 
 
 
   
-pt(263).blockname = 'Sistema_braccia/Leggi di moto/Rmin';
-pt(263).paramname = 'Value';
+pt(263).blockname = 'Sistema_braccia/Velocita /EtherCAT PDO Receive15';
+pt(263).paramname = 'P5';
 pt(263).class     = 'scalar';
 pt(263).nrows     = 1;
 pt(263).ncols     = 1;
@@ -4204,15 +4204,15 @@ pt(263).subsource = 'SS_DOUBLE';
 pt(263).ndims     = '2';
 pt(263).size      = '[]';
 pt(263).isStruct  = false;
-pt(263).symbol     = 'StateFlowFinal_P.Rmin_Value';
-pt(263).baseaddr   = '&StateFlowFinal_P.Rmin_Value';
+pt(263).symbol     = 'StateFlowFinal_P.EtherCATPDOReceive15_P5_c';
+pt(263).baseaddr   = '&StateFlowFinal_P.EtherCATPDOReceive15_P5_c';
 pt(263).dtname     = 'real_T';
 
 
 
   
-pt(264).blockname = 'Sistema_braccia/Leggi di moto/Rmin1';
-pt(264).paramname = 'Value';
+pt(264).blockname = 'Sistema_braccia/Velocita /EtherCAT PDO Receive15';
+pt(264).paramname = 'P6';
 pt(264).class     = 'scalar';
 pt(264).nrows     = 1;
 pt(264).ncols     = 1;
@@ -4220,15 +4220,15 @@ pt(264).subsource = 'SS_DOUBLE';
 pt(264).ndims     = '2';
 pt(264).size      = '[]';
 pt(264).isStruct  = false;
-pt(264).symbol     = 'StateFlowFinal_P.Rmin1_Value';
-pt(264).baseaddr   = '&StateFlowFinal_P.Rmin1_Value';
+pt(264).symbol     = 'StateFlowFinal_P.EtherCATPDOReceive15_P6_g';
+pt(264).baseaddr   = '&StateFlowFinal_P.EtherCATPDOReceive15_P6_g';
 pt(264).dtname     = 'real_T';
 
 
 
   
-pt(265).blockname = 'Sistema_braccia/Leggi di moto/Rmin2';
-pt(265).paramname = 'Value';
+pt(265).blockname = 'Sistema_braccia/Velocita /EtherCAT PDO Receive15';
+pt(265).paramname = 'P7';
 pt(265).class     = 'scalar';
 pt(265).nrows     = 1;
 pt(265).ncols     = 1;
@@ -4236,31 +4236,31 @@ pt(265).subsource = 'SS_DOUBLE';
 pt(265).ndims     = '2';
 pt(265).size      = '[]';
 pt(265).isStruct  = false;
-pt(265).symbol     = 'StateFlowFinal_P.Rmin2_Value';
-pt(265).baseaddr   = '&StateFlowFinal_P.Rmin2_Value';
+pt(265).symbol     = 'StateFlowFinal_P.EtherCATPDOReceive15_P7_m';
+pt(265).baseaddr   = '&StateFlowFinal_P.EtherCATPDOReceive15_P7_m';
 pt(265).dtname     = 'real_T';
 
 
 
   
-pt(266).blockname = 'Sistema_braccia/Leggi di moto/Rmin3';
-pt(266).paramname = 'Value';
-pt(266).class     = 'scalar';
+pt(266).blockname = 'Sistema_braccia/Velocita braccia 1/EtherCAT PDO Receive14';
+pt(266).paramname = 'P1';
+pt(266).class     = 'vector';
 pt(266).nrows     = 1;
-pt(266).ncols     = 1;
+pt(266).ncols     = 47;
 pt(266).subsource = 'SS_DOUBLE';
 pt(266).ndims     = '2';
 pt(266).size      = '[]';
 pt(266).isStruct  = false;
-pt(266).symbol     = 'StateFlowFinal_P.Rmin3_Value';
-pt(266).baseaddr   = '&StateFlowFinal_P.Rmin3_Value';
+pt(266).symbol     = 'StateFlowFinal_P.EtherCATPDOReceive14_P1';
+pt(266).baseaddr   = '&StateFlowFinal_P.EtherCATPDOReceive14_P1[0]';
 pt(266).dtname     = 'real_T';
 
 
 
   
-pt(267).blockname = 'Sistema_braccia/Leggi di moto/Tempo spost. iniziale';
-pt(267).paramname = 'Value';
+pt(267).blockname = 'Sistema_braccia/Velocita braccia 1/EtherCAT PDO Receive14';
+pt(267).paramname = 'P2';
 pt(267).class     = 'scalar';
 pt(267).nrows     = 1;
 pt(267).ncols     = 1;
@@ -4268,15 +4268,15 @@ pt(267).subsource = 'SS_DOUBLE';
 pt(267).ndims     = '2';
 pt(267).size      = '[]';
 pt(267).isStruct  = false;
-pt(267).symbol     = 'StateFlowFinal_P.Tempospostiniziale_Value';
-pt(267).baseaddr   = '&StateFlowFinal_P.Tempospostiniziale_Value';
+pt(267).symbol     = 'StateFlowFinal_P.EtherCATPDOReceive14_P2';
+pt(267).baseaddr   = '&StateFlowFinal_P.EtherCATPDOReceive14_P2';
 pt(267).dtname     = 'real_T';
 
 
 
   
-pt(268).blockname = 'Sistema_braccia/PID Controller/Integrator';
-pt(268).paramname = 'gainval';
+pt(268).blockname = 'Sistema_braccia/Velocita braccia 1/EtherCAT PDO Receive14';
+pt(268).paramname = 'P3';
 pt(268).class     = 'scalar';
 pt(268).nrows     = 1;
 pt(268).ncols     = 1;
@@ -4284,15 +4284,15 @@ pt(268).subsource = 'SS_DOUBLE';
 pt(268).ndims     = '2';
 pt(268).size      = '[]';
 pt(268).isStruct  = false;
-pt(268).symbol     = 'StateFlowFinal_P.Integrator_gainval';
-pt(268).baseaddr   = '&StateFlowFinal_P.Integrator_gainval';
+pt(268).symbol     = 'StateFlowFinal_P.EtherCATPDOReceive14_P3';
+pt(268).baseaddr   = '&StateFlowFinal_P.EtherCATPDOReceive14_P3';
 pt(268).dtname     = 'real_T';
 
 
 
   
-pt(269).blockname = 'Sistema_braccia/PID Controller/Integrator';
-pt(269).paramname = 'InitialCondition';
+pt(269).blockname = 'Sistema_braccia/Velocita braccia 1/EtherCAT PDO Receive14';
+pt(269).paramname = 'P4';
 pt(269).class     = 'scalar';
 pt(269).nrows     = 1;
 pt(269).ncols     = 1;
@@ -4300,15 +4300,15 @@ pt(269).subsource = 'SS_DOUBLE';
 pt(269).ndims     = '2';
 pt(269).size      = '[]';
 pt(269).isStruct  = false;
-pt(269).symbol     = 'StateFlowFinal_P.Integrator_IC';
-pt(269).baseaddr   = '&StateFlowFinal_P.Integrator_IC';
+pt(269).symbol     = 'StateFlowFinal_P.EtherCATPDOReceive14_P4';
+pt(269).baseaddr   = '&StateFlowFinal_P.EtherCATPDOReceive14_P4';
 pt(269).dtname     = 'real_T';
 
 
 
   
-pt(270).blockname = 'Sistema_braccia/Pos iniziali/Constant';
-pt(270).paramname = 'Value';
+pt(270).blockname = 'Sistema_braccia/Velocita braccia 1/EtherCAT PDO Receive14';
+pt(270).paramname = 'P5';
 pt(270).class     = 'scalar';
 pt(270).nrows     = 1;
 pt(270).ncols     = 1;
@@ -4316,15 +4316,15 @@ pt(270).subsource = 'SS_DOUBLE';
 pt(270).ndims     = '2';
 pt(270).size      = '[]';
 pt(270).isStruct  = false;
-pt(270).symbol     = 'StateFlowFinal_P.Constant_Value_b';
-pt(270).baseaddr   = '&StateFlowFinal_P.Constant_Value_b';
+pt(270).symbol     = 'StateFlowFinal_P.EtherCATPDOReceive14_P5';
+pt(270).baseaddr   = '&StateFlowFinal_P.EtherCATPDOReceive14_P5';
 pt(270).dtname     = 'real_T';
 
 
 
   
-pt(271).blockname = 'Sistema_braccia/Pos iniziali/Constant1';
-pt(271).paramname = 'Value';
+pt(271).blockname = 'Sistema_braccia/Velocita braccia 1/EtherCAT PDO Receive14';
+pt(271).paramname = 'P6';
 pt(271).class     = 'scalar';
 pt(271).nrows     = 1;
 pt(271).ncols     = 1;
@@ -4332,15 +4332,15 @@ pt(271).subsource = 'SS_DOUBLE';
 pt(271).ndims     = '2';
 pt(271).size      = '[]';
 pt(271).isStruct  = false;
-pt(271).symbol     = 'StateFlowFinal_P.Constant1_Value';
-pt(271).baseaddr   = '&StateFlowFinal_P.Constant1_Value';
+pt(271).symbol     = 'StateFlowFinal_P.EtherCATPDOReceive14_P6';
+pt(271).baseaddr   = '&StateFlowFinal_P.EtherCATPDOReceive14_P6';
 pt(271).dtname     = 'real_T';
 
 
 
   
-pt(272).blockname = 'Sistema_braccia/Posizioni/Discrete Derivative B';
-pt(272).paramname = 'ICPrevScaledInput';
+pt(272).blockname = 'Sistema_braccia/Velocita braccia 1/EtherCAT PDO Receive14';
+pt(272).paramname = 'P7';
 pt(272).class     = 'scalar';
 pt(272).nrows     = 1;
 pt(272).ncols     = 1;
@@ -4348,31 +4348,31 @@ pt(272).subsource = 'SS_DOUBLE';
 pt(272).ndims     = '2';
 pt(272).size      = '[]';
 pt(272).isStruct  = false;
-pt(272).symbol     = 'StateFlowFinal_P.DiscreteDerivativeB_ICPrevSca_m';
-pt(272).baseaddr   = '&StateFlowFinal_P.DiscreteDerivativeB_ICPrevSca_m';
+pt(272).symbol     = 'StateFlowFinal_P.EtherCATPDOReceive14_P7';
+pt(272).baseaddr   = '&StateFlowFinal_P.EtherCATPDOReceive14_P7';
 pt(272).dtname     = 'real_T';
 
 
 
   
-pt(273).blockname = 'Sistema_braccia/Posizioni/Discrete Derivative B1';
-pt(273).paramname = 'ICPrevScaledInput';
-pt(273).class     = 'scalar';
+pt(273).blockname = 'Sistema_braccia/Velocita braccia 1/EtherCAT PDO Receive15';
+pt(273).paramname = 'P1';
+pt(273).class     = 'vector';
 pt(273).nrows     = 1;
-pt(273).ncols     = 1;
+pt(273).ncols     = 47;
 pt(273).subsource = 'SS_DOUBLE';
 pt(273).ndims     = '2';
 pt(273).size      = '[]';
 pt(273).isStruct  = false;
-pt(273).symbol     = 'StateFlowFinal_P.DiscreteDerivativeB1_ICPrevScal';
-pt(273).baseaddr   = '&StateFlowFinal_P.DiscreteDerivativeB1_ICPrevScal';
+pt(273).symbol     = 'StateFlowFinal_P.EtherCATPDOReceive15_P1';
+pt(273).baseaddr   = '&StateFlowFinal_P.EtherCATPDOReceive15_P1[0]';
 pt(273).dtname     = 'real_T';
 
 
 
   
-pt(274).blockname = 'Sistema_braccia/Posizioni/Discrete Derivative B2';
-pt(274).paramname = 'ICPrevScaledInput';
+pt(274).blockname = 'Sistema_braccia/Velocita braccia 1/EtherCAT PDO Receive15';
+pt(274).paramname = 'P2';
 pt(274).class     = 'scalar';
 pt(274).nrows     = 1;
 pt(274).ncols     = 1;
@@ -4380,15 +4380,15 @@ pt(274).subsource = 'SS_DOUBLE';
 pt(274).ndims     = '2';
 pt(274).size      = '[]';
 pt(274).isStruct  = false;
-pt(274).symbol     = 'StateFlowFinal_P.DiscreteDerivativeB2_ICPrevScal';
-pt(274).baseaddr   = '&StateFlowFinal_P.DiscreteDerivativeB2_ICPrevScal';
+pt(274).symbol     = 'StateFlowFinal_P.EtherCATPDOReceive15_P2';
+pt(274).baseaddr   = '&StateFlowFinal_P.EtherCATPDOReceive15_P2';
 pt(274).dtname     = 'real_T';
 
 
 
   
-pt(275).blockname = 'Sistema_braccia/Posizioni/Discrete Derivative B3';
-pt(275).paramname = 'ICPrevScaledInput';
+pt(275).blockname = 'Sistema_braccia/Velocita braccia 1/EtherCAT PDO Receive15';
+pt(275).paramname = 'P3';
 pt(275).class     = 'scalar';
 pt(275).nrows     = 1;
 pt(275).ncols     = 1;
@@ -4396,15 +4396,15 @@ pt(275).subsource = 'SS_DOUBLE';
 pt(275).ndims     = '2';
 pt(275).size      = '[]';
 pt(275).isStruct  = false;
-pt(275).symbol     = 'StateFlowFinal_P.DiscreteDerivativeB3_ICPrevScal';
-pt(275).baseaddr   = '&StateFlowFinal_P.DiscreteDerivativeB3_ICPrevScal';
+pt(275).symbol     = 'StateFlowFinal_P.EtherCATPDOReceive15_P3';
+pt(275).baseaddr   = '&StateFlowFinal_P.EtherCATPDOReceive15_P3';
 pt(275).dtname     = 'real_T';
 
 
 
   
-pt(276).blockname = 'Sistema_braccia/Posizioni/Discrete Derivative B4';
-pt(276).paramname = 'ICPrevScaledInput';
+pt(276).blockname = 'Sistema_braccia/Velocita braccia 1/EtherCAT PDO Receive15';
+pt(276).paramname = 'P4';
 pt(276).class     = 'scalar';
 pt(276).nrows     = 1;
 pt(276).ncols     = 1;
@@ -4412,15 +4412,15 @@ pt(276).subsource = 'SS_DOUBLE';
 pt(276).ndims     = '2';
 pt(276).size      = '[]';
 pt(276).isStruct  = false;
-pt(276).symbol     = 'StateFlowFinal_P.DiscreteDerivativeB4_ICPrevScal';
-pt(276).baseaddr   = '&StateFlowFinal_P.DiscreteDerivativeB4_ICPrevScal';
+pt(276).symbol     = 'StateFlowFinal_P.EtherCATPDOReceive15_P4';
+pt(276).baseaddr   = '&StateFlowFinal_P.EtherCATPDOReceive15_P4';
 pt(276).dtname     = 'real_T';
 
 
 
   
-pt(277).blockname = 'Sistema_braccia/Posizioni/Discrete Derivative B5';
-pt(277).paramname = 'ICPrevScaledInput';
+pt(277).blockname = 'Sistema_braccia/Velocita braccia 1/EtherCAT PDO Receive15';
+pt(277).paramname = 'P5';
 pt(277).class     = 'scalar';
 pt(277).nrows     = 1;
 pt(277).ncols     = 1;
@@ -4428,15 +4428,15 @@ pt(277).subsource = 'SS_DOUBLE';
 pt(277).ndims     = '2';
 pt(277).size      = '[]';
 pt(277).isStruct  = false;
-pt(277).symbol     = 'StateFlowFinal_P.DiscreteDerivativeB5_ICPrevScal';
-pt(277).baseaddr   = '&StateFlowFinal_P.DiscreteDerivativeB5_ICPrevScal';
+pt(277).symbol     = 'StateFlowFinal_P.EtherCATPDOReceive15_P5';
+pt(277).baseaddr   = '&StateFlowFinal_P.EtherCATPDOReceive15_P5';
 pt(277).dtname     = 'real_T';
 
 
 
   
-pt(278).blockname = 'Sistema_braccia/Posizioni/Constant4';
-pt(278).paramname = 'Value';
+pt(278).blockname = 'Sistema_braccia/Velocita braccia 1/EtherCAT PDO Receive15';
+pt(278).paramname = 'P6';
 pt(278).class     = 'scalar';
 pt(278).nrows     = 1;
 pt(278).ncols     = 1;
@@ -4444,15 +4444,15 @@ pt(278).subsource = 'SS_DOUBLE';
 pt(278).ndims     = '2';
 pt(278).size      = '[]';
 pt(278).isStruct  = false;
-pt(278).symbol     = 'StateFlowFinal_P.Constant4_Value';
-pt(278).baseaddr   = '&StateFlowFinal_P.Constant4_Value';
+pt(278).symbol     = 'StateFlowFinal_P.EtherCATPDOReceive15_P6';
+pt(278).baseaddr   = '&StateFlowFinal_P.EtherCATPDOReceive15_P6';
 pt(278).dtname     = 'real_T';
 
 
 
   
-pt(279).blockname = 'Sistema_braccia/Posizioni/Constant5';
-pt(279).paramname = 'Value';
+pt(279).blockname = 'Sistema_braccia/Velocita braccia 1/EtherCAT PDO Receive15';
+pt(279).paramname = 'P7';
 pt(279).class     = 'scalar';
 pt(279).nrows     = 1;
 pt(279).ncols     = 1;
@@ -4460,15 +4460,15 @@ pt(279).subsource = 'SS_DOUBLE';
 pt(279).ndims     = '2';
 pt(279).size      = '[]';
 pt(279).isStruct  = false;
-pt(279).symbol     = 'StateFlowFinal_P.Constant5_Value';
-pt(279).baseaddr   = '&StateFlowFinal_P.Constant5_Value';
+pt(279).symbol     = 'StateFlowFinal_P.EtherCATPDOReceive15_P7';
+pt(279).baseaddr   = '&StateFlowFinal_P.EtherCATPDOReceive15_P7';
 pt(279).dtname     = 'real_T';
 
 
 
   
-pt(280).blockname = 'Sistema_braccia/Radians to Degrees/Gain';
-pt(280).paramname = 'Gain';
+pt(280).blockname = 'State flow robot/Posizionamento/CoppiaA';
+pt(280).paramname = 'InitialOutput';
 pt(280).class     = 'scalar';
 pt(280).nrows     = 1;
 pt(280).ncols     = 1;
@@ -4476,15 +4476,15 @@ pt(280).subsource = 'SS_DOUBLE';
 pt(280).ndims     = '2';
 pt(280).size      = '[]';
 pt(280).isStruct  = false;
-pt(280).symbol     = 'StateFlowFinal_P.Gain_Gain_c';
-pt(280).baseaddr   = '&StateFlowFinal_P.Gain_Gain_c';
+pt(280).symbol     = 'StateFlowFinal_P.CoppiaA_Y0';
+pt(280).baseaddr   = '&StateFlowFinal_P.CoppiaA_Y0';
 pt(280).dtname     = 'real_T';
 
 
 
   
-pt(281).blockname = 'Sistema_braccia/Radians to Degrees1/Gain';
-pt(281).paramname = 'Gain';
+pt(281).blockname = 'State flow robot/Posizionamento/CoppiaB';
+pt(281).paramname = 'InitialOutput';
 pt(281).class     = 'scalar';
 pt(281).nrows     = 1;
 pt(281).ncols     = 1;
@@ -4492,31 +4492,31 @@ pt(281).subsource = 'SS_DOUBLE';
 pt(281).ndims     = '2';
 pt(281).size      = '[]';
 pt(281).isStruct  = false;
-pt(281).symbol     = 'StateFlowFinal_P.Gain_Gain_d4';
-pt(281).baseaddr   = '&StateFlowFinal_P.Gain_Gain_d4';
+pt(281).symbol     = 'StateFlowFinal_P.CoppiaB_Y0';
+pt(281).baseaddr   = '&StateFlowFinal_P.CoppiaB_Y0';
 pt(281).dtname     = 'real_T';
 
 
 
   
-pt(282).blockname = 'Sistema_braccia/Velocita /EtherCAT PDO Receive14';
-pt(282).paramname = 'P1';
-pt(282).class     = 'vector';
+pt(282).blockname = 'State flow robot/Posizionamento/Discrete-Time Integrator';
+pt(282).paramname = 'gainval';
+pt(282).class     = 'scalar';
 pt(282).nrows     = 1;
-pt(282).ncols     = 47;
+pt(282).ncols     = 1;
 pt(282).subsource = 'SS_DOUBLE';
 pt(282).ndims     = '2';
 pt(282).size      = '[]';
 pt(282).isStruct  = false;
-pt(282).symbol     = 'StateFlowFinal_P.EtherCATPDOReceive14_P1_k';
-pt(282).baseaddr   = '&StateFlowFinal_P.EtherCATPDOReceive14_P1_k[0]';
+pt(282).symbol     = 'StateFlowFinal_P.DiscreteTimeIntegrator_gainval';
+pt(282).baseaddr   = '&StateFlowFinal_P.DiscreteTimeIntegrator_gainval';
 pt(282).dtname     = 'real_T';
 
 
 
   
-pt(283).blockname = 'Sistema_braccia/Velocita /EtherCAT PDO Receive14';
-pt(283).paramname = 'P2';
+pt(283).blockname = 'State flow robot/Posizionamento/Discrete-Time Integrator';
+pt(283).paramname = 'InitialCondition';
 pt(283).class     = 'scalar';
 pt(283).nrows     = 1;
 pt(283).ncols     = 1;
@@ -4524,15 +4524,15 @@ pt(283).subsource = 'SS_DOUBLE';
 pt(283).ndims     = '2';
 pt(283).size      = '[]';
 pt(283).isStruct  = false;
-pt(283).symbol     = 'StateFlowFinal_P.EtherCATPDOReceive14_P2_i';
-pt(283).baseaddr   = '&StateFlowFinal_P.EtherCATPDOReceive14_P2_i';
+pt(283).symbol     = 'StateFlowFinal_P.DiscreteTimeIntegrator_IC';
+pt(283).baseaddr   = '&StateFlowFinal_P.DiscreteTimeIntegrator_IC';
 pt(283).dtname     = 'real_T';
 
 
 
   
-pt(284).blockname = 'Sistema_braccia/Velocita /EtherCAT PDO Receive14';
-pt(284).paramname = 'P3';
+pt(284).blockname = 'State flow robot/Posizionamento/Discrete-Time Integrator1';
+pt(284).paramname = 'gainval';
 pt(284).class     = 'scalar';
 pt(284).nrows     = 1;
 pt(284).ncols     = 1;
@@ -4540,15 +4540,15 @@ pt(284).subsource = 'SS_DOUBLE';
 pt(284).ndims     = '2';
 pt(284).size      = '[]';
 pt(284).isStruct  = false;
-pt(284).symbol     = 'StateFlowFinal_P.EtherCATPDOReceive14_P3_a';
-pt(284).baseaddr   = '&StateFlowFinal_P.EtherCATPDOReceive14_P3_a';
+pt(284).symbol     = 'StateFlowFinal_P.DiscreteTimeIntegrator1_gainval';
+pt(284).baseaddr   = '&StateFlowFinal_P.DiscreteTimeIntegrator1_gainval';
 pt(284).dtname     = 'real_T';
 
 
 
   
-pt(285).blockname = 'Sistema_braccia/Velocita /EtherCAT PDO Receive14';
-pt(285).paramname = 'P4';
+pt(285).blockname = 'State flow robot/Posizionamento/Discrete-Time Integrator1';
+pt(285).paramname = 'InitialCondition';
 pt(285).class     = 'scalar';
 pt(285).nrows     = 1;
 pt(285).ncols     = 1;
@@ -4556,15 +4556,15 @@ pt(285).subsource = 'SS_DOUBLE';
 pt(285).ndims     = '2';
 pt(285).size      = '[]';
 pt(285).isStruct  = false;
-pt(285).symbol     = 'StateFlowFinal_P.EtherCATPDOReceive14_P4_e';
-pt(285).baseaddr   = '&StateFlowFinal_P.EtherCATPDOReceive14_P4_e';
+pt(285).symbol     = 'StateFlowFinal_P.DiscreteTimeIntegrator1_IC';
+pt(285).baseaddr   = '&StateFlowFinal_P.DiscreteTimeIntegrator1_IC';
 pt(285).dtname     = 'real_T';
 
 
 
   
-pt(286).blockname = 'Sistema_braccia/Velocita /EtherCAT PDO Receive14';
-pt(286).paramname = 'P5';
+pt(286).blockname = 'State flow robot/Posizionamento/Conversione in gradi ';
+pt(286).paramname = 'Gain';
 pt(286).class     = 'scalar';
 pt(286).nrows     = 1;
 pt(286).ncols     = 1;
@@ -4572,15 +4572,15 @@ pt(286).subsource = 'SS_DOUBLE';
 pt(286).ndims     = '2';
 pt(286).size      = '[]';
 pt(286).isStruct  = false;
-pt(286).symbol     = 'StateFlowFinal_P.EtherCATPDOReceive14_P5_j';
-pt(286).baseaddr   = '&StateFlowFinal_P.EtherCATPDOReceive14_P5_j';
+pt(286).symbol     = 'StateFlowFinal_P.Conversioneingradi_Gain';
+pt(286).baseaddr   = '&StateFlowFinal_P.Conversioneingradi_Gain';
 pt(286).dtname     = 'real_T';
 
 
 
   
-pt(287).blockname = 'Sistema_braccia/Velocita /EtherCAT PDO Receive14';
-pt(287).paramname = 'P6';
+pt(287).blockname = 'State flow robot/Posizionamento/Gain1';
+pt(287).paramname = 'Gain';
 pt(287).class     = 'scalar';
 pt(287).nrows     = 1;
 pt(287).ncols     = 1;
@@ -4588,15 +4588,15 @@ pt(287).subsource = 'SS_DOUBLE';
 pt(287).ndims     = '2';
 pt(287).size      = '[]';
 pt(287).isStruct  = false;
-pt(287).symbol     = 'StateFlowFinal_P.EtherCATPDOReceive14_P6_m';
-pt(287).baseaddr   = '&StateFlowFinal_P.EtherCATPDOReceive14_P6_m';
+pt(287).symbol     = 'StateFlowFinal_P.Gain1_Gain';
+pt(287).baseaddr   = '&StateFlowFinal_P.Gain1_Gain';
 pt(287).dtname     = 'real_T';
 
 
 
   
-pt(288).blockname = 'Sistema_braccia/Velocita /EtherCAT PDO Receive14';
-pt(288).paramname = 'P7';
+pt(288).blockname = 'State flow robot/Posizionamento/Ki1';
+pt(288).paramname = 'Gain';
 pt(288).class     = 'scalar';
 pt(288).nrows     = 1;
 pt(288).ncols     = 1;
@@ -4604,31 +4604,31 @@ pt(288).subsource = 'SS_DOUBLE';
 pt(288).ndims     = '2';
 pt(288).size      = '[]';
 pt(288).isStruct  = false;
-pt(288).symbol     = 'StateFlowFinal_P.EtherCATPDOReceive14_P7_m';
-pt(288).baseaddr   = '&StateFlowFinal_P.EtherCATPDOReceive14_P7_m';
+pt(288).symbol     = 'StateFlowFinal_P.Ki1_Gain';
+pt(288).baseaddr   = '&StateFlowFinal_P.Ki1_Gain';
 pt(288).dtname     = 'real_T';
 
 
 
   
-pt(289).blockname = 'Sistema_braccia/Velocita /EtherCAT PDO Receive15';
-pt(289).paramname = 'P1';
-pt(289).class     = 'vector';
+pt(289).blockname = 'State flow robot/Posizionamento/Ki2';
+pt(289).paramname = 'Gain';
+pt(289).class     = 'scalar';
 pt(289).nrows     = 1;
-pt(289).ncols     = 47;
+pt(289).ncols     = 1;
 pt(289).subsource = 'SS_DOUBLE';
 pt(289).ndims     = '2';
 pt(289).size      = '[]';
 pt(289).isStruct  = false;
-pt(289).symbol     = 'StateFlowFinal_P.EtherCATPDOReceive15_P1_a';
-pt(289).baseaddr   = '&StateFlowFinal_P.EtherCATPDOReceive15_P1_a[0]';
+pt(289).symbol     = 'StateFlowFinal_P.Ki2_Gain';
+pt(289).baseaddr   = '&StateFlowFinal_P.Ki2_Gain';
 pt(289).dtname     = 'real_T';
 
 
 
   
-pt(290).blockname = 'Sistema_braccia/Velocita /EtherCAT PDO Receive15';
-pt(290).paramname = 'P2';
+pt(290).blockname = 'State flow robot/Posizionamento/Kp1';
+pt(290).paramname = 'Gain';
 pt(290).class     = 'scalar';
 pt(290).nrows     = 1;
 pt(290).ncols     = 1;
@@ -4636,15 +4636,15 @@ pt(290).subsource = 'SS_DOUBLE';
 pt(290).ndims     = '2';
 pt(290).size      = '[]';
 pt(290).isStruct  = false;
-pt(290).symbol     = 'StateFlowFinal_P.EtherCATPDOReceive15_P2_l';
-pt(290).baseaddr   = '&StateFlowFinal_P.EtherCATPDOReceive15_P2_l';
+pt(290).symbol     = 'StateFlowFinal_P.Kp1_Gain';
+pt(290).baseaddr   = '&StateFlowFinal_P.Kp1_Gain';
 pt(290).dtname     = 'real_T';
 
 
 
   
-pt(291).blockname = 'Sistema_braccia/Velocita /EtherCAT PDO Receive15';
-pt(291).paramname = 'P3';
+pt(291).blockname = 'State flow robot/Posizionamento/Kp2';
+pt(291).paramname = 'Gain';
 pt(291).class     = 'scalar';
 pt(291).nrows     = 1;
 pt(291).ncols     = 1;
@@ -4652,15 +4652,15 @@ pt(291).subsource = 'SS_DOUBLE';
 pt(291).ndims     = '2';
 pt(291).size      = '[]';
 pt(291).isStruct  = false;
-pt(291).symbol     = 'StateFlowFinal_P.EtherCATPDOReceive15_P3_a';
-pt(291).baseaddr   = '&StateFlowFinal_P.EtherCATPDOReceive15_P3_a';
+pt(291).symbol     = 'StateFlowFinal_P.Kp2_Gain';
+pt(291).baseaddr   = '&StateFlowFinal_P.Kp2_Gain';
 pt(291).dtname     = 'real_T';
 
 
 
   
-pt(292).blockname = 'Sistema_braccia/Velocita /EtherCAT PDO Receive15';
-pt(292).paramname = 'P4';
+pt(292).blockname = 'State flow robot/Setting/CA';
+pt(292).paramname = 'InitialOutput';
 pt(292).class     = 'scalar';
 pt(292).nrows     = 1;
 pt(292).ncols     = 1;
@@ -4668,15 +4668,15 @@ pt(292).subsource = 'SS_DOUBLE';
 pt(292).ndims     = '2';
 pt(292).size      = '[]';
 pt(292).isStruct  = false;
-pt(292).symbol     = 'StateFlowFinal_P.EtherCATPDOReceive15_P4_f';
-pt(292).baseaddr   = '&StateFlowFinal_P.EtherCATPDOReceive15_P4_f';
+pt(292).symbol     = 'StateFlowFinal_P.CA_Y0';
+pt(292).baseaddr   = '&StateFlowFinal_P.CA_Y0';
 pt(292).dtname     = 'real_T';
 
 
 
   
-pt(293).blockname = 'Sistema_braccia/Velocita /EtherCAT PDO Receive15';
-pt(293).paramname = 'P5';
+pt(293).blockname = 'State flow robot/Setting/CB';
+pt(293).paramname = 'InitialOutput';
 pt(293).class     = 'scalar';
 pt(293).nrows     = 1;
 pt(293).ncols     = 1;
@@ -4684,15 +4684,15 @@ pt(293).subsource = 'SS_DOUBLE';
 pt(293).ndims     = '2';
 pt(293).size      = '[]';
 pt(293).isStruct  = false;
-pt(293).symbol     = 'StateFlowFinal_P.EtherCATPDOReceive15_P5_c';
-pt(293).baseaddr   = '&StateFlowFinal_P.EtherCATPDOReceive15_P5_c';
+pt(293).symbol     = 'StateFlowFinal_P.CB_Y0';
+pt(293).baseaddr   = '&StateFlowFinal_P.CB_Y0';
 pt(293).dtname     = 'real_T';
 
 
 
   
-pt(294).blockname = 'Sistema_braccia/Velocita /EtherCAT PDO Receive15';
-pt(294).paramname = 'P6';
+pt(294).blockname = 'State flow robot/Setting/CH';
+pt(294).paramname = 'InitialOutput';
 pt(294).class     = 'scalar';
 pt(294).nrows     = 1;
 pt(294).ncols     = 1;
@@ -4700,15 +4700,15 @@ pt(294).subsource = 'SS_DOUBLE';
 pt(294).ndims     = '2';
 pt(294).size      = '[]';
 pt(294).isStruct  = false;
-pt(294).symbol     = 'StateFlowFinal_P.EtherCATPDOReceive15_P6_g';
-pt(294).baseaddr   = '&StateFlowFinal_P.EtherCATPDOReceive15_P6_g';
+pt(294).symbol     = 'StateFlowFinal_P.CH_Y0';
+pt(294).baseaddr   = '&StateFlowFinal_P.CH_Y0';
 pt(294).dtname     = 'real_T';
 
 
 
   
-pt(295).blockname = 'Sistema_braccia/Velocita /EtherCAT PDO Receive15';
-pt(295).paramname = 'P7';
+pt(295).blockname = 'State flow robot/Setting/Ki';
+pt(295).paramname = 'Value';
 pt(295).class     = 'scalar';
 pt(295).nrows     = 1;
 pt(295).ncols     = 1;
@@ -4716,31 +4716,31 @@ pt(295).subsource = 'SS_DOUBLE';
 pt(295).ndims     = '2';
 pt(295).size      = '[]';
 pt(295).isStruct  = false;
-pt(295).symbol     = 'StateFlowFinal_P.EtherCATPDOReceive15_P7_m';
-pt(295).baseaddr   = '&StateFlowFinal_P.EtherCATPDOReceive15_P7_m';
+pt(295).symbol     = 'StateFlowFinal_P.Ki_Value';
+pt(295).baseaddr   = '&StateFlowFinal_P.Ki_Value';
 pt(295).dtname     = 'real_T';
 
 
 
   
-pt(296).blockname = 'Sistema_braccia/Velocita braccia 1/EtherCAT PDO Receive14';
-pt(296).paramname = 'P1';
-pt(296).class     = 'vector';
+pt(296).blockname = 'State flow robot/Setting/Kp';
+pt(296).paramname = 'Value';
+pt(296).class     = 'scalar';
 pt(296).nrows     = 1;
-pt(296).ncols     = 47;
+pt(296).ncols     = 1;
 pt(296).subsource = 'SS_DOUBLE';
 pt(296).ndims     = '2';
 pt(296).size      = '[]';
 pt(296).isStruct  = false;
-pt(296).symbol     = 'StateFlowFinal_P.EtherCATPDOReceive14_P1';
-pt(296).baseaddr   = '&StateFlowFinal_P.EtherCATPDOReceive14_P1[0]';
+pt(296).symbol     = 'StateFlowFinal_P.Kp_Value';
+pt(296).baseaddr   = '&StateFlowFinal_P.Kp_Value';
 pt(296).dtname     = 'real_T';
 
 
 
   
-pt(297).blockname = 'Sistema_braccia/Velocita braccia 1/EtherCAT PDO Receive14';
-pt(297).paramname = 'P2';
+pt(297).blockname = 'State flow robot/Setting/Discrete-Time Integrator';
+pt(297).paramname = 'gainval';
 pt(297).class     = 'scalar';
 pt(297).nrows     = 1;
 pt(297).ncols     = 1;
@@ -4748,15 +4748,15 @@ pt(297).subsource = 'SS_DOUBLE';
 pt(297).ndims     = '2';
 pt(297).size      = '[]';
 pt(297).isStruct  = false;
-pt(297).symbol     = 'StateFlowFinal_P.EtherCATPDOReceive14_P2';
-pt(297).baseaddr   = '&StateFlowFinal_P.EtherCATPDOReceive14_P2';
+pt(297).symbol     = 'StateFlowFinal_P.DiscreteTimeIntegrator_gainva_l';
+pt(297).baseaddr   = '&StateFlowFinal_P.DiscreteTimeIntegrator_gainva_l';
 pt(297).dtname     = 'real_T';
 
 
 
   
-pt(298).blockname = 'Sistema_braccia/Velocita braccia 1/EtherCAT PDO Receive14';
-pt(298).paramname = 'P3';
+pt(298).blockname = 'State flow robot/Setting/Discrete-Time Integrator';
+pt(298).paramname = 'InitialCondition';
 pt(298).class     = 'scalar';
 pt(298).nrows     = 1;
 pt(298).ncols     = 1;
@@ -4764,15 +4764,15 @@ pt(298).subsource = 'SS_DOUBLE';
 pt(298).ndims     = '2';
 pt(298).size      = '[]';
 pt(298).isStruct  = false;
-pt(298).symbol     = 'StateFlowFinal_P.EtherCATPDOReceive14_P3';
-pt(298).baseaddr   = '&StateFlowFinal_P.EtherCATPDOReceive14_P3';
+pt(298).symbol     = 'StateFlowFinal_P.DiscreteTimeIntegrator_IC_e';
+pt(298).baseaddr   = '&StateFlowFinal_P.DiscreteTimeIntegrator_IC_e';
 pt(298).dtname     = 'real_T';
 
 
 
   
-pt(299).blockname = 'Sistema_braccia/Velocita braccia 1/EtherCAT PDO Receive14';
-pt(299).paramname = 'P4';
+pt(299).blockname = 'State flow robot/Setting/Discrete-Time Integrator1';
+pt(299).paramname = 'gainval';
 pt(299).class     = 'scalar';
 pt(299).nrows     = 1;
 pt(299).ncols     = 1;
@@ -4780,15 +4780,15 @@ pt(299).subsource = 'SS_DOUBLE';
 pt(299).ndims     = '2';
 pt(299).size      = '[]';
 pt(299).isStruct  = false;
-pt(299).symbol     = 'StateFlowFinal_P.EtherCATPDOReceive14_P4';
-pt(299).baseaddr   = '&StateFlowFinal_P.EtherCATPDOReceive14_P4';
+pt(299).symbol     = 'StateFlowFinal_P.DiscreteTimeIntegrator1_gainv_o';
+pt(299).baseaddr   = '&StateFlowFinal_P.DiscreteTimeIntegrator1_gainv_o';
 pt(299).dtname     = 'real_T';
 
 
 
   
-pt(300).blockname = 'Sistema_braccia/Velocita braccia 1/EtherCAT PDO Receive14';
-pt(300).paramname = 'P5';
+pt(300).blockname = 'State flow robot/Setting/Discrete-Time Integrator1';
+pt(300).paramname = 'InitialCondition';
 pt(300).class     = 'scalar';
 pt(300).nrows     = 1;
 pt(300).ncols     = 1;
@@ -4796,15 +4796,15 @@ pt(300).subsource = 'SS_DOUBLE';
 pt(300).ndims     = '2';
 pt(300).size      = '[]';
 pt(300).isStruct  = false;
-pt(300).symbol     = 'StateFlowFinal_P.EtherCATPDOReceive14_P5';
-pt(300).baseaddr   = '&StateFlowFinal_P.EtherCATPDOReceive14_P5';
+pt(300).symbol     = 'StateFlowFinal_P.DiscreteTimeIntegrator1_IC_j';
+pt(300).baseaddr   = '&StateFlowFinal_P.DiscreteTimeIntegrator1_IC_j';
 pt(300).dtname     = 'real_T';
 
 
 
   
-pt(301).blockname = 'Sistema_braccia/Velocita braccia 1/EtherCAT PDO Receive14';
-pt(301).paramname = 'P6';
+pt(301).blockname = 'State flow robot/Setting/Gain';
+pt(301).paramname = 'Gain';
 pt(301).class     = 'scalar';
 pt(301).nrows     = 1;
 pt(301).ncols     = 1;
@@ -4812,15 +4812,15 @@ pt(301).subsource = 'SS_DOUBLE';
 pt(301).ndims     = '2';
 pt(301).size      = '[]';
 pt(301).isStruct  = false;
-pt(301).symbol     = 'StateFlowFinal_P.EtherCATPDOReceive14_P6';
-pt(301).baseaddr   = '&StateFlowFinal_P.EtherCATPDOReceive14_P6';
+pt(301).symbol     = 'StateFlowFinal_P.Gain_Gain_d';
+pt(301).baseaddr   = '&StateFlowFinal_P.Gain_Gain_d';
 pt(301).dtname     = 'real_T';
 
 
 
   
-pt(302).blockname = 'Sistema_braccia/Velocita braccia 1/EtherCAT PDO Receive14';
-pt(302).paramname = 'P7';
+pt(302).blockname = 'State flow robot/Setting/Gain1';
+pt(302).paramname = 'Gain';
 pt(302).class     = 'scalar';
 pt(302).nrows     = 1;
 pt(302).ncols     = 1;
@@ -4828,31 +4828,31 @@ pt(302).subsource = 'SS_DOUBLE';
 pt(302).ndims     = '2';
 pt(302).size      = '[]';
 pt(302).isStruct  = false;
-pt(302).symbol     = 'StateFlowFinal_P.EtherCATPDOReceive14_P7';
-pt(302).baseaddr   = '&StateFlowFinal_P.EtherCATPDOReceive14_P7';
+pt(302).symbol     = 'StateFlowFinal_P.Gain1_Gain_e';
+pt(302).baseaddr   = '&StateFlowFinal_P.Gain1_Gain_e';
 pt(302).dtname     = 'real_T';
 
 
 
   
-pt(303).blockname = 'Sistema_braccia/Velocita braccia 1/EtherCAT PDO Receive15';
-pt(303).paramname = 'P1';
-pt(303).class     = 'vector';
+pt(303).blockname = 'Sistema Vite/Actual A/Discrete Derivative A/TSamp';
+pt(303).paramname = 'WtEt';
+pt(303).class     = 'scalar';
 pt(303).nrows     = 1;
-pt(303).ncols     = 47;
+pt(303).ncols     = 1;
 pt(303).subsource = 'SS_DOUBLE';
 pt(303).ndims     = '2';
 pt(303).size      = '[]';
 pt(303).isStruct  = false;
-pt(303).symbol     = 'StateFlowFinal_P.EtherCATPDOReceive15_P1';
-pt(303).baseaddr   = '&StateFlowFinal_P.EtherCATPDOReceive15_P1[0]';
+pt(303).symbol     = 'StateFlowFinal_P.TSamp_WtEt_g';
+pt(303).baseaddr   = '&StateFlowFinal_P.TSamp_WtEt_g';
 pt(303).dtname     = 'real_T';
 
 
 
   
-pt(304).blockname = 'Sistema_braccia/Velocita braccia 1/EtherCAT PDO Receive15';
-pt(304).paramname = 'P2';
+pt(304).blockname = 'Sistema_braccia/Posizioni/Discrete Derivative B/TSamp';
+pt(304).paramname = 'WtEt';
 pt(304).class     = 'scalar';
 pt(304).nrows     = 1;
 pt(304).ncols     = 1;
@@ -4860,15 +4860,15 @@ pt(304).subsource = 'SS_DOUBLE';
 pt(304).ndims     = '2';
 pt(304).size      = '[]';
 pt(304).isStruct  = false;
-pt(304).symbol     = 'StateFlowFinal_P.EtherCATPDOReceive15_P2';
-pt(304).baseaddr   = '&StateFlowFinal_P.EtherCATPDOReceive15_P2';
+pt(304).symbol     = 'StateFlowFinal_P.TSamp_WtEt_e';
+pt(304).baseaddr   = '&StateFlowFinal_P.TSamp_WtEt_e';
 pt(304).dtname     = 'real_T';
 
 
 
   
-pt(305).blockname = 'Sistema_braccia/Velocita braccia 1/EtherCAT PDO Receive15';
-pt(305).paramname = 'P3';
+pt(305).blockname = 'Sistema_braccia/Posizioni/Discrete Derivative B1/TSamp';
+pt(305).paramname = 'WtEt';
 pt(305).class     = 'scalar';
 pt(305).nrows     = 1;
 pt(305).ncols     = 1;
@@ -4876,15 +4876,15 @@ pt(305).subsource = 'SS_DOUBLE';
 pt(305).ndims     = '2';
 pt(305).size      = '[]';
 pt(305).isStruct  = false;
-pt(305).symbol     = 'StateFlowFinal_P.EtherCATPDOReceive15_P3';
-pt(305).baseaddr   = '&StateFlowFinal_P.EtherCATPDOReceive15_P3';
+pt(305).symbol     = 'StateFlowFinal_P.TSamp_WtEt_gz';
+pt(305).baseaddr   = '&StateFlowFinal_P.TSamp_WtEt_gz';
 pt(305).dtname     = 'real_T';
 
 
 
   
-pt(306).blockname = 'Sistema_braccia/Velocita braccia 1/EtherCAT PDO Receive15';
-pt(306).paramname = 'P4';
+pt(306).blockname = 'Sistema_braccia/Posizioni/Discrete Derivative B2/TSamp';
+pt(306).paramname = 'WtEt';
 pt(306).class     = 'scalar';
 pt(306).nrows     = 1;
 pt(306).ncols     = 1;
@@ -4892,15 +4892,15 @@ pt(306).subsource = 'SS_DOUBLE';
 pt(306).ndims     = '2';
 pt(306).size      = '[]';
 pt(306).isStruct  = false;
-pt(306).symbol     = 'StateFlowFinal_P.EtherCATPDOReceive15_P4';
-pt(306).baseaddr   = '&StateFlowFinal_P.EtherCATPDOReceive15_P4';
+pt(306).symbol     = 'StateFlowFinal_P.TSamp_WtEt_m';
+pt(306).baseaddr   = '&StateFlowFinal_P.TSamp_WtEt_m';
 pt(306).dtname     = 'real_T';
 
 
 
   
-pt(307).blockname = 'Sistema_braccia/Velocita braccia 1/EtherCAT PDO Receive15';
-pt(307).paramname = 'P5';
+pt(307).blockname = 'Sistema_braccia/Posizioni/Discrete Derivative B3/TSamp';
+pt(307).paramname = 'WtEt';
 pt(307).class     = 'scalar';
 pt(307).nrows     = 1;
 pt(307).ncols     = 1;
@@ -4908,15 +4908,15 @@ pt(307).subsource = 'SS_DOUBLE';
 pt(307).ndims     = '2';
 pt(307).size      = '[]';
 pt(307).isStruct  = false;
-pt(307).symbol     = 'StateFlowFinal_P.EtherCATPDOReceive15_P5';
-pt(307).baseaddr   = '&StateFlowFinal_P.EtherCATPDOReceive15_P5';
+pt(307).symbol     = 'StateFlowFinal_P.TSamp_WtEt_gh';
+pt(307).baseaddr   = '&StateFlowFinal_P.TSamp_WtEt_gh';
 pt(307).dtname     = 'real_T';
 
 
 
   
-pt(308).blockname = 'Sistema_braccia/Velocita braccia 1/EtherCAT PDO Receive15';
-pt(308).paramname = 'P6';
+pt(308).blockname = 'Sistema_braccia/Posizioni/Discrete Derivative B4/TSamp';
+pt(308).paramname = 'WtEt';
 pt(308).class     = 'scalar';
 pt(308).nrows     = 1;
 pt(308).ncols     = 1;
@@ -4924,15 +4924,15 @@ pt(308).subsource = 'SS_DOUBLE';
 pt(308).ndims     = '2';
 pt(308).size      = '[]';
 pt(308).isStruct  = false;
-pt(308).symbol     = 'StateFlowFinal_P.EtherCATPDOReceive15_P6';
-pt(308).baseaddr   = '&StateFlowFinal_P.EtherCATPDOReceive15_P6';
+pt(308).symbol     = 'StateFlowFinal_P.TSamp_WtEt_d';
+pt(308).baseaddr   = '&StateFlowFinal_P.TSamp_WtEt_d';
 pt(308).dtname     = 'real_T';
 
 
 
   
-pt(309).blockname = 'Sistema_braccia/Velocita braccia 1/EtherCAT PDO Receive15';
-pt(309).paramname = 'P7';
+pt(309).blockname = 'Sistema_braccia/Posizioni/Discrete Derivative B5/TSamp';
+pt(309).paramname = 'WtEt';
 pt(309).class     = 'scalar';
 pt(309).nrows     = 1;
 pt(309).ncols     = 1;
@@ -4940,15 +4940,15 @@ pt(309).subsource = 'SS_DOUBLE';
 pt(309).ndims     = '2';
 pt(309).size      = '[]';
 pt(309).isStruct  = false;
-pt(309).symbol     = 'StateFlowFinal_P.EtherCATPDOReceive15_P7';
-pt(309).baseaddr   = '&StateFlowFinal_P.EtherCATPDOReceive15_P7';
+pt(309).symbol     = 'StateFlowFinal_P.TSamp_WtEt_p';
+pt(309).baseaddr   = '&StateFlowFinal_P.TSamp_WtEt_p';
 pt(309).dtname     = 'real_T';
 
 
 
   
-pt(310).blockname = 'State flow robot/Posizionamento/CoppiaA';
-pt(310).paramname = 'InitialOutput';
+pt(310).blockname = 'Sistema_braccia/Posizioni/Second-Order Filter/Model/D*u(k)';
+pt(310).paramname = 'Gain';
 pt(310).class     = 'scalar';
 pt(310).nrows     = 1;
 pt(310).ncols     = 1;
@@ -4956,15 +4956,15 @@ pt(310).subsource = 'SS_DOUBLE';
 pt(310).ndims     = '2';
 pt(310).size      = '[]';
 pt(310).isStruct  = false;
-pt(310).symbol     = 'StateFlowFinal_P.CoppiaA_Y0';
-pt(310).baseaddr   = '&StateFlowFinal_P.CoppiaA_Y0';
+pt(310).symbol     = 'StateFlowFinal_P.Duk_Gain_h';
+pt(310).baseaddr   = '&StateFlowFinal_P.Duk_Gain_h';
 pt(310).dtname     = 'real_T';
 
 
 
   
-pt(311).blockname = 'State flow robot/Posizionamento/CoppiaB';
-pt(311).paramname = 'InitialOutput';
+pt(311).blockname = 'Sistema_braccia/Posizioni/Second-Order Filter/Model/Delay_x1';
+pt(311).paramname = 'InitialCondition';
 pt(311).class     = 'scalar';
 pt(311).nrows     = 1;
 pt(311).ncols     = 1;
@@ -4972,15 +4972,15 @@ pt(311).subsource = 'SS_DOUBLE';
 pt(311).ndims     = '2';
 pt(311).size      = '[]';
 pt(311).isStruct  = false;
-pt(311).symbol     = 'StateFlowFinal_P.CoppiaB_Y0';
-pt(311).baseaddr   = '&StateFlowFinal_P.CoppiaB_Y0';
+pt(311).symbol     = 'StateFlowFinal_P.Delay_x1_InitialCondition_l';
+pt(311).baseaddr   = '&StateFlowFinal_P.Delay_x1_InitialCondition_l';
 pt(311).dtname     = 'real_T';
 
 
 
   
-pt(312).blockname = 'State flow robot/Posizionamento/Discrete-Time Integrator';
-pt(312).paramname = 'gainval';
+pt(312).blockname = 'Sistema_braccia/Posizioni/Second-Order Filter/Model/Delay_x2';
+pt(312).paramname = 'InitialCondition';
 pt(312).class     = 'scalar';
 pt(312).nrows     = 1;
 pt(312).ncols     = 1;
@@ -4988,15 +4988,15 @@ pt(312).subsource = 'SS_DOUBLE';
 pt(312).ndims     = '2';
 pt(312).size      = '[]';
 pt(312).isStruct  = false;
-pt(312).symbol     = 'StateFlowFinal_P.DiscreteTimeIntegrator_gainval';
-pt(312).baseaddr   = '&StateFlowFinal_P.DiscreteTimeIntegrator_gainval';
+pt(312).symbol     = 'StateFlowFinal_P.Delay_x2_InitialCondition_l';
+pt(312).baseaddr   = '&StateFlowFinal_P.Delay_x2_InitialCondition_l';
 pt(312).dtname     = 'real_T';
 
 
 
   
-pt(313).blockname = 'State flow robot/Posizionamento/Discrete-Time Integrator';
-pt(313).paramname = 'InitialCondition';
+pt(313).blockname = 'Sistema_braccia/Posizioni/Second-Order Filter1/Model/D*u(k)';
+pt(313).paramname = 'Gain';
 pt(313).class     = 'scalar';
 pt(313).nrows     = 1;
 pt(313).ncols     = 1;
@@ -5004,15 +5004,15 @@ pt(313).subsource = 'SS_DOUBLE';
 pt(313).ndims     = '2';
 pt(313).size      = '[]';
 pt(313).isStruct  = false;
-pt(313).symbol     = 'StateFlowFinal_P.DiscreteTimeIntegrator_IC';
-pt(313).baseaddr   = '&StateFlowFinal_P.DiscreteTimeIntegrator_IC';
+pt(313).symbol     = 'StateFlowFinal_P.Duk_Gain';
+pt(313).baseaddr   = '&StateFlowFinal_P.Duk_Gain';
 pt(313).dtname     = 'real_T';
 
 
 
   
-pt(314).blockname = 'State flow robot/Posizionamento/Discrete-Time Integrator1';
-pt(314).paramname = 'gainval';
+pt(314).blockname = 'Sistema_braccia/Posizioni/Second-Order Filter1/Model/Delay_x1';
+pt(314).paramname = 'InitialCondition';
 pt(314).class     = 'scalar';
 pt(314).nrows     = 1;
 pt(314).ncols     = 1;
@@ -5020,14 +5020,14 @@ pt(314).subsource = 'SS_DOUBLE';
 pt(314).ndims     = '2';
 pt(314).size      = '[]';
 pt(314).isStruct  = false;
-pt(314).symbol     = 'StateFlowFinal_P.DiscreteTimeIntegrator1_gainval';
-pt(314).baseaddr   = '&StateFlowFinal_P.DiscreteTimeIntegrator1_gainval';
+pt(314).symbol     = 'StateFlowFinal_P.Delay_x1_InitialCondition';
+pt(314).baseaddr   = '&StateFlowFinal_P.Delay_x1_InitialCondition';
 pt(314).dtname     = 'real_T';
 
 
 
   
-pt(315).blockname = 'State flow robot/Posizionamento/Discrete-Time Integrator1';
+pt(315).blockname = 'Sistema_braccia/Posizioni/Second-Order Filter1/Model/Delay_x2';
 pt(315).paramname = 'InitialCondition';
 pt(315).class     = 'scalar';
 pt(315).nrows     = 1;
@@ -5036,14 +5036,14 @@ pt(315).subsource = 'SS_DOUBLE';
 pt(315).ndims     = '2';
 pt(315).size      = '[]';
 pt(315).isStruct  = false;
-pt(315).symbol     = 'StateFlowFinal_P.DiscreteTimeIntegrator1_IC';
-pt(315).baseaddr   = '&StateFlowFinal_P.DiscreteTimeIntegrator1_IC';
+pt(315).symbol     = 'StateFlowFinal_P.Delay_x2_InitialCondition';
+pt(315).baseaddr   = '&StateFlowFinal_P.Delay_x2_InitialCondition';
 pt(315).dtname     = 'real_T';
 
 
 
   
-pt(316).blockname = 'State flow robot/Posizionamento/Conversione in gradi ';
+pt(316).blockname = 'Sistema_braccia/Posizioni/Second-Order Filter2/Model/D*u(k)';
 pt(316).paramname = 'Gain';
 pt(316).class     = 'scalar';
 pt(316).nrows     = 1;
@@ -5052,15 +5052,15 @@ pt(316).subsource = 'SS_DOUBLE';
 pt(316).ndims     = '2';
 pt(316).size      = '[]';
 pt(316).isStruct  = false;
-pt(316).symbol     = 'StateFlowFinal_P.Conversioneingradi_Gain';
-pt(316).baseaddr   = '&StateFlowFinal_P.Conversioneingradi_Gain';
+pt(316).symbol     = 'StateFlowFinal_P.Duk_Gain_g';
+pt(316).baseaddr   = '&StateFlowFinal_P.Duk_Gain_g';
 pt(316).dtname     = 'real_T';
 
 
 
   
-pt(317).blockname = 'State flow robot/Posizionamento/Gain1';
-pt(317).paramname = 'Gain';
+pt(317).blockname = 'Sistema_braccia/Posizioni/Second-Order Filter2/Model/Delay_x1';
+pt(317).paramname = 'InitialCondition';
 pt(317).class     = 'scalar';
 pt(317).nrows     = 1;
 pt(317).ncols     = 1;
@@ -5068,15 +5068,15 @@ pt(317).subsource = 'SS_DOUBLE';
 pt(317).ndims     = '2';
 pt(317).size      = '[]';
 pt(317).isStruct  = false;
-pt(317).symbol     = 'StateFlowFinal_P.Gain1_Gain';
-pt(317).baseaddr   = '&StateFlowFinal_P.Gain1_Gain';
+pt(317).symbol     = 'StateFlowFinal_P.Delay_x1_InitialCondition_n';
+pt(317).baseaddr   = '&StateFlowFinal_P.Delay_x1_InitialCondition_n';
 pt(317).dtname     = 'real_T';
 
 
 
   
-pt(318).blockname = 'State flow robot/Posizionamento/Ki1';
-pt(318).paramname = 'Gain';
+pt(318).blockname = 'Sistema_braccia/Posizioni/Second-Order Filter2/Model/Delay_x2';
+pt(318).paramname = 'InitialCondition';
 pt(318).class     = 'scalar';
 pt(318).nrows     = 1;
 pt(318).ncols     = 1;
@@ -5084,14 +5084,14 @@ pt(318).subsource = 'SS_DOUBLE';
 pt(318).ndims     = '2';
 pt(318).size      = '[]';
 pt(318).isStruct  = false;
-pt(318).symbol     = 'StateFlowFinal_P.Ki1_Gain';
-pt(318).baseaddr   = '&StateFlowFinal_P.Ki1_Gain';
+pt(318).symbol     = 'StateFlowFinal_P.Delay_x2_InitialCondition_e';
+pt(318).baseaddr   = '&StateFlowFinal_P.Delay_x2_InitialCondition_e';
 pt(318).dtname     = 'real_T';
 
 
 
   
-pt(319).blockname = 'State flow robot/Posizionamento/Ki2';
+pt(319).blockname = 'Sistema_braccia/Posizioni/Second-Order Filter/Model/A*k(k-1)/A11';
 pt(319).paramname = 'Gain';
 pt(319).class     = 'scalar';
 pt(319).nrows     = 1;
@@ -5100,14 +5100,14 @@ pt(319).subsource = 'SS_DOUBLE';
 pt(319).ndims     = '2';
 pt(319).size      = '[]';
 pt(319).isStruct  = false;
-pt(319).symbol     = 'StateFlowFinal_P.Ki2_Gain';
-pt(319).baseaddr   = '&StateFlowFinal_P.Ki2_Gain';
+pt(319).symbol     = 'StateFlowFinal_P.A11_Gain_e';
+pt(319).baseaddr   = '&StateFlowFinal_P.A11_Gain_e';
 pt(319).dtname     = 'real_T';
 
 
 
   
-pt(320).blockname = 'State flow robot/Posizionamento/Kp1';
+pt(320).blockname = 'Sistema_braccia/Posizioni/Second-Order Filter/Model/A*k(k-1)/A12';
 pt(320).paramname = 'Gain';
 pt(320).class     = 'scalar';
 pt(320).nrows     = 1;
@@ -5116,14 +5116,14 @@ pt(320).subsource = 'SS_DOUBLE';
 pt(320).ndims     = '2';
 pt(320).size      = '[]';
 pt(320).isStruct  = false;
-pt(320).symbol     = 'StateFlowFinal_P.Kp1_Gain';
-pt(320).baseaddr   = '&StateFlowFinal_P.Kp1_Gain';
+pt(320).symbol     = 'StateFlowFinal_P.A12_Gain_a';
+pt(320).baseaddr   = '&StateFlowFinal_P.A12_Gain_a';
 pt(320).dtname     = 'real_T';
 
 
 
   
-pt(321).blockname = 'State flow robot/Posizionamento/Kp2';
+pt(321).blockname = 'Sistema_braccia/Posizioni/Second-Order Filter/Model/A*k(k-1)/A21';
 pt(321).paramname = 'Gain';
 pt(321).class     = 'scalar';
 pt(321).nrows     = 1;
@@ -5132,15 +5132,15 @@ pt(321).subsource = 'SS_DOUBLE';
 pt(321).ndims     = '2';
 pt(321).size      = '[]';
 pt(321).isStruct  = false;
-pt(321).symbol     = 'StateFlowFinal_P.Kp2_Gain';
-pt(321).baseaddr   = '&StateFlowFinal_P.Kp2_Gain';
+pt(321).symbol     = 'StateFlowFinal_P.A21_Gain_m';
+pt(321).baseaddr   = '&StateFlowFinal_P.A21_Gain_m';
 pt(321).dtname     = 'real_T';
 
 
 
   
-pt(322).blockname = 'State flow robot/Setting/CA';
-pt(322).paramname = 'InitialOutput';
+pt(322).blockname = 'Sistema_braccia/Posizioni/Second-Order Filter/Model/A*k(k-1)/A22';
+pt(322).paramname = 'Gain';
 pt(322).class     = 'scalar';
 pt(322).nrows     = 1;
 pt(322).ncols     = 1;
@@ -5148,15 +5148,15 @@ pt(322).subsource = 'SS_DOUBLE';
 pt(322).ndims     = '2';
 pt(322).size      = '[]';
 pt(322).isStruct  = false;
-pt(322).symbol     = 'StateFlowFinal_P.CA_Y0';
-pt(322).baseaddr   = '&StateFlowFinal_P.CA_Y0';
+pt(322).symbol     = 'StateFlowFinal_P.A22_Gain_g';
+pt(322).baseaddr   = '&StateFlowFinal_P.A22_Gain_g';
 pt(322).dtname     = 'real_T';
 
 
 
   
-pt(323).blockname = 'State flow robot/Setting/CB';
-pt(323).paramname = 'InitialOutput';
+pt(323).blockname = 'Sistema_braccia/Posizioni/Second-Order Filter/Model/B*(u(k)+u(k-1))/B11';
+pt(323).paramname = 'Gain';
 pt(323).class     = 'scalar';
 pt(323).nrows     = 1;
 pt(323).ncols     = 1;
@@ -5164,15 +5164,15 @@ pt(323).subsource = 'SS_DOUBLE';
 pt(323).ndims     = '2';
 pt(323).size      = '[]';
 pt(323).isStruct  = false;
-pt(323).symbol     = 'StateFlowFinal_P.CB_Y0';
-pt(323).baseaddr   = '&StateFlowFinal_P.CB_Y0';
+pt(323).symbol     = 'StateFlowFinal_P.B11_Gain_f';
+pt(323).baseaddr   = '&StateFlowFinal_P.B11_Gain_f';
 pt(323).dtname     = 'real_T';
 
 
 
   
-pt(324).blockname = 'State flow robot/Setting/CH';
-pt(324).paramname = 'InitialOutput';
+pt(324).blockname = 'Sistema_braccia/Posizioni/Second-Order Filter/Model/B*(u(k)+u(k-1))/B21';
+pt(324).paramname = 'Gain';
 pt(324).class     = 'scalar';
 pt(324).nrows     = 1;
 pt(324).ncols     = 1;
@@ -5180,15 +5180,15 @@ pt(324).subsource = 'SS_DOUBLE';
 pt(324).ndims     = '2';
 pt(324).size      = '[]';
 pt(324).isStruct  = false;
-pt(324).symbol     = 'StateFlowFinal_P.CH_Y0';
-pt(324).baseaddr   = '&StateFlowFinal_P.CH_Y0';
+pt(324).symbol     = 'StateFlowFinal_P.B21_Gain_p';
+pt(324).baseaddr   = '&StateFlowFinal_P.B21_Gain_p';
 pt(324).dtname     = 'real_T';
 
 
 
   
-pt(325).blockname = 'State flow robot/Setting/Ki';
-pt(325).paramname = 'Value';
+pt(325).blockname = 'Sistema_braccia/Posizioni/Second-Order Filter/Model/C*x(k)/C11';
+pt(325).paramname = 'Gain';
 pt(325).class     = 'scalar';
 pt(325).nrows     = 1;
 pt(325).ncols     = 1;
@@ -5196,15 +5196,15 @@ pt(325).subsource = 'SS_DOUBLE';
 pt(325).ndims     = '2';
 pt(325).size      = '[]';
 pt(325).isStruct  = false;
-pt(325).symbol     = 'StateFlowFinal_P.Ki_Value';
-pt(325).baseaddr   = '&StateFlowFinal_P.Ki_Value';
+pt(325).symbol     = 'StateFlowFinal_P.C11_Gain_n';
+pt(325).baseaddr   = '&StateFlowFinal_P.C11_Gain_n';
 pt(325).dtname     = 'real_T';
 
 
 
   
-pt(326).blockname = 'State flow robot/Setting/Kp';
-pt(326).paramname = 'Value';
+pt(326).blockname = 'Sistema_braccia/Posizioni/Second-Order Filter/Model/C*x(k)/C12';
+pt(326).paramname = 'Gain';
 pt(326).class     = 'scalar';
 pt(326).nrows     = 1;
 pt(326).ncols     = 1;
@@ -5212,15 +5212,15 @@ pt(326).subsource = 'SS_DOUBLE';
 pt(326).ndims     = '2';
 pt(326).size      = '[]';
 pt(326).isStruct  = false;
-pt(326).symbol     = 'StateFlowFinal_P.Kp_Value';
-pt(326).baseaddr   = '&StateFlowFinal_P.Kp_Value';
+pt(326).symbol     = 'StateFlowFinal_P.C12_Gain_d';
+pt(326).baseaddr   = '&StateFlowFinal_P.C12_Gain_d';
 pt(326).dtname     = 'real_T';
 
 
 
   
-pt(327).blockname = 'State flow robot/Setting/Discrete-Time Integrator';
-pt(327).paramname = 'gainval';
+pt(327).blockname = 'Sistema_braccia/Posizioni/Second-Order Filter1/Model/A*k(k-1)/A11';
+pt(327).paramname = 'Gain';
 pt(327).class     = 'scalar';
 pt(327).nrows     = 1;
 pt(327).ncols     = 1;
@@ -5228,15 +5228,15 @@ pt(327).subsource = 'SS_DOUBLE';
 pt(327).ndims     = '2';
 pt(327).size      = '[]';
 pt(327).isStruct  = false;
-pt(327).symbol     = 'StateFlowFinal_P.DiscreteTimeIntegrator_gainva_l';
-pt(327).baseaddr   = '&StateFlowFinal_P.DiscreteTimeIntegrator_gainva_l';
+pt(327).symbol     = 'StateFlowFinal_P.A11_Gain';
+pt(327).baseaddr   = '&StateFlowFinal_P.A11_Gain';
 pt(327).dtname     = 'real_T';
 
 
 
   
-pt(328).blockname = 'State flow robot/Setting/Discrete-Time Integrator';
-pt(328).paramname = 'InitialCondition';
+pt(328).blockname = 'Sistema_braccia/Posizioni/Second-Order Filter1/Model/A*k(k-1)/A12';
+pt(328).paramname = 'Gain';
 pt(328).class     = 'scalar';
 pt(328).nrows     = 1;
 pt(328).ncols     = 1;
@@ -5244,15 +5244,15 @@ pt(328).subsource = 'SS_DOUBLE';
 pt(328).ndims     = '2';
 pt(328).size      = '[]';
 pt(328).isStruct  = false;
-pt(328).symbol     = 'StateFlowFinal_P.DiscreteTimeIntegrator_IC_e';
-pt(328).baseaddr   = '&StateFlowFinal_P.DiscreteTimeIntegrator_IC_e';
+pt(328).symbol     = 'StateFlowFinal_P.A12_Gain';
+pt(328).baseaddr   = '&StateFlowFinal_P.A12_Gain';
 pt(328).dtname     = 'real_T';
 
 
 
   
-pt(329).blockname = 'State flow robot/Setting/Discrete-Time Integrator1';
-pt(329).paramname = 'gainval';
+pt(329).blockname = 'Sistema_braccia/Posizioni/Second-Order Filter1/Model/A*k(k-1)/A21';
+pt(329).paramname = 'Gain';
 pt(329).class     = 'scalar';
 pt(329).nrows     = 1;
 pt(329).ncols     = 1;
@@ -5260,15 +5260,15 @@ pt(329).subsource = 'SS_DOUBLE';
 pt(329).ndims     = '2';
 pt(329).size      = '[]';
 pt(329).isStruct  = false;
-pt(329).symbol     = 'StateFlowFinal_P.DiscreteTimeIntegrator1_gainv_o';
-pt(329).baseaddr   = '&StateFlowFinal_P.DiscreteTimeIntegrator1_gainv_o';
+pt(329).symbol     = 'StateFlowFinal_P.A21_Gain';
+pt(329).baseaddr   = '&StateFlowFinal_P.A21_Gain';
 pt(329).dtname     = 'real_T';
 
 
 
   
-pt(330).blockname = 'State flow robot/Setting/Discrete-Time Integrator1';
-pt(330).paramname = 'InitialCondition';
+pt(330).blockname = 'Sistema_braccia/Posizioni/Second-Order Filter1/Model/A*k(k-1)/A22';
+pt(330).paramname = 'Gain';
 pt(330).class     = 'scalar';
 pt(330).nrows     = 1;
 pt(330).ncols     = 1;
@@ -5276,14 +5276,14 @@ pt(330).subsource = 'SS_DOUBLE';
 pt(330).ndims     = '2';
 pt(330).size      = '[]';
 pt(330).isStruct  = false;
-pt(330).symbol     = 'StateFlowFinal_P.DiscreteTimeIntegrator1_IC_j';
-pt(330).baseaddr   = '&StateFlowFinal_P.DiscreteTimeIntegrator1_IC_j';
+pt(330).symbol     = 'StateFlowFinal_P.A22_Gain';
+pt(330).baseaddr   = '&StateFlowFinal_P.A22_Gain';
 pt(330).dtname     = 'real_T';
 
 
 
   
-pt(331).blockname = 'State flow robot/Setting/Gain';
+pt(331).blockname = 'Sistema_braccia/Posizioni/Second-Order Filter1/Model/B*(u(k)+u(k-1))/B11';
 pt(331).paramname = 'Gain';
 pt(331).class     = 'scalar';
 pt(331).nrows     = 1;
@@ -5292,14 +5292,14 @@ pt(331).subsource = 'SS_DOUBLE';
 pt(331).ndims     = '2';
 pt(331).size      = '[]';
 pt(331).isStruct  = false;
-pt(331).symbol     = 'StateFlowFinal_P.Gain_Gain_d';
-pt(331).baseaddr   = '&StateFlowFinal_P.Gain_Gain_d';
+pt(331).symbol     = 'StateFlowFinal_P.B11_Gain';
+pt(331).baseaddr   = '&StateFlowFinal_P.B11_Gain';
 pt(331).dtname     = 'real_T';
 
 
 
   
-pt(332).blockname = 'State flow robot/Setting/Gain1';
+pt(332).blockname = 'Sistema_braccia/Posizioni/Second-Order Filter1/Model/B*(u(k)+u(k-1))/B21';
 pt(332).paramname = 'Gain';
 pt(332).class     = 'scalar';
 pt(332).nrows     = 1;
@@ -5308,15 +5308,15 @@ pt(332).subsource = 'SS_DOUBLE';
 pt(332).ndims     = '2';
 pt(332).size      = '[]';
 pt(332).isStruct  = false;
-pt(332).symbol     = 'StateFlowFinal_P.Gain1_Gain_e';
-pt(332).baseaddr   = '&StateFlowFinal_P.Gain1_Gain_e';
+pt(332).symbol     = 'StateFlowFinal_P.B21_Gain';
+pt(332).baseaddr   = '&StateFlowFinal_P.B21_Gain';
 pt(332).dtname     = 'real_T';
 
 
 
   
-pt(333).blockname = 'Sistema Vite/Actual A/Discrete Derivative A/TSamp';
-pt(333).paramname = 'WtEt';
+pt(333).blockname = 'Sistema_braccia/Posizioni/Second-Order Filter1/Model/C*x(k)/C11';
+pt(333).paramname = 'Gain';
 pt(333).class     = 'scalar';
 pt(333).nrows     = 1;
 pt(333).ncols     = 1;
@@ -5324,15 +5324,15 @@ pt(333).subsource = 'SS_DOUBLE';
 pt(333).ndims     = '2';
 pt(333).size      = '[]';
 pt(333).isStruct  = false;
-pt(333).symbol     = 'StateFlowFinal_P.TSamp_WtEt_g';
-pt(333).baseaddr   = '&StateFlowFinal_P.TSamp_WtEt_g';
+pt(333).symbol     = 'StateFlowFinal_P.C11_Gain';
+pt(333).baseaddr   = '&StateFlowFinal_P.C11_Gain';
 pt(333).dtname     = 'real_T';
 
 
 
   
-pt(334).blockname = 'Sistema_braccia/Kalman Filter1/CalculatePL/ConstantP';
-pt(334).paramname = 'Value';
+pt(334).blockname = 'Sistema_braccia/Posizioni/Second-Order Filter1/Model/C*x(k)/C12';
+pt(334).paramname = 'Gain';
 pt(334).class     = 'scalar';
 pt(334).nrows     = 1;
 pt(334).ncols     = 1;
@@ -5340,127 +5340,127 @@ pt(334).subsource = 'SS_DOUBLE';
 pt(334).ndims     = '2';
 pt(334).size      = '[]';
 pt(334).isStruct  = false;
-pt(334).symbol     = 'StateFlowFinal_P.ConstantP_Value';
-pt(334).baseaddr   = '&StateFlowFinal_P.ConstantP_Value';
+pt(334).symbol     = 'StateFlowFinal_P.C12_Gain';
+pt(334).baseaddr   = '&StateFlowFinal_P.C12_Gain';
 pt(334).dtname     = 'real_T';
 
 
 
   
-pt(335).blockname = 'Sistema_braccia/Kalman Filter1/CalculatePL/CovarianceZ';
-pt(335).paramname = 'Value';
-pt(335).class     = 'col-mat';
-pt(335).nrows     = 2;
-pt(335).ncols     = 2;
+pt(335).blockname = 'Sistema_braccia/Posizioni/Second-Order Filter2/Model/A*k(k-1)/A11';
+pt(335).paramname = 'Gain';
+pt(335).class     = 'scalar';
+pt(335).nrows     = 1;
+pt(335).ncols     = 1;
 pt(335).subsource = 'SS_DOUBLE';
 pt(335).ndims     = '2';
 pt(335).size      = '[]';
 pt(335).isStruct  = false;
-pt(335).symbol     = 'StateFlowFinal_P.CovarianceZ_Value';
-pt(335).baseaddr   = '&StateFlowFinal_P.CovarianceZ_Value[0]';
+pt(335).symbol     = 'StateFlowFinal_P.A11_Gain_h';
+pt(335).baseaddr   = '&StateFlowFinal_P.A11_Gain_h';
 pt(335).dtname     = 'real_T';
 
 
 
   
-pt(336).blockname = 'Sistema_braccia/Kalman Filter1/CalculatePL/KalmanGainL';
-pt(336).paramname = 'Value';
-pt(336).class     = 'vector';
-pt(336).nrows     = 2;
+pt(336).blockname = 'Sistema_braccia/Posizioni/Second-Order Filter2/Model/A*k(k-1)/A12';
+pt(336).paramname = 'Gain';
+pt(336).class     = 'scalar';
+pt(336).nrows     = 1;
 pt(336).ncols     = 1;
 pt(336).subsource = 'SS_DOUBLE';
 pt(336).ndims     = '2';
 pt(336).size      = '[]';
 pt(336).isStruct  = false;
-pt(336).symbol     = 'StateFlowFinal_P.KalmanGainL_Value';
-pt(336).baseaddr   = '&StateFlowFinal_P.KalmanGainL_Value[0]';
+pt(336).symbol     = 'StateFlowFinal_P.A12_Gain_a3';
+pt(336).baseaddr   = '&StateFlowFinal_P.A12_Gain_a3';
 pt(336).dtname     = 'real_T';
 
 
 
   
-pt(337).blockname = 'Sistema_braccia/Kalman Filter1/CalculatePL/KalmanGainM';
-pt(337).paramname = 'Value';
-pt(337).class     = 'vector';
-pt(337).nrows     = 2;
+pt(337).blockname = 'Sistema_braccia/Posizioni/Second-Order Filter2/Model/A*k(k-1)/A21';
+pt(337).paramname = 'Gain';
+pt(337).class     = 'scalar';
+pt(337).nrows     = 1;
 pt(337).ncols     = 1;
 pt(337).subsource = 'SS_DOUBLE';
 pt(337).ndims     = '2';
 pt(337).size      = '[]';
 pt(337).isStruct  = false;
-pt(337).symbol     = 'StateFlowFinal_P.KalmanGainM_Value_n';
-pt(337).baseaddr   = '&StateFlowFinal_P.KalmanGainM_Value_n[0]';
+pt(337).symbol     = 'StateFlowFinal_P.A21_Gain_f';
+pt(337).baseaddr   = '&StateFlowFinal_P.A21_Gain_f';
 pt(337).dtname     = 'real_T';
 
 
 
   
-pt(338).blockname = 'Sistema_braccia/Kalman Filter1/ReducedQRN/Constant';
-pt(338).paramname = 'Value';
+pt(338).blockname = 'Sistema_braccia/Posizioni/Second-Order Filter2/Model/A*k(k-1)/A22';
+pt(338).paramname = 'Gain';
 pt(338).class     = 'scalar';
 pt(338).nrows     = 1;
 pt(338).ncols     = 1;
-pt(338).subsource = 'SS_SINGLE';
+pt(338).subsource = 'SS_DOUBLE';
 pt(338).ndims     = '2';
 pt(338).size      = '[]';
 pt(338).isStruct  = false;
-pt(338).symbol     = 'StateFlowFinal_P.Constant_Value_bx';
-pt(338).baseaddr   = '&StateFlowFinal_P.Constant_Value_bx';
-pt(338).dtname     = 'real32_T';
+pt(338).symbol     = 'StateFlowFinal_P.A22_Gain_d';
+pt(338).baseaddr   = '&StateFlowFinal_P.A22_Gain_d';
+pt(338).dtname     = 'real_T';
 
 
 
   
-pt(339).blockname = 'Sistema_braccia/Kalman Filter1/checku/CheckSignalProperties';
-pt(339).paramname = 'P1';
-pt(339).class     = 'vector';
+pt(339).blockname = 'Sistema_braccia/Posizioni/Second-Order Filter2/Model/B*(u(k)+u(k-1))/B11';
+pt(339).paramname = 'Gain';
+pt(339).class     = 'scalar';
 pt(339).nrows     = 1;
-pt(339).ncols     = 45;
-pt(339).subsource = 'SS_UINT16';
+pt(339).ncols     = 1;
+pt(339).subsource = 'SS_DOUBLE';
 pt(339).ndims     = '2';
 pt(339).size      = '[]';
 pt(339).isStruct  = false;
-pt(339).symbol     = 'StateFlowFinal_P.CheckSignalProperties_P1';
-pt(339).baseaddr   = '&StateFlowFinal_P.CheckSignalProperties_P1[0]';
-pt(339).dtname     = 'uint16_T';
+pt(339).symbol     = 'StateFlowFinal_P.B11_Gain_n';
+pt(339).baseaddr   = '&StateFlowFinal_P.B11_Gain_n';
+pt(339).dtname     = 'real_T';
 
 
 
   
-pt(340).blockname = 'Sistema_braccia/Kalman Filter1/checku/CheckSignalProperties';
-pt(340).paramname = 'P2';
+pt(340).blockname = 'Sistema_braccia/Posizioni/Second-Order Filter2/Model/B*(u(k)+u(k-1))/B21';
+pt(340).paramname = 'Gain';
 pt(340).class     = 'scalar';
 pt(340).nrows     = 1;
 pt(340).ncols     = 1;
-pt(340).subsource = 'SS_UINT16';
+pt(340).subsource = 'SS_DOUBLE';
 pt(340).ndims     = '2';
 pt(340).size      = '[]';
 pt(340).isStruct  = false;
-pt(340).symbol     = 'StateFlowFinal_P.CheckSignalProperties_P2';
-pt(340).baseaddr   = '&StateFlowFinal_P.CheckSignalProperties_P2';
-pt(340).dtname     = 'uint16_T';
+pt(340).symbol     = 'StateFlowFinal_P.B21_Gain_l';
+pt(340).baseaddr   = '&StateFlowFinal_P.B21_Gain_l';
+pt(340).dtname     = 'real_T';
 
 
 
   
-pt(341).blockname = 'Sistema_braccia/Kalman Filter1/checku/CheckSignalProperties';
-pt(341).paramname = 'P3';
+pt(341).blockname = 'Sistema_braccia/Posizioni/Second-Order Filter2/Model/C*x(k)/C11';
+pt(341).paramname = 'Gain';
 pt(341).class     = 'scalar';
 pt(341).nrows     = 1;
 pt(341).ncols     = 1;
-pt(341).subsource = 'SS_BOOLEAN';
+pt(341).subsource = 'SS_DOUBLE';
 pt(341).ndims     = '2';
 pt(341).size      = '[]';
 pt(341).isStruct  = false;
-pt(341).symbol     = 'StateFlowFinal_P.CheckSignalProperties_P3';
-pt(341).baseaddr   = '&StateFlowFinal_P.CheckSignalProperties_P3';
-pt(341).dtname     = 'boolean_T';
+pt(341).symbol     = 'StateFlowFinal_P.C11_Gain_g';
+pt(341).baseaddr   = '&StateFlowFinal_P.C11_Gain_g';
+pt(341).dtname     = 'real_T';
 
 
 
   
-pt(342).blockname = 'Sistema_braccia/Kalman Filter1/checku/CheckSignalProperties';
-pt(342).paramname = 'P4';
+pt(342).blockname = 'Sistema_braccia/Posizioni/Second-Order Filter2/Model/C*x(k)/C12';
+pt(342).paramname = 'Gain';
 pt(342).class     = 'scalar';
 pt(342).nrows     = 1;
 pt(342).ncols     = 1;
@@ -5468,1227 +5468,11 @@ pt(342).subsource = 'SS_DOUBLE';
 pt(342).ndims     = '2';
 pt(342).size      = '[]';
 pt(342).isStruct  = false;
-pt(342).symbol     = 'StateFlowFinal_P.CheckSignalProperties_P4';
-pt(342).baseaddr   = '&StateFlowFinal_P.CheckSignalProperties_P4';
+pt(342).symbol     = 'StateFlowFinal_P.C12_Gain_d1';
+pt(342).baseaddr   = '&StateFlowFinal_P.C12_Gain_d1';
 pt(342).dtname     = 'real_T';
 
 
-
-  
-pt(343).blockname = 'Sistema_braccia/Kalman Filter1/checku/CheckSignalProperties';
-pt(343).paramname = 'P5';
-pt(343).class     = 'scalar';
-pt(343).nrows     = 1;
-pt(343).ncols     = 1;
-pt(343).subsource = 'SS_INT32';
-pt(343).ndims     = '2';
-pt(343).size      = '[]';
-pt(343).isStruct  = false;
-pt(343).symbol     = 'StateFlowFinal_P.CheckSignalProperties_P5';
-pt(343).baseaddr   = '&StateFlowFinal_P.CheckSignalProperties_P5';
-pt(343).dtname     = 'int32_T';
-
-
-
-  
-pt(344).blockname = 'Sistema_braccia/Kalman Filter1/checku/CheckSignalProperties';
-pt(344).paramname = 'P6';
-pt(344).class     = 'scalar';
-pt(344).nrows     = 1;
-pt(344).ncols     = 1;
-pt(344).subsource = 'SS_INT32';
-pt(344).ndims     = '2';
-pt(344).size      = '[]';
-pt(344).isStruct  = false;
-pt(344).symbol     = 'StateFlowFinal_P.CheckSignalProperties_P6';
-pt(344).baseaddr   = '&StateFlowFinal_P.CheckSignalProperties_P6';
-pt(344).dtname     = 'int32_T';
-
-
-
-  
-pt(345).blockname = 'Sistema_braccia/Kalman Filter1/checku/CheckSignalProperties';
-pt(345).paramname = 'P7';
-pt(345).class     = 'scalar';
-pt(345).nrows     = 1;
-pt(345).ncols     = 1;
-pt(345).subsource = 'SS_INT32';
-pt(345).ndims     = '2';
-pt(345).size      = '[]';
-pt(345).isStruct  = false;
-pt(345).symbol     = 'StateFlowFinal_P.CheckSignalProperties_P7';
-pt(345).baseaddr   = '&StateFlowFinal_P.CheckSignalProperties_P7';
-pt(345).dtname     = 'int32_T';
-
-
-
-  
-pt(346).blockname = 'Sistema_braccia/Kalman Filter1/checku/CheckSignalProperties';
-pt(346).paramname = 'P8';
-pt(346).class     = 'scalar';
-pt(346).nrows     = 1;
-pt(346).ncols     = 1;
-pt(346).subsource = 'SS_INT32';
-pt(346).ndims     = '2';
-pt(346).size      = '[]';
-pt(346).isStruct  = false;
-pt(346).symbol     = 'StateFlowFinal_P.CheckSignalProperties_P8';
-pt(346).baseaddr   = '&StateFlowFinal_P.CheckSignalProperties_P8';
-pt(346).dtname     = 'int32_T';
-
-
-
-  
-pt(347).blockname = 'Sistema_braccia/Kalman Filter1/checky/CheckSignalProperties';
-pt(347).paramname = 'P1';
-pt(347).class     = 'vector';
-pt(347).nrows     = 1;
-pt(347).ncols     = 45;
-pt(347).subsource = 'SS_UINT16';
-pt(347).ndims     = '2';
-pt(347).size      = '[]';
-pt(347).isStruct  = false;
-pt(347).symbol     = 'StateFlowFinal_P.CheckSignalProperties_P1_d';
-pt(347).baseaddr   = '&StateFlowFinal_P.CheckSignalProperties_P1_d[0]';
-pt(347).dtname     = 'uint16_T';
-
-
-
-  
-pt(348).blockname = 'Sistema_braccia/Kalman Filter1/checky/CheckSignalProperties';
-pt(348).paramname = 'P2';
-pt(348).class     = 'scalar';
-pt(348).nrows     = 1;
-pt(348).ncols     = 1;
-pt(348).subsource = 'SS_UINT16';
-pt(348).ndims     = '2';
-pt(348).size      = '[]';
-pt(348).isStruct  = false;
-pt(348).symbol     = 'StateFlowFinal_P.CheckSignalProperties_P2_l';
-pt(348).baseaddr   = '&StateFlowFinal_P.CheckSignalProperties_P2_l';
-pt(348).dtname     = 'uint16_T';
-
-
-
-  
-pt(349).blockname = 'Sistema_braccia/Kalman Filter1/checky/CheckSignalProperties';
-pt(349).paramname = 'P3';
-pt(349).class     = 'scalar';
-pt(349).nrows     = 1;
-pt(349).ncols     = 1;
-pt(349).subsource = 'SS_BOOLEAN';
-pt(349).ndims     = '2';
-pt(349).size      = '[]';
-pt(349).isStruct  = false;
-pt(349).symbol     = 'StateFlowFinal_P.CheckSignalProperties_P3_n';
-pt(349).baseaddr   = '&StateFlowFinal_P.CheckSignalProperties_P3_n';
-pt(349).dtname     = 'boolean_T';
-
-
-
-  
-pt(350).blockname = 'Sistema_braccia/Kalman Filter1/checky/CheckSignalProperties';
-pt(350).paramname = 'P4';
-pt(350).class     = 'scalar';
-pt(350).nrows     = 1;
-pt(350).ncols     = 1;
-pt(350).subsource = 'SS_DOUBLE';
-pt(350).ndims     = '2';
-pt(350).size      = '[]';
-pt(350).isStruct  = false;
-pt(350).symbol     = 'StateFlowFinal_P.CheckSignalProperties_P4_n';
-pt(350).baseaddr   = '&StateFlowFinal_P.CheckSignalProperties_P4_n';
-pt(350).dtname     = 'real_T';
-
-
-
-  
-pt(351).blockname = 'Sistema_braccia/Kalman Filter1/checky/CheckSignalProperties';
-pt(351).paramname = 'P5';
-pt(351).class     = 'scalar';
-pt(351).nrows     = 1;
-pt(351).ncols     = 1;
-pt(351).subsource = 'SS_INT32';
-pt(351).ndims     = '2';
-pt(351).size      = '[]';
-pt(351).isStruct  = false;
-pt(351).symbol     = 'StateFlowFinal_P.CheckSignalProperties_P5_p';
-pt(351).baseaddr   = '&StateFlowFinal_P.CheckSignalProperties_P5_p';
-pt(351).dtname     = 'int32_T';
-
-
-
-  
-pt(352).blockname = 'Sistema_braccia/Kalman Filter1/checky/CheckSignalProperties';
-pt(352).paramname = 'P6';
-pt(352).class     = 'scalar';
-pt(352).nrows     = 1;
-pt(352).ncols     = 1;
-pt(352).subsource = 'SS_INT32';
-pt(352).ndims     = '2';
-pt(352).size      = '[]';
-pt(352).isStruct  = false;
-pt(352).symbol     = 'StateFlowFinal_P.CheckSignalProperties_P6_g';
-pt(352).baseaddr   = '&StateFlowFinal_P.CheckSignalProperties_P6_g';
-pt(352).dtname     = 'int32_T';
-
-
-
-  
-pt(353).blockname = 'Sistema_braccia/Kalman Filter1/checky/CheckSignalProperties';
-pt(353).paramname = 'P7';
-pt(353).class     = 'scalar';
-pt(353).nrows     = 1;
-pt(353).ncols     = 1;
-pt(353).subsource = 'SS_INT32';
-pt(353).ndims     = '2';
-pt(353).size      = '[]';
-pt(353).isStruct  = false;
-pt(353).symbol     = 'StateFlowFinal_P.CheckSignalProperties_P7_a';
-pt(353).baseaddr   = '&StateFlowFinal_P.CheckSignalProperties_P7_a';
-pt(353).dtname     = 'int32_T';
-
-
-
-  
-pt(354).blockname = 'Sistema_braccia/Kalman Filter1/checky/CheckSignalProperties';
-pt(354).paramname = 'P8';
-pt(354).class     = 'scalar';
-pt(354).nrows     = 1;
-pt(354).ncols     = 1;
-pt(354).subsource = 'SS_INT32';
-pt(354).ndims     = '2';
-pt(354).size      = '[]';
-pt(354).isStruct  = false;
-pt(354).symbol     = 'StateFlowFinal_P.CheckSignalProperties_P8_j';
-pt(354).baseaddr   = '&StateFlowFinal_P.CheckSignalProperties_P8_j';
-pt(354).dtname     = 'int32_T';
-
-
-
-  
-pt(355).blockname = 'Sistema_braccia/Kalman Filter2/CalculatePL/ConstantP';
-pt(355).paramname = 'Value';
-pt(355).class     = 'scalar';
-pt(355).nrows     = 1;
-pt(355).ncols     = 1;
-pt(355).subsource = 'SS_DOUBLE';
-pt(355).ndims     = '2';
-pt(355).size      = '[]';
-pt(355).isStruct  = false;
-pt(355).symbol     = 'StateFlowFinal_P.ConstantP_Value_c';
-pt(355).baseaddr   = '&StateFlowFinal_P.ConstantP_Value_c';
-pt(355).dtname     = 'real_T';
-
-
-
-  
-pt(356).blockname = 'Sistema_braccia/Kalman Filter2/CalculatePL/CovarianceZ';
-pt(356).paramname = 'Value';
-pt(356).class     = 'col-mat';
-pt(356).nrows     = 2;
-pt(356).ncols     = 2;
-pt(356).subsource = 'SS_DOUBLE';
-pt(356).ndims     = '2';
-pt(356).size      = '[]';
-pt(356).isStruct  = false;
-pt(356).symbol     = 'StateFlowFinal_P.CovarianceZ_Value_m';
-pt(356).baseaddr   = '&StateFlowFinal_P.CovarianceZ_Value_m[0]';
-pt(356).dtname     = 'real_T';
-
-
-
-  
-pt(357).blockname = 'Sistema_braccia/Kalman Filter2/CalculatePL/KalmanGainL';
-pt(357).paramname = 'Value';
-pt(357).class     = 'vector';
-pt(357).nrows     = 2;
-pt(357).ncols     = 1;
-pt(357).subsource = 'SS_DOUBLE';
-pt(357).ndims     = '2';
-pt(357).size      = '[]';
-pt(357).isStruct  = false;
-pt(357).symbol     = 'StateFlowFinal_P.KalmanGainL_Value_m';
-pt(357).baseaddr   = '&StateFlowFinal_P.KalmanGainL_Value_m[0]';
-pt(357).dtname     = 'real_T';
-
-
-
-  
-pt(358).blockname = 'Sistema_braccia/Kalman Filter2/CalculatePL/KalmanGainM';
-pt(358).paramname = 'Value';
-pt(358).class     = 'vector';
-pt(358).nrows     = 2;
-pt(358).ncols     = 1;
-pt(358).subsource = 'SS_DOUBLE';
-pt(358).ndims     = '2';
-pt(358).size      = '[]';
-pt(358).isStruct  = false;
-pt(358).symbol     = 'StateFlowFinal_P.KalmanGainM_Value';
-pt(358).baseaddr   = '&StateFlowFinal_P.KalmanGainM_Value[0]';
-pt(358).dtname     = 'real_T';
-
-
-
-  
-pt(359).blockname = 'Sistema_braccia/Kalman Filter2/ReducedQRN/Constant';
-pt(359).paramname = 'Value';
-pt(359).class     = 'scalar';
-pt(359).nrows     = 1;
-pt(359).ncols     = 1;
-pt(359).subsource = 'SS_SINGLE';
-pt(359).ndims     = '2';
-pt(359).size      = '[]';
-pt(359).isStruct  = false;
-pt(359).symbol     = 'StateFlowFinal_P.Constant_Value_l1';
-pt(359).baseaddr   = '&StateFlowFinal_P.Constant_Value_l1';
-pt(359).dtname     = 'real32_T';
-
-
-
-  
-pt(360).blockname = 'Sistema_braccia/Kalman Filter2/checku/CheckSignalProperties';
-pt(360).paramname = 'P1';
-pt(360).class     = 'vector';
-pt(360).nrows     = 1;
-pt(360).ncols     = 45;
-pt(360).subsource = 'SS_UINT16';
-pt(360).ndims     = '2';
-pt(360).size      = '[]';
-pt(360).isStruct  = false;
-pt(360).symbol     = 'StateFlowFinal_P.CheckSignalProperties_P1_i';
-pt(360).baseaddr   = '&StateFlowFinal_P.CheckSignalProperties_P1_i[0]';
-pt(360).dtname     = 'uint16_T';
-
-
-
-  
-pt(361).blockname = 'Sistema_braccia/Kalman Filter2/checku/CheckSignalProperties';
-pt(361).paramname = 'P2';
-pt(361).class     = 'scalar';
-pt(361).nrows     = 1;
-pt(361).ncols     = 1;
-pt(361).subsource = 'SS_UINT16';
-pt(361).ndims     = '2';
-pt(361).size      = '[]';
-pt(361).isStruct  = false;
-pt(361).symbol     = 'StateFlowFinal_P.CheckSignalProperties_P2_e';
-pt(361).baseaddr   = '&StateFlowFinal_P.CheckSignalProperties_P2_e';
-pt(361).dtname     = 'uint16_T';
-
-
-
-  
-pt(362).blockname = 'Sistema_braccia/Kalman Filter2/checku/CheckSignalProperties';
-pt(362).paramname = 'P3';
-pt(362).class     = 'scalar';
-pt(362).nrows     = 1;
-pt(362).ncols     = 1;
-pt(362).subsource = 'SS_BOOLEAN';
-pt(362).ndims     = '2';
-pt(362).size      = '[]';
-pt(362).isStruct  = false;
-pt(362).symbol     = 'StateFlowFinal_P.CheckSignalProperties_P3_b';
-pt(362).baseaddr   = '&StateFlowFinal_P.CheckSignalProperties_P3_b';
-pt(362).dtname     = 'boolean_T';
-
-
-
-  
-pt(363).blockname = 'Sistema_braccia/Kalman Filter2/checku/CheckSignalProperties';
-pt(363).paramname = 'P4';
-pt(363).class     = 'scalar';
-pt(363).nrows     = 1;
-pt(363).ncols     = 1;
-pt(363).subsource = 'SS_DOUBLE';
-pt(363).ndims     = '2';
-pt(363).size      = '[]';
-pt(363).isStruct  = false;
-pt(363).symbol     = 'StateFlowFinal_P.CheckSignalProperties_P4_l';
-pt(363).baseaddr   = '&StateFlowFinal_P.CheckSignalProperties_P4_l';
-pt(363).dtname     = 'real_T';
-
-
-
-  
-pt(364).blockname = 'Sistema_braccia/Kalman Filter2/checku/CheckSignalProperties';
-pt(364).paramname = 'P5';
-pt(364).class     = 'scalar';
-pt(364).nrows     = 1;
-pt(364).ncols     = 1;
-pt(364).subsource = 'SS_INT32';
-pt(364).ndims     = '2';
-pt(364).size      = '[]';
-pt(364).isStruct  = false;
-pt(364).symbol     = 'StateFlowFinal_P.CheckSignalProperties_P5_h';
-pt(364).baseaddr   = '&StateFlowFinal_P.CheckSignalProperties_P5_h';
-pt(364).dtname     = 'int32_T';
-
-
-
-  
-pt(365).blockname = 'Sistema_braccia/Kalman Filter2/checku/CheckSignalProperties';
-pt(365).paramname = 'P6';
-pt(365).class     = 'scalar';
-pt(365).nrows     = 1;
-pt(365).ncols     = 1;
-pt(365).subsource = 'SS_INT32';
-pt(365).ndims     = '2';
-pt(365).size      = '[]';
-pt(365).isStruct  = false;
-pt(365).symbol     = 'StateFlowFinal_P.CheckSignalProperties_P6_l';
-pt(365).baseaddr   = '&StateFlowFinal_P.CheckSignalProperties_P6_l';
-pt(365).dtname     = 'int32_T';
-
-
-
-  
-pt(366).blockname = 'Sistema_braccia/Kalman Filter2/checku/CheckSignalProperties';
-pt(366).paramname = 'P7';
-pt(366).class     = 'scalar';
-pt(366).nrows     = 1;
-pt(366).ncols     = 1;
-pt(366).subsource = 'SS_INT32';
-pt(366).ndims     = '2';
-pt(366).size      = '[]';
-pt(366).isStruct  = false;
-pt(366).symbol     = 'StateFlowFinal_P.CheckSignalProperties_P7_d';
-pt(366).baseaddr   = '&StateFlowFinal_P.CheckSignalProperties_P7_d';
-pt(366).dtname     = 'int32_T';
-
-
-
-  
-pt(367).blockname = 'Sistema_braccia/Kalman Filter2/checku/CheckSignalProperties';
-pt(367).paramname = 'P8';
-pt(367).class     = 'scalar';
-pt(367).nrows     = 1;
-pt(367).ncols     = 1;
-pt(367).subsource = 'SS_INT32';
-pt(367).ndims     = '2';
-pt(367).size      = '[]';
-pt(367).isStruct  = false;
-pt(367).symbol     = 'StateFlowFinal_P.CheckSignalProperties_P8_o';
-pt(367).baseaddr   = '&StateFlowFinal_P.CheckSignalProperties_P8_o';
-pt(367).dtname     = 'int32_T';
-
-
-
-  
-pt(368).blockname = 'Sistema_braccia/Kalman Filter2/checky/CheckSignalProperties';
-pt(368).paramname = 'P1';
-pt(368).class     = 'vector';
-pt(368).nrows     = 1;
-pt(368).ncols     = 45;
-pt(368).subsource = 'SS_UINT16';
-pt(368).ndims     = '2';
-pt(368).size      = '[]';
-pt(368).isStruct  = false;
-pt(368).symbol     = 'StateFlowFinal_P.CheckSignalProperties_P1_m';
-pt(368).baseaddr   = '&StateFlowFinal_P.CheckSignalProperties_P1_m[0]';
-pt(368).dtname     = 'uint16_T';
-
-
-
-  
-pt(369).blockname = 'Sistema_braccia/Kalman Filter2/checky/CheckSignalProperties';
-pt(369).paramname = 'P2';
-pt(369).class     = 'scalar';
-pt(369).nrows     = 1;
-pt(369).ncols     = 1;
-pt(369).subsource = 'SS_UINT16';
-pt(369).ndims     = '2';
-pt(369).size      = '[]';
-pt(369).isStruct  = false;
-pt(369).symbol     = 'StateFlowFinal_P.CheckSignalProperties_P2_lv';
-pt(369).baseaddr   = '&StateFlowFinal_P.CheckSignalProperties_P2_lv';
-pt(369).dtname     = 'uint16_T';
-
-
-
-  
-pt(370).blockname = 'Sistema_braccia/Kalman Filter2/checky/CheckSignalProperties';
-pt(370).paramname = 'P3';
-pt(370).class     = 'scalar';
-pt(370).nrows     = 1;
-pt(370).ncols     = 1;
-pt(370).subsource = 'SS_BOOLEAN';
-pt(370).ndims     = '2';
-pt(370).size      = '[]';
-pt(370).isStruct  = false;
-pt(370).symbol     = 'StateFlowFinal_P.CheckSignalProperties_P3_k';
-pt(370).baseaddr   = '&StateFlowFinal_P.CheckSignalProperties_P3_k';
-pt(370).dtname     = 'boolean_T';
-
-
-
-  
-pt(371).blockname = 'Sistema_braccia/Kalman Filter2/checky/CheckSignalProperties';
-pt(371).paramname = 'P4';
-pt(371).class     = 'scalar';
-pt(371).nrows     = 1;
-pt(371).ncols     = 1;
-pt(371).subsource = 'SS_DOUBLE';
-pt(371).ndims     = '2';
-pt(371).size      = '[]';
-pt(371).isStruct  = false;
-pt(371).symbol     = 'StateFlowFinal_P.CheckSignalProperties_P4_b';
-pt(371).baseaddr   = '&StateFlowFinal_P.CheckSignalProperties_P4_b';
-pt(371).dtname     = 'real_T';
-
-
-
-  
-pt(372).blockname = 'Sistema_braccia/Kalman Filter2/checky/CheckSignalProperties';
-pt(372).paramname = 'P5';
-pt(372).class     = 'scalar';
-pt(372).nrows     = 1;
-pt(372).ncols     = 1;
-pt(372).subsource = 'SS_INT32';
-pt(372).ndims     = '2';
-pt(372).size      = '[]';
-pt(372).isStruct  = false;
-pt(372).symbol     = 'StateFlowFinal_P.CheckSignalProperties_P5_i';
-pt(372).baseaddr   = '&StateFlowFinal_P.CheckSignalProperties_P5_i';
-pt(372).dtname     = 'int32_T';
-
-
-
-  
-pt(373).blockname = 'Sistema_braccia/Kalman Filter2/checky/CheckSignalProperties';
-pt(373).paramname = 'P6';
-pt(373).class     = 'scalar';
-pt(373).nrows     = 1;
-pt(373).ncols     = 1;
-pt(373).subsource = 'SS_INT32';
-pt(373).ndims     = '2';
-pt(373).size      = '[]';
-pt(373).isStruct  = false;
-pt(373).symbol     = 'StateFlowFinal_P.CheckSignalProperties_P6_e';
-pt(373).baseaddr   = '&StateFlowFinal_P.CheckSignalProperties_P6_e';
-pt(373).dtname     = 'int32_T';
-
-
-
-  
-pt(374).blockname = 'Sistema_braccia/Kalman Filter2/checky/CheckSignalProperties';
-pt(374).paramname = 'P7';
-pt(374).class     = 'scalar';
-pt(374).nrows     = 1;
-pt(374).ncols     = 1;
-pt(374).subsource = 'SS_INT32';
-pt(374).ndims     = '2';
-pt(374).size      = '[]';
-pt(374).isStruct  = false;
-pt(374).symbol     = 'StateFlowFinal_P.CheckSignalProperties_P7_p';
-pt(374).baseaddr   = '&StateFlowFinal_P.CheckSignalProperties_P7_p';
-pt(374).dtname     = 'int32_T';
-
-
-
-  
-pt(375).blockname = 'Sistema_braccia/Kalman Filter2/checky/CheckSignalProperties';
-pt(375).paramname = 'P8';
-pt(375).class     = 'scalar';
-pt(375).nrows     = 1;
-pt(375).ncols     = 1;
-pt(375).subsource = 'SS_INT32';
-pt(375).ndims     = '2';
-pt(375).size      = '[]';
-pt(375).isStruct  = false;
-pt(375).symbol     = 'StateFlowFinal_P.CheckSignalProperties_P8_od';
-pt(375).baseaddr   = '&StateFlowFinal_P.CheckSignalProperties_P8_od';
-pt(375).dtname     = 'int32_T';
-
-
-
-  
-pt(376).blockname = 'Sistema_braccia/Posizioni/Discrete Derivative B/TSamp';
-pt(376).paramname = 'WtEt';
-pt(376).class     = 'scalar';
-pt(376).nrows     = 1;
-pt(376).ncols     = 1;
-pt(376).subsource = 'SS_DOUBLE';
-pt(376).ndims     = '2';
-pt(376).size      = '[]';
-pt(376).isStruct  = false;
-pt(376).symbol     = 'StateFlowFinal_P.TSamp_WtEt_e';
-pt(376).baseaddr   = '&StateFlowFinal_P.TSamp_WtEt_e';
-pt(376).dtname     = 'real_T';
-
-
-
-  
-pt(377).blockname = 'Sistema_braccia/Posizioni/Discrete Derivative B1/TSamp';
-pt(377).paramname = 'WtEt';
-pt(377).class     = 'scalar';
-pt(377).nrows     = 1;
-pt(377).ncols     = 1;
-pt(377).subsource = 'SS_DOUBLE';
-pt(377).ndims     = '2';
-pt(377).size      = '[]';
-pt(377).isStruct  = false;
-pt(377).symbol     = 'StateFlowFinal_P.TSamp_WtEt_gz';
-pt(377).baseaddr   = '&StateFlowFinal_P.TSamp_WtEt_gz';
-pt(377).dtname     = 'real_T';
-
-
-
-  
-pt(378).blockname = 'Sistema_braccia/Posizioni/Discrete Derivative B2/TSamp';
-pt(378).paramname = 'WtEt';
-pt(378).class     = 'scalar';
-pt(378).nrows     = 1;
-pt(378).ncols     = 1;
-pt(378).subsource = 'SS_DOUBLE';
-pt(378).ndims     = '2';
-pt(378).size      = '[]';
-pt(378).isStruct  = false;
-pt(378).symbol     = 'StateFlowFinal_P.TSamp_WtEt_m';
-pt(378).baseaddr   = '&StateFlowFinal_P.TSamp_WtEt_m';
-pt(378).dtname     = 'real_T';
-
-
-
-  
-pt(379).blockname = 'Sistema_braccia/Posizioni/Discrete Derivative B3/TSamp';
-pt(379).paramname = 'WtEt';
-pt(379).class     = 'scalar';
-pt(379).nrows     = 1;
-pt(379).ncols     = 1;
-pt(379).subsource = 'SS_DOUBLE';
-pt(379).ndims     = '2';
-pt(379).size      = '[]';
-pt(379).isStruct  = false;
-pt(379).symbol     = 'StateFlowFinal_P.TSamp_WtEt_gh';
-pt(379).baseaddr   = '&StateFlowFinal_P.TSamp_WtEt_gh';
-pt(379).dtname     = 'real_T';
-
-
-
-  
-pt(380).blockname = 'Sistema_braccia/Posizioni/Discrete Derivative B4/TSamp';
-pt(380).paramname = 'WtEt';
-pt(380).class     = 'scalar';
-pt(380).nrows     = 1;
-pt(380).ncols     = 1;
-pt(380).subsource = 'SS_DOUBLE';
-pt(380).ndims     = '2';
-pt(380).size      = '[]';
-pt(380).isStruct  = false;
-pt(380).symbol     = 'StateFlowFinal_P.TSamp_WtEt_d';
-pt(380).baseaddr   = '&StateFlowFinal_P.TSamp_WtEt_d';
-pt(380).dtname     = 'real_T';
-
-
-
-  
-pt(381).blockname = 'Sistema_braccia/Posizioni/Discrete Derivative B5/TSamp';
-pt(381).paramname = 'WtEt';
-pt(381).class     = 'scalar';
-pt(381).nrows     = 1;
-pt(381).ncols     = 1;
-pt(381).subsource = 'SS_DOUBLE';
-pt(381).ndims     = '2';
-pt(381).size      = '[]';
-pt(381).isStruct  = false;
-pt(381).symbol     = 'StateFlowFinal_P.TSamp_WtEt_p';
-pt(381).baseaddr   = '&StateFlowFinal_P.TSamp_WtEt_p';
-pt(381).dtname     = 'real_T';
-
-
-
-  
-pt(382).blockname = 'Sistema_braccia/Kalman Filter1/Observer/MeasurementUpdate/L*(y[k]-yhat[k|k-1])';
-pt(382).paramname = 'InitialOutput';
-pt(382).class     = 'scalar';
-pt(382).nrows     = 1;
-pt(382).ncols     = 1;
-pt(382).subsource = 'SS_DOUBLE';
-pt(382).ndims     = '2';
-pt(382).size      = '[]';
-pt(382).isStruct  = false;
-pt(382).symbol     = 'StateFlowFinal_P.MeasurementUpdate.Lykyhatkk1_Y0';
-pt(382).baseaddr   = '&StateFlowFinal_P.MeasurementUpdate.Lykyhatkk1_Y0';
-pt(382).dtname     = 'real_T';
-
-
-
-  
-pt(383).blockname = 'Sistema_braccia/Kalman Filter1/UseCurrentEstimator/Enabled Subsystem/deltax';
-pt(383).paramname = 'InitialOutput';
-pt(383).class     = 'scalar';
-pt(383).nrows     = 1;
-pt(383).ncols     = 1;
-pt(383).subsource = 'SS_DOUBLE';
-pt(383).ndims     = '2';
-pt(383).size      = '[]';
-pt(383).isStruct  = false;
-pt(383).symbol     = 'StateFlowFinal_P.UseCurrentEstimator_e.deltax_Y0';
-pt(383).baseaddr   = '&StateFlowFinal_P.UseCurrentEstimator_e.deltax_Y0';
-pt(383).dtname     = 'real_T';
-
-
-
-  
-pt(384).blockname = 'Sistema_braccia/Kalman Filter2/Observer/MeasurementUpdate/L*(y[k]-yhat[k|k-1])';
-pt(384).paramname = 'InitialOutput';
-pt(384).class     = 'scalar';
-pt(384).nrows     = 1;
-pt(384).ncols     = 1;
-pt(384).subsource = 'SS_DOUBLE';
-pt(384).ndims     = '2';
-pt(384).size      = '[]';
-pt(384).isStruct  = false;
-pt(384).symbol     = 'StateFlowFinal_P.MeasurementUpdate_a.Lykyhatkk1_Y0';
-pt(384).baseaddr   = '&StateFlowFinal_P.MeasurementUpdate_a.Lykyhatkk1_Y0';
-pt(384).dtname     = 'real_T';
-
-
-
-  
-pt(385).blockname = 'Sistema_braccia/Kalman Filter2/UseCurrentEstimator/Enabled Subsystem/deltax';
-pt(385).paramname = 'InitialOutput';
-pt(385).class     = 'scalar';
-pt(385).nrows     = 1;
-pt(385).ncols     = 1;
-pt(385).subsource = 'SS_DOUBLE';
-pt(385).ndims     = '2';
-pt(385).size      = '[]';
-pt(385).isStruct  = false;
-pt(385).symbol     = 'StateFlowFinal_P.UseCurrentEstimator.deltax_Y0';
-pt(385).baseaddr   = '&StateFlowFinal_P.UseCurrentEstimator.deltax_Y0';
-pt(385).dtname     = 'real_T';
-
-
-
-  
-pt(386).blockname = 'Sistema_braccia/Posizioni/Second-Order Filter/Model/D*u(k)';
-pt(386).paramname = 'Gain';
-pt(386).class     = 'scalar';
-pt(386).nrows     = 1;
-pt(386).ncols     = 1;
-pt(386).subsource = 'SS_DOUBLE';
-pt(386).ndims     = '2';
-pt(386).size      = '[]';
-pt(386).isStruct  = false;
-pt(386).symbol     = 'StateFlowFinal_P.Duk_Gain_h';
-pt(386).baseaddr   = '&StateFlowFinal_P.Duk_Gain_h';
-pt(386).dtname     = 'real_T';
-
-
-
-  
-pt(387).blockname = 'Sistema_braccia/Posizioni/Second-Order Filter/Model/Delay_x1';
-pt(387).paramname = 'InitialCondition';
-pt(387).class     = 'scalar';
-pt(387).nrows     = 1;
-pt(387).ncols     = 1;
-pt(387).subsource = 'SS_DOUBLE';
-pt(387).ndims     = '2';
-pt(387).size      = '[]';
-pt(387).isStruct  = false;
-pt(387).symbol     = 'StateFlowFinal_P.Delay_x1_InitialCondition_l';
-pt(387).baseaddr   = '&StateFlowFinal_P.Delay_x1_InitialCondition_l';
-pt(387).dtname     = 'real_T';
-
-
-
-  
-pt(388).blockname = 'Sistema_braccia/Posizioni/Second-Order Filter/Model/Delay_x2';
-pt(388).paramname = 'InitialCondition';
-pt(388).class     = 'scalar';
-pt(388).nrows     = 1;
-pt(388).ncols     = 1;
-pt(388).subsource = 'SS_DOUBLE';
-pt(388).ndims     = '2';
-pt(388).size      = '[]';
-pt(388).isStruct  = false;
-pt(388).symbol     = 'StateFlowFinal_P.Delay_x2_InitialCondition_l';
-pt(388).baseaddr   = '&StateFlowFinal_P.Delay_x2_InitialCondition_l';
-pt(388).dtname     = 'real_T';
-
-
-
-  
-pt(389).blockname = 'Sistema_braccia/Posizioni/Second-Order Filter1/Model/D*u(k)';
-pt(389).paramname = 'Gain';
-pt(389).class     = 'scalar';
-pt(389).nrows     = 1;
-pt(389).ncols     = 1;
-pt(389).subsource = 'SS_DOUBLE';
-pt(389).ndims     = '2';
-pt(389).size      = '[]';
-pt(389).isStruct  = false;
-pt(389).symbol     = 'StateFlowFinal_P.Duk_Gain';
-pt(389).baseaddr   = '&StateFlowFinal_P.Duk_Gain';
-pt(389).dtname     = 'real_T';
-
-
-
-  
-pt(390).blockname = 'Sistema_braccia/Posizioni/Second-Order Filter1/Model/Delay_x1';
-pt(390).paramname = 'InitialCondition';
-pt(390).class     = 'scalar';
-pt(390).nrows     = 1;
-pt(390).ncols     = 1;
-pt(390).subsource = 'SS_DOUBLE';
-pt(390).ndims     = '2';
-pt(390).size      = '[]';
-pt(390).isStruct  = false;
-pt(390).symbol     = 'StateFlowFinal_P.Delay_x1_InitialCondition';
-pt(390).baseaddr   = '&StateFlowFinal_P.Delay_x1_InitialCondition';
-pt(390).dtname     = 'real_T';
-
-
-
-  
-pt(391).blockname = 'Sistema_braccia/Posizioni/Second-Order Filter1/Model/Delay_x2';
-pt(391).paramname = 'InitialCondition';
-pt(391).class     = 'scalar';
-pt(391).nrows     = 1;
-pt(391).ncols     = 1;
-pt(391).subsource = 'SS_DOUBLE';
-pt(391).ndims     = '2';
-pt(391).size      = '[]';
-pt(391).isStruct  = false;
-pt(391).symbol     = 'StateFlowFinal_P.Delay_x2_InitialCondition';
-pt(391).baseaddr   = '&StateFlowFinal_P.Delay_x2_InitialCondition';
-pt(391).dtname     = 'real_T';
-
-
-
-  
-pt(392).blockname = 'Sistema_braccia/Posizioni/Second-Order Filter2/Model/D*u(k)';
-pt(392).paramname = 'Gain';
-pt(392).class     = 'scalar';
-pt(392).nrows     = 1;
-pt(392).ncols     = 1;
-pt(392).subsource = 'SS_DOUBLE';
-pt(392).ndims     = '2';
-pt(392).size      = '[]';
-pt(392).isStruct  = false;
-pt(392).symbol     = 'StateFlowFinal_P.Duk_Gain_g';
-pt(392).baseaddr   = '&StateFlowFinal_P.Duk_Gain_g';
-pt(392).dtname     = 'real_T';
-
-
-
-  
-pt(393).blockname = 'Sistema_braccia/Posizioni/Second-Order Filter2/Model/Delay_x1';
-pt(393).paramname = 'InitialCondition';
-pt(393).class     = 'scalar';
-pt(393).nrows     = 1;
-pt(393).ncols     = 1;
-pt(393).subsource = 'SS_DOUBLE';
-pt(393).ndims     = '2';
-pt(393).size      = '[]';
-pt(393).isStruct  = false;
-pt(393).symbol     = 'StateFlowFinal_P.Delay_x1_InitialCondition_n';
-pt(393).baseaddr   = '&StateFlowFinal_P.Delay_x1_InitialCondition_n';
-pt(393).dtname     = 'real_T';
-
-
-
-  
-pt(394).blockname = 'Sistema_braccia/Posizioni/Second-Order Filter2/Model/Delay_x2';
-pt(394).paramname = 'InitialCondition';
-pt(394).class     = 'scalar';
-pt(394).nrows     = 1;
-pt(394).ncols     = 1;
-pt(394).subsource = 'SS_DOUBLE';
-pt(394).ndims     = '2';
-pt(394).size      = '[]';
-pt(394).isStruct  = false;
-pt(394).symbol     = 'StateFlowFinal_P.Delay_x2_InitialCondition_e';
-pt(394).baseaddr   = '&StateFlowFinal_P.Delay_x2_InitialCondition_e';
-pt(394).dtname     = 'real_T';
-
-
-
-  
-pt(395).blockname = 'Sistema_braccia/Posizioni/Second-Order Filter/Model/A*k(k-1)/A11';
-pt(395).paramname = 'Gain';
-pt(395).class     = 'scalar';
-pt(395).nrows     = 1;
-pt(395).ncols     = 1;
-pt(395).subsource = 'SS_DOUBLE';
-pt(395).ndims     = '2';
-pt(395).size      = '[]';
-pt(395).isStruct  = false;
-pt(395).symbol     = 'StateFlowFinal_P.A11_Gain_e';
-pt(395).baseaddr   = '&StateFlowFinal_P.A11_Gain_e';
-pt(395).dtname     = 'real_T';
-
-
-
-  
-pt(396).blockname = 'Sistema_braccia/Posizioni/Second-Order Filter/Model/A*k(k-1)/A12';
-pt(396).paramname = 'Gain';
-pt(396).class     = 'scalar';
-pt(396).nrows     = 1;
-pt(396).ncols     = 1;
-pt(396).subsource = 'SS_DOUBLE';
-pt(396).ndims     = '2';
-pt(396).size      = '[]';
-pt(396).isStruct  = false;
-pt(396).symbol     = 'StateFlowFinal_P.A12_Gain_a';
-pt(396).baseaddr   = '&StateFlowFinal_P.A12_Gain_a';
-pt(396).dtname     = 'real_T';
-
-
-
-  
-pt(397).blockname = 'Sistema_braccia/Posizioni/Second-Order Filter/Model/A*k(k-1)/A21';
-pt(397).paramname = 'Gain';
-pt(397).class     = 'scalar';
-pt(397).nrows     = 1;
-pt(397).ncols     = 1;
-pt(397).subsource = 'SS_DOUBLE';
-pt(397).ndims     = '2';
-pt(397).size      = '[]';
-pt(397).isStruct  = false;
-pt(397).symbol     = 'StateFlowFinal_P.A21_Gain_m';
-pt(397).baseaddr   = '&StateFlowFinal_P.A21_Gain_m';
-pt(397).dtname     = 'real_T';
-
-
-
-  
-pt(398).blockname = 'Sistema_braccia/Posizioni/Second-Order Filter/Model/A*k(k-1)/A22';
-pt(398).paramname = 'Gain';
-pt(398).class     = 'scalar';
-pt(398).nrows     = 1;
-pt(398).ncols     = 1;
-pt(398).subsource = 'SS_DOUBLE';
-pt(398).ndims     = '2';
-pt(398).size      = '[]';
-pt(398).isStruct  = false;
-pt(398).symbol     = 'StateFlowFinal_P.A22_Gain_g';
-pt(398).baseaddr   = '&StateFlowFinal_P.A22_Gain_g';
-pt(398).dtname     = 'real_T';
-
-
-
-  
-pt(399).blockname = 'Sistema_braccia/Posizioni/Second-Order Filter/Model/B*(u(k)+u(k-1))/B11';
-pt(399).paramname = 'Gain';
-pt(399).class     = 'scalar';
-pt(399).nrows     = 1;
-pt(399).ncols     = 1;
-pt(399).subsource = 'SS_DOUBLE';
-pt(399).ndims     = '2';
-pt(399).size      = '[]';
-pt(399).isStruct  = false;
-pt(399).symbol     = 'StateFlowFinal_P.B11_Gain_f';
-pt(399).baseaddr   = '&StateFlowFinal_P.B11_Gain_f';
-pt(399).dtname     = 'real_T';
-
-
-
-  
-pt(400).blockname = 'Sistema_braccia/Posizioni/Second-Order Filter/Model/B*(u(k)+u(k-1))/B21';
-pt(400).paramname = 'Gain';
-pt(400).class     = 'scalar';
-pt(400).nrows     = 1;
-pt(400).ncols     = 1;
-pt(400).subsource = 'SS_DOUBLE';
-pt(400).ndims     = '2';
-pt(400).size      = '[]';
-pt(400).isStruct  = false;
-pt(400).symbol     = 'StateFlowFinal_P.B21_Gain_p';
-pt(400).baseaddr   = '&StateFlowFinal_P.B21_Gain_p';
-pt(400).dtname     = 'real_T';
-
-
-
-  
-pt(401).blockname = 'Sistema_braccia/Posizioni/Second-Order Filter/Model/C*x(k)/C11';
-pt(401).paramname = 'Gain';
-pt(401).class     = 'scalar';
-pt(401).nrows     = 1;
-pt(401).ncols     = 1;
-pt(401).subsource = 'SS_DOUBLE';
-pt(401).ndims     = '2';
-pt(401).size      = '[]';
-pt(401).isStruct  = false;
-pt(401).symbol     = 'StateFlowFinal_P.C11_Gain_n';
-pt(401).baseaddr   = '&StateFlowFinal_P.C11_Gain_n';
-pt(401).dtname     = 'real_T';
-
-
-
-  
-pt(402).blockname = 'Sistema_braccia/Posizioni/Second-Order Filter/Model/C*x(k)/C12';
-pt(402).paramname = 'Gain';
-pt(402).class     = 'scalar';
-pt(402).nrows     = 1;
-pt(402).ncols     = 1;
-pt(402).subsource = 'SS_DOUBLE';
-pt(402).ndims     = '2';
-pt(402).size      = '[]';
-pt(402).isStruct  = false;
-pt(402).symbol     = 'StateFlowFinal_P.C12_Gain_d';
-pt(402).baseaddr   = '&StateFlowFinal_P.C12_Gain_d';
-pt(402).dtname     = 'real_T';
-
-
-
-  
-pt(403).blockname = 'Sistema_braccia/Posizioni/Second-Order Filter1/Model/A*k(k-1)/A11';
-pt(403).paramname = 'Gain';
-pt(403).class     = 'scalar';
-pt(403).nrows     = 1;
-pt(403).ncols     = 1;
-pt(403).subsource = 'SS_DOUBLE';
-pt(403).ndims     = '2';
-pt(403).size      = '[]';
-pt(403).isStruct  = false;
-pt(403).symbol     = 'StateFlowFinal_P.A11_Gain';
-pt(403).baseaddr   = '&StateFlowFinal_P.A11_Gain';
-pt(403).dtname     = 'real_T';
-
-
-
-  
-pt(404).blockname = 'Sistema_braccia/Posizioni/Second-Order Filter1/Model/A*k(k-1)/A12';
-pt(404).paramname = 'Gain';
-pt(404).class     = 'scalar';
-pt(404).nrows     = 1;
-pt(404).ncols     = 1;
-pt(404).subsource = 'SS_DOUBLE';
-pt(404).ndims     = '2';
-pt(404).size      = '[]';
-pt(404).isStruct  = false;
-pt(404).symbol     = 'StateFlowFinal_P.A12_Gain';
-pt(404).baseaddr   = '&StateFlowFinal_P.A12_Gain';
-pt(404).dtname     = 'real_T';
-
-
-
-  
-pt(405).blockname = 'Sistema_braccia/Posizioni/Second-Order Filter1/Model/A*k(k-1)/A21';
-pt(405).paramname = 'Gain';
-pt(405).class     = 'scalar';
-pt(405).nrows     = 1;
-pt(405).ncols     = 1;
-pt(405).subsource = 'SS_DOUBLE';
-pt(405).ndims     = '2';
-pt(405).size      = '[]';
-pt(405).isStruct  = false;
-pt(405).symbol     = 'StateFlowFinal_P.A21_Gain';
-pt(405).baseaddr   = '&StateFlowFinal_P.A21_Gain';
-pt(405).dtname     = 'real_T';
-
-
-
-  
-pt(406).blockname = 'Sistema_braccia/Posizioni/Second-Order Filter1/Model/A*k(k-1)/A22';
-pt(406).paramname = 'Gain';
-pt(406).class     = 'scalar';
-pt(406).nrows     = 1;
-pt(406).ncols     = 1;
-pt(406).subsource = 'SS_DOUBLE';
-pt(406).ndims     = '2';
-pt(406).size      = '[]';
-pt(406).isStruct  = false;
-pt(406).symbol     = 'StateFlowFinal_P.A22_Gain';
-pt(406).baseaddr   = '&StateFlowFinal_P.A22_Gain';
-pt(406).dtname     = 'real_T';
-
-
-
-  
-pt(407).blockname = 'Sistema_braccia/Posizioni/Second-Order Filter1/Model/B*(u(k)+u(k-1))/B11';
-pt(407).paramname = 'Gain';
-pt(407).class     = 'scalar';
-pt(407).nrows     = 1;
-pt(407).ncols     = 1;
-pt(407).subsource = 'SS_DOUBLE';
-pt(407).ndims     = '2';
-pt(407).size      = '[]';
-pt(407).isStruct  = false;
-pt(407).symbol     = 'StateFlowFinal_P.B11_Gain';
-pt(407).baseaddr   = '&StateFlowFinal_P.B11_Gain';
-pt(407).dtname     = 'real_T';
-
-
-
-  
-pt(408).blockname = 'Sistema_braccia/Posizioni/Second-Order Filter1/Model/B*(u(k)+u(k-1))/B21';
-pt(408).paramname = 'Gain';
-pt(408).class     = 'scalar';
-pt(408).nrows     = 1;
-pt(408).ncols     = 1;
-pt(408).subsource = 'SS_DOUBLE';
-pt(408).ndims     = '2';
-pt(408).size      = '[]';
-pt(408).isStruct  = false;
-pt(408).symbol     = 'StateFlowFinal_P.B21_Gain';
-pt(408).baseaddr   = '&StateFlowFinal_P.B21_Gain';
-pt(408).dtname     = 'real_T';
-
-
-
-  
-pt(409).blockname = 'Sistema_braccia/Posizioni/Second-Order Filter1/Model/C*x(k)/C11';
-pt(409).paramname = 'Gain';
-pt(409).class     = 'scalar';
-pt(409).nrows     = 1;
-pt(409).ncols     = 1;
-pt(409).subsource = 'SS_DOUBLE';
-pt(409).ndims     = '2';
-pt(409).size      = '[]';
-pt(409).isStruct  = false;
-pt(409).symbol     = 'StateFlowFinal_P.C11_Gain';
-pt(409).baseaddr   = '&StateFlowFinal_P.C11_Gain';
-pt(409).dtname     = 'real_T';
-
-
-
-  
-pt(410).blockname = 'Sistema_braccia/Posizioni/Second-Order Filter1/Model/C*x(k)/C12';
-pt(410).paramname = 'Gain';
-pt(410).class     = 'scalar';
-pt(410).nrows     = 1;
-pt(410).ncols     = 1;
-pt(410).subsource = 'SS_DOUBLE';
-pt(410).ndims     = '2';
-pt(410).size      = '[]';
-pt(410).isStruct  = false;
-pt(410).symbol     = 'StateFlowFinal_P.C12_Gain';
-pt(410).baseaddr   = '&StateFlowFinal_P.C12_Gain';
-pt(410).dtname     = 'real_T';
-
-
-
-  
-pt(411).blockname = 'Sistema_braccia/Posizioni/Second-Order Filter2/Model/A*k(k-1)/A11';
-pt(411).paramname = 'Gain';
-pt(411).class     = 'scalar';
-pt(411).nrows     = 1;
-pt(411).ncols     = 1;
-pt(411).subsource = 'SS_DOUBLE';
-pt(411).ndims     = '2';
-pt(411).size      = '[]';
-pt(411).isStruct  = false;
-pt(411).symbol     = 'StateFlowFinal_P.A11_Gain_h';
-pt(411).baseaddr   = '&StateFlowFinal_P.A11_Gain_h';
-pt(411).dtname     = 'real_T';
-
-
-
-  
-pt(412).blockname = 'Sistema_braccia/Posizioni/Second-Order Filter2/Model/A*k(k-1)/A12';
-pt(412).paramname = 'Gain';
-pt(412).class     = 'scalar';
-pt(412).nrows     = 1;
-pt(412).ncols     = 1;
-pt(412).subsource = 'SS_DOUBLE';
-pt(412).ndims     = '2';
-pt(412).size      = '[]';
-pt(412).isStruct  = false;
-pt(412).symbol     = 'StateFlowFinal_P.A12_Gain_a3';
-pt(412).baseaddr   = '&StateFlowFinal_P.A12_Gain_a3';
-pt(412).dtname     = 'real_T';
-
-
-
-  
-pt(413).blockname = 'Sistema_braccia/Posizioni/Second-Order Filter2/Model/A*k(k-1)/A21';
-pt(413).paramname = 'Gain';
-pt(413).class     = 'scalar';
-pt(413).nrows     = 1;
-pt(413).ncols     = 1;
-pt(413).subsource = 'SS_DOUBLE';
-pt(413).ndims     = '2';
-pt(413).size      = '[]';
-pt(413).isStruct  = false;
-pt(413).symbol     = 'StateFlowFinal_P.A21_Gain_f';
-pt(413).baseaddr   = '&StateFlowFinal_P.A21_Gain_f';
-pt(413).dtname     = 'real_T';
-
-
-
-  
-pt(414).blockname = 'Sistema_braccia/Posizioni/Second-Order Filter2/Model/A*k(k-1)/A22';
-pt(414).paramname = 'Gain';
-pt(414).class     = 'scalar';
-pt(414).nrows     = 1;
-pt(414).ncols     = 1;
-pt(414).subsource = 'SS_DOUBLE';
-pt(414).ndims     = '2';
-pt(414).size      = '[]';
-pt(414).isStruct  = false;
-pt(414).symbol     = 'StateFlowFinal_P.A22_Gain_d';
-pt(414).baseaddr   = '&StateFlowFinal_P.A22_Gain_d';
-pt(414).dtname     = 'real_T';
-
-
-
-  
-pt(415).blockname = 'Sistema_braccia/Posizioni/Second-Order Filter2/Model/B*(u(k)+u(k-1))/B11';
-pt(415).paramname = 'Gain';
-pt(415).class     = 'scalar';
-pt(415).nrows     = 1;
-pt(415).ncols     = 1;
-pt(415).subsource = 'SS_DOUBLE';
-pt(415).ndims     = '2';
-pt(415).size      = '[]';
-pt(415).isStruct  = false;
-pt(415).symbol     = 'StateFlowFinal_P.B11_Gain_n';
-pt(415).baseaddr   = '&StateFlowFinal_P.B11_Gain_n';
-pt(415).dtname     = 'real_T';
-
-
-
-  
-pt(416).blockname = 'Sistema_braccia/Posizioni/Second-Order Filter2/Model/B*(u(k)+u(k-1))/B21';
-pt(416).paramname = 'Gain';
-pt(416).class     = 'scalar';
-pt(416).nrows     = 1;
-pt(416).ncols     = 1;
-pt(416).subsource = 'SS_DOUBLE';
-pt(416).ndims     = '2';
-pt(416).size      = '[]';
-pt(416).isStruct  = false;
-pt(416).symbol     = 'StateFlowFinal_P.B21_Gain_l';
-pt(416).baseaddr   = '&StateFlowFinal_P.B21_Gain_l';
-pt(416).dtname     = 'real_T';
-
-
-
-  
-pt(417).blockname = 'Sistema_braccia/Posizioni/Second-Order Filter2/Model/C*x(k)/C11';
-pt(417).paramname = 'Gain';
-pt(417).class     = 'scalar';
-pt(417).nrows     = 1;
-pt(417).ncols     = 1;
-pt(417).subsource = 'SS_DOUBLE';
-pt(417).ndims     = '2';
-pt(417).size      = '[]';
-pt(417).isStruct  = false;
-pt(417).symbol     = 'StateFlowFinal_P.C11_Gain_g';
-pt(417).baseaddr   = '&StateFlowFinal_P.C11_Gain_g';
-pt(417).dtname     = 'real_T';
-
-
-
-  
-pt(418).blockname = 'Sistema_braccia/Posizioni/Second-Order Filter2/Model/C*x(k)/C12';
-pt(418).paramname = 'Gain';
-pt(418).class     = 'scalar';
-pt(418).nrows     = 1;
-pt(418).ncols     = 1;
-pt(418).subsource = 'SS_DOUBLE';
-pt(418).ndims     = '2';
-pt(418).size      = '[]';
-pt(418).isStruct  = false;
-pt(418).symbol     = 'StateFlowFinal_P.C12_Gain_d1';
-pt(418).baseaddr   = '&StateFlowFinal_P.C12_Gain_d1';
-pt(418).dtname     = 'real_T';
-
-
 function len = getlenPT
-len = 418;
+len = 342;
 

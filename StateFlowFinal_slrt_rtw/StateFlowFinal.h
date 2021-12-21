@@ -7,9 +7,9 @@
  *
  * Code generation for model "StateFlowFinal".
  *
- * Model version              : 1.1086
+ * Model version              : 1.1088
  * Simulink Coder version : 8.12 (R2017a) 16-Feb-2017
- * C source code generated on : Fri Dec 10 12:23:54 2021
+ * C source code generated on : Tue Dec 14 14:40:43 2021
  *
  * Target selection: slrt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -2478,7 +2478,7 @@ struct P_StateFlowFinal_T_ {
   real_T AlzataQ_Value;                /* Expression: 0.10
                                         * Referenced by: '<S58>/Alzata Q'
                                         */
-  real_T PeriodoC_Value;               /* Expression: 1
+  real_T PeriodoC_Value;               /* Expression: 3
                                         * Referenced by: '<S58>/Periodo C'
                                         */
   real_T AlzataC_Value;                /* Expression: 0.05
@@ -2487,7 +2487,7 @@ struct P_StateFlowFinal_T_ {
   real_T AlzataC1_Value;               /* Expression: 0.015
                                         * Referenced by: '<S58>/Alzata C1'
                                         */
-  real_T PeriodoC1_Value;              /* Expression: 16
+  real_T PeriodoC1_Value;              /* Expression: 32
                                         * Referenced by: '<S58>/Periodo C1'
                                         */
   real_T Constant3_Value;              /* Expression: 0.125
@@ -2610,7 +2610,7 @@ struct P_StateFlowFinal_T_ {
   real_T EtherCATPDOReceive14_P7_m;    /* Expression: sample_time
                                         * Referenced by: '<S70>/EtherCAT PDO Receive14'
                                         */
-  real_T Kd_Gain;                      /* Expression: 20
+  real_T Kd_Gain;                      /* Expression: 0
                                         * Referenced by: '<S12>/Kd'
                                         */
   real_T Integrator_gainval;           /* Computed Parameter: Integrator_gainval
@@ -2817,7 +2817,7 @@ struct P_StateFlowFinal_T_ {
   real_T Memory_X0_o;                  /* Expression: 0
                                         * Referenced by: '<S30>/Memory'
                                         */
-  real_T AlzataA_Value;                /* Expression: 0
+  real_T AlzataA_Value;                /* Expression: 0.05
                                         * Referenced by: '<Root>/Alzata A'
                                         */
   real_T PeriodoA_Value;               /* Expression: 2
@@ -3003,7 +3003,7 @@ struct P_StateFlowFinal_T_ {
   real_T Memory_X0_a;                  /* Expression: 0
                                         * Referenced by: '<S32>/Memory'
                                         */
-  real_T AlzataB_Value;                /* Expression: 0
+  real_T AlzataB_Value;                /* Expression: -deg2rad(360)
                                         * Referenced by: '<Root>/Alzata B '
                                         */
   real_T PeriodoB_Value;               /* Expression: 2

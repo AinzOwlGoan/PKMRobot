@@ -7,9 +7,9 @@
  *
  * Code generation for model "StateFlowGUI".
  *
- * Model version              : 1.883
+ * Model version              : 1.884
  * Simulink Coder version : 8.12 (R2017a) 16-Feb-2017
- * C source code generated on : Tue Nov 30 14:18:33 2021
+ * C source code generated on : Tue Dec 14 15:00:01 2021
  *
  * Target selection: slrt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -45,49 +45,49 @@ static const rtwCAPI_Signals rtBlockSignals[] = {
   /* addrMapIndex, sysNum, blockPath,
    * signalName, portNumber, dataTypeIndex, dimIndex, fxpIndex, sTimeIndex
    */
-  { 0, 58, TARGET_STRING("State flow robot/p1"),
+  { 0, 60, TARGET_STRING("State flow robot/p1"),
     TARGET_STRING(""), 0, 0, 0, 0, 0 },
 
-  { 1, 58, TARGET_STRING("State flow robot/p2"),
+  { 1, 60, TARGET_STRING("State flow robot/p2"),
     TARGET_STRING(""), 1, 0, 0, 0, 0 },
 
-  { 2, 58, TARGET_STRING("State flow robot/p3"),
+  { 2, 60, TARGET_STRING("State flow robot/p3"),
     TARGET_STRING(""), 2, 0, 0, 0, 0 },
 
-  { 3, 58, TARGET_STRING("State flow robot/p4"),
+  { 3, 60, TARGET_STRING("State flow robot/p4"),
     TARGET_STRING(""), 3, 0, 0, 0, 0 },
 
-  { 4, 58, TARGET_STRING("State flow robot/p5"),
+  { 4, 60, TARGET_STRING("State flow robot/p5"),
     TARGET_STRING(""), 4, 0, 0, 0, 0 },
 
-  { 5, 58, TARGET_STRING("State flow robot/p6"),
+  { 5, 60, TARGET_STRING("State flow robot/p6"),
     TARGET_STRING(""), 5, 0, 0, 0, 0 },
 
-  { 6, 58, TARGET_STRING("State flow robot/p7"),
+  { 6, 60, TARGET_STRING("State flow robot/p7"),
     TARGET_STRING(""), 6, 0, 0, 0, 0 },
 
-  { 7, 58, TARGET_STRING("State flow robot/p8"),
+  { 7, 60, TARGET_STRING("State flow robot/p8"),
     TARGET_STRING(""), 7, 0, 0, 0, 0 },
 
-  { 8, 58, TARGET_STRING("State flow robot/p9"),
+  { 8, 60, TARGET_STRING("State flow robot/p9"),
     TARGET_STRING(""), 8, 0, 0, 0, 0 },
 
-  { 9, 58, TARGET_STRING("State flow robot/p10"),
+  { 9, 60, TARGET_STRING("State flow robot/p10"),
     TARGET_STRING(""), 9, 0, 0, 0, 0 },
 
-  { 10, 58, TARGET_STRING("State flow robot/p11"),
+  { 10, 60, TARGET_STRING("State flow robot/p11"),
     TARGET_STRING(""), 10, 0, 0, 0, 0 },
 
-  { 11, 58, TARGET_STRING("State flow robot/p12"),
+  { 11, 60, TARGET_STRING("State flow robot/p12"),
     TARGET_STRING(""), 11, 0, 0, 0, 0 },
 
-  { 12, 58, TARGET_STRING("State flow robot/p13"),
+  { 12, 60, TARGET_STRING("State flow robot/p13"),
     TARGET_STRING(""), 12, 0, 0, 0, 0 },
 
-  { 13, 58, TARGET_STRING("State flow robot/p14"),
+  { 13, 60, TARGET_STRING("State flow robot/p14"),
     TARGET_STRING(""), 13, 0, 0, 0, 0 },
 
-  { 14, 58, TARGET_STRING("State flow robot/p15"),
+  { 14, 60, TARGET_STRING("State flow robot/p15"),
     TARGET_STRING(""), 14, 0, 0, 0, 0 },
 
   { 15, 0, TARGET_STRING("Clock"),
@@ -186,10 +186,10 @@ static const rtwCAPI_Signals rtBlockSignals[] = {
   { 46, 8, TARGET_STRING("Movimento Braccia/Cinematica Inversa1/p2"),
     TARGET_STRING(""), 1, 0, 0, 0, 1 },
 
-  { 47, 0, TARGET_STRING("Movimento Braccia/Coppia theta 1 vel"),
+  { 47, 19, TARGET_STRING("Movimento Braccia/Coppia theta 1 vel"),
     TARGET_STRING(""), 0, 0, 0, 0, 1 },
 
-  { 48, 0, TARGET_STRING("Movimento Braccia/Coppia theta 2 vel"),
+  { 48, 16, TARGET_STRING("Movimento Braccia/Coppia theta 2 vel"),
     TARGET_STRING(""), 0, 0, 0, 0, 1 },
 
   { 49, 0, TARGET_STRING("Movimento Braccia/Memory"),
@@ -210,7 +210,7 @@ static const rtwCAPI_Signals rtBlockSignals[] = {
   { 54, 0, TARGET_STRING("Movimento Braccia/Sum14"),
     TARGET_STRING(""), 0, 0, 0, 0, 1 },
 
-  { 55, 0, TARGET_STRING("Movimento Braccia/Sum17"),
+  { 55, 16, TARGET_STRING("Movimento Braccia/Sum17"),
     TARGET_STRING(""), 0, 0, 0, 0, 1 },
 
   { 56, 0, TARGET_STRING("Movimento Braccia/Sum2"),
@@ -225,13 +225,13 @@ static const rtwCAPI_Signals rtBlockSignals[] = {
   { 59, 0, TARGET_STRING("Movimento Braccia/Sum5"),
     TARGET_STRING(""), 0, 0, 0, 0, 1 },
 
-  { 60, 0, TARGET_STRING("Movimento Braccia/Sum6"),
+  { 60, 19, TARGET_STRING("Movimento Braccia/Sum6"),
     TARGET_STRING(""), 0, 0, 0, 0, 1 },
 
-  { 61, 0, TARGET_STRING("Movimento Braccia/Sum7"),
+  { 61, 19, TARGET_STRING("Movimento Braccia/Sum7"),
     TARGET_STRING(""), 0, 0, 0, 0, 1 },
 
-  { 62, 0, TARGET_STRING("Movimento Braccia/Sum8"),
+  { 62, 16, TARGET_STRING("Movimento Braccia/Sum8"),
     TARGET_STRING(""), 0, 0, 0, 0, 1 },
 
   { 63, 0, TARGET_STRING("Out Asse A Braccia/Data Type Conversion3"),
@@ -240,7 +240,7 @@ static const rtwCAPI_Signals rtBlockSignals[] = {
   { 64, 0, TARGET_STRING("Out Asse A Braccia/Coppia A braccia saturata"),
     TARGET_STRING(""), 0, 0, 0, 0, 1 },
 
-  { 65, 16, TARGET_STRING("Out Asse A Braccia/Switch1"),
+  { 65, 17, TARGET_STRING("Out Asse A Braccia/Switch1"),
     TARGET_STRING(""), 0, 0, 0, 0, 1 },
 
   { 66, 0, TARGET_STRING("Out Asse B Braccia/Data Type Conversion4"),
@@ -249,16 +249,16 @@ static const rtwCAPI_Signals rtBlockSignals[] = {
   { 67, 0, TARGET_STRING("Out Asse B Braccia/Coppia B braccia saturata"),
     TARGET_STRING(""), 0, 0, 0, 0, 1 },
 
-  { 68, 18, TARGET_STRING("Out Asse B Braccia/Switch1"),
+  { 68, 20, TARGET_STRING("Out Asse B Braccia/Switch1"),
     TARGET_STRING(""), 0, 0, 0, 0, 1 },
 
   { 69, 0, TARGET_STRING("Out asse A Vite/Convert A"),
     TARGET_STRING(""), 0, 5, 0, 0, 1 },
 
-  { 70, 20, TARGET_STRING("Out asse A Vite/Gain"),
+  { 70, 22, TARGET_STRING("Out asse A Vite/Gain"),
     TARGET_STRING(""), 0, 0, 0, 0, 1 },
 
-  { 71, 21, TARGET_STRING("Out asse A Vite/Switch"),
+  { 71, 23, TARGET_STRING("Out asse A Vite/Switch"),
     TARGET_STRING(""), 0, 0, 0, 0, 1 },
 
   { 72, 0, TARGET_STRING("Out asse B Vite/Convert B"),
@@ -267,7 +267,7 @@ static const rtwCAPI_Signals rtBlockSignals[] = {
   { 73, 0, TARGET_STRING("Out asse B Vite/Coppia A vite saturata"),
     TARGET_STRING(""), 0, 0, 0, 0, 1 },
 
-  { 74, 23, TARGET_STRING("Out asse B Vite/Switch2"),
+  { 74, 25, TARGET_STRING("Out asse B Vite/Switch2"),
     TARGET_STRING(""), 0, 0, 0, 0, 1 },
 
   { 75, 0, TARGET_STRING("Posizione Braccia /convert"),
@@ -294,19 +294,19 @@ static const rtwCAPI_Signals rtBlockSignals[] = {
   { 82, 0, TARGET_STRING("Posizione Vite/Motore vite B"),
     TARGET_STRING(""), 0, 2, 0, 0, 0 },
 
-  { 83, 27, TARGET_STRING("Sistema Vite/Asse B/p1"),
+  { 83, 29, TARGET_STRING("Sistema Vite/Asse B/p1"),
     TARGET_STRING(""), 0, 0, 0, 0, 1 },
 
-  { 84, 27, TARGET_STRING("Sistema Vite/Asse B/p2"),
+  { 84, 29, TARGET_STRING("Sistema Vite/Asse B/p2"),
     TARGET_STRING(""), 1, 0, 0, 0, 1 },
 
-  { 85, 28, TARGET_STRING("Sistema Vite/Asse B conv"),
+  { 85, 30, TARGET_STRING("Sistema Vite/Asse B conv"),
     TARGET_STRING(""), 0, 0, 0, 0, 0 },
 
-  { 86, 29, TARGET_STRING("Sistema Vite/Rifermento Asse A Vite/p1"),
+  { 86, 31, TARGET_STRING("Sistema Vite/Rifermento Asse A Vite/p1"),
     TARGET_STRING(""), 0, 0, 0, 0, 1 },
 
-  { 87, 29, TARGET_STRING("Sistema Vite/Rifermento Asse A Vite/p2"),
+  { 87, 31, TARGET_STRING("Sistema Vite/Rifermento Asse A Vite/p2"),
     TARGET_STRING(""), 1, 0, 0, 0, 1 },
 
   { 88, 0, TARGET_STRING("Sistema Vite/Gain2"),
@@ -333,79 +333,79 @@ static const rtwCAPI_Signals rtBlockSignals[] = {
   { 95, 0, TARGET_STRING("Sistema Vite/Sum8"),
     TARGET_STRING(""), 0, 0, 0, 0, 1 },
 
-  { 96, 32, TARGET_STRING("Sistema_braccia/Cinematica Inversa/p1"),
+  { 96, 34, TARGET_STRING("Sistema_braccia/Cinematica Inversa/p1"),
     TARGET_STRING("theta1"), 0, 0, 0, 0, 1 },
 
-  { 97, 32, TARGET_STRING("Sistema_braccia/Cinematica Inversa/p2"),
+  { 97, 34, TARGET_STRING("Sistema_braccia/Cinematica Inversa/p2"),
     TARGET_STRING("theta2"), 1, 0, 0, 0, 1 },
 
-  { 98, 33, TARGET_STRING("Sistema_braccia/Cinematica Inversa Acc/p1"),
+  { 98, 35, TARGET_STRING("Sistema_braccia/Cinematica Inversa Acc/p1"),
     TARGET_STRING(""), 0, 0, 0, 0, 1 },
 
-  { 99, 33, TARGET_STRING("Sistema_braccia/Cinematica Inversa Acc/p2"),
+  { 99, 35, TARGET_STRING("Sistema_braccia/Cinematica Inversa Acc/p2"),
     TARGET_STRING(""), 1, 0, 0, 0, 1 },
 
-  { 100, 34, TARGET_STRING("Sistema_braccia/Cinematica Inversa vel/p1"),
+  { 100, 36, TARGET_STRING("Sistema_braccia/Cinematica Inversa vel/p1"),
     TARGET_STRING(""), 0, 0, 0, 0, 1 },
 
-  { 101, 34, TARGET_STRING("Sistema_braccia/Cinematica Inversa vel/p2"),
+  { 101, 36, TARGET_STRING("Sistema_braccia/Cinematica Inversa vel/p2"),
     TARGET_STRING(""), 1, 0, 0, 0, 1 },
 
-  { 102, 35, TARGET_STRING("Sistema_braccia/Cinematica diretta/p1"),
+  { 102, 37, TARGET_STRING("Sistema_braccia/Cinematica diretta/p1"),
     TARGET_STRING(""), 0, 0, 0, 0, 0 },
 
-  { 103, 35, TARGET_STRING("Sistema_braccia/Cinematica diretta/p2"),
+  { 103, 37, TARGET_STRING("Sistema_braccia/Cinematica diretta/p2"),
     TARGET_STRING(""), 1, 0, 0, 0, 0 },
 
-  { 104, 36, TARGET_STRING("Sistema_braccia/Cinematica diretta Acc/p1"),
+  { 104, 38, TARGET_STRING("Sistema_braccia/Cinematica diretta Acc/p1"),
     TARGET_STRING(""), 0, 0, 0, 0, 1 },
 
-  { 105, 36, TARGET_STRING("Sistema_braccia/Cinematica diretta Acc/p2"),
+  { 105, 38, TARGET_STRING("Sistema_braccia/Cinematica diretta Acc/p2"),
     TARGET_STRING(""), 1, 0, 0, 0, 1 },
 
-  { 106, 37, TARGET_STRING("Sistema_braccia/Coppia motrice/p1"),
+  { 106, 39, TARGET_STRING("Sistema_braccia/Coppia motrice/p1"),
     TARGET_STRING(""), 0, 0, 0, 0, 1 },
 
-  { 107, 37, TARGET_STRING("Sistema_braccia/Coppia motrice/p2"),
+  { 107, 39, TARGET_STRING("Sistema_braccia/Coppia motrice/p2"),
     TARGET_STRING(""), 1, 0, 0, 0, 1 },
 
-  { 108, 38, TARGET_STRING("Sistema_braccia/Dinamica Inversa1/p1"),
+  { 108, 40, TARGET_STRING("Sistema_braccia/Dinamica Inversa1/p1"),
     TARGET_STRING(""), 0, 0, 0, 0, 1 },
 
-  { 109, 38, TARGET_STRING("Sistema_braccia/Dinamica Inversa1/p2"),
+  { 109, 40, TARGET_STRING("Sistema_braccia/Dinamica Inversa1/p2"),
     TARGET_STRING(""), 1, 0, 0, 0, 1 },
 
-  { 110, 38, TARGET_STRING("Sistema_braccia/Dinamica Inversa1/p3"),
+  { 110, 40, TARGET_STRING("Sistema_braccia/Dinamica Inversa1/p3"),
     TARGET_STRING(""), 2, 0, 3, 0, 1 },
 
-  { 111, 38, TARGET_STRING("Sistema_braccia/Dinamica Inversa1/p4"),
+  { 111, 40, TARGET_STRING("Sistema_braccia/Dinamica Inversa1/p4"),
     TARGET_STRING("ntilde"), 3, 0, 0, 0, 1 },
 
-  { 112, 44, TARGET_STRING("Sistema_braccia/MATLAB Function2/p1"),
+  { 112, 46, TARGET_STRING("Sistema_braccia/MATLAB Function2/p1"),
     TARGET_STRING(""), 0, 0, 0, 0, 0 },
 
-  { 113, 44, TARGET_STRING("Sistema_braccia/MATLAB Function2/p2"),
+  { 113, 46, TARGET_STRING("Sistema_braccia/MATLAB Function2/p2"),
     TARGET_STRING(""), 1, 0, 0, 0, 0 },
 
-  { 114, 45, TARGET_STRING("Sistema_braccia/MATLAB Function3/p1"),
+  { 114, 47, TARGET_STRING("Sistema_braccia/MATLAB Function3/p1"),
     TARGET_STRING(""), 0, 0, 4, 0, 1 },
 
-  { 115, 45, TARGET_STRING("Sistema_braccia/MATLAB Function3/p2"),
+  { 115, 47, TARGET_STRING("Sistema_braccia/MATLAB Function3/p2"),
     TARGET_STRING("phi"), 1, 0, 0, 0, 1 },
 
-  { 116, 46, TARGET_STRING("Sistema_braccia/MATLAB Function4/p1"),
+  { 116, 48, TARGET_STRING("Sistema_braccia/MATLAB Function4/p1"),
     TARGET_STRING("Rho"), 0, 0, 0, 0, 1 },
 
-  { 117, 46, TARGET_STRING("Sistema_braccia/MATLAB Function4/p2"),
+  { 117, 48, TARGET_STRING("Sistema_braccia/MATLAB Function4/p2"),
     TARGET_STRING("Omega"), 1, 0, 5, 0, 1 },
 
-  { 118, 46, TARGET_STRING("Sistema_braccia/MATLAB Function4/p3"),
+  { 118, 48, TARGET_STRING("Sistema_braccia/MATLAB Function4/p3"),
     TARGET_STRING("zV"), 2, 0, 5, 0, 1 },
 
-  { 119, 47, TARGET_STRING("Sistema_braccia/MATLAB Jin/p1"),
+  { 119, 49, TARGET_STRING("Sistema_braccia/MATLAB Jin/p1"),
     TARGET_STRING(""), 0, 0, 0, 0, 1 },
 
-  { 120, 47, TARGET_STRING("Sistema_braccia/MATLAB Jin/p2"),
+  { 120, 49, TARGET_STRING("Sistema_braccia/MATLAB Jin/p2"),
     TARGET_STRING(""), 1, 0, 0, 0, 1 },
 
   { 121, 0, TARGET_STRING("Sistema_braccia/Gain"),
@@ -480,7 +480,7 @@ static const rtwCAPI_Signals rtBlockSignals[] = {
   { 144, 0, TARGET_STRING("Movimento Braccia/PID Controller1/Proportional Gain"),
     TARGET_STRING(""), 0, 0, 0, 0, 1 },
 
-  { 145, 0, TARGET_STRING("Movimento Braccia/PID Controller1/Sum"),
+  { 145, 16, TARGET_STRING("Movimento Braccia/PID Controller1/Sum"),
     TARGET_STRING(""), 0, 0, 0, 0, 1 },
 
   { 146, 0, TARGET_STRING("Movimento Braccia/PID Controller1/SumD"),
@@ -504,7 +504,7 @@ static const rtwCAPI_Signals rtBlockSignals[] = {
   { 152, 0, TARGET_STRING("Movimento Braccia/PID Controller2/Proportional Gain"),
     TARGET_STRING(""), 0, 0, 0, 0, 1 },
 
-  { 153, 0, TARGET_STRING("Movimento Braccia/PID Controller2/Sum"),
+  { 153, 19, TARGET_STRING("Movimento Braccia/PID Controller2/Sum"),
     TARGET_STRING(""), 0, 0, 0, 0, 1 },
 
   { 154, 0, TARGET_STRING("Movimento Braccia/PID Controller2/SumD"),
@@ -593,7 +593,7 @@ static const rtwCAPI_Signals rtBlockSignals[] = {
     "Movimento Braccia/Velocita vite /EtherCAT PDO Receive15"),
     TARGET_STRING(""), 0, 2, 0, 0, 0 },
 
-  { 182, 17, TARGET_STRING("Out Asse A Braccia/Fungo/MATLAB Function"),
+  { 182, 18, TARGET_STRING("Out Asse A Braccia/Fungo/MATLAB Function"),
     TARGET_STRING(""), 0, 0, 0, 0, 0 },
 
   { 183, 0, TARGET_STRING("Out Asse A Braccia/Fungo/Data Type Conversion14"),
@@ -608,7 +608,7 @@ static const rtwCAPI_Signals rtBlockSignals[] = {
   { 186, 0, TARGET_STRING("Out Asse A Braccia/Fungo/Switch1"),
     TARGET_STRING(""), 0, 0, 0, 0, 1 },
 
-  { 187, 19, TARGET_STRING("Out Asse B Braccia/Fungo/MATLAB Function"),
+  { 187, 21, TARGET_STRING("Out Asse B Braccia/Fungo/MATLAB Function"),
     TARGET_STRING(""), 0, 0, 0, 0, 0 },
 
   { 188, 0, TARGET_STRING("Out Asse B Braccia/Fungo/Data Type Conversion14"),
@@ -623,7 +623,7 @@ static const rtwCAPI_Signals rtBlockSignals[] = {
   { 191, 0, TARGET_STRING("Out Asse B Braccia/Fungo/Switch1"),
     TARGET_STRING(""), 0, 0, 0, 0, 1 },
 
-  { 192, 22, TARGET_STRING("Out asse A Vite/Fungo/MATLAB Function"),
+  { 192, 24, TARGET_STRING("Out asse A Vite/Fungo/MATLAB Function"),
     TARGET_STRING(""), 0, 0, 0, 0, 0 },
 
   { 193, 0, TARGET_STRING("Out asse A Vite/Fungo/Data Type Conversion14"),
@@ -638,7 +638,7 @@ static const rtwCAPI_Signals rtBlockSignals[] = {
   { 196, 0, TARGET_STRING("Out asse A Vite/Fungo/Switch1"),
     TARGET_STRING(""), 0, 0, 0, 0, 1 },
 
-  { 197, 24, TARGET_STRING("Out asse B Vite/Fungo/MATLAB Function"),
+  { 197, 26, TARGET_STRING("Out asse B Vite/Fungo/MATLAB Function"),
     TARGET_STRING(""), 0, 0, 0, 0, 0 },
 
   { 198, 0, TARGET_STRING("Out asse B Vite/Fungo/Data Type Conversion14"),
@@ -677,10 +677,10 @@ static const rtwCAPI_Signals rtBlockSignals[] = {
   { 209, 0, TARGET_STRING("Sistema Vite/Discrete Derivative B/UD"),
     TARGET_STRING("U(k-1)"), 0, 0, 0, 0, 0 },
 
-  { 210, 30, TARGET_STRING("Sistema Vite/Velocita vite /Vel Asse A conv"),
+  { 210, 32, TARGET_STRING("Sistema Vite/Velocita vite /Vel Asse A conv"),
     TARGET_STRING(""), 0, 0, 0, 0, 0 },
 
-  { 211, 31, TARGET_STRING("Sistema Vite/Velocita vite /Vel Asse B conv"),
+  { 211, 33, TARGET_STRING("Sistema Vite/Velocita vite /Vel Asse B conv"),
     TARGET_STRING(""), 0, 0, 0, 0, 0 },
 
   { 212, 0, TARGET_STRING("Sistema Vite/Velocita vite /Velocity A"),
@@ -698,109 +698,109 @@ static const rtwCAPI_Signals rtBlockSignals[] = {
   { 216, 0, TARGET_STRING("Sistema_braccia/Clock reale/Sum2"),
     TARGET_STRING(""), 0, 0, 0, 0, 1 },
 
-  { 217, 39, TARGET_STRING("Sistema_braccia/Leggi di moto/Cerchi Tangenti/p1"),
+  { 217, 41, TARGET_STRING("Sistema_braccia/Leggi di moto/Cerchi Tangenti/p1"),
     TARGET_STRING(""), 0, 0, 0, 0, 1 },
 
-  { 218, 39, TARGET_STRING("Sistema_braccia/Leggi di moto/Cerchi Tangenti/p2"),
+  { 218, 41, TARGET_STRING("Sistema_braccia/Leggi di moto/Cerchi Tangenti/p2"),
     TARGET_STRING(""), 1, 0, 0, 0, 1 },
 
-  { 219, 39, TARGET_STRING("Sistema_braccia/Leggi di moto/Cerchi Tangenti/p3"),
+  { 219, 41, TARGET_STRING("Sistema_braccia/Leggi di moto/Cerchi Tangenti/p3"),
     TARGET_STRING(""), 2, 0, 0, 0, 1 },
 
-  { 220, 39, TARGET_STRING("Sistema_braccia/Leggi di moto/Cerchi Tangenti/p4"),
+  { 220, 41, TARGET_STRING("Sistema_braccia/Leggi di moto/Cerchi Tangenti/p4"),
     TARGET_STRING(""), 3, 0, 0, 0, 1 },
 
-  { 221, 39, TARGET_STRING("Sistema_braccia/Leggi di moto/Cerchi Tangenti/p5"),
+  { 221, 41, TARGET_STRING("Sistema_braccia/Leggi di moto/Cerchi Tangenti/p5"),
     TARGET_STRING(""), 4, 0, 0, 0, 1 },
 
-  { 222, 39, TARGET_STRING("Sistema_braccia/Leggi di moto/Cerchi Tangenti/p6"),
+  { 222, 41, TARGET_STRING("Sistema_braccia/Leggi di moto/Cerchi Tangenti/p6"),
     TARGET_STRING(""), 5, 0, 0, 0, 1 },
 
-  { 223, 40, TARGET_STRING("Sistema_braccia/Leggi di moto/Cerchio/p1"),
+  { 223, 42, TARGET_STRING("Sistema_braccia/Leggi di moto/Cerchio/p1"),
     TARGET_STRING(""), 0, 0, 0, 0, 1 },
 
-  { 224, 40, TARGET_STRING("Sistema_braccia/Leggi di moto/Cerchio/p2"),
+  { 224, 42, TARGET_STRING("Sistema_braccia/Leggi di moto/Cerchio/p2"),
     TARGET_STRING(""), 1, 0, 0, 0, 1 },
 
-  { 225, 40, TARGET_STRING("Sistema_braccia/Leggi di moto/Cerchio/p3"),
+  { 225, 42, TARGET_STRING("Sistema_braccia/Leggi di moto/Cerchio/p3"),
     TARGET_STRING(""), 2, 0, 0, 0, 1 },
 
-  { 226, 40, TARGET_STRING("Sistema_braccia/Leggi di moto/Cerchio/p4"),
+  { 226, 42, TARGET_STRING("Sistema_braccia/Leggi di moto/Cerchio/p4"),
     TARGET_STRING(""), 3, 0, 0, 0, 1 },
 
-  { 227, 40, TARGET_STRING("Sistema_braccia/Leggi di moto/Cerchio/p5"),
+  { 227, 42, TARGET_STRING("Sistema_braccia/Leggi di moto/Cerchio/p5"),
     TARGET_STRING(""), 4, 0, 0, 0, 1 },
 
-  { 228, 40, TARGET_STRING("Sistema_braccia/Leggi di moto/Cerchio/p6"),
+  { 228, 42, TARGET_STRING("Sistema_braccia/Leggi di moto/Cerchio/p6"),
     TARGET_STRING(""), 5, 0, 0, 0, 1 },
 
-  { 229, 41, TARGET_STRING("Sistema_braccia/Leggi di moto/Quadrato/p1"),
+  { 229, 43, TARGET_STRING("Sistema_braccia/Leggi di moto/Quadrato/p1"),
     TARGET_STRING(""), 0, 0, 0, 0, 1 },
 
-  { 230, 41, TARGET_STRING("Sistema_braccia/Leggi di moto/Quadrato/p2"),
+  { 230, 43, TARGET_STRING("Sistema_braccia/Leggi di moto/Quadrato/p2"),
     TARGET_STRING(""), 1, 0, 0, 0, 1 },
 
-  { 231, 41, TARGET_STRING("Sistema_braccia/Leggi di moto/Quadrato/p3"),
+  { 231, 43, TARGET_STRING("Sistema_braccia/Leggi di moto/Quadrato/p3"),
     TARGET_STRING(""), 2, 0, 0, 0, 1 },
 
-  { 232, 41, TARGET_STRING("Sistema_braccia/Leggi di moto/Quadrato/p4"),
+  { 232, 43, TARGET_STRING("Sistema_braccia/Leggi di moto/Quadrato/p4"),
     TARGET_STRING(""), 3, 0, 0, 0, 1 },
 
-  { 233, 41, TARGET_STRING("Sistema_braccia/Leggi di moto/Quadrato/p5"),
+  { 233, 43, TARGET_STRING("Sistema_braccia/Leggi di moto/Quadrato/p5"),
     TARGET_STRING(""), 4, 0, 0, 0, 1 },
 
-  { 234, 41, TARGET_STRING("Sistema_braccia/Leggi di moto/Quadrato/p6"),
+  { 234, 43, TARGET_STRING("Sistema_braccia/Leggi di moto/Quadrato/p6"),
     TARGET_STRING(""), 5, 0, 0, 0, 1 },
 
-  { 235, 42, TARGET_STRING("Sistema_braccia/Leggi di moto/g/p1"),
+  { 235, 44, TARGET_STRING("Sistema_braccia/Leggi di moto/g/p1"),
     TARGET_STRING(""), 0, 0, 0, 0, 1 },
 
-  { 236, 42, TARGET_STRING("Sistema_braccia/Leggi di moto/g/p2"),
+  { 236, 44, TARGET_STRING("Sistema_braccia/Leggi di moto/g/p2"),
     TARGET_STRING(""), 1, 0, 0, 0, 1 },
 
-  { 237, 42, TARGET_STRING("Sistema_braccia/Leggi di moto/g/p3"),
+  { 237, 44, TARGET_STRING("Sistema_braccia/Leggi di moto/g/p3"),
     TARGET_STRING(""), 2, 0, 0, 0, 1 },
 
-  { 238, 42, TARGET_STRING("Sistema_braccia/Leggi di moto/g/p4"),
+  { 238, 44, TARGET_STRING("Sistema_braccia/Leggi di moto/g/p4"),
     TARGET_STRING(""), 3, 0, 0, 0, 1 },
 
-  { 239, 42, TARGET_STRING("Sistema_braccia/Leggi di moto/g/p5"),
+  { 239, 44, TARGET_STRING("Sistema_braccia/Leggi di moto/g/p5"),
     TARGET_STRING(""), 4, 0, 0, 0, 1 },
 
-  { 240, 42, TARGET_STRING("Sistema_braccia/Leggi di moto/g/p6"),
+  { 240, 44, TARGET_STRING("Sistema_braccia/Leggi di moto/g/p6"),
     TARGET_STRING(""), 5, 0, 0, 0, 1 },
 
-  { 241, 43, TARGET_STRING("Sistema_braccia/Leggi di moto/spirale/p1"),
+  { 241, 45, TARGET_STRING("Sistema_braccia/Leggi di moto/spirale/p1"),
     TARGET_STRING(""), 0, 0, 0, 0, 1 },
 
-  { 242, 43, TARGET_STRING("Sistema_braccia/Leggi di moto/spirale/p2"),
+  { 242, 45, TARGET_STRING("Sistema_braccia/Leggi di moto/spirale/p2"),
     TARGET_STRING(""), 1, 0, 0, 0, 1 },
 
-  { 243, 43, TARGET_STRING("Sistema_braccia/Leggi di moto/spirale/p3"),
+  { 243, 45, TARGET_STRING("Sistema_braccia/Leggi di moto/spirale/p3"),
     TARGET_STRING(""), 2, 0, 0, 0, 1 },
 
-  { 244, 43, TARGET_STRING("Sistema_braccia/Leggi di moto/spirale/p4"),
+  { 244, 45, TARGET_STRING("Sistema_braccia/Leggi di moto/spirale/p4"),
     TARGET_STRING(""), 3, 0, 0, 0, 1 },
 
-  { 245, 43, TARGET_STRING("Sistema_braccia/Leggi di moto/spirale/p5"),
+  { 245, 45, TARGET_STRING("Sistema_braccia/Leggi di moto/spirale/p5"),
     TARGET_STRING(""), 4, 0, 0, 0, 1 },
 
-  { 246, 43, TARGET_STRING("Sistema_braccia/Leggi di moto/spirale/p6"),
+  { 246, 45, TARGET_STRING("Sistema_braccia/Leggi di moto/spirale/p6"),
     TARGET_STRING(""), 5, 0, 0, 0, 1 },
 
   { 247, 0, TARGET_STRING("Sistema_braccia/Leggi di moto/Multiport Switch"),
     TARGET_STRING(""), 0, 0, 1, 0, 1 },
 
-  { 248, 48, TARGET_STRING("Sistema_braccia/Pos iniziali/Cinematica Inversa2/p1"),
+  { 248, 50, TARGET_STRING("Sistema_braccia/Pos iniziali/Cinematica Inversa2/p1"),
     TARGET_STRING(""), 0, 0, 0, 0, 0 },
 
-  { 249, 48, TARGET_STRING("Sistema_braccia/Pos iniziali/Cinematica Inversa2/p2"),
+  { 249, 50, TARGET_STRING("Sistema_braccia/Pos iniziali/Cinematica Inversa2/p2"),
     TARGET_STRING(""), 1, 0, 0, 0, 0 },
 
-  { 250, 49, TARGET_STRING("Sistema_braccia/Posizioni/Asse A conv bracc"),
+  { 250, 51, TARGET_STRING("Sistema_braccia/Posizioni/Asse A conv bracc"),
     TARGET_STRING(""), 0, 0, 0, 0, 0 },
 
-  { 251, 50, TARGET_STRING("Sistema_braccia/Posizioni/Asse B conv brac1"),
+  { 251, 52, TARGET_STRING("Sistema_braccia/Posizioni/Asse B conv brac1"),
     TARGET_STRING(""), 0, 0, 0, 0, 0 },
 
   { 252, 0, TARGET_STRING("Sistema_braccia/Posizioni/Digital Clock"),
@@ -824,10 +824,10 @@ static const rtwCAPI_Signals rtBlockSignals[] = {
   { 258, 0, TARGET_STRING("Sistema_braccia/Radians to Degrees1/Gain"),
     TARGET_STRING(""), 0, 0, 0, 0, 1 },
 
-  { 259, 51, TARGET_STRING("Sistema_braccia/Velocita /Vel Asse A conv"),
+  { 259, 53, TARGET_STRING("Sistema_braccia/Velocita /Vel Asse A conv"),
     TARGET_STRING(""), 0, 0, 0, 0, 0 },
 
-  { 260, 52, TARGET_STRING("Sistema_braccia/Velocita /Vel Asse B conv"),
+  { 260, 54, TARGET_STRING("Sistema_braccia/Velocita /Vel Asse B conv"),
     TARGET_STRING(""), 0, 0, 0, 0, 0 },
 
   { 261, 0, TARGET_STRING("Sistema_braccia/Velocita /Velocity A"),
@@ -842,10 +842,10 @@ static const rtwCAPI_Signals rtBlockSignals[] = {
   { 264, 0, TARGET_STRING("Sistema_braccia/Velocita /EtherCAT PDO Receive15"),
     TARGET_STRING(""), 0, 2, 0, 0, 0 },
 
-  { 265, 53, TARGET_STRING("Sistema_braccia/Velocita braccia 1/Vel Asse A conv"),
+  { 265, 55, TARGET_STRING("Sistema_braccia/Velocita braccia 1/Vel Asse A conv"),
     TARGET_STRING(""), 0, 0, 0, 0, 0 },
 
-  { 266, 54, TARGET_STRING("Sistema_braccia/Velocita braccia 1/Vel Asse B conv"),
+  { 266, 56, TARGET_STRING("Sistema_braccia/Velocita braccia 1/Vel Asse B conv"),
     TARGET_STRING(""), 0, 0, 0, 0, 0 },
 
   { 267, 0, TARGET_STRING("Sistema_braccia/Velocita braccia 1/Velocity A"),
@@ -862,13 +862,13 @@ static const rtwCAPI_Signals rtBlockSignals[] = {
     "Sistema_braccia/Velocita braccia 1/EtherCAT PDO Receive15"),
     TARGET_STRING(""), 0, 2, 0, 0, 0 },
 
-  { 271, 56, TARGET_STRING("State flow robot/Homing/MATLAB Function/p1"),
+  { 271, 58, TARGET_STRING("State flow robot/Homing/MATLAB Function/p1"),
     TARGET_STRING(""), 0, 0, 0, 0, 0 },
 
-  { 272, 56, TARGET_STRING("State flow robot/Homing/MATLAB Function/p2"),
+  { 272, 58, TARGET_STRING("State flow robot/Homing/MATLAB Function/p2"),
     TARGET_STRING(""), 1, 0, 0, 0, 0 },
 
-  { 273, 56, TARGET_STRING("State flow robot/Homing/MATLAB Function/p3"),
+  { 273, 58, TARGET_STRING("State flow robot/Homing/MATLAB Function/p3"),
     TARGET_STRING(""), 2, 0, 0, 0, 0 },
 
   { 274, 0, TARGET_STRING("Sistema Vite/Actual A/Discrete Derivative A/Diff"),
@@ -880,11 +880,11 @@ static const rtwCAPI_Signals rtBlockSignals[] = {
   { 276, 0, TARGET_STRING("Sistema Vite/Actual A/Discrete Derivative A/UD"),
     TARGET_STRING("U(k-1)"), 0, 0, 0, 0, 0 },
 
-  { 277, 25, TARGET_STRING(
+  { 277, 27, TARGET_STRING(
     "Sistema Vite/Actual A/Posizione attuale Vite A/Asse A conv"),
     TARGET_STRING(""), 0, 0, 0, 0, 0 },
 
-  { 278, 26, TARGET_STRING(
+  { 278, 28, TARGET_STRING(
     "Sistema Vite/Actual A/Posizione attuale Vite A/Asse B conv v"),
     TARGET_STRING(""), 0, 0, 0, 0, 0 },
 
@@ -2319,9 +2319,9 @@ static void* rtDataAddrMap[] = {
   &StateFlowGUI_B.DataTypeConversion25,/* 37: Signal */
   &StateFlowGUI_B.DataTypeConversion26,/* 38: Signal */
   &StateFlowGUI_B.sf_AsseAconvbrac.pos_A_conv,/* 39: Signal */
-  &StateFlowGUI_B.sf_AsseBconvbrac1_f.pos_B_conv,/* 40: Signal */
-  &StateFlowGUI_B.sf_CinematicaInversa_a.theta1,/* 41: Signal */
-  &StateFlowGUI_B.sf_CinematicaInversa_a.theta2,/* 42: Signal */
+  &StateFlowGUI_B.sf_AsseBconvbrac1.pos_B_conv,/* 40: Signal */
+  &StateFlowGUI_B.sf_CinematicaInversa.theta1,/* 41: Signal */
+  &StateFlowGUI_B.sf_CinematicaInversa.theta2,/* 42: Signal */
   &StateFlowGUI_B.theta1_p_i,          /* 43: Signal */
   &StateFlowGUI_B.theta2_p_p,          /* 44: Signal */
   &StateFlowGUI_B.x0_o,                /* 45: Signal */
@@ -2330,15 +2330,15 @@ static void* rtDataAddrMap[] = {
   &StateFlowGUI_B.Coppiatheta2vel,     /* 48: Signal */
   &StateFlowGUI_B.Memory_h,            /* 49: Signal */
   &StateFlowGUI_B.Memory1,             /* 50: Signal */
-  &StateFlowGUI_B.Sum_e,               /* 51: Signal */
-  &StateFlowGUI_B.Sum1_g,              /* 52: Signal */
-  &StateFlowGUI_B.Sum12_a,             /* 53: Signal */
+  &StateFlowGUI_B.Sum,                 /* 51: Signal */
+  &StateFlowGUI_B.Sum1,                /* 52: Signal */
+  &StateFlowGUI_B.Sum12,               /* 53: Signal */
   &StateFlowGUI_B.Sum14,               /* 54: Signal */
   &StateFlowGUI_B.Sum17,               /* 55: Signal */
   &StateFlowGUI_B.Theta1Reale,         /* 56: Signal */
   &StateFlowGUI_B.theta2Reale,         /* 57: Signal */
-  &StateFlowGUI_B.Sum4_n,              /* 58: Signal */
-  &StateFlowGUI_B.Sum5_g,              /* 59: Signal */
+  &StateFlowGUI_B.Sum4,                /* 58: Signal */
+  &StateFlowGUI_B.Sum5,                /* 59: Signal */
   &StateFlowGUI_B.Sum6_n,              /* 60: Signal */
   &StateFlowGUI_B.Sum7_l,              /* 61: Signal */
   &StateFlowGUI_B.Sum8_f,              /* 62: Signal */
@@ -2369,14 +2369,14 @@ static void* rtDataAddrMap[] = {
   &StateFlowGUI_B.ldm_vel,             /* 87: Signal */
   &StateFlowGUI_B.Gain2,               /* 88: Signal */
   &StateFlowGUI_B.Gain4,               /* 89: Signal */
-  &StateFlowGUI_B.Sum1,                /* 90: Signal */
+  &StateFlowGUI_B.Sum1_m,              /* 90: Signal */
   &StateFlowGUI_B.Sum3,                /* 91: Signal */
   &StateFlowGUI_B.Sum4_l,              /* 92: Signal */
   &StateFlowGUI_B.Sum6,                /* 93: Signal */
-  &StateFlowGUI_B.Sum7_n,              /* 94: Signal */
+  &StateFlowGUI_B.Sum7,                /* 94: Signal */
   &StateFlowGUI_B.Sum8,                /* 95: Signal */
-  &StateFlowGUI_B.sf_CinematicaInversa.theta1,/* 96: Signal */
-  &StateFlowGUI_B.sf_CinematicaInversa.theta2,/* 97: Signal */
+  &StateFlowGUI_B.sf_CinematicaInversa_k.theta1,/* 96: Signal */
+  &StateFlowGUI_B.sf_CinematicaInversa_k.theta2,/* 97: Signal */
   &StateFlowGUI_B.theta1_pp,           /* 98: Signal */
   &StateFlowGUI_B.theta2_pp,           /* 99: Signal */
   &StateFlowGUI_B.theta1_p,            /* 100: Signal */
@@ -2400,15 +2400,15 @@ static void* rtDataAddrMap[] = {
   &StateFlowGUI_B.z[0],                /* 118: Signal */
   &StateFlowGUI_B.x_p,                 /* 119: Signal */
   &StateFlowGUI_B.y_p,                 /* 120: Signal */
-  &StateFlowGUI_B.Gain,                /* 121: Signal */
+  &StateFlowGUI_B.Gain_n,              /* 121: Signal */
   &StateFlowGUI_B.Gain1,               /* 122: Signal */
   &StateFlowGUI_B.Kd[0],               /* 123: Signal */
   &StateFlowGUI_B.Kd1[0],              /* 124: Signal */
   &StateFlowGUI_B.Kp1[0],              /* 125: Signal */
   &StateFlowGUI_B.Product[0],          /* 126: Signal */
-  &StateFlowGUI_B.Sum,                 /* 127: Signal */
+  &StateFlowGUI_B.Sum_e,               /* 127: Signal */
   &StateFlowGUI_B.Ymov,                /* 128: Signal */
-  &StateFlowGUI_B.Sum2_d,              /* 129: Signal */
+  &StateFlowGUI_B.Sum2_dc,             /* 129: Signal */
   &StateFlowGUI_B.Sum3_b,              /* 130: Signal */
   &StateFlowGUI_B.q[0],                /* 131: Signal */
   &StateFlowGUI_B.nphi,                /* 132: Signal */
@@ -2417,7 +2417,7 @@ static void* rtDataAddrMap[] = {
   &StateFlowGUI_B.Y[0],                /* 135: Signal */
   &StateFlowGUI_B.DataTypeConversion6, /* 136: Signal */
   &StateFlowGUI_B.StatusWord,          /* 137: Signal */
-  &StateFlowGUI_B.Sum2_b,              /* 138: Signal */
+  &StateFlowGUI_B.Sum2,                /* 138: Signal */
   &StateFlowGUI_B.Filter,              /* 139: Signal */
   &StateFlowGUI_B.Integrator,          /* 140: Signal */
   &StateFlowGUI_B.DerivativeGain,      /* 141: Signal */
@@ -2454,13 +2454,13 @@ static void* rtDataAddrMap[] = {
   &StateFlowGUI_B.ys_j,                /* 172: Signal */
   &StateFlowGUI_B.xs_p_e,              /* 173: Signal */
   &StateFlowGUI_B.ys_p_e,              /* 174: Signal */
-  &StateFlowGUI_B.MultiportSwitch_o[0],/* 175: Signal */
-  &StateFlowGUI_B.sf_VelAsseAconv_o.vel_A_conv,/* 176: Signal */
-  &StateFlowGUI_B.sf_VelAsseBconv_o.vel_B_conv,/* 177: Signal */
-  &StateFlowGUI_B.VelocityA_a,         /* 178: Signal */
-  &StateFlowGUI_B.VelocityB_p,         /* 179: Signal */
-  &StateFlowGUI_B.EtherCATPDOReceive14_c,/* 180: Signal */
-  &StateFlowGUI_B.EtherCATPDOReceive15_l,/* 181: Signal */
+  &StateFlowGUI_B.MultiportSwitch[0],  /* 175: Signal */
+  &StateFlowGUI_B.sf_VelAsseAconv.vel_A_conv,/* 176: Signal */
+  &StateFlowGUI_B.sf_VelAsseBconv.vel_B_conv,/* 177: Signal */
+  &StateFlowGUI_B.VelocityA,           /* 178: Signal */
+  &StateFlowGUI_B.VelocityB,           /* 179: Signal */
+  &StateFlowGUI_B.EtherCATPDOReceive14,/* 180: Signal */
+  &StateFlowGUI_B.EtherCATPDOReceive15,/* 181: Signal */
   &StateFlowGUI_B.sf_MATLABFunction_e.y,/* 182: Signal */
   &StateFlowGUI_B.DataTypeConversion14,/* 183: Signal */
   &StateFlowGUI_B.Memory,              /* 184: Signal */
@@ -2483,9 +2483,9 @@ static void* rtDataAddrMap[] = {
   &StateFlowGUI_B.Switch1_h,           /* 201: Signal */
   &StateFlowGUI_B.Sum_p,               /* 202: Signal */
   &StateFlowGUI_B.Sum2_m,              /* 203: Signal */
-  &StateFlowGUI_B.Gain_a,              /* 204: Signal */
+  &StateFlowGUI_B.Gain,                /* 204: Signal */
   &StateFlowGUI_B.Gain6,               /* 205: Signal */
-  &StateFlowGUI_B.Sum9_p,              /* 206: Signal */
+  &StateFlowGUI_B.Sum9,                /* 206: Signal */
   &StateFlowGUI_B.Diff,                /* 207: Signal */
   &StateFlowGUI_B.TSamp,               /* 208: Signal */
   &StateFlowGUI_B.Uk1,                 /* 209: Signal */
@@ -2495,7 +2495,7 @@ static void* rtDataAddrMap[] = {
   &StateFlowGUI_B.VelocityB_d,         /* 213: Signal */
   &StateFlowGUI_B.EtherCATPDOReceive14_j,/* 214: Signal */
   &StateFlowGUI_B.EtherCATPDOReceive15_k,/* 215: Signal */
-  &StateFlowGUI_B.Sum2,                /* 216: Signal */
+  &StateFlowGUI_B.Sum2_d,              /* 216: Signal */
   &StateFlowGUI_B.xct,                 /* 217: Signal */
   &StateFlowGUI_B.yct,                 /* 218: Signal */
   &StateFlowGUI_B.xct_p,               /* 219: Signal */
@@ -2526,18 +2526,18 @@ static void* rtDataAddrMap[] = {
   &StateFlowGUI_B.ys_p,                /* 244: Signal */
   &StateFlowGUI_B.xs_pp,               /* 245: Signal */
   &StateFlowGUI_B.ys_pp,               /* 246: Signal */
-  &StateFlowGUI_B.MultiportSwitch[0],  /* 247: Signal */
+  &StateFlowGUI_B.MultiportSwitch_i[0],/* 247: Signal */
   &StateFlowGUI_B.x0,                  /* 248: Signal */
   &StateFlowGUI_B.y0,                  /* 249: Signal */
   &StateFlowGUI_B.sf_AsseAconvbracc.pos_A_conv,/* 250: Signal */
-  &StateFlowGUI_B.sf_AsseBconvbrac1.pos_B_conv,/* 251: Signal */
+  &StateFlowGUI_B.sf_AsseBconvbrac1_i.pos_B_conv,/* 251: Signal */
   &StateFlowGUI_B.DigitalClock,        /* 252: Signal */
-  &StateFlowGUI_B.Sum12,               /* 253: Signal */
-  &StateFlowGUI_B.Sum4,                /* 254: Signal */
-  &StateFlowGUI_B.Sum7,                /* 255: Signal */
-  &StateFlowGUI_B.Sum9,                /* 256: Signal */
+  &StateFlowGUI_B.Sum12_i,             /* 253: Signal */
+  &StateFlowGUI_B.Sum4_d,              /* 254: Signal */
+  &StateFlowGUI_B.Sum7_n,              /* 255: Signal */
+  &StateFlowGUI_B.Sum9_n,              /* 256: Signal */
   &StateFlowGUI_B.Gain_p,              /* 257: Signal */
-  &StateFlowGUI_B.Gain_n,              /* 258: Signal */
+  &StateFlowGUI_B.Gain_np,             /* 258: Signal */
   &StateFlowGUI_B.sf_VelAsseAconv_a.vel_A_conv,/* 259: Signal */
   &StateFlowGUI_B.sf_VelAsseBconv_d.vel_B_conv,/* 260: Signal */
   &StateFlowGUI_B.VelocityA_o,         /* 261: Signal */
@@ -2546,10 +2546,10 @@ static void* rtDataAddrMap[] = {
   &StateFlowGUI_B.EtherCATPDOReceive15_d,/* 264: Signal */
   &StateFlowGUI_B.vel_A_conv,          /* 265: Signal */
   &StateFlowGUI_B.vel_B_conv,          /* 266: Signal */
-  &StateFlowGUI_B.VelocityA,           /* 267: Signal */
-  &StateFlowGUI_B.VelocityB,           /* 268: Signal */
-  &StateFlowGUI_B.EtherCATPDOReceive14,/* 269: Signal */
-  &StateFlowGUI_B.EtherCATPDOReceive15,/* 270: Signal */
+  &StateFlowGUI_B.VelocityA_g,         /* 267: Signal */
+  &StateFlowGUI_B.VelocityB_c,         /* 268: Signal */
+  &StateFlowGUI_B.EtherCATPDOReceive14_k,/* 269: Signal */
+  &StateFlowGUI_B.EtherCATPDOReceive15_i,/* 270: Signal */
   &StateFlowGUI_B.CA,                  /* 271: Signal */
   &StateFlowGUI_B.CB,                  /* 272: Signal */
   &StateFlowGUI_B.CH,                  /* 273: Signal */
@@ -2558,7 +2558,7 @@ static void* rtDataAddrMap[] = {
   &StateFlowGUI_B.Uk1_p,               /* 276: Signal */
   &StateFlowGUI_B.pos_A_conv,          /* 277: Signal */
   &StateFlowGUI_B.pos_B_conv_v,        /* 278: Signal */
-  &StateFlowGUI_B.Sum5,                /* 279: Signal */
+  &StateFlowGUI_B.Sum5_j,              /* 279: Signal */
   &StateFlowGUI_B.Diff_i,              /* 280: Signal */
   &StateFlowGUI_B.TSamp_n,             /* 281: Signal */
   &StateFlowGUI_B.Uk1_d,               /* 282: Signal */
@@ -2713,9 +2713,9 @@ static void* rtDataAddrMap[] = {
   &StateFlowGUI_P.PIDController2_I,    /* 431: Mask Parameter */
   &StateFlowGUI_P.PIDController2_D,    /* 432: Mask Parameter */
   &StateFlowGUI_P.PIDController2_N,    /* 433: Mask Parameter */
-  &StateFlowGUI_P.Constant_Value_eg,   /* 434: Block Parameter */
-  &StateFlowGUI_P.Constant1_Value_f,   /* 435: Block Parameter */
-  &StateFlowGUI_P.selettore_Value_d,   /* 436: Block Parameter */
+  &StateFlowGUI_P.Constant_Value_e,    /* 434: Block Parameter */
+  &StateFlowGUI_P.Constant1_Value,     /* 435: Block Parameter */
+  &StateFlowGUI_P.selettore_Value,     /* 436: Block Parameter */
   &StateFlowGUI_P.Coppiatheta1vel_Gain,/* 437: Block Parameter */
   &StateFlowGUI_P.Coppiatheta2vel_Gain,/* 438: Block Parameter */
   &StateFlowGUI_P.Memory_X0_d,         /* 439: Block Parameter */
@@ -2791,7 +2791,7 @@ static void* rtDataAddrMap[] = {
   &StateFlowGUI_P.DiscreteDerivativeB_ICPrevScale,/* 509: Mask Parameter */
   &StateFlowGUI_P.Gain2_Gain,          /* 510: Block Parameter */
   &StateFlowGUI_P.Gain4_Gain,          /* 511: Block Parameter */
-  &StateFlowGUI_P.selettore_Value,     /* 512: Block Parameter */
+  &StateFlowGUI_P.selettore_Value_p,   /* 512: Block Parameter */
   &StateFlowGUI_P.Gain_Gain_j,         /* 513: Block Parameter */
   &StateFlowGUI_P.Gain1_Gain,          /* 514: Block Parameter */
   &StateFlowGUI_P.Kd_Gain,             /* 515: Block Parameter */
@@ -2812,32 +2812,32 @@ static void* rtDataAddrMap[] = {
   &StateFlowGUI_P.Filter_IC_b,         /* 530: Block Parameter */
   &StateFlowGUI_P.Integrator_gainval_o,/* 531: Block Parameter */
   &StateFlowGUI_P.Integrator_IC_f,     /* 532: Block Parameter */
-  &StateFlowGUI_P.AlzataC_Value_j,     /* 533: Block Parameter */
-  &StateFlowGUI_P.AlzataC1_Value_b,    /* 534: Block Parameter */
-  &StateFlowGUI_P.AlzataQ_Value_o,     /* 535: Block Parameter */
-  &StateFlowGUI_P.Constant3_Value_j,   /* 536: Block Parameter */
-  &StateFlowGUI_P.Ngiri_Value_a,       /* 537: Block Parameter */
-  &StateFlowGUI_P.Periodo_Value_l,     /* 538: Block Parameter */
-  &StateFlowGUI_P.PeriodoC_Value_f,    /* 539: Block Parameter */
-  &StateFlowGUI_P.PeriodoC1_Value_e,   /* 540: Block Parameter */
-  &StateFlowGUI_P.PeriodoQ_Value_i,    /* 541: Block Parameter */
-  &StateFlowGUI_P.Rmax_Value_b,        /* 542: Block Parameter */
-  &StateFlowGUI_P.Rmin_Value_c,        /* 543: Block Parameter */
-  &StateFlowGUI_P.Tempospostiniziale_Value_f,/* 544: Block Parameter */
-  &StateFlowGUI_P.EtherCATPDOReceive14_P1_kn[0],/* 545: Block Parameter */
-  &StateFlowGUI_P.EtherCATPDOReceive14_P2_k,/* 546: Block Parameter */
-  &StateFlowGUI_P.EtherCATPDOReceive14_P3_m,/* 547: Block Parameter */
-  &StateFlowGUI_P.EtherCATPDOReceive14_P4_p,/* 548: Block Parameter */
-  &StateFlowGUI_P.EtherCATPDOReceive14_P5_i,/* 549: Block Parameter */
-  &StateFlowGUI_P.EtherCATPDOReceive14_P6_d,/* 550: Block Parameter */
-  &StateFlowGUI_P.EtherCATPDOReceive14_P7_gg,/* 551: Block Parameter */
-  &StateFlowGUI_P.EtherCATPDOReceive15_P1_f[0],/* 552: Block Parameter */
-  &StateFlowGUI_P.EtherCATPDOReceive15_P2_c,/* 553: Block Parameter */
-  &StateFlowGUI_P.EtherCATPDOReceive15_P3_p,/* 554: Block Parameter */
-  &StateFlowGUI_P.EtherCATPDOReceive15_P4_ii,/* 555: Block Parameter */
-  &StateFlowGUI_P.EtherCATPDOReceive15_P5_h,/* 556: Block Parameter */
-  &StateFlowGUI_P.EtherCATPDOReceive15_P6_h,/* 557: Block Parameter */
-  &StateFlowGUI_P.EtherCATPDOReceive15_P7_l,/* 558: Block Parameter */
+  &StateFlowGUI_P.AlzataC_Value,       /* 533: Block Parameter */
+  &StateFlowGUI_P.AlzataC1_Value,      /* 534: Block Parameter */
+  &StateFlowGUI_P.AlzataQ_Value,       /* 535: Block Parameter */
+  &StateFlowGUI_P.Constant3_Value,     /* 536: Block Parameter */
+  &StateFlowGUI_P.Ngiri_Value,         /* 537: Block Parameter */
+  &StateFlowGUI_P.Periodo_Value,       /* 538: Block Parameter */
+  &StateFlowGUI_P.PeriodoC_Value,      /* 539: Block Parameter */
+  &StateFlowGUI_P.PeriodoC1_Value,     /* 540: Block Parameter */
+  &StateFlowGUI_P.PeriodoQ_Value,      /* 541: Block Parameter */
+  &StateFlowGUI_P.Rmax_Value,          /* 542: Block Parameter */
+  &StateFlowGUI_P.Rmin_Value,          /* 543: Block Parameter */
+  &StateFlowGUI_P.Tempospostiniziale_Value,/* 544: Block Parameter */
+  &StateFlowGUI_P.EtherCATPDOReceive14_P1[0],/* 545: Block Parameter */
+  &StateFlowGUI_P.EtherCATPDOReceive14_P2,/* 546: Block Parameter */
+  &StateFlowGUI_P.EtherCATPDOReceive14_P3,/* 547: Block Parameter */
+  &StateFlowGUI_P.EtherCATPDOReceive14_P4,/* 548: Block Parameter */
+  &StateFlowGUI_P.EtherCATPDOReceive14_P5,/* 549: Block Parameter */
+  &StateFlowGUI_P.EtherCATPDOReceive14_P6,/* 550: Block Parameter */
+  &StateFlowGUI_P.EtherCATPDOReceive14_P7,/* 551: Block Parameter */
+  &StateFlowGUI_P.EtherCATPDOReceive15_P1[0],/* 552: Block Parameter */
+  &StateFlowGUI_P.EtherCATPDOReceive15_P2,/* 553: Block Parameter */
+  &StateFlowGUI_P.EtherCATPDOReceive15_P3,/* 554: Block Parameter */
+  &StateFlowGUI_P.EtherCATPDOReceive15_P4,/* 555: Block Parameter */
+  &StateFlowGUI_P.EtherCATPDOReceive15_P5,/* 556: Block Parameter */
+  &StateFlowGUI_P.EtherCATPDOReceive15_P6,/* 557: Block Parameter */
+  &StateFlowGUI_P.EtherCATPDOReceive15_P7,/* 558: Block Parameter */
   &StateFlowGUI_P.Constant_Value,      /* 559: Block Parameter */
   &StateFlowGUI_P.Memory_X0,           /* 560: Block Parameter */
   &StateFlowGUI_P.EtherCATPDOReceive9_P1[0],/* 561: Block Parameter */
@@ -2856,7 +2856,7 @@ static void* rtDataAddrMap[] = {
   &StateFlowGUI_P.EtherCATPDOReceive9_P5_d,/* 574: Block Parameter */
   &StateFlowGUI_P.EtherCATPDOReceive9_P6_c,/* 575: Block Parameter */
   &StateFlowGUI_P.EtherCATPDOReceive9_P7_a,/* 576: Block Parameter */
-  &StateFlowGUI_P.Constant_Value_e,    /* 577: Block Parameter */
+  &StateFlowGUI_P.Constant_Value_eg,   /* 577: Block Parameter */
   &StateFlowGUI_P.Memory_X0_o,         /* 578: Block Parameter */
   &StateFlowGUI_P.EtherCATPDOReceive9_P1_i[0],/* 579: Block Parameter */
   &StateFlowGUI_P.EtherCATPDOReceive9_P2_m,/* 580: Block Parameter */
@@ -2889,29 +2889,29 @@ static void* rtDataAddrMap[] = {
   &StateFlowGUI_P.EtherCATPDOReceive15_P2_d,/* 607: Block Parameter */
   &StateFlowGUI_P.EtherCATPDOReceive15_P3_b,/* 608: Block Parameter */
   &StateFlowGUI_P.EtherCATPDOReceive15_P4_i,/* 609: Block Parameter */
-  &StateFlowGUI_P.EtherCATPDOReceive15_P5_cp,/* 610: Block Parameter */
+  &StateFlowGUI_P.EtherCATPDOReceive15_P5_c,/* 610: Block Parameter */
   &StateFlowGUI_P.EtherCATPDOReceive15_P6_f,/* 611: Block Parameter */
   &StateFlowGUI_P.EtherCATPDOReceive15_P7_o,/* 612: Block Parameter */
-  &StateFlowGUI_P.AlzataC_Value,       /* 613: Block Parameter */
-  &StateFlowGUI_P.AlzataC1_Value,      /* 614: Block Parameter */
-  &StateFlowGUI_P.AlzataQ_Value,       /* 615: Block Parameter */
-  &StateFlowGUI_P.Constant3_Value,     /* 616: Block Parameter */
-  &StateFlowGUI_P.Ngiri_Value,         /* 617: Block Parameter */
+  &StateFlowGUI_P.AlzataC_Value_p,     /* 613: Block Parameter */
+  &StateFlowGUI_P.AlzataC1_Value_b,    /* 614: Block Parameter */
+  &StateFlowGUI_P.AlzataQ_Value_p,     /* 615: Block Parameter */
+  &StateFlowGUI_P.Constant3_Value_o,   /* 616: Block Parameter */
+  &StateFlowGUI_P.Ngiri_Value_a,       /* 617: Block Parameter */
   &StateFlowGUI_P.Ngiri1_Value,        /* 618: Block Parameter */
   &StateFlowGUI_P.Ngiri2_Value,        /* 619: Block Parameter */
-  &StateFlowGUI_P.Periodo_Value,       /* 620: Block Parameter */
-  &StateFlowGUI_P.PeriodoC_Value,      /* 621: Block Parameter */
-  &StateFlowGUI_P.PeriodoC1_Value,     /* 622: Block Parameter */
-  &StateFlowGUI_P.PeriodoQ_Value,      /* 623: Block Parameter */
-  &StateFlowGUI_P.Rmax_Value,          /* 624: Block Parameter */
+  &StateFlowGUI_P.Periodo_Value_e,     /* 620: Block Parameter */
+  &StateFlowGUI_P.PeriodoC_Value_p,    /* 621: Block Parameter */
+  &StateFlowGUI_P.PeriodoC1_Value_m,   /* 622: Block Parameter */
+  &StateFlowGUI_P.PeriodoQ_Value_m,    /* 623: Block Parameter */
+  &StateFlowGUI_P.Rmax_Value_n,        /* 624: Block Parameter */
   &StateFlowGUI_P.Rmax1_Value,         /* 625: Block Parameter */
-  &StateFlowGUI_P.Rmin_Value,          /* 626: Block Parameter */
+  &StateFlowGUI_P.Rmin_Value_g,        /* 626: Block Parameter */
   &StateFlowGUI_P.Rmin1_Value,         /* 627: Block Parameter */
   &StateFlowGUI_P.Rmin2_Value,         /* 628: Block Parameter */
   &StateFlowGUI_P.Rmin3_Value,         /* 629: Block Parameter */
-  &StateFlowGUI_P.Tempospostiniziale_Value,/* 630: Block Parameter */
+  &StateFlowGUI_P.Tempospostiniziale_Value_e,/* 630: Block Parameter */
   &StateFlowGUI_P.Constant_Value_b,    /* 631: Block Parameter */
-  &StateFlowGUI_P.Constant1_Value,     /* 632: Block Parameter */
+  &StateFlowGUI_P.Constant1_Value_k,   /* 632: Block Parameter */
   &StateFlowGUI_P.DiscreteDerivativeB_ICPrevSca_m,/* 633: Mask Parameter */
   &StateFlowGUI_P.DiscreteDerivativeB1_ICPrevScal,/* 634: Mask Parameter */
   &StateFlowGUI_P.DiscreteDerivativeB2_ICPrevScal,/* 635: Mask Parameter */
@@ -2933,23 +2933,23 @@ static void* rtDataAddrMap[] = {
   &StateFlowGUI_P.EtherCATPDOReceive15_P2_l,/* 651: Block Parameter */
   &StateFlowGUI_P.EtherCATPDOReceive15_P3_a,/* 652: Block Parameter */
   &StateFlowGUI_P.EtherCATPDOReceive15_P4_f,/* 653: Block Parameter */
-  &StateFlowGUI_P.EtherCATPDOReceive15_P5_c,/* 654: Block Parameter */
+  &StateFlowGUI_P.EtherCATPDOReceive15_P5_c5,/* 654: Block Parameter */
   &StateFlowGUI_P.EtherCATPDOReceive15_P6_g,/* 655: Block Parameter */
   &StateFlowGUI_P.EtherCATPDOReceive15_P7_m,/* 656: Block Parameter */
-  &StateFlowGUI_P.EtherCATPDOReceive14_P1[0],/* 657: Block Parameter */
-  &StateFlowGUI_P.EtherCATPDOReceive14_P2,/* 658: Block Parameter */
-  &StateFlowGUI_P.EtherCATPDOReceive14_P3,/* 659: Block Parameter */
-  &StateFlowGUI_P.EtherCATPDOReceive14_P4,/* 660: Block Parameter */
-  &StateFlowGUI_P.EtherCATPDOReceive14_P5,/* 661: Block Parameter */
-  &StateFlowGUI_P.EtherCATPDOReceive14_P6,/* 662: Block Parameter */
-  &StateFlowGUI_P.EtherCATPDOReceive14_P7,/* 663: Block Parameter */
-  &StateFlowGUI_P.EtherCATPDOReceive15_P1[0],/* 664: Block Parameter */
-  &StateFlowGUI_P.EtherCATPDOReceive15_P2,/* 665: Block Parameter */
-  &StateFlowGUI_P.EtherCATPDOReceive15_P3,/* 666: Block Parameter */
-  &StateFlowGUI_P.EtherCATPDOReceive15_P4,/* 667: Block Parameter */
-  &StateFlowGUI_P.EtherCATPDOReceive15_P5,/* 668: Block Parameter */
-  &StateFlowGUI_P.EtherCATPDOReceive15_P6,/* 669: Block Parameter */
-  &StateFlowGUI_P.EtherCATPDOReceive15_P7,/* 670: Block Parameter */
+  &StateFlowGUI_P.EtherCATPDOReceive14_P1_md[0],/* 657: Block Parameter */
+  &StateFlowGUI_P.EtherCATPDOReceive14_P2_g,/* 658: Block Parameter */
+  &StateFlowGUI_P.EtherCATPDOReceive14_P3_d0,/* 659: Block Parameter */
+  &StateFlowGUI_P.EtherCATPDOReceive14_P4_a,/* 660: Block Parameter */
+  &StateFlowGUI_P.EtherCATPDOReceive14_P5_g,/* 661: Block Parameter */
+  &StateFlowGUI_P.EtherCATPDOReceive14_P6_a,/* 662: Block Parameter */
+  &StateFlowGUI_P.EtherCATPDOReceive14_P7_i,/* 663: Block Parameter */
+  &StateFlowGUI_P.EtherCATPDOReceive15_P1_n[0],/* 664: Block Parameter */
+  &StateFlowGUI_P.EtherCATPDOReceive15_P2_p,/* 665: Block Parameter */
+  &StateFlowGUI_P.EtherCATPDOReceive15_P3_m,/* 666: Block Parameter */
+  &StateFlowGUI_P.EtherCATPDOReceive15_P4_o,/* 667: Block Parameter */
+  &StateFlowGUI_P.EtherCATPDOReceive15_P5_k,/* 668: Block Parameter */
+  &StateFlowGUI_P.EtherCATPDOReceive15_P6_i,/* 669: Block Parameter */
+  &StateFlowGUI_P.EtherCATPDOReceive15_P7_e,/* 670: Block Parameter */
   &StateFlowGUI_P.CA_Y0,               /* 671: Block Parameter */
   &StateFlowGUI_P.CB_Y0,               /* 672: Block Parameter */
   &StateFlowGUI_P.CH_Y0,               /* 673: Block Parameter */
@@ -3140,10 +3140,10 @@ static rtwCAPI_ModelMappingStaticInfo mmiStatic = {
     rtElementMap, rtSampleTimeMap, rtDimensionArray },
   "float",
 
-  { 1386016440U,
-    3628731338U,
-    650108250U,
-    916020138U },
+  { 1332903147U,
+    3538053029U,
+    1715916811U,
+    2089516399U },
   (NULL), 0,
   0
 };
